@@ -6,7 +6,6 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
  */
-define('PIWIK_INCLUDE_PATH', '../../..');
 
 if(isset($_GET['ua'])) {
     $userAgent = $_GET['ua'];
@@ -14,7 +13,7 @@ if(isset($_GET['ua'])) {
     $userAgent = $_SERVER['HTTP_USER_AGENT'];
 }
 
-require_once PIWIK_INCLUDE_PATH . '/plugins/DevicesDetection/UserAgentParserEnhanced/UserAgentParserEnhanced.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 $result = UserAgentParserEnhanced::getInfoFromUserAgent($userAgent);
 echo "<pre>";

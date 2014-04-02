@@ -1,6 +1,13 @@
 <?php
+/**
+ * Piwik - Open source web analytics
+ *
+ * @link http://piwik.org
+ * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
+ *
+ */
 
-require_once PIWIK_INCLUDE_PATH . '/plugins/DevicesDetection/UserAgentParserEnhanced/UserAgentParserEnhanced.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 class UserAgentParserEnhancedTest extends PHPUnit_Framework_TestCase
 {
@@ -9,7 +16,7 @@ class UserAgentParserEnhancedTest extends PHPUnit_Framework_TestCase
      */
     public function testParse()
     {
-        $fixturesPath = realpath(dirname(__FILE__) . '/../Fixtures/userAgentParserEnhancedFixtures.yml');
+        $fixturesPath = realpath(dirname(__FILE__) . '/userAgentParserEnhancedFixtures.yml');
         $fixtures = Spyc::YAMLLoad($fixturesPath);
         foreach ($fixtures as $fixtureData) {
             $ua = $fixtureData['user_agent'];
