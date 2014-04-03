@@ -7,7 +7,7 @@
  *
  */
 
-class UserAgentParserEnhanced
+class DeviceDetector
 {
     public static $deviceTypes = array(
         'desktop',          // 0
@@ -923,14 +923,14 @@ class UserAgentParserEnhanced
 
     static public function getInfoFromUserAgent($ua)
     {
-        $userAgentParserEnhanced = new UserAgentParserEnhanced($ua);
+        $userAgentParserEnhanced = new DeviceDetector($ua);
         $userAgentParserEnhanced->parse();
 
         $osFamily = $userAgentParserEnhanced->getOsFamily($userAgentParserEnhanced->getOs('short_name'));
         $browserFamily = $userAgentParserEnhanced->getBrowserFamily($userAgentParserEnhanced->getBrowser('short_name'));
         $device = $userAgentParserEnhanced->getDevice();
 
-        $deviceName = $device === '' ? '' : UserAgentParserEnhanced::$deviceTypes[$device];
+        $deviceName = $device === '' ? '' : DeviceDetector::$deviceTypes[$device];
         $processed = array(
             'user_agent'     => $userAgentParserEnhanced->getUserAgent(),
             'os'             => array(

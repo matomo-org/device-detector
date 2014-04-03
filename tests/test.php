@@ -15,7 +15,7 @@ if(isset($_GET['ua'])) {
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$result = UserAgentParserEnhanced::getInfoFromUserAgent($userAgent);
+$result = DeviceDetector::getInfoFromUserAgent($userAgent);
 echo "<pre>";
 
 var_export($result);

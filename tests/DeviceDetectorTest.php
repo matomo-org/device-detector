@@ -9,18 +9,18 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-class UserAgentParserEnhancedTest extends PHPUnit_Framework_TestCase
+class DeviceDetectorTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @group Plugins
      */
     public function testParse()
     {
-        $fixturesPath = realpath(dirname(__FILE__) . '/userAgentParserEnhancedFixtures.yml');
+        $fixturesPath = realpath(dirname(__FILE__) . '/DeviceDetectorFixtures.yml');
         $fixtures = Spyc::YAMLLoad($fixturesPath);
         foreach ($fixtures as $fixtureData) {
             $ua = $fixtureData['user_agent'];
-            $uaInfo = UserAgentParserEnhanced::getInfoFromUserAgent($ua);
+            $uaInfo = DeviceDetector::getInfoFromUserAgent($ua);
             $parsed[] = $uaInfo;
         }
         if($fixtures != $parsed) {
@@ -48,13 +48,13 @@ class UserAgentParserEnhancedTest extends PHPUnit_Framework_TestCase
      */
     public function testOSInGroup($os)
     {
-        $familyOs = call_user_func_array('array_merge', UserAgentParserEnhanced::$osFamilies);
+        $familyOs = call_user_func_array('array_merge', DeviceDetector::$osFamilies);
         $this->assertContains($os, $familyOs);
     }
 
     public function getAllOs()
     {
-        $allOs = array_values(UserAgentParserEnhanced::$osShorts);
+        $allOs = array_values(DeviceDetector::$osShorts);
         $allOs = array_map(function($os){ return array($os); }, $allOs);
         return $allOs;
     }
