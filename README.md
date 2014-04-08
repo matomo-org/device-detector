@@ -11,8 +11,8 @@ $dd->parse();
 $browserInfo = $dd->getBrowser();
 $osInfo = $dd->getOs();
 $device = $dd->getDevice();
-$brand= $dd->getBrand();
-$model= $dd->getModel();
+$brand = $dd->getBrand();
+$model = $dd->getModel();
 ```
 
 ## Tests
@@ -21,9 +21,9 @@ Build status (master branch) [![Build Status](https://travis-ci.org/piwik/device
 
 See also: [QA at Piwik](http://piwik.org/qa/)
 
-## Credits
+## Contributors
 
-[Piwik team](http://piwik.org/team/)
+Created by the [Piwik team](http://piwik.org/team/), Michał Gaździk, and contributors.
 
 ## Contribute
 
