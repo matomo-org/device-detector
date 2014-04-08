@@ -9,6 +9,10 @@
 
 class DeviceDetector
 {
+    /**
+     * Detectable device types
+     * @var array
+     */
     public static $deviceTypes = array(
         'desktop',          // 0
         'smartphone',       // 1
@@ -21,6 +25,13 @@ class DeviceDetector
         'camera'            // 8
     );
 
+    /**
+     * Known device brands
+     *
+     * Note: Before using a new brand in on of the regex files, it needs to be added here
+     *
+     * @var array
+     */
     public static $deviceBrands = array(
         'AC' => 'Acer',
         'AI' => 'Airness',
@@ -178,6 +189,12 @@ class DeviceDetector
         'ZO' => 'Zonda',
         'ZT' => 'ZTE',
     );
+
+    /**
+     * Known operating systems mapped to their internal short codes
+     *
+     * @var array
+     */
     public static $osShorts = array(
         'AIX'                  => 'AIX',
         'Android'              => 'AND',
@@ -263,7 +280,19 @@ class DeviceDetector
         'palmOS'               => 'POS',
         'webOS'                => 'WOS'
     );
+
+    /**
+     * Operating system families that are known as desktop only
+     *
+     * @var array
+     */
     protected static $desktopOsArray = array('AmigaOS', 'IBM', 'Linux', 'Mac', 'Unix', 'Windows', 'BeOS');
+
+    /**
+     * Operating system families mapped to the short codes of the associated operating systems
+     *
+     * @var array
+     */
     public static $osFamilies = array(
         'Android'               => array('AND'),
         'AmigaOS'               => array('AMG'),
@@ -290,6 +319,12 @@ class DeviceDetector
         'Windows'               => array('WI7', 'WI8', 'WVI', 'WS3', 'WXP', 'W2K', 'WNT', 'WME', 'W98', 'W95', 'WRT', 'W31', 'WIN'),
         'Windows Mobile'        => array('WPH', 'WMO', 'WCE')
     );
+
+    /**
+     * Browser families mapped to the short codes of the associated browsers
+     *
+     * @var array
+     */
     public static $browserFamilies = array(
         'Android Browser'    => array('AN'),
         'BlackBerry Browser' => array('BB'),
@@ -303,6 +338,12 @@ class DeviceDetector
         'Safari'             => array('SF', 'MF'),
         'Sailfish Browser'   => array('SA')
     );
+
+    /**
+     * Known browsers mapped to their internal short codes
+     *
+     * @var array
+     */
     public static $browsers = array(
         'AA' => 'Avant Browser',
         'AB' => 'ABrowse',
@@ -408,91 +449,247 @@ class DeviceDetector
         'XI' => 'Xiino'
     );
 
+    /**
+     * Constant used as value for unknown browser / os
+     */
     const UNKNOWN = "UNK";
+
+
     protected static $regexesDir = '/regexes/';
     protected static $osRegexesFile = 'oss.yml';
     protected static $browserRegexesFile = 'browsers.yml';
     protected static $mobileRegexesFile = 'mobiles.yml';
     protected static $televisionRegexesFile = 'televisions.yml';
-    protected $userAgent;
-    protected $os = '';
-    protected $browser = '';
-    protected $device = '';
-    protected $brand = '';
-    protected $model = '';
-    protected $debug = false;
 
     /**
-     * @var \Piwik\CacheFile
+     * Holds the useragent that should be parsed
+     * @var string
+     */
+    protected $userAgent;
+
+    /**
+     * Holds the operating system data after parsing the UA
+     * @var array
+     */
+    protected $os = null;
+
+    /**
+     * Holds the browser data after parsing the UA
+     * @var array
+     */
+    protected $browser = null;
+
+    /**
+     * Holds the device type after parsing the UA
+     * @var string
+     */
+    protected $device = '';
+
+    /**
+     * Holds the device brand data after parsing the UA
+     * @var string
+     */
+    protected $brand = '';
+
+    /**
+     * Holds the device model data after parsing the UA
+     * @var string
+     */
+    protected $model = '';
+
+    /**
+     * Holds the cache class used for caching the parsed yml-Files
+     * @var stdClass
      */
     protected $cache = null;
 
+    /**
+     * Constructor
+     *
+     * @param string $userAgent  UA to parse
+     */
     public function __construct($userAgent)
     {
         $this->userAgent = $userAgent;
     }
 
-    protected function getOsRegexes()
-    {
-        static $regexOs;
-        if(empty($regexOs)) {
-            $regexOs = $this->getRegexList('os', self::$osRegexesFile);
-        }
-        return $regexOs;
-    }
-
-    protected function getBrowserRegexes()
-    {
-        static $regexBrowser;
-        if (empty($regexBrowser)) {
-            $regexBrowser = $this->getRegexList('browser', self::$browserRegexesFile);
-        }
-        return $regexBrowser;
-    }
-
-    protected function getMobileRegexes()
-    {
-        static $regexMobile;
-        if (empty($regexMobile)) {
-            $regexMobile = $this->getRegexList('mobile', self::$mobileRegexesFile);
-        }
-        return $regexMobile;
-    }
-
-    protected function getTelevisionRegexes()
-    {
-        static $regexTvs;
-        if (empty($regexTvs)) {
-            $regexTvs = $this->getRegexList('tv', self::$televisionRegexesFile);
-        }
-        return $regexTvs;
-    }
-
+    /**
+     * Sets the Cache class
+     *
+     * Note: The given class needs to have a 'get' and 'set' method to be used
+     *
+     * @param $cache
+     */
     public function setCache($cache)
     {
         $this->cache = $cache;
     }
 
-    protected function saveParsedYmlInCache($type, $data)
+    /**
+     * Returns if the parsed UA was identified as a Bot
+     *
+     * @return bool
+     */
+    public function isBot()
     {
-        if (!empty($this->cache) && method_exists($this->cache, 'set')) {
-            $this->cache->set($type, serialize($data));
-        }
+        return $this->getOsFamily($this->getOs('short_name')) == 'Bot';
     }
 
-    protected function getParsedYmlFromCache($type)
+    /**
+     * Returns if the parsed UA was identified as a Simulator such as Talkatone or WinWAP
+     *
+     * @return bool
+     */
+    public function isSimulator()
     {
-        $data = null;
-        if (!empty($this->cache) && method_exists($this->cache, 'get')) {
-            $data = $this->cache->get($type);
-            if (!empty($data)) {
-                $data = unserialize($data);
+        return $this->getOsFamily($this->getOs('short_name')) == 'Simulator';
+    }
+
+    /**
+     * Returns if the parsed UA was identified as a HbbTV device
+     *
+     * @return bool
+     */
+    public function isHbbTv()
+    {
+        $regex = 'HbbTV/([1-9]{1}(\.[0-9]{1}){1,2})';
+        return $this->matchUserAgent($regex);
+    }
+
+    /**
+     * Returns if the parsed UA was identified as a touch enabled device
+     *
+     * Note: That only applies to windows 8 tablets
+     *
+     * @return bool
+     */
+    public function isTouchEnabled()
+    {
+        $regex = 'Touch';
+        return $this->matchUserAgent($regex);
+    }
+
+    public function isMobile()
+    {
+        return !$this->isDesktop();
+    }
+
+    /**
+     * Returns if the parsed UA was identified as desktop device
+     * Desktop devices are all devices with an unknown type that are running a desktop os
+     *
+     * @see self::$desktopOsArray
+     *
+     * @return bool
+     */
+    public function isDesktop()
+    {
+        $osName = $this->getOs('name');
+        if (empty($osName) || empty(self::$osShorts[$osName])) {
+            return false;
+        }
+
+        $osShort = self::$osShorts[$osName];
+        foreach (self::$osFamilies as $family => $familyOs) {
+            if (in_array($osShort, $familyOs)) {
+                $decodedFamily = $family;
+                break;
             }
         }
-        return $data;
+        return in_array($decodedFamily, self::$desktopOsArray);
     }
 
+    /**
+     * Returns the operating system data extracted from the parsed UA
+     *
+     * If $attr is given only that property will be returned
+     *
+     * @param string $attr  property to return(optional)
+     *
+     * @return array|string
+     */
+    public function getOs($attr = '')
+    {
+        if ($attr == '') {
+            return $this->os;
+        }
 
+        if (!isset($this->os[$attr])) {
+            return self::UNKNOWN;
+        }
+
+        return $this->os[$attr];
+    }
+
+    /**
+     * Returns the browser data extracted from the parsed UA
+     *
+     * If $attr is given only that property will be returned
+     *
+     * @param string $attr  property to return(optional)
+     *
+     * @return array|string
+     */
+    public function getBrowser($attr = '')
+    {
+        if ($attr == '') {
+            return $this->browser;
+        }
+
+        if (!isset($this->browser[$attr])) {
+            return self::UNKNOWN;
+        }
+
+        return $this->browser[$attr];
+    }
+
+    /**
+     * Returns the device type extracted from the parsed UA
+     *
+     * @see self::$deviceTypes for available device types
+     *
+     * @return string
+     */
+    public function getDevice()
+    {
+        return $this->device;
+    }
+
+    /**
+     * Returns the device brand extracted from the parsed UA
+     *
+     * @see self::$deviceBrand for available device brands
+     *
+     * @return string
+     */
+    public function getBrand()
+    {
+        return $this->brand;
+    }
+
+    /**
+     * Returns the device model extracted from the parsed UA
+     *
+     * @return string
+     */
+    public function getModel()
+    {
+        return $this->model;
+    }
+
+    /**
+     * Returns the user agent that is set to be parsed
+     *
+     * @return string
+     */
+    public function getUserAgent()
+    {
+        return $this->userAgent;
+    }
+
+    /**
+     * Triggers the parsing of the current user agent
+     */
     public function parse()
     {
         $this->parseOs();
@@ -541,10 +738,62 @@ class DeviceDetector
         if (empty($this->device) && in_array($this->getOs('short_name'), array('WI8', 'WRT')) && $this->isTouchEnabled()) {
             $this->device = array_search('tablet', self::$deviceTypes);
         }
+    }
 
-        if ($this->debug) {
-            var_export($this->brand, $this->model, $this->device);
+    protected function getOsRegexes()
+    {
+        static $regexOs;
+        if(empty($regexOs)) {
+            $regexOs = $this->getRegexList('os', self::$osRegexesFile);
         }
+        return $regexOs;
+    }
+
+    protected function getBrowserRegexes()
+    {
+        static $regexBrowser;
+        if (empty($regexBrowser)) {
+            $regexBrowser = $this->getRegexList('browser', self::$browserRegexesFile);
+        }
+        return $regexBrowser;
+    }
+
+    protected function getMobileRegexes()
+    {
+        static $regexMobile;
+        if (empty($regexMobile)) {
+            $regexMobile = $this->getRegexList('mobile', self::$mobileRegexesFile);
+        }
+        return $regexMobile;
+    }
+
+    protected function getTelevisionRegexes()
+    {
+        static $regexTvs;
+        if (empty($regexTvs)) {
+            $regexTvs = $this->getRegexList('tv', self::$televisionRegexesFile);
+        }
+        return $regexTvs;
+    }
+
+
+    protected function saveParsedYmlInCache($type, $data)
+    {
+        if (!empty($this->cache) && method_exists($this->cache, 'set')) {
+            $this->cache->set($type, serialize($data));
+        }
+    }
+
+    protected function getParsedYmlFromCache($type)
+    {
+        $data = null;
+        if (!empty($this->cache) && method_exists($this->cache, 'get')) {
+            $data = $this->cache->get($type);
+            if (!empty($data)) {
+                $data = unserialize($data);
+            }
+        }
+        return $data;
     }
 
     protected function parseOs()
@@ -790,96 +1039,6 @@ class DeviceDetector
         return trim(str_replace('$' . $nb, $replace, $item));
     }
 
-    public function isBot()
-    {
-        return $this->getOsFamily($this->getOs('short_name')) == 'Bot';
-    }
-
-    public function isSimulator()
-    {
-        return $this->getOsFamily($this->getOs('short_name')) == 'Simulator';
-    }
-
-    public function isHbbTv()
-    {
-        $regex = 'HbbTV/([1-9]{1}(\.[0-9]{1}){1,2})';
-        return $this->matchUserAgent($regex);
-    }
-
-    public function isTouchEnabled()
-    {
-        $regex = 'Touch';
-        return $this->matchUserAgent($regex);
-    }
-
-    public function isMobile()
-    {
-        return !$this->isDesktop();
-    }
-
-    public function isDesktop()
-    {
-        $osName = $this->getOs('name');
-        if (empty($osName) || empty(self::$osShorts[$osName])) {
-            return false;
-        }
-
-        $osShort = self::$osShorts[$osName];
-        foreach (self::$osFamilies as $family => $familyOs) {
-            if (in_array($osShort, $familyOs)) {
-                $decodedFamily = $family;
-                break;
-            }
-        }
-        return in_array($decodedFamily, self::$desktopOsArray);
-    }
-
-    public function getOs($attr = '')
-    {
-        if ($attr == '') {
-            return $this->os;
-        }
-
-        if (!isset($this->os[$attr])) {
-            return self::UNKNOWN;
-        }
-
-        return $this->os[$attr];
-    }
-
-    public function getBrowser($attr = '')
-    {
-        if ($attr == '') {
-            return $this->browser;
-        }
-
-        if (!isset($this->browser[$attr])) {
-            return self::UNKNOWN;
-        }
-
-        return $this->browser[$attr];
-    }
-
-    public function getDevice()
-    {
-        return $this->device;
-    }
-
-    public function getBrand()
-    {
-        return $this->brand;
-    }
-
-    public function getModel()
-    {
-        return $this->model;
-    }
-
-    public function getUserAgent()
-    {
-        return $this->userAgent;
-    }
-
     /**
      * @param $osLabel
      * @return bool|string If false, "Unknown"
@@ -923,30 +1082,30 @@ class DeviceDetector
 
     static public function getInfoFromUserAgent($ua)
     {
-        $userAgentParserEnhanced = new DeviceDetector($ua);
-        $userAgentParserEnhanced->parse();
+        $deviceDetector = new DeviceDetector($ua);
+        $deviceDetector->parse();
 
-        $osFamily = $userAgentParserEnhanced->getOsFamily($userAgentParserEnhanced->getOs('short_name'));
-        $browserFamily = $userAgentParserEnhanced->getBrowserFamily($userAgentParserEnhanced->getBrowser('short_name'));
-        $device = $userAgentParserEnhanced->getDevice();
+        $osFamily = $deviceDetector->getOsFamily($deviceDetector->getOs('short_name'));
+        $browserFamily = $deviceDetector->getBrowserFamily($deviceDetector->getBrowser('short_name'));
+        $device = $deviceDetector->getDevice();
 
         $deviceName = $device === '' ? '' : DeviceDetector::$deviceTypes[$device];
         $processed = array(
-            'user_agent'     => $userAgentParserEnhanced->getUserAgent(),
+            'user_agent'     => $deviceDetector->getUserAgent(),
             'os'             => array(
-                'name'       => $userAgentParserEnhanced->getOs('name'),
-                'short_name' => $userAgentParserEnhanced->getOs('short_name'),
-                'version'    => $userAgentParserEnhanced->getOs('version'),
+                'name'       => $deviceDetector->getOs('name'),
+                'short_name' => $deviceDetector->getOs('short_name'),
+                'version'    => $deviceDetector->getOs('version'),
             ),
             'browser'        => array(
-                'name'       => $userAgentParserEnhanced->getBrowser('name'),
-                'short_name' => $userAgentParserEnhanced->getBrowser('short_name'),
-                'version'    => $userAgentParserEnhanced->getBrowser('version'),
+                'name'       => $deviceDetector->getBrowser('name'),
+                'short_name' => $deviceDetector->getBrowser('short_name'),
+                'version'    => $deviceDetector->getBrowser('version'),
             ),
             'device'         => array(
                 'type'       => $deviceName,
-                'brand'      => $userAgentParserEnhanced->getBrand(),
-                'model'      => $userAgentParserEnhanced->getModel(),
+                'brand'      => $deviceDetector->getBrand(),
+                'model'      => $deviceDetector->getModel(),
             ),
             'os_family'      => $osFamily !== false ? $osFamily : 'Unknown',
             'browser_family' => $browserFamily !== false ? $browserFamily : 'Unknown',
