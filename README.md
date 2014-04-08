@@ -25,6 +25,6 @@ See also: [QA at Piwik](http://piwik.org/qa/)
 
 Created by the [Piwik team](http://piwik.org/team/), Michał Gaździk, and contributors.
 
-## Contribute
+Together we can build the best Device Detection library. 
 
-We are looking forward to your contributions and pull requests. Together we can build the best Device Detection library!
+We are looking forward to your contributions and pull requests!
