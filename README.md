@@ -23,7 +23,8 @@ See also: [QA at Piwik](http://piwik.org/qa/)
 
 ## Contributors
 
-Created by the [Piwik team](http://piwik.org/team/), Michał Gaździk, and contributors.
+Created by the [Piwik team](http://piwik.org/team/), Stefan Giehl, Matthieu Aubry, Michał Gaździk, 
+Tomasz Majczak, Grzegorz Kaszuba, Piotr Banaszczyk and contributors.
 
 Together we can build the best Device Detection library. 
 
