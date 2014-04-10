@@ -11,39 +11,25 @@ require __DIR__ . '/../vendor/autoload.php';
 
 class DeviceDetectorTest extends PHPUnit_Framework_TestCase
 {
+
     /**
-     * @group Plugins
+     * @dataProvider getFixtures
      */
-    public function testParse()
+    public function testParse($fixtureData)
+    {
+        $ua = $fixtureData['user_agent'];
+        $uaInfo = DeviceDetector::getInfoFromUserAgent($ua);
+        $this->assertEquals($fixtureData, $uaInfo);
+    }
+
+    public function getFixtures()
     {
         $fixturesPath = realpath(dirname(__FILE__) . '/DeviceDetectorFixtures.yml');
         $fixtures = Spyc::YAMLLoad($fixturesPath);
-        foreach ($fixtures as $fixtureData) {
-            $ua = $fixtureData['user_agent'];
-            $uaInfo = DeviceDetector::getInfoFromUserAgent($ua);
-            $parsed[] = $uaInfo;
-        }
-        if($fixtures != $parsed) {
-            $processed = Spyc::YAMLDump($parsed, false, $wordWrap = 0);
-            $processedPath = $fixturesPath . '.new';
-            file_put_contents($processedPath, $processed);
-            $diffCommand = "diff -a1 -b1";
-            $command = "{$diffCommand} $fixturesPath $processedPath";
-            echo $command . "\n";
-            echo shell_exec($command);
-
-            echo "\nThe processed data was stored in: $processedPath ".
-                "\n $ cp $processedPath $fixturesPath ".
-                "\n to copy the file over if it is valid.";
-
-            $this->assertTrue(false);
-
-        }
-        $this->assertTrue(true);
+        return array_map(function($elem) {return array($elem);}, $fixtures);
     }
 
     /**
-     * @group Plugins
      * @dataProvider getAllOs
      */
     public function testOSInGroup($os)
@@ -54,7 +40,7 @@ class DeviceDetectorTest extends PHPUnit_Framework_TestCase
 
     public function getAllOs()
     {
-        $allOs = array_values(DeviceDetector::$osShorts);
+        $allOs = array_keys(DeviceDetector::$operatingSystems);
         $allOs = array_map(function($os){ return array($os); }, $allOs);
         return $allOs;
     }

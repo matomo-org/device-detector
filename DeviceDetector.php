@@ -195,90 +195,90 @@ class DeviceDetector
      *
      * @var array
      */
-    public static $osShorts = array(
-        'AIX'                  => 'AIX',
-        'Android'              => 'AND',
-        'AmigaOS'              => 'AMG',
-        'Apple TV'             => 'ATV',
-        'Arch Linux'           => 'ARL',
-        'BackTrack'            => 'BTR',
-        'Bada'                 => 'SBA',
-        'BeOS'                 => 'BEO',
-        'BlackBerry OS'        => 'BLB',
-        'BlackBerry Tablet OS' => 'QNX',
-        'Bot'                  => 'BOT',
-        'Brew'                 => 'BMP',
-        'CentOS'               => 'CES',
-        'Chrome OS'            => 'COS',
-        'Debian'               => 'DEB',
-        'DragonFly'            => 'DFB',
-        'Fedora'               => 'FED',
-        'Firefox OS'           => 'FOS',
-        'FreeBSD'              => 'BSD',
-        'Gentoo'               => 'GNT',
-        'Google TV'            => 'GTV',
-        'HP-UX'                => 'HPX',
-        'Haiku OS'             => 'HAI',
-        'IRIX'                 => 'IRI',
-        'Inferno'              => 'INF',
-        'Knoppix'              => 'KNO',
-        'Kubuntu'              => 'KBT',
-        'Linux'                => 'LIN',
-        'Lubuntu'              => 'LBT',
-        'Mac'                  => 'MAC',
-        'Mandriva'             => 'MDR',
-        'MeeGo'                => 'SMG',
-        'Mint'                 => 'MIN',
-        'NetBSD'               => 'NBS',
-        'Nintendo'             => 'WII',
-        'Nintendo Mobile'      => 'NDS',
-        'OS/2'                 => 'OS2',
-        'OSF1'                 => 'T64',
-        'OpenBSD'              => 'OBS',
-        'PlayStation Portable' => 'PSP',
-        'PlayStation'          => 'PS3',
-        'Presto'               => 'PRS',
-        'Puppy'                => 'PPY',
-        'Red Hat'              => 'RHT',
-        'RISC OS'              => 'ROS',
-        'Sabayon'              => 'SAB',
-        'SUSE'                 => 'SSE',
-        'Sailfish OS'          => 'SAF',
-        'Slackware'            => 'SLW',
-        'Solaris'              => 'SOS',
-        'Syllable'             => 'SYL',
-        'Symbian'              => 'SYM',
-        'Symbian OS'           => 'SYS',
-        'Symbian OS Series 40' => 'S40',
-        'Symbian OS Series 60' => 'S60',
-        'Symbian^3'            => 'SY3',
-        'Talkatone'            => 'TKT',
-        'Tizen'                => 'TIZ',
-        'Ubuntu'               => 'UBT',
-        'WebTV'                => 'WTV',
-        'WinWAP'               => 'WWP',
-        'Windows'              => 'WIN',
-        'Windows 2000'         => 'W2K',
-        'Windows 3.1'          => 'W31',
-        'Windows 7'            => 'WI7',
-        'Windows 8'            => 'WI8',
-        'Windows 95'           => 'W95',
-        'Windows 98'           => 'W98',
-        'Windows CE'           => 'WCE',
-        'Windows ME'           => 'WME',
-        'Windows Mobile'       => 'WMO',
-        'Windows NT'           => 'WNT',
-        'Windows Phone'        => 'WPH',
-        'Windows RT'           => 'WRT',
-        'Windows Server 2003'  => 'WS3',
-        'Windows Vista'        => 'WVI',
-        'Windows XP'           => 'WXP',
-        'Xbox'                 => 'XBX',
-        'Xubuntu'              => 'XBT',
-        'YunOs'                => 'YNS',
-        'iOS'                  => 'IOS',
-        'palmOS'               => 'POS',
-        'webOS'                => 'WOS'
+    public static $operatingSystems = array(
+        'AIX' => 'AIX',
+        'AND' => 'Android',
+        'AMG' => 'AmigaOS',
+        'ATV' => 'Apple TV',
+        'ARL' => 'Arch Linux',
+        'BTR' => 'BackTrack',
+        'SBA' => 'Bada',
+        'BEO' => 'BeOS',
+        'BLB' => 'BlackBerry OS',
+        'QNX' => 'BlackBerry Tablet OS',
+        'BOT' => 'Bot',
+        'BMP' => 'Brew',
+        'CES' => 'CentOS',
+        'COS' => 'Chrome OS',
+        'DEB' => 'Debian',
+        'DFB' => 'DragonFly',
+        'FED' => 'Fedora',
+        'FOS' => 'Firefox OS',
+        'BSD' => 'FreeBSD',
+        'GNT' => 'Gentoo',
+        'GTV' => 'Google TV',
+        'HPX' => 'HP-UX',
+        'HAI' => 'Haiku OS',
+        'IRI' => 'IRIX',
+        'INF' => 'Inferno',
+        'KNO' => 'Knoppix',
+        'KBT' => 'Kubuntu',
+        'LIN' => 'Linux',
+        'LBT' => 'Lubuntu',
+        'MAC' => 'Mac',
+        'MDR' => 'Mandriva',
+        'SMG' => 'MeeGo',
+        'MIN' => 'Mint',
+        'NBS' => 'NetBSD',
+        'WII' => 'Nintendo',
+        'NDS' => 'Nintendo Mobile',
+        'OS2' => 'OS/2',
+        'T64' => 'OSF1',
+        'OBS' => 'OpenBSD',
+        'PSP' => 'PlayStation Portable',
+        'PS3' => 'PlayStation',
+        'PRS' => 'Presto',
+        'PPY' => 'Puppy',
+        'RHT' => 'Red Hat',
+        'ROS' => 'RISC OS',
+        'SAB' => 'Sabayon',
+        'SSE' => 'SUSE',
+        'SAF' => 'Sailfish OS',
+        'SLW' => 'Slackware',
+        'SOS' => 'Solaris',
+        'SYL' => 'Syllable',
+        'SYM' => 'Symbian',
+        'SYS' => 'Symbian OS',
+        'S40' => 'Symbian OS Series 40',
+        'S60' => 'Symbian OS Series 60',
+        'SY3' => 'Symbian^3',
+        'TKT' => 'Talkatone',
+        'TIZ' => 'Tizen',
+        'UBT' => 'Ubuntu',
+        'WTV' => 'WebTV',
+        'WWP' => 'WinWAP',
+        'WIN' => 'Windows',
+        'W2K' => 'Windows 2000',
+        'W31' => 'Windows 3.1',
+        'WI7' => 'Windows 7',
+        'WI8' => 'Windows 8',
+        'W95' => 'Windows 95',
+        'W98' => 'Windows 98',
+        'WCE' => 'Windows CE',
+        'WME' => 'Windows ME',
+        'WMO' => 'Windows Mobile',
+        'WNT' => 'Windows NT',
+        'WPH' => 'Windows Phone',
+        'WRT' => 'Windows RT',
+        'WS3' => 'Windows Server 2003',
+        'WVI' => 'Windows Vista',
+        'WXP' => 'Windows XP',
+        'XBX' => 'Xbox',
+        'XBT' => 'Xubuntu',
+        'YNS' => 'YunOs',
+        'IOS' => 'iOS',
+        'POS' => 'palmOS',
+        'WOS' => 'webOS'
     );
 
     /**
@@ -584,12 +584,11 @@ class DeviceDetector
      */
     public function isDesktop()
     {
-        $osName = $this->getOs('name');
-        if (empty($osName) || empty(self::$osShorts[$osName])) {
+        $osShort = $this->getOs('short_name');
+        if (empty($osShort) || empty(self::$operatingSystems[$osShort])) {
             return false;
         }
 
-        $osShort = self::$osShorts[$osName];
         foreach (self::$osFamilies as $family => $familyOs) {
             if (in_array($osShort, $familyOs)) {
                 $decodedFamily = $family;
@@ -810,7 +809,7 @@ class DeviceDetector
         $name  = $this->buildOsName($osRegex['name'], $matches);
         $short = 'UNK';
 
-        foreach (self::$osShorts AS $osName => $osShort) {
+        foreach (self::$operatingSystems AS $osShort => $osName) {
             if (strtolower($name) == strtolower($osName)) {
                 $name  = $osName;
                 $short = $osShort;
@@ -823,8 +822,8 @@ class DeviceDetector
             'version'    => $this->buildOsVersion($osRegex['version'], $matches)
         );
 
-        if (array_key_exists($this->os['name'], self::$osShorts)) {
-            $this->os['short_name'] = self::$osShorts[$this->os['name']];
+        if (in_array($this->os['name'], self::$operatingSystems)) {
+            $this->os['short_name'] = array_search($this->os['name'], self::$operatingSystems);
         }
     }
 
@@ -1069,7 +1068,7 @@ class DeviceDetector
 
     public static function getOsNameFromId($os, $ver = false)
     {
-        $osFullName = array_search($os, self::$osShorts);
+        $osFullName = self::$operatingSystems[$os];
         if ($osFullName) {
             if (in_array($os, self::$osFamilies['Windows'])) {
                 return $osFullName;
