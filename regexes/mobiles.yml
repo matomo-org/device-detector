@@ -423,9 +423,13 @@ Sony Ericsson:
 
 # Ericsson
 Ericsson:
-  regex: 'Ericsson(?:/ )?([a-z0-9]+)'
+  regex: '(Ericsson(/ )?[a-z0-9]+)|(R380 2.0 WAP1.1)'
   device: 'feature phone'
-  model: '$1'
+  models:
+    - regex: 'Ericsson(?:/ )?([a-z0-9]+)'
+      model: '$1'
+    - regex: 'R380 2.0 WAP1.1'
+      model: 'R380'
 
 # eTouch
 eTouch:
