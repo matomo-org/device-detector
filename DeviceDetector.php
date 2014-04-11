@@ -1,6 +1,6 @@
 <?php
 /**
- * Piwik - Open source web analytics
+ * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link http://piwik.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
@@ -1007,7 +1007,7 @@ class DeviceDetector
      *
      * Example:
      * We are parsing UserAgent of Firefox 20.0 browser.
-     * UserAgentParserEnhanced calls buildBrowserName() and buildBrowserVersion() in order
+     * DeviceDetector calls buildBrowserName() and buildBrowserVersion() in order
      * to retrieve those information.
      * In buildBrowserName() we only have one call of buildByMatch, where passed argument
      * is regular expression testing given string for browser name. In this case, we are only
