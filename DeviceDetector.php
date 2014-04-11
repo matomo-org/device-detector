@@ -205,7 +205,6 @@ class DeviceDetector
         'BEO' => 'BeOS',
         'BLB' => 'BlackBerry OS',
         'QNX' => 'BlackBerry Tablet OS',
-        'BOT' => 'Bot',
         'BMP' => 'Brew',
         'CES' => 'CentOS',
         'COS' => 'Chrome OS',
@@ -459,6 +458,7 @@ class DeviceDetector
     protected static $browserRegexesFile = 'browsers.yml';
     protected static $mobileRegexesFile = 'mobiles.yml';
     protected static $televisionRegexesFile = 'televisions.yml';
+    protected static $botRegexesFile = 'bots.yml';
 
     /**
      * Holds the useragent that should be parsed
@@ -497,6 +497,13 @@ class DeviceDetector
     protected $model = '';
 
     /**
+     * Holds bot information if parsing the UA results in a bot
+     * (All other information attributes will stay empty in that case)
+     * @var array
+     */
+    protected $bot = null;
+
+    /**
      * Holds the cache class used for caching the parsed yml-Files
      * @var stdClass
      */
@@ -527,11 +534,13 @@ class DeviceDetector
     /**
      * Returns if the parsed UA was identified as a Bot
      *
+     * @see bots.yml for a list of detected bots
+     *
      * @return bool
      */
     public function isBot()
     {
-        return $this->getOsFamily($this->getOs('short_name')) == 'Bot';
+        return !empty($this->bot);
     }
 
     /**
@@ -686,12 +695,26 @@ class DeviceDetector
     }
 
     /**
+     * Returns the bot extracted from the parsed UA
+     *
+     * @return array
+     */
+    public function getBot()
+    {
+        return $this->bot;
+    }
+
+    /**
      * Triggers the parsing of the current user agent
      */
     public function parse()
     {
+        $this->parseBot();
+        if ($this->isBot())
+            return;
+
         $this->parseOs();
-        if ($this->isBot() || $this->isSimulator())
+        if ($this->isSimulator())
             return;
 
         $this->parseBrowser();
@@ -736,6 +759,15 @@ class DeviceDetector
         if (empty($this->device) && in_array($this->getOs('short_name'), array('WI8', 'WRT')) && $this->isTouchEnabled()) {
             $this->device = array_search('tablet', self::$deviceTypes);
         }
+    }
+
+    protected function getBotRegexes()
+    {
+        static $regexBot;
+        if(empty($regexBot)) {
+            $regexBot = $this->getRegexList('bot', self::$botRegexesFile);
+        }
+        return $regexBot;
     }
 
     protected function getOsRegexes()
@@ -792,6 +824,24 @@ class DeviceDetector
             }
         }
         return $data;
+    }
+
+    protected function parseBot()
+    {
+        foreach ($this->getBotRegexes() as $botRegex) {
+            $matches = $this->matchUserAgent($botRegex['regex']);
+            if ($matches)
+                break;
+        }
+
+        if (!$matches) {
+            $this->bot = null;
+            return;
+        }
+
+        unset($botRegex['regex']);
+
+        $this->bot = $botRegex;
     }
 
     protected function parseOs()

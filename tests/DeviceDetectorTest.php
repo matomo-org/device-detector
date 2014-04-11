@@ -29,6 +29,26 @@ class DeviceDetectorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @dataProvider getBotFixtures
+     */
+    public function testParseBots($fixtureData)
+    {
+        $ua = $fixtureData['user_agent'];
+        $dd = new DeviceDetector($ua);
+        $dd->parse();
+        $this->assertTrue($dd->isBot());
+        $botData = $dd->getBot();
+        $this->assertEquals($botData['name'], $fixtureData['name']);
+    }
+
+    public function getBotFixtures()
+    {
+        $fixturesPath = realpath(dirname(__FILE__) . '/BotFixtures.yml');
+        $fixtures = Spyc::YAMLLoad($fixturesPath);
+        return array_map(function($elem) {return array($elem);}, $fixtures);
+    }
+
+    /**
      * @dataProvider getAllOs
      */
     public function testOSInGroup($os)
