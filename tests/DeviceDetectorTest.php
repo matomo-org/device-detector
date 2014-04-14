@@ -23,7 +23,7 @@ class DeviceDetectorTest extends PHPUnit_Framework_TestCase
 
     public function getFixtures()
     {
-        $fixturesPath = realpath(dirname(__FILE__) . '/DeviceDetectorFixtures.yml');
+        $fixturesPath = realpath(dirname(__FILE__) . '/fixtures/DeviceDetectorFixtures.yml');
         $fixtures = Spyc::YAMLLoad($fixturesPath);
         return array_map(function($elem) {return array($elem);}, $fixtures);
     }
