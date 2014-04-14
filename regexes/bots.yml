@@ -13,7 +13,7 @@
     name: 'Sohu, Inc.'
     url: 'http://www.sogou.com'
 
-- regex: 'discobot(-news)?'
+- regex: 'discobot(-news)?' #
   name: 'Discobot'
   category: 'Search bot'
   url: 'http://discoveryengine.com/discobot.html'
@@ -37,7 +37,7 @@
     name: 'Seznam.cz, a.s.'
     url: 'http://www.seznam.cz/'
 
-- regex: 'Feedly'
+- regex: '(Meta)?Feedly(Bot|App)?'
   name: 'Feedly Fetcher'
   category: 'Feed Fetcher'
   url: 'http://www.feedly.com/fetcher.html'
@@ -45,7 +45,7 @@
     name: 'Feedly'
     url: 'http://www.feedly.com'
 
-- regex: 'Googlebot(-Mobile|-Image|-Video)?|Feedfetcher-Google|Google-Test|Google-Site-Verification|Google Web Preview|AdsBot-Google(-Mobile)?|Mediapartners-Google|Google.*/\+/web/snippet|GoogleProducer'
+- regex: 'Googlebot(-Mobile|-Image|-Video|-News)?|Feedfetcher-Google|Google-Test|Google-Site-Verification|Google Web Preview|AdsBot-Google(-Mobile)?|Mediapartners-Google|Google.*/\+/web/snippet|GoogleProducer'
   name: 'Googlebot'
   category: 'Search bot'
   url: 'http://www.google.com/bot.html'
@@ -85,7 +85,7 @@
     name: 'Majestic-12'
     url: 'http://majestic12.co.uk'
 
-- regex: 'Yandex(Bot|Images|Antivirus|Direct|Blogs|ImageResizer|Newslinks|Metrika)'
+- regex: 'Yandex(Bot|Images|Antivirus|Direct|Blogs|Favicons|ImageResizer|News(links)?|Metrika|.Gazeta Bot)'
   name: 'Yandex Bot'
   category: 'Search bot'
   url: 'http://www.yandex.com/bots'
@@ -110,7 +110,7 @@
     url: 'http://www.netcraft.com'
 
 - regex: 'SurveyBot'
-  name: 'SurveyBot'
+  name: 'Survey Bot'
   category: 'Search bot'
   url: 'http://www.domaintools.com/webmasters/surveybot.php'
   producer:
@@ -157,7 +157,7 @@
     name: 'Openindex B.V.'
     url: 'http://www.openindex.io'
 
-- regex: 'omgilibot'
+- regex: 'omgilibot' #
   name: 'Omgili bot'
   category: 'Search bot'
   url: 'http://www.omgili.com/Crawler.html'
@@ -165,7 +165,7 @@
     name: 'Omgili'
     url: 'http://www.omgili.com'
 
-- regex: 'psbot'
+- regex: 'psbot(-page)?'
   name: 'Picsearch bot'
   category: 'Search bot'
   url: 'http://www.picsearch.com/bot.html'
@@ -197,7 +197,7 @@
     name: 'Bountii Inc.'
     url: 'http://bountii.com'
 
-- regex: 'YRSpider'
+- regex: 'YRSpider|YYSpider'
   name: 'Yunyun Bot'
   category: 'Search bot'
   url: 'http://www.yunyun.com/SiteInfo.php?r=about'
@@ -206,12 +206,12 @@
     url: 'http://www.yunyun.com'
 
 - regex: 'TweetmemeBot'
-  name: 'TweetmemeBot'
+  name: 'Tweetmeme Bot'
   category: 'Crawler'
-  url: 'http://www.yunyun.com/SiteInfo.php?r=about'
+  url: 'http://tweetmeme.com/'
   producer:
-    name: 'YunYun'
-    url: 'http://www.yunyun.com'
+    name: 'Mediasift'
+    url: ''
 
 - regex: 'Exabot(-Thumbnails|-Images)?|ExaleadCloudview'
   name: 'ExaBot'
@@ -221,10 +221,18 @@
     name: 'Dassault Systèmes'
     url: 'http://www.3ds.com'
 
-- regex: 'archive.org_bot|special_archiver|heritrix'
+- regex: 'archive.org_bot|special_archiver'
   name: 'archive.org bot'
   category: 'Crawler'
   url: 'http://www.archive.org/details/archive.org_bot'
+  producer:
+    name: 'The Internet Archive'
+    url: 'http://www.archive.org'
+
+- regex: 'heritrix'
+  name: 'Heritrix'
+  category: 'Crawler'
+  url: 'https://webarchive.jira.com/wiki/display/Heritrix/Heritrix'
   producer:
     name: 'The Internet Archive'
     url: 'http://www.archive.org'
@@ -357,7 +365,7 @@
     name: 'Northern Light'
     url: 'http://northernlight.com'
 
-- regex: 'Browsershots'
+- regex: 'Browsershots' #
   name: 'Browsershots'
   category: 'Service Agent'
   url: 'http://browsershots.org/faq'
@@ -381,15 +389,55 @@
     name: 'SEOmoz, Inc.'
     url: 'http://moz.com/'
 
+- regex: 'BLEXBot(Test)?'
+  name: 'BLEXBot Crawler'
+  category: 'Crawler'
+  url: 'http://webmeup-crawler.com'
+  producer:
+    name: 'WebMeUp'
+    url: 'http://webmeup.com'
 
-
+- regex: 'spbot'
+  name: 'OpenLinkProfiler'
+  url: 'http://openlinkprofiler.org/bot'
+  producer:
+    name: 'Axandra GmbH'
+    url: 'http://www.axandra.com'
 
 - regex: 'Ask Jeeves/Teoma'
   name: 'Ask Jeeves'
+  category: 'Search bot'
   url: ''
   producer:
     name: 'Ask Jeeves Inc.'
     url: 'http://www.ask.com'
+
+- regex: 'WeSEE(:Search)?'
+  name: 'WeSEE:Search'
+  category: 'Search bot'
+  url: 'http://www.wesee.com/bot'
+  producer:
+    name: 'WeSEE Ltd'
+    url: 'http://www.wesee.com'
+
+- regex: 'redditbot'
+  name: 'Reddit Bot'
+  category: 'Social Media Agent'
+  url: 'http://www.reddit.com/feedback'
+  producer:
+    name: 'reddit inc.'
+    url: 'http://www.reddit.com'
+
+- regex: 'CCBot'
+  name: 'ccBot crawler'
+  category: 'Crawler'
+  url: 'http://commoncrawl.org/faq/'
+  producer:
+    name: 'reddit inc.'
+    url: 'http://www.reddit.com'
+
+
+
 
 - regex: 'Zookabot'
   name: 'Zookabot'
@@ -398,12 +446,6 @@
     name: 'Hwacha ApS'
     url: 'http://hwacha.dk'
 
-- regex: 'BLEXBot(Test)?'
-  name: 'BLEXBot Crawler'
-  url: 'http://webmeup-crawler.com'
-  producer:
-    name: 'WebMeUp'
-    url: 'http://webmeup.com'
 
 - regex: 'Genieo'
   name: 'Genieo Web filter'
@@ -418,23 +460,6 @@
   producer:
     name: 'SEOmoz, Inc.'
     url: 'http://moz.com/'
-
-- regex: 'spbot'
-  name: 'OpenLinkProfiler'
-  url: 'http://openlinkprofiler.org/bot'
-  producer:
-    name: 'Axandra GmbH'
-    url: 'http://www.axandra.com'
-
-- regex: 'WeSEE(:Search)?'
-  name: 'WeSEE:Search'
-  url: 'http://www.wesee.com/bot'
-  producer:
-    name: 'WeSEE Ltd'
-    url: 'http://www.wesee.com'
-
-
-
 
 
 - regex: 'lycos'
