@@ -46,6 +46,9 @@ class DeviceDetectorTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($dd->isBot());
         $botData = $dd->getBot();
         $this->assertEquals($botData['name'], $fixtureData['name']);
+        // browser and os will always be unknown for bots
+        $this->assertEquals($dd->getOs('short_name'), DeviceDetector::UNKNOWN);
+        $this->assertEquals($dd->getBrowser('short_name'), DeviceDetector::UNKNOWN);
     }
 
     public function getBotFixtures()
