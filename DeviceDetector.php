@@ -250,11 +250,9 @@ class DeviceDetector
         'S40' => 'Symbian OS Series 40',
         'S60' => 'Symbian OS Series 60',
         'SY3' => 'Symbian^3',
-        'TKT' => 'Talkatone',
         'TIZ' => 'Tizen',
         'UBT' => 'Ubuntu',
         'WTV' => 'WebTV',
-        'WWP' => 'WinWAP',
         'WIN' => 'Windows',
         'W2K' => 'Windows 2000',
         'W31' => 'Windows 3.1',
@@ -296,7 +294,6 @@ class DeviceDetector
         'AmigaOS'               => array('AMG'),
         'Apple TV'              => array('ATV'),
         'BlackBerry'            => array('BLB', 'QNX'),
-        'Bot'                   => array('BOT'),
         'Brew'                  => array('BMP'),
         'BeOS'                  => array('BEO', 'HAI'),
         'Chrome OS'             => array('COS'),
@@ -310,7 +307,6 @@ class DeviceDetector
         'Mac'                   => array('MAC'),
         'Mobile Gaming Console' => array('PSP', 'NDS', 'XBX'),
         'Other Mobile'          => array('WOS', 'POS', 'SBA', 'TIZ', 'SMG'),
-        'Simulator'             => array('TKT', 'WWP'),
         'Symbian'               => array('SYM', 'SYS', 'SY3', 'S60', 'S40'),
         'Unix'                  => array('SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64', 'INF'),
         'WebTV'                 => array('WTV'),
@@ -544,16 +540,6 @@ class DeviceDetector
     }
 
     /**
-     * Returns if the parsed UA was identified as a Simulator such as Talkatone or WinWAP
-     *
-     * @return bool
-     */
-    public function isSimulator()
-    {
-        return $this->getOsFamily($this->getOs('short_name')) == 'Simulator';
-    }
-
-    /**
      * Returns if the parsed UA was identified as a HbbTV device
      *
      * @return bool
@@ -714,8 +700,6 @@ class DeviceDetector
             return;
 
         $this->parseOs();
-        if ($this->isSimulator())
-            return;
 
         $this->parseBrowser();
 
