@@ -23,9 +23,16 @@ class DeviceDetectorTest extends PHPUnit_Framework_TestCase
 
     public function getFixtures()
     {
-        $fixturesPath = realpath(dirname(__FILE__) . '/fixtures/DeviceDetectorFixtures.yml');
-        $fixtures = Spyc::YAMLLoad($fixturesPath);
-        return array_map(function($elem) {return array($elem);}, $fixtures);
+        $fixtures = array();
+        $fixtureFiles = glob(realpath(dirname(__FILE__)) . '/fixtures/*.yml');
+        foreach ($fixtureFiles AS $fixturesPath) {
+            $typeFixtures = Spyc::YAMLLoad($fixturesPath);
+            $deviceType = str_replace('_', ' ', substr(basename($fixturesPath), 0, -4));
+            if (in_array($deviceType, DeviceDetector::$deviceTypes) || $deviceType == 'unknown') {
+                $fixtures = array_merge(array_map(function($elem) {return array($elem);}, $typeFixtures), $fixtures);
+            }
+        }
+        return $fixtures;
     }
 
     /**
