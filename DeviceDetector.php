@@ -449,12 +449,12 @@ class DeviceDetector
     const UNKNOWN = "UNK";
 
 
-    protected static $regexesDir = '/regexes/';
-    protected static $osRegexesFile = 'oss.yml';
-    protected static $browserRegexesFile = 'browsers.yml';
-    protected static $mobileRegexesFile = 'mobiles.yml';
+    protected static $regexesDir            = '/regexes/';
+    protected static $osRegexesFile         = 'oss.yml';
+    protected static $browserRegexesFile    = 'browsers.yml';
+    protected static $mobileRegexesFile     = 'mobiles.yml';
     protected static $televisionRegexesFile = 'televisions.yml';
-    protected static $botRegexesFile = 'bots.yml';
+    protected static $botRegexesFile        = 'bots.yml';
 
     /**
      * Holds the useragent that should be parsed
@@ -495,9 +495,15 @@ class DeviceDetector
     /**
      * Holds bot information if parsing the UA results in a bot
      * (All other information attributes will stay empty in that case)
-     * @var array
+     *
+     * If $discardBotInformation is set to true, this property will be set to
+     * true if parsed UA is identified as bot, additional information will be not available
+     *
+     * @var array|boolean
      */
     protected $bot = null;
+
+    protected $discardBotInformation = false;
 
     /**
      * Holds the cache class used for caching the parsed yml-Files
@@ -525,6 +531,18 @@ class DeviceDetector
     public function setCache($cache)
     {
         $this->cache = $cache;
+    }
+
+    /**
+     * Sets whether to discard additional bot information
+     * If information is discarded it's only possible check whether UA was detected as bot or not.
+     * (Discarding information speeds up the detection a bit)
+     *
+     * @param bool $discard
+     */
+    public function discardBotInformation($discard=true)
+    {
+        $this->discardBotInformation = $discard;
     }
 
     /**
@@ -810,9 +828,52 @@ class DeviceDetector
         return $data;
     }
 
+    /**
+     * Parses the current UA and checks whether it contains bot information
+     *
+     * @see bots.yml for list of detected bots
+     *
+     * Step 1: Build a big regex containing all regexes and match UA against it
+     * -> If no matches found: return
+     * -> Otherwise:
+     * Step 2: Walk through the list of regexes in bots.yml and try to match every one
+     * -> Set the matched data to $bot
+     *
+     * If $discardBotInformation is set to TRUE, the Step 2 will be skipped
+     * $bot will be set to TRUE instead
+     *
+     * NOTE: Doing the big match before matching every single regex speeds up the detection
+     */
     protected function parseBot()
     {
-        foreach ($this->getBotRegexes() as $botRegex) {
+        $botRegexes = $this->getBotRegexes();
+
+        static $overAllMatch;
+
+        if (empty($overAllMatch)) {
+            $overAllMatch = $this->getParsedYmlFromCache('bots-all');
+        }
+
+        if (empty($overAllMatch)) {
+            $overAllMatch = array_reduce($botRegexes, function($val1, $val2) {
+                if (!empty($val1)) {
+                    return $val1.'|'.$val2['regex'];
+                } else {
+                    return $val2['regex'];
+                }
+            });
+            $this->saveParsedYmlInCache('bots-all', $overAllMatch);
+        }
+
+        if (!$this->matchUserAgent($overAllMatch)) {
+            $this->bot = null;
+            return;
+        } else if ($this->discardBotInformation) {
+            $this->bot = true;
+            return;
+        }
+
+        foreach ($botRegexes as $botRegex) {
             $matches = $this->matchUserAgent($botRegex['regex']);
             if ($matches)
                 break;
