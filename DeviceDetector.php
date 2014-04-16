@@ -855,7 +855,8 @@ class DeviceDetector
         }
 
         if (empty($overAllMatch)) {
-            $overAllMatch = array_reduce($botRegexes, function($val1, $val2) {
+            // reverse all regexes, so we have the generic one first, which already matches most patterns
+            $overAllMatch = array_reduce(array_reverse($botRegexes), function($val1, $val2) {
                 if (!empty($val1)) {
                     return $val1.'|'.$val2['regex'];
                 } else {
