@@ -15,7 +15,7 @@ HTC:
     - regex: 'HTC[ _-]((?:Flyer|P715a).*) Build'
       device: 'tablet'
       model: '$1'
-    - regex: 'HTC[ _](.+) Build'
+    - regex: 'HTC[ _]([^/;]+) Build'
       model: '$1'
     - regex: 'HTC[ _]([a-z0-9]+(?:[ _][a-z0-9]+)?)'
       model: '$1'
@@ -157,6 +157,17 @@ Apple:
       model: 'iPhone'
       device: 'smartphone'
 
+# micromax
+MicroMax:
+  regex: 'MicroMax(?:[ \-\_])?([a-z0-9]+)'
+  device: 'smartphone'
+  models:
+    - regex: 'MicroMax(?:[ \-\_])?(P[a-z0-9]+)'
+      model: '$1'
+      device: 'tablet'
+    - regex: 'MicroMax(?:[ \-\_])?([a-z0-9]+)'
+      model: '$1'
+
 # Acer
 Acer:
   regex: 'acer[\-_]([a-z0-9]+)|a(101|110|200|210|211|500|501|510|511|700|701) Build'
@@ -256,6 +267,18 @@ Avvio:
   device: 'smartphone'
   model: '$1'
 
+#Barnes & Noble
+'Barnes & Noble':
+  regex: 'Nook|BN[TR]V[0-9]+'
+  device: 'tablet'
+  models:
+    - regex: 'Nook([a-z0-9]+)'
+      model: 'Nook $1'
+    - regex: 'Nook[ _]([^/;]+)[ _]Build'
+      model: 'Nook $1'
+    - regex: '(BN[TR]V[0-9]+)'
+      model: 'Nook $1'
+
 #BBK
 BBK:
   regex: 'vivo'
@@ -296,6 +319,12 @@ BenQ:
   device: 'feature phone'
   model: '$1'
 
+# Bmobile
+Bmobile:
+  regex: 'Bmobile_([a-z0-9]+)'
+  device: 'smartphone'
+  model: '$1'
+
 # bq
 bq:
   regex: 'bq ([^/;]+) Build'
@@ -322,6 +351,19 @@ Cat:
       model: '$1'
     - regex: 'Cat ?tablet'
       model: 'Nova'
+
+# Cherry Mobile
+'Cherry Mobile':
+  regex: 'Cherry|Flare2X|Fusion Bolt'
+  device: 'smartphone'
+  models:
+    - regex: 'Cherry[ _]?([^/;]+) Build'
+      model: '$1'
+    - regex: '(Flare2X)'
+      model: '$1'
+    - regex: '(Fusion Bolt)'
+      model: '$1'
+      device: 'tablet'
 
 # Compal
 Compal:
@@ -511,9 +553,12 @@ Gradiente:
 
 # Grundig
 Grundig:
-  regex: 'GRUNDIG|portalmmm/2\.0 G'
+  regex: 'GR?-TB[0-9]+[a-z]*|GRUNDIG|portalmmm/2\.0 G'
   device: 'tv'
-  models: 
+  models:
+    - regex: '(GR?-TB[0-9]+[a-z]*)'
+      device: 'smartphone'
+      model: '$1'
     - regex: 'GRUNDIG ([a-z0-9]+)'
       model: '$1'
     - regex: 'portalmmm/2\.0 G([a-z0-9]+)'
@@ -540,6 +585,12 @@ Huawei:
       model: '$1'
     - regex: 'vodafone([a-z0-9]+)'
       model: 'Vodafone $1'
+
+#iBall
+iBall:
+  regex: 'iBall[ _]([^/;]*)[ _]Build'
+  device: 'tablet'
+  model: '$1'
 
 # Innostream
 Innostream:
@@ -615,7 +666,11 @@ KDDI:
 K-Touch:
   regex: 'K-Touch[ _]([a-z0-9]+)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'K-Touch[ _]([^/;]*)[ _]Build'
+      model: '$1'
+    - regex: 'K-Touch[ _]([a-z0-9]+)'
+      model: '$1'
 
 # kyocera
 Kyocera:
@@ -646,6 +701,9 @@ Lenovo:
   regex: '(?:LNV-)?Lenovo|IdeaTab'
   device: 'smartphone'
   models:
+    - regex: 'Lenovo (B[0-9]+[^/;]*) Build'
+      model: 'IdeaTab $1'
+      device: 'tablet'
     - regex: 'Lenovo ([^/;]*) Build'
       model: '$1'
     - regex: '(?:LNV-)?Lenovo[ \-_]([a-z0-9]+)'
@@ -653,6 +711,12 @@ Lenovo:
     - regex: 'IdeaTab[ \-_]?([a-z0-9]+)'
       model: 'IdeaTab $1'
       device: 'tablet'
+
+# lexibook
+Lexibook:
+  regex: '(MFC[0-9]{3}[a-z]{2,})'
+  device: 'tablet'
+  model: '$1'
 
 # lguplus
 LGUPlus:
@@ -735,12 +799,6 @@ Medion:
   device: 'tablet'
   model: 'Lifetab $1'
 
-# micromax
-MicroMax:
-  regex: 'MicroMax(?:[ \-\_])?([a-z0-9]+)'
-  device: 'smartphone'
-  model: '$1'
-
 # mio
 Mio:
   regex: 'MIO(?:/)?([a-z0-9]+)'
@@ -758,6 +816,12 @@ Mitsubishi:
       model: '$1'
     - regex: 'portalmmm/[12]\.0 (M[a-z0-9]+)'
       model: '$1'
+
+# Mobistel
+Mobistel:
+  regex: '(Cynus T2)'
+  device: 'smartphone'
+  model: '$1'
 
 # motorola
 Motorola:
