@@ -90,6 +90,7 @@ class DeviceDetector
         'IK' => 'iKoMo',
         'IM' => 'i-mate',
         'IN' => 'Innostream',
+        'II' => 'Inkti',
         'IX' => 'Intex',
         'IO' => 'i-mobile',
         'IQ' => 'INQ',
