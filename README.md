@@ -5,14 +5,30 @@ The Universal Device Detection library, that parses User Agents and detects devi
 
 ## Usage
 
-```
+```php
 $dd = new DeviceDetector($userAgent);
+
+// OPTIONAL: If called, getBot() will only return true if a bot was detected  (speeds up detection a bit)
+$dd->discardBotInformation();
+
+// OPTIONAL: If called, getFeedReader() will only return true if a feed reader was detected  (speeds up detection a bit)
+$dd->discardFeedReaderInformation()
+
 $dd->parse();
-$browserInfo = $dd->getBrowser();
-$osInfo = $dd->getOs();
-$device = $dd->getDevice();
-$brand = $dd->getBrand();
-$model = $dd->getModel();
+
+if ($dd->isFeedReader()) {
+  // handle feed readers
+  $feedReaderInfo = $dd->getFeedReader();
+} else if ($dd->isBot()) {
+  // handle bots,spiders,crawlers,...
+  $botInfo = $dd->getBot();
+} else {
+  $browserInfo = $dd->getBrowser();
+  $osInfo = $dd->getOs();
+  $device = $dd->getDevice();
+  $brand = $dd->getBrand();
+  $model = $dd->getModel();
+}
 ```
 
 ## Tests
