@@ -15,7 +15,10 @@ if(isset($_GET['ua'])) {
 require __DIR__ . '/../vendor/autoload.php';
 
 $result = DeviceDetector::getInfoFromUserAgent($userAgent);
+
+echo '<form><input type="text" name="ua" /><input type="submit" /></form>';
+
 echo "<pre>";
 
-var_export($result);
+echo Spyc::YAMLDump($result, 2, 0);
 echo "</pre>";
