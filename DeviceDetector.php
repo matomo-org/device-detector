@@ -462,6 +462,7 @@ class DeviceDetector
     protected static $mobileRegexesFile     = 'mobiles.yml';
     protected static $televisionRegexesFile = 'televisions.yml';
     protected static $botRegexesFile        = 'bots.yml';
+    protected static $feedReaderRegexesFile = 'feed_readers.yml';
 
     /**
      * Holds the useragent that should be parsed
@@ -510,7 +511,19 @@ class DeviceDetector
      */
     protected $bot = null;
 
+    /**
+     * Holds bot information if parsing the UA results in a feed reader
+     * (All other information attributes will stay empty in that case)
+     *
+     * If $discardFeedReaderInformation is set to true, this property will be set to
+     * true if parsed UA is identified as feed reader, additional information will be not available
+     *
+     * @var array|boolean
+     */
+    protected $feedReader = null;
+
     protected $discardBotInformation = false;
+    protected $discardFeedReaderInformation = false;
 
     /**
      * Holds the cache class used for caching the parsed yml-Files
@@ -541,6 +554,18 @@ class DeviceDetector
     }
 
     /**
+     * Sets whether to discard additional feed reader information
+     * If information is discarded it's only possible check whether UA was detected as feed reader or not.
+     * (Discarding information speeds up the detection a bit)
+     *
+     * @param bool $discard
+     */
+    public function discardFeedReaderInformation($discard=true)
+    {
+        $this->discardFeedReaderInformation = $discard;
+    }
+
+    /**
      * Sets whether to discard additional bot information
      * If information is discarded it's only possible check whether UA was detected as bot or not.
      * (Discarding information speeds up the detection a bit)
@@ -550,6 +575,18 @@ class DeviceDetector
     public function discardBotInformation($discard=true)
     {
         $this->discardBotInformation = $discard;
+    }
+
+    /**
+     * Returns if the parsed UA was identified as a feed reader
+     *
+     * @see feed_reader.yml for a list of detected feed readers
+     *
+     * @return bool
+     */
+    public function isFeedReader()
+    {
+        return !empty($this->feedReader);
     }
 
     /**
@@ -716,10 +753,24 @@ class DeviceDetector
     }
 
     /**
+     * Returns the feed reader extracted from the parsed UA
+     *
+     * @return array
+     */
+    public function getFeedReader()
+    {
+        return $this->feedReader;
+    }
+
+    /**
      * Triggers the parsing of the current user agent
      */
     public function parse()
     {
+        $this->parseFeedReader();
+        if ($this->isFeedReader())
+            return;
+
         $this->parseBot();
         if ($this->isBot())
             return;
@@ -777,6 +828,15 @@ class DeviceDetector
             $regexBot = $this->getRegexList('bot', self::$botRegexesFile);
         }
         return $regexBot;
+    }
+
+    protected function getFeedReaderRegexes()
+    {
+        static $regexFeedReader;
+        if(empty($regexFeedReader)) {
+            $regexFeedReader = $this->getRegexList('feed_reader', self::$feedReaderRegexesFile);
+        }
+        return $regexFeedReader;
     }
 
     protected function getOsRegexes()
@@ -895,6 +955,68 @@ class DeviceDetector
         unset($botRegex['regex']);
 
         $this->bot = $botRegex;
+    }
+
+    /**
+     * Parses the current UA and checks whether it contains feed reader information
+     *
+     * @see feed_readers.yml for list of detected bots
+     *
+     * Step 1: Build a big regex containing all regexes and match UA against it
+     * -> If no matches found: return
+     * -> Otherwise:
+     * Step 2: Walk through the list of regexes in feed_readers.yml and try to match every one
+     * -> Set the matched data to $bot
+     *
+     * If $discardFeedReaderInformation is set to TRUE, the Step 2 will be skipped
+     * $bot will be set to TRUE instead
+     *
+     * NOTE: Doing the big match before matching every single regex speeds up the detection
+     */
+    protected function parseFeedReader()
+    {
+        $feedReaderRegexes = $this->getFeedReaderRegexes();
+
+        static $overAllMatch;
+
+        if (empty($overAllMatch)) {
+            $overAllMatch = $this->getParsedYmlFromCache('feed-reader-all');
+        }
+
+        if (empty($overAllMatch)) {
+            // reverse all regexes, so we have the generic one first, which already matches most patterns
+            $overAllMatch = array_reduce(array_reverse($feedReaderRegexes), function($val1, $val2) {
+                if (!empty($val1)) {
+                    return $val1.'|'.$val2['regex'];
+                } else {
+                    return $val2['regex'];
+                }
+            });
+            $this->saveParsedYmlInCache('feed-reader-all', $overAllMatch);
+        }
+
+        if (!$this->matchUserAgent($overAllMatch)) {
+            $this->bot = null;
+            return;
+        } else if ($this->discardFeedReaderInformation) {
+            $this->bot = true;
+            return;
+        }
+
+        foreach ($feedReaderRegexes as $feedReaderRegex) {
+            $matches = $this->matchUserAgent($feedReaderRegex['regex']);
+            if ($matches)
+                break;
+        }
+
+        if (!$matches) {
+            $this->bot = null;
+            return;
+        }
+
+        unset($feedReaderRegex['regex']);
+
+        $this->feedReader = $feedReaderRegex;
     }
 
     protected function parseOs()
