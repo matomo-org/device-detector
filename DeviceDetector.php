@@ -24,6 +24,13 @@ class DeviceDetector
         'camera'            // 8
     );
 
+    public static $clientTypes = array(
+        'browser',
+        'feed reader',
+        'mobile app',
+        'media player'
+    );
+
     /**
      * Known device brands
      *
@@ -477,10 +484,10 @@ class DeviceDetector
     protected $os = null;
 
     /**
-     * Holds the browser data after parsing the UA
+     * Holds the client data after parsing the UA
      * @var array
      */
-    protected $browser = null;
+    protected $client = null;
 
     /**
      * Holds the device type after parsing the UA
@@ -523,7 +530,6 @@ class DeviceDetector
     protected $feedReader = null;
 
     protected $discardBotInformation = false;
-    protected $discardFeedReaderInformation = false;
 
     /**
      * Holds the cache class used for caching the parsed yml-Files
@@ -554,18 +560,6 @@ class DeviceDetector
     }
 
     /**
-     * Sets whether to discard additional feed reader information
-     * If information is discarded it's only possible check whether UA was detected as feed reader or not.
-     * (Discarding information speeds up the detection a bit)
-     *
-     * @param bool $discard
-     */
-    public function discardFeedReaderInformation($discard=true)
-    {
-        $this->discardFeedReaderInformation = $discard;
-    }
-
-    /**
      * Sets whether to discard additional bot information
      * If information is discarded it's only possible check whether UA was detected as bot or not.
      * (Discarding information speeds up the detection a bit)
@@ -575,18 +569,6 @@ class DeviceDetector
     public function discardBotInformation($discard=true)
     {
         $this->discardBotInformation = $discard;
-    }
-
-    /**
-     * Returns if the parsed UA was identified as a feed reader
-     *
-     * @see feed_reader.yml for a list of detected feed readers
-     *
-     * @return bool
-     */
-    public function isFeedReader()
-    {
-        return !empty($this->feedReader);
     }
 
     /**
@@ -677,7 +659,7 @@ class DeviceDetector
     }
 
     /**
-     * Returns the browser data extracted from the parsed UA
+     * Returns the client data extracted from the parsed UA
      *
      * If $attr is given only that property will be returned
      *
@@ -685,17 +667,17 @@ class DeviceDetector
      *
      * @return array|string
      */
-    public function getBrowser($attr = '')
+    public function getClient($attr = '')
     {
         if ($attr == '') {
-            return $this->browser;
+            return $this->client;
         }
 
-        if (!isset($this->browser[$attr])) {
+        if (!isset($this->client[$attr])) {
             return self::UNKNOWN;
         }
 
-        return $this->browser[$attr];
+        return $this->client[$attr];
     }
 
     /**
@@ -753,31 +735,23 @@ class DeviceDetector
     }
 
     /**
-     * Returns the feed reader extracted from the parsed UA
-     *
-     * @return array
-     */
-    public function getFeedReader()
-    {
-        return $this->feedReader;
-    }
-
-    /**
      * Triggers the parsing of the current user agent
      */
     public function parse()
     {
-        $this->parseFeedReader();
-        if ($this->isFeedReader())
-            return;
-
         $this->parseBot();
         if ($this->isBot())
             return;
 
         $this->parseOs();
 
-        $this->parseBrowser();
+        /**
+         * Parse Clients
+         * Clients might be browsers, Feed Readers, Mobile Apps, Media Players or
+         * any other application accessing with an parseable UA
+         */
+
+        $this->parseClient();
 
         if($this->isHbbTv()) {
             $this->parseTelevision();
@@ -957,6 +931,18 @@ class DeviceDetector
         $this->bot = $botRegex;
     }
 
+
+    protected function parseClient() {
+        if(empty($this->client)) {
+            $this->parseFeedReader();
+        }
+        #$this->parseMobileApp();
+        #$this->parseMediaPlayer();
+        if(empty($this->client)) {
+            $this->parseBrowser();
+        }
+    }
+
     /**
      * Parses the current UA and checks whether it contains feed reader information
      *
@@ -967,9 +953,6 @@ class DeviceDetector
      * -> Otherwise:
      * Step 2: Walk through the list of regexes in feed_readers.yml and try to match every one
      * -> Set the matched data to $bot
-     *
-     * If $discardFeedReaderInformation is set to TRUE, the Step 2 will be skipped
-     * $bot will be set to TRUE instead
      *
      * NOTE: Doing the big match before matching every single regex speeds up the detection
      */
@@ -996,11 +979,7 @@ class DeviceDetector
         }
 
         if (!$this->matchUserAgent($overAllMatch)) {
-            $this->bot = null;
-            return;
-        } else if ($this->discardFeedReaderInformation) {
-            $this->bot = true;
-            return;
+            return false;
         }
 
         foreach ($feedReaderRegexes as $feedReaderRegex) {
@@ -1010,13 +989,44 @@ class DeviceDetector
         }
 
         if (!$matches) {
-            $this->bot = null;
-            return;
+            return false;
         }
 
         unset($feedReaderRegex['regex']);
+        $feedReaderRegex['type'] = 'feed reader';
+        $this->client = $feedReaderRegex;
+        return true;
+    }
 
-        $this->feedReader = $feedReaderRegex;
+    protected function parseBrowser()
+    {
+        foreach ($this->getBrowserRegexes() as $browserRegex) {
+            $matches = $this->matchUserAgent($browserRegex['regex']);
+            if ($matches)
+                break;
+        }
+
+        if (!$matches)
+            return;
+
+        $name  = $this->buildBrowserName($browserRegex['name'], $matches);
+        $short = 'XX';
+
+        foreach (self::$browsers AS $browserShort => $browserName) {
+            if (strtolower($name) == strtolower($browserName)) {
+                $name  = $browserName;
+                $short = $browserShort;
+            }
+        }
+
+        if ($short != 'XX') {
+            $this->client = array(
+                'type'       => 'browser',
+                'name'       => $name,
+                'short_name' => $short,
+                'version'    => $this->buildBrowserVersion($browserRegex['version'], $matches)
+            );
+        }
     }
 
     protected function parseOs()
@@ -1049,34 +1059,6 @@ class DeviceDetector
         if (in_array($this->os['name'], self::$operatingSystems)) {
             $this->os['short_name'] = array_search($this->os['name'], self::$operatingSystems);
         }
-    }
-
-    protected function parseBrowser()
-    {
-        foreach ($this->getBrowserRegexes() as $browserRegex) {
-            $matches = $this->matchUserAgent($browserRegex['regex']);
-            if ($matches)
-                break;
-        }
-
-        if (!$matches)
-            return;
-
-        $name  = $this->buildBrowserName($browserRegex['name'], $matches);
-        $short = 'XX';
-
-        foreach (self::$browsers AS $browserShort => $browserName) {
-            if (strtolower($name) == strtolower($browserName)) {
-                $name  = $browserName;
-                $short = $browserShort;
-            }
-        }
-
-        $this->browser = array(
-            'name'       => $name,
-            'short_name' => $short,
-            'version'    => $this->buildBrowserVersion($browserRegex['version'], $matches)
-        );
     }
 
     protected function parseMobile()
@@ -1309,7 +1291,7 @@ class DeviceDetector
         $deviceDetector->parse();
 
         $osFamily = $deviceDetector->getOsFamily($deviceDetector->getOs('short_name'));
-        $browserFamily = $deviceDetector->getBrowserFamily($deviceDetector->getBrowser('short_name'));
+        $browserFamily = $deviceDetector->getBrowserFamily($deviceDetector->getClient('short_name'));
         $device = $deviceDetector->getDevice();
 
         $deviceName = $device === '' ? '' : DeviceDetector::$deviceTypes[$device];
@@ -1320,10 +1302,11 @@ class DeviceDetector
                 'short_name' => $deviceDetector->getOs('short_name'),
                 'version'    => $deviceDetector->getOs('version'),
             ),
-            'browser'        => array(
-                'name'       => $deviceDetector->getBrowser('name'),
-                'short_name' => $deviceDetector->getBrowser('short_name'),
-                'version'    => $deviceDetector->getBrowser('version'),
+            'client'        => array(
+                'type'       => $deviceDetector->getClient('type'),
+                'name'       => $deviceDetector->getClient('name'),
+                'short_name' => $deviceDetector->getClient('short_name'),
+                'version'    => $deviceDetector->getClient('version'),
             ),
             'device'         => array(
                 'type'       => $deviceName,

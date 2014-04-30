@@ -48,7 +48,7 @@ class DeviceDetectorTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($botData['name'], $fixtureData['name']);
         // browser and os will always be unknown for bots
         $this->assertEquals($dd->getOs('short_name'), DeviceDetector::UNKNOWN);
-        $this->assertEquals($dd->getBrowser('short_name'), DeviceDetector::UNKNOWN);
+        $this->assertEquals($dd->getClient('short_name'), DeviceDetector::UNKNOWN);
     }
 
     public function getBotFixtures()
@@ -67,12 +67,8 @@ class DeviceDetectorTest extends PHPUnit_Framework_TestCase
         $dd = new DeviceDetector($ua);
         $dd->parse();
         $this->assertFalse($dd->isBot());
-        $this->assertTrue($dd->isFeedReader());
-        $feedReaderData = $dd->getFeedReader();
-        $this->assertEquals($feedReaderData['name'], $fixtureData['name']);
-        // browser and os will always be unknown for bots
         $this->assertEquals($dd->getOs('short_name'), DeviceDetector::UNKNOWN);
-        $this->assertEquals($dd->getBrowser('short_name'), DeviceDetector::UNKNOWN);
+        $this->assertEquals($dd->getClient('name'), $fixtureData['name']);
     }
 
     public function getFeedReaderFixtures()
