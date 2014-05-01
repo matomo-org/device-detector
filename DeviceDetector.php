@@ -992,9 +992,12 @@ class DeviceDetector
             return false;
         }
 
-        unset($feedReaderRegex['regex']);
-        $feedReaderRegex['type'] = 'feed reader';
-        $this->client = $feedReaderRegex;
+        $this->client = array(
+            'type'       => 'feed reader',
+            'name'       => $feedReaderRegex['name'],
+            'version'    => $this->buildVersion($feedReaderRegex['version'], $matches)
+        );
+
         return true;
     }
 
@@ -1024,7 +1027,7 @@ class DeviceDetector
                 'type'       => 'browser',
                 'name'       => $name,
                 'short_name' => $short,
-                'version'    => $this->buildBrowserVersion($browserRegex['version'], $matches)
+                'version'    => $this->buildVersion($browserRegex['version'], $matches)
             );
         }
     }
@@ -1053,7 +1056,7 @@ class DeviceDetector
         $this->os = array(
             'name'       => $name,
             'short_name' => $short,
-            'version'    => $this->buildOsVersion($osRegex['version'], $matches)
+            'version'    => $this->buildVersion($osRegex['version'], $matches)
         );
 
         if (in_array($this->os['name'], self::$operatingSystems)) {
@@ -1140,31 +1143,19 @@ class DeviceDetector
         return $this->buildByMatch($osName, $matches);
     }
 
-    protected function buildOsVersion($osVersion, $matches)
-    {
-        $osVersion = $this->buildByMatch($osVersion, $matches);
-
-        $osVersion = $this->buildByMatch($osVersion, $matches, '2');
-
-        $osVersion = str_replace('_', '.', $osVersion);
-
-        return $osVersion;
-    }
-
     protected function buildBrowserName($browserName, $matches)
     {
         return $this->buildByMatch($browserName, $matches);
     }
 
-    protected function buildBrowserVersion($browserVersion, $matches)
-    {
-        $browserVersion = $this->buildByMatch($browserVersion, $matches);
+    protected function buildVersion($versionString, $matches) {
+        $versionString = $this->buildByMatch($versionString, $matches);
 
-        $browserVersion = $this->buildByMatch($browserVersion, $matches, '2');
+        $versionString = $this->buildByMatch($versionString, $matches, '2');
 
-        $browserVersion = str_replace('_', '.', $browserVersion);
+        $versionString = str_replace('_', '.', $versionString);
 
-        return $browserVersion;
+        return $versionString;
     }
 
     protected function buildModel($model, $matches)
@@ -1224,7 +1215,7 @@ class DeviceDetector
      * Also after decoding browser we will get list of regular expressions for this browser name
      * testing UserAgent string for version number. Again we iterate over this list, and after finding first
      * occurence - we break loop and proceed to build by match. Since browser regular expressions can
-     * contain two hits (major version and minor version) in function buildBrowserVersion() we have
+     * contain two hits (major version and minor version) in function buildVersion() we have
      * two calls to buildByMatch, one without 3rd parameter, and second with $nb set to 2.
      * This way we can retrieve version number, and assign it to object property.
      *
