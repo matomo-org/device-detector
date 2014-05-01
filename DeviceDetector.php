@@ -470,6 +470,7 @@ class DeviceDetector
     protected static $televisionRegexesFile = 'televisions.yml';
     protected static $botRegexesFile        = 'bots.yml';
     protected static $feedReaderRegexesFile = 'feed_readers.yml';
+    protected static $mobileAppRegexesFile  = 'mobile_apps.yml';
 
     /**
      * Holds the useragent that should be parsed
@@ -813,6 +814,15 @@ class DeviceDetector
         return $regexFeedReader;
     }
 
+    protected function getMobileAppRegexes()
+    {
+        static $regexMobileApp;
+        if(empty($regexMobileApp)) {
+            $regexMobileApp = $this->getRegexList('feed_reader', self::$mobileAppRegexesFile);
+        }
+        return $regexMobileApp;
+    }
+
     protected function getOsRegexes()
     {
         static $regexOs;
@@ -936,7 +946,9 @@ class DeviceDetector
         if(empty($this->client)) {
             $this->parseFeedReader();
         }
-        #$this->parseMobileApp();
+        if(empty($this->client)) {
+            $this->parseMobileApp();
+        }
         #$this->parseMediaPlayer();
         if(empty($this->client)) {
             $this->parseBrowser();
@@ -1001,6 +1013,64 @@ class DeviceDetector
         return true;
     }
 
+    /**
+     * Parses the current UA and checks whether it contains feed reader information
+     *
+     * @see feed_readers.yml for list of detected bots
+     *
+     * Step 1: Build a big regex containing all regexes and match UA against it
+     * -> If no matches found: return
+     * -> Otherwise:
+     * Step 2: Walk through the list of regexes in feed_readers.yml and try to match every one
+     * -> Set the matched data to $bot
+     *
+     * NOTE: Doing the big match before matching every single regex speeds up the detection
+     */
+    protected function parseMobileApp()
+    {
+        $mobileAppRegexes = $this->getMobileAppRegexes();
+
+        static $overAllMatch;
+
+        if (empty($overAllMatch)) {
+            $overAllMatch = $this->getParsedYmlFromCache('mobile-app-all');
+        }
+
+        if (empty($overAllMatch)) {
+            // reverse all regexes, so we have the generic one first, which already matches most patterns
+            $overAllMatch = array_reduce(array_reverse($mobileAppRegexes), function($val1, $val2) {
+                if (!empty($val1)) {
+                    return $val1.'|'.$val2['regex'];
+                } else {
+                    return $val2['regex'];
+                }
+            });
+            $this->saveParsedYmlInCache('mobile-app-all', $overAllMatch);
+        }
+
+        if (!$this->matchUserAgent($overAllMatch)) {
+            return false;
+        }
+
+        foreach ($mobileAppRegexes as $mobileAppRegex) {
+            $matches = $this->matchUserAgent($mobileAppRegex['regex']);
+            if ($matches)
+                break;
+        }
+
+        if (!$matches) {
+            return false;
+        }
+
+        $this->client = array(
+            'type'       => 'mobile app',
+            'name'       => $this->buildByMatch($mobileAppRegex['name'], $matches),
+            'version'    => $this->buildVersion($mobileAppRegex['version'], $matches)
+        );
+
+        return true;
+    }
+
     protected function parseBrowser()
     {
         foreach ($this->getBrowserRegexes() as $browserRegex) {
@@ -1012,7 +1082,7 @@ class DeviceDetector
         if (!$matches)
             return;
 
-        $name  = $this->buildBrowserName($browserRegex['name'], $matches);
+        $name  = $this->buildByMatch($browserRegex['name'], $matches);
         $short = 'XX';
 
         foreach (self::$browsers AS $browserShort => $browserName) {
@@ -1043,7 +1113,7 @@ class DeviceDetector
         if (!$matches)
             return;
 
-        $name  = $this->buildOsName($osRegex['name'], $matches);
+        $name  = $this->buildByMatch($osRegex['name'], $matches);
         $short = 'UNK';
 
         foreach (self::$operatingSystems AS $osShort => $osName) {
@@ -1136,16 +1206,6 @@ class DeviceDetector
         }
 
         return false;
-    }
-
-    protected function buildOsName($osName, $matches)
-    {
-        return $this->buildByMatch($osName, $matches);
-    }
-
-    protected function buildBrowserName($browserName, $matches)
-    {
-        return $this->buildByMatch($browserName, $matches);
     }
 
     protected function buildVersion($versionString, $matches) {
