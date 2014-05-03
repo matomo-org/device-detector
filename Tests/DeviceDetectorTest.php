@@ -5,10 +5,12 @@
  * @link http://piwik.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  */
+namespace DeviceDetector\Tests;
 
-require __DIR__ . '/../vendor/autoload.php';
+use DeviceDetector\DeviceDetector;
+use \Spyc;
 
-class DeviceDetectorTest extends PHPUnit_Framework_TestCase
+class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -26,7 +28,7 @@ class DeviceDetectorTest extends PHPUnit_Framework_TestCase
         $fixtures = array();
         $fixtureFiles = glob(realpath(dirname(__FILE__)) . '/fixtures/*.yml');
         foreach ($fixtureFiles AS $fixturesPath) {
-            $typeFixtures = Spyc::YAMLLoad($fixturesPath);
+            $typeFixtures = \Spyc::YAMLLoad($fixturesPath);
             $deviceType = str_replace('_', ' ', substr(basename($fixturesPath), 0, -4));
             if ($deviceType != 'bots') {
                 $fixtures = array_merge(array_map(function($elem) {return array($elem);}, $typeFixtures), $fixtures);
@@ -54,7 +56,7 @@ class DeviceDetectorTest extends PHPUnit_Framework_TestCase
     public function getBotFixtures()
     {
         $fixturesPath = realpath(dirname(__FILE__) . '/fixtures/bots.yml');
-        $fixtures = Spyc::YAMLLoad($fixturesPath);
+        $fixtures = \Spyc::YAMLLoad($fixturesPath);
         return array_map(function($elem) {return array($elem);}, $fixtures);
     }
 

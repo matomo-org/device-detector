@@ -6,6 +6,12 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  */
 
+namespace DeviceDetector;
+
+use DeviceDetector\Parser\Client\ClientParserAbstract;
+use DeviceDetector\Parser\Client\FeedReader;
+use \Spyc;
+
 class DeviceDetector
 {
     /**
@@ -465,12 +471,10 @@ class DeviceDetector
 
     protected static $regexesDir            = '/regexes/';
     protected static $osRegexesFile         = 'oss.yml';
-    protected static $browserRegexesFile    = 'browsers.yml';
+    protected static $browserRegexesFile    = 'client/browsers.yml';
     protected static $mobileRegexesFile     = 'mobiles.yml';
     protected static $televisionRegexesFile = 'televisions.yml';
     protected static $botRegexesFile        = 'bots.yml';
-    protected static $feedReaderRegexesFile = 'feed_readers.yml';
-    protected static $mobileAppRegexesFile  = 'mobile_apps.yml';
 
     /**
      * Holds the useragent that should be parsed
@@ -519,17 +523,6 @@ class DeviceDetector
      */
     protected $bot = null;
 
-    /**
-     * Holds bot information if parsing the UA results in a feed reader
-     * (All other information attributes will stay empty in that case)
-     *
-     * If $discardFeedReaderInformation is set to true, this property will be set to
-     * true if parsed UA is identified as feed reader, additional information will be not available
-     *
-     * @var array|boolean
-     */
-    protected $feedReader = null;
-
     protected $discardBotInformation = false;
 
     /**
@@ -546,6 +539,37 @@ class DeviceDetector
     public function __construct($userAgent)
     {
         $this->userAgent = $userAgent;
+
+        $this->addClientParser('FeedReader');
+        $this->addClientParser('MobileApp');
+        $this->addClientParser('MediaPlayer');
+    }
+
+    /**
+     * @var ClientParserAbstract[]
+     */
+    protected $clientParsers = array();
+
+    /**
+     * @param ClientParserAbstract|string $parser
+     */
+    public function addClientParser($parser)
+    {
+        if ($parser instanceof ClientParserAbstract) {
+            $this->clientParsers[] = $parser;
+            return;
+        } elseif (is_string($parser) && class_exists('DeviceDetector\\Parser\\Client\\'.$parser)) {
+            $className = 'DeviceDetector\\Parser\\Client\\'.$parser;
+            $this->clientParsers[] = new $className();
+            return;
+        }
+
+        throw new \Exception('failure');
+    }
+
+    public function getClientParsers()
+    {
+        return $this->clientParsers;
     }
 
     /**
@@ -805,24 +829,6 @@ class DeviceDetector
         return $regexBot;
     }
 
-    protected function getFeedReaderRegexes()
-    {
-        static $regexFeedReader;
-        if(empty($regexFeedReader)) {
-            $regexFeedReader = $this->getRegexList('feed_reader', self::$feedReaderRegexesFile);
-        }
-        return $regexFeedReader;
-    }
-
-    protected function getMobileAppRegexes()
-    {
-        static $regexMobileApp;
-        if(empty($regexMobileApp)) {
-            $regexMobileApp = $this->getRegexList('feed_reader', self::$mobileAppRegexesFile);
-        }
-        return $regexMobileApp;
-    }
-
     protected function getOsRegexes()
     {
         static $regexOs;
@@ -943,132 +949,22 @@ class DeviceDetector
 
 
     protected function parseClient() {
-        if(empty($this->client)) {
-            $this->parseFeedReader();
+
+        $parsers = $this->getClientParsers();
+
+        foreach ($parsers AS $parser) {
+            $parser->setUserAgent($this->getUserAgent());
+            $client = $parser->parse();
+            if (!empty($client)) {
+                $this->client = $client;
+                break;
+            }
+
         }
-        if(empty($this->client)) {
-            $this->parseMobileApp();
-        }
-        #$this->parseMediaPlayer();
+
         if(empty($this->client)) {
             $this->parseBrowser();
         }
-    }
-
-    /**
-     * Parses the current UA and checks whether it contains feed reader information
-     *
-     * @see feed_readers.yml for list of detected bots
-     *
-     * Step 1: Build a big regex containing all regexes and match UA against it
-     * -> If no matches found: return
-     * -> Otherwise:
-     * Step 2: Walk through the list of regexes in feed_readers.yml and try to match every one
-     * -> Set the matched data to $bot
-     *
-     * NOTE: Doing the big match before matching every single regex speeds up the detection
-     */
-    protected function parseFeedReader()
-    {
-        $feedReaderRegexes = $this->getFeedReaderRegexes();
-
-        static $overAllMatch;
-
-        if (empty($overAllMatch)) {
-            $overAllMatch = $this->getParsedYmlFromCache('feed-reader-all');
-        }
-
-        if (empty($overAllMatch)) {
-            // reverse all regexes, so we have the generic one first, which already matches most patterns
-            $overAllMatch = array_reduce(array_reverse($feedReaderRegexes), function($val1, $val2) {
-                if (!empty($val1)) {
-                    return $val1.'|'.$val2['regex'];
-                } else {
-                    return $val2['regex'];
-                }
-            });
-            $this->saveParsedYmlInCache('feed-reader-all', $overAllMatch);
-        }
-
-        if (!$this->matchUserAgent($overAllMatch)) {
-            return false;
-        }
-
-        foreach ($feedReaderRegexes as $feedReaderRegex) {
-            $matches = $this->matchUserAgent($feedReaderRegex['regex']);
-            if ($matches)
-                break;
-        }
-
-        if (!$matches) {
-            return false;
-        }
-
-        $this->client = array(
-            'type'       => 'feed reader',
-            'name'       => $feedReaderRegex['name'],
-            'version'    => $this->buildVersion($feedReaderRegex['version'], $matches)
-        );
-
-        return true;
-    }
-
-    /**
-     * Parses the current UA and checks whether it contains feed reader information
-     *
-     * @see feed_readers.yml for list of detected bots
-     *
-     * Step 1: Build a big regex containing all regexes and match UA against it
-     * -> If no matches found: return
-     * -> Otherwise:
-     * Step 2: Walk through the list of regexes in feed_readers.yml and try to match every one
-     * -> Set the matched data to $bot
-     *
-     * NOTE: Doing the big match before matching every single regex speeds up the detection
-     */
-    protected function parseMobileApp()
-    {
-        $mobileAppRegexes = $this->getMobileAppRegexes();
-
-        static $overAllMatch;
-
-        if (empty($overAllMatch)) {
-            $overAllMatch = $this->getParsedYmlFromCache('mobile-app-all');
-        }
-
-        if (empty($overAllMatch)) {
-            // reverse all regexes, so we have the generic one first, which already matches most patterns
-            $overAllMatch = array_reduce(array_reverse($mobileAppRegexes), function($val1, $val2) {
-                if (!empty($val1)) {
-                    return $val1.'|'.$val2['regex'];
-                } else {
-                    return $val2['regex'];
-                }
-            });
-            $this->saveParsedYmlInCache('mobile-app-all', $overAllMatch);
-        }
-
-        if (!$this->matchUserAgent($overAllMatch)) {
-            return false;
-        }
-
-        foreach ($mobileAppRegexes as $mobileAppRegex) {
-            $matches = $this->matchUserAgent($mobileAppRegex['regex']);
-            if ($matches)
-                break;
-        }
-
-        if (!$matches) {
-            return false;
-        }
-
-        $this->client = array(
-            'type'       => 'mobile app',
-            'name'       => $this->buildByMatch($mobileAppRegex['name'], $matches),
-            'version'    => $this->buildVersion($mobileAppRegex['version'], $matches)
-        );
-
-        return true;
     }
 
     protected function parseBrowser()
