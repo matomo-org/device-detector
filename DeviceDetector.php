@@ -543,6 +543,7 @@ class DeviceDetector
         $this->addClientParser('FeedReader');
         $this->addClientParser('MobileApp');
         $this->addClientParser('MediaPlayer');
+        $this->addClientParser('PIM');
     }
 
     /**
