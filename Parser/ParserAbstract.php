@@ -29,6 +29,11 @@ abstract class ParserAbstract {
         $this->userAgent = $ua;
     }
 
+    public function getName()
+    {
+        return $this->parserName;
+    }
+
     protected function getRegexes()
     {
         $regexList = $this->getCache()->get($this->parserName);

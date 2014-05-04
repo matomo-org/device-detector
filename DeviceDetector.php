@@ -9,7 +9,6 @@
 namespace DeviceDetector;
 
 use DeviceDetector\Parser\Client\ClientParserAbstract;
-use DeviceDetector\Parser\Client\FeedReader;
 use \Spyc;
 
 class DeviceDetector
@@ -30,12 +29,11 @@ class DeviceDetector
         'camera'            // 8
     );
 
-    public static $clientTypes = array(
-        'browser',
-        'feed reader',
-        'mobile app',
-        'media player'
-    );
+    /**
+     * Holds all registered client types
+     * @var array
+     */
+    public static $clientTypes = array();
 
     /**
      * Known device brands
@@ -335,135 +333,6 @@ class DeviceDetector
     );
 
     /**
-     * Browser families mapped to the short codes of the associated browsers
-     *
-     * @var array
-     */
-    public static $browserFamilies = array(
-        'Android Browser'    => array('AN'),
-        'BlackBerry Browser' => array('BB'),
-        'Chrome'             => array('CH', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'RM'),
-        'Firefox'            => array('FF', 'FE', 'SX', 'FB', 'PX', 'MB'),
-        'Internet Explorer'  => array('IE', 'IM'),
-        'Konqueror'          => array('KO'),
-        'NetFront'           => array('NF'),
-        'Nokia Browser'      => array('NB', 'NO', 'NV'),
-        'Opera'              => array('OP', 'OM', 'OI', 'ON'),
-        'Safari'             => array('SF', 'MF'),
-        'Sailfish Browser'   => array('SA')
-    );
-
-    /**
-     * Known browsers mapped to their internal short codes
-     *
-     * @var array
-     */
-    public static $browsers = array(
-        'AA' => 'Avant Browser',
-        'AB' => 'ABrowse',
-        'AG' => 'ANTGalio',
-        'AM' => 'Amaya',
-        'AN' => 'Android Browser',
-        'AR' => 'Arora',
-        'AV' => 'Amiga Voyager',
-        'AW' => 'Amiga Aweb',
-        'BB' => 'BlackBerry Browser',
-        'BD' => 'Baidu Browser',
-        'BE' => 'Beonex',
-        'BJ' => 'Bunjalloo',
-        'BX' => 'BrowseX',
-        'CA' => 'Camino',
-        'CD' => 'Comodo Dragon',
-        'CX' => 'Charon',
-        'CF' => 'Chrome Frame',
-        'CH' => 'Chrome',
-        'CI' => 'Chrome Mobile iOS',
-        'CK' => 'Conkeror',
-        'CM' => 'Chrome Mobile',
-        'CN' => 'CoolNovo',
-        'CO' => 'CometBird',
-        'CP' => 'ChromePlus',
-        'CR' => 'Chromium',
-        'CS' => 'Cheshire',
-        'DF' => 'Dolphin',
-        'DI' => 'Dillo',
-        'EL' => 'Elinks',
-        'EP' => 'Epiphany',
-        'ES' => 'Espial TV Browser',
-        'FB' => 'Firebird',
-        'FD' => 'Fluid',
-        'FE' => 'Fennec',
-        'FF' => 'Firefox',
-        'FL' => 'Flock',
-        'FN' => 'Fireweb Navigator',
-        'GA' => 'Galeon',
-        'GE' => 'Google Earth',
-        'HJ' => 'HotJava',
-        'IA' => 'Iceape',
-        'IB' => 'IBrowse',
-        'IC' => 'iCab',
-        'ID' => 'IceDragon',
-        'IW' => 'Iceweasel',
-        'IE' => 'Internet Explorer',
-        'IM' => 'IE Mobile',
-        'IR' => 'Iron',
-        'JS' => 'Jasmine',
-        'KI' => 'Kindle Browser',
-        'KM' => 'K-meleon',
-        'KO' => 'Konqueror',
-        'KP' => 'Kapiko',
-        'KZ' => 'Kazehakase',
-        'LG' => 'Lightning',
-        'LI' => 'Links',
-        'LS' => 'Lunascape',
-        'LX' => 'Lynx',
-        'MB' => 'MicroB',
-        'MC' => 'NCSA Mosaic',
-        'ME' => 'Mercury',
-        'MF' => 'Mobile Safari',
-        'MI' => 'Midori',
-        'MS' => 'Mobile Silk',
-        'MX' => 'Maxthon',
-        'NB' => 'Nokia Browser',
-        'NO' => 'Nokia OSS Browser',
-        'NV' => 'Nokia Ovi Browser',
-        'NF' => 'NetFront',
-        'NL' => 'NetFront Life',
-        'NP' => 'NetPositive',
-        'NS' => 'Netscape',
-        'OB' => 'Obigo',
-        'OI' => 'Opera Mini',
-        'OM' => 'Opera Mobile',
-        'OP' => 'Opera',
-        'ON' => 'Opera Next',
-        'OR' => 'Oregano',
-        'OV' => 'Openwave Mobile Browser',
-        'OW' => 'OmniWeb',
-        'PL' => 'Palm Blazer',
-        'PM' => 'Pale Moon',
-        'PR' => 'Palm Pre',
-        'PU' => 'Puffin',
-        'PW' => 'Palm WebPro',
-        'PX' => 'Phoenix',
-        'PO' => 'Polaris',
-        'RK' => 'Rekonq',
-        'RM' => 'RockMelt',
-        'SA' => 'Sailfish Browser',
-        'SF' => 'Safari',
-        'SL' => 'Sleipnir',
-        'SM' => 'SeaMonkey',
-        'SN' => 'Snowshoe',
-        'SX' => 'Swiftfox',
-        'TB' => 'Thunderbird',
-        'TZ' => 'Tizen Browser',
-        'UC' => 'UC Browser',
-        'WE' => 'WebPositive',
-        'WO' => 'wOSBrowser',
-        'YA' => 'Yandex Browser',
-        'XI' => 'Xiino'
-    );
-
-    /**
      * Constant used as value for unknown browser / os
      */
     const UNKNOWN = "UNK";
@@ -471,7 +340,6 @@ class DeviceDetector
 
     protected static $regexesDir            = '/regexes/';
     protected static $osRegexesFile         = 'oss.yml';
-    protected static $browserRegexesFile    = 'client/browsers.yml';
     protected static $mobileRegexesFile     = 'mobiles.yml';
     protected static $televisionRegexesFile = 'televisions.yml';
     protected static $botRegexesFile        = 'bots.yml';
@@ -544,6 +412,7 @@ class DeviceDetector
         $this->addClientParser('MobileApp');
         $this->addClientParser('MediaPlayer');
         $this->addClientParser('PIM');
+        $this->addClientParser('Browser');
     }
 
     /**
@@ -556,16 +425,18 @@ class DeviceDetector
      */
     public function addClientParser($parser)
     {
+        if (is_string($parser) && class_exists('DeviceDetector\\Parser\\Client\\'.$parser)) {
+            $className = 'DeviceDetector\\Parser\\Client\\'.$parser;
+            $parser = new $className();
+        }
+
         if ($parser instanceof ClientParserAbstract) {
             $this->clientParsers[] = $parser;
-            return;
-        } elseif (is_string($parser) && class_exists('DeviceDetector\\Parser\\Client\\'.$parser)) {
-            $className = 'DeviceDetector\\Parser\\Client\\'.$parser;
-            $this->clientParsers[] = new $className();
+            self::$clientTypes[] = $parser->getName();
             return;
         }
 
-        throw new \Exception('failure');
+        throw new \Exception('client parser not found');
     }
 
     public function getClientParsers()
@@ -776,7 +647,6 @@ class DeviceDetector
          * Clients might be browsers, Feed Readers, Mobile Apps, Media Players or
          * any other application accessing with an parseable UA
          */
-
         $this->parseClient();
 
         if($this->isHbbTv()) {
@@ -837,15 +707,6 @@ class DeviceDetector
             $regexOs = $this->getRegexList('os', self::$osRegexesFile);
         }
         return $regexOs;
-    }
-
-    protected function getBrowserRegexes()
-    {
-        static $regexBrowser;
-        if (empty($regexBrowser)) {
-            $regexBrowser = $this->getRegexList('browser', self::$browserRegexesFile);
-        }
-        return $regexBrowser;
     }
 
     protected function getMobileRegexes()
@@ -960,42 +821,6 @@ class DeviceDetector
                 $this->client = $client;
                 break;
             }
-
-        }
-
-        if(empty($this->client)) {
-            $this->parseBrowser();
-        }
-    }
-
-    protected function parseBrowser()
-    {
-        foreach ($this->getBrowserRegexes() as $browserRegex) {
-            $matches = $this->matchUserAgent($browserRegex['regex']);
-            if ($matches)
-                break;
-        }
-
-        if (!$matches)
-            return;
-
-        $name  = $this->buildByMatch($browserRegex['name'], $matches);
-        $short = 'XX';
-
-        foreach (self::$browsers AS $browserShort => $browserName) {
-            if (strtolower($name) == strtolower($browserName)) {
-                $name  = $browserName;
-                $short = $browserShort;
-            }
-        }
-
-        if ($short != 'XX') {
-            $this->client = array(
-                'type'       => 'browser',
-                'name'       => $name,
-                'short_name' => $short,
-                'version'    => $this->buildVersion($browserRegex['version'], $matches)
-            );
         }
     }
 
@@ -1206,20 +1031,6 @@ class DeviceDetector
         return false;
     }
 
-    /**
-     * @param $browserLabel
-     * @return bool|string If false, "Unknown"
-     */
-    public static function getBrowserFamily($browserLabel)
-    {
-        foreach (self::$browserFamilies as $browserFamily => $browserLabels) {
-            if (in_array($browserLabel, $browserLabels)) {
-                return $browserFamily;
-            }
-        }
-        return false;
-    }
-
     public static function getOsNameFromId($os, $ver = false)
     {
         $osFullName = self::$operatingSystems[$os];
@@ -1239,7 +1050,7 @@ class DeviceDetector
         $deviceDetector->parse();
 
         $osFamily = $deviceDetector->getOsFamily($deviceDetector->getOs('short_name'));
-        $browserFamily = $deviceDetector->getBrowserFamily($deviceDetector->getClient('short_name'));
+        $browserFamily = \DeviceDetector\Parser\Client\Browser::getBrowserFamily($deviceDetector->getClient('short_name'));
         $device = $deviceDetector->getDevice();
 
         $deviceName = $device === '' ? '' : DeviceDetector::$deviceTypes[$device];
