@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * Device Detector - The Universal Device Detection library for parsing User Agents
+ *
+ * @link http://piwik.org
+ * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
+ */
 namespace DeviceDetector\Parser\Client;
 
 class FeedReader extends ClientParserAbstract {
@@ -16,7 +21,7 @@ class FeedReader extends ClientParserAbstract {
      * -> If no matches found: return
      * -> Otherwise:
      * Step 2: Walk through the list of regexes in feed_readers.yml and try to match every one
-     * -> Set the matched data to $bot
+     * -> Return the matched feed reader
      *
      * NOTE: Doing the big match before matching every single regex speeds up the detection
      */
