@@ -8,6 +8,9 @@
 
 namespace DeviceDetector;
 
+use DeviceDetector\Cache\CacheInterface;
+use DeviceDetector\Cache\CacheStatic;
+use DeviceDetector\Parser\Bot;
 use DeviceDetector\Parser\Client\ClientParserAbstract;
 use \Spyc;
 
@@ -395,7 +398,7 @@ class DeviceDetector
 
     /**
      * Holds the cache class used for caching the parsed yml-Files
-     * @var stdClass
+     * @var CacheInterface
      */
     protected $cache = null;
 
@@ -442,18 +445,6 @@ class DeviceDetector
     public function getClientParsers()
     {
         return $this->clientParsers;
-    }
-
-    /**
-     * Sets the Cache class
-     *
-     * Note: The given class needs to have a 'get' and 'set' method to be used
-     *
-     * @param $cache
-     */
-    public function setCache($cache)
-    {
-        $this->cache = $cache;
     }
 
     /**
@@ -691,15 +682,6 @@ class DeviceDetector
         }
     }
 
-    protected function getBotRegexes()
-    {
-        static $regexBot;
-        if(empty($regexBot)) {
-            $regexBot = $this->getRegexList('bot', self::$botRegexesFile);
-        }
-        return $regexBot;
-    }
-
     protected function getOsRegexes()
     {
         static $regexOs;
@@ -730,83 +712,29 @@ class DeviceDetector
 
     protected function saveParsedYmlInCache($type, $data)
     {
-        if (!empty($this->cache) && method_exists($this->cache, 'set')) {
-            $this->cache->set($type, serialize($data));
-        }
+        $this->getCache()->set($type, serialize($data));
     }
 
     protected function getParsedYmlFromCache($type)
     {
-        $data = null;
-        if (!empty($this->cache) && method_exists($this->cache, 'get')) {
-            $data = $this->cache->get($type);
-            if (!empty($data)) {
-                $data = unserialize($data);
-            }
+        $data = $this->getCache()->get($type);
+        if (!empty($data)) {
+            $data = unserialize($data);
         }
         return $data;
     }
 
     /**
-     * Parses the current UA and checks whether it contains bot information
-     *
-     * @see bots.yml for list of detected bots
-     *
-     * Step 1: Build a big regex containing all regexes and match UA against it
-     * -> If no matches found: return
-     * -> Otherwise:
-     * Step 2: Walk through the list of regexes in bots.yml and try to match every one
-     * -> Set the matched data to $bot
-     *
-     * If $discardBotInformation is set to TRUE, the Step 2 will be skipped
-     * $bot will be set to TRUE instead
-     *
-     * NOTE: Doing the big match before matching every single regex speeds up the detection
+     * Parses the UA for bot information using the Bot parser
      */
     protected function parseBot()
     {
-        $botRegexes = $this->getBotRegexes();
-
-        static $overAllMatch;
-
-        if (empty($overAllMatch)) {
-            $overAllMatch = $this->getParsedYmlFromCache('bots-all');
+        $botParser = new Bot();
+        $botParser->setUserAgent($this->getUserAgent());
+        if ($this->discardBotInformation) {
+            $botParser->discardDetails();
         }
-
-        if (empty($overAllMatch)) {
-            // reverse all regexes, so we have the generic one first, which already matches most patterns
-            $overAllMatch = array_reduce(array_reverse($botRegexes), function($val1, $val2) {
-                if (!empty($val1)) {
-                    return $val1.'|'.$val2['regex'];
-                } else {
-                    return $val2['regex'];
-                }
-            });
-            $this->saveParsedYmlInCache('bots-all', $overAllMatch);
-        }
-
-        if (!$this->matchUserAgent($overAllMatch)) {
-            $this->bot = null;
-            return;
-        } else if ($this->discardBotInformation) {
-            $this->bot = true;
-            return;
-        }
-
-        foreach ($botRegexes as $botRegex) {
-            $matches = $this->matchUserAgent($botRegex['regex']);
-            if ($matches)
-                break;
-        }
-
-        if (!$matches) {
-            $this->bot = null;
-            return;
-        }
-
-        unset($botRegex['regex']);
-
-        $this->bot = $botRegex;
+        $this->bot = $botParser->parse();
     }
 
 
@@ -1086,6 +1014,33 @@ class DeviceDetector
             $this->saveParsedYmlInCache($type, $regexList);
         }
         return $regexList;
+    }
+
+
+    /**
+     * Sets the Cache class
+     *
+     * Note: The given class needs to have a 'get' and 'set' method to be used
+     *
+     * @param $cache
+     */
+    public function setCache(CacheInterface $cache)
+    {
+        $this->cache = $cache;
+    }
+
+    /**
+     * Returns Cache object
+     *
+     * @return CacheInterface
+     */
+    public function getCache()
+    {
+        if (!empty($this->cache)) {
+            return $this->cache;
+        }
+
+        return new CacheStatic();
     }
 
 }

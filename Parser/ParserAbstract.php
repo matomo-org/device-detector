@@ -94,7 +94,30 @@ abstract class ParserAbstract {
         return $versionString;
     }
 
+    protected function preMatchOverall()
+    {
+        $regexes = $this->getRegexes();
 
+        static $overAllMatch;
+
+        if (empty($overAllMatch)) {
+            $overAllMatch = $this->getCache()->get($this->parserName.'-all');
+        }
+
+        if (empty($overAllMatch)) {
+            // reverse all regexes, so we have the generic one first, which already matches most patterns
+            $overAllMatch = array_reduce(array_reverse($regexes), function($val1, $val2) {
+                if (!empty($val1)) {
+                    return $val1.'|'.$val2['regex'];
+                } else {
+                    return $val2['regex'];
+                }
+            });
+            $this->getCache()->set($this->parserName.'-all', $overAllMatch);
+        }
+
+        return $this->matchUserAgent($overAllMatch);
+    }
 
     /**
      * Sets the Cache class
