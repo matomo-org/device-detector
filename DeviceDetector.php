@@ -122,6 +122,7 @@ class DeviceDetector
         'LA' => 'Lanix',
         'LC' => 'LCT',
         'LE' => 'Lenovo',
+        'LN' => 'Lenco',
         'LG' => 'LG',
         'LO' => 'Loewe',
         'LU' => 'LGUPlus',
