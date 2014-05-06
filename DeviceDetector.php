@@ -12,6 +12,7 @@ use DeviceDetector\Cache\CacheInterface;
 use DeviceDetector\Cache\CacheStatic;
 use DeviceDetector\Parser\Bot;
 use DeviceDetector\Parser\Client\ClientParserAbstract;
+use DeviceDetector\Parser\Device\HbbTv;
 use \Spyc;
 
 class DeviceDetector
@@ -345,7 +346,6 @@ class DeviceDetector
     protected static $regexesDir            = '/regexes/';
     protected static $osRegexesFile         = 'oss.yml';
     protected static $mobileRegexesFile     = 'mobiles.yml';
-    protected static $televisionRegexesFile = 'televisions.yml';
     protected static $botRegexesFile        = 'bots.yml';
 
     /**
@@ -470,17 +470,6 @@ class DeviceDetector
     public function isBot()
     {
         return !empty($this->bot);
-    }
-
-    /**
-     * Returns if the parsed UA was identified as a HbbTV device
-     *
-     * @return bool
-     */
-    public function isHbbTv()
-    {
-        $regex = 'HbbTV/([1-9]{1}(\.[0-9]{1}){1,2})';
-        return $this->matchUserAgent($regex);
     }
 
     /**
@@ -641,13 +630,17 @@ class DeviceDetector
          */
         $this->parseClient();
 
-        if($this->isHbbTv()) {
-            $this->parseTelevision();
+        $hbbtv = new HbbTv();
+        $hbbtv->setUserAgent($this->getUserAgent());
+        if ($hbbtv->parse()) {
+            $this->device = array_search($hbbtv->getDeviceType(), self::$deviceTypes);
+            $this->model  = $hbbtv->getModel();
+            $this->brand  = $hbbtv->getBrand();
         } else {
             $this->parseMobile();
         }
 
-        if (empty($this->device) && $this->isHbbTv()) {
+        if (empty($this->device) && $hbbtv->isHbbTv()) {
             $this->device = array_search('tv', self::$deviceTypes);
         } else if (empty($this->device) && $this->isDesktop()) {
             $this->device = array_search('desktop', self::$deviceTypes);
@@ -792,13 +785,6 @@ class DeviceDetector
         $this->parseModel($mobileRegexes);
     }
 
-    protected function parseTelevision()
-    {
-        $televisionRegexes = $this->getTelevisionRegexes();
-        $this->parseBrand($televisionRegexes);
-        $this->parseModel($televisionRegexes);
-    }
-
     protected function parseBrand($deviceRegexes)
     {
         foreach ($deviceRegexes as $brand => $mobileRegex) {
@@ -812,7 +798,7 @@ class DeviceDetector
 
         $brandId = array_search($brand, self::$deviceBrands);
         if($brandId === false) {
-            throw new Exception("The brand with name '$brand' should be listed in the deviceBrands array.");
+            throw new \Exception("The brand with name '$brand' should be listed in the deviceBrands array.");
         }
         $this->brand = $brandId;
         $this->fullName = $brand;
