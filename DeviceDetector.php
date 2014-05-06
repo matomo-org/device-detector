@@ -13,6 +13,7 @@ use DeviceDetector\Cache\CacheStatic;
 use DeviceDetector\Parser\Bot;
 use DeviceDetector\Parser\Client\ClientParserAbstract;
 use DeviceDetector\Parser\Device\HbbTv;
+use DeviceDetector\Parser\Device\Mobile;
 use \Spyc;
 
 class DeviceDetector
@@ -38,179 +39,6 @@ class DeviceDetector
      * @var array
      */
     public static $clientTypes = array();
-
-    /**
-     * Known device brands
-     *
-     * Note: Before using a new brand in on of the regex files, it needs to be added here
-     *
-     * @var array
-     */
-    public static $deviceBrands = array(
-        'AC' => 'Acer',
-        'AI' => 'Airness',
-        'AL' => 'Alcatel',
-        'AN' => 'Arnova',
-        'AO' => 'Amoi',
-        'AP' => 'Apple',
-        'AR' => 'Archos',
-        'AU' => 'Asus',
-        'AV' => 'Avvio',
-        'AX' => 'Audiovox',
-        'BB' => 'BBK',
-        'BE' => 'Becker',
-        'BI' => 'Bird',
-        'BL' => 'Beetel',
-        'BM' => 'Bmobile',
-        'BN' => 'Barnes & Noble',
-        'BO' => 'BangOlufsen',
-        'BQ' => 'BenQ',
-        'BS' => 'BenQ-Siemens',
-        'BX' => 'bq',
-        'CA' => 'Cat',
-        'CH' => 'Cherry Mobile',
-        'CK' => 'Cricket',
-        'CL' => 'Compal',
-        'CN' => 'CnM',
-        'CR' => 'CreNova',
-        'CT' => 'Capitel',
-        'CO' => 'Coolpad',
-        'CU' => 'Cube',
-        'DE' => 'Denver',
-        'DB' => 'Dbtel',
-        'DC' => 'DoCoMo',
-        'DI' => 'Dicam',
-        'DL' => 'Dell',
-        'DM' => 'DMM',
-        'DP' => 'Dopod',
-        'EC' => 'Ericsson',
-        'EI' => 'Ezio',
-        'ER' => 'Ericy',
-        'ET' => 'eTouch',
-        'EZ' => 'Ezze',
-        'FL' => 'Fly',
-        'GD' => 'Gemini',
-        'GI' => 'Gionee',
-        'GG' => 'Gigabyte',
-        'GO' => 'Google',
-        'GR' => 'Gradiente',
-        'GU' => 'Grundig',
-        'HA' => 'Haier',
-        'HP' => 'HP',
-        'HT' => 'HTC',
-        'HU' => 'Huawei',
-        'HX' => 'Humax',
-        'IA' => 'Ikea',
-        'IB' => 'iBall',
-        'IK' => 'iKoMo',
-        'IM' => 'i-mate',
-        'IN' => 'Innostream',
-        'II' => 'Inkti',
-        'IX' => 'Intex',
-        'IO' => 'i-mobile',
-        'IQ' => 'INQ',
-        'IT' => 'Intek',
-        'IV' => 'Inverto',
-        'JI' => 'Jiayu',
-        'JO' => 'Jolla',
-        'KA' => 'Karbonn',
-        'KD' => 'KDDI',
-        'KN' => 'Kindle',
-        'KO' => 'Konka',
-        'KT' => 'K-Touch',
-        'KH' => 'KT-Tech',
-        'KY' => 'Kyocera',
-        'LA' => 'Lanix',
-        'LC' => 'LCT',
-        'LE' => 'Lenovo',
-        'LN' => 'Lenco',
-        'LG' => 'LG',
-        'LO' => 'Loewe',
-        'LU' => 'LGUPlus',
-        'LX' => 'Lexibook',
-        'MA' => 'Manta Multimedia',
-        'MB' => 'Mobistel',
-        'MD' => 'Medion',
-        'ME' => 'Metz',
-        'MI' => 'MicroMax',
-        'MK' => 'MediaTek',
-        'MO' => 'Mio',
-        'MR' => 'Motorola',
-        'MS' => 'Microsoft',
-        'MT' => 'Mitsubishi',
-        'MY' => 'MyPhone',
-        'NE' => 'NEC',
-        'NG' => 'NGM',
-        'NI' => 'Nintendo',
-        'NK' => 'Nokia',
-        'NN' => 'Nikon',
-        'NW' => 'Newgen',
-        'NX' => 'Nexian',
-        'OD' => 'Onda',
-        'OP' => 'OPPO',
-        'OR' => 'Orange',
-        'OT' => 'O2',
-        'OU' => 'OUYA',
-        'PA' => 'Panasonic',
-        'PE' => 'PEAQ',
-        'PH' => 'Philips',
-        'PL' => 'Polaroid',
-        'PM' => 'Palm',
-        'PO' => 'phoneOne',
-        'PT' => 'Pantech',
-        'PP' => 'PolyPad',
-        'PR' => 'Prestigio',
-        'QT' => 'Qtek',
-        'RM' => 'RIM',
-        'RO' => 'Rover',
-        'SA' => 'Samsung',
-        'SD' => 'Sega',
-        'SE' => 'Sony Ericsson',
-        'SF' => 'Softbank',
-        'SG' => 'Sagem',
-        'SH' => 'Sharp',
-        'SI' => 'Siemens',
-        'SN' => 'Sendo',
-        'SO' => 'Sony',
-        'SP' => 'Spice',
-        'SU' => 'SuperSonic',
-        'SV' => 'Selevision',
-        'SY' => 'Sanyo',
-        'SM' => 'Symphony',
-        'SR' => 'Smart',
-        'TA' => 'Tesla',
-        'TC' => 'TCL',
-        'TE' => 'Telit',
-        'TH' => 'TiPhone',
-        'TI' => 'TIANYU',
-        'TL' => 'Telefunken',
-        'TM' => 'T-Mobile',
-        'TN' => 'Thomson',
-        'TO' => 'Toplux',
-        'TS' => 'Toshiba',
-        'TT' => 'TechnoTrend',
-        'TV' => 'TVC',
-        'TX' => 'TechniSat',
-        'TZ' => 'teXet',
-        'UT' => 'UTStarcom',
-        'VD' => 'Videocon',
-        'VE' => 'Vertu',
-        'VI' => 'Vitelcom',
-        'VK' => 'VK Mobile',
-        'VS' => 'ViewSonic',
-        'VT' => 'Vestel',
-        'VO' => 'Voxtel',
-        'VW' => 'Videoweb',
-        'WB' => 'Web TV',
-        'WE' => 'WellcoM',
-        'WO' => 'Wonu',
-        'WX' => 'Woxter',
-        'XI' => 'Xiaomi',
-        'XX' => 'Unknown',
-        'YU' => 'Yuandao',
-        'ZO' => 'Zonda',
-        'ZT' => 'ZTE',
-    );
 
     /**
      * Known operating systems mapped to their internal short codes
@@ -345,8 +173,6 @@ class DeviceDetector
 
     protected static $regexesDir            = '/regexes/';
     protected static $osRegexesFile         = 'oss.yml';
-    protected static $mobileRegexesFile     = 'mobiles.yml';
-    protected static $botRegexesFile        = 'bots.yml';
 
     /**
      * Holds the useragent that should be parsed
@@ -426,6 +252,7 @@ class DeviceDetector
 
     /**
      * @param ClientParserAbstract|string $parser
+     * @throws \Exception
      */
     public function addClientParser($parser)
     {
@@ -637,12 +464,16 @@ class DeviceDetector
             $this->model  = $hbbtv->getModel();
             $this->brand  = $hbbtv->getBrand();
         } else {
-            $this->parseMobile();
+            $mobile = new Mobile();
+            $mobile->setUserAgent($this->getUserAgent());
+            if ($mobile->parse()) {
+                $this->device = array_search($mobile->getDeviceType(), self::$deviceTypes);
+                $this->model  = $mobile->getModel();
+                $this->brand  = $mobile->getBrand();
+            }
         }
 
-        if (empty($this->device) && $hbbtv->isHbbTv()) {
-            $this->device = array_search('tv', self::$deviceTypes);
-        } else if (empty($this->device) && $this->isDesktop()) {
+        if (empty($this->device) && $this->isDesktop()) {
             $this->device = array_search('desktop', self::$deviceTypes);
         }
 
@@ -684,25 +515,6 @@ class DeviceDetector
         }
         return $regexOs;
     }
-
-    protected function getMobileRegexes()
-    {
-        static $regexMobile;
-        if (empty($regexMobile)) {
-            $regexMobile = $this->getRegexList('mobile', self::$mobileRegexesFile);
-        }
-        return $regexMobile;
-    }
-
-    protected function getTelevisionRegexes()
-    {
-        static $regexTvs;
-        if (empty($regexTvs)) {
-            $regexTvs = $this->getRegexList('tv', self::$televisionRegexesFile);
-        }
-        return $regexTvs;
-    }
-
 
     protected function saveParsedYmlInCache($type, $data)
     {
@@ -778,62 +590,6 @@ class DeviceDetector
         }
     }
 
-    protected function parseMobile()
-    {
-        $mobileRegexes = $this->getMobileRegexes();
-        $this->parseBrand($mobileRegexes);
-        $this->parseModel($mobileRegexes);
-    }
-
-    protected function parseBrand($deviceRegexes)
-    {
-        foreach ($deviceRegexes as $brand => $mobileRegex) {
-            $matches = $this->matchUserAgent($mobileRegex['regex']);
-            if ($matches)
-                break;
-        }
-
-        if (!$matches)
-            return;
-
-        $brandId = array_search($brand, self::$deviceBrands);
-        if($brandId === false) {
-            throw new \Exception("The brand with name '$brand' should be listed in the deviceBrands array.");
-        }
-        $this->brand = $brandId;
-        $this->fullName = $brand;
-
-        if (isset($mobileRegex['device'])) {
-            $this->device = array_search($mobileRegex['device'], self::$deviceTypes);
-        }
-
-        if (isset($mobileRegex['model'])) {
-            $this->model = $this->buildModel($mobileRegex['model'], $matches);
-        }
-    }
-
-    protected function parseModel($deviceRegexes)
-    {
-        if (empty($this->brand) || !empty($this->model) || empty($deviceRegexes[$this->fullName]['models']))
-            return;
-
-        foreach ($deviceRegexes[$this->fullName]['models'] as $modelRegex) {
-            $matches = $this->matchUserAgent($modelRegex['regex']);
-            if ($matches)
-                break;
-        }
-
-        if (!$matches) {
-            return;
-        }
-
-        $this->model = trim($this->buildModel($modelRegex['model'], $matches));
-
-        if (isset($modelRegex['device'])) {
-            $this->device = array_search($modelRegex['device'], self::$deviceTypes);
-        }
-    }
-
     protected function matchUserAgent($regex)
     {
         $regex = '/(?:^|[^A-Z_-])(?:' . str_replace('/', '\/', $regex) . ')/i';
@@ -853,29 +609,6 @@ class DeviceDetector
         $versionString = str_replace('_', '.', $versionString);
 
         return $versionString;
-    }
-
-    protected function buildModel($model, $matches)
-    {
-        $model = $this->buildByMatch($model, $matches);
-
-        $model = $this->buildByMatch($model, $matches, '2');
-
-        $model = $this->buildModelExceptions($model);
-
-        $model = str_replace('_', ' ', $model);
-
-        return $model;
-    }
-
-    protected function buildModelExceptions($model)
-    {
-        if ($this->brand == 'O2') {
-            $model = preg_replace('/([a-z])([A-Z])/', '$1 $2', $model);
-            $model = ucwords(str_replace('_', ' ', $model));
-        }
-
-        return $model;
     }
 
     /**

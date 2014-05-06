@@ -213,7 +213,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
             }
         }
 
-        if (!$matches) {
+        if (empty($matches)) {
             return false;
         }
 
@@ -224,7 +224,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         $this->brand = $brandId;
 
         if (isset($regex['device'])) {
-            $this->device = $regex['device'];
+            $this->deviceType = $regex['device'];
         }
 
         if (isset($regex['model'])) {
@@ -233,16 +233,16 @@ abstract class DeviceParserAbstract extends ParserAbstract
 
         if (isset($regex['models'])) {
             foreach ($regex['models'] as $modelRegex) {
-                $matches = $this->matchUserAgent($modelRegex['regex']);
-                if ($matches)
+                $modelMatches = $this->matchUserAgent($modelRegex['regex']);
+                if ($modelMatches)
                     break;
             }
 
-            if (!$matches) {
+            if (empty($modelMatches)) {
                 return true;
             }
 
-            $this->model = trim($this->buildModel($modelRegex['model'], $matches));
+            $this->model = trim($this->buildModel($modelRegex['model'], $modelMatches));
 
             if (isset($modelRegex['device'])) {
                 $this->deviceType = $modelRegex['device'];
@@ -256,8 +256,6 @@ abstract class DeviceParserAbstract extends ParserAbstract
     {
         $model = $this->buildByMatch($model, $matches);
 
-        $model = $this->buildByMatch($model, $matches, '2');
-
         $model = $this->buildModelExceptions($model);
 
         $model = str_replace('_', ' ', $model);
@@ -268,8 +266,8 @@ abstract class DeviceParserAbstract extends ParserAbstract
     protected function buildModelExceptions($model)
     {
         if ($this->brand == 'O2') {
-            #$model = preg_replace('/([a-z])([A-Z])/', '$1 $2', $model);
-            #$model = ucwords(str_replace('_', ' ', $model));
+            $model = preg_replace('/([a-z])([A-Z])/', '$1 $2', $model);
+            $model = ucwords(str_replace('_', ' ', $model));
         }
 
         return $model;

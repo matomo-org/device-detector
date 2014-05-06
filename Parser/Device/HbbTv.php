@@ -10,6 +10,7 @@ namespace DeviceDetector\Parser\Device;
 class HbbTv extends DeviceParserAbstract {
 
     protected $fixtureFile = 'regexes/device/televisions.yml';
+    protected $parserName = 'tv';
 
     /**
      * Parses the current UA and checks whether it contains HbbTv information
@@ -22,12 +23,10 @@ class HbbTv extends DeviceParserAbstract {
             return false;
         }
 
-        $result = parent::parse();
+        parent::parse();
 
         // always set device type to tv, even if no model/brand could be found
-        if (!$result) {
-            $this->deviceType = 'tv';
-        }
+        $this->deviceType = 'tv';
 
         return true;
     }
