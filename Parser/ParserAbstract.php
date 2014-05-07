@@ -11,6 +11,10 @@ use DeviceDetector\Cache\CacheInterface;
 use DeviceDetector\Cache\CacheStatic;
 use \Spyc;
 
+/**
+ * Class ParserAbstract
+ * @package DeviceDetector\Parser
+ */
 abstract class ParserAbstract {
 
     protected $fixtureFile;
@@ -41,10 +45,11 @@ abstract class ParserAbstract {
 
     protected function getRegexes()
     {
-        $regexList = $this->getCache()->get($this->parserName);
+        $cacheKey = 'DeviceDetector-regexes-'.$this->parserName;
+        $regexList = $this->getCache()->get($cacheKey);
         if (empty($regexList)) {
             $regexList = Spyc::YAMLLoad($this->fixtureFile);
-            $this->getCache()->set($this->parserName, $regexList);
+            $this->getCache()->set($cacheKey, $regexList);
         }
         return $regexList;
     }
@@ -85,7 +90,18 @@ abstract class ParserAbstract {
         return $item;
     }
 
-
+    /**
+     * Builds the version with the given $versionString and $matches
+     *
+     * Example:
+     * $versionString = 'v$2'
+     * $matches = array('version_1_0_1', '1_0_1')
+     * return value would be v1.0.1
+     *
+     * @param $versionString
+     * @param $matches
+     * @return mixed|string
+     */
     protected function buildVersion($versionString, $matches) {
         $versionString = $this->buildByMatch($versionString, $matches);
 
@@ -94,6 +110,16 @@ abstract class ParserAbstract {
         return $versionString;
     }
 
+    /**
+     * Tests the useragent against a combination of all regexes
+     *
+     * All regexes returned by getRegexes() will be reversed and concated with '|'
+     * Afterwards the big regex will be tested against the user agent
+     *
+     * Method can be used to speed up detections by making a big check before doing checks for every single regex
+     *
+     * @return bool
+     */
     protected function preMatchOverall()
     {
         $regexes = $this->getRegexes();

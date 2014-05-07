@@ -7,6 +7,15 @@
  */
 namespace DeviceDetector\Parser;
 
+/**
+ * Class Bot
+ *
+ * Parses a user agent for bot information
+ *
+ * Detected bots are defined in regexes/bots.yml
+ *
+ * @package DeviceDetector\Parser
+ */
 class Bot extends ParserAbstract {
 
     protected $fixtureFile = 'regexes/bots.yml';

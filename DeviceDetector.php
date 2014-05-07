@@ -12,6 +12,7 @@ use DeviceDetector\Cache\CacheInterface;
 use DeviceDetector\Cache\CacheStatic;
 use DeviceDetector\Parser\Bot;
 use DeviceDetector\Parser\Client\ClientParserAbstract;
+use DeviceDetector\Parser\Device\DeviceParserAbstract;
 use DeviceDetector\Parser\Device\HbbTv;
 use DeviceDetector\Parser\Device\Mobile;
 use DeviceDetector\Parser\OperatingSystem;
@@ -122,6 +123,10 @@ class DeviceDetector
         $this->addClientParser('MediaPlayer');
         $this->addClientParser('PIM');
         $this->addClientParser('Browser');
+
+        $this->addDeviceParser('HbbTv');
+        $this->addDeviceParser('Console');
+        $this->addDeviceParser('Mobile');
     }
 
     /**
@@ -152,6 +157,35 @@ class DeviceDetector
     public function getClientParsers()
     {
         return $this->clientParsers;
+    }
+
+    /**
+     * @var DeviceParserAbstract[]
+     */
+    protected $deviceParsers = array();
+
+    /**
+     * @param DeviceParserAbstract|string $parser
+     * @throws \Exception
+     */
+    public function addDeviceParser($parser)
+    {
+        if (is_string($parser) && class_exists('DeviceDetector\\Parser\\Device\\'.$parser)) {
+            $className = 'DeviceDetector\\Parser\\Device\\'.$parser;
+            $parser = new $className();
+        }
+
+        if ($parser instanceof DeviceParserAbstract) {
+            $this->deviceParsers[] = $parser;
+            return;
+        }
+
+        throw new \Exception('device parser not found');
+    }
+
+    public function getDeviceParsers()
+    {
+        return $this->deviceParsers;
     }
 
     /**
@@ -332,24 +366,54 @@ class DeviceDetector
          */
         $this->parseClient();
 
-        $hbbtv = new HbbTv();
-        $hbbtv->setUserAgent($this->getUserAgent());
-        $hbbtv->setCache($this->getCache());
-        if ($hbbtv->parse()) {
-            $this->device = array_search($hbbtv->getDeviceType(), self::$deviceTypes);
-            $this->model  = $hbbtv->getModel();
-            $this->brand  = $hbbtv->getBrand();
-        } else {
-            $mobile = new Mobile();
-            $mobile->setUserAgent($this->getUserAgent());
-            $mobile->setCache($this->getCache());
-            if ($mobile->parse()) {
-                $this->device = array_search($mobile->getDeviceType(), self::$deviceTypes);
-                $this->model  = $mobile->getModel();
-                $this->brand  = $mobile->getBrand();
+        $this->parseDevice();
+    }
+
+    /**
+     * Parses the UA for bot information using the Bot parser
+     */
+    protected function parseBot()
+    {
+        $botParser = new Bot();
+        $botParser->setUserAgent($this->getUserAgent());
+        if ($this->discardBotInformation) {
+            $botParser->discardDetails();
+        }
+        $this->bot = $botParser->parse();
+    }
+
+
+    protected function parseClient() {
+
+        $parsers = $this->getClientParsers();
+
+        foreach ($parsers AS $parser) {
+            $parser->setCache($this->getCache());
+            $parser->setUserAgent($this->getUserAgent());
+            $client = $parser->parse();
+            if (!empty($client)) {
+                $this->client = $client;
+                break;
+            }
+        }
+    }
+
+    protected function parseDevice() {
+
+        $parsers = $this->getDeviceParsers();
+
+        foreach ($parsers AS $parser) {
+            $parser->setCache($this->getCache());
+            $parser->setUserAgent($this->getUserAgent());
+            if ($parser->parse()) {
+                $this->device = array_search($parser->getDeviceType(), self::$deviceTypes);
+                $this->model  = $parser->getModel();
+                $this->brand  = $parser->getBrand();
+                break;
             }
         }
 
+        // set device type to desktop for all devices running a desktop os
         if (empty($this->device) && $this->isDesktop()) {
             $this->device = array_search('desktop', self::$deviceTypes);
         }
@@ -381,35 +445,6 @@ class DeviceDetector
          */
         if (empty($this->device) && in_array($this->getOs('short_name'), array('WI8', 'WRT')) && $this->isTouchEnabled()) {
             $this->device = array_search('tablet', self::$deviceTypes);
-        }
-    }
-
-    /**
-     * Parses the UA for bot information using the Bot parser
-     */
-    protected function parseBot()
-    {
-        $botParser = new Bot();
-        $botParser->setUserAgent($this->getUserAgent());
-        if ($this->discardBotInformation) {
-            $botParser->discardDetails();
-        }
-        $this->bot = $botParser->parse();
-    }
-
-
-    protected function parseClient() {
-
-        $parsers = $this->getClientParsers();
-
-        foreach ($parsers AS $parser) {
-            $parser->setCache($this->getCache());
-            $parser->setUserAgent($this->getUserAgent());
-            $client = $parser->parse();
-            if (!empty($client)) {
-                $this->client = $client;
-                break;
-            }
         }
     }
 

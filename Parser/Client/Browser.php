@@ -126,7 +126,7 @@ class Browser extends ClientParserAbstract {
      *
      * @var array
      */
-    public static $browserFamilies = array(
+    protected static $browserFamilies = array(
         'Android Browser'    => array('AN'),
         'BlackBerry Browser' => array('BB'),
         'Chrome'             => array('CH', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'RM'),
