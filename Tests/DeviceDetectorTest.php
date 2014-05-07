@@ -59,20 +59,4 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
         $fixtures = \Spyc::YAMLLoad($fixturesPath);
         return array_map(function($elem) {return array($elem);}, $fixtures);
     }
-
-    /**
-     * @dataProvider getAllOs
-     */
-    public function testOSInGroup($os)
-    {
-        $familyOs = call_user_func_array('array_merge', DeviceDetector::$osFamilies);
-        $this->assertContains($os, $familyOs);
-    }
-
-    public function getAllOs()
-    {
-        $allOs = array_keys(DeviceDetector::$operatingSystems);
-        $allOs = array_map(function($os){ return array($os); }, $allOs);
-        return $allOs;
-    }
 }

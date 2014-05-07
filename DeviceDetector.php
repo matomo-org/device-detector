@@ -14,6 +14,7 @@ use DeviceDetector\Parser\Bot;
 use DeviceDetector\Parser\Client\ClientParserAbstract;
 use DeviceDetector\Parser\Device\HbbTv;
 use DeviceDetector\Parser\Device\Mobile;
+use DeviceDetector\Parser\OperatingSystem;
 use \Spyc;
 
 class DeviceDetector
@@ -41,94 +42,6 @@ class DeviceDetector
     public static $clientTypes = array();
 
     /**
-     * Known operating systems mapped to their internal short codes
-     *
-     * @var array
-     */
-    public static $operatingSystems = array(
-        'AIX' => 'AIX',
-        'AND' => 'Android',
-        'AMG' => 'AmigaOS',
-        'ATV' => 'Apple TV',
-        'ARL' => 'Arch Linux',
-        'BTR' => 'BackTrack',
-        'SBA' => 'Bada',
-        'BEO' => 'BeOS',
-        'BLB' => 'BlackBerry OS',
-        'QNX' => 'BlackBerry Tablet OS',
-        'BMP' => 'Brew',
-        'CES' => 'CentOS',
-        'COS' => 'Chrome OS',
-        'DEB' => 'Debian',
-        'DFB' => 'DragonFly',
-        'FED' => 'Fedora',
-        'FOS' => 'Firefox OS',
-        'BSD' => 'FreeBSD',
-        'GNT' => 'Gentoo',
-        'GTV' => 'Google TV',
-        'HPX' => 'HP-UX',
-        'HAI' => 'Haiku OS',
-        'IRI' => 'IRIX',
-        'INF' => 'Inferno',
-        'KNO' => 'Knoppix',
-        'KBT' => 'Kubuntu',
-        'LIN' => 'Linux',
-        'LBT' => 'Lubuntu',
-        'MAC' => 'Mac',
-        'MDR' => 'Mandriva',
-        'SMG' => 'MeeGo',
-        'MIN' => 'Mint',
-        'NBS' => 'NetBSD',
-        'WII' => 'Nintendo',
-        'NDS' => 'Nintendo Mobile',
-        'OS2' => 'OS/2',
-        'T64' => 'OSF1',
-        'OBS' => 'OpenBSD',
-        'PSP' => 'PlayStation Portable',
-        'PS3' => 'PlayStation',
-        'PRS' => 'Presto',
-        'PPY' => 'Puppy',
-        'RHT' => 'Red Hat',
-        'ROS' => 'RISC OS',
-        'SAB' => 'Sabayon',
-        'SSE' => 'SUSE',
-        'SAF' => 'Sailfish OS',
-        'SLW' => 'Slackware',
-        'SOS' => 'Solaris',
-        'SYL' => 'Syllable',
-        'SYM' => 'Symbian',
-        'SYS' => 'Symbian OS',
-        'S40' => 'Symbian OS Series 40',
-        'S60' => 'Symbian OS Series 60',
-        'SY3' => 'Symbian^3',
-        'TIZ' => 'Tizen',
-        'UBT' => 'Ubuntu',
-        'WTV' => 'WebTV',
-        'WIN' => 'Windows',
-        'W2K' => 'Windows 2000',
-        'W31' => 'Windows 3.1',
-        'WI7' => 'Windows 7',
-        'WI8' => 'Windows 8',
-        'W95' => 'Windows 95',
-        'W98' => 'Windows 98',
-        'WCE' => 'Windows CE',
-        'WME' => 'Windows ME',
-        'WMO' => 'Windows Mobile',
-        'WNT' => 'Windows NT',
-        'WPH' => 'Windows Phone',
-        'WRT' => 'Windows RT',
-        'WS3' => 'Windows Server 2003',
-        'WVI' => 'Windows Vista',
-        'WXP' => 'Windows XP',
-        'XBX' => 'Xbox',
-        'XBT' => 'Xubuntu',
-        'YNS' => 'YunOs',
-        'IOS' => 'iOS',
-        'POS' => 'palmOS',
-        'WOS' => 'webOS'
-    );
-
-    /**
      * Operating system families that are known as desktop only
      *
      * @var array
@@ -136,43 +49,9 @@ class DeviceDetector
     protected static $desktopOsArray = array('AmigaOS', 'IBM', 'Linux', 'Mac', 'Unix', 'Windows', 'BeOS');
 
     /**
-     * Operating system families mapped to the short codes of the associated operating systems
-     *
-     * @var array
-     */
-    public static $osFamilies = array(
-        'Android'               => array('AND'),
-        'AmigaOS'               => array('AMG'),
-        'Apple TV'              => array('ATV'),
-        'BlackBerry'            => array('BLB', 'QNX'),
-        'Brew'                  => array('BMP'),
-        'BeOS'                  => array('BEO', 'HAI'),
-        'Chrome OS'             => array('COS'),
-        'Firefox OS'            => array('FOS'),
-        'Gaming Console'        => array('WII', 'PS3'),
-        'Google TV'             => array('GTV'),
-        'IBM'                   => array('OS2'),
-        'iOS'                   => array('IOS'),
-        'RISC OS'               => array('ROS'),
-        'Linux'                 => array('LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED', 'RHT', 'MDR', 'GNT', 'SAB', 'SLW', 'SSE', 'PPY', 'CES', 'BTR', 'YNS', 'PRS', 'SAF'),
-        'Mac'                   => array('MAC'),
-        'Mobile Gaming Console' => array('PSP', 'NDS', 'XBX'),
-        'Other Mobile'          => array('WOS', 'POS', 'SBA', 'TIZ', 'SMG'),
-        'Symbian'               => array('SYM', 'SYS', 'SY3', 'S60', 'S40'),
-        'Unix'                  => array('SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64', 'INF'),
-        'WebTV'                 => array('WTV'),
-        'Windows'               => array('WI7', 'WI8', 'WVI', 'WS3', 'WXP', 'W2K', 'WNT', 'WME', 'W98', 'W95', 'WRT', 'W31', 'WIN'),
-        'Windows Mobile'        => array('WPH', 'WMO', 'WCE')
-    );
-
-    /**
      * Constant used as value for unknown browser / os
      */
     const UNKNOWN = "UNK";
-
-
-    protected static $regexesDir            = '/regexes/';
-    protected static $osRegexesFile         = 'oss.yml';
 
     /**
      * Holds the useragent that should be parsed
@@ -328,16 +207,12 @@ class DeviceDetector
     public function isDesktop()
     {
         $osShort = $this->getOs('short_name');
-        if (empty($osShort) || empty(self::$operatingSystems[$osShort])) {
+        if (empty($osShort)) {
             return false;
         }
 
-        foreach (self::$osFamilies as $family => $familyOs) {
-            if (in_array($osShort, $familyOs)) {
-                $decodedFamily = $family;
-                break;
-            }
-        }
+        $decodedFamily = OperatingSystem::getOsFamily($osShort);
+
         return in_array($decodedFamily, self::$desktopOsArray);
     }
 
@@ -459,6 +334,7 @@ class DeviceDetector
 
         $hbbtv = new HbbTv();
         $hbbtv->setUserAgent($this->getUserAgent());
+        $hbbtv->setCache($this->getCache());
         if ($hbbtv->parse()) {
             $this->device = array_search($hbbtv->getDeviceType(), self::$deviceTypes);
             $this->model  = $hbbtv->getModel();
@@ -466,6 +342,7 @@ class DeviceDetector
         } else {
             $mobile = new Mobile();
             $mobile->setUserAgent($this->getUserAgent());
+            $mobile->setCache($this->getCache());
             if ($mobile->parse()) {
                 $this->device = array_search($mobile->getDeviceType(), self::$deviceTypes);
                 $this->model  = $mobile->getModel();
@@ -507,29 +384,6 @@ class DeviceDetector
         }
     }
 
-    protected function getOsRegexes()
-    {
-        static $regexOs;
-        if(empty($regexOs)) {
-            $regexOs = $this->getRegexList('os', self::$osRegexesFile);
-        }
-        return $regexOs;
-    }
-
-    protected function saveParsedYmlInCache($type, $data)
-    {
-        $this->getCache()->set($type, serialize($data));
-    }
-
-    protected function getParsedYmlFromCache($type)
-    {
-        $data = $this->getCache()->get($type);
-        if (!empty($data)) {
-            $data = unserialize($data);
-        }
-        return $data;
-    }
-
     /**
      * Parses the UA for bot information using the Bot parser
      */
@@ -549,6 +403,7 @@ class DeviceDetector
         $parsers = $this->getClientParsers();
 
         foreach ($parsers AS $parser) {
+            $parser->setCache($this->getCache());
             $parser->setUserAgent($this->getUserAgent());
             $client = $parser->parse();
             if (!empty($client)) {
@@ -560,34 +415,10 @@ class DeviceDetector
 
     protected function parseOs()
     {
-        foreach ($this->getOsRegexes() as $osRegex) {
-            $matches = $this->matchUserAgent($osRegex['regex']);
-            if ($matches)
-                break;
-        }
-
-        if (!$matches)
-            return;
-
-        $name  = $this->buildByMatch($osRegex['name'], $matches);
-        $short = 'UNK';
-
-        foreach (self::$operatingSystems AS $osShort => $osName) {
-            if (strtolower($name) == strtolower($osName)) {
-                $name  = $osName;
-                $short = $osShort;
-            }
-        }
-
-        $this->os = array(
-            'name'       => $name,
-            'short_name' => $short,
-            'version'    => $this->buildVersion($osRegex['version'], $matches)
-        );
-
-        if (in_array($this->os['name'], self::$operatingSystems)) {
-            $this->os['short_name'] = array_search($this->os['name'], self::$operatingSystems);
-        }
+        $osParser = new OperatingSystem();
+        $osParser->setUserAgent($this->getUserAgent());
+        $osParser->setCache($this->getCache());
+        $this->os = $osParser->parse();
     }
 
     protected function matchUserAgent($regex)
@@ -601,103 +432,12 @@ class DeviceDetector
         return false;
     }
 
-    protected function buildVersion($versionString, $matches) {
-        $versionString = $this->buildByMatch($versionString, $matches);
-
-        $versionString = $this->buildByMatch($versionString, $matches, '2');
-
-        $versionString = str_replace('_', '.', $versionString);
-
-        return $versionString;
-    }
-
-    /**
-     * This method is used in this class for processing results of pregmatch
-     * results into string containing recognized information.
-     *
-     * General algorithm:
-     * Parsing UserAgent string consists of trying to match it against list of
-     * regular expressions for three different information:
-     * browser + version,
-     * OS + version,
-     * device manufacturer + model.
-     *
-     * After match has been found iteration stops, and results are processed
-     * by buildByMatch.
-     * As $item we get decoded name (name of browser, name of OS, name of manufacturer).
-     * In array $match we recieve preg_match results containing whole string matched at index 0
-     * and following matches in further indexes. Desired action now is to concatenate
-     * decoded name ($item) with matches found. First step is to append first found match,
-     * which is located in index=1 (that's why $nb is 1 by default).
-     * In other cases, where whe know that preg_match may return more than 1 result,
-     * we call buildByMatch with $nb = 2 or more, depending on what will be returned from
-     * regular expression.
-     *
-     * Example:
-     * We are parsing UserAgent of Firefox 20.0 browser.
-     * DeviceDetector calls buildBrowserName() and buildBrowserVersion() in order
-     * to retrieve those information.
-     * In buildBrowserName() we only have one call of buildByMatch, where passed argument
-     * is regular expression testing given string for browser name. In this case, we are only
-     * interrested in first hit, so no $nb parameter will be set to 1. After finding match, and calling
-     * buildByMatch - we will receive just the name of browser.
-     *
-     * Also after decoding browser we will get list of regular expressions for this browser name
-     * testing UserAgent string for version number. Again we iterate over this list, and after finding first
-     * occurence - we break loop and proceed to build by match. Since browser regular expressions can
-     * contain two hits (major version and minor version) in function buildVersion() we have
-     * two calls to buildByMatch, one without 3rd parameter, and second with $nb set to 2.
-     * This way we can retrieve version number, and assign it to object property.
-     *
-     * In case of mobiles.yml this schema slightly varies, but general idea is the same.
-     *
-     * @param string $item
-     * @param array $matches
-     * @param int|string $nb
-     * @return string type
-     */
-    protected function buildByMatch($item, $matches, $nb = '1')
-    {
-        if (strpos($item, '$' . $nb) === false)
-            return $item;
-
-        $replace = isset($matches[$nb]) ? $matches[$nb] : '';
-        return trim(str_replace('$' . $nb, $replace, $item));
-    }
-
-    /**
-     * @param $osLabel
-     * @return bool|string If false, "Unknown"
-     */
-    public static function getOsFamily($osLabel)
-    {
-        foreach (self::$osFamilies as $family => $labels) {
-            if (in_array($osLabel, $labels)) {
-                return $family;
-            }
-        }
-        return false;
-    }
-
-    public static function getOsNameFromId($os, $ver = false)
-    {
-        $osFullName = self::$operatingSystems[$os];
-        if ($osFullName) {
-            if (in_array($os, self::$osFamilies['Windows'])) {
-                return $osFullName;
-            } else {
-                return trim($osFullName . " " . $ver);
-            }
-        }
-        return false;
-    }
-
     static public function getInfoFromUserAgent($ua)
     {
         $deviceDetector = new DeviceDetector($ua);
         $deviceDetector->parse();
 
-        $osFamily = $deviceDetector->getOsFamily($deviceDetector->getOs('short_name'));
+        $osFamily = OperatingSystem::getOsFamily($deviceDetector->getOs('short_name'));
         $browserFamily = \DeviceDetector\Parser\Client\Browser::getBrowserFamily($deviceDetector->getClient('short_name'));
         $device = $deviceDetector->getDevice();
 
@@ -726,17 +466,6 @@ class DeviceDetector
         return $processed;
     }
 
-    protected function getRegexList($type, $regexesFile)
-    {
-        $regexList = $this->getParsedYmlFromCache($type);
-        if (empty($regexList)) {
-            $regexList = Spyc::YAMLLoad(dirname(__FILE__) . self::$regexesDir . $regexesFile);
-            $this->saveParsedYmlInCache($type, $regexList);
-        }
-        return $regexList;
-    }
-
-
     /**
      * Sets the Cache class
      *
@@ -762,5 +491,4 @@ class DeviceDetector
 
         return new CacheStatic();
     }
-
 }
