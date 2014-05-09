@@ -11,31 +11,13 @@ namespace DeviceDetector;
 use DeviceDetector\Cache\CacheInterface;
 use DeviceDetector\Cache\CacheStatic;
 use DeviceDetector\Parser\Bot;
+use DeviceDetector\Parser\OperatingSystem;
 use DeviceDetector\Parser\Client\ClientParserAbstract;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
-use DeviceDetector\Parser\Device\HbbTv;
-use DeviceDetector\Parser\Device\Mobile;
-use DeviceDetector\Parser\OperatingSystem;
 use \Spyc;
 
 class DeviceDetector
 {
-    /**
-     * Detectable device types
-     * @var array
-     */
-    public static $deviceTypes = array(
-        'desktop',          // 0
-        'smartphone',       // 1
-        'tablet',           // 2
-        'feature phone',    // 3
-        'console',          // 4
-        'tv',               // 5
-        'car browser',      // 6
-        'smart display',    // 7
-        'camera'            // 8
-    );
-
     /**
      * Holds all registered client types
      * @var array
@@ -76,7 +58,7 @@ class DeviceDetector
      * Holds the device type after parsing the UA
      * @var string
      */
-    protected $device = '';
+    protected $device = null;
 
     /**
      * Holds the device brand data after parsing the UA
@@ -297,13 +279,29 @@ class DeviceDetector
     /**
      * Returns the device type extracted from the parsed UA
      *
-     * @see self::$deviceTypes for available device types
+     * @see DeviceParserAbstract::$deviceTypes for available device types
      *
-     * @return string
+     * @return int|null
      */
     public function getDevice()
     {
         return $this->device;
+    }
+
+    /**
+     * Returns the device type extracted from the parsed UA
+     *
+     * @see DeviceParserAbstract::$deviceTypes for available device types
+     *
+     * @return string
+     */
+    public function getDeviceName()
+    {
+        if ($this->getDevice() !== null) {
+            return DeviceParserAbstract::getDeviceName($this->getDevice());
+        }
+
+        return '';
     }
 
     /**
@@ -406,16 +404,11 @@ class DeviceDetector
             $parser->setCache($this->getCache());
             $parser->setUserAgent($this->getUserAgent());
             if ($parser->parse()) {
-                $this->device = array_search($parser->getDeviceType(), self::$deviceTypes);
+                $this->device = $parser->getDeviceType();
                 $this->model  = $parser->getModel();
                 $this->brand  = $parser->getBrand();
                 break;
             }
-        }
-
-        // set device type to desktop for all devices running a desktop os
-        if (empty($this->device) && $this->isDesktop()) {
-            $this->device = array_search('desktop', self::$deviceTypes);
         }
 
         /**
@@ -426,11 +419,11 @@ class DeviceDetector
          * So were are expecting that all devices running Android < 2 are smartphones
          * Devices running Android 3.X are tablets. Device type of Android 2.X and 4.X+ are unknown
          */
-        if (empty($this->device) && $this->getOs('short_name') == 'AND' && $this->getOs('version') != '') {
+        if (is_null($this->device) && $this->getOs('short_name') == 'AND' && $this->getOs('version') != '') {
             if (version_compare($this->getOs('version'), '2.0') == -1) {
-                $this->device = array_search('smartphone', self::$deviceTypes);
+                $this->device = DeviceParserAbstract::DEVICE_TYPE_SMARTPHONE;
             } else if (version_compare($this->getOs('version'), '3.0') >= 0 AND version_compare($this->getOs('version'), '4.0') == -1) {
-                $this->device = array_search('tablet', self::$deviceTypes);
+                $this->device = DeviceParserAbstract::DEVICE_TYPE_TABLET;
             }
         }
 
@@ -443,8 +436,13 @@ class DeviceDetector
          * As most touch enabled devices are tablets and only a smaller part are desktops/notebooks we assume that
          * all Windows 8 touch devices are tablets.
          */
-        if (empty($this->device) && in_array($this->getOs('short_name'), array('WI8', 'WRT')) && $this->isTouchEnabled()) {
-            $this->device = array_search('tablet', self::$deviceTypes);
+        if (is_null($this->device) && in_array($this->getOs('short_name'), array('WI8', 'WRT')) && $this->isTouchEnabled()) {
+            $this->device = DeviceParserAbstract::DEVICE_TYPE_TABLET;
+        }
+
+        // set device type to desktop for all devices running a desktop os that were not detected as an other device type
+        if (is_null($this->device) && $this->isDesktop()) {
+            $this->device = DeviceParserAbstract::DEVICE_TYPE_DESKTOP;
         }
     }
 
@@ -481,9 +479,7 @@ class DeviceDetector
 
         $osFamily = OperatingSystem::getOsFamily($deviceDetector->getOs('short_name'));
         $browserFamily = \DeviceDetector\Parser\Client\Browser::getBrowserFamily($deviceDetector->getClient('short_name'));
-        $device = $deviceDetector->getDevice();
 
-        $deviceName = $device === '' ? '' : DeviceDetector::$deviceTypes[$device];
         $processed = array(
             'user_agent'     => $deviceDetector->getUserAgent(),
             'os'             => array(
@@ -498,7 +494,7 @@ class DeviceDetector
                 'version'    => $deviceDetector->getClient('version'),
             ),
             'device'         => array(
-                'type'       => $deviceName,
+                'type'       => $deviceDetector->getDeviceName(),
                 'brand'      => $deviceDetector->getBrand(),
                 'model'      => $deviceDetector->getModel(),
             ),

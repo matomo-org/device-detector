@@ -7,8 +7,20 @@
  */
 namespace DeviceDetector\Cache;
 
+/**
+ * Class CacheStatic
+ *
+ * Simple Cache that caches in a static property
+ * (Speeds up multiple detections in one request)
+ *
+ * @package DeviceDetector\Cache
+ */
 class CacheStatic implements CacheInterface
 {
+    /**
+     * Holds the static cache data
+     * @var array
+     */
     static protected $staticCache = array();
 
     public function set($key, $value)

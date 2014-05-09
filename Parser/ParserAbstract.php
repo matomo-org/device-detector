@@ -15,11 +15,31 @@ use \Spyc;
  * Class ParserAbstract
  * @package DeviceDetector\Parser
  */
-abstract class ParserAbstract {
-
+abstract class ParserAbstract
+{
+    /**
+     * Holds the path to the yml file containing regexes
+     * @var string
+     */
     protected $fixtureFile;
+    /**
+     * Holds the internal name of the parser
+     * Used for caching
+     * @var string
+     */
     protected $parserName;
+
+    /**
+     * Holds the user agent the should be parsed
+     * @var string
+     */
     protected $userAgent;
+
+    /**
+     * Holds an array with method that should be available global
+     * @var array
+     */
+    protected $globalMethods;
 
     /**
      * @var CacheInterface
@@ -33,19 +53,34 @@ abstract class ParserAbstract {
         $this->setUserAgent($ua);
     }
 
+    /**
+     * Sets the user agent to parse
+     *
+     * @param string $ua  user agent
+     */
     public function setUserAgent($ua)
     {
         $this->userAgent = $ua;
     }
 
+    /**
+     * Returns the internal name of the parser
+     *
+     * @return string
+     */
     public function getName()
     {
         return $this->parserName;
     }
 
+    /**
+     * Returns the result of the parsed yml file defined in $fixtureFile
+     *
+     * @return array
+     */
     protected function getRegexes()
     {
-        $cacheKey = 'DeviceDetector-regexes-'.$this->parserName;
+        $cacheKey = 'DeviceDetector-regexes-'.$this->getName();
         $regexList = $this->getCache()->get($cacheKey);
         if (empty($regexList)) {
             $regexList = Spyc::YAMLLoad($this->fixtureFile);

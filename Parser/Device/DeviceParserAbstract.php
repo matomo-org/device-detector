@@ -15,6 +15,32 @@ abstract class DeviceParserAbstract extends ParserAbstract
     protected $model = null;
     protected $brand = null;
 
+    const DEVICE_TYPE_DESKTOP       = 0;
+    const DEVICE_TYPE_SMARTPHONE    = 1;
+    const DEVICE_TYPE_TABLET        = 2;
+    const DEVICE_TYPE_FEATURE_PHONE = 3;
+    const DEVICE_TYPE_CONSOLE       = 4;
+    const DEVICE_TYPE_TV            = 5;
+    const DEVICE_TYPE_CAR_BROWSER   = 6;
+    const DEVICE_TYPE_SMART_DISPLAY = 7;
+    const DEVICE_TYPE_CAMERA        = 8;
+
+    /**
+     * Detectable device types
+     * @var array
+     */
+    public static $deviceTypes = array(
+        'desktop'       => self::DEVICE_TYPE_DESKTOP,
+        'smartphone'    => self::DEVICE_TYPE_SMARTPHONE,
+        'tablet'        => self::DEVICE_TYPE_TABLET,
+        'feature phone' => self::DEVICE_TYPE_FEATURE_PHONE,
+        'console'       => self::DEVICE_TYPE_CONSOLE,
+        'tv'            => self::DEVICE_TYPE_TV,
+        'car browser'   => self::DEVICE_TYPE_CAR_BROWSER,
+        'smart display' => self::DEVICE_TYPE_SMART_DISPLAY,
+        'camera'        => self::DEVICE_TYPE_CAMERA
+    );
+
     /**
      * Known device brands
      *
@@ -193,6 +219,16 @@ abstract class DeviceParserAbstract extends ParserAbstract
         return $this->deviceType;
     }
 
+    public static function getAvailableDeviceTypes()
+    {
+        return self::$deviceTypes;
+    }
+
+    public static function getDeviceName($deviceType)
+    {
+        return array_search($deviceType, self::$deviceTypes);
+    }
+
     public function getModel()
     {
         return $this->model;
@@ -223,8 +259,8 @@ abstract class DeviceParserAbstract extends ParserAbstract
         }
         $this->brand = $brandId;
 
-        if (isset($regex['device'])) {
-            $this->deviceType = $regex['device'];
+        if (isset($regex['device']) && in_array($regex['device'], self::$deviceTypes)) {
+            $this->deviceType = self::$deviceTypes[$regex['device']];
         }
 
         if (isset($regex['model'])) {
@@ -244,8 +280,8 @@ abstract class DeviceParserAbstract extends ParserAbstract
 
             $this->model = trim($this->buildModel($modelRegex['model'], $modelMatches));
 
-            if (isset($modelRegex['device'])) {
-                $this->deviceType = $modelRegex['device'];
+            if (isset($modelRegex['device']) && in_array($modelRegex['device'], self::$deviceTypes)) {
+                $this->deviceType = self::$deviceTypes[$modelRegex['device']];
             }
         }
 

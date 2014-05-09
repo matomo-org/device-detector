@@ -26,7 +26,7 @@ class HbbTv extends DeviceParserAbstract {
         parent::parse();
 
         // always set device type to tv, even if no model/brand could be found
-        $this->deviceType = 'tv';
+        $this->deviceType = self::DEVICE_TYPE_TV;
 
         return true;
     }

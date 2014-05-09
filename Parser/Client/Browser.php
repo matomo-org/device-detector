@@ -7,6 +7,13 @@
  */
 namespace DeviceDetector\Parser\Client;
 
+/**
+ * Class Browser
+ *
+ * Client parser for browser detection
+ *
+ * @package DeviceDetector\Parser\Client
+ */
 class Browser extends ClientParserAbstract {
 
     protected $fixtureFile = 'regexes/client/browsers.yml';
@@ -140,6 +147,10 @@ class Browser extends ClientParserAbstract {
         'Sailfish Browser'   => array('SA')
     );
 
+    /**
+     * Returns list of all available Browsers
+     * @return array
+     */
     public static function getAvailableBrowsers()
     {
         return self::$availableBrowsers;
