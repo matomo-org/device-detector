@@ -108,6 +108,8 @@ class DeviceDetector
 
         $this->addDeviceParser('HbbTv');
         $this->addDeviceParser('Console');
+        $this->addDeviceParser('CarBrowser');
+        $this->addDeviceParser('Camera');
         $this->addDeviceParser('Mobile');
     }
 
