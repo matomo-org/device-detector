@@ -472,6 +472,13 @@ class DeviceDetector
         $deviceDetector = new DeviceDetector($ua);
         $deviceDetector->parse();
 
+        if ($deviceDetector->isBot()) {
+            return array(
+                'user_agent' => $deviceDetector->getUserAgent(),
+                'bot'        => $deviceDetector->getBot()
+            );
+        }
+
         $osFamily = OperatingSystem::getOsFamily($deviceDetector->getOs('short_name'));
         $browserFamily = \DeviceDetector\Parser\Client\Browser::getBrowserFamily($deviceDetector->getClient('short_name'));
         $device = $deviceDetector->getDevice();
