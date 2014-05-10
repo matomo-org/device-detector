@@ -213,11 +213,20 @@ Amoi:
 # Archos
 Archos:
   regex: 'Archos'
-  device: 'tablet'
+  device: 'smartphone'
   models:
-    - regex: 'ARCHOS ([a-z0-9 ]+) Build'
+    - regex: 'Archos ?5 Build'
+      device: 'tablet'
+      model: '5'
+    - regex: 'Archos ([^/;]*(?:PAD)[^/;]*) Build'
+      device: 'tablet'
       model: '$1'
-    - regex: 'ARCHOS ([a-z0-9]+)'
+    - regex: 'Archos ((?:[789]|10)[0-9]?[a-z]* ?(?:G9|G10|Helium|Titanium|Cobalt|Platinum|Xenon|Carbon|Neon|XS|IT)[^/;]*) Build'
+      device: 'tablet'
+      model: '$1'
+    - regex: 'Archos ([a-z0-9 ]+) Build'
+      model: '$1'
+    - regex: 'Archos ([a-z0-9]+)'
       model: '$1'
 
 # Arnova
@@ -726,7 +735,7 @@ Lenovo:
       device: 'tablet'
     - regex: 'Lenovo ([^/;]*) Build'
       model: '$1'
-    - regex: '(?:LNV-)?Lenovo[ \-_]([a-z0-9]+)'
+    - regex: '(?:LNV-|Lenovo-)?Lenovo[ \-_]([a-z0-9]+)'
       model: '$1'
     - regex: 'IdeaTab[ \-_]?([a-z0-9]+)'
       model: 'IdeaTab $1'
