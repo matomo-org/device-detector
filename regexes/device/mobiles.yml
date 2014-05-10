@@ -808,9 +808,14 @@ Manta Multimedia:
 
 #Medion
 Medion:
-  regex: '(?:MD_)?LIFETAB_([a-z0-9]+)'
-  device: 'tablet'
-  model: 'Lifetab $1'
+  regex: 'Medion|(?:MD_)?LIFETAB'
+  device: 'smartphone'
+  models:
+    - regex: '(?:MD_)?LIFETAB_([a-z0-9]+)'
+      device: 'tablet'
+      model: 'Lifetab $1'
+    - regex: 'Medion ([^/;]+) Build'
+      model: '$1'
 
 # mio
 Mio:
