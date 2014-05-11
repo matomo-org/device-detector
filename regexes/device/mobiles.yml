@@ -416,9 +416,16 @@ Denver:
 
 # Dell
 Dell:
-  regex: 'Dell;? ([a-z0-9 ]+)'
+  regex: 'Dell'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'Dell Streak([^/;]*) Build'
+      model: 'Streak$1'
+      device: 'tablet'
+    - regex: 'Dell; ([^;/\)]+)'
+      model: '$1'
+    - regex: 'Dell[ _-]([^/;]+) Build'
+      model: '$1'
 
 # Dbtel
 Dbtel:
