@@ -68,6 +68,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'BO' => 'BangOlufsen',
         'BQ' => 'BenQ',
         'BS' => 'BenQ-Siemens',
+        'BU' => 'Blu',
         'BX' => 'bq',
         'CA' => 'Cat',
         'CH' => 'Cherry Mobile',
