@@ -766,7 +766,7 @@ Lenovo:
       device: 'tablet'
     - regex: 'Lenovo ([^/;]*) Build'
       model: '$1'
-    - regex: '(?:LNV-|Lenovo-)?Lenovo[ \-_]([a-z0-9]+)'
+    - regex: '(?:LNV-|Lenovo-)?Lenovo[ \-_]([a-z0-9_+-]+)'
       model: '$1'
     - regex: 'IdeaTab[ \-_]?([a-z0-9]+)'
       model: 'IdeaTab $1'
@@ -839,6 +839,20 @@ Sagem:
       model: '$1'
     - regex: 'portalmmm/2.0 ((?:SG|my)[a-z0-9]+)'
       model: '$1'
+
+# Mpman
+Mpman:
+  regex: '(MPQC|MPDC)[0-9]+|PH(?:150|340|350|360|451|500|520)|(MID(?:82C|84C|801|811|701|711|170|77C|43C|102C|103C)|MP(?:843|717|718|1010|7007|7008|843|888|959|969)|MGP7) Build'
+  device: 'tablet'
+  models:
+    - regex: '((?:MPQC|MPDC)[0-9]+[^/;]+) Build'
+      model: '$1'
+    - regex: '(MID(?:82C|84C|801|811|701|711|170|77C|43C|102C|103C)|MP(?:843|717|718|1010|7007|7008|843|888|959|969)|MGP7) Build'
+      model: '$1'
+    - regex: '(PH(?:150|340|350|360|451|500|520))'
+      model: '$1'
+      device: 'smartphone'
+
 
 # Manta Multimedia
 Manta Multimedia:
