@@ -164,9 +164,13 @@ MicroMax:
 
 # Acer
 Acer:
-  regex: 'acer[\-_]([a-z0-9]+)|a(101|110|200|210|211|500|501|510|511|700|701) Build'
+  regex: 'acer|a(101|110|200|210|211|500|501|510|511|700|701) Build'
   device: 'smartphone'
   models:
+    - regex: 'Acer; ?([^;\)]+)'
+      model: '$1'
+    - regex: 'Acer[ _-]?([^;\)]+) Build'
+      model: '$1'
     - regex: 'acer[\-_]([a-z0-9]+)'
       model: '$1'
     - regex: 'a(101|110|200|210|211|500|501|510|511|700|701) Build'
