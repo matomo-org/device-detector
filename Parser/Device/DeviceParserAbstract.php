@@ -145,6 +145,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'MM' => 'Mpman',
         'MR' => 'Motorola',
         'MS' => 'Microsoft',
+        'MU' => 'Memup',
         'MT' => 'Mitsubishi',
         'MY' => 'MyPhone',
         'NE' => 'NEC',
