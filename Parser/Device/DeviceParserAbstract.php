@@ -167,6 +167,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'PT' => 'Pantech',
         'PP' => 'PolyPad',
         'PR' => 'Prestigio',
+        'QI' => 'Qilive',
         'QT' => 'Qtek',
         'RM' => 'RIM',
         'RO' => 'Rover',
