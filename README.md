@@ -5,7 +5,14 @@ The Universal Device Detection library, that parses User Agents and detects devi
 
 ## Usage
 
+Using DeviceDetector with composer is quite easy. Just add piwik/device-detector to your projects requirements. And use some code like this one:
+
+
 ```php
+require_one 'vendor/autoload.php'
+
+use DeviceDetector/DeviceDetector;
+
 $dd = new DeviceDetector($userAgent);
 
 // OPTIONAL: If called, getBot() will only return true if a bot was detected  (speeds up detection a bit)
