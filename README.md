@@ -38,11 +38,27 @@ Build status (master branch) [![Build Status](https://travis-ci.org/piwik/device
 
 See also: [QA at Piwik](http://piwik.org/qa/)
 
-## Contributors
+## Contributing
 
-Created by the [Piwik team](http://piwik.org/team/), Stefan Giehl, Matthieu Aubry, Michał Gaździk, 
+
+### Hacking the library
+
+This is an open source library under license GPL v3 or later.
+
+Your pull requests and/or feedback is very welcome!
+
+### Listing all user agents from your logs
+Sometimes it may be useful to generate the list of most used user agents on your website,
+extracting this list from your access logs using the following command:
+
+```
+zcat ~/path/to/access/logs* | awk -F'"' '{print $6}' | sort | uniq -c | sort -rn | head -n20000 > /home/piwik/top-user-agents.txt
+```
+
+### Contributors
+Created by the [Piwik team](http://piwik.org/team/), Stefan Giehl, Matthieu Aubry, Michał Gaździk,
 Tomasz Majczak, Grzegorz Kaszuba, Piotr Banaszczyk and contributors.
 
-Together we can build the best Device Detection library. 
+Together we can build the best Device Detection library.
 
 We are looking forward to your contributions and pull requests!
