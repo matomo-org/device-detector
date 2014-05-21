@@ -426,7 +426,7 @@ class DeviceDetector
      * @var \Piwik\CacheFile
      */
     protected $cache = null;
-    private static $browserCache = Array ();
+    protected static $browserCache = array();
 
     public function __construct($userAgent)
     {
