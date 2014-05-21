@@ -660,9 +660,14 @@ Innostream:
 
 # Inq
 INQ:
-  regex: 'INQ/([a-z0-9\-]+)'
+  regex: 'INQ[/ ]'
   device: 'feature phone'
-  model: '$1'
+  models:
+    - regex: 'INQ/([a-z0-9\-]+)'
+      model: '$1'
+    - regex: 'INQ ([^;/]+) Build'
+      model: '$1'
+      device: 'smartphone'
 
 # Intex
 Intex:
