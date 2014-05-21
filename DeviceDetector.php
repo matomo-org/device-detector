@@ -426,6 +426,7 @@ class DeviceDetector
      * @var \Piwik\CacheFile
      */
     protected $cache = null;
+    private static $browserCache = Array ();
 
     public function __construct($userAgent)
     {
@@ -549,14 +550,22 @@ class DeviceDetector
 
     protected function parseOs()
     {
+    	if(  array_key_exists($this->userAgent,self::$browserCache) && array_key_exists('Os',self::$browserCache[ $this->userAgent ])) {
+    		$this->os = self::$browserCache[ $this->userAgent ]['Os'];
+    		return;
+    	}
+
         foreach ($this->getOsRegexes() as $osRegex) {
             $matches = $this->matchUserAgent($osRegex['regex']);
             if ($matches)
                 break;
         }
 
-        if (!$matches)
-            return;
+        if (!$matches) {
+        	self::$browserCache[ $this->userAgent ]['Os'] = false;
+        	return;
+	}
+
 
         $name  = $this->buildOsName($osRegex['name'], $matches);
         $short = 'UNK';
@@ -577,18 +586,26 @@ class DeviceDetector
         if (array_key_exists($this->os['name'], self::$osShorts)) {
             $this->os['short_name'] = self::$osShorts[$this->os['name']];
         }
+        self::$browserCache[ $this->userAgent ]['Os'] = $this->os;
     }
 
     protected function parseBrowser()
     {
+    	if(  array_key_exists($this->userAgent,self::$browserCache) && array_key_exists('Browser',self::$browserCache[ $this->userAgent ])) {
+			$this->browser = self::$browserCache[ $this->userAgent ]['Browser'];
+    		return;
+    	}
+
         foreach ($this->getBrowserRegexes() as $browserRegex) {
             $matches = $this->matchUserAgent($browserRegex['regex']);
             if ($matches)
                 break;
         }
 
-        if (!$matches)
+        if (!$matches) {
+	    self::$browserCache[ $this->userAgent ]['Browser'] = false;
             return;
+	}
 
         $name  = $this->buildBrowserName($browserRegex['name'], $matches);
         $short = 'XX';
@@ -605,6 +622,7 @@ class DeviceDetector
             'short_name' => $short,
             'version'    => $this->buildBrowserVersion($browserRegex['version'], $matches)
         );
+	self::$browserCache[ $this->userAgent ]['Browser'] = $this->browser;
     }
 
     protected function parseMobile()
@@ -623,14 +641,24 @@ class DeviceDetector
 
     protected function parseBrand($deviceRegexes)
     {
+    	if(  array_key_exists($this->userAgent,self::$browserCache) && array_key_exists('Brand',self::$browserCache[ $this->userAgent ])) {
+		$this->brand = self::$browserCache[ $this->userAgent ]['Brand']['Id'];
+		$this->fullName = self::$browserCache[ $this->userAgent ]['Brand']['Name'];
+		$this->device = self::$browserCache[ $this->userAgent ]['Brand']['Device'];
+		$this->model = self::$browserCache[ $this->userAgent ]['Brand']['Model'];
+    		return;
+    	}
+
         foreach ($deviceRegexes as $brand => $mobileRegex) {
             $matches = $this->matchUserAgent($mobileRegex['regex']);
             if ($matches)
                 break;
         }
 
-        if (!$matches)
+        if (!$matches) {
+	    self::$browserCache[ $this->userAgent ]['Brand'] = false;
             return;
+	}
 
         $brandId = array_search($brand, self::$deviceBrands);
         if($brandId === false) {
@@ -646,6 +674,13 @@ class DeviceDetector
         if (isset($mobileRegex['model'])) {
             $this->model = $this->buildModel($mobileRegex['model'], $matches);
         }
+
+	self::$browserCache[ $this->userAgent ]['Brand'] = Array(
+		'Id' => $this->brand,
+		'Name' => $this->fullName,
+		'Device' => $this->device,
+		'Model' => $this->model
+	);
     }
 
     protected function parseModel($deviceRegexes)
