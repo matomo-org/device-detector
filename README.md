@@ -9,7 +9,7 @@ Using DeviceDetector with composer is quite easy. Just add piwik/device-detector
 
 
 ```php
-require_one 'vendor/autoload.php'
+require_once 'vendor/autoload.php'
 
 use DeviceDetector/DeviceDetector;
 
