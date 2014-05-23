@@ -9,6 +9,6 @@ namespace DeviceDetector\Parser\Client;
 
 use DeviceDetector\Parser\ParserAbstract;
 
-abstract class ClientParserAbstract extends ParserAbstract {
-
+abstract class ClientParserAbstract extends ParserAbstract
+{
 }

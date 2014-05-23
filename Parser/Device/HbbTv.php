@@ -7,18 +7,26 @@
  */
 namespace DeviceDetector\Parser\Device;
 
-class HbbTv extends DeviceParserAbstract {
-
+/**
+ * Class HbbTv
+ *
+ * Device parser for hbbtv detection
+ *
+ * @package DeviceDetector\Parser\Device
+ */
+class HbbTv extends DeviceParserAbstract
+{
     protected $fixtureFile = 'regexes/device/televisions.yml';
     protected $parserName = 'tv';
 
     /**
      * Parses the current UA and checks whether it contains HbbTv information
      *
-     * @see televisions.yml for list of detected personal information managers
+     * @see televisions.yml for list of detected televisions
      */
     public function parse()
     {
+        // only parse user agents containing hbbtv fragment
         if (!$this->isHbbTv()) {
             return false;
         }

@@ -9,6 +9,13 @@ namespace DeviceDetector\Parser\Device;
 
 use DeviceDetector\Parser\ParserAbstract;
 
+/**
+ * Class DeviceParserAbstract
+ *
+ * Abstract class for all device parsers
+ *
+ * @package DeviceDetector\Parser\Device
+ */
 abstract class DeviceParserAbstract extends ParserAbstract
 {
     protected $deviceType = null;
@@ -230,26 +237,54 @@ abstract class DeviceParserAbstract extends ParserAbstract
         return $this->deviceType;
     }
 
+    /**
+     * Returns available device types
+     *
+     * @see $deviceTypes
+     * @return array
+     */
     public static function getAvailableDeviceTypes()
     {
         return self::$deviceTypes;
     }
 
+    /**
+     * Returns names of all available device types
+     *
+     * @return array
+     */
     public static function getAvailableDeviceTypeNames()
     {
         return array_keys(self::$deviceTypes);
     }
 
+    /**
+     * Returns the name of the given device type
+     *
+     * @param int $deviceType one of the DEVICE_TYPE_* constants
+     *
+     * @return mixed
+     */
     public static function getDeviceName($deviceType)
     {
         return array_search($deviceType, self::$deviceTypes);
     }
 
+    /**
+     * Returns the detected device model
+     *
+     * @return string
+     */
     public function getModel()
     {
         return $this->model;
     }
 
+    /**
+     * Returns the detected device brand
+     *
+     * @return string
+     */
     public function getBrand()
     {
         return $this->brand;
@@ -324,5 +359,4 @@ abstract class DeviceParserAbstract extends ParserAbstract
 
         return $model;
     }
-
 }

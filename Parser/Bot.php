@@ -16,12 +16,15 @@ namespace DeviceDetector\Parser;
  *
  * @package DeviceDetector\Parser
  */
-class Bot extends ParserAbstract {
-
+class Bot extends ParserAbstract
+{
     protected $fixtureFile = 'regexes/bots.yml';
     protected $parserName = 'bot';
     protected $discardDetails = false;
 
+    /**
+     * Enables information discarding
+     */
     public function discardDetails()
     {
         $this->discardDetails = true;

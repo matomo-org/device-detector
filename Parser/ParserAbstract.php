@@ -13,6 +13,7 @@ use \Spyc;
 
 /**
  * Class ParserAbstract
+ *
  * @package DeviceDetector\Parser
  */
 abstract class ParserAbstract
@@ -137,7 +138,8 @@ abstract class ParserAbstract
      * @param $matches
      * @return mixed|string
      */
-    protected function buildVersion($versionString, $matches) {
+    protected function buildVersion($versionString, $matches)
+    {
         $versionString = $this->buildByMatch($versionString, $matches);
 
         $versionString = str_replace('_', '.', $versionString);
@@ -205,5 +207,4 @@ abstract class ParserAbstract
 
         return new CacheStatic();
     }
-
 }

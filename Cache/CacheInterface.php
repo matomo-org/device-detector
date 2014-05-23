@@ -14,8 +14,8 @@ namespace DeviceDetector\Cache;
  *
  * @package DeviceDetector\Cache
  */
-interface CacheInterface {
-
+interface CacheInterface
+{
     /**
      * Sets data for $key in cache to $value
      *

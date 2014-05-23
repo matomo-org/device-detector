@@ -36,5 +36,4 @@ class CacheStatic implements CacheInterface
 
         return null;
     }
-
 }

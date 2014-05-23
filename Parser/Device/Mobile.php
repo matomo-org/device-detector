@@ -7,9 +7,15 @@
  */
 namespace DeviceDetector\Parser\Device;
 
-class Mobile extends DeviceParserAbstract {
-
+/**
+ * Class Mobile
+ *
+ * Device parser for mobile detection
+ *
+ * @package DeviceDetector\Parser\Device
+ */
+class Mobile extends DeviceParserAbstract
+{
     protected $fixtureFile = 'regexes/device/mobiles.yml';
     protected $parserName  = 'mobile';
-
 }

@@ -17,8 +17,8 @@ namespace DeviceDetector\Parser;
  *
  * @package DeviceDetector\Parser
  */
-class OperatingSystem extends ParserAbstract {
-
+class OperatingSystem extends ParserAbstract
+{
     protected $fixtureFile = 'regexes/oss.yml';
     protected $parserName = 'os';
 
@@ -140,11 +140,21 @@ class OperatingSystem extends ParserAbstract {
         'Windows Mobile'        => array('WPH', 'WMO', 'WCE')
     );
 
+    /**
+     * Returns all available operating systems
+     *
+     * @return array
+     */
     public static function getAvailableOperatingSystems()
     {
         return self::$operatingSystems;
     }
 
+    /**
+     * Returns all available operating system families
+     *
+     * @return array
+     */
     public static function getAvailableOperatingSystemFamilies()
     {
         return self::$osFamilies;
@@ -187,6 +197,8 @@ class OperatingSystem extends ParserAbstract {
     }
 
     /**
+     * Returns the operating system family for the given operating system
+     *
      * @param $osLabel
      * @return bool|string If false, "Unknown"
      */
@@ -200,6 +212,14 @@ class OperatingSystem extends ParserAbstract {
         return false;
     }
 
+    /**
+     * Returns the full name for the given short name
+     *
+     * @param      $os
+     * @param bool $ver
+     *
+     * @return bool|string
+     */
     public static function getOsNameFromId($os, $ver = false)
     {
         $osFullName = self::$operatingSystems[$os];

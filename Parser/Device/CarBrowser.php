@@ -7,8 +7,15 @@
  */
 namespace DeviceDetector\Parser\Device;
 
-class CarBrowser extends DeviceParserAbstract {
-
+/**
+ * Class CarBrowser
+ *
+ * Device parser for car browser detection
+ *
+ * @package DeviceDetector\Parser\Device
+ */
+class CarBrowser extends DeviceParserAbstract
+{
     protected $fixtureFile = 'regexes/device/car_browsers.yml';
     protected $parserName  = 'car browser';
 
@@ -20,5 +27,4 @@ class CarBrowser extends DeviceParserAbstract {
 
         return parent::parse();
     }
-
 }

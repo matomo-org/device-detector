@@ -14,8 +14,8 @@ namespace DeviceDetector\Parser\Client;
  *
  * @package DeviceDetector\Parser\Client
  */
-class Browser extends ClientParserAbstract {
-
+class Browser extends ClientParserAbstract
+{
     protected $fixtureFile = 'regexes/client/browsers.yml';
     protected $parserName = 'browser';
 
@@ -148,7 +148,7 @@ class Browser extends ClientParserAbstract {
     );
 
     /**
-     * Returns list of all available Browsers
+     * Returns list of all available browsers
      * @return array
      */
     public static function getAvailableBrowsers()
@@ -157,7 +157,7 @@ class Browser extends ClientParserAbstract {
     }
 
     /**
-     * Returns list of all available Browser families
+     * Returns list of all available browser families
      * @return array
      */
     public static function getAvailableBrowserFamilies()

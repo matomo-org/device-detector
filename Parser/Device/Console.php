@@ -7,8 +7,15 @@
  */
 namespace DeviceDetector\Parser\Device;
 
-class Console extends DeviceParserAbstract {
-
+/**
+ * Class Console
+ *
+ * Device parser for console detection
+ *
+ * @package DeviceDetector\Parser\Device
+ */
+class Console extends DeviceParserAbstract
+{
     protected $fixtureFile = 'regexes/device/consoles.yml';
     protected $parserName  = 'console';
 
@@ -20,5 +27,4 @@ class Console extends DeviceParserAbstract {
 
         return parent::parse();
     }
-
 }

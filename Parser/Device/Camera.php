@@ -7,8 +7,15 @@
  */
 namespace DeviceDetector\Parser\Device;
 
-class Camera extends DeviceParserAbstract {
-
+/**
+ * Class Camera
+ *
+ * Device parser for camera detection
+ *
+ * @package DeviceDetector\Parser\Device
+ */
+class Camera extends DeviceParserAbstract
+{
     protected $fixtureFile = 'regexes/device/cameras.yml';
     protected $parserName  = 'camera';
 
