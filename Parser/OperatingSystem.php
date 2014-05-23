@@ -220,7 +220,7 @@ class OperatingSystem extends ParserAbstract
      *
      * @return bool|string
      */
-    public static function getOsNameFromId($os, $ver = false)
+    public static function getNameFromId($os, $ver = false)
     {
         $osFullName = self::$operatingSystems[$os];
         if ($osFullName) {
