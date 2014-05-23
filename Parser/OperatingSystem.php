@@ -27,7 +27,7 @@ class OperatingSystem extends ParserAbstract {
      *
      * @var array
      */
-    public static $operatingSystems = array(
+    protected static $operatingSystems = array(
         'AIX' => 'AIX',
         'AND' => 'Android',
         'AMG' => 'AmigaOS',
@@ -115,7 +115,7 @@ class OperatingSystem extends ParserAbstract {
      *
      * @var array
      */
-    public static $osFamilies = array(
+    protected static $osFamilies = array(
         'Android'               => array('AND'),
         'AmigaOS'               => array('AMG'),
         'Apple TV'              => array('ATV'),
@@ -140,6 +140,15 @@ class OperatingSystem extends ParserAbstract {
         'Windows Mobile'        => array('WPH', 'WMO', 'WCE')
     );
 
+    public static function getAvailableOperatingSystems()
+    {
+        return self::$operatingSystems;
+    }
+
+    public static function getAvailableOperatingSystemFamilies()
+    {
+        return self::$osFamilies;
+    }
 
     public function parse()
     {

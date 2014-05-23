@@ -156,6 +156,15 @@ class Browser extends ClientParserAbstract {
         return self::$availableBrowsers;
     }
 
+    /**
+     * Returns list of all available Browser families
+     * @return array
+     */
+    public static function getAvailableBrowserFamilies()
+    {
+        return self::$browserFamilies;
+    }
+
 
     /**
      * @param $browserLabel

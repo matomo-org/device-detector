@@ -29,7 +29,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
      * Detectable device types
      * @var array
      */
-    public static $deviceTypes = array(
+    protected static $deviceTypes = array(
         'desktop'       => self::DEVICE_TYPE_DESKTOP,
         'smartphone'    => self::DEVICE_TYPE_SMARTPHONE,
         'tablet'        => self::DEVICE_TYPE_TABLET,
@@ -233,6 +233,11 @@ abstract class DeviceParserAbstract extends ParserAbstract
     public static function getAvailableDeviceTypes()
     {
         return self::$deviceTypes;
+    }
+
+    public static function getAvailableDeviceTypeNames()
+    {
+        return array_keys(self::$deviceTypes);
     }
 
     public static function getDeviceName($deviceType)
