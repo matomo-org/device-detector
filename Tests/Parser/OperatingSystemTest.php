@@ -17,13 +17,13 @@ class OperatingSystemTest extends \PHPUnit_Framework_TestCase
      */
     public function testOSInGroup($os)
     {
-        $familyOs = call_user_func_array('array_merge', OperatingSystem::$osFamilies);
+        $familyOs = call_user_func_array('array_merge', OperatingSystem::getAvailableOperatingSystemFamilies());
         $this->assertContains($os, $familyOs);
     }
 
     public function getAllOs()
     {
-        $allOs = array_keys(OperatingSystem::$operatingSystems);
+        $allOs = array_keys(OperatingSystem::getAvailableOperatingSystems());
         $allOs = array_map(function($os){ return array($os); }, $allOs);
         return $allOs;
     }
