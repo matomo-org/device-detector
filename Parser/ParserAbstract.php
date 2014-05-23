@@ -83,7 +83,7 @@ abstract class ParserAbstract
         $cacheKey = 'DeviceDetector-regexes-'.$this->getName();
         $regexList = $this->getCache()->get($cacheKey);
         if (empty($regexList)) {
-            $regexList = Spyc::YAMLLoad($this->fixtureFile);
+            $regexList = Spyc::YAMLLoad(dirname(__DIR__).DIRECTORY_SEPARATOR.$this->fixtureFile);
             $this->getCache()->set($cacheKey, $regexList);
         }
         return $regexList;
