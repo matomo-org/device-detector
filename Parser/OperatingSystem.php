@@ -222,8 +222,8 @@ class OperatingSystem extends ParserAbstract
      */
     public static function getNameFromId($os, $ver = false)
     {
-        $osFullName = self::$operatingSystems[$os];
-        if ($osFullName) {
+        if (array_key_exists($os, self::$operatingSystems)) {
+            $osFullName = self::$operatingSystems[$os];
             if (in_array($os, self::$osFamilies['Windows'])) {
                 return $osFullName;
             } else {
