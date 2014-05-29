@@ -165,7 +165,7 @@ abstract class ParserAbstract
         static $overAllMatch;
 
         $cacheKey = $this->parserName.'-all';
-        $cacheKey = preg_replace('([a-z0-9_-]+)', '', $cacheKey);
+        $cacheKey = preg_replace('([^a-z0-9_-]+)', '', $cacheKey);
 
         if (empty($overAllMatch)) {
             $overAllMatch = $this->getCache()->get($cacheKey);
