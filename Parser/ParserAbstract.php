@@ -82,6 +82,7 @@ abstract class ParserAbstract
     protected function getRegexes()
     {
         $cacheKey = 'DeviceDetector-regexes-'.$this->getName();
+        $cacheKey = preg_replace('([^a-z0-9_-]+)', '', $cacheKey);
         $regexList = $this->getCache()->get($cacheKey);
         if (empty($regexList)) {
             $regexList = Spyc::YAMLLoad(dirname(__DIR__).DIRECTORY_SEPARATOR.$this->fixtureFile);
@@ -163,8 +164,11 @@ abstract class ParserAbstract
 
         static $overAllMatch;
 
+        $cacheKey = $this->parserName.'-all';
+        $cacheKey = preg_replace('([a-z0-9_-]+)', '', $cacheKey);
+
         if (empty($overAllMatch)) {
-            $overAllMatch = $this->getCache()->get($this->parserName.'-all');
+            $overAllMatch = $this->getCache()->get($cacheKey);
         }
 
         if (empty($overAllMatch)) {
