@@ -180,7 +180,7 @@ abstract class ParserAbstract
                     return $val2['regex'];
                 }
             });
-            $this->getCache()->set($this->parserName.'-all', $overAllMatch);
+            $this->getCache()->set($cacheKey, $overAllMatch);
         }
 
         return $this->matchUserAgent($overAllMatch);
