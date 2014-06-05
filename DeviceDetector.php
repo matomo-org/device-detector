@@ -319,6 +319,18 @@ class DeviceDetector
     }
 
     /**
+     * Returns the full device brand name extracted from the parsed UA
+     *
+     * @see self::$deviceBrand for available device brands
+     *
+     * @return string
+     */
+    public function getBrandName()
+    {
+        return DeviceParserAbstract::getFullName($this->getBrand());
+    }
+
+    /**
      * Returns the device model extracted from the parsed UA
      *
      * @return string

@@ -290,6 +290,21 @@ abstract class DeviceParserAbstract extends ParserAbstract
         return $this->brand;
     }
 
+    /**
+     * Returns the full brand name for the given short name
+     *
+     * @param string $brandId  short brand name
+     * @return string
+     */
+    public static function getFullName($brandId)
+    {
+        if (array_key_exists($brandId, self::$deviceBrands)) {
+            return self::$deviceBrands[$brandId];
+        }
+
+        return '';
+    }
+
     public function parse()
     {
         $regexes = $this->getRegexes();
