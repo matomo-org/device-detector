@@ -11,7 +11,7 @@ Using DeviceDetector with composer is quite easy. Just add piwik/device-detector
 ```php
 require_once 'vendor/autoload.php'
 
-use DeviceDetector/DeviceDetector;
+use DeviceDetector\DeviceDetector;
 
 $dd = new DeviceDetector($userAgent);
 
