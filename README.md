@@ -43,7 +43,7 @@ See also: [QA at Piwik](http://piwik.org/qa/)
 
 ### Hacking the library
 
-This is an open source library under license GPL v3 or later.
+This is a free/libre library under license GPL v3 or later.
 
 Your pull requests and/or feedback is very welcome!
 
