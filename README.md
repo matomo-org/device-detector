@@ -32,14 +32,7 @@ if ($dd->isBot()) {
 }
 ```
 
-## Tests
-
-Build status (master branch) [![Build Status](https://travis-ci.org/piwik/device-detector.png?branch=master)](https://travis-ci.org/piwik/device-detector)
-
-See also: [QA at Piwik](http://piwik.org/qa/)
-
 ## Contributing
-
 
 ### Hacking the library
 
@@ -62,3 +55,18 @@ Tomasz Majczak, Grzegorz Kaszuba, Piotr Banaszczyk and contributors.
 Together we can build the best Device Detection library.
 
 We are looking forward to your contributions and pull requests!
+
+## Tests
+
+Build status (master branch) [![Build Status](https://travis-ci.org/piwik/device-detector.png?branch=master)](https://travis-ci.org/piwik/device-detector)
+
+See also: [QA at Piwik](http://piwik.org/qa/)
+
+### Running tests
+
+```
+cd /path/to/device-detector
+curl -sS https://getcomposer.org/installer | php
+php composer.phar install
+phpunit
+```
