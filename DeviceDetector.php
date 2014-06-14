@@ -365,6 +365,11 @@ class DeviceDetector
      */
     public function parse()
     {
+        // skip parsing for empty useragents or those not containing any letter
+        if (empty($this->userAgent) || preg_match('[a-z]', $this->userAgent)) {
+            return;
+        }
+
         $this->parseBot();
         if ($this->isBot())
             return;
