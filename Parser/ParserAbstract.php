@@ -43,6 +43,12 @@ abstract class ParserAbstract
     protected $globalMethods;
 
     /**
+     * Holds an array with regexes to parse, if already loaded
+     * @var array
+     */
+    protected $regexList;
+
+    /**
      * @var CacheInterface
      */
     protected $cache;
@@ -81,14 +87,16 @@ abstract class ParserAbstract
      */
     protected function getRegexes()
     {
-        $cacheKey = 'DeviceDetector-regexes-'.$this->getName();
-        $cacheKey = preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
-        $regexList = $this->getCache()->get($cacheKey);
-        if (empty($regexList)) {
-            $regexList = Spyc::YAMLLoad(dirname(__DIR__).DIRECTORY_SEPARATOR.$this->fixtureFile);
-            $this->getCache()->set($cacheKey, $regexList);
+        if (empty($this->regexList)) {
+            $cacheKey = 'DeviceDetector-regexes-'.$this->getName();
+            $cacheKey = preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
+            $this->regexList = $this->getCache()->get($cacheKey);
+            if (empty($this->regexList)) {
+                $this->regexList = Spyc::YAMLLoad(dirname(__DIR__).DIRECTORY_SEPARATOR.$this->fixtureFile);
+                $this->getCache()->set($cacheKey, $this->regexList);
+            }
         }
-        return $regexList;
+        return $this->regexList;
     }
 
     /**
