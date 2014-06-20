@@ -1273,10 +1273,13 @@ Softbank:
 
 # Sony
 Sony:
-  regex: 'Sony(?! ?Ericsson)'
+  regex: 'Sony(?! ?Ericsson)|SGP'
   device: 'smartphone'
   models:
     - regex: 'Sony (Tablet[^/;]*) Build'
+      model: '$1'
+      device: 'tablet'
+    - regex: '(SGP[^/;]*) Build'
       model: '$1'
       device: 'tablet'
     - regex: 'Sony[ ]?([^/;]*) Build'
