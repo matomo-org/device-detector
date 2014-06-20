@@ -36,4 +36,12 @@ class CacheStatic implements CacheInterface
 
         return null;
     }
+
+    /**
+     * Resets the static cache
+     */
+    public static function reset()
+    {
+        self::$staticCache = array();
+    }
 }
