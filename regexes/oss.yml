@@ -21,12 +21,17 @@
   name: 'Sailfish OS'
   version: ''
 
-
+##########
+# YunOS (Android based)
+##########
+- regex: '(?:Ali)?YunOS[ /]?(\d+(?:\.\d+)+)?'
+  name: 'YunOS'
+  version: '$1'
 
 ##########
 # Android
 ##########
-- regex: '(?:Android|Adr)[ /](?:[a-z]+ )?(\d+\.\d+)'
+- regex: '(?:Android|Adr)[ /](?:[a-z]+ )?(\d+(?:\.\d+)+)'
   name: 'Android'
   version: '$1'
   
@@ -39,7 +44,7 @@
 ##########
 # AmigaOS
 ##########
-- regex: 'AmigaOS[ ]?(\d+\.\d+)'
+- regex: 'AmigaOS[ ]?(\d+(?:\.\d+)+)'
   name: 'AmigaOS'
   version: '$1'
 
@@ -51,15 +56,15 @@
 ##########
 # Linux
 ##########
-- regex: 'Arch ?Linux(?:[ /\-](\d+\.\d+))?'
+- regex: 'Arch ?Linux(?:[ /\-](\d+(?:\.\d+)+))?'
   name: 'Arch Linux'
   version: '$1'
 
-- regex: 'Linux; .*((?:Debian|Knoppix|Mint|Ubuntu|Kubuntu|Xubuntu|Lubuntu|Fedora|Red Hat|Mandriva|Gentoo|Sabayon|Slackware|SUSE|Puppy|CentOS|BackTrack|YunOs|Presto))[ /](\d+\.\d+)'
+- regex: 'Linux; .*((?:Debian|Knoppix|Mint|Ubuntu|Kubuntu|Xubuntu|Lubuntu|Fedora|Red Hat|Mandriva|Gentoo|Sabayon|Slackware|SUSE|Puppy|CentOS|BackTrack|Presto))[ /](\d+(?:\.\d+)+)'
   name: '$1'
   version: '$2'
 
-- regex: '(Debian|Knoppix|Mint|Ubuntu|Kubuntu|Xubuntu|Lubuntu|Fedora|Red Hat|Mandriva|Gentoo|Sabayon|Slackware|SUSE|Puppy|CentOS|BackTrack|YunOs)(?: Linux)?(?:[ /\-](\d+\.\d+))?'
+- regex: '(Debian|Knoppix|Mint|Ubuntu|Kubuntu|Xubuntu|Lubuntu|Fedora|Red Hat|Mandriva|Gentoo|Sabayon|Slackware|SUSE|Puppy|CentOS|BackTrack)(?:(?: Enterprise)? Linux)?(?:[ /\-](\d+(?:\.\d+)+))?'
   name: '$1'
   version: '$2'
 
@@ -68,7 +73,7 @@
 ##########
 # Windows Mobile
 ##########
-- regex: 'Windows Phone (?:OS)?[ ]?(\d+\.\d+)'
+- regex: 'Windows Phone (?:OS)?[ ]?(\d+(?:\.\d+)+)'
   name: 'Windows Phone'
   version: '$1'
   
@@ -82,7 +87,7 @@
   version: ''
   
   
-- regex: '(?:IEMobile|Windows Mobile)(?: (\d+\.\d+))?'
+- regex: '(?:IEMobile|Windows Mobile)(?: (\d+(?:\.\d+)+))?'
   name: 'Windows Mobile'
   version: '$1'
   
@@ -96,15 +101,15 @@
 ##########
 # webOS
 ##########
-- regex: '(?:webOS|Palm webOS)(?:/(\d+\.\d+))?'
+- regex: '(?:webOS|Palm webOS)(?:/(\d+(?:\.\d+)+))?'
   name: 'webOS'
   version: '$1'
 
-- regex: '(?:PalmOS|Palm OS)(?:[/ ](\d+\.\d+))?|Palm'
+- regex: '(?:PalmOS|Palm OS)(?:[/ ](\d+(?:\.\d+)+))?|Palm'
   name: 'palmOS'
   version: '$1'
 
-- regex: 'Xiino(?:.*v\. (\d+\.\d+))?'  # palmOS only browser
+- regex: 'Xiino(?:.*v\. (\d+(?:\.\d+)+))?'  # palmOS only browser
   name: 'palmOS'
   version: '$1'
 
@@ -177,7 +182,7 @@
 ##########
 # iOS
 ##########
-- regex: '(?:CPU OS|iPhone OS|iOS)[ _](\d+(?:[_\.]\d+)?)'
+- regex: '(?:CPU OS|iPhone OS|iOS)[ _](\d+(?:[_\.]\d+)*)'
   name: 'iOS'
   version: '$1'
 
@@ -190,7 +195,7 @@
 ##########
 # Mac
 ##########
-- regex: 'Mac OS X(?: (?:Version )?(\d+[_.]\d+))?'
+- regex: 'Mac OS X(?: (?:Version )?(\d+(?:[_\.]\d+)+))?'
   name: 'Mac'
   version: '$1'
   
@@ -203,7 +208,7 @@
 ##########
 # ChromeOS
 ##########
-- regex: 'CrOS [a-z0-9_]+ (\d+\.\d+)'
+- regex: 'CrOS [a-z0-9_]+ (\d+(?:\.\d+)+)'
   name: 'Chrome OS'
   version: '$1'
   
@@ -212,12 +217,12 @@
 ##########
 # BlackBerry
 ##########
-- regex: '(?:BB10;.+Version|Black[Bb]erry[0-9a-z]+|Black[Bb]erry.+Version)/(\d+\.\d+)'
+- regex: '(?:BB10;.+Version|Black[Bb]erry[0-9a-z]+|Black[Bb]erry.+Version)/(\d+(?:\.\d+)+)'
   name: 'BlackBerry OS'
   version: '$1'
   
   
-- regex: 'RIM Tablet OS (\d+\.\d+)'
+- regex: 'RIM Tablet OS (\d+(?:\.\d+)+)'
   name: 'BlackBerry Tablet OS'
   version: '$1'
   
@@ -268,7 +273,7 @@
   version: ''
 
 
-- regex: '(?:Series ?60|SymbOS|S60)(?:[ /]?(\d+\.\d+|V\d+))?'
+- regex: '(?:Series ?60|SymbOS|S60)(?:[ /]?(\d+(?:\.\d+)+|V\d+))?'
   name: 'Symbian OS Series 60'
   version: '$1'
 
@@ -278,7 +283,7 @@
   version: ''
 
 
-- regex: 'SymbianOS/(\d+\.\d+)'
+- regex: 'SymbianOS/(\d+(?:\.\d+)+)'
   name: 'Symbian OS'
   version: '$1'
   
@@ -310,7 +315,7 @@
 ##########
 # RISC OS
 ##########
-- regex: 'RISC OS(?:-NC)?(?:[ /](\d+\.\d+))?'
+- regex: 'RISC OS(?:-NC)?(?:[ /](\d+(?:\.\d+)+))?'
   name: 'RISC OS'
   version: '$1'
 
@@ -318,7 +323,7 @@
 ##########
 # Inferno
 ##########
-- regex: 'Inferno(?:[ /](\d+\.\d+))?'
+- regex: 'Inferno(?:[ /](\d+(?:\.\d+)+))?'
   name: 'Inferno'
   version: '$1'
 
@@ -326,7 +331,7 @@
 ##########
 # Bada
 ##########
-- regex: 'bada(?:[ /](\d+\.\d+))'
+- regex: 'bada(?:[ /](\d+(?:\.\d+)+))'
   name: 'Bada'
   version: '$1'
   
@@ -339,7 +344,7 @@
 ##########
 # Brew
 ##########
-- regex: '(?:Brew MP|BREW|BMP)(?:[ /](\d+\.\d+))'
+- regex: '(?:Brew MP|BREW|BMP)(?:[ /](\d+(?:\.\d+)+))'
   name: 'Brew'
   version: '$1'
 
@@ -352,17 +357,17 @@
 ##########
 # Web TV
 ##########
-- regex: 'GoogleTV[ /](\d+\.\d+)|GoogleTV'
+- regex: 'GoogleTV[ /](\d+(?:\.\d+)+)|GoogleTV'
   name: 'Google TV'
   version: '$1'
   
   
-- regex: 'AppleTV(?:/?(\d+\.\d+))?'
+- regex: 'AppleTV(?:/?(\d+(?:\.\d+)+))?'
   name: 'Apple TV'
   version: '$1'
   
   
-- regex: 'WebTV/(\d+\.\d+)'
+- regex: 'WebTV/(\d+(?:\.\d+)+)'
   name: 'WebTV'
   version: '$1'
   
@@ -371,52 +376,52 @@
 ##########
 # Unix
 ##########
-- regex: '(?:SunOS|Solaris)(?:[/ ](\d+\.\d+))?'
+- regex: '(?:SunOS|Solaris)(?:[/ ](\d+(?:\.\d+)+))?'
   name: 'Solaris'
   version: '$1'
   
   
-- regex: 'AIX(?:[/ ]?(\d+\.\d+))?'
+- regex: 'AIX(?:[/ ]?(\d+(?:\.\d+)+))?'
   name: 'AIX'
   version: '$1'
   
   
-- regex: 'HP-UX(?:[/ ]?(\d+\.\d+))?'
+- regex: 'HP-UX(?:[/ ]?(\d+(?:\.\d+)+))?'
   name: 'HP-UX'
   version: '$1'
   
   
-- regex: 'FreeBSD(?:[/ ]?(\d+\.\d+))?'
+- regex: 'FreeBSD(?:[/ ]?(\d+(?:\.\d+)+))?'
   name: 'FreeBSD'
   version: '$1'
   
   
-- regex: 'NetBSD(?:[/ ]?(\d+\.\d+))?'
+- regex: 'NetBSD(?:[/ ]?(\d+(?:\.\d+)+))?'
   name: 'NetBSD'
   version: '$1'
   
   
-- regex: 'OpenBSD(?:[/ ]?(\d+\.\d+))?'
+- regex: 'OpenBSD(?:[/ ]?(\d+(?:\.\d+)+))?'
   name: 'OpenBSD'
   version: '$1'
   
   
-- regex: 'DragonFly(?:[/ ]?(\d+\.\d+))?'
+- regex: 'DragonFly(?:[/ ]?(\d+(?:\.\d+)+))?'
   name: 'DragonFly'
   version: '$1'
   
   
-- regex: 'Syllable(?:[/ ]?(\d+\.\d+))?'
+- regex: 'Syllable(?:[/ ]?(\d+(?:\.\d+)+))?'
   name: 'Syllable'
   version: '$1'
   
   
-- regex: 'IRIX(?:[/ ]?(\d+\.\d+))'
+- regex: 'IRIX(?:[/ ]?(\d+(?:\.\d+)+))'
   name: 'IRIX'
   version: '$1'
   
   
-- regex: 'OSF1(?:[/ ]?v?(\d+\.\d+))?'
+- regex: 'OSF1(?:[/ ]?v?(\d+(?:\.\d+)+))?'
   name: 'OSF1'
   version: '$1'
   

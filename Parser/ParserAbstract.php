@@ -49,6 +49,43 @@ abstract class ParserAbstract
     protected $regexList;
 
     /**
+     * Indicates how deep versioning will be detected
+     * if $maxMinorParts is 0 only the major version will be returned
+     * @var int
+     */
+    protected static $maxMinorParts = 1;
+
+    /**
+     * Versioning constant used to set max versioning to major version only
+     * Version examples are: 3, 5, 6, 200, 123, ...
+     */
+
+    const VERSION_TRUNCATION_MAJOR = 0;
+
+    /**
+     * Versioning constant used to set max versioning to minor version
+     * Version examples are: 3.4, 5.6, 6.234, 0.200, 1.23, ...
+     */
+    const VERSION_TRUNCATION_MINOR = 1;
+
+    /**
+     * Versioning constant used to set max versioning to path level
+     * Version examples are: 3.4.0, 5.6.344, 6.234.2, 0.200.3, 1.2.3, ...
+     */
+    const VERSION_TRUNCATION_PATCH = 2;
+
+    /**
+     * Versioning constant used to set versioning to build number
+     * Version examples are: 3.4.0.12, 5.6.334.0, 6.234.2.3, 0.200.3.1, 1.2.3.0, ...
+     */
+    const VERSION_TRUNCATION_BUILD = 3;
+
+    /**
+     * Versioning constant used to set versioning to unlimited (no truncation)
+     */
+    const VERSION_TRUNCATION_NONE  = null;
+
+    /**
      * @var CacheInterface
      */
     protected $cache;
@@ -58,6 +95,17 @@ abstract class ParserAbstract
     public function __construct($ua='')
     {
         $this->setUserAgent($ua);
+    }
+
+    public static function setVersionTruncation($type)
+    {
+        if(in_array($type, array(self::VERSION_TRUNCATION_BUILD,
+                                 self::VERSION_TRUNCATION_NONE,
+                                 self::VERSION_TRUNCATION_MAJOR,
+                                 self::VERSION_TRUNCATION_MINOR,
+                                 self::VERSION_TRUNCATION_PATCH))) {
+            self::$maxMinorParts = $type;
+        }
     }
 
     /**
@@ -150,9 +198,12 @@ abstract class ParserAbstract
     protected function buildVersion($versionString, $matches)
     {
         $versionString = $this->buildByMatch($versionString, $matches);
-
         $versionString = str_replace('_', '.', $versionString);
-
+        if (null !== self::$maxMinorParts) {
+            $versionParts = explode('.', $versionString);
+            $versionParts = array_slice($versionParts, 0, 1+self::$maxMinorParts);
+            $versionString = implode('.', $versionParts);
+        }
         return $versionString;
     }
 

@@ -8,6 +8,7 @@
 namespace DeviceDetector\Tests;
 
 use DeviceDetector\DeviceDetector;
+use DeviceDetector\Parser\Device\DeviceParserAbstract;
 use \Spyc;
 
 class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
@@ -19,6 +20,7 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
     public function testParse($fixtureData)
     {
         $ua = $fixtureData['user_agent'];
+        DeviceParserAbstract::setVersionTruncation(DeviceParserAbstract::VERSION_TRUNCATION_NONE);
         $uaInfo = DeviceDetector::getInfoFromUserAgent($ua);
         $this->assertEquals($fixtureData, $uaInfo);
     }
