@@ -40,6 +40,28 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @dataProvider getVersionTruncationFixtures
+     */
+    public function versionTruncationTest($useragent, $truncationType, $osVersion, $clientVersion)
+    {
+        DeviceParserAbstract::setVersionTruncation($truncationType);
+        $dd = new DeviceDetector($useragent);
+        $this->assertEquals($osVersion, $dd->getOs('version'));
+        $this->assertEquals($clientVersion, $dd->getClient('version'));
+    }
+
+    public function getVersionTruncationFixtures()
+    {
+        return array(
+            array('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', DeviceParserAbstract::VERSION_TRUNCATION_NONE, '4.2.2', '34.0.1847.114'),
+            array('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', DeviceParserAbstract::VERSION_TRUNCATION_BUILD, '4.2.2', '34.0.1847.114'),
+            array('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', DeviceParserAbstract::VERSION_TRUNCATION_PATCH, '4.2.2', '34.0.1847'),
+            array('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', DeviceParserAbstract::VERSION_TRUNCATION_MINOR, '4.2', '34.0'),
+            array('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', DeviceParserAbstract::VERSION_TRUNCATION_MAJOR, '4', '34'),
+        );
+    }
+
+    /**
      * @dataProvider getBotFixtures
      */
     public function testParseBots($fixtureData)
@@ -50,7 +72,7 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($dd->isBot());
         $botData = $dd->getBot();
         $this->assertEquals($botData['name'], $fixtureData['name']);
-        // browser and os will always be unknown for bots
+        // client and os will always be unknown for bots
         $this->assertEquals($dd->getOs('short_name'), DeviceDetector::UNKNOWN);
         $this->assertEquals($dd->getClient('short_name'), DeviceDetector::UNKNOWN);
     }
