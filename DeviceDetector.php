@@ -393,6 +393,7 @@ class DeviceDetector
     {
         $botParser = new Bot();
         $botParser->setUserAgent($this->getUserAgent());
+        $botParser->setCache($this->getCache());
         if ($this->discardBotInformation) {
             $botParser->discardDetails();
         }
