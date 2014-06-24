@@ -29,7 +29,7 @@ class CacheFileTests extends \PHPUnit_Framework_TestCase
         $this->assertTrue($cache->set('key', 'value'));
         CacheStatic::reset();
         $this->assertEquals('value', $cache->get('key'));
-        $cache->set('key', 'value2');
+        $this->assertTrue($cache->set('key', 'value2'));
         CacheStatic::reset();
         $this->assertEquals('value2', $cache->get('key'));
     }
