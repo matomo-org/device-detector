@@ -97,6 +97,10 @@ abstract class ParserAbstract
         $this->setUserAgent($ua);
     }
 
+    /**
+     * Set how DeviceDetector should return versions
+     * @param int|null $type Any of the VERSION_TRUNCATION_* constants
+     */
     public static function setVersionTruncation($type)
     {
         if(in_array($type, array(self::VERSION_TRUNCATION_BUILD,
@@ -199,7 +203,7 @@ abstract class ParserAbstract
     {
         $versionString = $this->buildByMatch($versionString, $matches);
         $versionString = str_replace('_', '.', $versionString);
-        if (null !== self::$maxMinorParts) {
+        if (null !== self::$maxMinorParts && substr_count($versionString, '.') > self::$maxMinorParts) {
             $versionParts = explode('.', $versionString);
             $versionParts = array_slice($versionParts, 0, 1+self::$maxMinorParts);
             $versionString = implode('.', $versionParts);
