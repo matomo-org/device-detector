@@ -9,7 +9,7 @@ Using DeviceDetector with composer is quite easy. Just add piwik/device-detector
 
 
 ```php
-require_once 'vendor/autoload.php'
+require_once 'vendor/autoload.php';
 
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
@@ -21,6 +21,11 @@ use DeviceDetector\Cache\CacheFile;
 DeviceParserAbstract::setVersionTruncation(DeviceParserAbstract::VERSION_TRUNCATION_NONE);
 
 $dd = new DeviceDetector($userAgent);
+
+// OPTIONAL: Set caching method
+// By default static cache is used, which works best within one php process
+// To cache across requests use caching in files or memcache
+$dd->setCache(new CacheFile('./tmp/'));
 
 // OPTIONAL: If called, getBot() will only return true if a bot was detected  (speeds up detection a bit)
 $dd->discardBotInformation();
