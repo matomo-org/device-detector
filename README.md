@@ -12,6 +12,13 @@ Using DeviceDetector with composer is quite easy. Just add piwik/device-detector
 require_once 'vendor/autoload.php'
 
 use DeviceDetector\DeviceDetector;
+use DeviceDetector\Parser\Device\DeviceParserAbstract;
+use DeviceDetector\Cache\CacheFile;
+
+// OPTIONAL: Set version truncation to none, so full versions will be returned
+// By default only minor versions will be returned (e.g. X.Y)
+// for other options see VERSION_TRUNCATION_* constants in DeviceParserAbstract class
+DeviceParserAbstract::setVersionTruncation(DeviceParserAbstract::VERSION_TRUNCATION_NONE);
 
 $dd = new DeviceDetector($userAgent);
 
