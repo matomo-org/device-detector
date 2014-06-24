@@ -208,7 +208,7 @@ abstract class ParserAbstract
             $versionParts = array_slice($versionParts, 0, 1+self::$maxMinorParts);
             $versionString = implode('.', $versionParts);
         }
-        return $versionString;
+        return trim($versionString, ' .');
     }
 
     /**
