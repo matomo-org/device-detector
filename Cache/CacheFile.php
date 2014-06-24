@@ -67,6 +67,7 @@ class CacheFile extends CacheStatic implements CacheInterface
                     // Make sure that no temporary file is left over
                     // if the destination is not writable
                     @unlink($tmp_filename);
+                    return false;
                 }
             }
 
