@@ -14,6 +14,9 @@ class CacheFileTests extends \PHPUnit_Framework_TestCase
 {
     protected function setUp()
     {
+        if (getenv('TRAVIS_PHP_VERSION') == 'hhvm') {
+            $this->markTestSkipped();
+        }
         CacheStatic::reset();
     }
 
