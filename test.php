@@ -9,12 +9,15 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use DeviceDetector\DeviceDetector;
+use DeviceDetector\Parser\Device\DeviceParserAbstract;
 
 if(isset($_GET['ua'])) {
     $userAgent = $_GET['ua'];
 } else {
     $userAgent = $_SERVER['HTTP_USER_AGENT'];
 }
+
+DeviceParserAbstract::setVersionTruncation(DeviceParserAbstract::VERSION_TRUNCATION_NONE);
 
 $result = DeviceDetector::getInfoFromUserAgent($userAgent);
 
