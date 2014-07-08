@@ -142,6 +142,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'LN' => 'Lenco',
         'LG' => 'LG',
         'LO' => 'Loewe',
+        'LM' => 'Logicom',
         'LU' => 'LGUPlus',
         'LX' => 'Lexibook',
         'MA' => 'Manta Multimedia',
