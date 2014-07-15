@@ -211,7 +211,7 @@ class DeviceDetector
 
     public function isMobile()
     {
-        return !$this->isDesktop();
+        return !$this->isBot() && !$this->isDesktop();
     }
 
     /**
