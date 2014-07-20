@@ -1285,11 +1285,20 @@ Softbank:
 
 # Sony
 Sony:
-  regex: 'Sony(?! ?Ericsson)|SGP'
+  regex: 'Sony(?! ?Ericsson)|SGP|Xperia'
   device: 'smartphone'
   models:
     - regex: 'Sony (Tablet[^/;]*) Build'
       model: '$1'
+      device: 'tablet'
+    - regex: 'SGP(?:311|312|321) Build'
+      model: 'Xperia Tablet Z'
+      device: 'tablet'
+    - regex: 'SGP(?:511|512|521) Build'
+      model: 'Xperia Tablet Z2'
+      device: 'tablet'
+    - regex: 'SGPT(?:12|121|122|123|13|131|132|133) Build'
+      model: 'Xperia Tablet S'
       device: 'tablet'
     - regex: '(SGP[^/;]*) Build'
       model: '$1'
@@ -1298,6 +1307,11 @@ Sony:
       model: '$1'
     - regex: 'Sony[ ]?([a-z0-9\-]+)'
       model: '$1'
+    - regex: 'Xperia ([^/;]*Tablet[^/;]*) Build'
+      model: 'Xperia $1'
+      device: 'tablet'
+    - regex: 'Xperia ([^;/]+) Build'
+      model: 'Xperia $1'
 
 # Kindle
 Kindle:
