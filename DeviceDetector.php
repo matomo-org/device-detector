@@ -96,9 +96,11 @@ class DeviceDetector
      *
      * @param string $userAgent  UA to parse
      */
-    public function __construct($userAgent)
+    public function __construct($userAgent='')
     {
-        $this->userAgent = $userAgent;
+        if ($userAgent != '') {
+            $this->setUserAgent($userAgent);
+        }
 
         $this->addClientParser('FeedReader');
         $this->addClientParser('MobileApp');
@@ -111,6 +113,30 @@ class DeviceDetector
         $this->addDeviceParser('CarBrowser');
         $this->addDeviceParser('Camera');
         $this->addDeviceParser('Mobile');
+    }
+
+    /**
+     * Sets the useragent to be parsed
+     *
+     * @param string $userAgent
+     */
+    public function setUserAgent($userAgent)
+    {
+        if ($this->userAgent != $userAgent) {
+            $this->reset();
+        }
+        $this->userAgent = $userAgent;
+    }
+
+    protected function reset()
+    {
+        $this->bot    = null;
+        $this->client = null;
+        $this->device = null;
+        $this->os     = null;
+        $this->brand  = '';
+        $this->model  = '';
+        $this->parsed = false;
     }
 
     /**
@@ -360,11 +386,19 @@ class DeviceDetector
         return $this->bot;
     }
 
+    protected $parsed = false;
+
     /**
      * Triggers the parsing of the current user agent
      */
     public function parse()
     {
+        if ($this->parsed) {
+            return;
+        }
+
+        $this->parsed = true;
+
         // skip parsing for empty useragents or those not containing any letter
         if (empty($this->userAgent) || preg_match('[a-z]', $this->userAgent)) {
             return;
