@@ -34,7 +34,7 @@ class Browser extends ClientParserAbstract
         'AV' => 'Amiga Voyager',
         'AW' => 'Amiga Aweb',
         'BB' => 'BlackBerry Browser',
-        'BD' => 'Baidu Browser',
+        'BD' => 'Bidu Browser',
         'BE' => 'Beonex',
         'BJ' => 'Bunjalloo',
         'BX' => 'BrowseX',
@@ -79,6 +79,7 @@ class Browser extends ClientParserAbstract
         'KO' => 'Konqueror',
         'KP' => 'Kapiko',
         'KZ' => 'Kazehakase',
+        'LB' => 'LB Browser',
         'LG' => 'Lightning',
         'LI' => 'Links',
         'LS' => 'Lunascape',
@@ -144,7 +145,9 @@ class Browser extends ClientParserAbstract
         'Nokia Browser'      => array('NB', 'NO', 'NV'),
         'Opera'              => array('OP', 'OM', 'OI', 'ON'),
         'Safari'             => array('SF', 'MF'),
-        'Sailfish Browser'   => array('SA')
+        'Sailfish Browser'   => array('SA'),
+        'Bidu Browser'       => array('BD'),
+        'LB Browser'         => array('LB')
     );
 
     /**
