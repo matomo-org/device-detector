@@ -35,6 +35,7 @@ class Browser extends ClientParserAbstract
         'AW' => 'Amiga Aweb',
         'BB' => 'BlackBerry Browser',
         'BD' => 'Baidu Browser',
+        'BS' => 'Baidu Spark',
         'BE' => 'Beonex',
         'BJ' => 'Bunjalloo',
         'BX' => 'BrowseX',
