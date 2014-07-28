@@ -96,6 +96,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'DM' => 'DMM',
         'DO' => 'Doogee',
         'DP' => 'Dopod',
+        'EB' => 'E-Boda',
         'EC' => 'Ericsson',
         'EI' => 'Ezio',
         'EP' => 'Easypix',
