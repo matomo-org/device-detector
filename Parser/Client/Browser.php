@@ -117,6 +117,7 @@ class Browser extends ClientParserAbstract
         'RK' => 'Rekonq',
         'RM' => 'RockMelt',
         'SA' => 'Sailfish Browser',
+        'SE' => 'Sogou Explorer',
         'SF' => 'Safari',
         'SL' => 'Sleipnir',
         'SM' => 'SeaMonkey',
