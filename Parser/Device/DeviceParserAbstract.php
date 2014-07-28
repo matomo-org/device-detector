@@ -185,6 +185,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'QI' => 'Qilive',
         'QT' => 'Qtek',
         'QU' => 'Quechua',
+        'OY' => 'Oysters',
         'RA' => 'Ramos',
         'RM' => 'RIM',
         'RO' => 'Rover',
