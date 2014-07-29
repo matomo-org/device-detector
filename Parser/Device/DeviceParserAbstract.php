@@ -235,6 +235,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'WB' => 'Web TV',
         'WE' => 'WellcoM',
         'WI' => 'Wiko',
+        'WL' => 'Wolder',
         'WO' => 'Wonu',
         'WX' => 'Woxter',
         'XI' => 'Xiaomi',
