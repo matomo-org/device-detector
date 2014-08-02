@@ -122,6 +122,7 @@ class Browser extends ClientParserAbstract
         'SL' => 'Sleipnir',
         'SM' => 'SeaMonkey',
         'SN' => 'Snowshoe',
+        'SR' => 'Sunrise',
         'SX' => 'Swiftfox',
         'TZ' => 'Tizen Browser',
         'UC' => 'UC Browser',
