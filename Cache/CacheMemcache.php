@@ -25,6 +25,9 @@ class CacheMemcache implements CacheInterface
     public function __construct($server='localhost', $port=11211)
     {
         if (empty(self::$memcache)) {
+            if (!class_exists('Memcache')) {
+                throw new \Exception('You need to have the php memcached extension');
+            }
             self::$memcache = new \Memcache();
             self::$memcache->connect($server, $port) or die ("Could not connect");
         }
