@@ -237,6 +237,11 @@ class DeviceDetector
 
     public function isMobile()
     {
+        $osShort = $this->getOs('short_name');
+        if (empty($osShort) || self::UNKNOWN == $osShort) {
+            return false;
+        }
+
         return !$this->isBot() && !$this->isDesktop();
     }
 
@@ -251,7 +256,7 @@ class DeviceDetector
     public function isDesktop()
     {
         $osShort = $this->getOs('short_name');
-        if (empty($osShort)) {
+        if (empty($osShort) || self::UNKNOWN == $osShort) {
             return false;
         }
 
