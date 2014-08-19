@@ -27,4 +27,27 @@ class OperatingSystemTest extends \PHPUnit_Framework_TestCase
         $allOs = array_map(function($os){ return array($os); }, $allOs);
         return $allOs;
     }
+
+    public function testGetAvailableOperatingSystems()
+    {
+        $this->assertGreaterThan(70, OperatingSystem::getAvailableOperatingSystems());
+    }
+
+    /**
+     * @dataProvider getNameFromIds
+     */
+    public function testGetNameFromId($os, $version, $expected)
+    {
+        $this->assertEquals($expected, OperatingSystem::getNameFromId($os, $version));
+    }
+
+    public function getNameFromIds()
+    {
+        return array(
+            array('DEB', '4.5', 'Debian 4.5'),
+            array('W98', '', 'Windows 98'),
+            array('W98', '98', 'Windows 98'),
+            array('XXX', '4.5', false),
+        );
+    }
 }
