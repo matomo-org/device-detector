@@ -72,6 +72,8 @@ We are looking forward to your contributions and pull requests!
 
 Build status (master branch) [![Build Status](https://travis-ci.org/piwik/device-detector.png?branch=master)](https://travis-ci.org/piwik/device-detector)
 
+Code Coverage [![Coverage Status](https://coveralls.io/repos/piwik/device-detector/badge.png)](https://coveralls.io/r/piwik/device-detector)
+
 See also: [QA at Piwik](http://piwik.org/qa/)
 
 ### Running tests
