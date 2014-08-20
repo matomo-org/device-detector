@@ -14,11 +14,42 @@ use \Spyc;
 
 class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @expectedException \Exception
+     */
+    public function testAddClientParserInvalid()
+    {
+        $dd = new DeviceDetector();
+        $dd->addClientParser('Invalid');
+    }
+
+    /**
+     * @expectedException \Exception
+     */
+    public function testAddDeviceParserInvalid()
+    {
+        $dd = new DeviceDetector();
+        $dd->addDeviceParser('Invalid');
+    }
+
     public function testCacheSetAndGet()
     {
         $dd = new DeviceDetector();
         $dd->setCache(new CacheMemcache());
         $this->assertInstanceOf('DeviceDetector\\Cache\\CacheMemcache', $dd->getCache());
+    }
+
+    public function testParseEmptyUA()
+    {
+        $dd = new DeviceDetector('');
+        $dd->parse();
+        $dd->parse();
+    }
+
+    public function testParseInvalidUA()
+    {
+        $dd = new DeviceDetector('12345');
+        $dd->parse();
     }
 
     /**
@@ -97,6 +128,7 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
     public function testTypeMethods($useragent, $isBot, $isMobile, $isDesktop)
     {
         $dd = new DeviceDetector($useragent);
+        $dd->discardBotInformation();
         $dd->parse();
         $this->assertEquals($isBot, $dd->isBot());
         $this->assertEquals($isMobile, $dd->isMobile());
