@@ -10,6 +10,7 @@ namespace DeviceDetector\Tests;
 use DeviceDetector\Cache\CacheMemcache;
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
+use DeviceDetector\Parser\ParserAbstract;
 use \Spyc;
 
 class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
@@ -80,22 +81,24 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider getVersionTruncationFixtures
      */
-    public function versionTruncationTest($useragent, $truncationType, $osVersion, $clientVersion)
+    public function testVersionTruncation($useragent, $truncationType, $osVersion, $clientVersion)
     {
-        DeviceParserAbstract::setVersionTruncation($truncationType);
+        ParserAbstract::setVersionTruncation($truncationType);
         $dd = new DeviceDetector($useragent);
+        $dd->parse();
         $this->assertEquals($osVersion, $dd->getOs('version'));
         $this->assertEquals($clientVersion, $dd->getClient('version'));
+        ParserAbstract::setVersionTruncation(ParserAbstract::VERSION_TRUNCATION_NONE);
     }
 
     public function getVersionTruncationFixtures()
     {
         return array(
-            array('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', DeviceParserAbstract::VERSION_TRUNCATION_NONE, '4.2.2', '34.0.1847.114'),
-            array('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', DeviceParserAbstract::VERSION_TRUNCATION_BUILD, '4.2.2', '34.0.1847.114'),
-            array('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', DeviceParserAbstract::VERSION_TRUNCATION_PATCH, '4.2.2', '34.0.1847'),
-            array('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', DeviceParserAbstract::VERSION_TRUNCATION_MINOR, '4.2', '34.0'),
-            array('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', DeviceParserAbstract::VERSION_TRUNCATION_MAJOR, '4', '34'),
+            array('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', ParserAbstract::VERSION_TRUNCATION_NONE, '4.2.2', '34.0.1847.114'),
+            array('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', ParserAbstract::VERSION_TRUNCATION_BUILD, '4.2.2', '34.0.1847.114'),
+            array('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', ParserAbstract::VERSION_TRUNCATION_PATCH, '4.2.2', '34.0.1847'),
+            array('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', ParserAbstract::VERSION_TRUNCATION_MINOR, '4.2', '34.0'),
+            array('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', ParserAbstract::VERSION_TRUNCATION_MAJOR, '4', '34'),
         );
     }
 
