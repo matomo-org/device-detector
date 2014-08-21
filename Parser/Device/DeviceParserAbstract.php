@@ -336,6 +336,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
 
         $brandId = array_search($brand, self::$deviceBrands);
         if($brandId === false) {
+            // This Exception should never be thrown. If so a defined brand name is missing in $deviceBrands
             throw new \Exception("The brand with name '$brand' should be listed in the deviceBrands array."); // @codeCoverageIgnore
         }
         $this->brand = $brandId;

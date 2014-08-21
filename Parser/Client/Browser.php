@@ -197,24 +197,19 @@ class Browser extends ClientParserAbstract
         }
 
         $name  = $this->buildByMatch($regex['name'], $matches);
-        $short = 'XX';
 
         foreach (self::getAvailableBrowsers() AS $browserShort => $browserName) {
             if (strtolower($name) == strtolower($browserName)) {
-                $name  = $browserName;
-                $short = $browserShort;
+                return array(
+                    'type'       => 'browser',
+                    'name'       => $browserName,
+                    'short_name' => $browserShort,
+                    'version'    => $this->buildVersion($regex['version'], $matches)
+                );
             }
         }
 
-        if ($short != 'XX') {
-            return array(
-                'type'       => 'browser',
-                'name'       => $name,
-                'short_name' => $short,
-                'version'    => $this->buildVersion($regex['version'], $matches)
-            );
-        }
-
-        return null;
+        // This Exception should never be thrown. If so a defined browser name is missing in $availableBrowsers
+        throw new \Exception('Detected browser name was not found in $availableBrowsers'); // @codeCoverageIgnore
     }
 }
