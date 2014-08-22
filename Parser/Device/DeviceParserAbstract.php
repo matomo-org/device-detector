@@ -374,19 +374,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
     {
         $model = $this->buildByMatch($model, $matches);
 
-        $model = $this->buildModelExceptions($model);
-
         $model = str_replace('_', ' ', $model);
-
-        return $model;
-    }
-
-    protected function buildModelExceptions($model)
-    {
-        if ($this->brand == 'O2') {
-            $model = preg_replace('/([a-z])([A-Z])/', '$1 $2', $model);
-            $model = ucwords(str_replace('_', ' ', $model));
-        }
 
         return $model;
     }
