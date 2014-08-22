@@ -37,4 +37,25 @@ class CacheFileTests extends \PHPUnit_Framework_TestCase
         $this->assertEquals('value2', $cache->get('key'));
     }
 
+    public function testSetInvalidPath()
+    {
+        $cache = new CacheFile('invalidDir');
+        $this->assertFalse($cache->set('key', 'value'));
+    }
+
+    public function testSetInvalidKey()
+    {
+        $cache = new CacheFile(sys_get_temp_dir());
+        $this->assertFalse($cache->set('', 'value'));
+    }
+
+    /**
+     * @expectedException \Exception
+     */
+    public function testSetInvalidObject()
+    {
+        $cache = new CacheFile(sys_get_temp_dir());
+        $this->assertFalse($cache->set('key', new \stdClass()));
+    }
+
 }
