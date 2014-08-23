@@ -81,7 +81,6 @@ class Browser extends ClientParserAbstract
         'KP' => 'Kapiko',
         'KZ' => 'Kazehakase',
         'LB' => 'Liebao',
-        'LG' => 'Lightning',
         'LI' => 'Links',
         'LS' => 'Lunascape',
         'LX' => 'Lynx',

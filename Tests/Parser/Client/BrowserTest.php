@@ -12,6 +12,8 @@ use \Spyc;
 
 class BrowserTest extends \PHPUnit_Framework_TestCase
 {
+    static $browsersTested = array();
+
     /**
      * @dataProvider getFixtures
      */
@@ -20,6 +22,7 @@ class BrowserTest extends \PHPUnit_Framework_TestCase
         $browserParser = new Browser();
         $browserParser->setUserAgent($useragent);
         $this->assertEquals($client, $browserParser->parse());
+        self::$browsersTested[] = $client['short_name'];
     }
 
     public function getFixtures()
@@ -32,4 +35,12 @@ class BrowserTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertGreaterThan(5, Browser::getAvailableBrowserFamilies());
     }
+
+    public function testAllBrowsersTested()
+    {
+        $allBrowsers = array_keys(Browser::getAvailableBrowsers());
+        $browsersNotTested = array_diff($allBrowsers, self::$browsersTested);
+        $this->assertEmpty($browsersNotTested, 'Following browsers are not tested: '.implode(', ', $browsersNotTested));
+    }
+
 }
