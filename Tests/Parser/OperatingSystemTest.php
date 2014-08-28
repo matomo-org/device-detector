@@ -12,6 +12,25 @@ use \Spyc;
 
 class OperatingSystemTest extends \PHPUnit_Framework_TestCase
 {
+    static $osTested = array();
+
+    /**
+     * @dataProvider getFixtures
+     */
+    public function testParse($useragent, $os)
+    {
+        $osParser = new OperatingSystem();
+        $osParser->setUserAgent($useragent);
+        $this->assertEquals($os, $osParser->parse());
+        self::$osTested[] = $os['short_name'];
+    }
+
+    public function getFixtures()
+    {
+        $fixtureData = \Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/oss.yml');
+        return $fixtureData;
+    }
+
     /**
      * @dataProvider getAllOs
      */
@@ -26,6 +45,22 @@ class OperatingSystemTest extends \PHPUnit_Framework_TestCase
         $allOs = array_keys(OperatingSystem::getAvailableOperatingSystems());
         $allOs = array_map(function($os){ return array($os); }, $allOs);
         return $allOs;
+    }
+
+    /**
+     * @dataProvider getAllFamilyOs
+     */
+    public function testFamilyOSExists($os)
+    {
+        $allOs = array_keys(OperatingSystem::getAvailableOperatingSystems());
+        $this->assertContains($os, $allOs);
+    }
+
+    public function getAllFamilyOs()
+    {
+        $allFamilyOs = call_user_func_array('array_merge', OperatingSystem::getAvailableOperatingSystemFamilies());
+        $allFamilyOs = array_map(function($os){ return array($os); }, $allFamilyOs);
+        return $allFamilyOs;
     }
 
     public function testGetAvailableOperatingSystems()
@@ -49,5 +84,12 @@ class OperatingSystemTest extends \PHPUnit_Framework_TestCase
             array('W98', '98', 'Windows 98'),
             array('XXX', '4.5', false),
         );
+    }
+
+    public function testAllBrowsersTested()
+    {
+        $allBrowsers = array_keys(OperatingSystem::getAvailableOperatingSystems());
+        $osNotTested = array_diff($allBrowsers, self::$osTested);
+        $this->assertEmpty($osNotTested, 'Following browsers are not tested: '.implode(', ', $osNotTested));
     }
 }
