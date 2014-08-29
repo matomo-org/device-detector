@@ -48,26 +48,28 @@ class Bot extends ParserAbstract
      */
     public function parse()
     {
-        if (!$this->preMatchOverall()) {
-            return null;
+        $result = null;
+
+        if ($this->preMatchOverall()) {
+
+            foreach ($this->getRegexes() as $regex) {
+
+                $matches = $this->matchUserAgent($regex['regex']);
+
+                if ($matches) {
+
+                    if ($this->discardDetails) {
+                        $result = true;
+                        break;
+                    }
+
+                    unset($regex['regex']);
+                    $result = $regex;
+                    break;
+                }
+            }
         }
 
-        foreach ($this->getRegexes() as $regex) {
-            $matches = $this->matchUserAgent($regex['regex']);
-            if ($matches)
-                break;
-        }
-
-        if (!$matches) {
-            return null;
-        }
-
-        if ($this->discardDetails) {
-            return true;
-        }
-
-        unset($regex['regex']);
-
-        return $regex;
+        return $result;
     }
 }

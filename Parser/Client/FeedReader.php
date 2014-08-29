@@ -34,24 +34,26 @@ class FeedReader extends ClientParserAbstract
      */
     public function parse()
     {
-        if (!$this->preMatchOverall()) {
-            return null;
+        $result = null;
+
+        if ($this->preMatchOverall()) {
+
+            foreach ($this->getRegexes() as $regex) {
+
+                $matches = $this->matchUserAgent($regex['regex']);
+
+                if ($matches) {
+
+                    $result = array(
+                        'type'       => 'feed reader',
+                        'name'       => $this->buildByMatch($regex['name'], $matches),
+                        'version'    => $this->buildVersion($regex['version'], $matches)
+                    );
+                    break;
+                }
+            }
         }
 
-        foreach ($this->getRegexes() as $regex) {
-            $matches = $this->matchUserAgent($regex['regex']);
-            if ($matches)
-                break;
-        }
-
-        if (!$matches) {
-            return null;
-        }
-
-        return array(
-            'type'       => 'feed reader',
-            'name'       => $this->buildByMatch($regex['name'], $matches),
-            'version'    => $this->buildVersion($regex['version'], $matches)
-        );
+        return $result;
     }
 }
