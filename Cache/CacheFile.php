@@ -62,6 +62,7 @@ class CacheFile extends CacheStatic implements CacheInterface
 
             if (!@rename($tmp_filename, $id)) {
                 // On some systems rename() doesn't overwrite destination
+                // @codeCoverageIgnoreStart
                 @unlink($id);
                 if (!@rename($tmp_filename, $id)) {
                     // Make sure that no temporary file is left over
@@ -70,6 +71,7 @@ class CacheFile extends CacheStatic implements CacheInterface
                     return false;
                 }
             }
+            // @codeCoverageIgnoreEnd
 
             // invalidate opcache for file if opcache is active
             $this->opCacheInvalidate($id);
@@ -109,6 +111,9 @@ class CacheFile extends CacheStatic implements CacheInterface
         return sprintf('%s/%s.php', $this->cachePath, $id);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     protected function opCacheInvalidate($filepath)
     {
         if (function_exists('opcache_invalidate')
