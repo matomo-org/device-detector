@@ -107,7 +107,7 @@ class DeviceDetector
         $this->addClientParser('MediaPlayer');
         $this->addClientParser('PIM');
         $this->addClientParser('Browser');
-        $this->addClientParser('Tool');
+        $this->addClientParser('Library');
 
         $this->addDeviceParser('HbbTv');
         $this->addDeviceParser('Console');

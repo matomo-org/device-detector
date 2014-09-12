@@ -8,14 +8,14 @@
 namespace DeviceDetector\Parser\Client;
 
 /**
- * Class Tool
+ * Class Library
  *
  * Client parser for tool & software detection
  *
  * @package DeviceDetector\Parser\Client
  */
-class Tool extends ClientParserAbstract
+class Library extends ClientParserAbstract
 {
-    protected $fixtureFile = 'regexes/client/tools.yml';
-    protected $parserName = 'tool';
+    protected $fixtureFile = 'regexes/client/libraries.yml';
+    protected $parserName = 'library';
 }

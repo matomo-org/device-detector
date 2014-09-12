@@ -7,7 +7,7 @@
  */
 namespace DeviceDetector\Tests\Parser\Client;
 
-use DeviceDetector\Parser\Client\Tool;
+use DeviceDetector\Parser\Client\Library;
 use \Spyc;
 
 class ToolTest extends \PHPUnit_Framework_TestCase
@@ -17,14 +17,14 @@ class ToolTest extends \PHPUnit_Framework_TestCase
      */
     public function testParse($useragent, $client)
     {
-        $PIMParser = new Tool();
-        $PIMParser->setUserAgent($useragent);
-        $this->assertEquals($client, $PIMParser->parse());
+        $LibraryParser = new Library();
+        $LibraryParser->setUserAgent($useragent);
+        $this->assertEquals($client, $LibraryParser->parse());
     }
 
     public function getFixtures()
     {
-        $fixtureData = \Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/tool.yml');
+        $fixtureData = \Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/library.yml');
         return $fixtureData;
     }
 }
