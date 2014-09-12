@@ -102,6 +102,7 @@ class DeviceDetector
             $this->setUserAgent($userAgent);
         }
 
+        $this->addClientParser('Tool');
         $this->addClientParser('FeedReader');
         $this->addClientParser('MobileApp');
         $this->addClientParser('MediaPlayer');
