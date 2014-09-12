@@ -102,12 +102,12 @@ class DeviceDetector
             $this->setUserAgent($userAgent);
         }
 
-        $this->addClientParser('Tool');
         $this->addClientParser('FeedReader');
         $this->addClientParser('MobileApp');
         $this->addClientParser('MediaPlayer');
         $this->addClientParser('PIM');
         $this->addClientParser('Browser');
+        $this->addClientParser('Tool');
 
         $this->addDeviceParser('HbbTv');
         $this->addDeviceParser('Console');
