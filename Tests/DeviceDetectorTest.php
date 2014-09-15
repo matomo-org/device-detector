@@ -160,6 +160,7 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
         return array(
             array('Googlebot/2.1 (http://www.googlebot.com/bot.html)', true, false, false),
             array('Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.136 Mobile Safari/537.36', false, true, false),
+            array('Mozilla/5.0 (Linux; Android 4.4.3; Build/KTU84L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.117 Mobile Safari/537.36', false, true, false),
             array('Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)', false, false, true),
             array('Mozilla/3.01 (compatible;)', false, false, false),
         );
