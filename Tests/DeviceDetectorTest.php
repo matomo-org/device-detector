@@ -188,7 +188,8 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
             'type' => 'browser',
             'name' => 'Internet Explorer',
             'short_name' => 'IE',
-            'version' => '9.0'
+            'version' => '9.0',
+            'engine' => 'Trident'
         );
         $this->assertEquals($expected, $dd->getClient());
     }

@@ -200,16 +200,38 @@ class Browser extends ClientParserAbstract
 
         foreach (self::getAvailableBrowsers() AS $browserShort => $browserName) {
             if (strtolower($name) == strtolower($browserName)) {
+                $version = (string) $this->buildVersion($regex['version'], $matches);
+                $engine = $this->buildEngine(isset($regex['engine']) ? $regex['engine'] : array(), $version);
                 return array(
                     'type'       => 'browser',
                     'name'       => $browserName,
                     'short_name' => $browserShort,
-                    'version'    => $this->buildVersion($regex['version'], $matches)
+                    'version'    => $version,
+                    'engine'     => $engine
                 );
             }
         }
 
         // This Exception should never be thrown. If so a defined browser name is missing in $availableBrowsers
         throw new \Exception('Detected browser name was not found in $availableBrowsers'); // @codeCoverageIgnore
+    }
+
+    protected function buildEngine($engineData, $browserVersion)
+    {
+        $engine = '';
+        // if an engine is set as default
+        if (isset($engineData['default'])) {
+            $engine = $engineData['default'];
+        }
+        // check if engine is set for browser version
+        if (array_key_exists('versions', $engineData) && is_array($engineData['versions'])) {
+            foreach($engineData['versions'] AS $version => $versionEngine) {
+                if(version_compare($browserVersion, $version) >= 0) {
+                    $engine = $versionEngine;
+                }
+            }
+
+        }
+        return $engine;
     }
 }

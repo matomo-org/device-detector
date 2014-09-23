@@ -20,6 +20,7 @@ class BrowserTest extends \PHPUnit_Framework_TestCase
     public function testParse($useragent, $client)
     {
         $browserParser = new Browser();
+        $browserParser->setVersionTruncation(Browser::VERSION_TRUNCATION_NONE);
         $browserParser->setUserAgent($useragent);
         $this->assertEquals($client, $browserParser->parse());
         self::$browsersTested[] = $client['short_name'];

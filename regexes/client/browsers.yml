@@ -9,31 +9,43 @@
 - regex: 'SailfishBrowser(?:/(\d+[\.\d]+))?'
   name: 'Sailfish Browser'
   version: '$1'
+  engine:
+    default: 'Gecko'
 
 # SeaMonkey
 - regex: '(Iceape|SeaMonkey|gnuzilla)(?:/(\d+[\.\d]+))?'
   name: '$1'
   version: '$2'
+  engine:
+    default: 'Gecko'
 
 # Camino
 - regex: 'Camino(?:/(\d+[\.\d]+))?'
   name: 'Camino'
   version: '$1'
+  engine:
+    default: 'Gecko'
 
 #Fennec (Firefox for mobile)
 - regex: 'Fennec(?:/(\d+[\.\d]+))?'
   name: 'Fennec'
   version: '$1'
+  engine:
+    default: 'Gecko'
 
 #MicroB
 - regex: 'Firefox.*Tablet browser (\d+[\.\d]+)'
   name: 'MicroB'
   version: '$1'
+  engine:
+    default: 'Gecko'
 
 #Avant Browser
 - regex: 'Avant Browser'
   name: 'Avant Browser'
   version: ''
+  engine:
+    default: '' # multiple
 
 #Bunjalloo
 - regex: 'Bunjalloo(?:/(\d+[\.\d]+))?'
@@ -44,11 +56,15 @@
 - regex: 'Iceweasel(?:/(\d+[\.\d]+))?'
   name: 'Iceweasel'
   version: '$1'
+  engine:
+    default: 'Gecko'
 
 #WebPositive
 - regex: 'WebPositive'
   name: 'WebPositive'
   version: ''
+  engine:
+    default: 'WebKit'
 
 
 #Pale Moon
@@ -65,11 +81,15 @@
 - regex: 'IceDragon(?:/(\d+[\.\d]+))?'
   name: 'IceDragon'
   version: '$1'
+  engine:
+    default: 'Gecko'
 
 #Flock
 - regex: 'Flock(?:/(\d+[\.\d]+))?'
   name: 'Flock'
   version: '$1'
+  engine:
+    default: 'Gecko'
 
 #Kapiko
 - regex: 'Kapiko(?:/(\d+[\.\d]+))?'
@@ -80,14 +100,20 @@
 - regex: 'Firefox/(\d+[\.\d]+).*\(Swiftfox\)'
   name: 'Swiftfox'
   version: '$1'
+  engine:
+    default: 'Gecko'
 
 #Firefox
 - regex: 'Firefox(?:/(\d+[\.\d]+))?'
   name: 'Firefox'
   version: '$1'
+  engine:
+    default: 'Gecko'
 - regex: '(BonEcho|GranParadiso|Lorentz|Minefield|Namoroka|Shiretoko)/(\d+[\.\d]+)'
   name: 'Firefox'
   version: '$1 ($2)'
+  engine:
+    default: 'Gecko'
 
 #ANTGalio
 - regex: 'ANTGalio(?:/(\d+[\.\d]+))?'
@@ -113,28 +139,50 @@
 - regex: '(?:Navigator|Netscape6)(?:/(\d+[\.\d]+))?'
   name: 'Netscape'
   version: '$1'
+  engine:
+    default: '' # Mosaic in the first versions, then Gecko
 
 #Opera
 - regex: '(?:Opera Tablet.*Version|Opera/.+Opera Mobi.+Version|Mobile.+OPR)/(\d+[\.\d]+)'
   name: 'Opera Mobile'
   version: '$1'
+  engine:
+    default: 'Presto'
+    versions:
+      15: 'Blink'
 - regex: 'Opera Mini/(?:att/)?(\d+[\.\d]+)'
   name: 'Opera Mini'
   version: '$1'
+  engine:
+    default: 'Presto'
 - regex: 'Opera.+Edition Next.+Version/(\d+[\.\d]+)'
   name: 'Opera Next'
   version: '$1'
+  engine:
+    default: 'Presto'
+    versions:
+      15: 'Blink'
 - regex: '(?:Opera|OPR)[/ ](?:9.80.*Version/)?(\d+[\.\d]+).+Edition Next'
   name: 'Opera Next'
   version: '$1'
+  engine:
+    default: 'Presto'
+    versions:
+      15: 'Blink'
 - regex: '(?:Opera|OPR)[/ ](?:9.80.*Version/)?(\d+[\.\d]+)'
   name: 'Opera'
   version: '$1'
+  engine:
+    default: 'Presto'
+    versions:
+      15: 'Blink'
 
 #Rekonq
 - regex: 'rekonq(?:/(\d+[\.\d]+))?'
   name: 'Rekonq'
   version: '$1'
+  engine:
+    default: 'WebKit'
 
 #CoolNovo
 - regex: 'CoolNovo(?:/(\d+[\.\d]+))?'
@@ -145,6 +193,10 @@
 - regex: 'Comodo[ _]Dragon(?:/(\d+[\.\d]+))?'
   name: 'Comodo Dragon'
   version: '$1'
+  engine:
+    default: 'WebKit'
+    versions:
+      28: 'Blink'
 
 #ChromePlus
 - regex: 'ChromePlus(?:/(\d+[\.\d]+))?'
@@ -155,11 +207,17 @@
 - regex: 'Conkeror(?:/(\d+[\.\d]+))?'
   name: 'Conkeror'
   version: '$1'
+  engine:
+    default: 'Gecko'
 
 #Konqueror
 - regex: 'Konqueror(?:/(\d+[\.\d]+))?'
   name: 'Konqueror'
   version: '$1'
+  engine:
+    default: 'KHTML'
+    versions:
+      4: '' # multiple (KHTML or WebKit)
 
 #Baidu Browser
 - regex: 'baidubrowser(?:[/ ](\d+[\.\d]*))?'
@@ -175,6 +233,8 @@
 - regex: 'YaBrowser(?:/(\d+[\.\d]*))?'
   name: 'Yandex Browser'
   version: '$1'
+  engine:
+    default: 'Blink'
 
 #Midori
 - regex: 'Midori(?:/(\d+[\.\d]+))?'
@@ -190,10 +250,16 @@
 - regex: 'Maxthon[ /](\d+[\.\d]+)'
   name: 'Maxthon'
   version: '$1'
+  engine:
+    default: '' # Trident and WebKit
+    versions:
+      3: 'WebKit'
 
 - regex: '(?:Maxthon|MyIE2|Uzbl)'
   name: 'Maxthon'
   version: ''
+  engine:
+    default: '' # Trident and WebKit
 
 #Puffin
 - regex: 'Puffin(?:/(\d+[\.\d]+))?'
@@ -204,6 +270,10 @@
 - regex: 'Iron(?:/(\d+[\.\d]+))?'
   name: 'Iron'
   version: '$1'
+  engine:
+    default: 'WebKit'
+    versions:
+      28: 'Blink'
 
 #Epiphany
 - regex: 'Epiphany(?:/(\d+[\.\d]+))?'
@@ -236,9 +306,17 @@
 - regex: 'Chromium(?:/(\d+[\.\d]+))?'
   name: 'Chromium'
   version: '$1'
+  engine:
+    default: 'WebKit'
+    versions:
+      28: 'Blink'
 - regex: 'Chrome(?:/(\d+[\.\d]+))?'
   name: 'Chrome'
   version: '$1'
+  engine:
+    default: 'WebKit'
+    versions:
+      28: 'Blink'
 
 #UC Browser
 - regex: 'UC[ ]?Browser(?:[ /]?(\d+[\.\d]+))?'
@@ -340,6 +418,8 @@
 - regex: 'Dillo(?:/(\d+[\.\d]+))?'
   name: 'Dillo'
   version: '$1'
+  engine:
+    default: 'Dillo'
 
 #Dolphin
 - regex: 'Dolfin(?:/(\d+[\.\d]+))?|dolphin'
@@ -385,6 +465,10 @@
 - regex: 'iCab(?:[ /](\d+[\.\d]+))?'
   name: 'iCab'
   version: '$1'
+  engine:
+    default: 'iCab'
+    versions:
+      4: 'WebKit'
 
 #Sleipnir
 - regex: 'Sleipnir(?:[ /](\d+[\.\d]+))?'
@@ -400,27 +484,43 @@
 - regex: 'IEMobile[ /](\d+[\.\d]+)'
   name: 'IE Mobile'
   version: '$1'
+  engine:
+    default: 'Trident'
 - regex: 'MSIE (\d+[\.\d]+).*XBLWP7'
   name: 'IE Mobile'
   version: '$1'
+  engine:
+    default: 'Trident'
 - regex: 'MSIE.*Trident/4.0'
   name: 'Internet Explorer'
   version: 8.0
+  engine:
+    default: 'Trident'
 - regex: 'MSIE.*Trident/5.0'
   name: 'Internet Explorer'
   version: 9.0
+  engine:
+    default: 'Trident'
 - regex: 'MSIE.*Trident/6.0'
   name: 'Internet Explorer'
   version: 10.0
+  engine:
+    default: 'Trident'
 - regex: 'Trident/7.0'
   name: 'Internet Explorer'
   version: 11.0
+  engine:
+    default: 'Trident'
 - regex: 'MSIE (\d+[\.\d]+)'
   name: 'Internet Explorer'
   version: '$1'
+  engine:
+    default: 'Trident'
 - regex: 'IE[ /](\d+[\.\d]++)'
   name: 'Internet Explorer'
   version: '$1'
+  engine:
+    default: 'Trident'
 
 #Kazehakase
 - regex: 'Kazehakase(?:/(\d+[\.\d]+))?'
