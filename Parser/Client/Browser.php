@@ -118,6 +118,7 @@ class Browser extends ClientParserAbstract
         'SA' => 'Sailfish Browser',
         'SE' => 'Sogou Explorer',
         'SF' => 'Safari',
+        'SH' => 'Shiira',
         'SL' => 'Sleipnir',
         'SM' => 'SeaMonkey',
         'SN' => 'Snowshoe',
