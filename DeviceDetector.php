@@ -542,17 +542,8 @@ class DeviceDetector
 
         $processed = array(
             'user_agent'     => $deviceDetector->getUserAgent(),
-            'os'             => array(
-                'name'       => $deviceDetector->getOs('name'),
-                'short_name' => $deviceDetector->getOs('short_name'),
-                'version'    => $deviceDetector->getOs('version'),
-            ),
-            'client'        => array(
-                'type'       => $deviceDetector->getClient('type'),
-                'name'       => $deviceDetector->getClient('name'),
-                'short_name' => $deviceDetector->getClient('short_name'),
-                'version'    => $deviceDetector->getClient('version'),
-            ),
+            'os'             => $deviceDetector->getOs(),
+            'client'        => $deviceDetector->getClient(),
             'device'         => array(
                 'type'       => $deviceDetector->getDeviceName(),
                 'brand'      => $deviceDetector->getBrand(),
