@@ -6,6 +6,7 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 namespace DeviceDetector\Parser\Client;
+use DeviceDetector\Parser\Client\Browser\Engine;
 
 /**
  * Class Browser
@@ -232,6 +233,13 @@ class Browser extends ClientParserAbstract
             }
 
         }
+        // try to detect the engine using the regexes
+        if (empty($engine)) {
+            $engineParser = new Engine();
+            $engineParser->setUserAgent($this->userAgent);
+            $engine = $engineParser->parse();
+        }
+
         return $engine;
     }
 }
