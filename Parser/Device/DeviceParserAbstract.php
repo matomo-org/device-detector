@@ -78,6 +78,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'BU' => 'Blu',
         'BX' => 'bq',
         'CA' => 'Cat',
+        'CE' => 'Celkon',
         'CC' => 'ConCorde',
         'CH' => 'Cherry Mobile',
         'CK' => 'Cricket',
