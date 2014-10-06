@@ -141,6 +141,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'KH' => 'KT-Tech',
         'KY' => 'Kyocera',
         'KZ' => 'Kazam',
+        'LV' => 'Lava',
         'LA' => 'Lanix',
         'LC' => 'LCT',
         'LE' => 'Lenovo',
