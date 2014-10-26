@@ -84,6 +84,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'CK' => 'Cricket',
         'CL' => 'Compal',
         'CN' => 'CnM',
+        'CM' => 'Crius Mea',
         'CR' => 'CreNova',
         'CT' => 'Capitel',
         'CO' => 'Coolpad',
