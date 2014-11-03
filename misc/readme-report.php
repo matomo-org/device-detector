@@ -6,7 +6,7 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-include '../vendor/autoload.php';
+include __DIR__ . '/../vendor/autoload.php';
 
 ?>
 ## What Device Detector is able to detect

@@ -70,7 +70,7 @@ abstract class ClientParserAbstract extends ParserAbstract
             }
         }
 
-        sort($names, SORT_NATURAL | SORT_FLAG_CASE);
+        sort($names, SORT_STRING | SORT_FLAG_CASE);
 
         return array_unique($names);
     }
