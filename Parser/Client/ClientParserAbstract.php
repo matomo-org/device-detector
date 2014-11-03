@@ -52,4 +52,24 @@ abstract class ClientParserAbstract extends ParserAbstract
         return $result;
     }
 
+    /**
+     * Returns all names defined in the regexes
+     *
+     * @return array
+     */
+    public static function getAvailableClients()
+    {
+        $instance = new static();
+        $regexes = $instance->getRegexes();
+        $names = array();
+        foreach ($regexes as $regex) {
+            if ($regex['name'] != '$1') {
+                $names[] = $regex['name'];
+            }
+        }
+
+        sort($names, SORT_NATURAL | SORT_FLAG_CASE);
+
+        return array_unique($names);
+    }
 }

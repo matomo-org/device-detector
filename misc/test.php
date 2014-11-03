@@ -6,7 +6,7 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
