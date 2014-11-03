@@ -55,6 +55,8 @@ abstract class ClientParserAbstract extends ParserAbstract
     /**
      * Returns all names defined in the regexes
      *
+     * Attention: This method might not return all names of detected clients
+     *
      * @return array
      */
     public static function getAvailableClients()

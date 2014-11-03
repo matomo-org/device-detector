@@ -44,4 +44,9 @@ class BrowserTest extends \PHPUnit_Framework_TestCase
         $this->assertEmpty($browsersNotTested, 'Following browsers are not tested: '.implode(', ', $browsersNotTested));
     }
 
+    public function testGetAvailableClients()
+    {
+        $available = Browser::getAvailableClients();
+        $this->assertGreaterThan(count($available), count(Browser::getAvailableBrowsers()));
+    }
 }
