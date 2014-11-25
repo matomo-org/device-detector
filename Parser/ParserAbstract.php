@@ -9,6 +9,7 @@ namespace DeviceDetector\Parser;
 
 use DeviceDetector\Cache\CacheInterface;
 use DeviceDetector\Cache\CacheStatic;
+use DeviceDetector\DeviceDetector;
 use \Spyc;
 
 /**
@@ -140,7 +141,7 @@ abstract class ParserAbstract
     protected function getRegexes()
     {
         if (empty($this->regexList)) {
-            $cacheKey = 'DeviceDetector-regexes-'.$this->getName();
+            $cacheKey = 'DeviceDetector-'.DeviceDetector::VERSION.'regexes-'.$this->getName();
             $cacheKey = preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
             $this->regexList = $this->getCache()->get($cacheKey);
             if (empty($this->regexList)) {
@@ -227,7 +228,7 @@ abstract class ParserAbstract
 
         static $overAllMatch;
 
-        $cacheKey = $this->parserName.'-all';
+        $cacheKey = $this->parserName.DeviceDetector::VERSION.'-all';
         $cacheKey = preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
 
         if (empty($overAllMatch)) {

@@ -19,6 +19,11 @@ use \Spyc;
 class DeviceDetector
 {
     /**
+     * Current version number of DeviceDetector
+     */
+    const VERSION = '2.7';
+
+    /**
      * Holds all registered client types
      * @var array
      */
@@ -543,7 +548,7 @@ class DeviceDetector
         $processed = array(
             'user_agent'     => $deviceDetector->getUserAgent(),
             'os'             => $deviceDetector->getOs(),
-            'client'        => $deviceDetector->getClient(),
+            'client'         => $deviceDetector->getClient(),
             'device'         => array(
                 'type'       => $deviceDetector->getDeviceName(),
                 'brand'      => $deviceDetector->getBrand(),
