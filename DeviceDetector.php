@@ -8,12 +8,12 @@
 
 namespace DeviceDetector;
 
-use DeviceDetector\Cache\CacheInterface;
-use DeviceDetector\Cache\CacheStatic;
+use DeviceDetector\Cache\StaticCache;
 use DeviceDetector\Parser\Bot;
 use DeviceDetector\Parser\OperatingSystem;
 use DeviceDetector\Parser\Client\ClientParserAbstract;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
+use \Doctrine\Common\Cache\Cache;
 use \Spyc;
 
 class DeviceDetector
@@ -92,7 +92,7 @@ class DeviceDetector
 
     /**
      * Holds the cache class used for caching the parsed yml-Files
-     * @var CacheInterface
+     * @var \Doctrine\Common\Cache\CacheProvider
      */
     protected $cache = null;
 
@@ -567,11 +567,9 @@ class DeviceDetector
     /**
      * Sets the Cache class
      *
-     * Note: The given class needs to have a 'get' and 'set' method to be used
-     *
      * @param $cache
      */
-    public function setCache(CacheInterface $cache)
+    public function setCache(Cache $cache)
     {
         $this->cache = $cache;
     }
@@ -579,7 +577,7 @@ class DeviceDetector
     /**
      * Returns Cache object
      *
-     * @return CacheInterface
+     * @return \Doctrine\Common\Cache\CacheProvider
      */
     public function getCache()
     {
@@ -587,6 +585,6 @@ class DeviceDetector
             return $this->cache;
         }
 
-        return new CacheStatic();
+        return new StaticCache();
     }
 }

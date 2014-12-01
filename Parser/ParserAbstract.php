@@ -7,9 +7,9 @@
  */
 namespace DeviceDetector\Parser;
 
-use DeviceDetector\Cache\CacheInterface;
-use DeviceDetector\Cache\CacheStatic;
+use DeviceDetector\Cache\StaticCache;
 use DeviceDetector\DeviceDetector;
+use Doctrine\Common\Cache\Cache;
 use \Spyc;
 
 /**
@@ -87,7 +87,7 @@ abstract class ParserAbstract
     const VERSION_TRUNCATION_NONE  = null;
 
     /**
-     * @var CacheInterface
+     * @var \Doctrine\Common\Cache\Cache
      */
     protected $cache;
 
@@ -143,10 +143,10 @@ abstract class ParserAbstract
         if (empty($this->regexList)) {
             $cacheKey = 'DeviceDetector-'.DeviceDetector::VERSION.'regexes-'.$this->getName();
             $cacheKey = preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
-            $this->regexList = $this->getCache()->get($cacheKey);
+            $this->regexList = $this->getCache()->fetch($cacheKey);
             if (empty($this->regexList)) {
                 $this->regexList = Spyc::YAMLLoad(dirname(__DIR__).DIRECTORY_SEPARATOR.$this->fixtureFile);
-                $this->getCache()->set($cacheKey, $this->regexList);
+                $this->getCache()->save($cacheKey, $this->regexList);
             }
         }
         return $this->regexList;
@@ -232,7 +232,7 @@ abstract class ParserAbstract
         $cacheKey = preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
 
         if (empty($overAllMatch)) {
-            $overAllMatch = $this->getCache()->get($cacheKey);
+            $overAllMatch = $this->getCache()->fetch($cacheKey);
         }
 
         if (empty($overAllMatch)) {
@@ -244,7 +244,7 @@ abstract class ParserAbstract
                     return $val2['regex'];
                 }
             });
-            $this->getCache()->set($cacheKey, $overAllMatch);
+            $this->getCache()->save($cacheKey, $overAllMatch);
         }
 
         return $this->matchUserAgent($overAllMatch);
@@ -257,7 +257,7 @@ abstract class ParserAbstract
      *
      * @param $cache
      */
-    public function setCache(CacheInterface $cache)
+    public function setCache(Cache $cache)
     {
         $this->cache = $cache;
     }
@@ -265,7 +265,7 @@ abstract class ParserAbstract
     /**
      * Returns Cache object
      *
-     * @return CacheInterface
+     * @return \Doctrine\Common\Cache\CacheProvider
      */
     public function getCache()
     {
@@ -273,6 +273,6 @@ abstract class ParserAbstract
             return $this->cache;
         }
 
-        return new CacheStatic();
+        return new StaticCache();
     }
 }

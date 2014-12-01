@@ -13,7 +13,7 @@ require_once 'vendor/autoload.php';
 
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
-use DeviceDetector\Cache\CacheFile;
+use Doctrine\Common\Cache\PhpFileCache;
 
 // OPTIONAL: Set version truncation to none, so full versions will be returned
 // By default only minor versions will be returned (e.g. X.Y)
@@ -25,7 +25,7 @@ $dd = new DeviceDetector($userAgent);
 // OPTIONAL: Set caching method
 // By default static cache is used, which works best within one php process
 // To cache across requests use caching in files or memcache
-$dd->setCache(new CacheFile('./tmp/'));
+$dd->setCache(new PhpFileCache('./tmp/'));
 
 // OPTIONAL: If called, getBot() will only return true if a bot was detected  (speeds up detection a bit)
 $dd->discardBotInformation();
