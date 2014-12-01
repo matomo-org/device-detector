@@ -476,6 +476,9 @@ class DeviceDetector
             }
         }
 
+        $osShortName = $this->getOs('short_name');
+        $osVersion = $this->getOs('version');
+
         /**
          * Android up to 3.0 was designed for smartphones only. But as 3.0, which was tablet only, was published
          * too late, there were a bunch of tablets running with 2.x
@@ -484,10 +487,10 @@ class DeviceDetector
          * So were are expecting that all devices running Android < 2 are smartphones
          * Devices running Android 3.X are tablets. Device type of Android 2.X and 4.X+ are unknown
          */
-        if (is_null($this->device) && $this->getOs('short_name') == 'AND' && $this->getOs('version') != '') {
-            if (version_compare($this->getOs('version'), '2.0') == -1) {
+        if (is_null($this->device) && $osShortName == 'AND' && $osVersion != '') {
+            if (version_compare($osVersion, '2.0') == -1) {
                 $this->device = DeviceParserAbstract::DEVICE_TYPE_SMARTPHONE;
-            } else if (version_compare($this->getOs('version'), '3.0') >= 0 AND version_compare($this->getOs('version'), '4.0') == -1) {
+            } else if (version_compare($osVersion, '3.0') >= 0 AND version_compare($osVersion, '4.0') == -1) {
                 $this->device = DeviceParserAbstract::DEVICE_TYPE_TABLET;
             }
         }
@@ -501,7 +504,8 @@ class DeviceDetector
          * As most touch enabled devices are tablets and only a smaller part are desktops/notebooks we assume that
          * all Windows 8 touch devices are tablets.
          */
-        if (is_null($this->device) && in_array($this->getOs('short_name'), array('WI8', 'W81', 'WRT')) && $this->isTouchEnabled()) {
+
+        if (is_null($this->device) && ($osShortName == 'WRT' || ($osShortName == 'WIN' && version_compare($osVersion, '8.0'))) && $this->isTouchEnabled()) {
             $this->device = DeviceParserAbstract::DEVICE_TYPE_TABLET;
         }
 

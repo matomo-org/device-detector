@@ -80,8 +80,8 @@ class OperatingSystemTest extends \PHPUnit_Framework_TestCase
     {
         return array(
             array('DEB', '4.5', 'Debian 4.5'),
-            array('W98', '', 'Windows 98'),
-            array('W98', '98', 'Windows 98'),
+            array('WRT', '', 'Windows RT'),
+            array('WIN', '98', 'Windows 98'),
             array('XXX', '4.5', false),
         );
     }

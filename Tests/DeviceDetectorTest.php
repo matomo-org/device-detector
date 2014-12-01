@@ -172,8 +172,8 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($dd->getOs());
         $dd->parse();
         $expected = array(
-            'name' => 'Windows 7',
-            'short_name' => 'WI7',
+            'name' => 'Windows',
+            'short_name' => 'WIN',
             'version' => '7'
         );
         $this->assertEquals($expected, $dd->getOs());
