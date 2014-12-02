@@ -44,6 +44,7 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
     {
         $dd = new DeviceDetector('');
         $dd->parse();
+        $dd->parse(); // call second time complete code coverage
     }
 
     public function testParseInvalidUA()
