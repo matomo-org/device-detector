@@ -1720,15 +1720,15 @@ Sony:
     - regex: '(SGP[^/;]*) Build'
       model: '$1'
       device: 'tablet'
-    - regex: 'Sony[ ]?([^/;]*) Build'
-      model: '$1'
-    - regex: 'Sony[ ]?([a-z0-9\-]+)'
-      model: '$1'
     - regex: 'Xperia ([^/;]*Tablet[^/;]*) Build'
       model: 'Xperia $1'
       device: 'tablet'
     - regex: 'Xperia ([^;/]+) Build'
       model: 'Xperia $1'
+    - regex: 'Sony[ ]?([^/;]*) Build'
+      model: '$1'
+    - regex: 'Sony[ ]?([a-z0-9\-]+)'
+      model: '$1'
 
 # Kindle
 Kindle:
@@ -1791,7 +1791,7 @@ Tecno Mobile:
   models:
     - regex: 'Tecno ([^;/]+) Build'
       model: '$1'
-    - regex: 'Tecno_([a-z0-9_-]+)'
+    - regex: 'Tecno_?([a-z0-9_-]+)'
       model: '$1'
 
 # teXet
@@ -1986,9 +1986,15 @@ Toshiba:
 
 # Fly
 Fly:
-  regex: 'Fly|MERIDIAN-'
+  regex: 'Fly(?!Flow|touch)|MERIDIAN-'
   device: 'smartphone'
   models:
+    - regex: 'Fly[ _\-]?([a-z0-9_]+)/'
+      model: '$1'
+      device: 'feature phone'
+    - regex: 'Flylife[ _\-]?(.*) Build'
+      model: 'Flylife $1'
+      device: 'tablet'
     - regex: 'Fly[ _\-]?([a-z0-9]+)'
       model: '$1'
     - regex: 'MERIDIAN-([a-z0-9]+)'
