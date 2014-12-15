@@ -100,6 +100,7 @@ class OperatingSystem extends ParserAbstract
         'WNT' => 'Windows NT',
         'WPH' => 'Windows Phone',
         'WRT' => 'Windows RT',
+        'WR2' => 'Windows RT 8.1',
         'WS3' => 'Windows Server 2003',
         'WVI' => 'Windows Vista',
         'WXP' => 'Windows XP',
@@ -137,7 +138,7 @@ class OperatingSystem extends ParserAbstract
         'Symbian'               => array('SYM', 'SYS', 'SY3', 'S60', 'S40'),
         'Unix'                  => array('SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64', 'INF'),
         'WebTV'                 => array('WTV'),
-        'Windows'               => array('WI7', 'WI8', 'W81', 'W10', 'WVI', 'WS3', 'WXP', 'W2K', 'WNT', 'WME', 'W98', 'W95', 'WRT', 'W31', 'WIN'),
+        'Windows'               => array('WI7', 'WI8', 'W81', 'W10', 'WVI', 'WS3', 'WXP', 'W2K', 'WNT', 'WME', 'W98', 'W95', 'WRT', 'WR2', 'W31', 'WIN'),
         'Windows Mobile'        => array('WPH', 'WMO', 'WCE')
     );
 
