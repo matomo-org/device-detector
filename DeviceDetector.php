@@ -501,7 +501,7 @@ class DeviceDetector
          * As most touch enabled devices are tablets and only a smaller part are desktops/notebooks we assume that
          * all Windows 8 touch devices are tablets.
          */
-        if (is_null($this->device) && in_array($this->getOs('short_name'), array('WI8', 'W81', 'WRT')) && $this->isTouchEnabled()) {
+        if (is_null($this->device) && in_array($this->getOs('short_name'), array('WI8', 'W81', 'WRT', 'WR2')) && $this->isTouchEnabled()) {
             $this->device = DeviceParserAbstract::DEVICE_TYPE_TABLET;
         }
 
