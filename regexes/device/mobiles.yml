@@ -1574,9 +1574,17 @@ Prestigio:
 
 # Sanyo
 Sanyo:
-  regex: 'Sanyo|MobilePhone '
-  device: 'smartphone'
+  regex: 'Sanyo|MobilePhone[ ;]'
+  device: 'feature phone'
   models:
+    # explicit feature phone models
+    - regex: 'SCP-?6750'
+      model: 'Katana Eclipse X'
+    - regex: 'SCP-?6760'
+      model: 'Incognito'
+    - regex: 'SCP-?6780'
+      model: 'Innuendo'
+
     - regex: 'SANYO[ \-_]([a-z0-9\-]+)'
       model: '$1'
     - regex: 'MobilePhone ([a-z0-9\-]+)'
@@ -1584,12 +1592,17 @@ Sanyo:
 
 # Qilive
 Qilive:
-  regex: 'Qilive [0-9][^;/]* Build'
+  regex: 'Qilive [0-9][^;/]*'
   device: 'smartphone'
   models:
     - regex: 'Qilive ([0-5][^;/]*) Build'
       model: '$1'
+    - regex: 'Qilive ([0-5][^;/]*)/'
+      model: '$1'
     - regex: 'Qilive ([6-9][^;/]*) Build'
+      model: '$1'
+      device: 'tablet'
+    - regex: 'Qilive ([6-9][^;/]*)/'
       model: '$1'
       device: 'tablet'
 
@@ -1625,7 +1638,18 @@ Spice:
 Sharp:
   regex: 'SHARP|SBM|SH-[0-9]+[a-z]? Build|AQUOS'
   device: 'smartphone'
-  models: 
+  models:
+    # explicit smartphone models
+    - regex: 'SH-02E'
+      model: 'Aquos Phone Zeta'
+    - regex: 'SH06D'
+      model: 'Aquos Phone SH-06D'
+
+    # explicit tablet models
+    - regex: 'SH-08E'
+      device: 'tablet'
+      model: 'Sharp Aquos Pad'
+
     - regex: 'SHARP-AQUOS|AQUOSBrowser'
       device: 'tv'
       model: 'Aquos Net Plus'
