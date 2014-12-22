@@ -7,7 +7,7 @@
 
 # HTC
 HTC:
-  regex: 'HTC|Sprint (?:APA|ATP)|ADR(?!910L)[a-z0-9]+|NexusHD2|Amaze[ _]4G Build|(?:Sensation|Desire|Evo ?3D|One)[ _][a-z0-9]+ Build'
+  regex: 'HTC|Sprint (?:APA|ATP)|ADR(?!910L)[a-z0-9]+|NexusHD2|Amaze[ _]4G Build|(?:Sensation|Desire|Evo ?3D|One)[ _][a-z0-9]+ Build|SPV E6[05]0'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -17,6 +17,10 @@ HTC:
       model: 'ThunderBolt'
     - regex: 'ADR6410LRA'
       model: 'Droid Incredible 3'
+    - regex: 'SPV E600'
+      model: 'Excalibur'
+    - regex: 'SPV E650'
+      model: 'Vox'
 
     - regex: 'NexusHD2' # custom rom for hd2
       model: 'HD2'
@@ -1224,10 +1228,16 @@ Newgen:
   
 # ngm
 NGM:
-  regex: 'NGM_([a-z0-9]+)'
+  regex: 'NGM_[a-z0-9]+|(Forward|Dynamic)[ _][^/;]+(?:Build|/)'
   device: 'smartphone'
-  model: '$1'
-  
+  models:
+    - regex: '((?:Forward|Dynamic)[ _][^/;]+) Build'
+      model: '$1'
+    - regex: '((?:Forward|Dynamic)[ _][^/;]+)/'
+      model: '$1'
+    - regex: 'NGM_([a-z0-9]+)'
+      model: '$1'
+
 # nexian
 Nexian:
   regex: 'S?Nexian'
@@ -1257,6 +1267,11 @@ Onda:
   regex: 'Onda'
   device: 'smartphone'
   models:
+    # explicit tablet models
+    - regex: 'ONDA MID'
+      model: 'MID'
+      device: 'tablet'
+
     - regex: '([a-z0-9]+)[ _]Onda'
       model: '$1'
     - regex: 'Onda ([a-z0-9]+)'
@@ -1264,7 +1279,7 @@ Onda:
   
 # oppo
 OPPO:
-  regex: 'OPPO[ ]?([a-z0-9]+)'
+  regex: 'OPPO[ _]?([a-z0-9]+)'
   device: 'smartphone'
   model: '$1'
 
