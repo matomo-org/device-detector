@@ -7,7 +7,7 @@
 
 # HTC
 HTC:
-  regex: 'HTC|Sprint (?:APA|ATP)|ADR(?!910L)[a-z0-9]+|NexusHD2|Amaze[ _]4G Build|(?:Sensation|Desire|Evo ?3D|One)[ _][a-z0-9]+ Build'
+  regex: 'HTC|Sprint (?:APA|ATP)|ADR(?!910L)[a-z0-9]+|NexusHD2|Amaze[ _]4G Build|(?:Sensation|Desire|Evo ?3D|One)[ _][a-z0-9]+ Build|SPV E6[05]0'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -17,6 +17,10 @@ HTC:
       model: 'ThunderBolt'
     - regex: 'ADR6410LRA'
       model: 'Droid Incredible 3'
+    - regex: 'SPV E600'
+      model: 'Excalibur'
+    - regex: 'SPV E650'
+      model: 'Vox'
 
     - regex: 'NexusHD2' # custom rom for hd2
       model: 'HD2'
@@ -1067,18 +1071,39 @@ Microsoft:
 
 # Konka
 Konka:
-  regex: 'KONKA_([a-z0-9]+)'
-  device: 'feature phone'
-  model: '$1'
+  regex: 'KONKA[_ ]([a-z0-9]+)'
+  device: 'smartphone'
+  models:
+    # Explicit smartphone models
+    - regex: 'E5660S'
+      model: 'Viva 5660s'
+    - regex: 'W830'
+      model: 'Tango 830'
+    - regex: 'W(9[67]0)'
+      model: 'Expose $1'
+    - regex: 'W990'
+      model: 'Tuxedo 990'
+
+    - regex: 'KONKA[_ ]([a-z0-9]+)'
+      device: 'feature phone'
+      model: '$1'
 
 # Karbonn
 Karbonn:
-  regex: 'Karbonn'
+  regex: '(?:Browser-)?Karbonn'
   device: 'smartphone'
   models:
-    - regex: 'Karbonn_([a-z0-9]+)'
+    - regex: 'Karbonn ([a-z0-9]+) WAP-Browser'
+      model: '$1'
+      device: 'feature phone'
+    - regex: 'WAP Browser-Karbonn ([a-z0-9]+)/'
+      model: '$1'
+      device: 'feature phone'
+    - regex: 'Karbonn_([^;/)]+)'
       model: '$1'
     - regex: 'Karbonn ([^;/]+) Build'
+      model: '$1'
+    - regex: 'Karbonn ([^;/]+)/'
       model: '$1'
 
 # Sagem
@@ -1086,6 +1111,9 @@ Sagem:
   regex: 'SAGEM|portalmmm/2.0 (?:SG|my)'
   device: 'smartphone'
   models:
+    - regex: 'SAGEM-(my[a-z0-9-]+)'
+      model: '$1'
+      device: 'feature phone'
     - regex: 'SAGEM ([a-z0-9]+)'
       model: '$1'
     - regex: 'SAGEM-([a-z0-9\-]+)'
@@ -1127,7 +1155,7 @@ Medion:
     - regex: '(?:MD_)?LIFETAB_([a-z0-9]+)'
       device: 'tablet'
       model: 'Lifetab $1'
-    - regex: 'Medion ([^/;]+) Build'
+    - regex: 'Medion(?: Smartphone)? ([^/;]+) Build'
       model: '$1'
 
 # Memup
@@ -1162,13 +1190,89 @@ Mobistel:
 
 # motorola
 Motorola:
-  regex: 'MOT|(?<!AN)DROID ?(?:Build|[a-z0-9]+)|portalmmm/2.0 (?:E378i|L6|L7|v3)|XOOM [^;/]*Build|(?:XT|MZ|MB|ME)[0-9]{3,4}(?:\(Defy\))? Build'
+  regex: 'MOT|(?<!AN)DROID ?(?:Build|[a-z0-9]+)|portalmmm/2.0 (?:E378i|L6|L7|v3)|XOOM [^;/]*Build|(?:XT|MZ|MB|ME)[0-9]{3,4}[a-z]?(?:\(Defy\))?(?: Build|\))'
   device: 'smartphone'
   models:
     # Explicit feature phone models
     - regex: 'MOT-V360'
       model: 'V360'
       device: 'feature phone'
+
+    # Explicit smartphone models
+    - regex: '(?:MOT-|Motorola-)?XT300'
+      model: 'Spice'
+    - regex: '(?:MOT-|Motorola-)?XT30[35]'
+      model: 'Motosmart ME'
+    - regex: '(?:MOT-|Motorola-)?XT31[16]'
+      model: 'Fire'
+    - regex: '(?:MOT-|Motorola-)?XT32[01]'
+      model: 'Defy Mini'
+    - regex: '(?:MOT-|Motorola-)?XT3(?:89|90)'
+      model: 'Motosmart'
+    - regex: '(?:MOT-|Motorola-)?XT502'
+      model: 'Quench'
+    - regex: '(?:MOT-|Motorola-)?XT531'
+      model: 'Fire XT'
+    - regex: '(?:MOT-|Motorola-)?XT535'
+      model: 'Defy'
+    - regex: '(?:MOT-|Motorola-)?XT55[567]C?'
+      model: 'Defy XT'
+    - regex: '(?:MOT-|Motorola-)?XT603'
+      model: 'Admiral'
+    - regex: '(?:MOT-|Motorola-)?XT610'
+      model: 'Droid Pro'
+    - regex: '(?:MOT-|Motorola-)?XT615'
+      model: 'Motoluxe'
+    - regex: '(?:MOT-|Motorola-)?XT621'
+      model: 'Primus'
+    - regex: '(?:MOT-|Motorola-)?XT626'
+      model: 'IronRock'
+    - regex: '(?:MOT-|Motorola-)?XT682'
+      model: 'Atrix'
+    - regex: '(?:MOT-|Motorola-)?XT685'
+      model: 'Motoluxe Dual-SIM'
+    - regex: '(?:MOT-|Motorola-)?XT687'
+      model: 'Atrix TV'
+    - regex: '(?:MOT-|Motorola-)?XT720'
+      model: 'Milestone'
+    - regex: '(?:MOT-|Motorola-)?XT800W'
+      model: 'Glam'
+    - regex: '(?:MOT-|Motorola-)?XT860'
+      model: 'Milestone 3'
+    - regex: '(?:MOT-|Motorola-)?XT881'
+      model: 'Electrify 2'
+    - regex: '(?:MOT-|Motorola-)?XT882'
+      model: 'Moto XT882'
+    - regex: '(?:MOT-|Motorola-)?XT88[56]'
+      model: 'Droid RAZR V'
+    - regex: '(?:MOT-|Motorola-)?XT890'
+      model: 'Droid RAZR i'
+    - regex: '(?:MOT-|Motorola-)?XT894'
+      model: 'Droid 4'
+    - regex: '(?:MOT-|Motorola-)?XT897'
+      model: 'Photon Q'
+    - regex: '(?:MOT-|Motorola-)?XT901'
+      model: 'Electrify M'
+    - regex: '(?:MOT-|Motorola-)?XT90[567]'
+      model: 'Droid RAZR M'
+    - regex: '(?:MOT-|Motorola-)?XT910S?'
+      model: 'Droid RAZR'
+    - regex: '(?:MOT-|Motorola-)?XT91[4568]'
+      model: 'Droid RAZR D1'
+    - regex: '(?:MOT-|Motorola-)?XT9(?:19|20)'
+      model: 'Droid RAZR D3'
+    - regex: '(?:MOT-|Motorola-)?XT925'
+      model: 'Droid RAZR HD'
+    - regex: '(?:MOT-|Motorola-)?XT1022'
+      model: 'Moto E'
+    - regex: '(?:MOT-|Motorola-)?XT1030'
+      model: 'Droid Mini'
+    - regex: '(?:MOT-|Motorola-)?XT10(?:28|3[1234])'
+      model: 'Moto G'
+    - regex: '(?:MOT-|Motorola-)?XT10(?:49|5[23568]|60)'
+      model: 'Moto X'
+    - regex: '(?:MOT-|Motorola-)?XT1080'
+      model: 'Droid Ultra'
 
     - regex: 'Motorola[ _\-]([a-z0-9]+)'
       model: '$1'
@@ -1224,10 +1328,16 @@ Newgen:
   
 # ngm
 NGM:
-  regex: 'NGM_([a-z0-9]+)'
+  regex: 'NGM_[a-z0-9]+|(Forward|Dynamic)[ _][^/;]+(?:Build|/)'
   device: 'smartphone'
-  model: '$1'
-  
+  models:
+    - regex: '((?:Forward|Dynamic)[ _][^/;]+) Build'
+      model: '$1'
+    - regex: '((?:Forward|Dynamic)[ _][^/;]+)/'
+      model: '$1'
+    - regex: 'NGM_([a-z0-9]+)'
+      model: '$1'
+
 # nexian
 Nexian:
   regex: 'S?Nexian'
@@ -1257,6 +1367,11 @@ Onda:
   regex: 'Onda'
   device: 'smartphone'
   models:
+    # explicit tablet models
+    - regex: 'ONDA MID'
+      model: 'MID'
+      device: 'tablet'
+
     - regex: '([a-z0-9]+)[ _]Onda'
       model: '$1'
     - regex: 'Onda ([a-z0-9]+)'
@@ -1264,7 +1379,7 @@ Onda:
   
 # oppo
 OPPO:
-  regex: 'OPPO[ ]?([a-z0-9]+)'
+  regex: 'OPPO[ _]?([a-z0-9]+)'
   device: 'smartphone'
   model: '$1'
 
