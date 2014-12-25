@@ -784,7 +784,7 @@ Grundig:
   device: 'tv'
   models:
     - regex: '(GR?-TB[0-9]+[a-z]*)'
-      device: 'smartphone'
+      device: 'tablet'
       model: '$1'
     - regex: 'GRUNDIG ([a-z0-9]+)'
       model: '$1'
@@ -796,9 +796,11 @@ Haier:
   regex: 'Haier'
   device: 'smartphone'
   models:
-    - regex: 'Haier[ _-](HW-[^/;]+) Build'
+    - regex: 'Haier[ _-](H[WT]-[^/;]+) Build'
       model: '$1'
-    - regex: 'Haier[ _-](HW-[a-z0-9_-]+)'
+    - regex: 'Haier[ _-](H[WT]-[a-z0-9_-]+)'
+      model: '$1'
+    - regex: 'Haier[ _-](sy[0-9]+)'
       model: '$1'
     - regex: 'Haier[ _-]([a-z0-9\-]+)'
       model: '$1'
@@ -848,6 +850,8 @@ Infinix:
       device: 'tablet'
       model: '$1'
     - regex: 'Infinix (X\d+)'
+      model: '$1'
+    - regex: 'Infinix[ _]([a-z0-9_-]+)'
       model: '$1'
 
 # Inkti
@@ -933,7 +937,7 @@ Kazam:
 
 # KT-Tech
 KT-Tech:
-  regex: '(KM-[a-z0-9]+|EV-[a-z0-9]+)'
+  regex: '(KM-[a-z0-9]+|EV-[a-z0-9]+) Build'
   device: 'smartphone'
   model: '$1'
 
@@ -1023,13 +1027,55 @@ Lenovo:
 Lexibook:
   regex: '(MFC[0-9]{3}[a-z]{2,})'
   device: 'tablet'
-  model: '$1'
+  models:
+    # Explicit tablet models
+    - regex: 'MFC191FR'
+      model: 'Tablet Ultra 3 XL'
+    - regex: 'MFC045FR'
+      model: 'TabTab'
+    - regex: 'MFC163FR'
+      model: 'Tablet Master 3'
+    - regex: 'MFC142FR'
+      model: 'Tablet Kids'
+    - regex: 'MFC250FR'
+      model: 'Tablet Junior'
+    - regex: 'MFC270FR'
+      model: 'Tablet Junior Power Touch'
+    - regex: 'MFC280FR'
+      model: 'Tablet Junior 2'
+    - regex: 'MFC156FR'
+      model: 'Tablet One'
+    - regex: 'MFC155FR'
+      model: 'Tablet Master'
+    - regex: 'MFC157FR'
+      model: 'Tablet Master 2'
+    - regex: 'MFC17[05]FR'
+      model: 'Tablet Ultra'
+    - regex: 'MFC375FR'
+      model: 'Tablet Ultra 2'
+    - regex: 'MFC162FR'
+      model: 'Power Tablet'
+    - regex: 'MFC180FR'
+      model: 'Tablet Advanced'
+    - regex: 'MFC181FR'
+      model: 'Tablet Advanced 2'
+    - regex: 'MFC500FR'
+      model: 'Tablet XL'
+    - regex: 'MFC190BBFR'
+      model: 'Barbie Tablet'
+    - regex: 'MFC195DCFR'
+      model: 'Tablet Disney Cars HD'
+    - regex: 'MFC195FUFR'
+      model: 'Furby Tablet'
+    - regex: 'MFC195DPFR'
+      model: 'Tablet Disney Princesse HD'
+    - regex: 'MFC140FR'
+      model: 'LapTab'
+    - regex: 'MFC141FR'
+      model: 'LapTab 2'
 
-# lguplus
-LGUPlus:
-  regex: 'LGUPlus'
-  device: 'smartphone'
-  model: ''
+    - regex: '(MFC[0-9]{3}[a-z]{2,})'
+      model: '$1'
 
 # lg
 LG:
