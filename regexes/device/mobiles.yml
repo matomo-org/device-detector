@@ -573,8 +573,11 @@ Dell:
   regex: 'Dell'
   device: 'smartphone'
   models:
-    - regex: 'Dell Streak([^/;]*) Build'
-      model: 'Streak$1'
+    - regex: 'Dell ((?:Streak|Venue)[^/;]*) Build'
+      model: '$1'
+      device: 'tablet'
+    - regex: 'Dell; ((?:Streak|Venue)[^;/\)]*)'
+      model: '$1'
       device: 'tablet'
     - regex: 'Dell; ([^;/\)]+)'
       model: '$1'
@@ -695,9 +698,9 @@ eTouch:
 
 # Storex
 Storex:
-  regex: "(eZee[ ']*Tab[^;/]*) Build"
+  regex: "eZee[^a-z]*Tab ?([^;/]*) Build"
   device: 'tablet'
-  model: '$1'
+  model: "eZee'Tab$1"
 
 # Evertek
 Evertek:
