@@ -295,6 +295,12 @@ Archos:
     - regex: 'Archos ([a-z0-9]+)'
       model: '$1'
 
+# Meu
+MEU:
+  regex: 'MEU ([a-z0-9]+) Build'
+  device: 'smartphone'
+  model: '$1'
+
 # Arnova
 Arnova:
   regex: 'arnova|AN[0-9]'
@@ -358,11 +364,13 @@ Asus:
     # general detections
     - regex: 'Asus(?:-|;)?([a-z0-9]+)'
       model: '$1'
-    - regex: '(PadFone(?: [0-9]+)?)'
+    - regex: '(PadFone(?: [^;/]+)?) Build'
       model: '$1'
-    - regex: '(Transformer (Pad |Prime )?TF[0-9a-z]+)'
+    - regex: '(PadFone(?: [a-z0-9]+)?)'
+      model: '$1'
+    - regex: '(?:Asus|Transformer) ((?:Pad |Prime )?TF[0-9a-z]+)'
       device: 'tablet'
-      model: '$1'
+      model: 'Transformer $1'
 
 # Audiovox
 Audiovox:
@@ -382,7 +390,12 @@ Audiovox:
 Avvio:
   regex: 'Avvio[ _]([a-z0-9\-]+)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'Avvio[ _]PAD'
+      model: 'PAD'
+      device: 'tablet'
+    - regex: 'Avvio[ _]([a-z0-9\-]+)'
+      model: '$1'
 
 #Barnes & Noble
 'Barnes & Noble':
@@ -414,9 +427,15 @@ BBK:
 
 # Bird
 Bird:
-  regex: 'BIRD[\-. _]([a-z0-9]+)'
+  regex: 'BIRD[\-. _]([^;/]+)'
   device: 'feature phone'
-  model: '$1'
+  models:
+    - regex: 'BIRD[\-. _]([^;/]+) Build'
+      model: '$1'
+    - regex: 'BIRD[\-. _]([^;/]+)_TD'
+      model: '$1'
+    - regex: 'BIRD[\-. _]([^;/]+)'
+      model: '$1'
 
 # Becker
 Becker:
@@ -573,8 +592,11 @@ Dell:
   regex: 'Dell'
   device: 'smartphone'
   models:
-    - regex: 'Dell Streak([^/;]*) Build'
-      model: 'Streak$1'
+    - regex: 'Dell ((?:Streak|Venue)[^/;]*) Build'
+      model: '$1'
+      device: 'tablet'
+    - regex: 'Dell; ((?:Streak|Venue)[^;/\)]*)'
+      model: '$1'
       device: 'tablet'
     - regex: 'Dell; ([^;/\)]+)'
       model: '$1'
@@ -695,9 +717,9 @@ eTouch:
 
 # Storex
 Storex:
-  regex: "(eZee[ ']*Tab[^;/]*) Build"
+  regex: "eZee[^a-z]*Tab ?([^;/]*) Build"
   device: 'tablet'
-  model: '$1'
+  model: "eZee'Tab$1"
 
 # Evertek
 Evertek:
@@ -2199,13 +2221,15 @@ Zopo:
 
 # ZTE
 ZTE:
-  regex: 'ZTE|Z331|N799D'
+  regex: 'ZTE|Z331|N799D|([a-z0-9]+)_USA_Cricket'
   device: 'smartphone'
   models:
     # Explicit smartphone models
     - regex: 'N799D'
       model: 'MTS Blaze 4'
 
+    - regex: '([a-z0-9]+)_USA_Cricket'
+      model: '$1'
     - regex: 'ZTE[\- ](V98|V96A|V81|V70) Build'
       model: '$1'
       device: 'tablet'
