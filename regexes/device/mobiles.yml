@@ -295,6 +295,12 @@ Archos:
     - regex: 'Archos ([a-z0-9]+)'
       model: '$1'
 
+# Meu
+MEU:
+  regex: 'MEU ([a-z0-9]+) Build'
+  device: 'smartphone'
+  model: '$1'
+
 # Arnova
 Arnova:
   regex: 'arnova|AN[0-9]'
@@ -358,11 +364,13 @@ Asus:
     # general detections
     - regex: 'Asus(?:-|;)?([a-z0-9]+)'
       model: '$1'
-    - regex: '(PadFone(?: [0-9]+)?)'
+    - regex: '(PadFone(?: [^;/]+)?) Build'
       model: '$1'
-    - regex: '(Transformer (Pad |Prime )?TF[0-9a-z]+)'
+    - regex: '(PadFone(?: [a-z0-9]+)?)'
+      model: '$1'
+    - regex: '(?:Asus|Transformer) ((?:Pad |Prime )?TF[0-9a-z]+)'
       device: 'tablet'
-      model: '$1'
+      model: 'Transformer $1'
 
 # Audiovox
 Audiovox:
@@ -382,7 +390,12 @@ Audiovox:
 Avvio:
   regex: 'Avvio[ _]([a-z0-9\-]+)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'Avvio[ _]PAD'
+      model: 'PAD'
+      device: 'tablet'
+    - regex: 'Avvio[ _]([a-z0-9\-]+)'
+      model: '$1'
 
 #Barnes & Noble
 'Barnes & Noble':
