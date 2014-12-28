@@ -414,9 +414,15 @@ BBK:
 
 # Bird
 Bird:
-  regex: 'BIRD[\-. _]([a-z0-9]+)'
+  regex: 'BIRD[\-. _]([^;/]+)'
   device: 'feature phone'
-  model: '$1'
+  models:
+    - regex: 'BIRD[\-. _]([^;/]+) Build'
+      model: '$1'
+    - regex: 'BIRD[\-. _]([^;/]+)_TD'
+      model: '$1'
+    - regex: 'BIRD[\-. _]([^;/]+)'
+      model: '$1'
 
 # Becker
 Becker:
@@ -2202,13 +2208,15 @@ Zopo:
 
 # ZTE
 ZTE:
-  regex: 'ZTE|Z331|N799D'
+  regex: 'ZTE|Z331|N799D|([a-z0-9]+)_USA_Cricket'
   device: 'smartphone'
   models:
     # Explicit smartphone models
     - regex: 'N799D'
       model: 'MTS Blaze 4'
 
+    - regex: '([a-z0-9]+)_USA_Cricket'
+      model: '$1'
     - regex: 'ZTE[\- ](V98|V96A|V81|V70) Build'
       model: '$1'
       device: 'tablet'

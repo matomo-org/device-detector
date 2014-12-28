@@ -493,6 +493,13 @@ class DeviceDetector
         }
 
         /**
+         * All detected feature phones running android are more likely a smartphone
+         */
+        if ($this->device == DeviceParserAbstract::DEVICE_TYPE_FEATURE_PHONE && $this->getOs('short_name') == 'AND') {
+            $this->device = DeviceParserAbstract::DEVICE_TYPE_SMARTPHONE;
+        }
+
+        /**
          * According to http://msdn.microsoft.com/en-us/library/ie/hh920767(v=vs.85).aspx
          * Internet Explorer 10 introduces the "Touch" UA string token. If this token is present at the end of the
          * UA string, the computer has touch capability, and is running Windows 8 (or later).
