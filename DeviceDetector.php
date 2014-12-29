@@ -243,6 +243,15 @@ class DeviceDetector
 
     public function isMobile()
     {
+        if (!empty($this->device) && in_array($this->device, array(
+                DeviceParserAbstract::DEVICE_TYPE_FEATURE_PHONE,
+                DeviceParserAbstract::DEVICE_TYPE_SMARTPHONE,
+                DeviceParserAbstract::DEVICE_TYPE_TABLET,
+                DeviceParserAbstract::DEVICE_TYPE_CAMERA
+            ))) {
+            return true;
+        }
+
         $osShort = $this->getOs('short_name');
         if (empty($osShort) || self::UNKNOWN == $osShort) {
             return false;
