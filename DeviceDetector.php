@@ -241,6 +241,28 @@ class DeviceDetector
         return $this->matchUserAgent($regex);
     }
 
+    /**
+     * Returns if the parsed UA contains the 'Android; Tablet;' fragment
+     *
+     * @return bool
+     */
+    protected function hasAndroidTableFragment()
+    {
+        $regex = 'Android; Tablet;';
+        return $this->matchUserAgent($regex);
+    }
+
+    /**
+     * Returns if the parsed UA contains the 'Android; Mobile;' fragment
+     *
+     * @return bool
+     */
+    protected function hasAndroidMobileFragment()
+    {
+        $regex = 'Android; Mobile;';
+        return $this->matchUserAgent($regex);
+    }
+
     public function isMobile()
     {
         if (!empty($this->device) && in_array($this->device, array(
@@ -483,6 +505,20 @@ class DeviceDetector
                 $this->brand  = $parser->getBrand();
                 break;
             }
+        }
+
+        /**
+         * Some user agents simply contain the fragment 'Android; Tablet;', so we assume those devices as tablets
+         */
+        if (is_null($this->device) && $this->hasAndroidTableFragment()) {
+            $this->device = DeviceParserAbstract::DEVICE_TYPE_TABLET;
+        }
+
+        /**
+         * Some user agents simply contain the fragment 'Android; Mobile;', so we assume those devices as tablets
+         */
+        if (is_null($this->device) && $this->hasAndroidMobileFragment()) {
+            $this->device = DeviceParserAbstract::DEVICE_TYPE_SMARTPHONE;
         }
 
         /**
