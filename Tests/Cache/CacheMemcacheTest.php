@@ -13,6 +13,10 @@ class CacheMemcacheTests extends \PHPUnit_Framework_TestCase
 {
     protected function setUp()
     {
+        if ( !extension_loaded('memcache') ) {
+            $this->markTestSkipped('memcache not enabled');
+        }
+
         $cache = new CacheMemcache();
         CacheMemcache::reset();
     }
