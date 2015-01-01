@@ -5,6 +5,48 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
+'Tunisie Telecom':
+  regex: 'StarTrail TT Build'
+  device: 'smartphone'
+  model: 'StarTrail'
+
+# SFR
+SFR:
+  regex: 'StarShine|StarTrail|STARADDICT|StarText|StarNaute'
+  device: 'smartphone'
+  models:
+    - regex: 'StarTrail Build'
+      model: 'StarTrail' # ZTE
+    - regex: 'StarTrail II Build'
+      model: 'StarTrail 2' # Huawei Ascend Y200
+    - regex: 'StarTrail III Build'
+      model: 'StarTrail 3' # ZTE
+    - regex: 'StarTrail ?4 Build'
+      model: 'StarTrail 4' # ZTE Blade Q
+    - regex: 'StarShine Build'
+      model: 'StarShine' # Huawei U8180
+    - regex: 'StarShine II Build'
+      model: 'StarShine 2' # ZTE
+    - regex: 'STARADDICT Build'
+      model: 'Staraddict' # ZTE
+    - regex: 'STARADDICT II Build'
+      model: 'Staraddict 2' # Alcatel One Touch 995
+    - regex: 'STARADDICT II Plus Build'
+      model: 'Staraddict 2 Plus' # ZTE Grand X
+    - regex: 'STARADDICT III Build'
+      model: 'Staraddict 3' # Coolpad 8861U
+    - regex: 'StarText Build'
+      model: 'StarText' # ZTE
+    - regex: 'StarText II Build'
+      model: 'StarText 2' # ZTE
+    - regex: 'StarNaute Build'
+      model: 'StarNaute' # ZTE Amigo
+    - regex: 'StarNaute II Build'
+      model: 'StarNaute 2' # ZTE
+
+    - regex: '((?:StarShine|StarTrail|STARADDICT|StarText|StarNaute)[^;/]*) Build'
+      model: '$1'
+
 # HTC
 HTC:
   regex: 'HTC|Sprint (?:APA|ATP)|ADR(?!910L)[a-z0-9]+|NexusHD2|Amaze[ _]4G Build|(?:Sensation|Desire|Evo ?3D|One)[ _][a-z0-9]+ Build|SPV E6[05]0'
@@ -313,7 +355,7 @@ Arnova:
 
 # Asus
 Asus:
-  regex: 'Asus|Transformer|PadFone|ME302(?:C|KL)|ME301T|ME371MG|ME17(?:1|3X)|K00[0-9a-z] Build'
+  regex: 'Asus|Transformer|Slider SL101|PadFone|ME302(?:C|KL)|ME301T|ME371MG|ME17(?:1|3X)|K00[0-9a-z] Build'
   device: 'smartphone'
   models:
     # explicit tablet models
@@ -355,6 +397,9 @@ Asus:
       device: 'tablet'
     - regex: 'K00C Build'
       model: 'Transformer Pad TF701T'
+      device: 'tablet'
+    - regex: 'Slider SL101'
+      model: 'Eee Pad Slider SL101'
       device: 'tablet'
 
     # explicit smartphone models
@@ -749,7 +794,7 @@ Gemini:
   device: 'tablet'
   model: '$1'
 
-#Gigabyte
+# Gigabyte
 Gigabyte:
   regex: 'GSmart [a-z0-9 ]+ Build|Gigabyte-[a-z0-9]+'
   device: 'smartphone'
@@ -758,6 +803,12 @@ Gigabyte:
       model: '$1'
     - regex: 'Gigabyte-([a-z0-9]+)'
       model: '$1'
+
+# Gigaset
+Gigaset:
+  regex: 'Gigaset QV(1030|830)'
+  device: 'tablet'
+  model: 'Gigaset QV$1'
 
 # Gionee
 Gionee:
@@ -1191,7 +1242,7 @@ Sagem:
 
 # Coby Kyros
 Coby Kyros:
-  regex: '(MID(?:1024|1125|1045|1048|1060|1065|4331|7012|7015A?|7022|7032|7035|7036|7042|7047|7048|7052|7065|7120|8024|8042|8048|8065|8127|9724|9740|9742)) Build'
+  regex: '(MID(?:1024|1125|1126|1045|1048|1060|1065|4331|7012|7015A?|7016|7022|7032|7035|7036|7042|7047|7048|7052|7065|7120|8024|8042|8048|8065|8125|8127|8128|9724|9740|9742)) Build'
   device: 'tablet'
   model: '$1'
 
@@ -1726,9 +1777,11 @@ Pantech:
 
 #Polaroid
 Polaroid:
-  regex: 'Polaroid|(?:PMID|MIDC)[0-9a-z]+ Build'
+  regex: 'Polaroid|(?:PMID|MIDC)[0-9a-z]+ Build|MID(?:1014|0714)'
   device: 'tablet'
   models:
+    - regex: '(MID(?:1014|0714))'
+      model: '$1'
     - regex: '((?:PMID|MIDC)[0-9a-z]+) Build'
       model: '$1'
     - regex: 'Polaroid'

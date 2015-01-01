@@ -13,6 +13,7 @@ use DeviceDetector\Parser\Bot;
 use DeviceDetector\Parser\OperatingSystem;
 use DeviceDetector\Parser\Client\ClientParserAbstract;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
+use DeviceDetector\Parser\VendorFragment;
 use \Doctrine\Common\Cache\Cache;
 use \Spyc;
 
@@ -241,8 +242,39 @@ class DeviceDetector
         return $this->matchUserAgent($regex);
     }
 
+    /**
+     * Returns if the parsed UA contains the 'Android; Tablet;' fragment
+     *
+     * @return bool
+     */
+    protected function hasAndroidTableFragment()
+    {
+        $regex = 'Android; Tablet;';
+        return $this->matchUserAgent($regex);
+    }
+
+    /**
+     * Returns if the parsed UA contains the 'Android; Mobile;' fragment
+     *
+     * @return bool
+     */
+    protected function hasAndroidMobileFragment()
+    {
+        $regex = 'Android; Mobile;';
+        return $this->matchUserAgent($regex);
+    }
+
     public function isMobile()
     {
+        if (!empty($this->device) && in_array($this->device, array(
+                DeviceParserAbstract::DEVICE_TYPE_FEATURE_PHONE,
+                DeviceParserAbstract::DEVICE_TYPE_SMARTPHONE,
+                DeviceParserAbstract::DEVICE_TYPE_TABLET,
+                DeviceParserAbstract::DEVICE_TYPE_CAMERA
+            ))) {
+            return true;
+        }
+
         $osShort = $this->getOs('short_name');
         if (empty($osShort) || self::UNKNOWN == $osShort) {
             return false;
@@ -474,6 +506,28 @@ class DeviceDetector
                 $this->brand  = $parser->getBrand();
                 break;
             }
+        }
+
+        /**
+         * If no brand has been assigned try to match by known vendor fragments
+         */
+        if (empty($this->brand)) {
+            $vendorParser = new VendorFragment($this->getUserAgent());
+            $this->brand = $vendorParser->parse();
+        }
+
+        /**
+         * Some user agents simply contain the fragment 'Android; Tablet;', so we assume those devices as tablets
+         */
+        if (is_null($this->device) && $this->hasAndroidTableFragment()) {
+            $this->device = DeviceParserAbstract::DEVICE_TYPE_TABLET;
+        }
+
+        /**
+         * Some user agents simply contain the fragment 'Android; Mobile;', so we assume those devices as tablets
+         */
+        if (is_null($this->device) && $this->hasAndroidMobileFragment()) {
+            $this->device = DeviceParserAbstract::DEVICE_TYPE_SMARTPHONE;
         }
 
         $osShortName = $this->getOs('short_name');
