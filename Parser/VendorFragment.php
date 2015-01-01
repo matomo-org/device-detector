@@ -20,17 +20,25 @@ class VendorFragment extends ParserAbstract
     protected $fixtureFile = 'regexes/vendorfragments.yml';
     protected $parserName  = 'vendorfragments';
 
+    protected $matchedRegex = null;
+
     public function parse()
     {
         foreach ($this->getRegexes() as $brand => $regexes) {
             foreach($regexes AS $regex) {
                 if ($this->matchUserAgent($regex.'[^a-z0-9]+')) {
+                    $this->matchedRegex = $regex;
                     return array_search($brand, DeviceParserAbstract::$deviceBrands);
                 }
             }
         }
 
         return '';
+    }
+
+    public function getMatchedRegex()
+    {
+        return $this->matchedRegex;
     }
 
 }
