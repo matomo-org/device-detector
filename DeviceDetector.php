@@ -14,6 +14,7 @@ use DeviceDetector\Parser\Bot;
 use DeviceDetector\Parser\OperatingSystem;
 use DeviceDetector\Parser\Client\ClientParserAbstract;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
+use DeviceDetector\Parser\VendorFragment;
 use \Spyc;
 
 class DeviceDetector
@@ -505,6 +506,14 @@ class DeviceDetector
                 $this->brand  = $parser->getBrand();
                 break;
             }
+        }
+
+        /**
+         * If no brand has been assigned try to match by known vendor fragments
+         */
+        if (empty($this->brand)) {
+            $vendorParser = new VendorFragment($this->getUserAgent());
+            $this->brand = $vendorParser->parse();
         }
 
         /**
