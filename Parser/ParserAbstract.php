@@ -9,7 +9,7 @@ namespace DeviceDetector\Parser;
 
 use DeviceDetector\Cache\StaticCache;
 use DeviceDetector\DeviceDetector;
-use Doctrine\Common\Cache\Cache;
+use DeviceDetector\Cache\Cache;
 use \Spyc;
 
 /**
@@ -87,7 +87,7 @@ abstract class ParserAbstract
     const VERSION_TRUNCATION_NONE  = null;
 
     /**
-     * @var \Doctrine\Common\Cache\Cache
+     * @var Cache|\Doctrine\Common\Cache\Cache
      */
     protected $cache;
 
@@ -253,19 +253,24 @@ abstract class ParserAbstract
     /**
      * Sets the Cache class
      *
-     * Note: The given class needs to have a 'get' and 'set' method to be used
-     *
-     * @param $cache
+     * @param Cache|\Doctrine\Common\Cache\CacheProvider $cache
+     * @throws \Exception
      */
-    public function setCache(Cache $cache)
+    public function setCache($cache)
     {
-        $this->cache = $cache;
+        if ($cache instanceof Cache ||
+            (class_exists('\Doctrine\Common\Cache\CacheProvider') && $cache instanceof \Doctrine\Common\Cache\CacheProvider)) {
+            $this->cache = $cache;
+            return;
+        }
+
+        throw new \Exception('Cache not supported');
     }
 
     /**
      * Returns Cache object
      *
-     * @return \Doctrine\Common\Cache\CacheProvider
+     * @return Cache|\Doctrine\Common\Cache\CacheProvider
      */
     public function getCache()
     {

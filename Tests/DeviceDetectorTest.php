@@ -10,7 +10,6 @@ namespace DeviceDetector\Tests;
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
 use DeviceDetector\Parser\ParserAbstract;
-use Doctrine\Common\Cache\MemcacheCache;
 use \Spyc;
 
 class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
@@ -35,14 +34,14 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
 
     public function testCacheSetAndGet()
     {
-        if ( !extension_loaded('memcache') ) {
+        if ( !extension_loaded('memcache') || !class_exists('\Doctrine\Common\Cache\MemcacheCache') ) {
             $this->markTestSkipped('memcache not enabled');
         }
 
         $dd = new DeviceDetector();
         $memcacheServer = new \Memcache();
         $memcacheServer->connect('localhost', 11211);
-        $dd->setCache(new MemcacheCache($memcacheServer));
+        $dd->setCache(new \Doctrine\Common\Cache\MemcacheCache($memcacheServer));
         $this->assertInstanceOf('Doctrine\\Common\\Cache\\MemcacheCache', $dd->getCache());
     }
 

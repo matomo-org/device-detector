@@ -7,8 +7,6 @@
  */
 namespace DeviceDetector\Cache;
 
-use Doctrine\Common\Cache\CacheProvider;
-
 /**
  * Class StaticCache
  *
@@ -17,7 +15,7 @@ use Doctrine\Common\Cache\CacheProvider;
  *
  * @package DeviceDetector\Cache
  */
-class StaticCache extends CacheProvider
+class StaticCache implements Cache
 {
     /**
      * Holds the static cache data
@@ -25,52 +23,29 @@ class StaticCache extends CacheProvider
      */
     static protected $staticCache = array();
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function doFetch($id)
+    public function fetch($id)
     {
-        return $this->doContains($id) ? self::$staticCache[$id] : false;
+        return $this->contains($id) ? self::$staticCache[$id] : false;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function doContains($id)
+    public function contains($id)
     {
         return isset(self::$staticCache[$id]) || array_key_exists($id, self::$staticCache);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function doSave($id, $data, $lifeTime = 0)
+    public function save($id, $data, $lifeTime = 0)
     {
         self::$staticCache[$id] = $data;
         return true;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function doDelete($id)
+    public function delete($id)
     {
         unset(self::$staticCache[$id]);
         return true;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function doGetStats()
-    {
-        return null;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function doFlush()
+    public function flushAll()
     {
         self::$staticCache = array();
         return true;

@@ -9,12 +9,12 @@
 namespace DeviceDetector;
 
 use DeviceDetector\Cache\StaticCache;
+use DeviceDetector\Cache\Cache;
 use DeviceDetector\Parser\Bot;
 use DeviceDetector\Parser\OperatingSystem;
 use DeviceDetector\Parser\Client\ClientParserAbstract;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
 use DeviceDetector\Parser\VendorFragment;
-use \Doctrine\Common\Cache\Cache;
 use \Spyc;
 
 class DeviceDetector
@@ -93,7 +93,7 @@ class DeviceDetector
 
     /**
      * Holds the cache class used for caching the parsed yml-Files
-     * @var \Doctrine\Common\Cache\CacheProvider
+     * @var \DeviceDetector\Cache\Cache|\Doctrine\Common\Cache\CacheProvider
      */
     protected $cache = null;
 
@@ -628,11 +628,18 @@ class DeviceDetector
     /**
      * Sets the Cache class
      *
-     * @param $cache
+     * @param Cache|\Doctrine\Common\Cache\CacheProvider $cache
+     * @throws \Exception
      */
-    public function setCache(Cache $cache)
+    public function setCache($cache)
     {
-        $this->cache = $cache;
+        if ($cache instanceof Cache ||
+            (class_exists('\Doctrine\Common\Cache\CacheProvider') && $cache instanceof \Doctrine\Common\Cache\CacheProvider)) {
+            $this->cache = $cache;
+            return;
+        }
+
+        throw new \Exception('Cache not supported');
     }
 
     /**
