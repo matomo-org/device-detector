@@ -45,6 +45,8 @@ if ($dd->isBot()) {
 
 ### Caching
 
+:exclamation: Caching of DeviceDetector was completely redesigned in 3.0. You may need to reimplement it when updating from below.
+
 In order to get results faster across requests, we recommend to use the additional caching possibility.
 Currently DeviceDetector is able to use [doctrine/cache](https://github.com/doctrine/cache). You can simply require it in your composer.yml and use it like in the example before.
 For those who like to implement their own Caching there is a second possibility. Besides doctrine caches the ```setCache``` method also accepts classes implementing the ```DeviceDetector\Cache\Cache``` interface. That way you can do whatever you want without requiring doctrine/cache.
