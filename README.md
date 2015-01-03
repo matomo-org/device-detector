@@ -122,7 +122,7 @@ Banshee, Clementine, FlyCast, iTunes, MediaMonkey, NexPlayer, Nightingale, Quick
 
 ### List of detected mobile apps:
 
-AndroidDownloadManager and *mobile apps using AFNetworking*
+AndroidDownloadManager and *mobile apps using [AFNetworking](https://github.com/AFNetworking/AFNetworking)*
 
 ### List of detected PIMs (personal information manager):
 
