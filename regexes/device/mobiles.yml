@@ -12,9 +12,11 @@
 
 # SFR
 SFR:
-  regex: 'StarShine|StarTrail|STARADDICT|StarText|StarNaute'
+  regex: 'StarShine|StarTrail|STARADDICT|StarText|StarNaute|StarXtrem|StarTab'
   device: 'smartphone'
   models:
+    - regex: 'StarXtrem Build'
+      model: 'StarXtrem' # ZTE
     - regex: 'StarTrail Build'
       model: 'StarTrail' # ZTE
     - regex: 'StarTrail II Build'
@@ -43,8 +45,11 @@ SFR:
       model: 'StarNaute' # ZTE Amigo
     - regex: 'StarNaute II Build'
       model: 'StarNaute 2' # ZTE
+    - regex: 'StarTab'
+      model: 'StarTab'
+      device: 'tablet'
 
-    - regex: '((?:StarShine|StarTrail|STARADDICT|StarText|StarNaute)[^;/]*) Build'
+    - regex: '((?:StarShine|StarTrail|STARADDICT|StarText|StarNaute|StarXtrem)[^;/]*) Build'
       model: '$1'
 
 # HTC
@@ -250,7 +255,7 @@ MicroMax:
 
 # Acer
 Acer:
-  regex: 'acer|a(?:101|110|200|210|211|500|501|510|511|700|701) Build|Android.*V360 Build|A1-830|A1-81[01]|A3-A1[01]|B1-7[12][01]'
+  regex: 'acer|a(?:101|110|200|210|211|500|501|510|511|700|701) Build|Android.*V360 Build|A1-830|A1-81[01]|A3-A1[01]|B1-7[12][01]|B1-A71'
   device: 'smartphone'
   models:
     # explicit tablet models
@@ -263,7 +268,7 @@ Acer:
     - regex: 'A3-A1[01]'
       model: 'Iconia A3'
       device: 'tablet'
-    - regex: 'B1-7[12][01]'
+    - regex: 'B1-7[12][01]|B1-A71'
       model: 'Iconia B1'
       device: 'tablet'
 
@@ -1032,7 +1037,7 @@ K-Touch:
 
 # kyocera
 Kyocera:
-  regex: 'Kyocera|KWC-|QC-|C5170|C5155|C5215|C6750|C6522N?'
+  regex: 'Kyocera|KWC-|QC-|C5170|C5155|C5215|C6750|C6522N?|S2151'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -1046,6 +1051,11 @@ Kyocera:
       model: 'Hydro XTRM'
     - regex: 'C6750'
       model: 'Hydro ELITE'
+
+    # explicit feature phone models
+    - regex: 'S2151'
+      model: 'Coast'
+      device: 'feature phone'
 
     - regex: 'Kyocera-KZ-([a-z0-9]+)'
       model: 'KZ $1'
