@@ -1528,9 +1528,13 @@ Opsson:
 
 # orange
 Orange:
-  regex: 'SPV[ \-]?([a-z0-9]+)'
+  regex: 'SPV[ \-]?([a-z0-9]+)|Orange ([^/;]+) Build'
   device: 'smartphone'
-  model: 'SPV $1'
+  models:
+    - regex: 'Orange ([^/;]+) Build'
+      model: '$1'
+    - regex: 'SPV[ \-]?([a-z0-9]+)'
+      model: 'SPV $1'
 
 # Oysters
 Oysters:
