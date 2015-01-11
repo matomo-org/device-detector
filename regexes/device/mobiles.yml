@@ -54,7 +54,7 @@ SFR:
 
 # HTC
 HTC:
-  regex: 'HTC|Sprint (?:APA|ATP)|ADR(?!910L)[a-z0-9]+|NexusHD2|Amaze[ _]4G Build|(?:Sensation|Desire|Evo ?3D|One)[ _][a-z0-9]+ Build|SPV E6[05]0'
+  regex: 'HTC|Sprint (?:APA|ATP)|ADR(?!910L)[a-z0-9]+|NexusHD2|Amaze[ _]4G Build|(Desire|Sensation|Evo ?3D)[ _]?([^;/]+) Build|(Amaze[ _]4G|One ?[XELSV\+]+) Build|SPV E6[05]0'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -91,7 +91,9 @@ HTC:
       model: '$1'
     - regex: 'HTC;(?: )?([a-z0-9 ]+)'
       model: '$1'
-    - regex: '(Desire[ _][a-z0-9]+|Amaze[ _]4G|Sensation[ _][a-z0-9]+|Evo ?3D[ _][a-z0-9]+|One ?[XELSV\+]*) Build'
+    - regex: '(Desire|Sensation|Evo ?3D)[ _]?([^;/]+) Build'
+      model: '$1 $2'
+    - regex: '(Amaze[ _]4G|One ?[XELSV\+]*) Build'
       model: '$1'
     - regex: '(ADR.+) Build'
       model: '$1'
@@ -1016,9 +1018,13 @@ Jolla:
 
 # Kazam
 Kazam:
-  regex: 'Kazam ([^;/]+) Build'
+  regex: 'Kazam ([^;/]+) Build|Trooper_X[0-9][0-9] Build'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'Trooper_X([0-9])([0-9]) Build'
+      model: 'Trooper X$1.$2'
+    - regex: 'Kazam ([^;/]+) Build'
+      model: '$1'
 
 # KT-Tech
 KT-Tech:
