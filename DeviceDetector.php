@@ -35,7 +35,7 @@ class DeviceDetector
      *
      * @var array
      */
-    protected static $desktopOsArray = array('AmigaOS', 'IBM', 'GNU/Linux', 'Mac', 'Unix', 'Windows', 'BeOS');
+    protected static $desktopOsArray = array('AmigaOS', 'IBM', 'GNU/Linux', 'Mac', 'Unix', 'Windows', 'BeOS', 'Chrome OS');
 
     /**
      * Constant used as value for unknown browser / os
