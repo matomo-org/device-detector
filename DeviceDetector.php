@@ -119,6 +119,7 @@ class DeviceDetector
         $this->addDeviceParser('Console');
         $this->addDeviceParser('CarBrowser');
         $this->addDeviceParser('Camera');
+        $this->addDeviceParser('PortableMediaPlayer');
         $this->addDeviceParser('Mobile');
     }
 
@@ -270,7 +271,8 @@ class DeviceDetector
                 DeviceParserAbstract::DEVICE_TYPE_FEATURE_PHONE,
                 DeviceParserAbstract::DEVICE_TYPE_SMARTPHONE,
                 DeviceParserAbstract::DEVICE_TYPE_TABLET,
-                DeviceParserAbstract::DEVICE_TYPE_CAMERA
+                DeviceParserAbstract::DEVICE_TYPE_CAMERA,
+                DeviceParserAbstract::DEVICE_TYPE_PORTABLE_MEDIA_PAYER,
             ))) {
             return true;
         }

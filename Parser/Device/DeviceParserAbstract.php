@@ -22,30 +22,33 @@ abstract class DeviceParserAbstract extends ParserAbstract
     protected $model = null;
     protected $brand = null;
 
-    const DEVICE_TYPE_DESKTOP       = 0;
-    const DEVICE_TYPE_SMARTPHONE    = 1;
-    const DEVICE_TYPE_TABLET        = 2;
-    const DEVICE_TYPE_FEATURE_PHONE = 3;
-    const DEVICE_TYPE_CONSOLE       = 4;
-    const DEVICE_TYPE_TV            = 5;
-    const DEVICE_TYPE_CAR_BROWSER   = 6;
-    const DEVICE_TYPE_SMART_DISPLAY = 7;
-    const DEVICE_TYPE_CAMERA        = 8;
+    const DEVICE_TYPE_DESKTOP              = 0;
+    const DEVICE_TYPE_SMARTPHONE           = 1;
+    const DEVICE_TYPE_TABLET               = 2;
+    const DEVICE_TYPE_FEATURE_PHONE        = 3;
+    const DEVICE_TYPE_CONSOLE              = 4;
+    const DEVICE_TYPE_TV                   = 5;
+    const DEVICE_TYPE_CAR_BROWSER          = 6;
+    const DEVICE_TYPE_SMART_DISPLAY        = 7;
+    const DEVICE_TYPE_CAMERA               = 8;
+    const DEVICE_TYPE_PORTABLE_MEDIA_PAYER = 9;
 
     /**
      * Detectable device types
+     *
      * @var array
      */
     protected static $deviceTypes = array(
-        'desktop'       => self::DEVICE_TYPE_DESKTOP,
-        'smartphone'    => self::DEVICE_TYPE_SMARTPHONE,
-        'tablet'        => self::DEVICE_TYPE_TABLET,
-        'feature phone' => self::DEVICE_TYPE_FEATURE_PHONE,
-        'console'       => self::DEVICE_TYPE_CONSOLE,
-        'tv'            => self::DEVICE_TYPE_TV,
-        'car browser'   => self::DEVICE_TYPE_CAR_BROWSER,
-        'smart display' => self::DEVICE_TYPE_SMART_DISPLAY,
-        'camera'        => self::DEVICE_TYPE_CAMERA
+        'desktop'               => self::DEVICE_TYPE_DESKTOP,
+        'smartphone'            => self::DEVICE_TYPE_SMARTPHONE,
+        'tablet'                => self::DEVICE_TYPE_TABLET,
+        'feature phone'         => self::DEVICE_TYPE_FEATURE_PHONE,
+        'console'               => self::DEVICE_TYPE_CONSOLE,
+        'tv'                    => self::DEVICE_TYPE_TV,
+        'car browser'           => self::DEVICE_TYPE_CAR_BROWSER,
+        'smart display'         => self::DEVICE_TYPE_SMART_DISPLAY,
+        'camera'                => self::DEVICE_TYPE_CAMERA,
+        'portable media player' => self::DEVICE_TYPE_PORTABLE_MEDIA_PAYER
     );
 
     /**
