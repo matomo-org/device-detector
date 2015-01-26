@@ -28,7 +28,6 @@ class MobileApp extends ClientParserAbstract
         'pulse' => 'Pulse',
         'wechat' => 'WeChat',
         'weibo' => 'Sina Weibo',
-        'zms' => 'Zaomengshe',
         'adm' => 'AndroidDownloadManager',
     );
 
