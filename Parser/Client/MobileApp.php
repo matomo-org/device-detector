@@ -25,6 +25,7 @@ class MobileApp extends ClientParserAbstract
      * @var array
      */
     protected static $availableBrowsers = array(
+        'pulse' => 'Pulse',
         'wechat' => 'WeChat',
         'weibo' => 'Sina Weibo',
         'zms' => 'Zaomengshe',
@@ -67,7 +68,7 @@ class MobileApp extends ClientParserAbstract
             if (strtolower($name) == strtolower($browserName)) {
                 $version = (string) $this->buildVersion($regex['version'], $matches);
                 return array(
-                    'type'       => 'browser',
+                    'type'       => 'mobile app',
                     'name'       => $browserName,
                     'short_name' => $browserShort,
                     'version'    => $version,
