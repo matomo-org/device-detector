@@ -41,6 +41,7 @@ class OperatingSystem extends ParserAbstract
         'BMP' => 'Brew',
         'CES' => 'CentOS',
         'COS' => 'Chrome OS',
+        'CYN' => 'CyanogenMod',
         'DEB' => 'Debian',
         'DFB' => 'DragonFly',
         'FED' => 'Fedora',
@@ -60,7 +61,9 @@ class OperatingSystem extends ParserAbstract
         'MAC' => 'Mac',
         'MDR' => 'Mandriva',
         'SMG' => 'MeeGo',
+        'MCD' => 'MocorDroid',
         'MIN' => 'Mint',
+        'MLD' => 'MildWild',
         'NBS' => 'NetBSD',
         'WII' => 'Nintendo',
         'NDS' => 'Nintendo Mobile',
@@ -71,6 +74,7 @@ class OperatingSystem extends ParserAbstract
         'PS3' => 'PlayStation',
         'RHT' => 'Red Hat',
         'ROS' => 'RISC OS',
+        'RZD' => 'RazoDroiD',
         'SAB' => 'Sabayon',
         'SSE' => 'SUSE',
         'SAF' => 'Sailfish OS',
@@ -104,7 +108,7 @@ class OperatingSystem extends ParserAbstract
      * @var array
      */
     protected static $osFamilies = array(
-        'Android'               => array('AND'),
+        'Android'               => array('AND', 'CYN', 'RZD', 'MLD', 'MCD'),
         'AmigaOS'               => array('AMG'),
         'Apple TV'              => array('ATV'),
         'BlackBerry'            => array('BLB', 'QNX'),

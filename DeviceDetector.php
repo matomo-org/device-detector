@@ -533,6 +533,7 @@ class DeviceDetector
         }
 
         $osShortName = $this->getOs('short_name');
+        $osFamily = OperatingSystem::getOsFamily($osShortName);
         $osVersion = $this->getOs('version');
 
         /**
@@ -554,7 +555,7 @@ class DeviceDetector
         /**
          * All detected feature phones running android are more likely a smartphone
          */
-        if ($this->device == DeviceParserAbstract::DEVICE_TYPE_FEATURE_PHONE && $this->getOs('short_name') == 'AND') {
+        if ($this->device == DeviceParserAbstract::DEVICE_TYPE_FEATURE_PHONE && $osFamily == 'Android') {
             $this->device = DeviceParserAbstract::DEVICE_TYPE_SMARTPHONE;
         }
 
