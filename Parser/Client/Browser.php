@@ -90,6 +90,7 @@ class Browser extends ClientParserAbstract
         'ME' => 'Mercury',
         'MF' => 'Mobile Safari',
         'MI' => 'Midori',
+        'MU' => 'MIUI Browser',
         'MS' => 'Mobile Silk',
         'MX' => 'Maxthon',
         'NB' => 'Nokia Browser',
@@ -140,7 +141,7 @@ class Browser extends ClientParserAbstract
      * @var array
      */
     protected static $browserFamilies = array(
-        'Android Browser'    => array('AN'),
+        'Android Browser'    => array('AN', 'MU'),
         'BlackBerry Browser' => array('BB'),
         'Chrome'             => array('CH', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'IR', 'RM'),
         'Firefox'            => array('FF', 'FE', 'SX', 'FB', 'PX', 'MB'),
