@@ -78,7 +78,7 @@ HTC:
       model: '$1'
     - regex: 'HTC[ _]([^/;]+) Build'
       model: '$1'
-    - regex: 'HTC[ _]([a-z0-9]+[ _-]?(?:[a-z0-9_+-]+)?)'
+    - regex: 'HTC[ _]([a-z0-9]+[ _\-]?(?:[a-z0-9_+\-])*)'
       model: '$1'
     - regex: 'USCCHTC(\d+)'
       model: '$1'
@@ -87,7 +87,7 @@ HTC:
       model: '$1 (Sprint)'
     - regex: 'Sprint (APA.*) Build'
       model: '$1 (Sprint)'
-    - regex: 'HTC(?:[\-/ ])?([a-z0-9-_]+)'
+    - regex: 'HTC(?:[\-/ ])?([a-z0-9\-_]+)'
       model: '$1'
     - regex: 'HTC;(?: )?([a-z0-9 ]+)'
       model: '$1'
@@ -328,13 +328,13 @@ Acer:
     - regex: 'a(101|110|200|210|211|500|501|510|511|700|701) Build'
       model: 'Iconia Tab A$1'
       device: 'tablet'
-   
+
 # Airness
 Airness:
   regex: 'AIRNESS-([a-z0-9]+)'
   device: 'feature phone'
   model: '$1'
-   
+
 # Alcatel
 Alcatel:
   regex: 'Alcatel|Alc[a-z0-9]+|One ?Touch'
@@ -361,7 +361,7 @@ Amoi:
   regex: 'Amoi'
   device: 'smartphone'
   models:
-    - regex: 'Amoi[\- /](a-z0-9]+)'
+    - regex: 'Amoi[\- /]([a-z0-9]+)'
       model: '$1'
     - regex: 'Amoisonic-([a-z0-9]+)'
       model: '$1'
@@ -555,13 +555,13 @@ Beetel:
   regex: 'Beetel ([a-z0-9]+)'
   device: 'feature phone'
   model: '$1'
-  
+
 # BenQ-Siemens
 BenQ-Siemens:
   regex: 'BENQ-SIEMENS - ([a-z0-9]+)'
   device: 'feature phone'
   model: '$1'
-  
+
 # BenQ
 BenQ:
   regex: 'BENQ(?:[ \-])?([a-z0-9]+)'
@@ -838,7 +838,7 @@ Evertek:
 Ezze:
   regex: 'EZZE-|EZ[a-z0-9]+'
   device: 'feature phone'
-  models: 
+  models:
     - regex: 'EZZE-([a-z0-9]+)'
       model: '$1'
     - regex: 'EZ([a-z0-9]+)'
@@ -1059,11 +1059,11 @@ iTel:
   models:
     - regex: 'iNote ([^/;]*)Build'
       model: 'iNote $1'
-    - regex: 'iNote_([a-z0-9-_]+)'
+    - regex: 'iNote_([a-z0-9\-_]+)'
       model: 'iNote $1'
     - regex: 'iTel ([^/;]*)Build'
       model: '$1'
-    - regex: 'iTel_([a-z0-9-_]*)'
+    - regex: 'iTel_([a-z0-9\-_]*)'
       model: '$1'
 
 #Jiayu
@@ -1529,7 +1529,7 @@ Newgen:
   regex: 'NEWGEN\-([a-z0-9]+)'
   device: 'feature phone'
   model: '$1'
-  
+
 # ngm
 NGM:
   regex: 'NGM_[a-z0-9]+|(Forward|Dynamic)[ _][^/;]+(?:Build|/)'
@@ -1565,7 +1565,7 @@ O2:
       model: '$1'
     - regex: 'O2-([a-z0-9]+)'
       model: '$1'
-  
+
 # onda
 Onda:
   regex: 'Onda'
@@ -1580,7 +1580,7 @@ Onda:
       model: '$1'
     - regex: 'Onda ([a-z0-9]+)'
       model: '$1'
-  
+
 # oppo
 OPPO:
   regex: 'OPPO[ _]?([a-z0-9]+)|X9006'
@@ -1630,7 +1630,7 @@ Panasonic:
       model: '$1'
     - regex: 'portalmmm/2.0 (P[a-z0-9]+)'
       model: '$1'
- 
+
 # philips
 Philips:
   regex: 'Philips'
@@ -1642,13 +1642,13 @@ Philips:
       model: '$1'
     - regex: 'Philips-([a-z0-9\-@]+)'
       model: '$1'
- 
+
 # phoneOne
 phoneOne:
   regex: 'phoneOne[ \-]?([a-z0-9]+)'
   device: 'smartphone'
   model: '$1'
- 
+
 # Rover
 Rover:
   regex: 'Rover ([0-9]+)'
@@ -1974,7 +1974,7 @@ Sendo:
 Spice:
   regex: 'Spice'
   device: 'smartphone'
-  models: 
+  models:
     - regex: 'Spice[ _-]?([^/;]+)(?:[\)]| Build)'
       model: '$1'
     - regex: 'Spice[ _-]?([^/;]+)(?:/|$)'
@@ -2010,7 +2010,7 @@ Sharp:
 Softbank:
   regex: 'Softbank|J-PHONE'
   device: 'smartphone'
-  models: 
+  models:
     - regex: 'Softbank/[12]\.0/([a-z0-9]+)'
       model: '$1'
     - regex: '([a-z0-9]+);Softbank;'
