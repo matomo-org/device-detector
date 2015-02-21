@@ -115,6 +115,7 @@ class Browser extends ClientParserAbstract
         'PW' => 'Palm WebPro',
         'PX' => 'Phoenix',
         'PO' => 'Polaris',
+        'QQ' => 'QQ Browser',
         'RK' => 'Rekonq',
         'RM' => 'RockMelt',
         'SA' => 'Sailfish Browser',
