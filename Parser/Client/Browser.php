@@ -129,6 +129,7 @@ class Browser extends ClientParserAbstract
         'SX' => 'Swiftfox',
         'TZ' => 'Tizen Browser',
         'UC' => 'UC Browser',
+		'VI' => 'Vivaldi',
         'WE' => 'WebPositive',
         'WO' => 'wOSBrowser',
         'YA' => 'Yandex Browser',
@@ -143,7 +144,7 @@ class Browser extends ClientParserAbstract
     protected static $browserFamilies = array(
         'Android Browser'    => array('AN', 'MU'),
         'BlackBerry Browser' => array('BB'),
-        'Chrome'             => array('CH', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'IR', 'RM'),
+        'Chrome'             => array('CH', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'IR', 'RM', 'VI'),
         'Firefox'            => array('FF', 'FE', 'SX', 'FB', 'PX', 'MB'),
         'Internet Explorer'  => array('IE', 'IM'),
         'Konqueror'          => array('KO'),
