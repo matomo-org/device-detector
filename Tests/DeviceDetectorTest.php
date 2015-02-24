@@ -32,6 +32,28 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
         $dd->addDeviceParser('Invalid');
     }
 
+    public function testDevicesYmlFiles()
+    {
+        $fixtureFiles = glob(realpath(dirname(__FILE__)) . '/../regexes/device/*.yml');
+        foreach ($fixtureFiles AS $file) {
+            $ymlData = \Spyc::YAMLLoad($file);
+            foreach ($ymlData AS $brand => $regex) {
+                $this->assertArrayHasKey('regex', $regex);
+                if (array_key_exists('models', $regex)) {
+                    $this->assertInternalType('array', $regex['models']);
+                    foreach ($regex['models'] AS $model) {
+                        $this->assertArrayHasKey('regex', $model);
+                        $this->assertArrayHasKey('model', $model);
+                    }
+                } else {
+                    $this->assertArrayHasKey('device', $regex);
+                    $this->assertArrayHasKey('model', $regex);
+                    $this->assertInternalType('string', $regex['model']);
+                }
+            }
+        }
+    }
+
     public function testCacheSetAndGet()
     {
         if ( !extension_loaded('memcache') || !class_exists('\Doctrine\Common\Cache\MemcacheCache') ) {
