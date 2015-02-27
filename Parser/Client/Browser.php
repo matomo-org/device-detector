@@ -133,6 +133,7 @@ class Browser extends ClientParserAbstract
         'VI' => 'Vivaldi',
         'WE' => 'WebPositive',
         'WO' => 'wOSBrowser',
+        'WT' => 'WeTab Browser',
         'YA' => 'Yandex Browser',
         'XI' => 'Xiino'
     );
