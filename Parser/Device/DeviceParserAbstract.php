@@ -32,6 +32,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
     const DEVICE_TYPE_SMART_DISPLAY        = 7;
     const DEVICE_TYPE_CAMERA               = 8;
     const DEVICE_TYPE_PORTABLE_MEDIA_PAYER = 9;
+    const DEVICE_TYPE_PHABLET              = 10;
 
     /**
      * Detectable device types
@@ -48,7 +49,8 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'car browser'           => self::DEVICE_TYPE_CAR_BROWSER,
         'smart display'         => self::DEVICE_TYPE_SMART_DISPLAY,
         'camera'                => self::DEVICE_TYPE_CAMERA,
-        'portable media player' => self::DEVICE_TYPE_PORTABLE_MEDIA_PAYER
+        'portable media player' => self::DEVICE_TYPE_PORTABLE_MEDIA_PAYER,
+        'phablet'               => self::DEVICE_TYPE_PHABLET
     );
 
     /**
