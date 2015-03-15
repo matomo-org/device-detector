@@ -1186,6 +1186,25 @@ Haier:
       model: '$1'
       device: 'feature phone'
 
+# Hisense
+Hisense:
+  regex: 'HS-(?:U|EG?)[0-9]+[a-z0-9\-]*|E270BSA|M470BS[AE]|E2281'
+  device: 'smartphone'
+  models:
+    # explicit tablet models
+    - regex: 'E270BSA'
+      device: 'tablet'
+      model: 'Sero 7'
+    - regex: 'M470BS[AE]'
+      device: 'tablet'
+      model: 'Sero 7 Pro'
+    - regex: 'E2281'
+      device: 'tablet'
+      model: 'Sero 8'
+
+    - regex: '(HS-(?:U|EG?)[0-9]+[a-z0-9\-]*)'
+      model: '$1'
+
 # Huawei
 Huawei:
   regex: '(HW-)?Huawei|Ideos|vodafone[a-z0-9]+'
@@ -2195,6 +2214,46 @@ Samsung:
       model: '$1'
     - regex: 'sam([rua][0-9]+)'
       model: 'SCH-$1'
+
+# Smartfren
+Smartfren:
+  regex: 'Smartfren|Androtab|Andromax|PD6D1J|AD682J|AD68[89]G|AD6B1H|AD9A1H|AD682H|AD683G'
+  device: 'smartphone'
+  models:
+    # explicit tablet models
+    - regex: 'S7 Build'
+      model: 'Andromax Tab 7.0'
+      device: 'tablet'
+
+    # explicit smartphone models
+    - regex: 'PD6D1J'
+      model: 'Andromax V3s'
+    - regex: 'AD682J'
+      model: 'Andromax T'
+    - regex: 'AD688G'
+      model: 'Andromax C2'
+    - regex: 'AD689G'
+      model: 'Andromax i3'
+    - regex: 'AD682H'
+      model: 'Andromax i3s'
+    - regex: 'AD6B1H'
+      model: 'Andromax G2 Hot'
+    - regex: 'AD9A1H'
+      model: 'Andromax G2'
+    - regex: 'AD683G'
+      model: 'Andromax I'
+    - regex: 'New Andromax-i'
+      model: 'New Andromax I'
+
+    - regex: 'Andromax[ _\-]([^/;]+) Build'
+      model: 'Andromax $1'
+    - regex: 'Andromax[ _\-]([a-z0-9]+)'
+      model: 'Andromax $1'
+    - regex: 'Smartfren[ _\-]([^/;]+) Build'
+      model: '$1'
+    - regex: '(Androtab[^/;]+) Build'
+      model: '$1'
+      device: 'tablet'
 
 # SuperSonic
 SuperSonic:
