@@ -2230,9 +2230,23 @@ Pantech:
 
 #Polaroid
 Polaroid:
-  regex: 'Polaroid|(?:PMID|MIDC)[0-9a-z]+ Build|MID(?:1014|0714)'
+  regex: 'Polaroid|(?:PMID|MIDC)[0-9a-z]+ Build|MID(?:1014|0714)|PRO[VG]?(?:[0-9]{3,}[a-z]*|[0-9]{2}[a-z])'
   device: 'tablet'
   models:
+    # explicit smartphone models
+    - regex: 'PRO4611(?:PR201)?'
+      model: 'Pro4611'
+      device: 'smartphone'
+    - regex: 'PROV400'
+      model: 'Agate'
+      device: 'smartphone'
+    - regex: 'PROV350'
+      model: 'ProV350'
+      device: 'smartphone'
+
+    - regex: 'PRO([VG]?(?:[0-9]{3,}[a-z]*|[0-9]{2}[a-z]))'
+      model: 'Pro$1'
+      device: 'smartphone'
     - regex: '(MID(?:1014|0714))'
       model: '$1'
     - regex: '((?:PMID|MIDC)[0-9a-z]+) Build'
