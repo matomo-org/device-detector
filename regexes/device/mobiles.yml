@@ -2668,9 +2668,16 @@ Woxter:
 
 #Xiaomi
 Xiaomi:
-  regex: '(MI [a-z0-9]+|MI-One[ _]Plus) Build'
+  regex: '(MI [a-z0-9]+|MI-One[ _]Plus) Build|HM ([^/;]+) Build'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: '(MI [a-z0-9]+|MI-One[ _]Plus) Build'
+      model: '$1'
+    - regex: 'HM Note ([^/;]+) Build'
+      device: 'tablet'
+      model: 'HM Note $1'
+    - regex: 'HM ([^/;]+) Build'
+      model: 'HM $1'
 
 #Yuandao
 Yuandao:
