@@ -165,6 +165,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'LC' => 'LCT',
         'LE' => 'Lenovo',
         'LN' => 'Lenco',
+        'LP' => 'Le Pan',
         'LG' => 'LG',
         'LO' => 'Loewe',
         'LM' => 'Logicom',
