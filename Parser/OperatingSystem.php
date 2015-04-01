@@ -64,6 +64,7 @@ class OperatingSystem extends ParserAbstract
         'MCD' => 'MocorDroid',
         'MIN' => 'Mint',
         'MLD' => 'MildWild',
+        'MOR' => 'MorphOS',
         'NBS' => 'NetBSD',
         'WII' => 'Nintendo',
         'NDS' => 'Nintendo Mobile',
@@ -109,7 +110,7 @@ class OperatingSystem extends ParserAbstract
      */
     protected static $osFamilies = array(
         'Android'               => array('AND', 'CYN', 'RZD', 'MLD', 'MCD'),
-        'AmigaOS'               => array('AMG'),
+        'AmigaOS'               => array('AMG', 'MOR'),
         'Apple TV'              => array('ATV'),
         'BlackBerry'            => array('BLB', 'QNX'),
         'Brew'                  => array('BMP'),

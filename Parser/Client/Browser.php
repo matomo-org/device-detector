@@ -102,6 +102,7 @@ class Browser extends ClientParserAbstract
         'NP' => 'NetPositive',
         'NS' => 'Netscape',
         'OB' => 'Obigo',
+        'OD' => 'Odyssey Web Browser',
         'OF' => 'Off By One',
         'OI' => 'Opera Mini',
         'OM' => 'Opera Mobile',
