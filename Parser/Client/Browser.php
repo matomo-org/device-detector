@@ -150,7 +150,7 @@ class Browser extends ClientParserAbstract
     protected static $browserFamilies = array(
         'Android Browser'    => array('AN', 'MU'),
         'BlackBerry Browser' => array('BB'),
-        'Chrome'             => array('AO', 'CH', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'IR', 'RM', 'VI'),
+        'Chrome'             => array('CH', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'IR', 'RM', 'AO', 'VI'),
         'Firefox'            => array('FF', 'FE', 'SX', 'FB', 'PX', 'MB'),
         'Internet Explorer'  => array('IE', 'IM', 'PS'),
         'Konqueror'          => array('KO'),
