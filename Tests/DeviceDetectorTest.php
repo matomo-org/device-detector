@@ -54,6 +54,15 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
         }
     }
 
+    /**
+     * @expectedException \Exception
+     */
+    public function testSetCacheInvalid()
+    {
+        $dd = new DeviceDetector();
+        $dd->setCache('Invalid');
+    }
+
     public function testCacheSetAndGet()
     {
         if ( !extension_loaded('memcache') || !class_exists('\Doctrine\Common\Cache\MemcacheCache') ) {
