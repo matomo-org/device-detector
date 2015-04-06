@@ -17,6 +17,31 @@ use DeviceDetector\Parser\Device\DeviceParserAbstract;
 use DeviceDetector\Parser\VendorFragment;
 use \Spyc;
 
+/**
+ * Class DeviceDetector
+ *
+ * Magic Device Type Methods
+ * @method boolean isSmartphone()
+ * @method boolean isFeaturePhone()
+ * @method boolean isTablet()
+ * @method boolean isPhablet()
+ * @method boolean isConsole()
+ * @method boolean isPortableMediaPlayer()
+ * @method boolean isCarBrowser()
+ * @method boolean isTV()
+ * @method boolean isSmartDisplay()
+ * @method boolean isCamera()
+ *
+ * Magic Client Type Methods
+ * @method boolean isBrowser()
+ * @method boolean isFeedReader()
+ * @method boolean isMobileApp()
+ * @method boolean isPIM()
+ * @method boolean isLibrary()
+ * @method boolean isMediaPlayer()
+ *
+ * @package DeviceDetector
+ */
 class DeviceDetector
 {
     /**
@@ -121,6 +146,23 @@ class DeviceDetector
         $this->addDeviceParser('Camera');
         $this->addDeviceParser('PortableMediaPlayer');
         $this->addDeviceParser('Mobile');
+    }
+
+    public function __call($methodName, $arguments)
+    {
+        foreach (DeviceParserAbstract::getAvailableDeviceTypes() AS $deviceName => $deviceType) {
+            if (strtolower($methodName) == 'is'.strtolower(str_replace(' ', '', $deviceName))) {
+                return $this->getDevice() == $deviceType;
+            }
+        }
+
+        foreach (self::$clientTypes as $client) {
+            if (strtolower($methodName) == 'is'.strtolower(str_replace(' ', '', $client))) {
+                return $this->getClient('type') == $client;
+            }
+        }
+
+        throw new \Exception("Method $methodName not found");
     }
 
     /**

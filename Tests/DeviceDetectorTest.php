@@ -178,6 +178,30 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, DeviceDetector::getInfoFromUserAgent($expected['user_agent']));
     }
 
+    public function testMagicMMethods()
+    {
+        $ua = 'Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.136 Mobile Safari/537.36';
+        $dd = new DeviceDetector($ua);
+        $dd->parse();
+        $this->assertTrue($dd->isSmartphone());
+        $this->assertFalse($dd->isFeaturePhone());
+        $this->assertFalse($dd->isTablet());
+        $this->assertFalse($dd->isPhablet());
+        $this->assertFalse($dd->isCarBrowser());
+        $this->assertFalse($dd->isSmartDisplay());
+        $this->assertFalse($dd->isTV());
+        $this->assertFalse($dd->isConsole());
+        $this->assertFalse($dd->isPortableMediaPlayer());
+        $this->assertFalse($dd->isCamera());
+
+        $this->assertTrue($dd->isBrowser());
+        $this->assertFalse($dd->isLibrary());
+        $this->assertFalse($dd->isMediaPlayer());
+        $this->assertFalse($dd->isMobileApp());
+        $this->assertFalse($dd->isPIM());
+        $this->assertFalse($dd->isFeedReader());
+    }
+
     /**
      * @dataProvider getUserAgents
      */
