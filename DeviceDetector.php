@@ -162,7 +162,7 @@ class DeviceDetector
             }
         }
 
-        throw new \Exception("Method $methodName not found");
+        throw new \BadMethodCallException("Method $methodName not found");
     }
 
     /**

@@ -203,6 +203,16 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @expectedException \BadMethodCallException
+     */
+    public function testInvalidMagicMethod()
+    {
+        $dd = new DeviceDetector('Mozilla/5.0');
+        $dd->parse();
+        $dd->inValidMethod();
+    }
+
+    /**
      * @dataProvider getUserAgents
      */
     public function testTypeMethods($useragent, $isBot, $isMobile, $isDesktop)
