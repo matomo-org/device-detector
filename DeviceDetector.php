@@ -641,7 +641,21 @@ class DeviceDetector
         return false;
     }
 
-    static public function getInfoFromUserAgent($ua)
+    /**
+     * Parses a useragent and returns the detected data
+     *
+     * ATTENTION: Use that method only for testing or very small applications
+     * To get fast results from DeviceDetector you need to make your own implementation,
+     * that should use one of the caching mechanisms. See README.md for more information.
+     *
+     * @internal
+     * @deprecated
+     *
+     * @param string $ua UserAgent to parse
+     *
+     * @return array
+     */
+    public static function getInfoFromUserAgent($ua)
     {
         $deviceDetector = new DeviceDetector($ua);
         $deviceDetector->parse();
