@@ -1122,9 +1122,14 @@ eTouch:
 
 # Storex
 Storex:
-  regex: "eZee[^a-z]*Tab ?([^;/]*) Build"
+  regex: "eZee[^a-z]*Tab ?([^;/]*) Build|STOREX LinkBox"
   device: 'tablet'
-  model: "eZee'Tab$1"
+  models:
+    - regex: "eZee[^a-z]*Tab ?([^;/]*) Build"
+      model: "eZee'Tab$1"
+    - regex: 'STOREX LinkBox'
+      model: 'LinkBox'
+      device: 'tv'
 
 # Evertek
 Evertek:
@@ -1539,11 +1544,20 @@ Lenco:
 
 # lenovo
 Lenovo:
-  regex: '(?:LNV-)?Lenovo|IdeaTab'
+  regex: '(?:LNV-)?Lenovo|IdeaTab|IdeaPad|Thinkpad'
   device: 'smartphone'
   models:
     - regex: 'Lenovo (B[0-9]+[^/;]*) Build'
       model: 'IdeaTab $1'
+      device: 'tablet'
+    - regex: 'ThinkPadTablet_(A[0-9]{3})_'
+      model: 'ThinkPad Tablet $1'
+      device: 'tablet'
+    - regex: 'ThinkPad ?Tablet([^;/]*) Build'
+      model: 'ThinkPad Tablet$1'
+      device: 'tablet'
+    - regex: 'IdeaPad ?([^;/]*) Build'
+      model: 'IdeaPad $1'
       device: 'tablet'
     - regex: 'Lenovo ([^/;]*) Build'
       model: '$1'
