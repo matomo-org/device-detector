@@ -120,6 +120,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'EZ' => 'Ezze',
         'FL' => 'Fly',
         'FU' => 'Fujitsu',
+        'GM' => 'Garmin-Asus',
         'GA' => 'Gateway',
         'GD' => 'Gemini',
         'GI' => 'Gionee',
