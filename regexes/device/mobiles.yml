@@ -415,6 +415,16 @@ Arnova:
     - regex: 'AN([0-9][a-z0-9]+)'
       model: '$1'
 
+# Garmin-Asus
+Garmin-Asus:
+  regex: 'Garmin-Asus'
+  device: 'smartphone'
+  models:
+    - regex: 'Garmin-Asus[ \-_]([^;/]+)Build'
+      model: '$1'
+    - regex: 'Garmin-Asus[ \-_]([^;/]+)[\)/]'
+      model: '$1'
+
 # Asus
 Asus:
   regex: 'Asus|Transformer|TF300T|Slider SL101|PadFone|ME302(?:C|KL)|ME301T|ME371MG|ME17(?:1|2V|3X)|K0[01][0-9a-z] Build'
@@ -2724,6 +2734,13 @@ TVC:
   device: 'smartphone'
   model: 'Nuclear SX-SP5'
 
+# Unowhy
+Unowhy:
+  regex: 'QOOQ '
+  device: 'tablet'
+  model: 'QOOQ'
+
+
 # UTStarcom
 UTStarcom:
   regex: 'utstar[ _-]?([a-z0-9]+)'
@@ -2732,10 +2749,10 @@ UTStarcom:
 
 # ViewSonic
 ViewSonic:
-  regex: 'ViewSonic|VSD[0-9]+ Build'
+  regex: 'ViewSonic|VSD[0-9]+ Build|ViewPad'
   device: 'smart display'
   models:
-    - regex: 'ViewSonic-ViewPad([a-z0-9]+) Build'
+    - regex: '(?:ViewSonic-)?ViewPad ?([^;/]+) Build'
       model: 'ViewPad $1'
       device: 'tablet'
     - regex: '(VSD[0-9]+) Build'
