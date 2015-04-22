@@ -104,7 +104,7 @@ abstract class ParserAbstract
      */
     public static function setVersionTruncation($type)
     {
-        if(in_array($type, array(self::VERSION_TRUNCATION_BUILD,
+        if (in_array($type, array(self::VERSION_TRUNCATION_BUILD,
                                  self::VERSION_TRUNCATION_NONE,
                                  self::VERSION_TRUNCATION_MAJOR,
                                  self::VERSION_TRUNCATION_MINOR,
@@ -140,15 +140,28 @@ abstract class ParserAbstract
      */
     protected function getRegexes()
     {
-        if (empty($this->regexList)) {
-            $cacheKey = 'DeviceDetector-'.DeviceDetector::VERSION.'regexes-'.$this->getName();
-            $cacheKey = preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
-            $this->regexList = $this->getCache()->fetch($cacheKey);
-            if (empty($this->regexList)) {
-                $this->regexList = Spyc::YAMLLoad(dirname(__DIR__).DIRECTORY_SEPARATOR.$this->fixtureFile);
-                $this->getCache()->save($cacheKey, $this->regexList);
-            }
+        //if its already in memory, return it directly
+        if (!empty($this->regexList)) {
+            return $this->regexList;
         }
+        
+        //check if we have it cached
+        $cache = $this->getCache();
+        
+        $cacheKey = 'DeviceDetector-'.DeviceDetector::VERSION.'regexes-'.$this->getName();
+        $cacheKey = preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
+        
+        if ($cache->contains($cacheKey) === true) {
+            $this->regexList = $cache->fetch($cacheKey);
+        }
+        
+        if (empty($this->regexList)) {
+            //no cache found. Load it now and save it to cache
+            $this->regexList = Spyc::YAMLLoad(dirname(__DIR__).DIRECTORY_SEPARATOR.$this->fixtureFile);
+            
+            $cache->save($cacheKey, $this->regexList);
+        }
+        
         return $this->regexList;
     }
 
@@ -228,16 +241,18 @@ abstract class ParserAbstract
 
         static $overAllMatch;
 
+        $cache = $this->getCache();
+        
         $cacheKey = $this->parserName.DeviceDetector::VERSION.'-all';
         $cacheKey = preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
 
-        if (empty($overAllMatch)) {
-            $overAllMatch = $this->getCache()->fetch($cacheKey);
+        if (empty($overAllMatch) && $cache->contains($cacheKey) === true) {
+            $overAllMatch = $cache->fetch($cacheKey);
         }
 
         if (empty($overAllMatch)) {
             // reverse all regexes, so we have the generic one first, which already matches most patterns
-            $overAllMatch = array_reduce(array_reverse($regexes), function($val1, $val2) {
+            $overAllMatch = array_reduce(array_reverse($regexes), function ($val1, $val2) {
                 if (!empty($val1)) {
                     return $val1.'|'.$val2['regex'];
                 } else {
