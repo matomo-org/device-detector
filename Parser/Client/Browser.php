@@ -6,6 +6,7 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 namespace DeviceDetector\Parser\Client;
+
 use DeviceDetector\Parser\Client\Browser\Engine;
 
 /**
@@ -200,8 +201,9 @@ class Browser extends ClientParserAbstract
     {
         foreach ($this->getRegexes() as $regex) {
             $matches = $this->matchUserAgent($regex['regex']);
-            if ($matches)
+            if ($matches) {
                 break;
+            }
         }
 
         if (!$matches) {
@@ -210,7 +212,7 @@ class Browser extends ClientParserAbstract
 
         $name  = $this->buildByMatch($regex['name'], $matches);
 
-        foreach (self::getAvailableBrowsers() AS $browserShort => $browserName) {
+        foreach (self::getAvailableBrowsers() as $browserShort => $browserName) {
             if (strtolower($name) == strtolower($browserName)) {
                 $version = (string) $this->buildVersion($regex['version'], $matches);
                 $engine = $this->buildEngine(isset($regex['engine']) ? $regex['engine'] : array(), $version);
@@ -237,12 +239,11 @@ class Browser extends ClientParserAbstract
         }
         // check if engine is set for browser version
         if (array_key_exists('versions', $engineData) && is_array($engineData['versions'])) {
-            foreach($engineData['versions'] AS $version => $versionEngine) {
-                if(version_compare($browserVersion, $version) >= 0) {
+            foreach ($engineData['versions'] as $version => $versionEngine) {
+                if (version_compare($browserVersion, $version) >= 0) {
                     $engine = $versionEngine;
                 }
             }
-
         }
         // try to detect the engine using the regexes
         if (empty($engine)) {

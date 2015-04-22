@@ -21,7 +21,7 @@ class StaticCache implements Cache
      * Holds the static cache data
      * @var array
      */
-    static protected $staticCache = array();
+    protected static $staticCache = array();
 
     public function fetch($id)
     {

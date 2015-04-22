@@ -52,8 +52,9 @@ class Engine extends ClientParserAbstract
     {
         foreach ($this->getRegexes() as $regex) {
             $matches = $this->matchUserAgent($regex['regex']);
-            if ($matches)
+            if ($matches) {
                 break;
+            }
         }
 
         if (!$matches) {
@@ -62,7 +63,7 @@ class Engine extends ClientParserAbstract
 
         $name  = $this->buildByMatch($regex['name'], $matches);
 
-        foreach (self::getAvailableEngines() AS $engineName) {
+        foreach (self::getAvailableEngines() as $engineName) {
             if (strtolower($name) == strtolower($engineName)) {
                 return $engineName;
             }

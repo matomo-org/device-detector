@@ -104,7 +104,7 @@ abstract class ParserAbstract
      */
     public static function setVersionTruncation($type)
     {
-        if(in_array($type, array(self::VERSION_TRUNCATION_BUILD,
+        if (in_array($type, array(self::VERSION_TRUNCATION_BUILD,
                                  self::VERSION_TRUNCATION_NONE,
                                  self::VERSION_TRUNCATION_MAJOR,
                                  self::VERSION_TRUNCATION_MINOR,
@@ -237,7 +237,7 @@ abstract class ParserAbstract
 
         if (empty($overAllMatch)) {
             // reverse all regexes, so we have the generic one first, which already matches most patterns
-            $overAllMatch = array_reduce(array_reverse($regexes), function($val1, $val2) {
+            $overAllMatch = array_reduce(array_reverse($regexes), function ($val1, $val2) {
                 if (!empty($val1)) {
                     return $val1.'|'.$val2['regex'];
                 } else {
