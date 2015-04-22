@@ -3,7 +3,7 @@ $finder = Symfony\CS\Finder\DefaultFinder::create();
 $finder->in([
     __DIR__
 ]);
-$finder->exlude('regexes');
+$finder->exclude('regexes');
 
 $config = Symfony\CS\Config\Config::create();
 $config->finder($finder);
