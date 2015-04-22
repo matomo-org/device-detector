@@ -159,17 +159,19 @@ class OperatingSystem extends ParserAbstract
 
         foreach ($this->getRegexes() as $osRegex) {
             $matches = $this->matchUserAgent($osRegex['regex']);
-            if ($matches)
+            if ($matches) {
                 break;
+            }
         }
 
-        if (!$matches)
+        if (!$matches) {
             return $return;
+        }
 
         $name  = $this->buildByMatch($osRegex['name'], $matches);
         $short = 'UNK';
 
-        foreach (self::$operatingSystems AS $osShort => $osName) {
+        foreach (self::$operatingSystems as $osShort => $osName) {
             if (strtolower($name) == strtolower($osName)) {
                 $name  = $osName;
                 $short = $osShort;

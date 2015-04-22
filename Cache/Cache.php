@@ -10,13 +10,13 @@ namespace DeviceDetector\Cache;
 
 interface Cache
 {
-    function fetch($id);
+    public function fetch($id);
 
-    function contains($id);
+    public function contains($id);
 
-    function save($id, $data, $lifeTime = 0);
+    public function save($id, $data, $lifeTime = 0);
 
-    function delete($id);
+    public function delete($id);
 
-    function flushAll();
+    public function flushAll();
 }

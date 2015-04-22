@@ -12,7 +12,7 @@ use \Spyc;
 
 class VendorFragmentTest extends \PHPUnit_Framework_TestCase
 {
-    static $regexesTested = array();
+    public static $regexesTested = array();
 
     /**
      * @dataProvider getFixtures
@@ -43,7 +43,6 @@ class VendorFragmentTest extends \PHPUnit_Framework_TestCase
                     $regexesNotTested[] = $vendor . ' / ' . $regex;
                 }
             }
-
         }
 
         $this->assertEmpty($regexesNotTested, 'Following vendor fragments are not tested: ' . implode(', ', $regexesNotTested));

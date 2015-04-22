@@ -35,13 +35,13 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
     public function testDevicesYmlFiles()
     {
         $fixtureFiles = glob(realpath(dirname(__FILE__)) . '/../regexes/device/*.yml');
-        foreach ($fixtureFiles AS $file) {
+        foreach ($fixtureFiles as $file) {
             $ymlData = \Spyc::YAMLLoad($file);
-            foreach ($ymlData AS $brand => $regex) {
+            foreach ($ymlData as $brand => $regex) {
                 $this->assertArrayHasKey('regex', $regex);
                 if (array_key_exists('models', $regex)) {
                     $this->assertInternalType('array', $regex['models']);
-                    foreach ($regex['models'] AS $model) {
+                    foreach ($regex['models'] as $model) {
                         $this->assertArrayHasKey('regex', $model);
                         $this->assertArrayHasKey('model', $model);
                     }
@@ -65,7 +65,7 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
 
     public function testCacheSetAndGet()
     {
-        if ( !extension_loaded('memcache') || !class_exists('\Doctrine\Common\Cache\MemcacheCache') ) {
+        if (!extension_loaded('memcache') || !class_exists('\Doctrine\Common\Cache\MemcacheCache')) {
             $this->markTestSkipped('memcache not enabled');
         }
 
@@ -104,11 +104,11 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
     {
         $fixtures = array();
         $fixtureFiles = glob(realpath(dirname(__FILE__)) . '/fixtures/*.yml');
-        foreach ($fixtureFiles AS $fixturesPath) {
+        foreach ($fixtureFiles as $fixturesPath) {
             $typeFixtures = \Spyc::YAMLLoad($fixturesPath);
             $deviceType = str_replace('_', ' ', substr(basename($fixturesPath), 0, -4));
             if ($deviceType != 'bots') {
-                $fixtures = array_merge(array_map(function($elem) {return array($elem);}, $typeFixtures), $fixtures);
+                $fixtures = array_merge(array_map(function ($elem) {return array($elem);}, $typeFixtures), $fixtures);
             }
         }
         return $fixtures;
@@ -158,7 +158,7 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
     {
         $fixturesPath = realpath(dirname(__FILE__) . '/fixtures/bots.yml');
         $fixtures = \Spyc::YAMLLoad($fixturesPath);
-        return array_map(function($elem) {return array($elem);}, $fixtures);
+        return array_map(function ($elem) {return array($elem);}, $fixtures);
     }
 
     public function testGetInforFromUABot()

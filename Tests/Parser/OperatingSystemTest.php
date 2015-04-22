@@ -12,7 +12,7 @@ use \Spyc;
 
 class OperatingSystemTest extends \PHPUnit_Framework_TestCase
 {
-    static $osTested = array();
+    public static $osTested = array();
 
     /**
      * @dataProvider getFixtures
@@ -43,7 +43,7 @@ class OperatingSystemTest extends \PHPUnit_Framework_TestCase
     public function getAllOs()
     {
         $allOs = array_keys(OperatingSystem::getAvailableOperatingSystems());
-        $allOs = array_map(function($os){ return array($os); }, $allOs);
+        $allOs = array_map(function ($os) { return array($os); }, $allOs);
         return $allOs;
     }
 
@@ -59,7 +59,7 @@ class OperatingSystemTest extends \PHPUnit_Framework_TestCase
     public function getAllFamilyOs()
     {
         $allFamilyOs = call_user_func_array('array_merge', OperatingSystem::getAvailableOperatingSystemFamilies());
-        $allFamilyOs = array_map(function($os){ return array($os); }, $allFamilyOs);
+        $allFamilyOs = array_map(function ($os) { return array($os); }, $allFamilyOs);
         return $allFamilyOs;
     }
 
