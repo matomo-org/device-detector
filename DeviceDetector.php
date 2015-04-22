@@ -150,7 +150,7 @@ class DeviceDetector
 
     public function __call($methodName, $arguments)
     {
-        foreach (DeviceParserAbstract::getAvailableDeviceTypes() AS $deviceName => $deviceType) {
+        foreach (DeviceParserAbstract::getAvailableDeviceTypes() as $deviceName => $deviceType) {
             if (strtolower($methodName) == 'is'.strtolower(str_replace(' ', '', $deviceName))) {
                 return $this->getDevice() == $deviceType;
             }
@@ -493,8 +493,9 @@ class DeviceDetector
         }
 
         $this->parseBot();
-        if ($this->isBot())
+        if ($this->isBot()) {
             return;
+        }
 
         $this->parseOs();
 
@@ -523,11 +524,11 @@ class DeviceDetector
     }
 
 
-    protected function parseClient() {
-
+    protected function parseClient()
+    {
         $parsers = $this->getClientParsers();
 
-        foreach ($parsers AS $parser) {
+        foreach ($parsers as $parser) {
             $parser->setCache($this->getCache());
             $parser->setUserAgent($this->getUserAgent());
             $client = $parser->parse();
@@ -538,11 +539,11 @@ class DeviceDetector
         }
     }
 
-    protected function parseDevice() {
-
+    protected function parseDevice()
+    {
         $parsers = $this->getDeviceParsers();
 
-        foreach ($parsers AS $parser) {
+        foreach ($parsers as $parser) {
             $parser->setCache($this->getCache());
             $parser->setUserAgent($this->getUserAgent());
             if ($parser->parse()) {
@@ -590,7 +591,7 @@ class DeviceDetector
         if (is_null($this->device) && $osShortName == 'AND' && $osVersion != '') {
             if (version_compare($osVersion, '2.0') == -1) {
                 $this->device = DeviceParserAbstract::DEVICE_TYPE_SMARTPHONE;
-            } else if (version_compare($osVersion, '3.0') >= 0 AND version_compare($osVersion, '4.0') == -1) {
+            } elseif (version_compare($osVersion, '3.0') >= 0 and version_compare($osVersion, '4.0') == -1) {
                 $this->device = DeviceParserAbstract::DEVICE_TYPE_TABLET;
             }
         }

@@ -32,13 +32,10 @@ abstract class ClientParserAbstract extends ParserAbstract
         $result = null;
 
         if ($this->preMatchOverall()) {
-
             foreach ($this->getRegexes() as $regex) {
-
                 $matches = $this->matchUserAgent($regex['regex']);
 
                 if ($matches) {
-
                     $result = array(
                         'type'       => $this->parserName,
                         'name'       => $this->buildByMatch($regex['name'], $matches),
