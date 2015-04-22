@@ -4,6 +4,7 @@ $finder->in([
     __DIR__
 ]);
 $finder->exclude('regexes');
+$finder->exclude('Tests');
 
 $config = Symfony\CS\Config\Config::create();
 $config->finder($finder);
