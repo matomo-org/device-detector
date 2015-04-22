@@ -6,6 +6,7 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 namespace DeviceDetector\Parser;
+
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
 
 /**
@@ -25,7 +26,7 @@ class VendorFragment extends ParserAbstract
     public function parse()
     {
         foreach ($this->getRegexes() as $brand => $regexes) {
-            foreach($regexes AS $regex) {
+            foreach ($regexes as $regex) {
                 if ($this->matchUserAgent($regex.'[^a-z0-9]+')) {
                     $this->matchedRegex = $regex;
                     return array_search($brand, DeviceParserAbstract::$deviceBrands);
@@ -40,5 +41,4 @@ class VendorFragment extends ParserAbstract
     {
         return $this->matchedRegex;
     }
-
 }

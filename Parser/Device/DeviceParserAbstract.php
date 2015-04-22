@@ -367,7 +367,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         }
 
         $brandId = array_search($brand, self::$deviceBrands);
-        if($brandId === false) {
+        if ($brandId === false) {
             // This Exception should never be thrown. If so a defined brand name is missing in $deviceBrands
             throw new \Exception("The brand with name '$brand' should be listed in the deviceBrands array."); // @codeCoverageIgnore
         }
@@ -384,8 +384,9 @@ abstract class DeviceParserAbstract extends ParserAbstract
         if (isset($regex['models'])) {
             foreach ($regex['models'] as $modelRegex) {
                 $modelMatches = $this->matchUserAgent($modelRegex['regex']);
-                if ($modelMatches)
+                if ($modelMatches) {
                     break;
+                }
             }
 
             if (empty($modelMatches)) {

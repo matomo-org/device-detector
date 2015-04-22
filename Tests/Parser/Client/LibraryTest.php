@@ -10,7 +10,7 @@ namespace DeviceDetector\Tests\Parser\Client;
 use DeviceDetector\Parser\Client\Library;
 use \Spyc;
 
-class ToolTest extends \PHPUnit_Framework_TestCase
+class LibraryTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider getFixtures

@@ -12,7 +12,7 @@ use \Spyc;
 
 class BrowserTest extends \PHPUnit_Framework_TestCase
 {
-    static $browsersTested = array();
+    public static $browsersTested = array();
 
     /**
      * @dataProvider getFixtures

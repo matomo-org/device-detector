@@ -9,7 +9,7 @@ namespace DeviceDetector\Tests\Cache;
 
 use DeviceDetector\Cache\StaticCache;
 
-class StaticCacheTests extends \PHPUnit_Framework_TestCase
+class StaticCacheTest extends \PHPUnit_Framework_TestCase
 {
     protected function setUp()
     {
@@ -35,5 +35,4 @@ class StaticCacheTests extends \PHPUnit_Framework_TestCase
 
         $this->assertFalse($cache->fetch('key'));
     }
-
 }
