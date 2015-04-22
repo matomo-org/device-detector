@@ -256,6 +256,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'TV' => 'TVC',
         'TX' => 'TechniSat',
         'TZ' => 'teXet',
+        'UN' => 'Unowhy',
         'UT' => 'UTStarcom',
         'VD' => 'Videocon',
         'VE' => 'Vertu',
