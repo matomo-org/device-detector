@@ -569,7 +569,7 @@ class DeviceDetector
         }
 
         /**
-         * Some user agents simply contain the fragment 'Android; Mobile;', so we assume those devices as tablets
+         * Some user agents simply contain the fragment 'Android; Mobile;', so we assume those devices as smartphones
          */
         if (is_null($this->device) && $this->hasAndroidMobileFragment()) {
             $this->device = DeviceParserAbstract::DEVICE_TYPE_SMARTPHONE;
