@@ -119,7 +119,7 @@ class Browser extends ClientParserAbstract
         'PW' => 'Palm WebPro',
         'PX' => 'Phoenix',
         'PO' => 'Polaris',
-        'PS' => 'Project Spartan',
+        'PS' => 'Microsoft Edge',
         'QQ' => 'QQ Browser',
         'RK' => 'Rekonq',
         'RM' => 'RockMelt',
