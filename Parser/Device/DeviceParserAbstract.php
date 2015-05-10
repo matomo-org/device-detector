@@ -131,6 +131,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'GU' => 'Grundig',
         'HA' => 'Haier',
         'HI' => 'Hisense',
+        'HL' => 'Hi-Level',
         'HP' => 'HP',
         'HT' => 'HTC',
         'HU' => 'Huawei',
