@@ -3042,9 +3042,32 @@ Zonda:
 
 # Toshiba
 Toshiba:
-  regex: 'Toshiba|portalmmm/[12].0 TS'
+  regex: 'Toshiba|portalmmm/[12].0 TS|T-01C|T-0[12]D|IS04|IS11T|AT1S0|AT300SE|AT(100|200|270|300|330|374)'
   device: 'smartphone'
   models:
+    # explicit smartphone models
+    - regex: 'T-01C'
+      model: 'Regza T-01C'
+    - regex: 'T-01D'
+      model: 'Regza T-01D'
+    - regex: 'T-02D'
+      model: 'Regza T-02D'
+    - regex: 'IS04'
+      model: 'Regza IS04'
+    - regex: 'IS11T'
+      model: 'Regza IS11T'
+
+    # explicit tablet models
+    - regex: 'AT1S0'
+      model: 'Regza AT1S0'
+      device: 'tablet'
+    - regex: 'AT300SE'
+      model: 'Regza AT300SE'
+      device: 'tablet'
+    - regex: 'AT(100|200|270|300|330|374)'
+      model: 'Regza AT$1'
+      device: 'tablet'
+
     - regex: 'Toshiba[ /_\-]?([a-z0-9_ \-]+) Build'
       model: '$1'
     - regex: 'Toshiba[ /_\-]?([a-z0-9_\-]+)'
@@ -3085,7 +3108,7 @@ ZTE:
   regex: 'ZTE|Z331|N799D|([a-z0-9]+)_USA_Cricket'
   device: 'smartphone'
   models:
-    # Explicit smartphone models
+    # explicit smartphone models
     - regex: 'N799D'
       model: 'MTS Blaze 4'
 
