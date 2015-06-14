@@ -27,6 +27,7 @@ class Browser extends ClientParserAbstract
      * @var array
      */
     protected static $availableBrowsers = array(
+        '36' => '360 Phone Browser',
         'AA' => 'Avant Browser',
         'AB' => 'ABrowse',
         'AG' => 'ANTGalio',
