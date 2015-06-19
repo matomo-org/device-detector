@@ -2050,12 +2050,14 @@ Newgen:
 
 # ngm
 NGM:
-  regex: 'NGM_[a-z0-9]+|(Forward|Dynamic)[ _][^/;]+(?:Build|/)'
+  regex: 'NGM[_ ][a-z0-9]+|(Forward|Dynamic)[ _][^/;]+(?:Build|/)'
   device: 'smartphone'
   models:
     - regex: '((?:Forward|Dynamic)[ _][^/;]+) Build'
       model: '$1'
     - regex: '((?:Forward|Dynamic)[ _][^/;]+)/'
+      model: '$1'
+    - regex: 'NGM ([^;/]+) Build'
       model: '$1'
     - regex: 'NGM_([a-z0-9]+)'
       model: '$1'
