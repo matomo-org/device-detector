@@ -36,7 +36,8 @@ class Engine extends ClientParserAbstract
         'Presto',
         'Gecko',
         'KHTML',
-        'NetFront'
+        'NetFront',
+        'Edge'
     );
 
     /**
