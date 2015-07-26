@@ -98,7 +98,7 @@ phpunit
 
 The lists below are auto generated and updated from time to time. Some of them might not be complete.
 
-*Last update: 2015/06/23*
+*Last update: 2015/07/26*
 
 ### List of detected operating systems:
 
@@ -110,7 +110,7 @@ AIX, Android, AmigaOS, Apple TV, Arch Linux, BackTrack, Bada, BeOS, BlackBerry O
 
 ### List of detected browser engines:
 
-WebKit, Blink, Trident, Text-based, Dillo, iCab, Presto, Gecko, KHTML, NetFront
+WebKit, Blink, Trident, Text-based, Dillo, iCab, Presto, Gecko, KHTML, NetFront, Edge
 
 ### List of detected libraries:
 
@@ -135,4 +135,4 @@ Akregator, Apple PubSub, FeedDemon, Feeddler RSS Reader, JetBrains Omea Reader, 
 
 ### List of brands with detected devices:
 
-3Q, Acer, Airness, Alcatel, Arnova, Amoi, Apple, Archos, Asus, Avvio, Audiovox, Axxion, BBK, Becker, Bird, Beetel, Bmobile, Barnes & Noble, BangOlufsen, BenQ, BenQ-Siemens, Blu, bq, CUBOT, Casio, Cat, Celkon, ConCorde, Cherry Mobile, Cricket, Compal, CnM, Crius Mea, CreNova, Capitel, Compaq, Coolpad, Cowon, Cube, Coby Kyros, Danew, Denver, Dbtel, DoCoMo, Dicam, Dell, DMM, Doogee, Dopod, E-Boda, Ericsson, ECS, Ezio, Elephone, Easypix, Ericy, eTouch, Evertek, Ezze, Fly, Fujitsu, Garmin-Asus, Gateway, Gemini, Gionee, Gigabyte, Gigaset, Google, Gradiente, Grundig, Haier, Hisense, Hi-Level, HP, HTC, Huawei, Humax, Hyrican, Hyundai, Ikea, iBall, iBerry, iKoMo, i-mate, Infinix, Innostream, Inkti, Intex, i-mobile, INQ, Intek, Inverto, iTel, Jiayu, Jolla, Karbonn, KDDI, Kindle, Konka, K-Touch, KT-Tech, Kyocera, Kazam, Lava, Lanix, LCT, Lenovo, Lenco, Le Pan, LG, Loewe, Logicom, Lexibook, Manta Multimedia, Mobistel, Medion, Meizu, Metz, MEU, MicroMax, MediaTek, Mio, Mpman, Motorola, Microsoft, MSI, Memup, Mitsubishi, M.T.T., MyPhone, NEC, NGM, Nintendo, Nokia, Nikon, Newgen, Nexian, Onda, OPPO, Orange, O2, OUYA, Opsson, Panasonic, PEAQ, Philips, Polaroid, Palm, phoneOne, Pantech, PolyPad, Positivo, Prestigio, Qilive, Qtek, Quechua, Oysters, Ramos, Rikomagic, RIM, Rover, Samsung, Sega, Sony Ericsson, Softbank, SFR, Sagem, Sharp, Siemens, Sendo, Smartfren, Sony, Spice, SuperSonic, Selevision, Sanyo, Symphony, Smart, Storex, Sumvision, Tesla, TCL, Telit, TiPhone, Tecno Mobile, Tesco, TIANYU, Telefunken, T-Mobile, Thomson, Tolino, Toplux, Toshiba, TechnoTrend, Tunisie Telecom, Turbo-X, TVC, TechniSat, teXet, Unowhy, UTStarcom, Videocon, Vertu, Vitelcom, VK Mobile, ViewSonic, Vestel, Vivo, Voxtel, Videoweb, Web TV, WellcoM, Wiko, Wolder, Wonu, Woxter, Xiaomi, Unknown, Yarvik, Yuandao, Yusun, Zonda, Zopo, ZTE
+3Q, Acer, Ainol, Airness, Alcatel, Arnova, Amoi, Apple, Archos, Asus, Avvio, Audiovox, Axxion, BBK, Becker, Bird, Beetel, Bmobile, Barnes & Noble, BangOlufsen, BenQ, BenQ-Siemens, Blu, bq, CUBOT, Casio, Cat, Celkon, ConCorde, Cherry Mobile, Cricket, Compal, CnM, Crius Mea, CreNova, Capitel, Compaq, Coolpad, Cowon, Cube, Coby Kyros, Danew, Denver, Dbtel, DoCoMo, Dicam, Dell, DMM, Doogee, Dopod, E-Boda, Ericsson, ECS, Ezio, Elephone, Easypix, Ericy, eTouch, Evertek, Ezze, Fly, Fujitsu, Garmin-Asus, Gateway, Gemini, Gionee, Gigabyte, Gigaset, Google, Gradiente, Grundig, Haier, Hisense, Hi-Level, HP, HTC, Huawei, Humax, Hyrican, Hyundai, Ikea, iBall, iBerry, iKoMo, i-mate, Infinix, Innostream, Inkti, Intex, i-mobile, INQ, Intek, Inverto, iTel, Jiayu, Jolla, Karbonn, KDDI, Kindle, Konka, K-Touch, KT-Tech, Kyocera, Kazam, Lava, Lanix, LCT, Lenovo, Lenco, Le Pan, LG, Loewe, Logicom, Lexibook, Manta Multimedia, Mobistel, Medion, Meizu, Metz, MEU, MicroMax, MediaTek, Mio, Mpman, Motorola, Microsoft, MSI, Memup, Mitsubishi, M.T.T., MyPhone, NEC, NGM, Nintendo, Nokia, Nikon, Newgen, Nexian, Onda, OnePlus, OPPO, Orange, O2, OUYA, Opsson, Panasonic, PEAQ, Philips, Polaroid, Palm, phoneOne, Pantech, PolyPad, Positivo, Prestigio, Qilive, Qtek, Quechua, Oysters, Ramos, Rikomagic, RIM, Rover, Samsung, Sega, Sony Ericsson, Softbank, SFR, Sagem, Sharp, Siemens, Sendo, Smartfren, Sony, Spice, SuperSonic, Selevision, Sanyo, Symphony, Smart, Storex, Sumvision, Tesla, TCL, Telit, TiPhone, Tecno Mobile, Tesco, TIANYU, Telefunken, T-Mobile, Thomson, Tolino, Toplux, Toshiba, TechnoTrend, Tunisie Telecom, Turbo-X, TVC, TechniSat, teXet, Unowhy, UTStarcom, Videocon, Vertu, Vitelcom, VK Mobile, ViewSonic, Vestel, Vivo, Voxtel, Videoweb, Walton, Web TV, WellcoM, Wiko, Wolder, Wonu, Woxter, Xiaomi, Unknown, Yarvik, Yuandao, Yusun, Zonda, Zopo, ZTE
