@@ -143,6 +143,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'HN' => 'Hyundai',
         'IA' => 'Ikea',
         'IB' => 'iBall',
+        'IJ' => 'i-Joy',
         'IY' => 'iBerry',
         'IK' => 'iKoMo',
         'IM' => 'i-mate',
