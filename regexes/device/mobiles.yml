@@ -1555,13 +1555,16 @@ i-mate:
 
 # i-mobile
 i-mobile:
-  regex: 'i-mobile ?[a-z0-9]+'
+  regex: 'i-mobile ?[a-z0-9]+|i-Style'
   device: 'feature phone'
   models:
     - regex: 'i-mobile (i-note[^/;]*) Build'
       model: '$1'
       device: 'tablet'
-    - regex: 'i-mobile ((?:IQ|i-style)[^/;]*) Build'
+    - regex: 'i-Style ?([^;/]+) Build'
+      model: 'i-Style $1'
+      device: 'smartphone'
+    - regex: 'i-mobile (IQ[^/;]*) Build'
       model: '$1'
       device: 'smartphone'
     - regex: 'i-mobile(?: )?([a-z0-9\- ]+) Build'
