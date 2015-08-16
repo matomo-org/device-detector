@@ -101,11 +101,11 @@ phpunit
 
 The lists below are auto generated and updated from time to time. Some of them might not be complete.
 
-*Last update: 2015/08/13*
+*Last update: 2015/08/16*
 
 ### List of detected operating systems:
 
-AIX, Android, AmigaOS, Apple TV, Arch Linux, BackTrack, Bada, BeOS, BlackBerry OS, BlackBerry Tablet OS, Brew, CentOS, Chrome OS, CyanogenMod, Debian, DragonFly, Fedora, Firefox OS, FreeBSD, Gentoo, Google TV, HP-UX, Haiku OS, IRIX, Inferno, Knoppix, Kubuntu, GNU/Linux, Lubuntu, VectorLinux, Mac, Mandriva, MeeGo, MocorDroid, Mint, MildWild, MorphOS, NetBSD, Nintendo, Nintendo Mobile, OS/2, OSF1, OpenBSD, PlayStation Portable, PlayStation, Red Hat, RISC OS, RazoDroiD, Sabayon, SUSE, Sailfish OS, Slackware, Solaris, Syllable, Symbian, Symbian OS, Symbian OS Series 40, Symbian OS Series 60, Symbian^3, Tizen, Ubuntu, WebTV, Windows, Windows CE, Windows Mobile, Windows Phone, Windows RT, Xbox, Xubuntu, YunOs, iOS, palmOS, webOS
+AIX, Android, AmigaOS, Apple TV, Arch Linux, BackTrack, Bada, BeOS, BlackBerry OS, BlackBerry Tablet OS, Brew, CentOS, Chrome OS, CyanogenMod, Debian, DragonFly, Fedora, Firefox OS, FreeBSD, Gentoo, Google TV, HP-UX, Haiku OS, IRIX, Inferno, Knoppix, Kubuntu, GNU/Linux, Lubuntu, VectorLinux, Mac, Mandriva, MeeGo, MocorDroid, Mint, MildWild, MorphOS, NetBSD, MTK / Nucleus, Nintendo, Nintendo Mobile, OS/2, OSF1, OpenBSD, PlayStation Portable, PlayStation, Red Hat, RISC OS, RazoDroiD, Sabayon, SUSE, Sailfish OS, Slackware, Solaris, Syllable, Symbian, Symbian OS, Symbian OS Series 40, Symbian OS Series 60, Symbian^3, ThreadX, Tizen, Ubuntu, WebTV, Windows, Windows CE, Windows Mobile, Windows Phone, Windows RT, Xbox, Xubuntu, YunOs, iOS, palmOS, webOS
 
 ### List of detected browsers:
 
@@ -125,7 +125,7 @@ Banshee, Clementine, FlyCast, Instacast, iTunes, Kodi, MediaMonkey, Miro, NexPla
 
 ### List of detected mobile apps:
 
-AndroidDownloadManager, FeedR, Sina Weibo, WeChat  and *mobile apps using [AFNetworking](https://github.com/AFNetworking/AFNetworking)*
+AndroidDownloadManager, Facebook, FeedR, Google Play Newsstand, Google Plus, Sina Weibo, WeChat, YouTube  and *mobile apps using [AFNetworking](https://github.com/AFNetworking/AFNetworking)*
 
 
 ### List of detected PIMs (personal information manager):
