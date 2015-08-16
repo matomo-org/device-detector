@@ -949,7 +949,7 @@ Rikomagic:
 
 # Sony & Sony Ericsson (combined as they are mixed up)
 Sony:
-  regex: 'Sony(?: ?Ericsson)?|SGP|Xperia|C1[569]0[45]|C2[01]0[45]|C2305|C530[236]|C550[23]|C6[56]0[236]|C6616|C68(?:0[26]|[34]3)|C69(?:0[236]|16|43)|D200[45]|D21(?:0[45]|14)|D22(?:0[236]|12|43)|D230[2356]|D240[36]|D25(?:02|33)|D510[236]|D530[36]|D5322|D5503|D58[03]3|D65(?:0[23]|43)|D66[05]3|(?:WT|LT|SO|ST|SK|MK)[0-9]+[a-z]*[0-9]*(?: Build|\))|X?L39H|portalmmm/2\.0 K|X10[ia]v?|E1[05][ai]v?|MT[0-9]{2}[a-z]? Build|SO-0(?:[345]D|[234]E|[12]C|[1235]F|[12]G)|R800[aix]'
+  regex: 'Sony(?: ?Ericsson)?|SGP|Xperia|C1[569]0[45]|C2[01]0[45]|C2305|C530[236]|C550[23]|C6[56]0[236]|C6616|C68(?:0[26]|[34]3)|C69(?:0[236]|16|43)|D200[45]|D21(?:0[45]|14)|D22(?:0[236]|12|43)|D230[2356]|D240[36]|D25(?:02|33)|D510[236]|D530[36]|D5322|D5503|D58[03]3|D65(?:0[23]|43)|D66[05]3|(?:WT|LT|SO|ST|SK|MK)[0-9]+[a-z]*[0-9]*(?: Build|\))|X?L39H|portalmmm/2\.0 K|X10[ia]v?|E1[05][ai]v?|MT[0-9]{2}[a-z]? Build|SO-0(?:[345]D|[234]E|[12]C|[1235]F|[12]G)|R800[aix]|LiveWithWalkman'
   device: 'smartphone'
   models:
     # SONY ERICSSON: explicit smartphone models
@@ -1001,7 +1001,7 @@ Sony:
     - regex: '(?:Sony(?:Ericsson)?)?R800'
       model: 'Xperia PLAY'
       brand: 'Sony Ericsson'
-    - regex: '(?:Sony(?:Ericsson)?)?WT19'
+    - regex: '(?:Sony(?:Ericsson)?)?WT19|LiveWithWalkman'
       model: 'Live with Walkman'
       brand: 'Sony Ericsson'
 
@@ -1974,12 +1974,16 @@ Mitsubishi:
 
 # MSI
 MSI:
-  regex: 'Primo 91'
+  regex: 'Primo ?(?:91|76)|Enjoy 7 Plus'
   device: 'tablet'
   models:
     # explicit tablet models
-    - regex: 'Primo 91'
+    - regex: 'Primo ?76'
+      model: 'Primo 76'
+    - regex: 'Primo ?91'
       model: 'Primo 91'
+    - regex: 'Enjoy 7 Plus'
+      model: 'Enjoy 7 Plus'
 
 # Mobistel
 Mobistel:
@@ -2695,6 +2699,34 @@ Sumvision:
   regex: '(Cyclone [^/;]+) Build'
   device: 'tablet'
   model: '$1'
+
+# Thomson
+Thomson:
+  regex: '(?:Primo(7|8)|QM73[45]-8G|QM734-2|QM736-8G\(HD\)|8950|MID1002) Build|(?:Tlink|Every)[0-9]+'
+  device: 'tablet'
+  models:
+    # already detected as manta device
+    #- regex: 'MID1002'
+    #  model: 'MID1002'
+    - regex : 'Primo(7|8)'
+      model: 'Primo $1'
+    - regex: 'QM734-2'
+      model: 'QM734-2'
+    - regex: 'QM734-8G'
+      model: 'QM734-8G'
+    - regex: 'QM735-8G'
+      model: 'QM735-8G'
+    - regex: 'QM736-8G\(HD\)'
+      model: 'QM736-8G (HD)'
+    - regex: '8950 Build'
+      model: '3G 8950'
+
+    - regex: 'Tlink([0-9]+)'
+      device: 'smartphone'
+      model: 'Tlink$1'
+    - regex: 'Every([0-9]+)'
+      device: 'smartphone'
+      model: 'Every$1'
 
 # pantech
 Pantech:
