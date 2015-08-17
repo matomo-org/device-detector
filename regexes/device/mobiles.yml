@@ -995,7 +995,7 @@ Sony:
     - regex: '(?:Sony(?:Ericsson)?)?X10[ai]v?'
       model: 'Xperia X10'
       brand: 'Sony Ericsson'
-    - regex: '(?:Sony(?:Ericsson)?)?M1'
+    - regex: '(?:Sony(?:Ericsson)?)M1'
       model: 'Aspen'
       brand: 'Sony Ericsson'
     - regex: '(?:Sony(?:Ericsson)?)?R800'
@@ -1185,6 +1185,12 @@ Sony:
       device: 'tablet'
 
     # general detections
+    - regex: '(?:Sony-)?(KDL?-?[0-9a-z]+)'
+      model: '$1'
+      device: 'tv'
+    - regex: 'Opera TV Store.*(?:Sony-)([0-9a-z-_]+)'
+      model: '$1'
+      device: 'tv'
     - regex: '((?:WT|SO|ST|SK|MK)[0-9]+[a-z]*[0-9]*)(?: Build|\))'
       model: '$1'
       brand: 'Sony Ericsson'
@@ -1216,9 +1222,9 @@ Sony:
       device: 'tablet'
     - regex: 'Xperia ([^;/]+) Build'
       model: 'Xperia $1'
-    - regex: 'Sony[ ]?([^/;]*) Build'
+    - regex: 'Sony[ -]?([^/;]*) Build'
       model: '$1'
-    - regex: 'Sony[ ]?([a-z0-9\-]+)'
+    - regex: 'Sony[ -]?([a-z0-9\-]+)'
       model: '$1'
 
 # Ericsson
