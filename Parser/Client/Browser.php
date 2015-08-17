@@ -106,6 +106,7 @@ class Browser extends ClientParserAbstract
         'OB' => 'Obigo',
         'OD' => 'Odyssey Web Browser',
         'OF' => 'Off By One',
+        'OE' => 'ONE Browser',
         'OI' => 'Opera Mini',
         'OM' => 'Opera Mobile',
         'OP' => 'Opera',
