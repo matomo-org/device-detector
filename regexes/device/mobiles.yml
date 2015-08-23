@@ -3066,9 +3066,12 @@ UTStarcom:
 
 # ViewSonic
 ViewSonic:
-  regex: 'ViewSonic|VSD[0-9]+[);/ ]|ViewPad'
+  regex: 'ViewSonic|VSD[0-9]+[);/ ]|ViewPad|ViewPhone'
   device: 'smart display'
   models:
+    - regex: '(?:ViewSonic-)?ViewPhone ?([^;/]+) Build'
+      model: 'ViewPhone $1'
+      device: 'smartphone'
     - regex: '(?:ViewSonic-)?ViewPad ?([^;/]+) Build'
       model: 'ViewPad $1'
       device: 'tablet'
