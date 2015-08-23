@@ -58,3 +58,4 @@ The lists below are auto generated and updated from time to time. Some of them m
 ### List of brands with detected devices:
 
 <?php echo implode(', ', \DeviceDetector\Parser\Device\DeviceParserAbstract::$deviceBrands); ?>
+
