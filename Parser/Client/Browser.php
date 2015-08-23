@@ -56,6 +56,7 @@ class Browser extends ClientParserAbstract
         'CP' => 'ChromePlus',
         'CR' => 'Chromium',
         'CS' => 'Cheshire',
+        'DE' => 'Deepnet Explorer',
         'DF' => 'Dolphin',
         'DI' => 'Dillo',
         'EL' => 'Elinks',
