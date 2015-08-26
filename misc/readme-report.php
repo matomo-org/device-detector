@@ -44,7 +44,6 @@ The lists below are auto generated and updated from time to time. Some of them m
 
 <?php echo implode(', ', \DeviceDetector\Parser\Client\MobileApp::getAvailableClients()); ?>  and *mobile apps using [AFNetworking](https://github.com/AFNetworking/AFNetworking)*
 
-
 ### List of detected PIMs (personal information manager):
 
 <?php echo implode(', ', \DeviceDetector\Parser\Client\PIM::getAvailableClients()); ?>

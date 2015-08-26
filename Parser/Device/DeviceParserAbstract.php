@@ -256,6 +256,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'TD' => 'Tesco',
         'TI' => 'TIANYU',
         'TL' => 'Telefunken',
+        'T2' => 'Telenor',
         'TM' => 'T-Mobile',
         'TN' => 'Thomson',
         'T1' => 'Tolino',
