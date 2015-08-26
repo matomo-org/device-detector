@@ -263,6 +263,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'TO' => 'Toplux',
         'TS' => 'Toshiba',
         'TT' => 'TechnoTrend',
+        'T3' => 'Trevi',
         'TU' => 'Tunisie Telecom',
         'TR' => 'Turbo-X',
         'TV' => 'TVC',
