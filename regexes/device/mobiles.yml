@@ -1364,7 +1364,7 @@ Gionee:
 
 # Google
 Google:
-  regex: 'Nexus|GoogleTV|Glass'
+  regex: 'Nexus|GoogleTV|Glass|CrKey[^a-z0-9]'
   device: 'smartphone'
   models:
     - regex: 'Glass'
@@ -1379,6 +1379,9 @@ Google:
     - regex: '(Nexus (?:7|9|10))'
       device: 'tablet'
       model: '$1'
+    - regex: 'CrKey[^a-z0-9]'
+      model: 'Chromecast'
+      device: 'tv'
     - regex: 'GoogleTV'
       device: 'tv'
       model: 'GoogleTV'
@@ -2301,6 +2304,18 @@ phoneOne:
   device: 'smartphone'
   model: '$1'
 
+# PULID
+PULID:
+  regex: 'PULID[ _]|F1[01357]\+? Build'
+  device: 'smartphone'
+  models:
+    - regex: 'F(1[01357]\+?) Build'
+      model: 'F$1'
+    - regex: 'PULID[ _]([^;/]+) Build'
+      model: '$1'
+    - regex: 'PULID[ _]([a-z0-9_]+)\)'
+      model: '$1'
+
 # Rover
 Rover:
   regex: 'Rover ([0-9]+)'
@@ -2995,7 +3010,7 @@ Softbank:
 
 # Kindle
 Kindle:
-  regex: 'KF(?:OT|TT|JWI|JWA|SOWI|APWI|THWI)[);/ ]|Kindle|Silk/\d+\.\d+|Amazon (?:Tate|Jem)'
+  regex: 'KF(?:OT|TT|JWI|JWA|SOWI|APWI|THWI)[);/ ]|Kindle|Silk/\d+\.\d+|Amazon (?:Tate|Jem)|AFTB'
   device: 'tablet'
   models:
     - regex: 'KFTT[);/ ]'

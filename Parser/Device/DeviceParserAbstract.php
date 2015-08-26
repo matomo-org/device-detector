@@ -218,6 +218,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'PP' => 'PolyPad',
         'PS' => 'Positivo',
         'PR' => 'Prestigio',
+        'PU' => 'PULID',
         'QI' => 'Qilive',
         'QT' => 'Qtek',
         'QU' => 'Quechua',
