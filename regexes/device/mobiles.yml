@@ -2236,13 +2236,15 @@ Onda:
 
 # oppo
 OPPO:
-  regex: 'OPPO[ _]?([a-z0-9]+)|X9006'
+  regex: 'OPPO[ _]?([a-z0-9]+)|X90[07][067][);/ ]'
   device: 'smartphone'
   models:
+    - regex: 'X907[067][);/ ]'
+      model: 'Find 7'
+    - regex: 'X900[067][);/ ]'
+      model: 'Find 7a'
     - regex: 'OPPO[ _]?([a-z0-9]+)'
       model: '$1'
-    - regex: 'X9006'
-      model: 'Find 7a'
 
 # Opsson
 Opsson:
@@ -3084,9 +3086,13 @@ T-Mobile:
 
 # Tcl
 TCL:
-  regex: 'TCL-([a-z0-9]+)'
+  regex: 'TCL-[a-z0-9]+|TCL[_ -][^;/]+ Build'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'TCL[_ -]([^;/]+) Build'
+      model: '$1'
+    - regex: 'TCL-([a-z0-9]+)'
+      model: '$1'
 
 # Tecno Mobile
 Tecno Mobile:
