@@ -1351,9 +1351,13 @@ Gigaset:
 
 # Gionee
 Gionee:
-  regex: 'GIONEE[ -]?[a-z0-9]+'
+  regex: 'GIONEE[ -]?[a-z0-9]+|V188S?[);/ ]'
   device: 'smartphone'
   models:
+    - regex: 'V188S[);/ ]'
+      model: 'V188S'
+    - regex: 'V188[);/ ]'
+      model: 'V188'
     - regex: 'GIONEE[ -]([a-z0-9]+).*Android'
       model: '$1'
     - regex: 'Android.*GIONEE[ -]([a-z0-9]+)'
@@ -2236,9 +2240,17 @@ Onda:
 
 # oppo
 OPPO:
-  regex: 'OPPO[ _]?([a-z0-9]+)|X90[07][067][);/ ]'
+  regex: 'OPPO[ _]?([a-z0-9]+)|(?:X90[07][067]|U707T?|X909T?|R82[17]T?)[);/ ]'
   device: 'smartphone'
   models:
+    - regex: 'U707T?'
+      model: 'Find Way S'
+    - regex: 'R821T?'
+      model: 'Find Muse'
+    - regex: 'R827T?'
+      model: 'Find 5 Mini'
+    - regex: 'X909T?'
+      model: 'Find 5'
     - regex: 'X907[067][);/ ]'
       model: 'Find 7'
     - regex: 'X900[067][);/ ]'
@@ -3086,12 +3098,12 @@ T-Mobile:
 
 # Tcl
 TCL:
-  regex: 'TCL-[a-z0-9]+|TCL[_ -][^;/]+ Build'
+  regex: 'TCL[ -][a-z0-9]+|TCL[_ -][^;/]+ Build'
   device: 'smartphone'
   models:
     - regex: 'TCL[_ -]([^;/]+) Build'
       model: '$1'
-    - regex: 'TCL-([a-z0-9]+)'
+    - regex: 'TCL[ -]([a-z0-9]+)'
       model: '$1'
 
 # Tecno Mobile
