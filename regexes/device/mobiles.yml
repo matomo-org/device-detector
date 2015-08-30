@@ -908,6 +908,16 @@ Doogee:
   device: 'smartphone'
   model: '$1'
 
+# Doov
+Doov:
+  regex: '(?:Doov-)?Doov[ _]'
+  device: 'smartphone'
+  models:
+    - regex: '(?:Doov-)?Doov[ _]([^;/]+) Build'
+      model: '$1'
+    - regex: '(?:Doov-)?Doov[ _]([^);/]+)[);/ ]'
+      model: '$1'
+
 # Dopod
 Dopod:
   regex: 'Dopod(?: )?([a-z0-9]+)'
@@ -1353,9 +1363,12 @@ Gigaset:
 
 # Gionee
 Gionee:
-  regex: 'GIONEE[ -]?[a-z0-9]+|V188S?[);/ ]'
+  regex: 'GIONEE[ -]?[a-z0-9]+|(?:V188S?|GN810)[);/ ]'
   device: 'smartphone'
   models:
+    - regex: 'GN810[);/ ]'
+      model: 'GN810'
+      device: 'phablet'
     - regex: 'V188S[);/ ]'
       model: 'V188S'
     - regex: 'V188[);/ ]'

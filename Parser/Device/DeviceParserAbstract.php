@@ -112,6 +112,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'DL' => 'Dell',
         'DM' => 'DMM',
         'DO' => 'Doogee',
+        'DV' => 'Doov',
         'DP' => 'Dopod',
         'EB' => 'E-Boda',
         'EC' => 'Ericsson',
