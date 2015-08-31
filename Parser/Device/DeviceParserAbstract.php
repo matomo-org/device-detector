@@ -193,6 +193,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'MZ' => 'MSI',
         'MU' => 'Memup',
         'MT' => 'Mitsubishi',
+        'ML' => 'MLLED',
         'MQ' => 'M.T.T.',
         'MY' => 'MyPhone',
         'NE' => 'NEC',
