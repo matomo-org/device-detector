@@ -3423,7 +3423,7 @@ Woxter:
 
 #Xiaomi
 Xiaomi:
-  regex: 'Xiaomi|(MI [a-z0-9]+|MI-One[ _]Plus)[);/ ]|HM ([^/;]+) Build|(2014501|2014011|201481[13]|201302[23]|2013061) Build'
+  regex: 'Xiaomi|(MI [a-z0-9]+|MI-One[ _]?[a-z0-9]+)[);/ ]|HM ([^/;]+) Build|(2014501|2014011|201481[13]|201302[23]|2013061) Build'
   device: 'smartphone'
   models:
     # specific smartphone models
@@ -3441,7 +3441,9 @@ Xiaomi:
     - regex: 'MI Note ([^;/]+)? Build'
       model: 'MI Note $1'
       device: 'phablet'
-    - regex: '(MI [a-z0-9]+|MI-One[ _]Plus)[);/ ]'
+    - regex: '(MI(?:-One)?[ _](?:[^;/]*))Build'
+      model: '$1'
+    - regex: '(MI [a-z0-9]+|MI-One[ _]?[a-z0-9]+)[);/ ]'
       model: '$1'
     - regex: 'HM Note ([^/;]+) Build'
       device: 'phablet'
