@@ -8,11 +8,35 @@
 #
 ###############
 
+# Airties
+Airties:
+  regex: 'Airties'
+  device: 'tv'
+  models:
+    - regex: 'Airties; ?([^);/]+)'
+      model: '$1'
+
+# Altech UEC
+'Altech UEC':
+  regex: 'Altech UEC'
+  device: 'tv'
+  models:
+    - regex: 'Altech UEC; ?([^);/]+)'
+      model: '$1'
+
 # BangOlufsen
 BangOlufsen:
   regex: 'Bangolufsen'
   device: 'tv'
   model: 'BeoVision'
+
+# Changhong
+Changhong:
+  regex: 'Changhong'
+  device: 'tv'
+  models:
+    - regex: 'Changhong; ?([^);/]+)'
+      model: '$1'
 
 # CreNova
 CreNova:
@@ -41,6 +65,8 @@ Humax:
       model: '$1'
     - regex: 'HMS1000S'
       model: 'HMS-1000S'
+    - regex: 'Humax; ([^);/]+)'
+      model: '$1'
 
 # IKEA
 Ikea:
@@ -156,9 +182,17 @@ Sharp:
     - regex: '(LE[0-9]{3}[A-Z]{0,3})'
       model: '$1'
 
+# Skyworth
+Skyworth:
+  regex: 'Sky_worth'
+  device: 'tv'
+  models:
+    - regex: 'Sky_worth;([^);/]+)'
+      model: '$1'
+
 # Smart
 Smart:
-  regex: 'Smart'
+  regex: 'Smart[^a-z]'
   device: 'tv'
   models:
     - regex: '([A-Z]{2}[0-9]{2}|ZAPPIX)'
@@ -229,12 +263,10 @@ Vestel:
 
 # Videoweb
 Videoweb:
-  regex: 'videoweb|compatible;'
+  regex: 'videoweb|tv2n'
   device: 'tv'
   models:
-    - regex: '(videowebtv)'
-      model: 'VideoWeb TV'
     - regex: '(tv2n)'
       model: '$1'
-    - regex: 'ANTGalio/3.0'
-      model: '600S'
+    - regex: '(videowebtv)'
+      model: 'VideoWeb TV'

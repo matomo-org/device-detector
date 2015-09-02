@@ -791,6 +791,14 @@ Celkon:
     - regex: 'Celkon[\. _*]([^;/\)]+)[\)/]'
       model: '$1'
 
+# Changhong
+Changhong:
+  regex: 'Changhong'
+  device: 'tv'
+  models:
+    - regex: 'Changhong-([^);/]+)'
+      model: '$1'
+
 # Cherry Mobile
 'Cherry Mobile':
   regex: 'Cherry|Flare2X|Fusion Bolt'
@@ -948,6 +956,16 @@ Dopod:
   regex: 'Dopod(?: )?([a-z0-9]+)'
   device: 'feature phone'
   model: '$1'
+
+# Dune HD
+'Dune HD':
+  regex: 'DuneHD'
+  device: 'tv'
+  models:
+    - regex: 'DuneHD/\d.\d \([a-z]+__([a-z0-9_-]+);'
+      model: '$1'
+    - regex: 'DuneHD/\d.\d \(([a-z0-9_-]+);'
+      model: '$1'
 
 # E-Boda
 E-Boda:
@@ -3186,11 +3204,14 @@ Softbank:
 
 # Kindle
 Amazon:
-  regex: 'KF(?:OT|TT|JWI|JWA|SOWI|A[PRS]WI|THWI|SAW[IA])[);/ ]|Kindle|Silk/\d+\.\d+|Amazon (?:Tate|Jem)|AFTB|SD4930UR'
+  regex: 'KF(?:OT|TT|JWI|JWA|SOWI|A[PRS]WI|THWI|SAW[IA])[);/ ]|Kindle|Silk/\d+\.\d+|Amazon (?:Tate|Jem)|AFT[BM]|SD4930UR'
   device: 'tablet'
   models:
     - regex: 'AFTB'
       model: 'Fire TV'
+      device: 'tv'
+    - regex: 'AFTM'
+      model: 'Fire TV stick'
       device: 'tv'
     - regex: 'KFTT[);/ ]'
       model: 'Kindle Fire HD'
