@@ -639,6 +639,13 @@ class DeviceDetector
             $this->device = DeviceParserAbstract::DEVICE_TYPE_TABLET;
         }
 
+        /**
+         * All devices running Opera TV Store are assumed to be a tv
+         */
+        if ($this->matchUserAgent('Opera TV Store')) {
+            $this->device = DeviceParserAbstract::DEVICE_TYPE_TV;
+        }
+
         // set device type to desktop for all devices running a desktop os that were not detected as an other device type
         if (is_null($this->device) && $this->isDesktop()) {
             $this->device = DeviceParserAbstract::DEVICE_TYPE_DESKTOP;
