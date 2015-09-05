@@ -365,13 +365,9 @@ Airness:
 
 # Alcatel
 Alcatel:
-  regex: 'Alcatel|Alc[a-z0-9]+|One[ _]?Touch|Smart ?Tab ?4G'
+  regex: 'Alcatel|Alc[a-z0-9]+|One[ _]?Touch'
   device: 'smartphone'
   models:
-    - regex: 'Smart ?Tab ?4G'
-      device: 'tablet'
-      model: 'Vodafone Smart Tab 4G'
-
     - regex: '(?:Alcatel[ _])?One[ _]?Touch[ _]((?:T[0-9]+|TAB[^/;]+|EVO[78](?:HD)?)) Build'
       device: 'tablet'
       model: 'One Touch $1'
@@ -1829,22 +1825,9 @@ Lenco:
 
 # lenovo
 Lenovo:
-  regex: '(?:LNV-)?Lenovo|IdeaTab|IdeaPad|Thinkpad|Yoga Tablet|Smart ?Tab ?III? ?[7|10]'
+  regex: '(?:LNV-)?Lenovo|IdeaTab|IdeaPad|Thinkpad|Yoga Tablet'
   device: 'smartphone'
   models:
-    - regex: 'Smart ?Tab ?II ?7'
-      model: 'Vodafone Smart Tab II 7'
-      device: 'tablet'
-    - regex: 'Smart ?Tab ?II ?10'
-      model: 'Vodafone Smart Tab II 10'
-      device: 'tablet'
-    - regex: 'Smart ?Tab ?III ?7'
-      model: 'Vodafone Smart Tab III 7'
-      device: 'tablet'
-    - regex: 'Smart ?Tab ?III ?10'
-      model: 'Vodafone Smart Tab III 10'
-      device: 'tablet'
-
     - regex: 'Lenovo (B[0-9]+[^/;]*) Build'
       model: 'IdeaTab $1'
       device: 'tablet'
@@ -2963,6 +2946,14 @@ Sencor:
     - regex: 'Sencor[ _]([^;/]+) Build'
       model: '$1'
 
+# Skyworth
+Skyworth:
+  regex: 'Sky_?worth'
+  device: 'tv'
+  models:
+    - regex: 'Sky_?worth ([^;/]+) Build'
+      model: '$1'
+
 # Smartfren
 Smartfren:
   regex: 'Smartfren|Androtab|Andromax|PD6D1J|AD682J|AD68[89]G|AD6B1H|AD9A1H|AD682H|AD683G'
@@ -3489,6 +3480,55 @@ Videocon:
   device: 'smartphone'
   model: '$1'
 
+# Vodafone
+Vodafone:
+  regex: 'Vodafone[ _-]|Smart ?Tab ?(?:III? ?)?(?:|4G|7|10)[);/ -]|VodafoneSmartChat'
+  device: 'smartphone'
+  models:
+    - regex: 'Vodafone[ _]875[);/ ]'
+      model: 'Smart Mini' # Alcatel
+    - regex: 'Vodafone[ _]975N?[);/ ]'
+      model: 'Smart 3' # Alcatel
+    - regex: 'Vodafone[ _]785[);/ ]'
+      model: 'Smart 4 Mini'
+    - regex: 'Vodafone[ _]890N[);/ ]'
+      model: 'Smart 4 Turbo' # Coolpad 3601U
+    - regex: 'Vodafone[ _]985N[);/ ]'
+      model: 'Smart 4 Power'
+    - regex: 'VodafoneSmartChat'
+      model: 'Smart Chat'
+
+    # explicit table models
+    - regex: 'Smart ?Tab ?3G'
+      device: 'tablet'
+      model: 'Smart Tab 3G'
+    - regex: 'Smart ?Tab ?4G'
+      device: 'tablet'
+      model: 'Smart Tab 4G'  # Alcatel
+    - regex: 'SmartTab7[);/ -]'
+      model: 'Smart Tab 7' # ZTE
+      device: 'tablet'
+    - regex: 'SmartTab10[);/ -]'
+      model: 'Smart Tab 10' # ZTE
+      device: 'tablet'
+    - regex: 'Smart ?Tab ?II ?7'
+      model: 'Smart Tab II 7' # Lenovo
+      device: 'tablet'
+    - regex: 'Smart ?Tab ?II ?10'
+      model: 'Smart Tab II 10' # Lenovo
+      device: 'tablet'
+    - regex: 'Smart ?Tab ?III ?7'
+      model: 'Smart Tab III 7' # Lenovo
+      device: 'tablet'
+    - regex: 'Smart ?Tab ?III ?10'
+      model: 'Smart Tab III 10' # Lenovo
+      device: 'tablet'
+
+    - regex: 'Vodafone[ _-]([^;/]+) Build'
+      model: '$1'
+    - regex: 'Vodafone[ _-]([a-z0-9_-]+)'
+      model: '$1'
+
 # Voxtel
 Voxtel:
   regex: 'Voxtel_([a-z0-9]+)'
@@ -3787,7 +3827,7 @@ Zopo:
 
 # ZTE
 ZTE:
-  regex: 'ZTE|([a-z0-9]+)_USA_Cricket|SmartTab(?:7|10)[);/ -]|(?:Blade S6|N9[15]8St|NX(?:403A|40[X2]|507J|503A|505J|506J|508J|510J|511J|513J|601J)|Z331|N799D)[);/ ]'
+  regex: 'ZTE|([a-z0-9]+)_USA_Cricket|(?:Blade S6|N9[15]8St|NX(?:403A|40[X2]|507J|503A|505J|506J|508J|510J|511J|513J|601J)|Z331|N799D)[);/ ]'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -3823,14 +3863,6 @@ ZTE:
       model: 'Z331'
     - regex: 'Blade S6[);/ ]'
       model: 'Blade S6'
-
-    # explicit table models
-    - regex: 'SmartTab7[);/ -]'
-      model: 'Vodafone Smart Tab 7'
-      device: 'tablet'
-    - regex: 'SmartTab10[);/ -]'
-      model: 'Vodafone Smart Tab 10'
-      device: 'tablet'
 
     - regex: '([a-z0-9]+)_USA_Cricket'
       model: '$1'
