@@ -27,7 +27,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
     const DEVICE_TYPE_TABLET               = 2;
     const DEVICE_TYPE_FEATURE_PHONE        = 3;
     const DEVICE_TYPE_CONSOLE              = 4;
-    const DEVICE_TYPE_TV                   = 5;
+    const DEVICE_TYPE_TV                   = 5; // including set top boxes, blu-ray players,...
     const DEVICE_TYPE_CAR_BROWSER          = 6;
     const DEVICE_TYPE_SMART_DISPLAY        = 7;
     const DEVICE_TYPE_CAMERA               = 8;

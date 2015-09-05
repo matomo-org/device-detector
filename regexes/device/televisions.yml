@@ -155,6 +155,8 @@ Philips:
   regex: 'Philips'
   device: 'tv'
   models:
+    - regex: 'Philips[,;] ?((?! )[^),;/]+)'
+      model: '$1'
     - regex: '(NETTV/[0-9\.]{5})'
       model: '$1'
 
@@ -163,10 +165,10 @@ Samsung:
   regex: 'Samsung|Maple_2011'
   device: 'tv'
   models:
-    - regex: '(SmartTV2013|SmartTV2012)'
-      model: '$1'
+    - regex: 'SmartTV(2012|2013|2014|2015)'
+      model: 'Smart TV $1'
     - regex: 'Maple_2011'
-      model: 'SmartTV2011'
+      model: 'Smart TV 2011'
 
 # Selevision
 Selevision:
@@ -183,6 +185,8 @@ Sharp:
   regex: 'Sharp'
   device: 'tv'
   models:
+    - regex: 'Sharp[,;] ?((?! |HbbTV)[^),;/]+)'
+      model: '$1'
     - regex: '(LE[0-9]{3}[A-Z]{0,3})'
       model: '$1'
 

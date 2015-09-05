@@ -2490,9 +2490,18 @@ Panasonic:
 
 # philips
 Philips:
-  regex: 'Philips'
+  regex: 'Philips|AND1E[);/ ]'
   device: 'smartphone'
   models:
+    - regex: 'AND1E(?: TV)?[);/ ]'
+      model: 'Android TV'
+      device: 'tv'
+    - regex: 'Philips, BDP([0-9]{4})'
+      model: 'Blu-ray Player (BDP$1)'
+      device: 'tv'
+    - regex: '(NETTV/[0-9\.]{5})'
+      model: '$1'
+      device: 'tv'
     - regex: 'Philips-FISIO ([a-z0-9]+)'
       model: 'Fisio $1'
     - regex: 'Philips[ ]?([a-z0-9]+)'
@@ -2540,13 +2549,16 @@ Siemens:
 
 # Samsung
 Samsung:
-  regex: 'SAMSUNG|SC-(?:02C|04E|01F)|N7100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|SMART-TV|GT-|Galaxy|(?:portalmmm|o2imode)/2\.0 [SZ]|sam[rua]|vollo Vi86[);/ ]'
+  regex: 'SAMSUNG|SC-(?:02C|04E|01F)|N7100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|SMART-TV|GT-|Galaxy|(?:portalmmm|o2imode)/2\.0 [SZ]|sam[rua]|vollo Vi86[);/ ]|(?:OTV-)?SMT-E5015'
   device: 'smartphone'
   models:
     # explicit tv models
     - regex: 'GT-B9150'
       device: 'tv'
       model: 'Home Sync'
+    - regex: '(?:OTV-)?SMT-E5015'
+      device: 'tv'
+      model: 'SMT-E5015' # set top box
 
     # explicit tablet models
     - regex: '(?:SAMSUNG-)?GT-N5100'
@@ -3188,6 +3200,9 @@ Sharp:
       device: 'tablet'
       model: 'Sharp Aquos Pad'
 
+    - regex: '(LC-(?:[0-9]{2})[a-z0-9]+)(?:[);/ ]|$)'
+      device: 'tv'
+      model: '$1'
     - regex: 'SHARP-AQUOS|AQUOSBrowser'
       device: 'tv'
       model: 'Aquos Net Plus'
