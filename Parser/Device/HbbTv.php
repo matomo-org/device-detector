@@ -46,7 +46,8 @@ class HbbTv extends DeviceParserAbstract
      */
     public function isHbbTv()
     {
-        $regex = 'HbbTV/([1-9]{1}(\.[0-9]{1}){1,2})';
-        return $this->matchUserAgent($regex);
+        $regex = 'HbbTV/([1-9]{1}(?:\.[0-9]{1}){1,2})';
+        $match = $this->matchUserAgent($regex);
+        return $match ? $match[1] : false;
     }
 }
