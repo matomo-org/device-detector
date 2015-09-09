@@ -302,6 +302,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'WO' => 'Wonu',
         'WX' => 'Woxter',
         'XI' => 'Xiaomi',
+        'XO' => 'Xolo',
         'XX' => 'Unknown',
         'YA' => 'Yarvik',
         'YU' => 'Yuandao',
