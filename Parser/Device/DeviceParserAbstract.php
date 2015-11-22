@@ -205,6 +205,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'MQ' => 'M.T.T.',
         'MY' => 'MyPhone',
         'NE' => 'NEC',
+        'NA' => 'Netgear',
         'NG' => 'NGM',
         'NI' => 'Nintendo',
         'NK' => 'Nokia',
