@@ -309,7 +309,7 @@ class DeviceDetector
      */
     protected function hasAndroidTableFragment()
     {
-        $regex = 'Android; Tablet;';
+        $regex = 'Android( [\.0-9]+)?; Tablet;';
         return $this->matchUserAgent($regex);
     }
 
@@ -320,7 +320,7 @@ class DeviceDetector
      */
     protected function hasAndroidMobileFragment()
     {
-        $regex = 'Android; Mobile;';
+        $regex = 'Android( [\.0-9]+)?; Mobile;';
         return $this->matchUserAgent($regex);
     }
 
