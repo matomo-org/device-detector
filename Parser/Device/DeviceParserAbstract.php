@@ -226,6 +226,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'PM' => 'Palm',
         'PO' => 'phoneOne',
         'PT' => 'Pantech',
+        'PV' => 'Point of View',
         'PP' => 'PolyPad',
         'PS' => 'Positivo',
         'PR' => 'Prestigio',
