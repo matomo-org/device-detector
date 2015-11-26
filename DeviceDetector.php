@@ -584,6 +584,23 @@ class DeviceDetector
             $this->brand = $vendorParser->parse();
         }
 
+        $osShortName = $this->getOs('short_name');
+        $osFamily = OperatingSystem::getOsFamily($osShortName);
+        $osVersion = $this->getOs('version');
+
+        /**
+         * Chrome on Android passes the device type based on the keyword 'Mobile'
+         * If it is present the device should be a smartphone, otherwise it's a tablet
+         * See https://developer.chrome.com/multidevice/user-agent#chrome_for_android_user_agent
+         */
+        if (is_null($this->device) && $osFamily == 'Android' && in_array($this->getClient('name'), array('Chrome', 'Chrome Mobile'))) {
+            if ($this->matchUserAgent('Chrome/[\.0-9]* Mobile')) {
+                $this->device = DeviceParserAbstract::DEVICE_TYPE_SMARTPHONE;
+            } else if ($this->matchUserAgent('Chrome/[\.0-9]* (?!Mobile)')) {
+                $this->device = DeviceParserAbstract::DEVICE_TYPE_TABLET;
+            }
+        }
+
         /**
          * Some user agents simply contain the fragment 'Android; Tablet;', so we assume those devices as tablets
          */
@@ -597,10 +614,6 @@ class DeviceDetector
         if (is_null($this->device) && $this->hasAndroidMobileFragment()) {
             $this->device = DeviceParserAbstract::DEVICE_TYPE_SMARTPHONE;
         }
-
-        $osShortName = $this->getOs('short_name');
-        $osFamily = OperatingSystem::getOsFamily($osShortName);
-        $osVersion = $this->getOs('version');
 
         /**
          * Android up to 3.0 was designed for smartphones only. But as 3.0, which was tablet only, was published
