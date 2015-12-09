@@ -161,7 +161,7 @@ abstract class ParserAbstract
     protected function matchUserAgent($regex)
     {
         // only match if useragent begins with given regex or there is no letter before it
-        $regex = '/(?:^|[^A-Z0-9\_\-])(?:' . str_replace('/', '\/', $regex) . ')/i';
+        $regex = '/(?:^|[^A-Z0-9\_\-]|sprd-)(?:' . str_replace('/', '\/', $regex) . ')/i';
 
         if (preg_match($regex, $this->userAgent, $matches)) {
             return $matches;
