@@ -505,7 +505,7 @@ class DeviceDetector
         $this->parsed = true;
 
         // skip parsing for empty useragents or those not containing any letter
-        if (empty($this->userAgent) || preg_match('[a-z]', $this->userAgent)) {
+        if (empty($this->userAgent) || !preg_match('/([a-z])/i', $this->userAgent)) {
             return;
         }
 
