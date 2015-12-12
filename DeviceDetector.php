@@ -587,6 +587,7 @@ class DeviceDetector
         $osShortName = $this->getOs('short_name');
         $osFamily = OperatingSystem::getOsFamily($osShortName);
         $osVersion = $this->getOs('version');
+        $clientName = $this->getClient('name');
 
         /**
          * Chrome on Android passes the device type based on the keyword 'Mobile'
@@ -656,6 +657,13 @@ class DeviceDetector
          * All devices running Opera TV Store are assumed to be a tv
          */
         if ($this->matchUserAgent('Opera TV Store')) {
+            $this->device = DeviceParserAbstract::DEVICE_TYPE_TV;
+        }
+
+        /**
+         * Devices running Kylo TV Browsers are assumed to be a TV
+         */
+        if (is_null($this->device) && $clientName == 'Kylo') {
             $this->device = DeviceParserAbstract::DEVICE_TYPE_TV;
         }
 

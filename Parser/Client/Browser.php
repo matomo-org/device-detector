@@ -86,6 +86,7 @@ class Browser extends ClientParserAbstract
         'KM' => 'K-meleon',
         'KO' => 'Konqueror',
         'KP' => 'Kapiko',
+        'KY' => 'Kylo',
         'KZ' => 'Kazehakase',
         'LB' => 'Liebao',
         'LI' => 'Links',
