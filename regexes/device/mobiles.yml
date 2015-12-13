@@ -1771,6 +1771,16 @@ Kazam:
     - regex: 'Kazam ([^;/]+) Build'
       model: '$1'
 
+#Kingsun
+Kingsun:
+  regex: 'Kingsun[ _-]'
+  device: 'smartphone'
+  models:
+    - regex: 'Kingsun[ _-]([^;/]+) Build'
+      model: '$1'
+    - regex: 'Kingsun[ -]((?!Build)[a-z0-9_-]+)'
+      model: '$1'
+
 # Komu
 Komu:
   regex: 'Komu[ -]'
@@ -2468,7 +2478,7 @@ Onda:
 
 # oppo
 OPPO:
-  regex: '(?:OB-)?OPPO[ _]?([a-z0-9]+)|(?:X90[07][067]|U707T?|X909T?|R(?:10[01]1|2001|201[07]|6007|7005|7007|80[13579]|81[13579]|82[01379]|83[013]|800[067]|8015|810[679]|811[13]|820[057])[KLSTW]?)[);/ ]'
+  regex: '(?:OB-)?OPPO[ _]?([a-z0-9]+)|N1T|(?:X90[07][067]|U707T?|X909T?|R(?:10[01]1|2001|201[07]|6007|7005|7007|80[13579]|81[13579]|82[01379]|83[013]|800[067]|8015|810[679]|811[13]|820[057])[KLSTW]?)[);/ ]'
   device: 'smartphone'
   models:
     - regex: 'U707T?[);/ ]'
@@ -2504,6 +2514,10 @@ OPPO:
     - regex: 'R831T?[);/ ]'
       model: 'Neo'
 
+    - regex: 'N1T?[);/ ]'
+      model: 'N1T'
+      device: 'phablet'
+
     - regex: 'R([0-9]{3,4}[KSTW]?)[);/ ]' # valid model numbers are filtered in main regex
       model: 'R$1'
 
@@ -2512,9 +2526,13 @@ OPPO:
 
 # Opsson
 Opsson:
-  regex: 'Opsson ([^/;]+) Build'
+  regex: 'Opsson'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'Opsson[ _]([^/;]+) Build'
+      model: '$1'
+    - regex: '(?:Opsson-)?Opsson[ -_]([^/;]+)/'
+      model: '$1'
 
 # orange
 Orange:
