@@ -315,6 +315,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'YA' => 'Yarvik',
         'YU' => 'Yuandao',
         'YS' => 'Yusun',
+        'YT' => 'Ytone',
         'ZO' => 'Zonda',
         'ZP' => 'Zopo',
         'ZT' => 'ZTE',
