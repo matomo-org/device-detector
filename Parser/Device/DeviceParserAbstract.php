@@ -266,6 +266,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'SR' => 'Smart',
         'ST' => 'Storex',
         'S2' => 'Stonex',
+        'S3' => 'SunVan',
         'SZ' => 'Sumvision',
         'TA' => 'Tesla',
         'TC' => 'TCL',
