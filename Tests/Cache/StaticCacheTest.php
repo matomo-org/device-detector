@@ -26,14 +26,25 @@ class StaticCacheTests extends \PHPUnit_Framework_TestCase
     public function testSetAndGet()
     {
         $cache = new StaticCache();
+
+        // add entry
         $cache->save('key', 'value');
         $this->assertEquals('value', $cache->fetch('key'));
+
+        // change entry
         $cache->save('key', 'value2');
         $this->assertEquals('value2', $cache->fetch('key'));
 
-        $cache->flushAll();
-
+        // remove entry
+        $cache->delete('key');
         $this->assertFalse($cache->fetch('key'));
+
+        // flush all entries
+        $cache->save('key', 'value2');
+        $cache->save('key3', 'value2');
+        $cache->flushAll();
+        $this->assertFalse($cache->fetch('key'));
+        $this->assertFalse($cache->fetch('key3'));
     }
 
 }
