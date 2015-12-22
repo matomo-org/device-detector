@@ -8,7 +8,7 @@ DeviceDetector
 
 ## Code Status
 
-[![Build Status](https://travis-ci.org/piwik/device-detector.svg?branch=master)](https://travis-ci.org/piwik/piwik)
+[![Build Status](https://travis-ci.org/piwik/device-detector.svg?branch=master)](https://travis-ci.org/piwik/device-detector)
 [![Code Coverage](https://coveralls.io/repos/piwik/device-detector/badge.png)](https://coveralls.io/r/piwik/device-detector)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/piwik/device-detector.svg)](http://isitmaintained.com/project/piwik/device-detector "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/piwik/device-detector.svg)](http://isitmaintained.com/project/piwik/device-detector "Percentage of issues still open")
