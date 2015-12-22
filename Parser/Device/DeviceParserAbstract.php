@@ -186,6 +186,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'LN' => 'Lenco',
         'LP' => 'Le Pan',
         'LG' => 'LG',
+        'LI' => 'Lingwin',
         'LO' => 'Loewe',
         'LM' => 'Logicom',
         'LX' => 'Lexibook',
@@ -461,6 +462,10 @@ abstract class DeviceParserAbstract extends ParserAbstract
         $model = str_replace('_', ' ', $model);
 
         $model = preg_replace('/ TD$/i', '', $model);
+
+        if ($model === 'Build') {
+            return null;
+        }
 
         return $model;
     }
