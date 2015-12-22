@@ -3670,9 +3670,13 @@ Vertu:
 
 # Videocon
 Videocon:
-  regex: 'Videocon[_ ]([a-z0-9]+)'
+  regex: 'Videocon[_ \-]|VT75C'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'Videocon[_ \-]([a-z0-9]+)'
+      model: '$1'
+    - regex: 'VT75C[/;) ]'
+      model: 'VT75C'
 
 # Vodafone
 Vodafone:
