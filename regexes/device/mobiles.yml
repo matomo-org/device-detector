@@ -2522,9 +2522,13 @@ OPPO:
 
 # Opsson
 Opsson:
-  regex: 'Opsson'
+  regex: 'Opsson|IUSAI'
   device: 'smartphone'
   models:
+    - regex: 'IUSAI[ _]([^/;]+) Build'
+      model: 'Iusai $1'
+    - regex: 'IUSAI[ _]([^/;\)]+)[/;\)]'
+      model: 'Iusai $1'
     - regex: 'Opsson[ _]([^/;]+) Build'
       model: '$1'
     - regex: '(?:Opsson-)?Opsson[ -_]([^/;]+)/'
