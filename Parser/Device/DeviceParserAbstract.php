@@ -290,6 +290,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'TX' => 'TechniSat',
         'TZ' => 'teXet',
         'UN' => 'Unowhy',
+        'US' => 'Uniscope',
         'UT' => 'UTStarcom',
         'VD' => 'Videocon',
         'VE' => 'Vertu',
@@ -455,6 +456,8 @@ abstract class DeviceParserAbstract extends ParserAbstract
         $model = $this->buildByMatch($model, $matches);
 
         $model = str_replace('_', ' ', $model);
+
+        $model = preg_replace('/ TD$/i', '', $model);
 
         return $model;
     }
