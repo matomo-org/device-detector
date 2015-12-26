@@ -113,6 +113,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'CY' => 'Coby Kyros',
         'DA' => 'Danew',
         'DE' => 'Denver',
+        'DS' => 'Desay',
         'DB' => 'Dbtel',
         'DC' => 'DoCoMo',
         'DI' => 'Dicam',
