@@ -206,6 +206,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'MK' => 'MediaTek',
         'MO' => 'Mio',
         'MM' => 'Mpman',
+        'MF' => 'Mofut',
         'MR' => 'Motorola',
         'MS' => 'Microsoft',
         'MZ' => 'MSI',
