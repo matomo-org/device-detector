@@ -146,6 +146,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'GI' => 'Gionee',
         'GG' => 'Gigabyte',
         'GS' => 'Gigaset',
+        'GC' => 'GOCLEVER',
         'GO' => 'Google',
         'GR' => 'Gradiente',
         'GU' => 'Grundig',
