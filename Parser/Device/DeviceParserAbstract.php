@@ -205,6 +205,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'MA' => 'Manta Multimedia',
         'MB' => 'Mobistel',
         'MD' => 'Medion',
+        'M2' => 'MEEG',
         'M1' => 'Meizu',
         'ME' => 'Metz',
         'MX' => 'MEU',
