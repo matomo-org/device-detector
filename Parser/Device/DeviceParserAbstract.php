@@ -167,6 +167,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'IY' => 'iBerry',
         'IK' => 'iKoMo',
         'IM' => 'i-mate',
+        'I1' => 'iOcean',
         'IF' => 'Infinix',
         'IN' => 'Innostream',
         'II' => 'Inkti',
