@@ -1547,6 +1547,29 @@ Vizio:
       device: 'tablet'
       model: 'VTAB1008'
 
+# GOCLEVER
+GOCLEVER:
+  regex: 'GOCLEVER|QUANTUM|ARIES|INSIGNIA'
+  device: 'smartphone'
+  models:
+    - regex: '((?:QUANTUM|ARIES|INSIGNIA)[ _-]?[^;/]+) Build'
+      model: '$1'
+    - regex: 'GOCLEVER[ _-]TAB[ _-]?([^;/]+) Build'
+      model: 'TAB $1'
+      device: 'tablet'
+    - regex: 'GOCLEVER[ _-]?([^;/]+) Build'
+      model: '$1'
+    - regex: 'TAB ([^;/)]+) Build/GOCLEVER'
+      model: 'TAB $1'
+      device: 'tablet'
+    - regex: '([^;/)]+) Build/GOCLEVER'
+      model: '$1'
+    - regex: 'GOCLEVER[ _-]?TAB[ _-]([^;/)]+)[;/)]'
+      model: 'TAB $1'
+      device:' tablet'
+    - regex: 'GOCLEVER[ _-]?([^;/)]+)[;/)]'
+      model: '$1'
+
 # Google
 Google:
   regex: 'Nexus|GoogleTV|Glass|CrKey[^a-z0-9]'
