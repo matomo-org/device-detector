@@ -2765,13 +2765,16 @@ Opsson:
 
 # orange
 Orange:
-  regex: 'SPV[ \-]?([a-z0-9]+)|Orange ([^/;]+) Build'
+  regex: 'SPV[ \-]?([a-z0-9]+)|Orange ([^/;]+) Build|SC/IHD92'
   device: 'smartphone'
   models:
     - regex: 'Orange ([^/;]+) Build'
       model: '$1'
     - regex: 'SPV[ \-]?([a-z0-9]+)'
       model: 'SPV $1'
+    - regex: 'SC/IHD92'
+      model: 'Livebox Play'
+      device: 'tv' # set top box
 
 # Ouki
 Ouki:
@@ -2959,7 +2962,7 @@ Siemens:
 
 # Samsung
 Samsung:
-  regex: 'SAMSUNG|SC-(?:02C|04E|01F)|N7100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|SMART-TV|GT-|Galaxy|(?:portalmmm|o2imode)/2\.0 [SZ]|sam[rua]|vollo Vi86[);/ ]|(?:OTV-)?SMT-E5015'
+  regex: 'SAMSUNG|Maple |SC-(?:02C|04E|01F)|N7100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|SMART-TV|GT-|Galaxy|(?:portalmmm|o2imode)/2\.0 [SZ]|sam[rua]|vollo Vi86[);/ ]|(?:OTV-)?SMT-E5015'
   device: 'smartphone'
   models:
     # explicit tv models
@@ -2969,6 +2972,9 @@ Samsung:
     - regex: '(?:OTV-)?SMT-E5015'
       device: 'tv'
       model: 'SMT-E5015' # set top box
+    - regex: 'Maple '
+      device: 'tv'
+      model: ''
 
     # explicit tablet models
     - regex: '(?:SAMSUNG-)?GT-N5100'
@@ -4267,7 +4273,7 @@ Zonda:
 
 # Toshiba
 Toshiba:
-  regex: 'Toshiba|portalmmm/[12].0 TS|T-01C|T-0[12]D|IS04|IS11T|AT1S0|AT300SE|AT(100|200|270|300|330|374|400|470|500|503|570|703|830)'
+  regex: 'Toshiba|TSBNetTV/|portalmmm/[12].0 TS|T-01C|T-0[12]D|IS04|IS11T|AT1S0|AT300SE|AT(100|200|270|300|330|374|400|470|500|503|570|703|830)'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -4296,6 +4302,9 @@ Toshiba:
       model: 'Regza AT$1'
       device: 'tablet'
 
+    - regex: 'TSBNetTV/'
+      device: 'tv'
+      model: ''
     - regex: 'Toshiba[ /_\-]?([a-z0-9_ \-]+) Build'
       model: '$1'
     - regex: 'Toshiba[ /_\-]?([a-z0-9_\-]+)'
