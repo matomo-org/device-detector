@@ -661,9 +661,9 @@ class DeviceDetector
         }
 
         /**
-         * Devices running Kylo TV Browsers are assumed to be a TV
+         * Devices running Kylo or Espital TV Browsers are assumed to be a TV
          */
-        if (is_null($this->device) && $clientName == 'Kylo') {
+        if (is_null($this->device) && in_array($clientName, array('Kylo', 'Espial TV Browser'))) {
             $this->device = DeviceParserAbstract::DEVICE_TYPE_TV;
         }
 
