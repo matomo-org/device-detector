@@ -92,6 +92,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'BW' => 'Boway',
         'BX' => 'bq',
         'BR' => 'Brondi',
+        'B1' => 'Bush',
         'CB' => 'CUBOT',
         'CF' => 'Carrefour',
         'CS' => 'Casio',
