@@ -806,6 +806,12 @@ Capitel:
   device: 'feature phone'
   model: '$1'
 
+# Captiva
+Captiva:
+  regex: 'Captiva[ _-]([^;/]+) Build'
+  device: 'tablet'
+  model: 'Pad $1'
+
 # Casio
 Casio:
   regex: '(C811|C7[57]1)(?: 4G)?[);/ ]'
@@ -899,9 +905,13 @@ ConCorde:
 
 # Coolpad
 Coolpad:
-  regex: '(?:YL-)?Coolpad'
+  regex: '(?:YL-)?Coolpad|8190Q[ ;/\)]|8295 Build'
   device: 'smartphone'
   models:
+    - regex: '8190Q[ ;/\)]'
+      model: '8190Q'
+    - regex: '8295 Build'
+      model: '8295'
     - regex: '(?:YL-)?Coolpad[ _\-]?([^/;]+) Build'
       model: '$1'
     - regex: '(?:YL-)?Coolpad[ _\-]?([a-z0-9\-]+)'
@@ -1101,6 +1111,12 @@ ECS:
 Elephone:
   regex: 'Elephone[ _\-]([^/;]+) Build'
   device: 'smartphone'
+  model: '$1'
+
+# Energy Sistem
+'Energy Sistem':
+  regex: 'ENERGY[ _-]?([^;/]+) Build'
+  device: 'tablet'
   model: '$1'
 
 # Ericy
@@ -2638,6 +2654,25 @@ Netgear:
   models:
    - regex: 'GTV100'
      model: 'NeoTV Prime'
+
+# NextBook
+NextBook:
+  regex: 'Next[0-9]|NX785QC8G|NXM900MC|NX008HD8G|NX010HI8G|NXM908HC'
+  device: 'tablet'
+  models:
+    - regex: 'NX008HD8G'
+      model: 'Premium 8 HD'
+    - regex: 'NXM908HC'
+      model: 'Premium 9'
+    - regex: 'NX010HI8G'
+      model: 'Premium 10 Hi'
+    - regex: 'NX785QC8G'
+      model: '8'
+    - regex: 'NXM900MC'
+      model: '8 HD'
+
+    - regex: 'Next([0-9]+[^;/]+) Build'
+      model: 'Next $1'
 
 # ngm
 NGM:
