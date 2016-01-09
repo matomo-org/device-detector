@@ -2463,9 +2463,13 @@ Meizu:
 
 # Memup
 Memup:
-  regex: 'SlidePad ?([^;/]*) Build'
+  regex: 'SlidePad ?([^;/]*) Build|SPNG[0-9]+[a-z]*'
   device: 'tablet'
-  model: 'SlidePad $1'
+  models:
+    - regex: 'SlidePad ?([^;/]*) Build'
+      model: 'SlidePad $1'
+    - regex: 'SPNG([0-9]+[a-z]*)'
+      model: 'SlidePad NG$1'
 
 # mio
 Mio:
