@@ -1040,9 +1040,15 @@ DoCoMo:
 
 # Doogee
 Doogee:
-  regex: '((?:BIGBOY|COLLO[23]?|DAGGER|DISCOVERY|FIND|HOTWIND|LATTE|MAX|MINT|MOON|PIXELS|RAINBOX|TURBO|VALENCIA|VOYAGER) DG[0-9]+)[);/ ]'
+  regex: 'DOOGEE[ _-]|((?:BIGBOY|COLLO[23]?|DAGGER|DISCOVERY2?|FIND|HOTWIND|LATTE|MAX|MINT|MOON|PIXELS|RAINBOX|TURBO|VALENCIA|VOYAGER2?|TITANS))[ -](DG[0-9]+C?)[);/ ]'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: '(?:DOOGEE[ _-])?((?:BIGBOY|COLLO[23]?|DAGGER|DISCOVERY2?|FIND|HOTWIND|LATTE|MAX|MINT|MOON|PIXELS|RAINBOX|TURBO|VALENCIA|VOYAGER2?|TITANS))[ -](DG[0-9]+C?)[);/ ]'
+      model: '$1 $2'
+    - regex: 'DOOGEE[ _-]([^);/]+) Build'
+      model: '$1'
+    - regex: 'DOOGEE[ _-]([^);/]+)[);/ ]'
+      model: '$1'
 
 # Doov
 Doov:
@@ -4025,6 +4031,14 @@ Uniscope:
       model: '$1'
     - regex: 'Uniscope[ _\-]?([^);/ ]+)'
       model: '$1'
+
+# Vastking
+Vastking:
+  regex: 'M910A[);/ ]'
+  device: 'tablet'
+  models:
+    - regex: 'M910A[);/ ]'
+      model: 'M910A'
 
 # ViewSonic
 ViewSonic:

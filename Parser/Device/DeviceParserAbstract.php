@@ -325,6 +325,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'UN' => 'Unowhy',
         'US' => 'Uniscope',
         'UT' => 'UTStarcom',
+        'VA' => 'Vastking',
         'VD' => 'Videocon',
         'VE' => 'Vertu',
         'VI' => 'Vitelcom',
