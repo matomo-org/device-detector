@@ -47,7 +47,7 @@ class DeviceDetector
     /**
      * Current version number of DeviceDetector
      */
-    const VERSION = '3.5.1';
+    const VERSION = '3.5.2';
 
     /**
      * Holds all registered client types
@@ -603,9 +603,9 @@ class DeviceDetector
         }
 
         /**
-         * Some user agents simply contain the fragment 'Android; Tablet;', so we assume those devices as tablets
+         * Some user agents simply contain the fragment 'Android; Tablet;' or 'Opera Tablet', so we assume those devices as tablets
          */
-        if (is_null($this->device) && $this->hasAndroidTableFragment()) {
+        if (is_null($this->device) && ($this->hasAndroidTableFragment() || $this->matchUserAgent('Opera Tablet') )) {
             $this->device = DeviceParserAbstract::DEVICE_TYPE_TABLET;
         }
 
