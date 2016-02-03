@@ -148,7 +148,7 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
         $dd->parse();
         $this->assertTrue($dd->isBot());
         $botData = $dd->getBot();
-        $this->assertEquals($botData['name'], $fixtureData['name']);
+        $this->assertEquals($botData, $fixtureData['bot']);
         // client and os will always be unknown for bots
         $this->assertEquals($dd->getOs('short_name'), DeviceDetector::UNKNOWN);
         $this->assertEquals($dd->getClient('short_name'), DeviceDetector::UNKNOWN);
