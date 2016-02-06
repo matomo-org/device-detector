@@ -161,7 +161,7 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
         return array_map(function($elem) {return array($elem);}, $fixtures);
     }
 
-    public function testGetInforFromUABot()
+    public function testGetInfoFromUABot()
     {
         $expected = array(
             'user_agent' => 'Googlebot/2.1 (http://www.googlebot.com/bot.html)',

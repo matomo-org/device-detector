@@ -12,29 +12,27 @@ use \Spyc;
 
 class BotTest extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * @dataProvider getFixtures
-     */
-    public function testParse($useragent, $bot)
+    public function testGetInfoFromUABot()
     {
+        $expected = array(
+            'name'     => 'Googlebot',
+            'category' => 'Search bot',
+            'url'      => 'http://www.google.com/bot.html',
+            'producer' => array(
+                'name' => 'Google Inc.',
+                'url'  => 'http://www.google.com'
+            )
+        );
         $botParser = new Bot();
-        $botParser->setUserAgent($useragent);
-        $this->assertEquals($bot, $botParser->parse());
-    }
-
-    public function getFixtures()
-    {
-        $fixtureData = \Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/bots.yml');
-        return $fixtureData;
+        $botParser->setUserAgent('Googlebot/2.1 (http://www.googlebot.com/bot.html)');
+        $this->assertEquals($expected, $botParser->parse());
     }
 
     public function testParseNoDetails()
     {
-        $fixtures = $this->getFixtures();
-        $fixture  = array_shift($fixtures);
         $botParser = new Bot();
         $botParser->discardDetails();
-        $botParser->setUserAgent($fixture['user_agent']);
+        $botParser->setUserAgent('Googlebot/2.1 (http://www.googlebot.com/bot.html)');
         $this->assertTrue($botParser->parse());
     }
 
