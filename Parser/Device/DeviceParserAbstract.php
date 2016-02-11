@@ -252,6 +252,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'PA' => 'Panasonic',
         'PE' => 'PEAQ',
         'PH' => 'Philips',
+        'PI' => 'Pioneer',
         'PL' => 'Polaroid',
         'PM' => 'Palm',
         'PO' => 'phoneOne',
