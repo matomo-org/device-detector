@@ -14,7 +14,7 @@ interface Cache
 
     public function contains($id);
 
-    public function save($id, $data, $lifeTime = 0);
+    public function save($id, $data);
 
     public function delete($id);
 
