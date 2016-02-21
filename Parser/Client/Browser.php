@@ -91,6 +91,7 @@ class Browser extends ClientParserAbstract
         'KY' => 'Kylo',
         'KZ' => 'Kazehakase',
         'LB' => 'Liebao',
+        'LG' => 'LG Browser',
         'LI' => 'Links',
         'LS' => 'Lunascape',
         'LX' => 'Lynx',
