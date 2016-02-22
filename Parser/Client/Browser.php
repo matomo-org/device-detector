@@ -93,6 +93,7 @@ class Browser extends ClientParserAbstract
         'LB' => 'Liebao',
         'LG' => 'LG Browser',
         'LI' => 'Links',
+        'LU' => 'LuaKit',
         'LS' => 'Lunascape',
         'LX' => 'Lynx',
         'MB' => 'MicroB',
