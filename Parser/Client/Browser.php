@@ -123,6 +123,7 @@ class Browser extends ClientParserAbstract
         'OR' => 'Oregano',
         'OV' => 'Openwave Mobile Browser',
         'OW' => 'OmniWeb',
+        'OT' => 'Otter Browser',
         'PL' => 'Palm Blazer',
         'PM' => 'Pale Moon',
         'PR' => 'Palm Pre',
