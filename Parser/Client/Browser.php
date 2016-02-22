@@ -70,6 +70,7 @@ class Browser extends ClientParserAbstract
         'FE' => 'Fennec',
         'FF' => 'Firefox',
         'FL' => 'Flock',
+        'FW' => 'Fireweb',
         'FN' => 'Fireweb Navigator',
         'GA' => 'Galeon',
         'GE' => 'Google Earth',
