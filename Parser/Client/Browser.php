@@ -38,6 +38,7 @@ class Browser extends ClientParserAbstract
         'AR' => 'Arora',
         'AV' => 'Amiga Voyager',
         'AW' => 'Amiga Aweb',
+        'AT' => 'Atomic Web Browser',
         'BB' => 'BlackBerry Browser',
         'BD' => 'Baidu Browser',
         'BS' => 'Baidu Spark',
