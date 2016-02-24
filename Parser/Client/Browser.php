@@ -145,6 +145,7 @@ class Browser extends ClientParserAbstract
         'SM' => 'SeaMonkey',
         'SN' => 'Snowshoe',
         'SR' => 'Sunrise',
+        'SP' => 'SuperBird',
         'SX' => 'Swiftfox',
         'TZ' => 'Tizen Browser',
         'UC' => 'UC Browser',
