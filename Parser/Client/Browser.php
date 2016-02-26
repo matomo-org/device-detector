@@ -141,6 +141,7 @@ class Browser extends ClientParserAbstract
         'SE' => 'Sogou Explorer',
         'SF' => 'Safari',
         'SH' => 'Shiira',
+        'SS' => 'Seraphic Sraf',
         'SL' => 'Sleipnir',
         'SM' => 'SeaMonkey',
         'SN' => 'Snowshoe',
