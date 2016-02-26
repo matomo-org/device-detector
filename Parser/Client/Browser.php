@@ -31,6 +31,7 @@ class Browser extends ClientParserAbstract
         '3B' => '360 Browser',
         'AA' => 'Avant Browser',
         'AB' => 'ABrowse',
+        'AF' => 'ANT Fresco',
         'AG' => 'ANTGalio',
         'AM' => 'Amaya',
         'AO' => 'Amigo',
