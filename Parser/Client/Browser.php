@@ -64,6 +64,7 @@ class Browser extends ClientParserAbstract
         'DF' => 'Dolphin',
         'DI' => 'Dillo',
         'EL' => 'Elinks',
+        'EB' => 'Element Browser',
         'EP' => 'Epiphany',
         'ES' => 'Espial TV Browser',
         'FB' => 'Firebird',
