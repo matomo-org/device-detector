@@ -151,6 +151,7 @@ class Browser extends ClientParserAbstract
         'TZ' => 'Tizen Browser',
         'UC' => 'UC Browser',
         'VI' => 'Vivaldi',
+        'VB' => 'Vision Mobile Browser',
         'WE' => 'WebPositive',
         'WO' => 'wOSBrowser',
         'WT' => 'WeTab Browser',
