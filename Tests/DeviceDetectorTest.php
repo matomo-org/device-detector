@@ -114,6 +114,40 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
         return $fixtures;
     }
 
+    public function testInstanceReusage()
+    {
+        $userAgents = array(
+            'Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36' => array(
+                'device' => array(
+                    'brand' => 'Archos',
+                    'model' => '101 PLATINUM'
+                )
+            ),
+            'Opera/9.80 (Linux mips; U; HbbTV/1.1.1 (; Vestel; MB95; 1.0; 1.0; ); en) Presto/2.10.287 Version/12.00' => array(
+                'device' => array(
+                    'brand' => 'Vestel',
+                    'model' => 'MB95'
+                )
+            ),
+            'Sraf/3.0 (Linux i686 ; U; HbbTV/1.1.1 (+PVR+DL;NEXUS; TV44; sw1.0) CE-HTML/1.0 Config(L:eng,CC:DEU); en/de)' => array(
+                'device' => array(
+                    'brand' => '',
+                    'model' => '',
+                )
+            )
+        );
+
+        $deviceDetector = new DeviceDetector();
+
+        foreach ($userAgents as $userAgent => $expected) {
+            $deviceDetector->setUserAgent($userAgent);
+            $deviceDetector->parse();
+            $this->assertEquals($expected['device']['brand'], $deviceDetector->getBrandName());
+            $this->assertEquals($expected['device']['model'], $deviceDetector->getModel());
+        }
+
+    }
+
     /**
      * @dataProvider getVersionTruncationFixtures
      */

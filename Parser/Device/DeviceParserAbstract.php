@@ -434,6 +434,17 @@ abstract class DeviceParserAbstract extends ParserAbstract
         return '';
     }
 
+    /**
+     * Sets the useragent to be parsed
+     *
+     * @param string $userAgent
+     */
+    public function setUserAgent($userAgent)
+    {
+        $this->reset();
+        parent::setUserAgent($userAgent);
+    }
+
     public function parse()
     {
         $regexes = $this->getRegexes();
@@ -502,5 +513,12 @@ abstract class DeviceParserAbstract extends ParserAbstract
         }
 
         return $model;
+    }
+
+    protected function reset()
+    {
+        $this->deviceType = null;
+        $this->model      = null;
+        $this->brand      = null;
     }
 }
