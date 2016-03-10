@@ -183,6 +183,15 @@ class Browser extends ClientParserAbstract
     );
 
     /**
+     * Browsers that are available for mobile devices only
+     *
+     * @var array
+     */
+    protected static $mobileOnlyBrowsers = array(
+        'PU', 'OI'
+    );
+
+    /**
      * Returns list of all available browsers
      * @return array
      */
@@ -202,7 +211,7 @@ class Browser extends ClientParserAbstract
 
 
     /**
-     * @param $browserLabel
+     * @param string $browserLabel
      * @return bool|string If false, "Unknown"
      */
     public static function getBrowserFamily($browserLabel)
@@ -213,6 +222,17 @@ class Browser extends ClientParserAbstract
             }
         }
         return false;
+    }
+
+    /**
+     * Returns if the given browser is mobile only
+     *
+     * @param string $browser  Label or name of browser
+     * @return bool
+     */
+    public static function isMobileOnlyBrowser($browser)
+    {
+        return in_array($browser, self::$mobileOnlyBrowsers) || (in_array($browser, self::$availableBrowsers) && in_array(array_search($browser, self::$availableBrowsers), self::$mobileOnlyBrowsers));
     }
 
     public function parse()
