@@ -143,6 +143,7 @@ class Browser extends ClientParserAbstract
         'SE' => 'Sogou Explorer',
         'SF' => 'Safari',
         'SH' => 'Shiira',
+        'SK' => 'Skyfire',
         'SS' => 'Seraphic Sraf',
         'SL' => 'Sleipnir',
         'SM' => 'SeaMonkey',
@@ -188,7 +189,7 @@ class Browser extends ClientParserAbstract
      * @var array
      */
     protected static $mobileOnlyBrowsers = array(
-        'PU', 'OI'
+        '36', 'PU', 'SK', 'OI'
     );
 
     /**
