@@ -337,6 +337,11 @@ class DeviceDetector
             return true;
         }
 
+        // Opera Mini is only available for mobile devices
+        if ($this->getClient('name') == 'Opera Mini') {
+            return true;
+        }
+
         $osShort = $this->getOs('short_name');
         if (empty($osShort) || self::UNKNOWN == $osShort) {
             return false;
