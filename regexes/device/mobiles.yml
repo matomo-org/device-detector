@@ -54,7 +54,7 @@ SFR:
 
 # HTC
 HTC:
-  regex: 'HTC|Sprint (?:APA|ATP)|ADR(?!910L)[a-z0-9]+|NexusHD2|Amaze[ _]4G[);/ ]|(Desire|Sensation|Evo ?3D|IncredibleS|Wildfire)[ _]?([^;/]+) Build|(Amaze[ _]4G|One ?[XELSV\+]+)[);/ ]|SPV E6[05]0|One M8'
+  regex: 'HTC|Sprint (?:APA|ATP)|ADR(?!910L)[a-z0-9]+|NexusHD2|Amaze[ _]4G[);/ ]|(Desire|Sensation|Evo ?3D|IncredibleS|Wildfire)[ _]?([^;/]+) Build|(Amaze[ _]4G|One ?[XELSV\+]+)[);/ ]|SPV E6[05]0|One M8|X525a'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -68,6 +68,8 @@ HTC:
       model: 'Excalibur'
     - regex: 'SPV E650'
       model: 'Vox'
+    - regex: 'X525a'
+      model: 'One X+'
 
     - regex: 'NexusHD2' # custom rom for hd2
       model: 'HD2'
@@ -783,9 +785,13 @@ Bmobile:
 
 # bq
 bq:
-  regex: 'Aquaris|bq [^/;]+ Build'
+  regex: 'Aquaris|bq [^/;]+ Build|BQS-4007'
   device: 'tablet'
   models:
+    - regex: 'BQS-4007'
+      device: 'smartphone'
+      model: 'Valencia'
+
     - regex: '(?:bq )?(Aquaris[^/;]*) Build'
       model: '$1'
       device: 'smartphone'
@@ -993,9 +999,11 @@ Denver:
 
 # Dell
 Dell:
-  regex: 'Dell|Venue'
+  regex: 'Dell|Venue|XCD35'
   device: 'smartphone'
   models:
+    - regex: 'XCD35'
+      model: 'XCD35'
     - regex: '(?:Dell )?(Streak|Venue) ?([^/;]*) Build'
       model: '$1 $2'
       device: 'tablet'
