@@ -11,6 +11,7 @@ namespace DeviceDetector;
 use DeviceDetector\Cache\StaticCache;
 use DeviceDetector\Cache\Cache;
 use DeviceDetector\Parser\Bot;
+use DeviceDetector\Parser\Client\Browser;
 use DeviceDetector\Parser\OperatingSystem;
 use DeviceDetector\Parser\Client\ClientParserAbstract;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
@@ -324,6 +325,11 @@ class DeviceDetector
         return $this->matchUserAgent($regex);
     }
 
+    protected function usesMobileBrowser()
+    {
+        return $this->getClient('type') == 'browser' && Browser::isMobileOnlyBrowser($this->getClient('short_name'));
+    }
+
     public function isMobile()
     {
         if (!empty($this->device) && in_array($this->device, array(
@@ -337,8 +343,8 @@ class DeviceDetector
             return true;
         }
 
-        // Opera Mini is only available for mobile devices
-        if ($this->getClient('name') == 'Opera Mini') {
+        // Check for browsers available for mobile devices only
+        if ($this->usesMobileBrowser()) {
             return true;
         }
 
@@ -362,6 +368,11 @@ class DeviceDetector
     {
         $osShort = $this->getOs('short_name');
         if (empty($osShort) || self::UNKNOWN == $osShort) {
+            return false;
+        }
+
+        // Check for browsers available for mobile devices only
+        if ($this->usesMobileBrowser()) {
             return false;
         }
 
