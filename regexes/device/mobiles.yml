@@ -1095,11 +1095,14 @@ Dopod:
 
 # DNS
 DNS:
-  regex: 'DNS[ _\-]([^;/]+)Build|S4505M[);/ ]'
+  regex: '(?:DNS|AirTab)[ _\-]([^;/]+)Build|S4505M[);/ ]'
   device: 'smartphone'
   models:
     - regex: 'S4505M[);/ ]'
       model: 'S4505M'
+    - regex: 'AirTab[ _\-]([^;/]+)Build'
+      model: 'AirTab $1'
+      device: 'tablet'
     - regex: 'DNS[ _\-]([^;/]+)Build'
       model: '$1'
 
