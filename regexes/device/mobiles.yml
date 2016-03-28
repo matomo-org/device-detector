@@ -1780,11 +1780,29 @@ Hosin:
 
 # Huawei
 Huawei:
-  regex: '(HW-)?(?:Huawei|Ideos|Honor[ _]|(?:H60-L(?:01|02|03|04|11|12)|H30-(?:C00|L01M?|L02|U10|T00|T10)|G621-TL00M?|PLK-(?:AL10|CL00|TL00|TL01H?|UL00|L01)|SCL-(?:AL00|CL00|TL00H?)|CH(?:E2?|M)-[CUT]L00[HM]?|CHE1-CL[12]0|CHE2-L11|U8230)[);/ ])'
+  regex: '(HW-)?(?:Huawei|Ideos|Honor[ _]|(?:H60-L(?:01|02|03|04|11|12)|H30-(?:C00|L01M?|L02|U10|T00|T10)|G621-TL00M?|PLK-(?:AL10|CL00|TL00|TL01H?|UL00|L01)|SCL-(?:AL00|CL00|TL00H?)|CH(?:E2?|M)-[CUT]L00[HM]?|CHE1-CL[12]0|CHE2-L11|U(?:8230|8500|8661|8665|8667|8800|8818|8860|9200|9508))[);/ ])'
   device: 'smartphone'
   models:
-    - regex: 'U8230'
-      model: 'U8230'
+    - regex: 'U(8230|8661|8667)[);/ ]'
+      model: 'U$1'
+    - regex: 'U8500[);/ ]'
+      model: 'Ideos X2'
+    - regex: 'U8510[);/ ]'
+      model: 'Ideos X3'
+    - regex: 'U8665[);/ ]'
+      model: 'Fusion 2'
+    - regex: 'U8800[);/ ]'
+      model: 'Ideos X5'
+    - regex: 'U8818[);/ ]'
+      model: 'Ascend G300'
+    - regex: 'U8860[);/ ]'
+      model: 'Honor'
+    - regex: 'U9200[);/ ]'
+      model: 'Ascend P1'
+    - regex: 'U9500[);/ ]'
+      model: 'Ascend D1'
+    - regex: 'U9508[);/ ]'
+      model: 'Honor 2'
     - regex: 'CHE2?-[UT]L00[HM]?|CHE1-CL[12]0|CHE2-L11'
       model: 'Honor 4X'
     - regex: 'CHM-[CUT]L00[HM]?'
@@ -4673,7 +4691,7 @@ Zopo:
 
 # ZTE
 ZTE:
-  regex: 'ZTE|AxonPhone|([a-z0-9]+)_USA_Cricket|(?:Blade S6|N9[15]8St|NX(?:403A|40[X2]|507J|503A|505J|506J|508J|510J|511J|513J|601J)|Z331|N9510|N9180|N9101|N9515|N952[01]|N9810|N799D|[UV]9180|Z768G)[);/ ]'
+  regex: 'ZTE|AxonPhone|([a-z0-9]+)_USA_Cricket|(?:Blade S6|N9[15]8St|NX(?:403A|40[X2]|507J|503A|505J|506J|508J|510J|511J|513J|601J)|Z331|N9510|N9180|N9101|N9515|N952[01]|N9810|N799D|[UV]9180|[UV]9815|Z768G)[);/ ]'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -4721,6 +4739,8 @@ ZTE:
       model: 'Nubia X6'
     - regex: '[UV]9180[);/ ]'
       model: 'V5 Red Bull'
+    - regex: '[UV]9815[);/ ]'
+      model: 'Grand Memo'
     - regex: 'Z331[);/ ]'
       model: 'Z331'
     - regex: 'Blade S6[);/ ]'
