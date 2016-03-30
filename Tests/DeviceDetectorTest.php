@@ -89,6 +89,14 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
         $dd->parse();
     }
 
+    public function testIsParsed()
+    {
+        $dd = new DeviceDetector('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36');
+        $this->assertFalse($dd->isParsed());
+        $dd->parse();
+        $this->assertTrue($dd->isParsed());
+    }
+
     /**
      * @dataProvider getFixtures
      */
