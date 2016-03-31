@@ -344,7 +344,6 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'VZ' => 'Vizio',
         'VW' => 'Videoweb',
         'WA' => 'Walton',
-        'WB' => 'Web TV',
         'WE' => 'WellcoM',
         'WY' => 'Wexler',
         'WI' => 'Wiko',
@@ -353,7 +352,6 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'WX' => 'Woxter',
         'XI' => 'Xiaomi',
         'XO' => 'Xolo',
-        'XX' => 'Unknown',
         'YA' => 'Yarvik',
         'YU' => 'Yuandao',
         'YS' => 'Yusun',
@@ -362,6 +360,10 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'ZO' => 'Zonda',
         'ZP' => 'Zopo',
         'ZT' => 'ZTE',
+
+        // legacy brands, might be removed in future versions
+        'WB' => 'Web TV',
+        'XX' => 'Unknown'
     );
 
     public function getDeviceType()
@@ -462,12 +464,14 @@ abstract class DeviceParserAbstract extends ParserAbstract
             return false;
         }
 
-        $brandId = array_search($brand, self::$deviceBrands);
-        if ($brandId === false) {
-            // This Exception should never be thrown. If so a defined brand name is missing in $deviceBrands
-            throw new \Exception("The brand with name '$brand' should be listed in the deviceBrands array."); // @codeCoverageIgnore
+        if ($brand != 'Unknown') {
+            $brandId = array_search($brand, self::$deviceBrands);
+            if ($brandId === false) {
+                // This Exception should never be thrown. If so a defined brand name is missing in $deviceBrands
+                throw new \Exception("The brand with name '$brand' should be listed in the deviceBrands array."); // @codeCoverageIgnore
+            }
+            $this->brand = $brandId;
         }
-        $this->brand = $brandId;
 
         if (isset($regex['device']) && in_array($regex['device'], self::$deviceTypes)) {
             $this->deviceType = self::$deviceTypes[$regex['device']];

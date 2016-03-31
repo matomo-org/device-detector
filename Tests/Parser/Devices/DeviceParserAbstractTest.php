@@ -28,7 +28,7 @@ class DeviceParserAbstractTest extends \PHPUnit_Framework_TestCase
     public function testGetFullName()
     {
         $this->assertEquals('', DeviceParserAbstract::getFullName('Invalid'));
-        $this->assertEquals('Unknown', DeviceParserAbstract::getFullName('XX'));
+        $this->assertEquals('Asus', DeviceParserAbstract::getFullName('AU'));
         $this->assertEquals('Google', DeviceParserAbstract::getFullName('GO'));
     }
 }
