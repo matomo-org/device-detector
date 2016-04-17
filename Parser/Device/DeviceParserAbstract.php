@@ -477,6 +477,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
             $this->deviceType = self::$deviceTypes[$regex['device']];
         }
 
+        $this->model = '';
         if (isset($regex['model'])) {
             $this->model = $this->buildModel($regex['model'], $matches);
         }
