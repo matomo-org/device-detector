@@ -153,7 +153,7 @@ class Browser extends ClientParserAbstract
         'SX' => 'Swiftfox',
         'TZ' => 'Tizen Browser',
         'TS' => 'TweakStyle',
-    	'UC' => 'UC Browser',
+        'UC' => 'UC Browser',
         'VI' => 'Vivaldi',
         'VB' => 'Vision Mobile Browser',
         'WE' => 'WebPositive',
