@@ -617,6 +617,7 @@ class DeviceDetector
          */
         if (empty($this->brand)) {
             $vendorParser = new VendorFragment($this->getUserAgent());
+            $vendorParser->setCache($this->getCache());
             $this->brand = $vendorParser->parse();
         }
 
