@@ -16,7 +16,8 @@ use DeviceDetector\Parser\OperatingSystem;
 use DeviceDetector\Parser\Client\ClientParserAbstract;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
 use DeviceDetector\Parser\VendorFragment;
-use \Spyc;
+use DeviceDetector\Yaml\Parser AS YamlParser;
+use DeviceDetector\Yaml\Spyc;
 
 /**
  * Class DeviceDetector
@@ -133,6 +134,12 @@ class DeviceDetector
      * @var \DeviceDetector\Cache\Cache|\Doctrine\Common\Cache\CacheProvider
      */
     protected $cache = null;
+
+    /**
+     * Holds the parser class used for parsing yml-Files
+     * @var \DeviceDetector\Yaml\Parser
+     */
+    protected $yamlParser = null;
 
     /**
      * @var ClientParserAbstract[]
@@ -574,6 +581,7 @@ class DeviceDetector
 
         $botParser = new Bot();
         $botParser->setUserAgent($this->getUserAgent());
+        $botParser->setYamlParser($this->getYamlParser());
         $botParser->setCache($this->getCache());
         if ($this->discardBotInformation) {
             $botParser->discardDetails();
@@ -587,6 +595,7 @@ class DeviceDetector
         $parsers = $this->getClientParsers();
 
         foreach ($parsers as $parser) {
+            $parser->setYamlParser($this->getYamlParser());
             $parser->setCache($this->getCache());
             $parser->setUserAgent($this->getUserAgent());
             $client = $parser->parse();
@@ -602,6 +611,7 @@ class DeviceDetector
         $parsers = $this->getDeviceParsers();
 
         foreach ($parsers as $parser) {
+            $parser->setYamlParser($this->getYamlParser());
             $parser->setCache($this->getCache());
             $parser->setUserAgent($this->getUserAgent());
             if ($parser->parse()) {
@@ -617,6 +627,7 @@ class DeviceDetector
          */
         if (empty($this->brand)) {
             $vendorParser = new VendorFragment($this->getUserAgent());
+            $vendorParser->setYamlParser($this->getYamlParser());
             $vendorParser->setCache($this->getCache());
             $this->brand = $vendorParser->parse();
         }
@@ -714,6 +725,7 @@ class DeviceDetector
     {
         $osParser = new OperatingSystem();
         $osParser->setUserAgent($this->getUserAgent());
+        $osParser->setYamlParser($this->getYamlParser());
         $osParser->setCache($this->getCache());
         $this->os = $osParser->parse();
     }
@@ -803,5 +815,35 @@ class DeviceDetector
         }
 
         return new StaticCache();
+    }
+
+    /**
+     * Sets the Yaml Parser class
+     *
+     * @param YamlParser
+     * @throws \Exception
+     */
+    public function setYamlParser($yamlParser)
+    {
+        if ($yamlParser instanceof YamlParser) {
+            $this->yamlParser = $yamlParser;
+            return;
+        }
+
+        throw new \Exception('Yaml Parser not supported');
+    }
+
+    /**
+     * Returns Yaml Parser object
+     *
+     * @return YamlParser
+     */
+    public function getYamlParser()
+    {
+        if (!empty($this->yamlParser)) {
+            return $this->yamlParser;
+        }
+
+        return new Spyc();
     }
 }
