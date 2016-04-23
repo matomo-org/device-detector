@@ -41,6 +41,11 @@ $dd = new DeviceDetector($userAgent);
 // To cache across requests use caching in files or memcache
 $dd->setCache(new Doctrine\Common\Cache\PhpFileCache('./tmp/'));
 
+// OPTIONAL: Set custom yaml parser
+// By default Spyc will be used for parsing yaml files. You can also use another yaml parser.
+// You may need to implement the Yaml Parser facade if you want to use another parser than Spyc or [Symfony](https://github.com/symfony/yaml)
+$dd->setYamlParser(new DeviceDetector\Yaml\Parser\Symfony());
+
 // OPTIONAL: If called, getBot() will only return true if a bot was detected  (speeds up detection a bit)
 $dd->discardBotInformation();
 

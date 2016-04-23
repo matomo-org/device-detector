@@ -10,6 +10,7 @@ namespace DeviceDetector\Tests;
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
 use DeviceDetector\Parser\ParserAbstract;
+use DeviceDetector\Yaml\Symfony;
 use \Spyc;
 
 class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
@@ -54,6 +55,22 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
         }
     }
 
+    /**
+     * @expectedException \Exception
+     */
+    public function testSetYamlParserInvalid()
+    {
+        $dd = new DeviceDetector();
+        $dd->setYamlParser('Invalid');
+    }
+
+    public function testSetYamlParser()
+    {
+        $dd = new DeviceDetector();
+        $dd->setYamlParser(new Symfony());
+        $dd->setUserAgent('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36');
+        $dd->parse();
+    }
     /**
      * @expectedException \Exception
      */
