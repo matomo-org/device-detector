@@ -66,6 +66,32 @@ if ($dd->isBot()) {
 }
 ```
 
+Instead of using the full power of DeviceDetector it might in some cases be better to use only specific parsers.
+If you aim to check if a given useragent is a bot and don't require any of the other information, you can directly use the bot parser.
+
+```php
+require_once 'vendor/autoload.php';
+
+use DeviceDetector\Parser\Bot AS BotParser;
+
+$botParser = new BotParser();
+$botParser->setUserAgent($userAgent);
+
+// OPTIONAL: discard bot information. parse() will then return true instead of information
+$botParser->discardDetails();
+
+$result = $botParser->parse();
+
+if (!is_null($result)) {
+    // do not do anything if a bot is detected
+    return;
+}
+
+// handle non-bot requests
+
+```
+
+
 ### Caching
 
 :exclamation: Caching of DeviceDetector was completely redesigned in 3.0. You may need to reimplement it when updating from below.
