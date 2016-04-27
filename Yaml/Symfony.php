@@ -15,7 +15,6 @@ class Symfony implements Parser
     public function parseFile($file)
     {
         $parser = new SymfonyParser();
-        echo 'test';
         return $parser->parse(file_get_contents($file));
     }
 }
