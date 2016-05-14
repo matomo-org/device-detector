@@ -151,11 +151,21 @@ abstract class ParserAbstract
             $cacheKey = preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
             $this->regexList = $this->getCache()->fetch($cacheKey);
             if (empty($this->regexList)) {
-                $this->regexList = $this->getYamlParser()->parseFile(dirname(__DIR__).DIRECTORY_SEPARATOR.$this->fixtureFile);
+                $this->regexList = $this->getYamlParser()->parseFile(
+                    $this->getRegexesDirectory().DIRECTORY_SEPARATOR.$this->fixtureFile
+                );
                 $this->getCache()->save($cacheKey, $this->regexList);
             }
         }
         return $this->regexList;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getRegexesDirectory()
+    {
+        return dirname(__DIR__);
     }
 
     /**
