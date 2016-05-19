@@ -139,6 +139,7 @@ class Browser extends ClientParserAbstract
         'QQ' => 'QQ Browser',
         'RK' => 'Rekonq',
         'RM' => 'RockMelt',
+        'SB' => 'Samsung Browser',
         'SA' => 'Sailfish Browser',
         'SC' => 'SEMC-Browser',
         'SE' => 'Sogou Explorer',
