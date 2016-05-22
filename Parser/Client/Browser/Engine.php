@@ -33,6 +33,7 @@ class Engine extends ClientParserAbstract
         'Text-based',
         'Dillo',
         'iCab',
+        'Elektra',
         'Presto',
         'Gecko',
         'KHTML',
