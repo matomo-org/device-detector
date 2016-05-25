@@ -350,6 +350,7 @@ class DeviceDetector
 
     public function isMobile()
     {
+        // Mobile device types
         if (!empty($this->device) && in_array($this->device, array(
                 DeviceParserAbstract::DEVICE_TYPE_FEATURE_PHONE,
                 DeviceParserAbstract::DEVICE_TYPE_SMARTPHONE,
@@ -360,6 +361,16 @@ class DeviceDetector
             ))
         ) {
             return true;
+        }
+
+        // non mobile device types
+        if (!empty($this->device) && in_array($this->device, array(
+                DeviceParserAbstract::DEVICE_TYPE_TV,
+                DeviceParserAbstract::DEVICE_TYPE_SMART_DISPLAY,
+                DeviceParserAbstract::DEVICE_TYPE_CONSOLE
+            ))
+        ) {
+            return false;
         }
 
         // Check for browsers available for mobile devices only
