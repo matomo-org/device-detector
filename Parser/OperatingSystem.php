@@ -77,6 +77,7 @@ class OperatingSystem extends ParserAbstract
         'PS3' => 'PlayStation',
         'RHT' => 'Red Hat',
         'ROS' => 'RISC OS',
+        'REM' => 'Remix OS',
         'RZD' => 'RazoDroiD',
         'SAB' => 'Sabayon',
         'SSE' => 'SUSE',
@@ -112,7 +113,7 @@ class OperatingSystem extends ParserAbstract
      * @var array
      */
     protected static $osFamilies = array(
-        'Android'               => array('AND', 'CYN', 'RZD', 'MLD', 'MCD', 'YNS'),
+        'Android'               => array('AND', 'CYN', 'REM', 'RZD', 'MLD', 'MCD', 'YNS'),
         'AmigaOS'               => array('AMG', 'MOR'),
         'Apple TV'              => array('ATV'),
         'BlackBerry'            => array('BLB', 'QNX'),
