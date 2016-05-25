@@ -132,6 +132,7 @@ class Browser extends ClientParserAbstract
         'PR' => 'Palm Pre',
         'PU' => 'Puffin',
         'PW' => 'Palm WebPro',
+        'PA' => 'Palmscape',
         'PX' => 'Phoenix',
         'PO' => 'Polaris',
         'PS' => 'Microsoft Edge',
