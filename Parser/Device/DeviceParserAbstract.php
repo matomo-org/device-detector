@@ -140,6 +140,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'EN' => 'Eton',
         'ET' => 'eTouch',
         'EV' => 'Evertek',
+        'EX' => 'Explay',
         'EZ' => 'Ezze',
         'FA' => 'Fairphone',
         'FL' => 'Fly',
