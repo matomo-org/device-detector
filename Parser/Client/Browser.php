@@ -61,6 +61,7 @@ class Browser extends ClientParserAbstract
         'CP' => 'ChromePlus',
         'CR' => 'Chromium',
         'CS' => 'Cheshire',
+        'DB' => 'dbrowser',
         'DE' => 'Deepnet Explorer',
         'DF' => 'Dolphin',
         'DI' => 'Dillo',
@@ -152,6 +153,7 @@ class Browser extends ClientParserAbstract
         'SN' => 'Snowshoe',
         'SR' => 'Sunrise',
         'SP' => 'SuperBird',
+        'ST' => 'Streamy',
         'SX' => 'Swiftfox',
         'TZ' => 'Tizen Browser',
         'TS' => 'TweakStyle',
@@ -192,7 +194,7 @@ class Browser extends ClientParserAbstract
      * @var array
      */
     protected static $mobileOnlyBrowsers = array(
-        '36', 'PU', 'SK', 'OI'
+        '36', 'PU', 'SK', 'OI', 'DB', 'ST'
     );
 
     /**
