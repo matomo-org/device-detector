@@ -250,7 +250,7 @@ class Browser extends ClientParserAbstract
             }
         }
 
-        if (!$matches) {
+        if (empty($matches)) {
             return null;
         }
 
@@ -260,12 +260,14 @@ class Browser extends ClientParserAbstract
             if (strtolower($name) == strtolower($browserName)) {
                 $version = (string) $this->buildVersion($regex['version'], $matches);
                 $engine = $this->buildEngine(isset($regex['engine']) ? $regex['engine'] : array(), $version);
+                $engineVersion = $this->buildEngineVersion($engine);
                 return array(
-                    'type'       => 'browser',
-                    'name'       => $browserName,
-                    'short_name' => $browserShort,
-                    'version'    => $version,
-                    'engine'     => $engine
+                    'type'           => 'browser',
+                    'name'           => $browserName,
+                    'short_name'     => $browserShort,
+                    'version'        => $version,
+                    'engine'         => $engine,
+                    'engine_version' => $engineVersion,
                 );
             }
         }
@@ -297,5 +299,12 @@ class Browser extends ClientParserAbstract
         }
 
         return $engine;
+    }
+
+    protected function buildEngineVersion($engine)
+    {
+        $engineVersionParser = new Engine\Version($this->userAgent, $engine);
+
+        return $engineVersionParser->parse();
     }
 }
