@@ -11,7 +11,6 @@ use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
 use DeviceDetector\Parser\ParserAbstract;
 use DeviceDetector\Yaml\Symfony;
-use \Spyc;
 
 class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
 {
@@ -324,7 +323,8 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
             'name' => 'Internet Explorer',
             'short_name' => 'IE',
             'version' => '9.0',
-            'engine' => 'Trident'
+            'engine' => 'Trident',
+            'engine_version' => '5.0',
         );
         $this->assertEquals($expected, $dd->getClient());
     }
