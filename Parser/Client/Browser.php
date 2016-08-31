@@ -45,6 +45,7 @@ class Browser extends ClientParserAbstract
         'BS' => 'Baidu Spark',
         'BE' => 'Beonex',
         'BJ' => 'Bunjalloo',
+        'BL' => 'B-Line',
         'BR' => 'Brave',
         'BX' => 'BrowseX',
         'CA' => 'Camino',
@@ -83,6 +84,7 @@ class Browser extends ClientParserAbstract
         'IB' => 'IBrowse',
         'IC' => 'iCab',
         'ID' => 'IceDragon',
+        'IV' => 'Isivioo',
         'IW' => 'Iceweasel',
         'IE' => 'Internet Explorer',
         'IM' => 'IE Mobile',
@@ -194,7 +196,7 @@ class Browser extends ClientParserAbstract
      * @var array
      */
     protected static $mobileOnlyBrowsers = array(
-        '36', 'PU', 'SK', 'OI', 'DB', 'ST'
+        '36', 'PU', 'SK', 'OI', 'DB', 'ST', 'BL', 'IV'
     );
 
     /**
