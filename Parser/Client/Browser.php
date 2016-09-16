@@ -47,6 +47,7 @@ class Browser extends ClientParserAbstract
         'BJ' => 'Bunjalloo',
         'BL' => 'B-Line',
         'BR' => 'Brave',
+        'BK' => 'BriskBard',
         'BX' => 'BrowseX',
         'CA' => 'Camino',
         'CC' => 'Coc Coc',
