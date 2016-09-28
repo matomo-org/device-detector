@@ -81,9 +81,15 @@ HTC:
 
     - regex: 'NexusHD2' # custom rom for hd2
       model: 'HD2'
-    - regex: 'HTC[ _\-]((?:Flyer|P715a).*) Build'
+    - regex: 'HTC[ _\-]P715a'
       device: 'tablet'
-      model: '$1'
+      model: 'P715a'
+    - regex: 'HTC[ _\-]Flyer Build'
+      device: 'tablet'
+      model: 'Flyer'
+    - regex: 'HTC[ _\-]Flyer[ _\-]([\w]{1,5})'
+      device: 'tablet'
+      model: 'Flyer $1'
     - regex: 'HTC[ _\-]One[ _\-]max[);/ ]'
       device: 'phablet'
       model: 'One max'
@@ -198,6 +204,9 @@ HP:
   regex: 'TouchPad/\d+\.\d+|hp-tablet|HP ?iPAQ|webOS.*P160U|HP Slate|HP [78]|Compaq [7|8]'
   device: 'smartphone'
   models:
+    - regex: 'HP Slate 6 Voice Tab'
+      model: 'Slate 6 VoiceTab'
+      device: 'phablet'
     - regex: 'HP ([78][^/;]*) Build'
       model: 'Slate $1'
       device: 'tablet'
@@ -410,6 +419,9 @@ Alcatel:
       device: 'tablet'
     - regex: '9005X[);/ ]'
       model: 'One Touch Pixi 8'
+      device: 'tablet'
+    - regex: 'P320X'
+      model: 'One Touch POP 8'
       device: 'tablet'
     - regex: '(?:Alcatel[ _])?One[ _]?Touch[ _]((?:T[0-9]+|TAB[^/;]+|EVO[78](?:HD)?)) Build'
       device: 'tablet'
@@ -1723,6 +1735,12 @@ GOCLEVER:
   regex: 'GOCLEVER|QUANTUM|ARIES|INSIGNIA'
   device: 'smartphone'
   models:
+    - regex: 'QUANTUM_(1010N|1010M|900)'
+      model: 'QUANTUM $1'
+      device: 'tablet'
+    - regex: 'INSIGNIA_785_PRO'
+      model: 'INSIGNIA 785 PRO'
+      device: 'tablet'
     - regex: '((?:QUANTUM|ARIES|INSIGNIA)[ _-]?[^;/]+) Build'
       model: '$1'
     - regex: 'GOCLEVER[ _-]TAB[ _-]?([^;/]+) Build'
@@ -1740,6 +1758,7 @@ GOCLEVER:
       device: 'tablet'
     - regex: 'GOCLEVER[ _-]?([^;/)]+)[;/)]'
       model: '$1'
+
 
 # Goly
 Goly:
@@ -1911,6 +1930,12 @@ Huawei:
       model: 'Honor 7'
     - regex: '(?:Honor_|HW-)?NEM-L21[);/ ]'
       model: 'Honor 7 Lite'
+    - regex: 'T1-A21w'
+      device: 'tablet'
+      model: 'Honor Tablet Note'
+    - regex: 'T1-A21L'
+      device: 'tablet'
+      model: 'MediaPad T1 10'
     - regex: '(MediaPad[^/;]*) Build'
       device: 'tablet'
       model: '$1'
@@ -2130,11 +2155,17 @@ Kazam:
 
 # Kiano
 Kiano:
-  regex: 'Kiano|Elegance_5_0|SlimTab7[_ ]3GR[);/ ]'
+  regex: 'Kiano|Elegance_5_0|CORE 10.1 DUAL 3G|Intelect103G|SlimTab7[_ ]3GR[);/ ]'
   device: 'smartphone'
   models:
     - regex: 'SlimTab7[_ ]3GR'
       model: 'SlimTab7 GR'
+      device: 'tablet'
+    - regex: 'CORE 10.1 DUAL 3G'
+      model: 'CORE 10.1 DUAL 3G'
+      device: 'tablet'
+    - regex: 'Intelect103G'
+      model: 'Intelect 10 3G'
       device: 'tablet'
     - regex: 'Elegance_5_0'
       model: 'Elegance 5.0'
@@ -2298,10 +2329,10 @@ Lenovo:
     - regex: 'Lenovo ?A3500-FL'
       model: 'IdeaTab A7-40'
       device: 'tablet'
-    - regex: 'Lenovo ?A3500-(HV|F)'
+    - regex: 'Lenovo ?A3500-(H|HV|F)'
       model: 'IdeaTab A7-50'
       device: 'tablet'
-    - regex: 'Lenovo ?A5500-H'
+    - regex: 'Lenovo ?A5500-[HF]'
       model: 'IdeaTab A8-50'
       device: 'tablet'
     - regex: 'Lenovo ?A7600-[HF]'
@@ -2313,8 +2344,23 @@ Lenovo:
     - regex: 'YT3-X50[FL]'
       model: 'Yoga Tab 3'
       device: 'tablet'
+    - regex: 'TB3-710[IF]'
+      model: 'TAB3 7 Essential'
+      device: 'tablet'
+    - regex: 'Lenovo ?B8000(-[FH])?'
+      model: 'Yoga Tablet 10'
+      device: 'tablet'
+    - regex: 'Lenovo ?B6000(-[FH])?'
+      model: 'Yoga Tablet 8'
+      device: 'tablet'
+    - regex: 'YT3-X90L'
+      model: 'Yoga 3 Pro'
+      device: 'tablet'
+    - regex: 'YT3-850[FL]'
+      model: 'Yoga Tab 3 8'
+      device: 'tablet'
 
-    - regex: 'Lenovo (B[0-9]+[^/;]*) Build'
+    - regex: 'Lenovo ([ASB][0-9]{4})'
       model: 'IdeaTab $1'
       device: 'tablet'
     - regex: 'ThinkPadTablet_(A[0-9]{3})_'
@@ -2416,6 +2462,15 @@ LG:
 
     - regex: 'LG-V490'
       model: 'G Pad 8.0'
+      device: 'tablet'
+    - regex: 'LG-V500'
+      model: 'G Pad 8.3'
+      device: 'tablet'
+    - regex: 'LG-V700'
+      model: 'G Pad 10.1'
+      device: 'tablet'
+    - regex: 'LG-V935'
+      model: 'G Pad II 10.1'
       device: 'tablet'
 
     - regex: 'webOS.TV'
@@ -3117,13 +3172,16 @@ Orange:
   regex: 'SPV[ \-]?([a-z0-9]+)|Orange ([^/;]+) Build|SC/IHD92'
   device: 'smartphone'
   models:
+    - regex: 'SC/IHD92'
+      model: 'Livebox Play'
+      device: 'tv' # set top box
+    - regex: 'Sego'
+      model: 'Sego'
+      device: 'tablet'
     - regex: 'Orange ([^/;]+) Build'
       model: '$1'
     - regex: 'SPV[ \-]?([a-z0-9]+)'
       model: 'SPV $1'
-    - regex: 'SC/IHD92'
-      model: 'Livebox Play'
-      device: 'tv' # set top box
 
 # Ouki
 Ouki:
@@ -3144,6 +3202,9 @@ Overmax:
   regex: 'OV-[a-z]+(?:[^;/]*) Build|Qualcore 1010'
   device: 'tablet'
   models:
+    - regex: 'OV-V10'
+      model: 'Vertis Yard'
+      device: 'smartphone'
     - regex: 'OV-Vertis[ _-]([^;/]+) Build'
       model: 'Vertis $1'
       device: 'smartphone'
@@ -3653,14 +3714,20 @@ Samsung:
     - regex: '(?:SAMSUNG-)?SM-N915'
       model: 'GALAXY Note 4 Edge'
       device: 'phablet'
-    - regex: '(?:SAMSUNG-)?SM-N920C'
+    - regex: '(?:SAMSUNG-)?SM-N920[0CIST]'
       model: 'GALAXY Note 5'
+      device: 'phablet'
+    - regex: '(?:SAMSUNG-)?SM-N9208'
+      model: 'GALAXY Note 5 Duos'
       device: 'phablet'
     - regex: '(?:SAMSUNG-)?GT-I915[028]'
       model: 'GALAXY Mega 5.8'
       device: 'phablet'
     - regex: '(?:SAMSUNG-)?GT-I920[05]'
       model: 'GALAXY Mega 6.3'
+      device: 'phablet'
+    - regex: '(?:SAMSUNG-)?SM-N930F'
+      model: 'GALAXY Note 7'
       device: 'phablet'
 
     # explicit feature phones
@@ -3928,13 +3995,16 @@ Positivo:
 
 # Prestigio
 Prestigio:
-  regex: '(?:PMP|PAP|PMT)[0-9]+[a-z0-9_]+[);/ ]'
+  regex: '(?:PMP|PAP|PMT|PSP)[0-9]+[a-z0-9_]+[);/ ]'
   device: 'tablet'
   models:
     - regex: 'PMT3277_3G'
       model: 'MultiPad Ranger 7.0 3G'
     - regex: 'PMT3287_3G'
       model: 'MultiPad Ranger 8.0 3G'
+    - regex: 'PSP8500DUO'
+      model: 'MultiPhone 8500 Duo'
+      device: 'smartphone'
 
     - regex: '(PM[PT][0-9]+[a-z0-9_]+)[);/ ]'
       model: '$1'
