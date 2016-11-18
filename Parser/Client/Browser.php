@@ -66,6 +66,7 @@ class Browser extends ClientParserAbstract
         'DB' => 'dbrowser',
         'DE' => 'Deepnet Explorer',
         'DF' => 'Dolphin',
+        'DO' => 'Dorodo',
         'DI' => 'Dillo',
         'EL' => 'Elinks',
         'EB' => 'Element Browser',
@@ -185,10 +186,10 @@ class Browser extends ClientParserAbstract
         'Internet Explorer'  => array('IE', 'IM', 'PS'),
         'Konqueror'          => array('KO'),
         'NetFront'           => array('NF'),
-        'Nokia Browser'      => array('NB', 'NO', 'NV'),
+        'Nokia Browser'      => array('NB', 'NO', 'NV', 'DO'),
         'Opera'              => array('OP', 'OM', 'OI', 'ON'),
         'Safari'             => array('SF', 'MF'),
-        'Sailfish Browser'   => array('SA')
+        'Sailfish Browser'   => array('SA'),
     );
 
     /**
