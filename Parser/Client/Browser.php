@@ -66,7 +66,7 @@ class Browser extends ClientParserAbstract
         'DB' => 'dbrowser',
         'DE' => 'Deepnet Explorer',
         'DF' => 'Dolphin',
-        'DO' => 'Dorodo',
+        'DO' => 'Dorado',
         'DI' => 'Dillo',
         'EL' => 'Elinks',
         'EB' => 'Element Browser',
