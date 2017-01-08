@@ -61,7 +61,7 @@ if ($dd->isBot()) {
   $clientInfo = $dd->getClient(); // holds information about browser, feed reader, media player, ...
   $osInfo = $dd->getOs();
   $device = $dd->getDevice();
-  $brand = $dd->getBrand();
+  $brand = $dd->getBrandName();
   $model = $dd->getModel();
 }
 ```
