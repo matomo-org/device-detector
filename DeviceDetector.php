@@ -318,7 +318,7 @@ class DeviceDetector
     public function isTouchEnabled()
     {
         $regex = 'Touch';
-        return $this->matchUserAgent($regex);
+        return !!$this->matchUserAgent($regex);
     }
 
     /**
@@ -329,7 +329,7 @@ class DeviceDetector
     protected function hasAndroidTableFragment()
     {
         $regex = 'Android( [\.0-9]+)?; Tablet;';
-        return $this->matchUserAgent($regex);
+        return !!$this->matchUserAgent($regex);
     }
 
     /**
@@ -340,7 +340,7 @@ class DeviceDetector
     protected function hasAndroidMobileFragment()
     {
         $regex = 'Android( [\.0-9]+)?; Mobile;';
-        return $this->matchUserAgent($regex);
+        return !!$this->matchUserAgent($regex);
     }
 
     protected function usesMobileBrowser()
