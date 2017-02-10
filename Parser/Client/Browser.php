@@ -298,6 +298,8 @@ class Browser extends ClientParserAbstract
         // try to detect the engine using the regexes
         if (empty($engine)) {
             $engineParser = new Engine();
+            $engineParser->setYamlParser($this->getYamlParser());
+            $engineParser->setCache($this->getCache());
             $engineParser->setUserAgent($this->userAgent);
             $engine = $engineParser->parse();
         }
