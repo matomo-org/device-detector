@@ -1806,7 +1806,7 @@ Goly:
 
 # Google
 Google:
-  regex: 'Nexus|GoogleTV|Glass|CrKey[^a-z0-9]'
+  regex: 'Nexus|GoogleTV|Glass|CrKey[^a-z0-9]|Pixel Build|Pixel XL Build|Pixel C Build'
   device: 'smartphone'
   models:
     - regex: 'Glass'
@@ -1827,6 +1827,13 @@ Google:
     - regex: 'GoogleTV'
       device: 'tv'
       model: 'GoogleTV'
+    - regex: 'Pixel Build'
+      model: 'Pixel'
+    - regex: 'Pixel XL'
+      model: 'Pixel XL'
+    - regex: 'Pixel C'
+      device: 'tablet'
+      model: 'Pixel C'
 
 # Gradiente
 Gradiente:
@@ -4757,7 +4764,7 @@ Woxter:
 
 #Xiaomi
 Xiaomi:
-  regex: 'Xiaomi|(MI [a-z0-9]+|Mi-4c|MI-One[ _]?[a-z0-9]+)[);/ ]|HM ([^/;]+) Build|(2014501|2014011|201481[13]|201302[23]|2013061) Build|Redmi'
+  regex: 'Xiaomi|(MI [a-z0-9]+|Mi-4c|MI-One[ _]?[a-z0-9]+)[);/ ]|HM ([^/;]+) (?:Build|MIUI)|(2014501|2014011|201481[13]|201302[23]|2013061) Build|Redmi'
   device: 'smartphone'
   models:
     # specific smartphone models
@@ -4774,22 +4781,22 @@ Xiaomi:
     - regex: 'Mi-4c[);/ ]'
       model: 'MI 4C'
 
-    - regex: 'Redmi Note ([^;/]+)? Build'
+    - regex: 'Redmi Note ([^;/]+)? .+?\)'
       model: 'Redmi Note $1'
       device: 'phablet'
-    - regex: 'Redmi ([^;/]+)? Build'
+    - regex: 'Redmi ([^;/]+)? .+?\)'
       model: 'Redmi $1'
-    - regex: 'MI Note ([^;/]+)? Build'
+    - regex: 'MI Note ([^;/]+)? .+?\)'
       model: 'MI Note $1'
       device: 'phablet'
     - regex: '(MI(?:-One)?[ _](?:[^;/]*))Build'
       model: '$1'
     - regex: '(MI [a-z0-9]+|MI-One[ _]?[a-z0-9]+)[);/ ]'
       model: '$1'
-    - regex: 'HM Note ([^/;]+) Build'
+    - regex: 'HM Note ([^/;]+) (?:Build|MIUI)'
       device: 'phablet'
       model: 'HM Note $1'
-    - regex: 'HM ([^/;]+) Build'
+    - regex: 'HM ([^/;]+) (?:Build|MIUI)'
       model: 'HM $1'
 
 # Xolo
@@ -5132,7 +5139,7 @@ ZTE:
 
 # OnePlus
 OnePlus:
-  regex: '(?:A0001|A2001|A2003|A2005|E1003) Build'
+  regex: '(?:A0001|A2001|A2003|A2005|E1003) Build|ONEPLUS (A3003|A3000|A3010) Build'
   device: 'smartphone'
   models:
     - regex: 'A0001'
@@ -5141,3 +5148,5 @@ OnePlus:
       model: 'Two'
     - regex: 'E1003'
       model: 'X'
+    - regex: 'A3003|A3000|A3010'
+      model: 'Three'
