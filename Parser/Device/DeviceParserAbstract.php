@@ -162,6 +162,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'HS' => 'Hasee',
         'HI' => 'Hisense',
         'HL' => 'Hi-Level',
+        'HM' => 'Homtom',
         'HO' => 'Hosin',
         'HP' => 'HP',
         'HT' => 'HTC',
