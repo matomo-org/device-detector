@@ -224,6 +224,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'ME' => 'Metz',
         'MX' => 'MEU',
         'MI' => 'MicroMax',
+        'MIX' => 'MIXC',
         'MC' => 'Mediacom',
         'MK' => 'MediaTek',
         'MO' => 'Mio',

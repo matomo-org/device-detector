@@ -3484,7 +3484,7 @@ Siemens:
 
 # Samsung
 Samsung:
-  regex: 'SAMSUNG|Maple |SC-(?:02[CH]|04E|01F)|N[57]100|N5110|N9100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|SMART-TV|GT-|Galaxy|(?:portalmmm|o2imode)/2\.0 [SZ]|sam[rua]|vollo Vi86[);/ ]|(?:OTV-)?SMT-E5015|ISW11SC'
+  regex: 'SAMSUNG|Maple |SC-(?:02[CH]|04E|01F)|N[57]100|N5110|N9100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|SMART-TV|GT-|Galaxy|(?:portalmmm|o2imode)/2\.0 [SZ]|sam[rua]|vollo Vi86[);/ ]|(?:OTV-)?SMT-E5015|ISW11SC|CM1S'
   device: 'smartphone'
   models:
     # explicit tv models
@@ -3894,7 +3894,8 @@ Samsung:
       model: '$1'
     - regex: 'sam([rua][0-9]+)'
       model: 'SCH-$1'
-
+    - regex: '(CM1S) Build'
+      model: 'CALME $1'
 # Sencor
 Sencor:
   regex: 'Sencor|ELEMENT[ _]?(?:7|8|9\.7|10[ _]1)(?:[ _]?V[23])?[);/ ]|ELEMENT[ _]?(?:P[0-9]+)[);/ ]'
@@ -5158,3 +5159,13 @@ Homtom:
   models:
     - regex: '(HT[0-9]{1,2}) Build'
       model: '$1'
+
+#MIXC
+MIXC:
+  regex: '(M35|M20|G7106|G7108) Build'
+  device: 'smartphone'
+  models:
+    - regex: '(M[0-9]{1,2}) Build'
+      model: '$1'
+    - regex: '(G[0-9]{4}) Build'
+          model: '$1'
