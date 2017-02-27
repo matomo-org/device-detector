@@ -242,6 +242,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'NE' => 'NEC',
         'NA' => 'Netgear',
         'NG' => 'NGM',
+        'NO' => 'Nous',
         'NI' => 'Nintendo',
         'N1' => 'Noain',
         'NK' => 'Nokia',
