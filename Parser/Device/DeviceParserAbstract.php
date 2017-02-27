@@ -303,6 +303,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'SO' => 'Sony',
         'SP' => 'Spice',
         'SU' => 'SuperSonic',
+        'SUP' => 'Supra',
         'SV' => 'Selevision',
         'SY' => 'Sanyo',
         'SM' => 'Symphony',
