@@ -699,9 +699,9 @@ Asus:
       model: 'ZenFone C'
     - regex: '(?:ASUS_)?(?:Z00D|Z008D|Z00AD[AB]?)'
       model: 'ZenFone 2'
-    - regex: '(?:ASUS_)?Z00[ER]D'
+    - regex: '(?:ASUS_)?Z00[ERL]D'
       model: 'ZenFone 2 Laser'
-    - regex: '(?:ASUS_)?T00[IQ]'
+    - regex: '(?:ASUS_)?T00[IQ1]'
       model: 'ZenFone 4'
     - regex: '(?:ASUS_)?T00[JF]'
       model: 'ZenFone 5'
@@ -715,10 +715,16 @@ Asus:
       model: 'ZenFone Max'
     - regex: '(?:ASUS_)?X014D'
       model: 'ZenFone Go Plus'
-    - regex: '(?:ASUS_)?Z00[SV]D'
+    - regex: '(?:ASUS_)?(Z00[SV]D|X009[DB][DA])'
       model: 'ZenFone Go'
+    - regex: '(?:ASUS_)?X013D'
+      model: 'ZenFone Go Life'
+    - regex: '(?:ASUS_)?(X008)'
+      model: 'ZenFone 3 Pegasus'
     - regex: '(?:ASUS_)?Z00UD'
       model: 'ZenFone Selfie'
+    - regex: '(?:ASUS_)?(Z017DA|ZE520KL)'
+      model: 'ZenFone 3'
 
     # general detections
     - regex: 'Asus(?:-|;)?([a-z0-9]+)'
@@ -3506,7 +3512,7 @@ Siemens:
 
 # Samsung
 Samsung:
-  regex: 'SAMSUNG|Maple |SC-(?:02[CH]|04E|01F)|N[57]100|N5110|N9100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|SMART-TV|GT-|Galaxy|(?:portalmmm|o2imode)/2\.0 [SZ]|sam[rua]|vollo Vi86[);/ ]|(?:OTV-)?SMT-E5015|ISW11SC'
+  regex: 'SAMSUNG|Maple |SC-(?:02[CH]|04E|01F)|N[57]100|N5110|N9100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|SMART-TV|GT-|Galaxy|(?:portalmmm|o2imode)/2\.0 [SZ]|sam[rua]|vollo Vi86[);/ ]|(?:OTV-)?SMT-E5015|ISW11SC|CM1S'
   device: 'smartphone'
   models:
     # explicit tv models
@@ -3916,7 +3922,8 @@ Samsung:
       model: '$1'
     - regex: 'sam([rua][0-9]+)'
       model: 'SCH-$1'
-
+    - regex: '(CM1S) Build'
+      model: 'CALME $1'
 # Sencor
 Sencor:
   regex: 'Sencor|ELEMENT[ _]?(?:7|8|9\.7|10[ _]1)(?:[ _]?V[23])?[);/ ]|ELEMENT[ _]?(?:P[0-9]+)[);/ ]'
@@ -5158,3 +5165,52 @@ ZTE:
 #Nokia:
 #  regex: 'Symbian'
 #  device: 'feature phone'
+
+# OnePlus
+OnePlus:
+  regex: '(?:A0001|A2001|A2003|A2005|E1003) Build|ONEPLUS (A3003|A3000|A3010) Build'
+  device: 'smartphone'
+  models:
+    - regex: 'A0001'
+      model: 'One'
+    - regex: 'A2001|A2003|A2005'
+      model: 'Two'
+    - regex: 'E1003'
+      model: 'X'
+    - regex: 'A3003|A3000|A3010'
+      model: 'Three'
+
+# Homtom
+Homtom:
+  regex: '(?:HT[0-9]{1,2}) Build'
+  device: 'smartphone'
+  models:
+    - regex: '(HT[0-9]{1,2}) Build'
+      model: '$1'
+
+#MIXC
+MIXC:
+  regex: '(M35|M20|G7106|G7108) Build'
+  device: 'smartphone'
+  models:
+    - regex: '(M[0-9]{1,2}) Build'
+      model: '$1'
+    - regex: '(G[0-9]{4}) Build'
+      model: '$1'
+
+#Supra
+Supra:
+  regex: 'SUPRA (M74JG) Build'
+  device: 'smartphone'
+  models:
+    - regex: '(M74JG) Build'
+      device: 'tablet'
+      model: '$1'
+
+#Nous
+Nous:
+  regex: 'NS([356])|(500[346]|5511) Build'
+  device: 'smartphone'
+  models:
+    - regex: '(NS[0-9]{1,4}) Build'
+      model: '$1'
