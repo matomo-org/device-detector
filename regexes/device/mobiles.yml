@@ -2786,13 +2786,13 @@ MEEG:
 
 # Meizu
 Meizu:
-  regex: '(M04[05]|M35[1356]|MX[ -]?[234](?: Pro)?|(?:MZ-)?m[12] note|(?:MZ-)?M57[18]C)[);/ ]'
+  regex: '(M04[05]|M35[1356]|MX[ -]?[2345](?: Pro)?|(?:MZ-)?m[123] note|(?:MZ-)?M57[18]C)[);/ ]'
   device: 'smartphone'
   models:
     - regex: '(?:MZ-)?M571C'
       device: 'phablet'
       model: 'M2 Note'
-    - regex: '(?:MZ-)?m(1|2) note[);/ ]'
+    - regex: '(?:MZ-)?m(1|2|3) note[);/ ]'
       device: 'phablet'
       model: 'M$1 Note'
     - regex: '(?:MZ-)?M578C'
@@ -2805,6 +2805,8 @@ Meizu:
       model: 'MX4 Pro'
     - regex: 'MX[ -]?4[);/ ]'
       model: 'MX4'
+    - regex: 'MX[ -]?5[);/ ]'
+      model: 'MX5'
 
 # Memup
 Memup:
@@ -2911,7 +2913,7 @@ Mofut:
 
 # motorola
 Motorola:
-  regex: 'MOT|(?<!AN)DROID ?(?:Build|[a-z0-9]+)|portalmmm/2.0 (?:E378i|L6|L7|v3)|XOOM [^;/]*Build|(?:XT|MZ|MB|ME)[0-9]{3,4}[a-z]?(?:\(Defy\))?(?: Build|\))'
+  regex: 'MOT|(?<!AN)DROID ?(?:Build|[a-z0-9]+)|portalmmm/2.0 (?:E378i|L6|L7|v3)|XOOM [^;/]*Build|(?:XT|MZ|MB|ME)[0-9]{3,4}[a-z]?(?:\(Defy\)|-0[1-3])?(?: Build|\))'
   device: 'smartphone'
   models:
     # Explicit feature phone models
@@ -2994,6 +2996,8 @@ Motorola:
       model: 'Moto X'
     - regex: '(?:MOT-|Motorola-)?XT1080'
       model: 'Droid Ultra'
+    - regex: '(?:MOT-|Motorola-)?XT1635(?:-0[1-3])?'
+      model: 'Moto Z Play'
 
     - regex: 'Motorola[ _\-]([a-z0-9]+)'
       model: '$1'
@@ -3166,6 +3170,24 @@ Onda:
     - regex: '([a-z0-9]+)[ _]Onda'
       model: '$1'
     - regex: 'Onda ([a-z0-9]+)'
+      model: '$1'
+
+# OnePlus
+OnePlus:
+  regex: '(?:du_)?ONEPLUS|(?:A0001|A2001|A2003|A2005|A3003|A3000|A3010|E1003) Build'
+  device: 'smartphone'
+  models:
+    - regex: 'A0001'
+      model: 'One'
+    - regex: 'A2001|A2003|A2005'
+      model: '2'
+    - regex: 'E1003'
+      model: 'X'
+    - regex: 'A3003|A3000'
+      model: '3'
+    - regex: 'A3010'
+      model: '3T'
+    - regex: '(?:du_)?ONEPLUS ?([^;/]+) Build'
       model: '$1'
 
 # oppo
@@ -5136,25 +5158,3 @@ ZTE:
 #Nokia:
 #  regex: 'Symbian'
 #  device: 'feature phone'
-
-# OnePlus
-OnePlus:
-  regex: '(?:A0001|A2001|A2003|A2005|E1003) Build|ONEPLUS (A3003|A3000|A3010) Build'
-  device: 'smartphone'
-  models:
-    - regex: 'A0001'
-      model: 'One'
-    - regex: 'A2001|A2003|A2005'
-      model: 'Two'
-    - regex: 'E1003'
-      model: 'X'
-    - regex: 'A3003|A3000|A3010'
-      model: 'Three'
-
-# Homtom
-Homtom:
-  regex: '(?:HT[0-9]{1,2}) Build'
-  device: 'smartphone'
-  models:
-    - regex: '(HT[0-9]{1,2}) Build'
-      model: '$1'
