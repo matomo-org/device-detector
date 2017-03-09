@@ -1267,9 +1267,15 @@ Rikomagic:
   device: 'tv'
   model: 'MK$1'
 
+# Senseit
+Senseit:
+   regex: 'SENSEIT[ _]?([^;/)]+) Build'
+   device: 'smartphone'
+   model: '$1'
+
 # Sony & Sony Ericsson (combined as they are mixed up)
 Sony:
-  regex: 'Sony(?: ?Ericsson)?|SGP|Xperia|C1[569]0[45]|C2[01]0[45]|C2305|C530[236]|C550[23]|C6[56]0[236]|C6616|C68(?:0[26]|[34]3)|C69(?:0[236]|16|43)|D200[45]|D21(?:0[45]|14)|D22(?:0[236]|12|43)|D230[2356]|D240[36]|D25(?:02|33)|D510[236]|D530[36]|D5322|D5503|D58[03]3|D65(?:0[23]|43)|D66[035]3|E210[45]|E2115|E2[03]03|E2306|E2312|E2353|E58[02]3|E5603|E6553|E66[358]3|E68[58]3|F3111|F331[13]|F3213|F5[13]21|F833[12]|(?:WT|LT|SO|ST|SK|MK)[0-9]+[a-z]*[0-9]*(?: Build|\))|X?L39H|XM50[ht]|W960|portalmmm/2\.0 K|S3[69]h|X10[ia]v?|E1[05][ai]v?|MT[0-9]{2}[a-z]? Build|SO-0(?:[345]D|[234]E|[12]C|[1235]F|[12]G)|R800[aix]|LiveWithWalkman'
+  regex: 'Sony(?: ?Ericsson)?|SGP|Xperia|C1[569]0[45]|C2[01]0[45]|C2305|C530[236]|C550[23]|C6[56]0[236]|C6616|C68(?:0[26]|[34]3)|C69(?:0[236]|16|43)|D200[45]|D21(?:0[45]|14)|D22(?:0[236]|12|43)|D230[2356]|D240[36]|D25(?:02|33)|D510[236]|D530[36]|D5322|D5503|D58[03]3|D65(?:0[23]|43)|D66[035]3|E210[45]|E2115|E5506|E2[03]03|E2306|E2312|E2353|E58[02]3|E56[46305][36]|E6553|E66[358]3|E68[58]3|F3111|F331[13]|F3213|F5[13]21|F833[12]|(?:WT|LT|SO|ST|SK|MK)[0-9]+[a-z]*[0-9]*(?: Build|\))|X?L39H|XM50[ht]|W960|portalmmm/2\.0 K|S3[69]h|X10[ia]v?|E1[05][ai]v?|MT[0-9]{2}[a-z]? Build|SO-0(?:[345]D|[234]E|[12]C|[1235]F|[12]G)|R800[aix]|LiveWithWalkman'
   device: 'smartphone'
   models:
     # SONY ERICSSON: explicit smartphone models
@@ -1477,8 +1483,10 @@ Sony:
       model: 'Xperia M4 Aqua'
     - regex: '(?:Sony(?:Ericsson)?)?E2312'
       model: 'Xperia M4 Aqua Dual'
-    - regex: '(?:Sony(?:Ericsson)?)?E5603'
+    - regex: '(?:Sony(?:Ericsson)?)?E56[05][36]'
       model: 'Xperia M5'
+    - regex: '(?:Sony(?:Ericsson)?)?E56[436]3'
+      model: 'Xperia M5 Dual'
     - regex: '(?:Sony(?:Ericsson)?)?D2502'
       model: 'Xperia C3 Dual'
     - regex: '(?:Sony(?:Ericsson)?)?D2533'
@@ -1529,6 +1537,8 @@ Sony:
       model: 'Xperia X'
     - regex: '(?:Sony(?:Ericsson)?)?F5321'
       model: 'Xperia X Compact'
+    - regex: '(?:Sony(?:Ericsson)?)?E5506'
+      model: 'Xperia C5 Ultra'
 
     # SONY: explicit tablet models
     - regex: 'SGP(?:311|312|321)[);/ ]|SO-03E'
@@ -2442,14 +2452,14 @@ Lenovo:
     - regex: 'Lenovo ?B6000(-[FH])?'
       model: 'Yoga Tablet 8'
       device: 'tablet'
-    - regex: 'YT3-X90L'
+    - regex: 'YT3-X90(L|F|X)'
       model: 'Yoga 3 Pro'
       device: 'tablet'
     - regex: 'YT3-850[FL]'
       model: 'Yoga Tab 3 8'
       device: 'tablet'
 
-    - regex: 'Lenovo ([ASB][0-9]{4})'
+    - regex: 'Lenovo ([ASB][0-9]{4})[A-Z]?\-[EHF]'
       model: 'IdeaTab $1'
       device: 'tablet'
     - regex: 'ThinkPadTablet_(A[0-9]{3})_'
