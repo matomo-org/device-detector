@@ -357,6 +357,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'VZ' => 'Vizio',
         'VW' => 'Videoweb',
         'WA' => 'Walton',
+        'WF' => 'Wileyfox',
         'WE' => 'WellcoM',
         'WY' => 'Wexler',
         'WI' => 'Wiko',
