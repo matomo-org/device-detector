@@ -33,7 +33,7 @@ class StaticCache implements Cache
         return isset(self::$staticCache[$id]) || array_key_exists($id, self::$staticCache);
     }
 
-    public function save($id, $data, $lifeTime = 0)
+    public function save($id, $data)
     {
         self::$staticCache[$id] = $data;
         return true;
