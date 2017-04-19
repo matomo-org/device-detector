@@ -70,7 +70,7 @@ class Browser extends ClientParserAbstract
         'DI' => 'Dillo',
         'EL' => 'Elinks',
         'EB' => 'Element Browser',
-        'EP' => 'Epiphany',
+        'EP' => 'GNOME Web',
         'ES' => 'Espial TV Browser',
         'FB' => 'Firebird',
         'FD' => 'Fluid',
