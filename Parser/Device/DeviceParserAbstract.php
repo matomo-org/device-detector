@@ -248,6 +248,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'NI' => 'Nintendo',
         'N1' => 'Noain',
         'NK' => 'Nokia',
+        'NV' => 'Nvidia',
         'NM' => 'Nomi',
         'NN' => 'Nikon',
         'NW' => 'Newgen',
