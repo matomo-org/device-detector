@@ -275,6 +275,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'PV' => 'Point of View',
         'PP' => 'PolyPad',
         'P2' => 'Pomp',
+        'P3' => 'PPTV',
         'PS' => 'Positivo',
         'PR' => 'Prestigio',
         'P1' => 'ProScan',
