@@ -380,6 +380,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'ZO' => 'Zonda',
         'ZP' => 'Zopo',
         'ZT' => 'ZTE',
+        'ZN' => 'Zen',
 
         // legacy brands, might be removed in future versions
         'WB' => 'Web TV',
