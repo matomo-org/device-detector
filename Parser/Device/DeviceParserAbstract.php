@@ -148,6 +148,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'EZ' => 'Ezze',
         'FA' => 'Fairphone',
         'FL' => 'Fly',
+        'FT' => 'Freetel',
         'FO' => 'Foxconn',
         'FU' => 'Fujitsu',
         'GM' => 'Garmin-Asus',
