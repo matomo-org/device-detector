@@ -52,6 +52,7 @@ class Browser extends ClientParserAbstract
         'CA' => 'Camino',
         'CC' => 'Coc Coc',
         'CD' => 'Comodo Dragon',
+        'C1' => 'Coast',
         'CX' => 'Charon',
         'CF' => 'Chrome Frame',
         'CH' => 'Chrome',
@@ -202,7 +203,7 @@ class Browser extends ClientParserAbstract
      * @var array
      */
     protected static $mobileOnlyBrowsers = array(
-        '36', 'PU', 'SK', 'OI', 'DB', 'ST', 'BL', 'IV'
+        '36', 'PU', 'SK', 'OI', 'DB', 'ST', 'BL', 'IV' , 'C1'
     );
 
     /**
