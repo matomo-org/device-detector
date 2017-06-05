@@ -33,6 +33,7 @@ class Browser extends ClientParserAbstract
         'AB' => 'ABrowse',
         'AF' => 'ANT Fresco',
         'AG' => 'ANTGalio',
+        'AL' => 'Aloha Browser',
         'AM' => 'Amaya',
         'AO' => 'Amigo',
         'AN' => 'Android Browser',
@@ -52,6 +53,7 @@ class Browser extends ClientParserAbstract
         'CA' => 'Camino',
         'CC' => 'Coc Coc',
         'CD' => 'Comodo Dragon',
+        'C1' => 'Coast',
         'CX' => 'Charon',
         'CF' => 'Chrome Frame',
         'CH' => 'Chrome',
@@ -67,7 +69,9 @@ class Browser extends ClientParserAbstract
         'DE' => 'Deepnet Explorer',
         'DF' => 'Dolphin',
         'DO' => 'Dorado',
+        'DL' => 'Dooble',
         'DI' => 'Dillo',
+        'EI' => 'Epic',
         'EL' => 'Elinks',
         'EB' => 'Element Browser',
         'EP' => 'GNOME Web',
@@ -86,6 +90,7 @@ class Browser extends ClientParserAbstract
         'IA' => 'Iceape',
         'IB' => 'IBrowse',
         'IC' => 'iCab',
+        'I1' => 'Iridium',
         'ID' => 'IceDragon',
         'IV' => 'Isivioo',
         'IW' => 'Iceweasel',
@@ -141,8 +146,11 @@ class Browser extends ClientParserAbstract
         'PA' => 'Palmscape',
         'PX' => 'Phoenix',
         'PO' => 'Polaris',
+        'PT' => 'Polarity',
         'PS' => 'Microsoft Edge',
         'QQ' => 'QQ Browser',
+        'QT' => 'Qutebrowser',
+        'QZ' => 'QupZilla',
         'RK' => 'Rekonq',
         'RM' => 'RockMelt',
         'SB' => 'Samsung Browser',
@@ -166,6 +174,7 @@ class Browser extends ClientParserAbstract
         'VI' => 'Vivaldi',
         'VB' => 'Vision Mobile Browser',
         'WE' => 'WebPositive',
+        'WF' => 'Waterfox',
         'WO' => 'wOSBrowser',
         'WT' => 'WeTab Browser',
         'YA' => 'Yandex Browser',
@@ -182,8 +191,8 @@ class Browser extends ClientParserAbstract
         'BlackBerry Browser' => array('BB'),
         'Baidu'              => array('BD', 'BS'),
         'Amiga'              => array('AV', 'AW'),
-        'Chrome'             => array('CH', 'BR', 'CC', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'IR', 'RM', 'AO', 'TS', 'VI'),
-        'Firefox'            => array('FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB'),
+        'Chrome'             => array('CH', 'BR', 'CC', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'IR', 'RM', 'AO', 'TS', 'VI', 'PT'),
+        'Firefox'            => array('FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF'),
         'Internet Explorer'  => array('IE', 'IM', 'PS'),
         'Konqueror'          => array('KO'),
         'NetFront'           => array('NF'),
@@ -199,7 +208,7 @@ class Browser extends ClientParserAbstract
      * @var array
      */
     protected static $mobileOnlyBrowsers = array(
-        '36', 'PU', 'SK', 'OI', 'DB', 'ST', 'BL', 'IV', 'FM'
+        '36', 'PU', 'SK', 'OI', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL'
     );
 
     /**
