@@ -33,6 +33,7 @@ class Browser extends ClientParserAbstract
         'AB' => 'ABrowse',
         'AF' => 'ANT Fresco',
         'AG' => 'ANTGalio',
+        'AL' => 'Aloha Browser',
         'AM' => 'Amaya',
         'AO' => 'Amigo',
         'AN' => 'Android Browser',
@@ -204,7 +205,7 @@ class Browser extends ClientParserAbstract
      * @var array
      */
     protected static $mobileOnlyBrowsers = array(
-        '36', 'PU', 'SK', 'OI', 'DB', 'ST', 'BL', 'IV' , 'C1'
+        '36', 'PU', 'SK', 'OI', 'DB', 'ST', 'BL', 'IV', 'C1', 'AL'
     );
 
     /**
