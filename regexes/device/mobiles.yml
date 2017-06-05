@@ -4594,9 +4594,13 @@ Tesco:
 
 # teXet
 teXet:
-  regex: '(NaviPad [^/;]*) Build'
+  regex: '(NaviPad [^/;]*)|(X-pad [^/;]+) Build'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: '(NaviPad [^/;]*) Build'
+      model: '$1'
+    - regex: '(X-pad [^;/]+) Build'
+      model: '$1'
 
 # Telenor
 Telenor:
