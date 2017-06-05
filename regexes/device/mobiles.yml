@@ -817,9 +817,15 @@ Blu:
 
 # Blackview
 Blackview:
-  regex: '(BV[256]000|omega[ _]pro) Build'
+  regex: '(BV[2567]000(?:[ _](?:PRO))?|omega[ _]pro|Alife[ _][PS]1|Heatwave|DM550)[ _]Build'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: '(BV[2567]000(?:[ _](?:PRO))?)[ _]Build'
+      model: '$1'
+    - regex: 'omega[ _]pro'
+      model: 'Omega Pro'
+    - regex: '(Alife[ _][PS]1|DM550|Heatwave)'
+      model: '$1'
 
 # Boway
 Boway:
@@ -1710,19 +1716,16 @@ Explay:
       model: 'sQuad $1'
     - regex: 'Onliner([1-3])'
       model: 'Onliner $1'
-
     - regex: 'Atlant[;/) ]'
       device: 'smartphone'
       model: 'Atlant'
-
     - regex: 'Explay[ _-]([^;/]+) Build'
       model: '$1'
     - regex: 'Explay[ _-]([^;/]+)[;/)]'
       model: '$1'
-
     - regex: '(RioPlay)[;/) ]'
       device: 'smartphone'
-      model: '$1'
+      model: 'Rio Play'
 
 # Ezze
 Ezze:
