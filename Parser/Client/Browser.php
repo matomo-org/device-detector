@@ -199,7 +199,7 @@ class Browser extends ClientParserAbstract
      * @var array
      */
     protected static $mobileOnlyBrowsers = array(
-        '36', 'PU', 'SK', 'OI', 'DB', 'ST', 'BL', 'IV'
+        '36', 'PU', 'SK', 'OI', 'DB', 'ST', 'BL', 'IV', 'FM'
     );
 
     /**
