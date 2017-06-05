@@ -143,6 +143,7 @@ class Browser extends ClientParserAbstract
         'PT' => 'Polarity',
         'PS' => 'Microsoft Edge',
         'QQ' => 'QQ Browser',
+        'QZ' => 'QupZilla',
         'RK' => 'Rekonq',
         'RM' => 'RockMelt',
         'SB' => 'Samsung Browser',
