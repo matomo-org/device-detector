@@ -357,7 +357,7 @@ Apple:
 
 # micromax
 MicroMax:
-  regex: 'MicroMax[ \-\_]?[a-z0-9]+'
+  regex: '(MicroMax[ \-\_]?[a-z0-9]+|Q327)'
   device: 'smartphone'
   models:
     - regex: 'MicroMax(?:[ \-\_])?(P[a-z0-9]+)'
@@ -365,6 +365,8 @@ MicroMax:
       device: 'tablet'
     - regex: 'MicroMax(?:[ \-\_])?([a-z0-9]+)'
       model: '$1'
+    - regex: 'Q327'
+      model: 'Bolt'
 
 # 3Q
 3Q:
@@ -652,7 +654,7 @@ Garmin-Asus:
 
 # Asus
 Asus:
-  regex: 'Asus|Transformer|TF300T|Slider SL101|PadFone|ME302(?:C|KL)|ME301T|ME371MG|ME17(?:1|2V|3X)|(?:K0[01][0-9a-z]|Z00D)[);/ ]'
+  regex: 'Asus|Transformer|TF300T|Slider SL101|PadFone|ME302(?:C|KL)|ME301T|ME371MG|ME17(?:1|2V|3X)|(?:K0[01][0-9a-z]|Z00D|Z00YD)[);/ ]'
   device: 'smartphone'
   models:
     # explicit tablet models
@@ -728,12 +730,13 @@ Asus:
       model: 'Fonepad 8'
       device: 'phablet'
 
-
     # explicit smartphone models
     - regex: '(?:ASUS_)?Z007'
       model: 'ZenFone C'
     - regex: '(?:ASUS_)?(?:Z00D|Z008D|Z00AD[AB]?)'
       model: 'ZenFone 2'
+    - regex: '(?:ASUS_)(Z00YD)'
+      model: '$1'
     - regex: '(?:ASUS_)?Z00[ERL]D'
       model: 'ZenFone 2 Laser'
     - regex: '(?:ASUS_)?T00[IQ1]'
@@ -5470,6 +5473,12 @@ ZTE:
 # Zen'
 Zen:
   regex: '(Admire[_ ][^/;]+|Cinemax[^/;)]+)(?:Build|\) U)'
+  device: 'smartphone'
+  model: '$1'
+
+# 4Good
+4Good:
+  regex: '(?:4Good)?(S450m [43]G)'
   device: 'smartphone'
   model: '$1'
 
