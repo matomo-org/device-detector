@@ -374,6 +374,17 @@ MicroMax:
   device: 'tablet'
   model: '$1'
 
+# 4Good
+4Good:
+  regex: '(?:4Good)?(S450m [43]G|S555m 4G|S501m 3G|T700i_3G|Light A103)'
+  device: 'smartphone'
+  models:
+    - regex: 'T700i_3G'
+      model: 'T700i 3G'
+      device: 'tablet'
+    - regex: '(S(?:450m|555m|501m)[_ ][43]G|Light A103)'
+      model: '$1'
+
 # Bravis
 Bravis:
   regex: 'Bravis|A501 Bright'
@@ -1173,14 +1184,13 @@ DEXP:
   regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/]+) Build|H135[ _]Build'
   device: 'smartphone'
   models:
-    - regex: 'Ixion ([^;/]+) Build'
+    - regex: 'Ixion[_ ]([^;/]+) Build'
       model: 'Ixion $1'
 
     - regex: 'Ursus ([^;/]+) Build'
       model: 'Ursus $1'
       device: 'tablet'
 
-    # 15,6'' tablet
     - regex: 'H135[ _]Build'
       model: 'Atlas'
       device: 'desktop'
@@ -5473,12 +5483,6 @@ ZTE:
 # Zen'
 Zen:
   regex: '(Admire[_ ][^/;]+|Cinemax[^/;)]+)(?:Build|\) U)'
-  device: 'smartphone'
-  model: '$1'
-
-# 4Good
-4Good:
-  regex: '(?:4Good)?(S450m [43]G)'
   device: 'smartphone'
   model: '$1'
 
