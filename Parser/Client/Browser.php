@@ -64,6 +64,7 @@ class Browser extends ClientParserAbstract
         'CO' => 'CometBird',
         'CP' => 'ChromePlus',
         'CR' => 'Chromium',
+        'CY' => 'Cyberfox',
         'CS' => 'Cheshire',
         'DB' => 'dbrowser',
         'DE' => 'Deepnet Explorer',
