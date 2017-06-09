@@ -91,6 +91,7 @@ class Browser extends ClientParserAbstract
         'IA' => 'Iceape',
         'IB' => 'IBrowse',
         'IC' => 'iCab',
+        'I2' => 'iCab Mobile',
         'I1' => 'Iridium',
         'ID' => 'IceDragon',
         'IV' => 'Isivioo',
