@@ -284,7 +284,19 @@
     default: 'Presto'
     versions:
       15: 'Blink'
+- regex: 'Opera/(\d+[\.\d]+).+Opera Mobi'
+  name: 'Opera Mobile'
+  version: '$1'
+  engine:
+    default: 'Presto'
+    versions:
+      15: 'Blink'
 - regex: 'Opera ?Mini/(?:att/)?(\d+[\.\d]+)'
+  name: 'Opera Mini'
+  version: '$1'
+  engine:
+    default: 'Presto'
+- regex: 'Opera ?Mini.+Version/(\d+[\.\d]+)'
   name: 'Opera Mini'
   version: '$1'
   engine:
@@ -1011,7 +1023,7 @@
   version: '$1'
   engine:
     default: 'WebKit'
-- regex: 'Version/(\d+[\.\d]+).*Mobile.*Safari/'
+- regex: '(?:Version/(\d+[\.\d]+).*)?Mobile.*Safari/'
   name: 'Mobile Safari'
   version: '$1'
   engine:
