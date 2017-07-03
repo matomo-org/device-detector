@@ -376,13 +376,15 @@ MicroMax:
 
 # 4Good
 4Good:
-  regex: '4Good[ _]([^;/]+) Build|(?:4Good)?(S450m [43]G|S555m 4G|S501m 3G|T700i_3G|Light A103)'
+  regex: '4Good[ _]|(?:4Good)?(S450m [43]G|S555m 4G|S501m 3G|T700i_3G|Light A103)'
   device: 'smartphone'
   models:
     - regex: 'T700i_3G'
       model: 'T700i 3G'
       device: 'tablet'
     - regex: '(S(?:450m|555m|501m)[_ ][43]G|Light A103)'
+      model: '$1'
+    - regex: '4Good[ _]([^;/]+) Build'
       model: '$1'
     - regex: '4Good[ _]([^);/ ]+)'
       model: '$1'
