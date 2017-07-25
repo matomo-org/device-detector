@@ -126,6 +126,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'DB' => 'Dbtel',
         'DC' => 'DoCoMo',
         'DI' => 'Dicam',
+        'D2' => 'Digma',
         'DL' => 'Dell',
         'DN' => 'DNS',
         'DM' => 'DMM',
