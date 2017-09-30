@@ -355,6 +355,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'TZ' => 'teXet',
         'UN' => 'Unowhy',
         'US' => 'Uniscope',
+        'UM' => 'UMIDIGI',
         'UT' => 'UTStarcom',
         'VA' => 'Vastking',
         'VD' => 'Videocon',
