@@ -141,10 +141,7 @@ phpunit
 
 The lists below are auto generated and updated from time to time. Some of them might not be complete.
 
-*Last update: PHP Warning:  date(): Invalid date.timezone value 'weird', we selected the timezone 'UTC' for now. in /var/www/Piwik-UAParser/misc/readme-report.php on line 16
-
-Warning: date(): Invalid date.timezone value 'weird', we selected the timezone 'UTC' for now. in /var/www/Piwik-UAParser/misc/readme-report.php on line 16
-2017/10/01*
+*Last update: 2017/10/01*
 
 ### List of detected operating systems:
 
