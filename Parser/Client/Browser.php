@@ -81,6 +81,7 @@ class Browser extends ClientParserAbstract
         'FD' => 'Fluid',
         'FE' => 'Fennec',
         'FF' => 'Firefox',
+        'FK' => 'Firefox Focus',
         'FL' => 'Flock',
         'FM' => 'Firefox Mobile',
         'FW' => 'Fireweb',
