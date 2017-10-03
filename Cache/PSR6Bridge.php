@@ -47,8 +47,7 @@ class PSR6Bridge implements Cache
         if (func_num_args() > 2) {
             $item->expiresAfter($lifeTime);
         }
-        $this->pool->save($item);
-        return true;
+        return $this->pool->save($item);
     }
 
     /**
@@ -56,8 +55,7 @@ class PSR6Bridge implements Cache
      */
     public function delete($id)
     {
-        $this->pool->deleteItem($id);
-        return true;
+        return $this->pool->deleteItem($id);
     }
 
     /**
@@ -65,7 +63,6 @@ class PSR6Bridge implements Cache
      */
     public function flushAll()
     {
-        $this->pool->clear();
-        return true;
+        return $this->pool->clear();
     }
 }
