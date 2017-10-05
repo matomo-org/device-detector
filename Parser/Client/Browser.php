@@ -151,6 +151,8 @@ class Browser extends ClientParserAbstract
         'PO' => 'Polaris',
         'PT' => 'Polarity',
         'PS' => 'Microsoft Edge',
+        'PB' => 'Microsoft Edge for Android',
+        'PI' => 'Microsoft Edge for iOS',
         'QQ' => 'QQ Browser',
         'QT' => 'Qutebrowser',
         'QZ' => 'QupZilla',
