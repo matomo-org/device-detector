@@ -94,11 +94,32 @@ if (!is_null($result)) {
 
 ### Caching
 
-:exclamation: Caching of DeviceDetector was completely redesigned in 3.0. You may need to reimplement it when updating from below.
+By default, DeviceDetector uses a built-in array cache. To get better performance, you can use your own caching solution:
 
-In order to get results faster across requests, we recommend to use the additional caching possibility.
-Currently DeviceDetector is able to use [doctrine/cache](https://github.com/doctrine/cache). You can simply require it in your composer.json and use it like in the example before.
-For those who like to implement their own Caching there is a second possibility. Besides doctrine caches the ```setCache``` method also accepts classes implementing the ```DeviceDetector\Cache\Cache``` interface. That way you can do whatever you want without requiring doctrine/cache.
+* You can create a class that implement `DeviceDetector\Cache\Cache`
+* You can directly use a Doctrine Cache object (useful if your project already uses Doctrine)
+* Or if your project uses a [PSR-6](http://www.php-fig.org/psr/psr-6/) or [PSR-16](http://www.php-fig.org/psr/psr-16/) compliant caching system (like [symfony/cache](https://github.com/symfony/cache) or [matthiasmullie/scrapbook](https://github.com/matthiasmullie/scrapbook)), you can inject them the following way:
+
+```php
+// Example with PSR-6 and Symfony
+$cache = new Symfony\Component\Cache\Adapter\ApcuAdapter();
+$dd->setCache(
+    new DeviceDetector\Cache\PSR6Bridge($cache)
+);
+
+// Example with PSR-16 and ScrapBook
+$cache = new \MatthiasMullie\Scrapbook\Psr16\SimpleCache(
+    new \MatthiasMullie\Scrapbook\Adapters\Apc()
+);
+$dd->setCache(
+    new DeviceDetector\Cache\PSR16Bridge($cache)
+);
+
+// Example with Doctrine
+$dd->setCache(
+    new Doctrine\Common\Cache\ApcuCache()
+);
+```
 
 ## Contributing
 
