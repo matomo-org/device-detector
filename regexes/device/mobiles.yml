@@ -2998,9 +2998,23 @@ Lingwin:
 
 # Logicom
 Logicom:
-  regex: '(TAB950|TAB1062|E731|E812|E912|E1031)[);/ ]'
+  regex: '(TAB950|TAB1062|E731|E812|E912|E1031|M BOT TAB|KT712A_4\.4|L-?IXIR[0-9]*|L-ITE|L-?EMENT)[_);/ ]'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: 'KT712A_4.4'
+      model: 'L-ixir Tab 701'
+    - regex: 'LIXIR1041'
+      model: 'L-ixir Tab 1041'
+    - regex: 'L-?IXIR TAB ([^;/]+) Build'
+      model: 'L-ixir Tab $1'
+    - regex: 'L-ITE[ _]([^;/]+) Build'
+      model: 'L-ite Tab $1'
+    - regex: 'L-?EMENT[ _](?:TAB)?([^;/]+) Build'
+      model: 'L-ement Tab $1'
+    - regex: '(TAB950|TAB1062|E731|E812|E912|E1031)[);/ ]'
+      model: '$1'
+    - regex: 'M BOT TAB ([0-9]+)'
+      model: 'M bot tab $1'
 
 # Konka
 Konka:
