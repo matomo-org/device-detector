@@ -5251,9 +5251,27 @@ Videocon:
 
 # Vodafone
 Vodafone:
-  regex: 'Vodafone[ _-]|Smart ?Tab ?(?:III? ?)?(?:|4G|7|10)[);/ -]|VodafoneSmartChat'
+  regex: 'Vodafone[ _-]|Smart ?Tab ?(?:III? ?)?(?:|4G|7|10)[);/ -]|VodafoneSmartChat|VFD[ _][0-9]+[;/) ]'
   device: 'smartphone'
   models:
+    - regex: 'VFD 100'
+      model: 'Smart Mini'
+    - regex: 'VFD 200'
+      model: 'Smart First 7'
+    - regex: 'VFD 300'
+      model: 'Smart Mini 7'
+    - regex: 'VFD 50[02]'
+      model: 'Smart Turbo 7'
+    - regex: 'VFD 51[013]'
+      model: 'Smart E8'
+    - regex: 'VFD 600'
+      model: 'Smart Prime 7'
+    - regex: 'VFD 610'
+      model: 'Smart N8'
+    - regex: 'VFD 700'
+      model: 'Smart Ultra 7'
+    - regex: 'VFD 900'
+      model: 'Smart Platinum 7'
     - regex: 'Vodafone[ _]875[);/ ]'
       model: 'Smart Mini' # Alcatel
     - regex: 'Vodafone[ _]975N?[);/ ]'
@@ -5268,6 +5286,15 @@ Vodafone:
       model: 'Smart Chat'
 
     # explicit table models
+    - regex: 'VFD 1100'
+      device: 'tablet'
+      model: 'Tab Mini 7'
+    - regex: 'VFD 1300'
+      device: 'tablet'
+      model: 'Smart Tab N8'
+    - regex: 'VFD 1400'
+      device: 'tablet'
+      model: 'Tab Prime 7'
     - regex: 'Smart ?Tab ?3G'
       device: 'tablet'
       model: 'Smart Tab 3G'
@@ -5293,6 +5320,8 @@ Vodafone:
       model: 'Smart Tab III 10' # Lenovo
       device: 'tablet'
 
+    - regex: 'VFD[ _]([0-9]+)[;/) ]'
+      model: 'VFD $1'
     - regex: 'Vodafone[ _-]([^;/]+) Build'
       model: '$1'
     - regex: 'Vodafone[ _-]([a-z0-9_-]+)'
