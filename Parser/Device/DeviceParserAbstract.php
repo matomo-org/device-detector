@@ -228,6 +228,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'LI' => 'Lingwin',
         'LO' => 'Loewe',
         'LM' => 'Logicom',
+        'L3' => 'Lexand',
         'LX' => 'Lexibook',
         'LY' => 'LYF',
         'MJ' => 'Majestic',
