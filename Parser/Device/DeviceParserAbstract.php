@@ -116,6 +116,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'CT' => 'Capitel',
         'CQ' => 'Compaq',
         'CO' => 'Coolpad',
+        'C5' => 'Condor',
         'CW' => 'Cowon',
         'CU' => 'Cube',
         'CY' => 'Coby Kyros',

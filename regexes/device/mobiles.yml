@@ -1140,6 +1140,79 @@ ConCorde:
     - regex: 'ConCorde ([^/;]+) Build'
       model: '$1'
 
+# Condor
+Condor:
+  regex: '(?:PGN\-?[456][012][0-9]|PHS\-601)[;/) ]|CTAB[^/;]+ Build'
+  device: 'smartphone'
+  models:
+    - regex: 'CTAB([^/;]+) Build'
+      device: 'tablet'
+      model: 'CTAB $1'
+
+    - regex: 'PHS\-601'
+      model: 'C8'
+    - regex: 'PGN\-?403'
+      model: 'C4+ Noir'
+    - regex: 'PGN\-?404'
+      model: 'C7 Mini'
+    - regex: 'PGN\-?409'
+      model: 'Plume P4'
+    - regex: 'PGN\-?504'
+      model: 'C5'
+    - regex: 'PGN\-?505'
+      model: 'C8S'
+    - regex: 'PGN\-?506'
+      model: 'C7'
+    - regex: 'PGN\-?507'
+      model: 'Allure A9'
+    - regex: 'PGN\-?508'
+      model: 'C6+'
+    - regex: 'PGN\-?509'
+      model: 'C6 Pro'
+    - regex: 'PGN\-?511'
+      model: 'Allure A9 Plus'
+    - regex: 'PGN\-?513'
+      model: 'Griffe G4'
+    - regex: 'PGN\-?514'
+      model: 'Plume P7'
+    - regex: 'PGN\-?515'
+      model: 'Plume P4 Pro'
+    - regex: 'PGN\-?516'
+      model: 'Plume P5'
+    - regex: 'PGN\-?51[78]'
+      model: 'Plume P6'
+    - regex: 'PGN\-?521'
+      model: 'Griffe G4 Plus'
+    - regex: 'PGN\-?522'
+      model: 'P6 Plus'
+    - regex: 'PGN\-?523'
+      model: 'P7 Plus'
+    - regex: 'PGN\-?527'
+      model: 'Plume P4 Plus'
+    - regex: 'PGN\-?528'
+      model: 'Plume P6 Pro Lte'
+    - regex: 'PGN\-?605'
+      model: 'Plume P8'
+    - regex: 'PGN\-?606'
+      model: 'Allure A55'
+    - regex: 'PGN\-?607'
+      model: 'Allure A100'
+    - regex: 'PGN\-?608'
+      model: 'Allure A55 Slim'
+    - regex: 'PGN\-?609'
+      model: 'Allure A100 Lite'
+    - regex: 'PGN\-?610'
+      model: 'Plume P8 Lite'
+    - regex: 'PGN\-?611'
+      model: 'Allure A8'
+    - regex: 'PGN\-?612'
+      model: 'Allure A8 Plus'
+    - regex: 'PGN\-?613'
+      model: 'Allure A55 Plus'
+
+    - regex: 'PGN\-?([0-9]{3})'
+      model: 'PGN-$1'
+
 # Coolpad
 Coolpad:
   regex: '(?:YL-)?Coolpad|8190Q[ ;/\)]|(8295|5860S) Build'
@@ -2122,7 +2195,7 @@ Goly:
 
 # Google
 Google:
-  regex: 'Nexus|GoogleTV|Glass|CrKey[^a-z0-9]|Pixel Build|Pixel XL Build|Pixel C Build'
+  regex: 'Nexus|GoogleTV|Glass|CrKey[^a-z0-9]|Pixel Build|Pixel (?:XL|C|2|2 XL) Build'
   device: 'smartphone'
   models:
     - regex: 'Glass'
@@ -2147,6 +2220,10 @@ Google:
       model: 'Pixel'
     - regex: 'Pixel XL'
       model: 'Pixel XL'
+    - regex: 'Pixel 2 XL'
+      model: 'Pixel 2 XL'
+    - regex: 'Pixel 2'
+      model: 'Pixel 2'
     - regex: 'Pixel C'
       device: 'tablet'
       model: 'Pixel C'
@@ -3266,13 +3343,13 @@ MEEG:
 
 # Meizu
 Meizu:
-  regex: '(M04[05]|M35[1356]|MX[ -]?[2345](?: Pro)?|(?:MZ-)?m[123] note|(?:MZ-)?M57[18]C|M3S)[);/ ]'
+  regex: '(M04[05]|M35[1356]|MX[ -]?[2345](?: Pro)?|(?:MZ-)?m[1-6] note|(?:MZ-)?M57[18]C|M3S)[);/ ]'
   device: 'smartphone'
   models:
     - regex: '(?:MZ-)?M571C'
       device: 'phablet'
       model: 'M2 Note'
-    - regex: '(?:MZ-)?m(1|2|3) note[);/ ]'
+    - regex: '(?:MZ-)?m([1-6]) note[);/ ]'
       device: 'phablet'
       model: 'M$1 Note'
     - regex: '(?:MZ-)?M578C'
@@ -4889,10 +4966,12 @@ Spice:
 
 # Sharp
 Sharp:
-  regex: 'SHARP|SBM|SH-?[0-9]+[a-z]?[);/ ]|AQUOS'
+  regex: 'SHARP|SBM|SH-?[0-9]+[a-z]?[);/ ]|AQUOS|506SH'
   device: 'smartphone'
   models:
     # explicit smartphone models
+    - regex: '506SH'
+      model: 'Aquos Xx3'
     - regex: 'SH-02E'
       model: 'Aquos Phone Zeta'
     - regex: 'SH06D'

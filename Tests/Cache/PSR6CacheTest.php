@@ -11,6 +11,10 @@ use DeviceDetector\Cache\PSR6Bridge;
 use MatthiasMullie\Scrapbook\Adapters\MemoryStore;
 use MatthiasMullie\Scrapbook\Psr6\Pool;
 
+if (!class_exists('\MatthiasMullie\Scrapbook\Adapters\MemoryStore')) {
+    return;
+}
+
 class PSR6CacheTest extends \PHPUnit_Framework_TestCase
 {
     protected function setUp()
