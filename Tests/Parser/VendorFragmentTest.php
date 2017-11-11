@@ -9,8 +9,9 @@ namespace DeviceDetector\Tests\Parser;
 
 use DeviceDetector\Parser\VendorFragment;
 use \Spyc;
+use PHPUnit\Framework\TestCase;
 
-class VendorFragmentTest extends \PHPUnit_Framework_TestCase
+class VendorFragmentTest extends TestCase
 {
     static $regexesTested = array();
 

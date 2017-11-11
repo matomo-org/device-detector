@@ -10,12 +10,13 @@ namespace DeviceDetector\Tests\Cache;
 use DeviceDetector\Cache\PSR16Bridge;
 use MatthiasMullie\Scrapbook\Adapters\MemoryStore;
 use MatthiasMullie\Scrapbook\Psr16\SimpleCache;
+use PHPUnit\Framework\TestCase;
 
 if (!class_exists('\MatthiasMullie\Scrapbook\Adapters\MemoryStore')) {
     return;
 }
 
-class PSR16CacheTest extends \PHPUnit_Framework_TestCase
+class PSR16CacheTest extends TestCase
 {
     protected function setUp()
     {

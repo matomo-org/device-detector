@@ -9,8 +9,9 @@ namespace DeviceDetector\Tests\Parser\Client;
 
 use DeviceDetector\Parser\Client\PIM;
 use \Spyc;
+use PHPUnit\Framework\TestCase;
 
-class PIMTest extends \PHPUnit_Framework_TestCase
+class PIMTest extends TestCase
 {
     /**
      * @dataProvider getFixtures

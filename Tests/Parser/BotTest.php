@@ -9,8 +9,9 @@ namespace DeviceDetector\Tests\Parser;
 
 use DeviceDetector\Parser\Bot;
 use \Spyc;
+use PHPUnit\Framework\TestCase;
 
-class BotTest extends \PHPUnit_Framework_TestCase
+class BotTest extends TestCase
 {
     public function testGetInfoFromUABot()
     {

@@ -8,8 +8,9 @@
 namespace DeviceDetector\Tests\Cache;
 
 use DeviceDetector\Cache\StaticCache;
+use PHPUnit\Framework\TestCase;
 
-class StaticCacheTests extends \PHPUnit_Framework_TestCase
+class StaticCacheTests extends TestCase
 {
     protected function setUp()
     {
