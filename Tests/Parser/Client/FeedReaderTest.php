@@ -9,8 +9,9 @@ namespace DeviceDetector\Tests\Parser\Client;
 
 use DeviceDetector\Parser\Client\FeedReader;
 use \Spyc;
+use PHPUnit\Framework\TestCase;
 
-class FeedReaderTest extends \PHPUnit_Framework_TestCase
+class FeedReaderTest extends TestCase
 {
     /**
      * @dataProvider getFixtures

@@ -9,8 +9,9 @@ namespace DeviceDetector\Tests\Parser\Device;
 
 use DeviceDetector\Parser\Device\Console;
 use \Spyc;
+use PHPUnit\Framework\TestCase;
 
-class ConsoleTest extends \PHPUnit_Framework_TestCase
+class ConsoleTest extends TestCase
 {
     /**
      * @dataProvider getFixtures

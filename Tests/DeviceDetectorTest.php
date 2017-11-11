@@ -11,8 +11,9 @@ use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
 use DeviceDetector\Parser\ParserAbstract;
 use DeviceDetector\Yaml\Symfony;
+use PHPUnit\Framework\TestCase;
 
-class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
+class DeviceDetectorTest extends TestCase
 {
     /**
      * @expectedException \Exception

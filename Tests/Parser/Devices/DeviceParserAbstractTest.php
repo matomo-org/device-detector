@@ -8,8 +8,9 @@
 namespace DeviceDetector\Tests\Parser\Device;
 
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
+use PHPUnit\Framework\TestCase;
 
-class DeviceParserAbstractTest extends \PHPUnit_Framework_TestCase
+class DeviceParserAbstractTest extends TestCase
 {
     public function testGetAvailableDeviceTypes()
     {
