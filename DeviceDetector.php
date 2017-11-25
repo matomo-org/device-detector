@@ -16,7 +16,7 @@ use DeviceDetector\Parser\OperatingSystem;
 use DeviceDetector\Parser\Client\ClientParserAbstract;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
 use DeviceDetector\Parser\VendorFragment;
-use DeviceDetector\Yaml\Parser AS YamlParser;
+use DeviceDetector\Yaml\Parser as YamlParser;
 use DeviceDetector\Yaml\Spyc;
 
 /**
@@ -539,7 +539,7 @@ class DeviceDetector
 
     /**
      * Returns true, if userAgent was already parsed with parse()
-     * 
+     *
      * @return bool
      */
     public function isParsed()
@@ -656,7 +656,7 @@ class DeviceDetector
         if (is_null($this->device) && $osFamily == 'Android' && in_array($this->getClient('name'), array('Chrome', 'Chrome Mobile'))) {
             if ($this->matchUserAgent('Chrome/[\.0-9]* Mobile')) {
                 $this->device = DeviceParserAbstract::DEVICE_TYPE_SMARTPHONE;
-            } else if ($this->matchUserAgent('Chrome/[\.0-9]* (?!Mobile)')) {
+            } elseif ($this->matchUserAgent('Chrome/[\.0-9]* (?!Mobile)')) {
                 $this->device = DeviceParserAbstract::DEVICE_TYPE_TABLET;
             }
         }
