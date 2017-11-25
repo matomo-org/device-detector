@@ -8,7 +8,7 @@
 
 namespace DeviceDetector\Yaml;
 
-use Symfony\Component\Yaml\Parser AS SymfonyParser;
+use Symfony\Component\Yaml\Parser as SymfonyParser;
 
 class Symfony implements Parser
 {
