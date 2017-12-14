@@ -247,7 +247,7 @@ Palm:
 
 # HP
 HP:
-  regex: 'TouchPad/\d+\.\d+|hp-tablet|HP ?iPAQ|webOS.*P160U|HP Slate|HP [78]|Compaq [7|8]'
+  regex: 'TouchPad/\d+\.\d+|hp-tablet|HP ?iPAQ|webOS.*P160U|HP Slate|HP [78]|Compaq [7|8]|HP; [^;/)]+'
   device: 'smartphone'
   models:
     - regex: 'HP Slate 6 Voice Tab'
@@ -268,6 +268,8 @@ HP:
     - regex: 'TouchPad/(\d+\.\d+)|hp-tablet'
       model: 'TouchPad'
       device: 'tablet'
+    - regex: 'HP; ([^;/)]+)'
+      model: '$1'
     - regex: 'HP(?: )?iPAQ(?: )?([a-z0-9]+)'
       model: 'iPAQ $1'
     - regex: 'webOS.*(P160U)'
