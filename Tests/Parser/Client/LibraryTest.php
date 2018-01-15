@@ -9,8 +9,9 @@ namespace DeviceDetector\Tests\Parser\Client;
 
 use DeviceDetector\Parser\Client\Library;
 use \Spyc;
+use PHPUnit\Framework\TestCase;
 
-class ToolTest extends \PHPUnit_Framework_TestCase
+class ToolTest extends TestCase
 {
     /**
      * @dataProvider getFixtures

@@ -9,8 +9,9 @@ namespace DeviceDetector\Tests\Parser;
 
 use DeviceDetector\Parser\OperatingSystem;
 use \Spyc;
+use PHPUnit\Framework\TestCase;
 
-class OperatingSystemTest extends \PHPUnit_Framework_TestCase
+class OperatingSystemTest extends TestCase
 {
     static $osTested = array();
 
@@ -86,7 +87,7 @@ class OperatingSystemTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function testAllBrowsersTested()
+    public function testAllOperatingSystemsTested()
     {
         $allBrowsers = array_keys(OperatingSystem::getAvailableOperatingSystems());
         $osNotTested = array_diff($allBrowsers, self::$osTested);

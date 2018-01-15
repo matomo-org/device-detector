@@ -9,8 +9,9 @@ namespace DeviceDetector\Tests\Parser\Client;
 
 use DeviceDetector\Parser\Client\MobileApp;
 use \Spyc;
+use PHPUnit\Framework\TestCase;
 
-class MobileAppTest extends \PHPUnit_Framework_TestCase
+class MobileAppTest extends TestCase
 {
     /**
      * @dataProvider getFixtures

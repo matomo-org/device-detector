@@ -9,8 +9,9 @@ namespace DeviceDetector\Tests\Parser\Device;
 
 use DeviceDetector\Parser\Device\Camera;
 use \Spyc;
+use PHPUnit\Framework\TestCase;
 
-class CameraTest extends \PHPUnit_Framework_TestCase
+class CameraTest extends TestCase
 {
     /**
      * @dataProvider getFixtures

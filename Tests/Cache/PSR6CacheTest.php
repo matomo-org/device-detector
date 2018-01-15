@@ -7,26 +7,32 @@
  */
 namespace DeviceDetector\Tests\Cache;
 
-use DeviceDetector\Cache\StaticCache;
+use DeviceDetector\Cache\PSR6Bridge;
+use MatthiasMullie\Scrapbook\Adapters\MemoryStore;
+use MatthiasMullie\Scrapbook\Psr6\Pool;
 use PHPUnit\Framework\TestCase;
 
-class StaticCacheTests extends TestCase
+if (!class_exists('\MatthiasMullie\Scrapbook\Adapters\MemoryStore')) {
+    return;
+}
+
+class PSR6CacheTest extends TestCase
 {
     protected function setUp()
     {
-        $cache = new StaticCache();
+        $cache = new PSR6Bridge(new Pool(new MemoryStore()));
         $cache->flushAll();
     }
 
     public function testSetNotPresent()
     {
-        $cache = new StaticCache();
+        $cache = new PSR6Bridge(new Pool(new MemoryStore()));
         $this->assertFalse($cache->fetch('NotExistingKey'));
     }
 
     public function testSetAndGet()
     {
-        $cache = new StaticCache();
+        $cache = new PSR6Bridge(new Pool(new MemoryStore()));
 
         // add entry
         $cache->save('key', 'value');

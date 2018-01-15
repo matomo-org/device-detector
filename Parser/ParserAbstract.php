@@ -298,7 +298,7 @@ abstract class ParserAbstract
     }
 
     /**
-     * Sets the Cache class
+     * Sets the YamlParser class
      *
      * @param YamlParser
      * @throws \Exception
@@ -314,7 +314,7 @@ abstract class ParserAbstract
     }
 
     /**
-     * Returns Cache object
+     * Returns YamlParser object
      *
      * @return YamlParser
      */

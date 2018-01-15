@@ -33,6 +33,7 @@ class Browser extends ClientParserAbstract
         'AB' => 'ABrowse',
         'AF' => 'ANT Fresco',
         'AG' => 'ANTGalio',
+        'AL' => 'Aloha Browser',
         'AM' => 'Amaya',
         'AO' => 'Amigo',
         'AN' => 'Android Browser',
@@ -47,10 +48,12 @@ class Browser extends ClientParserAbstract
         'BJ' => 'Bunjalloo',
         'BL' => 'B-Line',
         'BR' => 'Brave',
+        'BK' => 'BriskBard',
         'BX' => 'BrowseX',
         'CA' => 'Camino',
         'CC' => 'Coc Coc',
         'CD' => 'Comodo Dragon',
+        'C1' => 'Coast',
         'CX' => 'Charon',
         'CF' => 'Chrome Frame',
         'CH' => 'Chrome',
@@ -61,20 +64,26 @@ class Browser extends ClientParserAbstract
         'CO' => 'CometBird',
         'CP' => 'ChromePlus',
         'CR' => 'Chromium',
+        'CY' => 'Cyberfox',
         'CS' => 'Cheshire',
         'DB' => 'dbrowser',
         'DE' => 'Deepnet Explorer',
         'DF' => 'Dolphin',
+        'DO' => 'Dorado',
+        'DL' => 'Dooble',
         'DI' => 'Dillo',
+        'EI' => 'Epic',
         'EL' => 'Elinks',
         'EB' => 'Element Browser',
-        'EP' => 'Epiphany',
+        'EP' => 'GNOME Web',
         'ES' => 'Espial TV Browser',
         'FB' => 'Firebird',
         'FD' => 'Fluid',
         'FE' => 'Fennec',
         'FF' => 'Firefox',
+        'FK' => 'Firefox Focus',
         'FL' => 'Flock',
+        'FM' => 'Firefox Mobile',
         'FW' => 'Fireweb',
         'FN' => 'Fireweb Navigator',
         'GA' => 'Galeon',
@@ -83,6 +92,8 @@ class Browser extends ClientParserAbstract
         'IA' => 'Iceape',
         'IB' => 'IBrowse',
         'IC' => 'iCab',
+        'I2' => 'iCab Mobile',
+        'I1' => 'Iridium',
         'ID' => 'IceDragon',
         'IV' => 'Isivioo',
         'IW' => 'Iceweasel',
@@ -138,8 +149,11 @@ class Browser extends ClientParserAbstract
         'PA' => 'Palmscape',
         'PX' => 'Phoenix',
         'PO' => 'Polaris',
+        'PT' => 'Polarity',
         'PS' => 'Microsoft Edge',
         'QQ' => 'QQ Browser',
+        'QT' => 'Qutebrowser',
+        'QZ' => 'QupZilla',
         'RK' => 'Rekonq',
         'RM' => 'RockMelt',
         'SB' => 'Samsung Browser',
@@ -163,6 +177,7 @@ class Browser extends ClientParserAbstract
         'VI' => 'Vivaldi',
         'VB' => 'Vision Mobile Browser',
         'WE' => 'WebPositive',
+        'WF' => 'Waterfox',
         'WO' => 'wOSBrowser',
         'WT' => 'WeTab Browser',
         'YA' => 'Yandex Browser',
@@ -179,15 +194,15 @@ class Browser extends ClientParserAbstract
         'BlackBerry Browser' => array('BB'),
         'Baidu'              => array('BD', 'BS'),
         'Amiga'              => array('AV', 'AW'),
-        'Chrome'             => array('CH', 'BR', 'CC', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'IR', 'RM', 'AO', 'TS', 'VI'),
-        'Firefox'            => array('FF', 'FE', 'SX', 'FB', 'PX', 'MB'),
+        'Chrome'             => array('CH', 'BR', 'CC', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'IR', 'RM', 'AO', 'TS', 'VI', 'PT'),
+        'Firefox'            => array('FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF'),
         'Internet Explorer'  => array('IE', 'IM', 'PS'),
         'Konqueror'          => array('KO'),
         'NetFront'           => array('NF'),
-        'Nokia Browser'      => array('NB', 'NO', 'NV'),
+        'Nokia Browser'      => array('NB', 'NO', 'NV', 'DO'),
         'Opera'              => array('OP', 'OM', 'OI', 'ON'),
         'Safari'             => array('SF', 'MF'),
-        'Sailfish Browser'   => array('SA')
+        'Sailfish Browser'   => array('SA'),
     );
 
     /**
@@ -196,7 +211,7 @@ class Browser extends ClientParserAbstract
      * @var array
      */
     protected static $mobileOnlyBrowsers = array(
-        '36', 'PU', 'SK', 'OI', 'DB', 'ST', 'BL', 'IV'
+        '36', 'PU', 'SK', 'MF', 'OI', 'OM', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA'
     );
 
     /**
@@ -296,6 +311,8 @@ class Browser extends ClientParserAbstract
         // try to detect the engine using the regexes
         if (empty($engine)) {
             $engineParser = new Engine();
+            $engineParser->setYamlParser($this->getYamlParser());
+            $engineParser->setCache($this->getCache());
             $engineParser->setUserAgent($this->userAgent);
             $engine = $engineParser->parse();
         }
