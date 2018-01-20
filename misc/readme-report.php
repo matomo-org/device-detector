@@ -64,3 +64,22 @@ echo implode(', ', $brands);
 
 ?>
 
+
+### List of detected bots:
+
+<?php
+
+$bots = [];
+$ymlParser = new Spyc();
+
+$parsedBots = $ymlParser->loadFile(__DIR__ . '/../regexes/bots.yml');
+
+foreach ($parsedBots as $parsedBot) {
+    $bots[] = $parsedBot['name'];
+}
+
+natcasesort($bots);
+echo implode(', ', $bots);
+
+?>
+
