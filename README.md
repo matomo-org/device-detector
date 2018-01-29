@@ -158,6 +158,15 @@ php composer.phar install
 phpunit
 ```
 
+## Device Detector for other languages
+
+There are already a few ports of this tool to other languages:
+
+- **.NET** https://github.com/totpero/DeviceDetector.NET
+- **Ruby** https://github.com/podigee/device_detector
+- **Node.JS** https://github.com/sanchezzzhak/node-device-detector
+
+
 ## What Device Detector is able to detect
 
 The lists below are auto generated and updated from time to time. Some of them might not be complete.
