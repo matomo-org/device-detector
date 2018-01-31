@@ -2882,9 +2882,17 @@ Landvo:
 
 # lanix
 Lanix:
-  regex: 'LANIX-([a-z0-9]+)'
+  regex: 'LANIX-([a-z0-9]+)|ILIUM[ _]([^;/]+) Build'
   device: 'feature phone'
-  model: '$1'
+  models:
+    - regex: 'ILIUM[ _]PAD[ _]([^;/]+) Build'
+      model: 'Ilium Pad $1'
+      device: 'tablet'
+    - regex: 'ILIUM[ _]([^;/]+) Build'
+      model: 'Ilium $1'
+      device: 'smartphone'
+    - regex: 'LANIX-([a-z0-9]+)'
+      model: '$1'
 
 # lct
 LCT:
