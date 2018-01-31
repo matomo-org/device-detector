@@ -374,6 +374,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'VK' => 'VK Mobile',
         'VS' => 'ViewSonic',
         'VT' => 'Vestel',
+        'VL' => 'Verykool',
         'VV' => 'Vivo',
         'V1' => 'Voto',
         'VO' => 'Voxtel',
