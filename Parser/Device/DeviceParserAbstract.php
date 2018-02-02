@@ -83,6 +83,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'BB' => 'BBK',
         'BE' => 'Becker',
         'BI' => 'Bird',
+        'BG' => 'BGH',
         'BL' => 'Beetel',
         'BP' => 'Blaupunkt',
         'BM' => 'Bmobile',
