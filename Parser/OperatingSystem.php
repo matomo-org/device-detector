@@ -96,6 +96,7 @@ class OperatingSystem extends ParserAbstract
         'WTV' => 'WebTV',
         'WIN' => 'Windows',
         'WCE' => 'Windows CE',
+        'WIO' => 'Windows IoT',
         'WMO' => 'Windows Mobile',
         'WPH' => 'Windows Phone',
         'WRT' => 'Windows RT',
@@ -135,7 +136,7 @@ class OperatingSystem extends ParserAbstract
         'Unix'                  => array('SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64', 'INF'),
         'WebTV'                 => array('WTV'),
         'Windows'               => array('WIN'),
-        'Windows Mobile'        => array('WPH', 'WMO', 'WCE', 'WRT')
+        'Windows Mobile'        => array('WPH', 'WMO', 'WCE', 'WRT', 'WIO')
     );
 
     /**
