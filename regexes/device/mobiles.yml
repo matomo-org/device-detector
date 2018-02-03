@@ -3455,7 +3455,7 @@ MEEG:
 
 # Meizu
 Meizu:
-  regex: '(M04[05]|M35[1356]|MX[ -]?[2345](?: Pro)?|(?:MZ-)?m[1-6] note|(?:MZ-)?M57[18]C|M3S)[);/ ]'
+  regex: 'Meizu|MZ-[a-z]|(M04[05]|M35[1356]|MX[ -]?[2345](?: Pro)?|(?:MZ-)?m[1-6] note|M57[18]C|M3S)[);/ ]'
   device: 'smartphone'
   models:
     - regex: '(?:MZ-)?M571C'
@@ -3478,6 +3478,12 @@ Meizu:
       model: 'MX4'
     - regex: 'MX[ -]?5[);/ ]'
       model: 'MX5'
+    - regex: '(?:MZ-)?Meizu[_ ]([^/;]+) Build'
+      model: '$1'
+    - regex: '(?:MZ-)?Meizu[_ ]([a-z0-9_]+)'
+      model: '$1'
+    - regex: 'MZ-([^/;]+) Build'
+      model: '$1'
 
 # Memup
 Memup:
