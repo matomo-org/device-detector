@@ -1023,9 +1023,13 @@ Blaupunkt:
 
 # Bmobile
 Bmobile:
-  regex: 'Bmobile_([a-z0-9]+)'
+  regex: 'Bmobile[_ ]'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'Bmobile[_ ]([^/;]+) Build'
+      model: '$1'
+    - regex: 'Bmobile[_ ]([a-z0-9]+)'
+      model: '$1'
 
 # bq
 bq:
