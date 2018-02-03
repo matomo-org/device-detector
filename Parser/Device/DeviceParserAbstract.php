@@ -80,6 +80,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'AV' => 'Avvio',
         'AX' => 'Audiovox',
         'AY' => 'Axxion',
+        'AM' => 'Azumi Mobile',
         'BB' => 'BBK',
         'BE' => 'Becker',
         'BI' => 'Bird',
