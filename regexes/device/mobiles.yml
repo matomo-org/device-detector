@@ -3834,9 +3834,13 @@ Noain:
 
 # Noblex
 Noblex:
-  regex: 'Noblex ([^/;]+) Build'
+  regex: 'Noblex|NBX-'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: '(?:Noblex|NBX)[ _-]([^;/]+) Build'
+      model: '$1'
+    - regex: '(?:Noblex|NBX)[ _-]([^;/)]+)[;/)]'
+      model: '$1'
 
 # Nomi
 Nomi:
