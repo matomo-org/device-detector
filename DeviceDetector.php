@@ -15,6 +15,7 @@ use DeviceDetector\Parser\Client\Browser;
 use DeviceDetector\Parser\OperatingSystem;
 use DeviceDetector\Parser\Client\ClientParserAbstract;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
+use DeviceDetector\Parser\ParserAbstract;
 use DeviceDetector\Parser\VendorFragment;
 use DeviceDetector\Yaml\Parser AS YamlParser;
 use DeviceDetector\Yaml\Spyc;
@@ -152,6 +153,11 @@ class DeviceDetector
     protected $deviceParsers = array();
 
     /**
+     * @var ParserAbstract[]
+     */
+    public $botParsers = array();
+
+    /**
      * @var bool
      */
     private $parsed = false;
@@ -180,6 +186,8 @@ class DeviceDetector
         $this->addDeviceParser('Camera');
         $this->addDeviceParser('PortableMediaPlayer');
         $this->addDeviceParser('Mobile');
+
+        $this->addBotParser(new Bot());
     }
 
     public function __call($methodName, $arguments)
@@ -270,6 +278,19 @@ class DeviceDetector
     public function getDeviceParsers()
     {
         return $this->deviceParsers;
+    }
+
+    /**
+     * @param ParserAbstract $parser
+     */
+    public function addBotParser(ParserAbstract $parser)
+    {
+        $this->botParsers[] = $parser;
+    }
+
+    public function getBotParsers()
+    {
+        return $this->botParsers;
     }
 
     /**
@@ -539,7 +560,7 @@ class DeviceDetector
 
     /**
      * Returns true, if userAgent was already parsed with parse()
-     * 
+     *
      * @return bool
      */
     public function isParsed()
@@ -590,14 +611,18 @@ class DeviceDetector
             return false;
         }
 
-        $botParser = new Bot();
-        $botParser->setUserAgent($this->getUserAgent());
-        $botParser->setYamlParser($this->getYamlParser());
-        $botParser->setCache($this->getCache());
-        if ($this->discardBotInformation) {
-            $botParser->discardDetails();
+        $parsers = $this->getBotParsers();
+
+        foreach ($parsers as $parser) {
+            $parser->setYamlParser($this->getYamlParser());
+            $parser->setCache($this->getCache());
+            $parser->setUserAgent($this->getUserAgent());
+            $bot = $parser->parse();
+            if (!empty($bot)) {
+                $this->bot = $bot;
+                break;
+            }
         }
-        $this->bot = $botParser->parse();
     }
 
 
