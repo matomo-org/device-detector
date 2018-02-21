@@ -16,7 +16,7 @@ namespace DeviceDetector\Parser;
  *
  * @package DeviceDetector\Parser
  */
-class Bot extends ParserAbstract
+class Bot extends BotParserAbstract
 {
     protected $fixtureFile = 'regexes/bots.yml';
     protected $parserName = 'bot';

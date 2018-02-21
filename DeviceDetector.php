@@ -11,11 +11,11 @@ namespace DeviceDetector;
 use DeviceDetector\Cache\StaticCache;
 use DeviceDetector\Cache\Cache;
 use DeviceDetector\Parser\Bot;
+use DeviceDetector\Parser\BotParserAbstract;
 use DeviceDetector\Parser\Client\Browser;
 use DeviceDetector\Parser\OperatingSystem;
 use DeviceDetector\Parser\Client\ClientParserAbstract;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
-use DeviceDetector\Parser\ParserAbstract;
 use DeviceDetector\Parser\VendorFragment;
 use DeviceDetector\Yaml\Parser AS YamlParser;
 use DeviceDetector\Yaml\Spyc;
@@ -153,7 +153,7 @@ class DeviceDetector
     protected $deviceParsers = array();
 
     /**
-     * @var ParserAbstract[]
+     * @var BotParserAbstract[]
      */
     public $botParsers = array();
 
@@ -281,9 +281,9 @@ class DeviceDetector
     }
 
     /**
-     * @param ParserAbstract $parser
+     * @param BotParserAbstract $parser
      */
-    public function addBotParser(ParserAbstract $parser)
+    public function addBotParser(BotParserAbstract $parser)
     {
         $this->botParsers[] = $parser;
     }
@@ -614,9 +614,12 @@ class DeviceDetector
         $parsers = $this->getBotParsers();
 
         foreach ($parsers as $parser) {
+            $parser->setUserAgent($this->getUserAgent());
             $parser->setYamlParser($this->getYamlParser());
             $parser->setCache($this->getCache());
-            $parser->setUserAgent($this->getUserAgent());
+            if ($this->discardBotInformation) {
+                $parser->discardDetails();
+            }
             $bot = $parser->parse();
             if (!empty($bot)) {
                 $this->bot = $bot;
