@@ -237,6 +237,16 @@ class DeviceDetectorTest extends TestCase
         $this->assertEquals($expected, DeviceDetector::getInfoFromUserAgent($expected['user_agent']));
     }
 
+
+    public function testParseNoDetails()
+    {
+        $user_agent = 'Googlebot/2.1 (http://www.googlebot.com/bot.html)';
+        $dd = new DeviceDetector($user_agent);
+        $dd->discardBotInformation();
+        $dd->parse();
+        $this->assertTrue($dd->getBot());
+    }
+
     public function testMagicMMethods()
     {
         $ua = 'Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.136 Mobile Safari/537.36';
