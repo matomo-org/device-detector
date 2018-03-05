@@ -38,7 +38,8 @@ class Engine extends ClientParserAbstract
         'Gecko',
         'KHTML',
         'NetFront',
-        'Edge'
+        'Edge',
+        'NetSurf'
     );
 
     /**
