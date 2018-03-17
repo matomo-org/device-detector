@@ -940,9 +940,13 @@ Bitel:
 
 # Blu
 Blu:
-  regex: 'blu ([^/;]+) Build'
+  regex: '(?:blu|Dash)[ _]([^/;]+) Build'
   device: 'smartphone'
-  model: '$1'
+  models:
+   - regex: 'DASH[ _]([^/;]+) Build'
+     model: 'Dash $1'
+   - regex: 'blu ([^/;]+) Build'
+     model: '$1'
 
 # Blackview
 Blackview:
@@ -4185,9 +4189,13 @@ Oysters:
 
 # panasonic
 Panasonic:
-  regex: 'Panasonic|PANATV[0-9]+|Viera/|P902i[);/ ]'
+  regex: 'Panasonic|PANATV[0-9]+|Viera/|P902i[);/ ]|Eluga[ _]'
   device: 'smartphone'
   models:
+    - regex: 'Eluga[ _-]([^;/]+) Build'
+      model: 'Eluga $1'
+    - regex: 'Eluga[ _-]([^;/]+)[;/)]'
+      model: 'Eluga $1'
     - regex: 'P902i[);/ ]'
       device: 'feature phone'
       model: 'P902i'
