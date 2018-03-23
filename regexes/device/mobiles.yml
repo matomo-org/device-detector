@@ -1642,9 +1642,19 @@ ECS:
 
 # Elephone
 Elephone:
-  regex: 'Elephone[ _\-]([^/;]+) Build'
+  regex: 'Elephone[ _\-]([^/;]+) Build|P6000( ?Pro| ?Plus|\+| ?02)? Build'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'Elephone[ _\-]([^/;]+) Build'
+      model: '$1'
+    - regex: 'P6000 Build'
+      model: 'P6000'
+    - regex: 'P6000(\+| ?Plus) Build'
+      model: 'P6000 Plus'
+    - regex: 'P6000 02 Build'
+      model: 'P6000 02'
+    - regex: 'P6000 ?Pro Build'
+      model: 'P6000 Pro'
 
 # Energy Sistem
 'Energy Sistem':
