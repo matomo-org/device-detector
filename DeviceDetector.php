@@ -677,6 +677,13 @@ class DeviceDetector
         $clientName = $this->getClient('name');
 
         /**
+         * Assume all devices running iOS / Mac OS are from Apple
+         */
+        if (empty($this->brand) && in_array($osShortName, ['ATV', 'IOS', 'MAC'])) {
+            $this->brand = 'AP';
+        }
+
+        /**
          * Chrome on Android passes the device type based on the keyword 'Mobile'
          * If it is present the device should be a smartphone, otherwise it's a tablet
          * See https://developer.chrome.com/multidevice/user-agent#chrome_for_android_user_agent
