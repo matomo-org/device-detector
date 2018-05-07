@@ -5482,11 +5482,17 @@ Toplux:
 
 # TrekStor
 TrekStor:
-  regex: 'TrekStor ([^/;]+) Build'
+  regex: '(?:TrekStor|Surftab) ([^/;]+) Build|Surftab[^;]*(?:;|$)|ST10216-2A|VT10416-[12]'
   device: 'tablet'
   models:
+    - regex: 'ST10216-2A|VT10416-[12]'
+      model: 'SurfTab 10.1'
     - regex: 'TrekStor ([^/;]+) Build'
       model: '$1'
+    - regex: 'Surftab ([^/;]+) Build'
+      model: 'SurfTab $1'
+    - regex: 'Surftab[ _]([^;]*)(?:;|$)'
+      model: 'SurfTab $1'
 
 # Trevi
 Trevi:
