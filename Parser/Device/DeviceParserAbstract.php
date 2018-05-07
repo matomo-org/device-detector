@@ -277,6 +277,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'NW' => 'Newgen',
         'NX' => 'Nexian',
         'NT' => 'NextBook',
+        'OB' => 'Obi',
         'O1' => 'Odys',
         'OD' => 'Onda',
         'ON' => 'OnePlus',
