@@ -2274,10 +2274,16 @@ Gigabyte:
 
 # Gigaset
 Gigaset:
-  regex: 'Gigaset QV(1030|830)'
-  device: 'tablet'
-  model: 'Gigaset QV$1'
-
+  regex: 'Gigaset'
+  device: 'smartphone'
+  models:
+    - regex: 'Gigaset QV(1030|830)'
+      model: 'Gigaset QV$1'
+      device: 'tablet'
+    - regex: 'Gigaset ([^;/]+) Build'
+      model: '$1'
+    - regex: 'Gigaset ([^;/)]+)[);/ ]'
+      model: '$1'
 # Gionee
 Gionee:
   regex: '(?:GIO-)?GIONEE[ _-]?[a-z0-9]+|(?:Dream_D1|V188S?|GN[0-9]{3,4}[a-z]?)[);/ ]'
