@@ -679,7 +679,7 @@ class DeviceDetector
         /**
          * Assume all devices running iOS / Mac OS are from Apple
          */
-        if (empty($this->brand) && in_array($osShortName, ['ATV', 'IOS', 'MAC'])) {
+        if (empty($this->brand) && in_array($osShortName, array('ATV', 'IOS', 'MAC'))) {
             $this->brand = 'AP';
         }
 
