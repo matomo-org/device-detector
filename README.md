@@ -93,6 +93,28 @@ if (!is_null($result)) {
 
 ```
 
+## Using without composer
+
+Alternatively to using composer you can also use the included `autoload.php`.
+This script will register an autoloader to dynamically load all classes in `DeviceDetector` namespace.
+
+Device Detector requires a YAML parser. By default `Spyc` parser is used.
+As this library is not included you need to include it manually or use another YAML parser.
+
+```php
+<?php
+
+include_once 'path/to/spyc/Spyc.php';
+include_once 'path/to/device-detector/autoload.php';
+
+use DeviceDetector\DeviceDetector;
+
+$deviceDetector = new DeviceDetector();
+
+// ...
+
+```
+
 
 ### Caching
 
