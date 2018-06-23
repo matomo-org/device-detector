@@ -46,6 +46,7 @@ class OperatingSystem extends ParserAbstract
         'DFB' => 'DragonFly',
         'FED' => 'Fedora',
         'FOS' => 'Firefox OS',
+        'FIR' => 'Fire OS',
         'BSD' => 'FreeBSD',
         'GNT' => 'Gentoo',
         'GTV' => 'Google TV',
@@ -114,7 +115,7 @@ class OperatingSystem extends ParserAbstract
      * @var array
      */
     protected static $osFamilies = array(
-        'Android'               => array('AND', 'CYN', 'REM', 'RZD', 'MLD', 'MCD', 'YNS'),
+        'Android'               => array('AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS'),
         'AmigaOS'               => array('AMG', 'MOR'),
         'Apple TV'              => array('ATV'),
         'BlackBerry'            => array('BLB', 'QNX'),
