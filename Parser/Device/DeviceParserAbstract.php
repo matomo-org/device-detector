@@ -152,6 +152,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'EK' => 'EKO',
         'E1' => 'Energy Sistem',
         'ER' => 'Ericy',
+        'EE' => 'Essential',
         'EN' => 'Eton',
         'ET' => 'eTouch',
         'EV' => 'Evertek',
