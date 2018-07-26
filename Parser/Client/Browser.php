@@ -146,6 +146,7 @@ class Browser extends ClientParserAbstract
         'OT' => 'Otter Browser',
         'PL' => 'Palm Blazer',
         'PM' => 'Pale Moon',
+        'PP' => 'Oppo Browser',
         'PR' => 'Palm Pre',
         'PU' => 'Puffin',
         'PW' => 'Palm WebPro',
