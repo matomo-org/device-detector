@@ -376,6 +376,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'TX' => 'TechniSat',
         'TZ' => 'teXet',
         'UL' => 'Ulefone',
+        'UO' => 'Unnecto',
         'UN' => 'Unowhy',
         'US' => 'Uniscope',
         'UM' => 'UMIDIGI',
