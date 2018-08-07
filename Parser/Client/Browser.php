@@ -132,6 +132,7 @@ class Browser extends ClientParserAbstract
         'NL' => 'NetFront Life',
         'NP' => 'NetPositive',
         'NS' => 'Netscape',
+        'NT' => 'NTENT Browser',
         'OB' => 'Obigo',
         'OD' => 'Odyssey Web Browser',
         'OF' => 'Off By One',
