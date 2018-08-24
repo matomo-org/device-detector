@@ -11,8 +11,9 @@ use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
 use DeviceDetector\Parser\ParserAbstract;
 use DeviceDetector\Yaml\Symfony;
+use PHPUnit\Framework\TestCase;
 
-class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
+class DeviceDetectorTest extends TestCase
 {
     /**
      * @expectedException \Exception
@@ -234,6 +235,16 @@ class DeviceDetectorTest extends \PHPUnit_Framework_TestCase
             )
         );
         $this->assertEquals($expected, DeviceDetector::getInfoFromUserAgent($expected['user_agent']));
+    }
+
+
+    public function testParseNoDetails()
+    {
+        $user_agent = 'Googlebot/2.1 (http://www.googlebot.com/bot.html)';
+        $dd = new DeviceDetector($user_agent);
+        $dd->discardBotInformation();
+        $dd->parse();
+        $this->assertTrue($dd->getBot());
     }
 
     public function testMagicMMethods()

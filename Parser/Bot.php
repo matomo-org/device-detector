@@ -16,7 +16,7 @@ namespace DeviceDetector\Parser;
  *
  * @package DeviceDetector\Parser
  */
-class Bot extends ParserAbstract
+class Bot extends BotParserAbstract
 {
     protected $fixtureFile = 'regexes/bots.yml';
     protected $parserName = 'bot';
@@ -51,18 +51,16 @@ class Bot extends ParserAbstract
         $result = null;
 
         if ($this->preMatchOverall()) {
-            foreach ($this->getRegexes() as $regex) {
-                $matches = $this->matchUserAgent($regex['regex']);
-
-                if ($matches) {
-                    if ($this->discardDetails) {
-                        $result = true;
+            if ($this->discardDetails) {
+                $result = true;
+            } else {
+                foreach ($this->getRegexes() as $regex) {
+                    $matches = $this->matchUserAgent($regex['regex']);
+                    if ($matches) {
+                        unset($regex['regex']);
+                        $result = $regex;
                         break;
                     }
-
-                    unset($regex['regex']);
-                    $result = $regex;
-                    break;
                 }
             }
         }

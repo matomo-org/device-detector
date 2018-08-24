@@ -9,8 +9,9 @@ namespace DeviceDetector\Tests\Parser\Device;
 
 use DeviceDetector\Parser\Device\CarBrowser;
 use \Spyc;
+use PHPUnit\Framework\TestCase;
 
-class CarBrowserTest extends \PHPUnit_Framework_TestCase
+class CarBrowserTest extends TestCase
 {
     /**
      * @dataProvider getFixtures

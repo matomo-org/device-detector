@@ -12,6 +12,20 @@
   engine:
     default: 'Edge'
 
+# Microsoft Edge for iOS
+- regex: 'EdgiOS[ /](\d+[\.\d]+)'
+  name: 'Microsoft Edge'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+
+# Microsoft Edge for Android
+- regex: 'EdgA[ /](\d+[\.\d]+)'
+  name: 'Microsoft Edge'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
 # 360 Browser
 - regex: 'QIHU 360[ES]E'
   name: '360 Browser'
@@ -57,6 +71,11 @@
   name: 'Aloha Browser'
   version: '$1'
 
+#Avast Secure Browser
+- regex: 'Avast(?:/(\d+[\.\d]+))?'
+  name: 'Avast Secure Browser'
+  version: '$1'
+
 #Epic
 - regex: 'Epic(?:/(\d+[\.\d]+))?'
   name: 'Epic'
@@ -95,6 +114,11 @@
   version: ''
   engine:
     default: '' # multiple
+
+#Oppo Browser
+- regex: 'OppoBrowser(?:/(\d+[\.\d]+))?'
+  name: 'Oppo Browser'
+  version: '$1'
 
 #Amigo
 - regex: 'Chrome/(\d+[\.\d]+).*MRCHROME'
@@ -190,6 +214,16 @@
   version: '$1'
   engine:
     default: 'Gecko'
+
+#Cunaguaro
+- regex: 'Cunaguaro(?:/(\d+[\.\d]+))?'
+  name: 'Cunaguaro'
+  version: '$1'
+
+#Firefox Focus / Firefox Klar
+- regex: '(?:Focus|Klar)(?:/(\d+[\.\d]+))?'
+  name: 'Firefox Focus'
+  version: '$1'
 
 #Cyberfox
 - regex: 'Cyberfox(?:/(\d+[\.\d]+))?'
@@ -322,13 +356,13 @@
     default: 'Presto'
     versions:
       15: 'Blink'
-- regex: '(?:Opera|OPR)[/ ]?(?:9.80.*Version/)?(\d+[\.\d]+)'
+- regex: '(?:Opera[/ ]?|OPR[/ ])(?:9.80.*Version/)?(\d+[\.\d]+)'
   name: 'Opera'
   version: '$1'
   engine:
     default: ''
     versions:
-      3.5: 'Elektra'
+      '3.5': 'Elektra'
       7: 'Presto'
       15: 'Blink'
 
@@ -457,8 +491,8 @@
   engine:
     default: 'Gecko'
     versions:
-      2.9.16: '' # multi engine
-      2.28: 'WebKit'
+      '2.9.16': '' # multi engine
+      '2.28': 'WebKit'
 
 # Liebao
 - regex: 'LBBrowser(?:[ /](\d+[\.\d]+))?'
@@ -802,7 +836,7 @@
   version: '$1'
   engine:
     default: 'Trident'
-- regex: 'IE[ /](\d+[\.\d]++)'
+- regex: 'IE[ /](\d+[\.\d]+)'
   name: 'Internet Explorer'
   version: '$1'
   engine:
@@ -889,6 +923,11 @@
 #NetPositive
 - regex: 'NetPositive(?:/(\d+[\.\d]+))?'
   name: 'NetPositive'
+  version: '$1'
+
+# NTENT Browser
+- regex: 'NTENTBrowser(?:/(\d+[\.\d]+))?'
+  name: 'NTENT Browser'
   version: '$1'
 
 #Obigo
@@ -1057,3 +1096,10 @@
 - regex: 'Dorado WAP-Browser[/ ](\d+[\.\d]+)'
   name: 'Dorado'
   version: '$1'
+
+#NetSurf
+- regex: 'NetSurf(?:/(\d+[\.\d]+))?'
+  name: 'NetSurf'
+  version: '$1'
+  engine:
+    default: 'NetSurf'
