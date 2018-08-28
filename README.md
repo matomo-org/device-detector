@@ -179,7 +179,7 @@ See also: [QA at Matomo](http://matomo.org/qa/)
 cd /path/to/device-detector
 curl -sS https://getcomposer.org/installer | php
 php composer.phar install
-phpunit
+./vendor/bin/phpunit
 ```
 
 ## Device Detector for other languages

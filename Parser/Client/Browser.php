@@ -57,6 +57,7 @@ class Browser extends ClientParserAbstract
         'C1' => 'Coast',
         'CX' => 'Charon',
         'CF' => 'Chrome Frame',
+        'HC' => 'Headless Chrome',
         'CH' => 'Chrome',
         'CI' => 'Chrome Mobile iOS',
         'CK' => 'Conkeror',
