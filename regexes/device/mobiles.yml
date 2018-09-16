@@ -296,7 +296,7 @@ TiPhone:
 
 # Apple
 Apple:
-  regex: '(?:iTunes-)?AppleTV|(?:Apple-)?(?:iPad|iPhone)|iPh[0-9],[0-9]|CFNetwork'
+  regex: '(?:iTunes-)?AppleTV|(?:Apple-|iTunes-)?(?:iPad|iPhone)|iPh[0-9],[0-9]|CFNetwork'
   models:
     # specific smartphone devices
     - regex: '(?:Apple-)?iPh(?:one)?1[C,]1'
@@ -407,9 +407,15 @@ Apple:
     - regex: '(?:iTunes-)?AppleTV'
       model: 'Apple TV'
       device: 'tv'
+    - regex: 'iTunes-iPad/[0-9]+(?:\.[0-9]+)* \(([^;]+);'
+      model: 'iPad $1'
+      device: 'tablet'
     - regex: '(?:Apple-)?iPad'
       model: 'iPad'
       device: 'tablet'
+    - regex: 'iTunes-iPhone/[0-9]+(?:\.[0-9]+)* \(([^;]+);'
+      model: 'iPhone $1'
+      device: 'smartphone'
     - regex: '(?:Apple-)?iPhone ?(3GS?|4S?|5[CS]?|6(:? Plus)?)?'
       model: 'iPhone $1'
       device: 'smartphone'
