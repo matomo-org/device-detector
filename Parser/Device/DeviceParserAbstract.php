@@ -167,6 +167,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'FL' => 'Fly',
         'FT' => 'Freetel',
         'FO' => 'Foxconn',
+        'FN' => 'FNB',
         'FU' => 'Fujitsu',
         'GM' => 'Garmin-Asus',
         'GA' => 'Gateway',
