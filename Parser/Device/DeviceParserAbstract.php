@@ -260,6 +260,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'MC' => 'Mediacom',
         'MK' => 'MediaTek',
         'MO' => 'Mio',
+        'M7' => 'Miray',
         'MM' => 'Mpman',
         'M4' => 'Modecom',
         'MF' => 'Mofut',
