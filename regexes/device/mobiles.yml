@@ -2701,11 +2701,14 @@ Grundig:
 
 # Haier
 Haier:
-  regex: 'Haier|(?:HW-)?W(?:716|757|860|970)[);/ ]'
+  regex: 'Haier|(?:HW-)?W(?:716|757|860|970)[);/ ]|(?:PAD[ _](D71|G781|d85))'
   device: 'smartphone'
   models:
     - regex: '(?:HW-)?W(716|757|860|970)[);/ ]'
       model: 'W$1'
+    - regex: 'PAD[ -_](D71|G781|d85)'
+      device: 'tablet'
+      model: '$1'
     - regex: 'Haier[ _\-](H[WT]-[^/;]+) Build'
       model: '$1'
     - regex: 'Haier[ _\-](H[WT]-[a-z0-9_\-]+)'
@@ -3760,7 +3763,7 @@ Lexibook:
 
 # lg
 LG:
-  regex: 'LG|portalmmm/2\.0 (?:KE|KG|KP|L3)|(?:VX[0-9]+|L-0[12]D|L-07C|P713|LM-Q710(?:\(FGN\))?|LM-X210(?:\(G\)|CM)?|LM-G710N)[);/ ]|NetCast|VS(?:995|410PP|415PP|425PP)'
+  regex: 'LG|portalmmm/2\.0 (?:KE|KG|KP|L3)|(?:VX[0-9]+|L-0[12]D|L-07C|P713|LM-Q710(?:\(FGN\))?|LM-X210(?:\(G\)|CM)?|LM-G710N)[);/ ]|NetCast|VS(?:995|410PP|415PP|425PP)|Nexsus 5'
   device: 'smartphone'
   models:
     - regex: 'LG-D325'
@@ -3883,6 +3886,8 @@ LG:
     - regex: 'portalmmm/2.0 ((?:KE|KG|KP|L3)[a-z0-9]+)'
       model: '$1'
     - regex: '(VX[0-9]+)'
+      model: '$1'
+    - regex: '(Nexsus 5)'
       model: '$1'
 
 # Lingwin
@@ -5064,6 +5069,16 @@ phoneOne:
   regex: 'phoneOne[ \-]?([a-z0-9]+)'
   device: 'smartphone'
   model: '$1'
+
+# Primepad
+Primepad:
+  regex: 'PD\-(3127NC|3127) Build'
+  device: 'tablet'
+  models:
+    - regex: 'PD\-3127NC Build'
+      model: 'PD-3127NC'
+    - regex: 'PD\-3127 Build'
+      model: 'PD-3127'
 
 # Pioneer
 Pioneer:
