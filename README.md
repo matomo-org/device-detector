@@ -187,7 +187,7 @@ There are already a few ports of this tool to other languages:
 
 - **.NET** https://github.com/totpero/DeviceDetector.NET
 - **Ruby** https://github.com/podigee/device_detector
-- **Node.JS** https://github.com/sanchezzzhak/node-device-detector
+- **Javascript/Node.js** https://github.com/etienne-martin/device-detector-js
 - **Python 3** https://github.com/thinkwelltwd/device_detector
 
 
