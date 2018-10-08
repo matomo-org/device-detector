@@ -142,6 +142,7 @@ class Browser extends ClientParserAbstract
         'OM' => 'Opera Mobile',
         'OP' => 'Opera',
         'ON' => 'Opera Next',
+        'OO' => 'Opera Touch',
         'OR' => 'Oregano',
         'OV' => 'Openwave Mobile Browser',
         'OW' => 'OmniWeb',
@@ -207,7 +208,7 @@ class Browser extends ClientParserAbstract
         'NetFront'           => array('NF'),
         'NetSurf'            => array('NE'),
         'Nokia Browser'      => array('NB', 'NO', 'NV', 'DO'),
-        'Opera'              => array('OP', 'OM', 'OI', 'ON'),
+        'Opera'              => array('OP', 'OM', 'OI', 'ON', 'OO'),
         'Safari'             => array('SF', 'MF'),
         'Sailfish Browser'   => array('SA'),
     );
