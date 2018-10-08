@@ -6406,9 +6406,22 @@ Tesco:
 
 # teXet
 teXet:
-  regex: '(NaviPad [^/;]*) Build'
+  regex: 'Texet|(NaviPad [^/;]*) Build|TM-(?:4503|4083|500[567]|3204R|5016|8043|7047HD[ _]3G|8041HD|7052|7041)|TB-771A'
   device: 'tablet'
-  model: '$1'
+  models:
+   - regex: '(NaviPad [^/;]*) Build'
+     model: '$1'
+   - regex: '(TM-(?:8043|7052|7041|7047HD[_ ]3G|8041HD)|TB-771A)'
+     model: '$1'
+   - regex: '(TM-(?:4503|4083|500[56]|3204R))'
+     device: 'smartphone'
+     model: '$1'
+   - regex: 'TM-5007'
+     device: 'smartphone'
+     model: 'X-shine'
+   - regex: 'TM-5016'
+     device: 'smartphone'
+     model: 'X-maxi 2'
 
 # Telenor
 Telenor:
@@ -7597,10 +7610,10 @@ Lemhoov:
 
 #MTC
 MTC:
-  regex: 'MTC[ _](978|982|982O|982T)|SMART[ _]Race[ _]4G'
+  regex: 'MTC[ _](978|982[OT]|982)|SMART[ _]Race[ _]4G'
   device: 'smartphone'
   models:
-    - regex: 'MTC[ _](978|982|982O|982T)'
+    - regex: 'MTC[ _](978|982[OT]|982)'
       model: '$1'
     - regex: 'SMART[ _]Race[ _]4G'
       model: 'Smart Race 4G'
