@@ -376,6 +376,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'TN' => 'Thomson',
         'T1' => 'Tolino',
         'TO' => 'Toplux',
+        'T8' => 'Touchmate',
         'TS' => 'Toshiba',
         'TT' => 'TechnoTrend',
         'T6' => 'TrekStor',
