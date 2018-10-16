@@ -6548,10 +6548,17 @@ Toplux:
   model: '$1'
 
 # Touchmate
-Toplux:
-  regex: 'Touchmate ([^/;]+) Build'
+Touchmate:
+  regex: 'TOUCHMATE|(TM-(?:MID1020A|MID710|MID798|MID792|MID788D|SM500N|SM410))'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: '(TM-(?:MID1020A|MID710|MID798|MID792|MID788D))'
+      device: 'tablet'
+      model: '$1'
+    - regex: '(TM-(?:SM500N|SM410))'
+      model:  '$1'
+    - regex: 'Touchmate ([^/;]+) Build'
+      model:  '$1'
 
 # TrekStor
 TrekStor:
