@@ -356,6 +356,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'S7' => 'Smartisan',
         'S4' => 'Star',
         'S8' => 'STK',
+        'S9' => 'Savio',
         'ST' => 'Storex',
         'S2' => 'Stonex',
         'S3' => 'SunVan',
