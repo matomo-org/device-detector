@@ -227,6 +227,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'KP' => 'KOPO',
         'KW' => 'Konrow',
         'KR' => 'Koridy',
+        'KS' => 'Kempler & Strauss',
         'KU' => 'Kumai',
         'KY' => 'Kyocera',
         'KZ' => 'Kazam',
