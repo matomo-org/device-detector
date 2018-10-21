@@ -127,6 +127,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'CU' => 'Cube',
         'CY' => 'Coby Kyros',
         'C6' => 'Comio',
+        'C7' => 'ComTrade Tesla',
         'C4' => 'Cyrus',
         'DA' => 'Danew',
         'DT' => 'Datang',
