@@ -24,27 +24,13 @@ services:
 before_script:
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm" ]; then echo "extension = memcache.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
   - (composer self-update; true)
-  - composer require satooshi/php-coveralls ~1.0.0
+  - if [[ "$TRAVIS_PHP_VERSION" = 7.0 ]]; then composer require php-coveralls/php-coveralls ^2.1; fi
   - composer require doctrine/cache ~1.2
   - composer install
 
 script:
+  - mkdir -p build/logs
   - ./vendor/phpunit/phpunit/phpunit --coverage-clover build/logs/clover.xml
 
-after_script:
-  - php vendor/bin/coveralls -v
-
-notifications:
-  slack:
-    rooms:
-      - piwik:3HWhNh21qPfDACQXTrJOb0mW#device-detector
-      - piwikpro:7OABSbDrywSTo2nv9lD2svXG
-
-  irc:
-    skip_join: true
-    on_success: change
-    channels:
-      - "irc.freenode.org#piwik-dev"
-    template:
-      - "%{repository} (%{commit}) : %{message} %{foo} "
-      - "Device Detector Build details: %{build_url}"
+after_success:
+  - if [[ "$TRAVIS_PHP_VERSION" = 7.0 ]]; then travis_retry php vendor/bin/php-coveralls -v; fi
