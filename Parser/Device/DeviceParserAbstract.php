@@ -278,6 +278,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'ML' => 'MLLED',
         'MQ' => 'M.T.T.',
         'MY' => 'MyPhone',
+        'M8' => 'Myria',
         'NE' => 'NEC',
         'NF' => 'Neffos',
         'NA' => 'Netgear',
