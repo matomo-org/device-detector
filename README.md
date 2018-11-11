@@ -189,6 +189,7 @@ There are already a few ports of this tool to other languages:
 - **Ruby** https://github.com/podigee/device_detector
 - **Javascript/Node.js** https://github.com/etienne-martin/device-detector-js
 - **Python 3** https://github.com/thinkwelltwd/device_detector
+- **Crystal** https://github.com/creadone/device_detector
 
 
 ## What Device Detector is able to detect
