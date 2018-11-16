@@ -214,6 +214,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'IQ' => 'INQ',
         'IT' => 'Intek',
         'IV' => 'Inverto',
+        'I3' => 'Impression',
         'IZ' => 'iTel',
         'JA' => 'JAY-Tech',
         'JI' => 'Jiayu',

@@ -1996,13 +1996,15 @@ DoCoMo:
 
 # Doogee
 Doogee:
-  regex: 'DOOGEE[ _-]|Valencia2_Y100pro|(BIGBOY|COLLO[23]?|DAGGER|DISCOVERY2?|FIND|HOTWIND|LATTE|MAX|MINT|MOON|PIXELS|RAINBOX|TURBO|VALENCIA|VOYAGER2?|TITANS2?)[ -_](DG[0-9]+C?)[);/ ]|BL5000[);/ ]'
+  regex: 'DOOGEE[ _-]|Valencia2_Y100pro|X5max(?:[_ ]PRO)?|(BIGBOY|COLLO[23]?|DAGGER|DISCOVERY2?|FIND|HOTWIND|LATTE|MAX|MINT|MOON|PIXELS|RAINBOX|TURBO|VALENCIA|VOYAGER2?|TITANS2?)[ -_](DG[0-9]+C?)[);/ ]|BL5000[);/ ]'
   device: 'smartphone'
   models:
     - regex: 'Valencia2_Y100pro'
       model: 'Valencia2 Y100pro'
     - regex: 'BL5000'
       model: 'BL5000'
+    - regex: '(X5max(?:[_ ]PRO)?)'
+      model: '$1'
     - regex: '(?:DOOGEE[ _-])?(BIGBOY|COLLO[23]?|DAGGER|DISCOVERY2?|FIND|HOTWIND|LATTE|MAX|MINT|MOON|PIXELS|RAINBOX|TURBO|VALENCIA|Valencia2_Y100pro|VOYAGER2?|TITANS2?)[ -_](DG[0-9]+C?)[);/ ]'
       model: '$1 $2'
     - regex: 'DOOGEE[ _-]([^);/]+) Build'
@@ -3578,6 +3580,22 @@ iOcean:
     - regex: 'iOCEAN[ _\-]?([^);/ ]+)'
       model: '$1'
 
+# Impression
+Impression:
+  regex: '(?:Impression[ _\-]?([^/;]+)|A502|I10\-LE|ImPad[ _]?(?:0113|0314|0413|)) Build'
+  device: 'tablet'
+  models:
+    - regex: '(A502)'
+      model: '$1'
+      device: 'smartphone'
+    - regex: 'ImPad[ _]?(0113|0314|0413)'
+      model: 'ImPad $1'
+    - regex: '(I10\-LE)'
+      model: '$1'
+      device: 'smartphone'
+    - regex: 'Impression[ _\-]?([^/;]+) Build'
+      model: '$1'
+
 # iTel
 iTel:
   regex: 'itel|iNote'
@@ -4488,7 +4506,7 @@ MEEG:
 
 # Meizu
 Meizu:
-  regex: 'Meizu|MZ-[a-z]|(M04[05]|M35[1356]|MX[ -]?[2345](?: Pro)?|(?:MZ-)?m[1-6] note|M57[18]C|M3[ESX]|M031|m1 metal|M1 E|M2|M2 E|PRO 6|PRO 7-H)[);/ ]'
+  regex: 'Meizu|MZ-[a-z]|(M04[05]|M35[1356]|M6T|MX[ -]?[2345](?: Pro)?|(?:MZ-)?m[1-6] note|M57[18]C|M3[ESX]|M031|m1 metal|M1 E|M2|M2 E|PRO 6|PRO 7-H)[);/ ]'
   device: 'smartphone'
   models:
     - regex: '(?:MZ-)?M571C'
@@ -4503,6 +4521,8 @@ Meizu:
       model: 'M2E'
     - regex: '(?:MZ-)?M578C|M2[);/ ]'
       model: 'M2'
+    - regex: 'M6T'
+      model: 'M6T'
     - regex: 'M3E'
       model: 'M3E'
     - regex: 'M3S'
