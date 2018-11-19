@@ -501,7 +501,7 @@ Bravis:
 
 # Acer
 Acer:
-  regex: 'acer|(?<!ZTE BLADE )a(?:101|110|200|210|211|500|501|510|511|700|701)[);/ ]|Android.*V3[67]0[);/ ]|Android.*Z1[23456]0 Build|Android.*Z5\d{2} Build|Android.*T0[234678] Build|A1-830|A1-81[01]|A3-A[1234][01]|B1-7[1235678][01]|B1-7[23]3|B1-8[1235]0|B1-A71|B3-A[12]0|B3-A3[02]|E39 Build|S5[12]0 Build|DA[0-9]+HQ?L[);/ ]'
+  regex: 'acer|(?<!ZTE BLADE |ImSmart )a(?:101|110|2[10]0|211|50[10]|51[10]|70[10])[);/ ]|Android.*V3[67]0[);/ ]|Android.*Z1[23456]0 Build|Android.*Z5\d{2} Build|Android.*T0[234678] Build|A1-830|A1-81[01]|A3-A[1234][01]|B1-7[1235678][01]|B1-7[23]3|B1-8[1235]0|B1-A71|B3-A[12]0|B3-A3[02]|E39 Build|S5[12]0 Build|DA[0-9]+HQ?L[);/ ]'
   device: 'smartphone'
   models:
     # smart displays
@@ -579,7 +579,7 @@ Acer:
       model: '$1'
     - regex: 'acer[\-_]([a-z0-9]+)'
       model: '$1'
-    - regex: 'a(101|110|200|210|211|500|501|510|511|700|701)[);/ ]'
+    - regex: 'a(101|110|2[10]0|211|50[10]|51[10]|70[10])[);/ ]'
       model: 'Iconia Tab A$1'
       device: 'tablet'
 
@@ -3582,13 +3582,16 @@ iOcean:
 
 # Impression
 Impression:
-  regex: '(?:Impression[ _\-]?([^/;]+)|A502|I10\-LE|ImPad[ _]?(?:0113|0314|0413|)) Build'
+  regex: '(?:Impression[ _\-]?([^/;]+)|A502|I10\-LE|ImPad[ _]?(.*)|ImSmart[ _]?(.*)) Build'
   device: 'tablet'
   models:
     - regex: '(A502)'
       model: '$1'
       device: 'smartphone'
-    - regex: 'ImPad[ _]?(0113|0314|0413)'
+    - regex: 'ImSmart[ _]?(.*) Build'
+      model: 'ImSmart $1'
+      device: 'smartphone'
+    - regex: 'ImPad[ _]?(.*) Build'
       model: 'ImPad $1'
     - regex: '(I10\-LE)'
       model: '$1'
@@ -6759,7 +6762,7 @@ teXet:
       model: 'NaviPad 3G'
     - regex: 'TM-9758'
       model: 'X-pad Style 10'
-    - regex: '(X-pad (?:AIR 0 8|iX 7) 3G)'
+    - regex: '(X-pad (?:AIR 8|iX 7) 3G)'
       model: '$1'
     - regex: 'TM-7096'
       model: 'X-pad NAVI 7.3 3G'
