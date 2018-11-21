@@ -414,6 +414,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'VR' => 'Vernee',
         'VL' => 'Verykool',
         'VV' => 'Vivo',
+        'V3' => 'Vinsoc',
         'V2' => 'Vonino',
         'V1' => 'Voto',
         'VO' => 'Voxtel',
