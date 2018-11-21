@@ -3532,7 +3532,7 @@ INQ:
 
 # Intex
 Intex:
-  regex: 'Intex|(Aqua|Cloud)[ _\.]([^/;\)]+)(?:[ _]Build|(?<!Build)/|\))'
+  regex: 'Intex|(Aqua|Cloud[ _][XY][0-9]{1})'
   device: 'smartphone'
   models:
     - regex: 'Intex[ _]([^/;]*)[ _]Build'
@@ -8122,9 +8122,25 @@ Zuum:
 
 # Zen
 Zen:
-  regex: '(Admire[_ ][^/;]+|Cinemax[^/;)]+)(?:Build|\) U)'
+  regex: '(Admire[_ ][^/;]+|Cinemax[^/;)]+)(?:Build|\))'
   device: 'smartphone'
   model: '$1'
+
+# Zync
+Zync:
+  regex: 'ZYNC|(Cloud Z5|Z1000|Z18|Z99 Dual Core|Z99[_ ][23]G|Z99|Z900[_ ]Plus|Z909|Z930[+]|Z930)'
+  device: 'tablet'
+  models:
+    - regex: '(Z18|Z99 Dual Core|Z99[_ ][23]G|Z99|Z900[_ ]Plus|Z909|Z930[+]|Z930)'
+      model: '$1'
+    - regex: '(Z1000[^/;]+)Build'
+      model: '$1'
+    - regex: 'Cloud (Z5)'
+      model: 'Cloud $1'
+    - regex: 'ZYNC Cloud[ _]([^;]+)Build'
+      model: 'Cloud $1'
+    - regex: 'ZYNC[ _]([^;]+)Build'
+      model: '$1'
 
 # Lemhoov
 Lemhoov:
