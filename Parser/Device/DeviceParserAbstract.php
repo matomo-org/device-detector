@@ -214,6 +214,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'IQ' => 'INQ',
         'IT' => 'Intek',
         'IV' => 'Inverto',
+        'I3' => 'Impression',
         'IZ' => 'iTel',
         'JA' => 'JAY-Tech',
         'JI' => 'Jiayu',
@@ -413,6 +414,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'VR' => 'Vernee',
         'VL' => 'Verykool',
         'VV' => 'Vivo',
+        'V3' => 'Vinsoc',
         'V2' => 'Vonino',
         'V1' => 'Voto',
         'VO' => 'Voxtel',
@@ -440,6 +442,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'ZT' => 'ZTE',
         'ZU' => 'Zuum',
         'ZN' => 'Zen',
+        'ZY' => 'Zync',
 
         // legacy brands, might be removed in future versions
         'WB' => 'Web TV',
