@@ -8,6 +8,6 @@ class Pecl implements Parser
         if(function_exists(yaml_parse_file) === false)
             throw new \Exception('Pecl YAML extension is not installed');
         
-		return yaml_parse_file($file);
+        return yaml_parse_file($file);
     }
 }
