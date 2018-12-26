@@ -341,6 +341,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'RK' => 'Roku',
         'RO' => 'Rover',
         'SA' => 'Samsung',
+        'S0' => 'Sanei',
         'SD' => 'Sega',
         'SE' => 'Sony Ericsson',
         'S1' => 'Sencor',
