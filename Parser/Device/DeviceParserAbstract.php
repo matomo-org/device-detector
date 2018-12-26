@@ -64,6 +64,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         '3Q' => '3Q',
         '4G' => '4Good',
         'AC' => 'Acer',
+        'AD' => 'Advance',
         'AZ' => 'Ainol',
         'AI' => 'Airness',
         'AW' => 'Aiwa',
