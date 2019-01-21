@@ -352,6 +352,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'SI' => 'Siemens',
         'SN' => 'Sendo',
         'S6' => 'Senseit',
+        'SW' => 'Sky',
         'SK' => 'Skyworth',
         'SC' => 'Smartfren',
         'SO' => 'Sony',
