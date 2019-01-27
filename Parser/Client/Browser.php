@@ -178,6 +178,7 @@ class Browser extends ClientParserAbstract
         'SP' => 'SuperBird',
         'ST' => 'Streamy',
         'SX' => 'Swiftfox',
+        'TB' => 'Tenta Browser',
         'TZ' => 'Tizen Browser',
         'TS' => 'TweakStyle',
         'UC' => 'UC Browser',
@@ -211,6 +212,7 @@ class Browser extends ClientParserAbstract
         'Opera'              => array('OP', 'OM', 'OI', 'ON', 'OO'),
         'Safari'             => array('SF', 'MF'),
         'Sailfish Browser'   => array('SA'),
+        'Tenta Browser'      => array('TB')
     );
 
     /**
