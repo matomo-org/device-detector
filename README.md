@@ -191,6 +191,7 @@ There are already a few ports of this tool to other languages:
 - **Python 3** https://github.com/thinkwelltwd/device_detector
 - **Crystal** https://github.com/creadone/device_detector
 
+## What Device Detector is able to detect
 
 The lists below are auto generated and updated from time to time. Some of them might not be complete.
 
