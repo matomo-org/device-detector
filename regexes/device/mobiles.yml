@@ -8327,9 +8327,16 @@ Inoi:
 
 # Vertex
 Vertex:
-  regex: '(Impress[ _](?:Wolf|Action|Alfa|Bravo|Calypso|Click|Cult|Dune|Eagle)|Baccara|Eagle[ _]4G)'
+  regex: 'V709X|Baccara|Eagle[ _]4G|Impress[ _]([^;/]+)(?:Build|\))'
   device: 'smartphone'
-  model: '$1'
+  models: '$1'
+    - regex: '(Baccara|Eagle[ _]4G)'
+      model: '$1'
+    - regex: '(Impress[ _]([^;/]+))(?:Build|\))'
+      model: '$1'
+    - regex: '(V709X)'
+      device: 'tablet'
+      model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
