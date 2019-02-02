@@ -3072,7 +3072,7 @@ Hosin:
 
 # Huawei
 Huawei:
-  regex: '(HW-)?(?:Huawei|Ideos|Honor[ _]?|(?:(?:ALE|ALP|ANE|ATU|BAC|BKL|BLL|BLN|BND|BLA|CAM|CHE[12]|CHM|CLT|COL|CRR|DIG|DLI|DRA|EML|EVA|EVR|FIG|FRD|SLA|STF|G621|H[36]0|KIW|LDN|LLD|LUA|LYA|MHA|MYA|NEO|NEM|PLE|PLK|PRA|RNE|SCL|SNE|TIT|TRT|VIE|VKY|VTR|WAS)-[A-Z]{0,2}[0-9]{1,4}[A-Z]?|U(?:8230|8500|8661|8665|8667|8800|8818|8860|9200|9508))[);/ ])|Bucare Y330-U05|hi6210sft'
+  regex: '(HW-)?(?:Huawei|Ideos|Honor[ _]?|(?:(?:ALE|ALP|ANE|ATU|BAC|BKL|BLL|BLN|BND|BLA|CAM|CHE[12]|CHM|CLT|COL|CRR|DIG|DLI|DRA|EML|EVA|EVR|FIG|FRD|SLA|STF|G621|H[36]0|KIW|LDN|LLD|LUA|LYA|MHA|MYA|NEO|NEM|PLE|PLK|PRA|RNE|SCL|SNE|TIT|TRT|VIE|VKY|VTR|WAS|AUM)-[A-Z]{0,2}[0-9]{1,4}[A-Z]?|U(?:8230|8500|8661|8665|8667|8800|8818|8860|9200|9508))[);/ ])|Bucare Y330-U05|hi6210sft'
   device: 'smartphone'
   models:
     - regex: 'U(8230|8661|8667)[);/ ]'
@@ -3121,7 +3121,7 @@ Huawei:
       model: 'Honor Y6'
     - regex: '(?:Honor_|HW-)?PLK-(?:AL10|CL00|TL00|TL01H?|UL00|L01)[);/ ]'
       model: 'Honor 7'
-    - regex: '(?:Honor_|HW-)?LND-AL[34]0[);/ ]'
+    - regex: '(?:Honor_|HW-)?(LND-AL[34]0|AUM-L41)[);/ ]'
       model: 'Honor 7C'
     - regex: '(?:Honor_|HW-)?NEM-L51[);/ ]'
       model: 'Honor 5C'
@@ -3137,7 +3137,7 @@ Huawei:
       model: 'Honor 7X'
     - regex: 'FRD-(AL00|L09)'
       model: 'Honor 8'
-    - regex: 'PRA-AL00X'
+    - regex: 'PRA-AL00X|PRA-TL10'
       model: 'Honor 8 Lite'
     - regex: 'STF-(AL10|L09)'
       model: 'Honor 9'
@@ -8299,7 +8299,7 @@ Lemhoov:
     - regex: 'Lemhoov[ _-]([^/;]+) Build'
       model: '$1'
 
-#MTC
+# MTC
 MTC:
   regex: 'MTC[ _](978|982[OT]|982)|SMART[ _]Race[ _]4G'
   device: 'smartphone'
@@ -8308,6 +8308,35 @@ MTC:
       model: '$1'
     - regex: 'SMART[ _]Race[ _]4G'
       model: 'Smart Race 4G'
+
+# MegaFon
+MegaFon:
+  regex: 'MFLoginPh'
+  device: 'smartphone'
+  models:
+    - regex: 'MFLoginPh'
+      model: 'Login+'
+
+# Inoi
+Inoi:
+  regex: 'INOI'
+  device: 'smartphone'
+  models:
+    - regex: 'INOI_([^;/]+)(?:Build|\))'
+      model: '$1'
+
+# Vertex
+Vertex:
+  regex: 'Lion_Dual|V709X|Baccara|Eagle[ _]4G|Impress[ _]([^;/]+)(?:Build|\))'
+  device: 'smartphone'
+  models:
+    - regex: '(Lion_Dual|Baccara|Eagle[ _]4G)'
+      model: '$1'
+    - regex: '(Impress[ _]([^;/]+))(?:Build|\))'
+      model: '$1'
+    - regex: '(V709X)'
+      device: 'tablet'
+      model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
