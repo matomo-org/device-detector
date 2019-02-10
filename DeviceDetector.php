@@ -50,7 +50,7 @@ class DeviceDetector
     /**
      * Current version number of DeviceDetector
      */
-    const VERSION = '3.11.4';
+    const VERSION = '3.11.5';
 
     /**
      * Holds all registered client types
