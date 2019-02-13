@@ -111,7 +111,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'CP' => 'Captiva',
         'CS' => 'Casio',
         'CA' => 'Cat',
-        'CA' => 'CAGI',
+        'C9' => 'CAGI',
         'CE' => 'Celkon',
         'CC' => 'ConCorde',
         'C2' => 'Changhong',
