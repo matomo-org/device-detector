@@ -27,7 +27,7 @@ class Pecl implements Parser
      */
     public function parseFile($file)
     {
-        if(function_exists(yaml_parse_file) === false)
+        if(function_exists('yaml_parse_file') === false)
         {
             throw new Exception('Pecl YAML extension is not installed');
         }
