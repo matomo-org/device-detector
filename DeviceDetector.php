@@ -90,7 +90,7 @@ class DeviceDetector
 
     /**
      * Holds the device type after parsing the UA
-     * @var string
+     * @var int
      */
     protected $device = null;
 
