@@ -166,6 +166,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'EB' => 'E-Boda',
         'EA' => 'EBEST',
         'EC' => 'Ericsson',
+        'ED' => 'Energizer',
         'E4' => 'Echo Mobiles',
         'ES' => 'ECS',
         'E6' => 'EE',
