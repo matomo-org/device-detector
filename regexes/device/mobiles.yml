@@ -4859,18 +4859,18 @@ Landvo:
 
 # lanix
 Lanix:
-  regex: 'LANIX-([a-z0-9]+)|ILIUM[ _]([^;/]+) Build|Ilium|X120C'
+  regex: 'LANIX-([a-z0-9]+)|Ilium[ _]|X120C'
   device: 'smartphone'
   models:
     - regex: 'ILIUM[ _]PAD[ _]([^;/]+) Build'
       model: 'Ilium Pad $1'
       device: 'tablet'
-    - regex: 'ILIUM[ _]([^;/]+) Build'
-      model: 'Ilium $1'
-    - regex: 'Ilium (Alpha 3|L(200|6[12]0|9[125]0|1[0124]00|1050|1120)|LT(5[012]0)|M([139])|S(106|520|6[27]0)|X(1[12]0|2[0126]0|5[12]0|500B|710))'
-      model: 'Ilium $1'
     - regex: 'X120C'
       model: 'Ilium X120C'
+    - regex: 'Ilium[ _](Alpha 3|L(?:200|6[12]0|9[125]0|1[0124]00|1050|1120)|LT5[012]0|M[139]|S(?:106|520|6[27]0)|X(?:1[12]0|2[0126]0|5[12]0|500B|710))'
+      model: 'Ilium $1'
+    - regex: 'ILIUM[ _]([^;/]+) Build'
+      model: 'Ilium $1'
     - regex: 'LANIX-([a-z0-9]+)'
       device: 'feature phone'
       model: '$1'
@@ -4951,7 +4951,7 @@ Lenco:
 
 # lenovo
 Lenovo:
-  regex: '(?:LNV-)?Lenovo|IdeaTab|IdeaPad|Thinkpad|Yoga Tablet|Tab2A[0-9]-[0-9]{2}[a-z]?|YT3-X50L|ZUK[ -_]|K50a40|TB-(8504F|X304F|X704V|X704A)|A2107A-H'
+  regex: '(?:LNV-)?Lenovo|IdeaTab|IdeaPad|Thinkpad|Yoga Tablet|Tab2A[0-9]-[0-9]{2}[a-z]?|YT3-X50L|ZUK[ -_]|K50a40|TB-(8504F|X304F|X704V|X704A)|A2107A-H|S6000[ ;)]'
   device: 'smartphone'
   models:
     - regex: 'Lenovo ?G780'
@@ -5006,6 +5006,9 @@ Lenovo:
       model: 'Yoga Tab 3 8'
       device: 'tablet'
 
+    - regex: 'S6000[ ;)]'
+      model: 'IdeaTab S6000'
+      device: 'tablet'
     - regex: 'Lenovo ([ASB][0-9]{4})[A-Z]?\-[EHF]'
       model: 'IdeaTab $1'
       device: 'tablet'
@@ -5167,7 +5170,7 @@ Lexibook:
 
 # LG
 LG:
-  regex: 'LG|portalmmm/2\.0 (?:KE|KG|KP|L3)|(?:VX[0-9]+|L-0[12]D|L-07C|P713|LM-Q710(?:\(FGN\)|\.FGN?)?|LM-X210(?:\(G\)|CM)?|LM-G710N?|LM-V405|LM-X410(?:\(FGN?\)|\.FGN?))[);/ ]|NetCast|RS987|VS(?:988|99[56]|(410|415|425|500)PP)|Nexsus 5|LML211BL'
+  regex: 'LG|portalmmm/2\.0 (?:KE|KG|KP|L3)|(?:VX[0-9]+|L-0[12]D|L-07C|P713|LM-Q710(?:\(FGN\)|\.FGN?)?|LM-X210(?:\(G\)|CM)?|LM-G710N?|LM-V405|LM-X410(?:\(FGN?\)|\.FGN?))[);/ ]|NetCast|RS987|VS(?:501|988|99[56]|(410|415|425|500)PP)|Nexsus 5|LML211BL|LML212VL'
   device: 'smartphone'
   models:
     - regex: 'LG-D325'
@@ -5190,6 +5193,8 @@ LG:
       model: 'G5 SE'
     - regex: 'VS988'
       model: 'G6'
+    - regex: 'VS501'
+      model: 'K20'
     - regex: '(?:LG-)?H502'
       model: 'Magna'
     - regex: '(?:LG-)?H343'
@@ -5280,7 +5285,7 @@ LG:
       model: 'Leon'
     - regex: '(?:LG)?C660'
       model: 'Optimus Pro'
-    - regex: 'LML211BL'
+    - regex: 'LML211BL|LML212VL'
       model: 'Rebel 4'
 
     - regex: 'LG-V490'
@@ -9744,7 +9749,7 @@ Zopo:
 
 # ZTE
 ZTE:
-  regex: 'ZTE|AxonPhone|([a-z0-9]+)_USA_Cricket|(?:Blade (?:L110|L[2357]|S6|V[678]|X7|A(310|460|465|475|520)|V580)|N9[15]8St|NX(?:403A|406E|40[X2]|507J|503A|505J|506J|508J|510J|511J|513J|521J|523J_V1|529J|531J|541J|549J|551J|563J|569[HJ]|573J|575J|591J|595J|597J|601J|907J)|N951[0579]|N9180|N9101|N913[67]|N952[01]|N9560|N9810|N799D|[UV]9180|[UV]9815|Z(?:233V|331|667T|768G|792|81[25]|82[08]|83[12359]|85[125]|851M|(557|717|798|836|861|916)BL|986DL|(232|718|828)TL|(233|353|558|717|799|837|862|899|917|963)VL|955A|95[678]|965|97[18]|98[1237]|986U|999)|Apex2|G (LTE|Lux)|Vec)[);/ ]|KIS II Max|Kis 3'
+  regex: 'ZTE|AxonPhone|([a-z0-9]+)_USA_Cricket|(?:Blade (?:L110|L[2357]|S6|V[678]|X7|A(310|460|465|475|520)|V580)|N9[15]8St|NX(?:403A|406E|40[X2]|507J|503A|505J|506J|508J|510J|511J|513J|521J|523J_V1|529J|531J|541J|549J|551J|563J|569[HJ]|573J|575J|591J|595J|597J|601J|907J)|N951[0579]|N9180|N9101|N913[67]|N952[01]|N9560|N9810|N799D|[UV]9180|[UV]9815|Z(?:233V|331|667T|768G|792|81[25]|82[08]|83[12359]|85[125]|851M|(557|717|798|836|861|916)BL|986DL|(232|718|828)TL|(233|353|558|717|799|837|862|899|917|963)VL|955A|95[678]|965|97[018]|98[1237]|986U|999)|Apex2|G (LTE|Lux)|Vec)[);/ ]|KIS II Max|Kis 3'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -9952,6 +9957,8 @@ ZTE:
       model: 'ZMax 2'
     - regex: 'Z963VL'
       model: 'Max Duo LTE'
+    - regex: 'Z970'
+      model: 'ZMax Z970'
     - regex: 'Z986DL'
       model: 'MAX Blue LTE'
     - regex: 'Z999'
