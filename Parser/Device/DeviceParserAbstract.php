@@ -413,6 +413,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'SG' => 'Sagem',
         'SH' => 'Sharp',
         'SI' => 'Siemens',
+        'SJ' => 'Silent Circle',
         'SN' => 'Sendo',
         'S6' => 'Senseit',
         'SW' => 'Sky',
