@@ -474,6 +474,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'UO' => 'Unnecto',
         'UN' => 'Unowhy',
         'US' => 'Uniscope',
+        'UX' => 'Unimax',
         'UM' => 'UMIDIGI',
         'UU' => 'Unonu',
         'UT' => 'UTStarcom',
