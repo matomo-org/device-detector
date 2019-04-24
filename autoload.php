@@ -14,17 +14,19 @@
  */
 function dd_autoload($class)
 {
-    $namespace_map = array('DeviceDetector\\' => __DIR__ . '/');
-    foreach ($namespace_map as $prefix => $dir)
-    {
-        /* First swap out the namespace prefix with a directory... */
-        $path = str_replace($prefix, $dir, $class);
-        /* replace the namespace separator with a directory separator... */
-        $path = str_replace('\\', '/', $path);
-        /* and finally, add the PHP file extension to the result. */
-        $path = $path . '.php';
-        /* $path should now contain the path to a PHP file defining $class */
-        @include $path;
+    if (strpos($class, 'DeviceDetector\\') !== false) {
+        $namespace_map = array('DeviceDetector\\' => __DIR__ . '/');
+        foreach ($namespace_map as $prefix => $dir)
+        {
+            /* First swap out the namespace prefix with a directory... */
+            $path = str_replace($prefix, $dir, $class);
+            /* replace the namespace separator with a directory separator... */
+            $path = str_replace('\\', '/', $path);
+            /* and finally, add the PHP file extension to the result. */
+            $path = $path . '.php';
+            /* $path should now contain the path to a PHP file defining $class */
+            @include $path;
+        }
     }
 }
 spl_autoload_register('dd_autoload');

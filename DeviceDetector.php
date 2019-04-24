@@ -50,7 +50,7 @@ class DeviceDetector
     /**
      * Current version number of DeviceDetector
      */
-    const VERSION = '3.11.4';
+    const VERSION = '3.11.6';
 
     /**
      * Holds all registered client types
@@ -90,7 +90,7 @@ class DeviceDetector
 
     /**
      * Holds the device type after parsing the UA
-     * @var string
+     * @var int
      */
     protected $device = null;
 
