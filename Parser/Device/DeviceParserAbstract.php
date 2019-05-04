@@ -416,6 +416,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'SJ' => 'Silent Circle',
         'SN' => 'Sendo',
         'S6' => 'Senseit',
+        'EW' => 'Senwa',
         'SW' => 'Sky',
         'SK' => 'Skyworth',
         'SC' => 'Smartfren',
