@@ -194,13 +194,14 @@ abstract class ParserAbstract
     protected function buildByMatch($item, $matches)
     {
         for ($nb=1;$nb<=3;$nb++) {
-            if (strpos($item, '$' . $nb) === false) {
+            if (strpos($item, '$' . $nb) === false && strpos($item, '$u' . $nb) === false && strpos($item, '$l' . $nb) === false && strpos($item, '$uf' . $nb) === false) {
                 continue;
             }
 
             $replace = isset($matches[$nb]) ? $matches[$nb] : '';
-            $item = trim(str_replace('$' . $nb, $replace, $item));
+            $item = trim(str_replace(array('$' . $nb, '$u' . $nb, '$l' . $nb, '$uf' . $nb), array($replace, strtoupper($replace), strtolower($replace), ucfirst($replace)), $item));
         }
+
         return $item;
     }
 
@@ -225,6 +226,7 @@ abstract class ParserAbstract
             $versionParts = array_slice($versionParts, 0, 1+self::$maxMinorParts);
             $versionString = implode('.', $versionParts);
         }
+
         return trim($versionString, ' .');
     }
 
