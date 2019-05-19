@@ -4968,7 +4968,7 @@ LeEco:
       model: 'Le 2'
     - regex: 'Le ?X([^;/]+) Build'
       model: 'Le X$1'
-    - regex: 'Le ?X([^ ;/]+)'
+    - regex: 'Le ?X([^) ;/]+)'
       model: 'Le X$1'
     - regex: 'Le ?([12][^;/]+) Build'
       model: 'Le $1'
@@ -5237,7 +5237,7 @@ LG:
       model: 'G4'
     - regex: 'LG-H525n?'
       model: 'G4c'
-    - regex: 'LG-H540'
+    - regex: 'LG-(?:H540|H630)'
       model: 'G4 Stylus'
     - regex: 'LG-H735'
       model: 'G4 Beat'
@@ -5331,6 +5331,8 @@ LG:
       model: 'Q6'
     - regex: '(?:LG-?)?K220'
       model: 'X Power'
+    - regex: '(?:LG-?)?M320'
+      model: 'X Power 2'
     - regex: '(?:LG-)?K371'
       model: 'Phoenix 2'
     - regex: '(?:LG-)?M150'
@@ -6006,9 +6008,9 @@ Motorola:
       model: 'Droid Mini'
     - regex: '(?:MOT-|Motorola-)?XT1254'
       model: 'Droid Turbo'
-    - regex: '(?:MOT-|Motorola-)?XT10(?:28|3[1234]|68)'
+    - regex: '(?:MOT-|Motorola-)?XT10(?:28|3[1234]|68|69)'
       model: 'Moto G'
-    - regex: '(?:MOT-|Motorola-)?XT10(?:49|5[23568]|60|9[2345])'
+    - regex: '(?:MOT-|Motorola-)?XT10(?:49|5[23568]|60|9[23457])'
       model: 'Moto X'
     - regex: '(?:MOT-|Motorola-)?XT1562'
       model: 'Moto X Play'
@@ -6021,11 +6023,11 @@ Motorola:
     - regex: '(?:MOT-|Motorola-)?XT1663'
       model: 'Moto M'
 
-    - regex: 'Moto ([CGEZ]) \(([a-z0-9]+)\)( Plus| Play)?'
+    - regex: 'Moto ([CGEXZ]) ?\(([a-z0-9]+)\)( Plus| Play)?'
       model: 'Moto $1$2$3'
-    - regex: 'Moto ?([CGEZ])([0-9]+)( Plus| Play)?'
+    - regex: 'Moto ?([CGEXZ])([0-9]+)( Plus| Play)?'
       model: 'Moto $1$2$3'
-    - regex: 'Moto ?([CGEZ])( Plus| Play)?'
+    - regex: 'Moto ?([CGEXZ])( Plus| Play)?'
       model: 'Moto $1$2'
 
     - regex: 'Motorola[ _\-]([a-z0-9]+)'
@@ -6164,14 +6166,8 @@ Neffos:
   regex: 'Neffos'
   device: 'smartphone'
   models:
-    - regex: 'Neffos ([^/;]+) Build'
+    - regex: 'Neffos[_ ]((?:C|X)[0-9][A-Z]?(?: Max| Lite)?)'
       model: '$1'
-    - regex: 'Neffos ([^/;]+)/'
-      model: '$1'
-    - regex: 'Neffos_C9A'
-      model: 'C9A'
-    - regex: 'Neffos_(C|X)9'
-      model: '$19'
 
 # Nextbit
 Nextbit:
@@ -7091,9 +7087,9 @@ Samsung:
     - regex: '(?:SAMSUNG-)?GT-P7100'
       device: 'tablet'
       model: 'GALAXY Tab 10.1v'
-    - regex: '(?:SAMSUNG-)?GT-P7500'
+    - regex: '(?:SAMSUNG-)?GT-P75[01]0'
       device: 'tablet'
-      model: 'GALAXY Tab 10.1" P7500'
+      model: 'GALAXY Tab 10.1"'
     - regex: '(?:SAMSUNG-)?SM-P600'
       device: 'tablet'
       model: 'GALAXY Note 10.1" 2014 Edition WiFi'
@@ -7439,6 +7435,8 @@ Samsung:
       model: 'GALAXY S9'
     - regex: '(?:SAMSUNG-)?SM-G965[FNUWX0]|SCV39'
       model: 'GALAXY S9+'
+    - regex: '(?:SAMSUNG-)?SM-G973'
+      model: 'GALAXY S10'
     - regex: '(?:SAMSUNG-)?SCH-I200'
       model: 'GALAXY Stellar'
     - regex: '(?:SAMSUNG-)?SCH-I829'
@@ -7521,7 +7519,7 @@ Samsung:
       model: 'GALAXY J5 (2015)'
     - regex: '(?:SAMSUNG-)?SM-J510(?:F|FN|MN)'
       model: 'GALAXY J5 (2016)'
-    - regex: '(?:SAMSUNG-)?SM-J530[FY]'
+    - regex: '(?:SAMSUNG-)?SM-J530'
       model: 'GALAXY J5 (2017)'
     - regex: '(?:SAMSUNG-)?SM-G570[FMY]'
       model: 'GALAXY J5 Prime'
@@ -7549,6 +7547,8 @@ Samsung:
       model: 'GALAXY J7 V'
     - regex: 'SM-J7\[7\]'
       model: 'GALAXY J7 7'
+    - regex: '(?:SAMSUNG-)?SM-J810'
+      model: 'GALAXY J8'
     - regex: 'SM-J8 Pro'
       model: 'GALAXY J8 Pro'
     - regex: 'SM-J9\[7\] Prime'
@@ -9400,7 +9400,7 @@ X-View:
 
 #Xiaomi
 Xiaomi:
-  regex: 'Xiaomi(?!/MiuiBrowser)|(MI [a-z0-9]+|Mi-4c|MI-One[ _]?[a-z0-9]+|MIX 2S?)[);/ ]|HM ([^/;]+) (?:Build|MIUI)|(2014501|2014011|201481[138]|201302[23]|2013061) Build|Redmi|POCOPHONE|SKR-H0'
+  regex: 'Xiaomi(?!/MiuiBrowser)|(?:MI [a-z0-9]+|Mi-4c|MI-One[ _]?[a-z0-9]+|MIX(?: 2S?)?)[);/ ]|HM (?:[^/;]+) (?:Build|MIUI)|(?:2014501|2014011|201481[138]|201302[23]|2013061) Build|Redmi|POCOPHONE|SKR-H0'
   device: 'smartphone'
   models:
     # specific smartphone models
@@ -9422,6 +9422,8 @@ Xiaomi:
       model: 'MI MIX 2S'
     - regex: 'MIX 2[);/ ]'
       model: 'MI MIX 2'
+    - regex: 'MIX[);/ ]'
+      model: 'MI MIX'
     - regex: 'POCOPHONE F1'
       model: 'Pocophone F1'
 
@@ -9447,7 +9449,7 @@ Xiaomi:
 
 # Xion
 Xion:
-  regex: 'XI-CE(655|U[48])'
+  regex: 'XI-CE(?:655|U[48])'
   device: 'smartphone'
   models:
     - regex: 'XI-CE(655|U[48])'
