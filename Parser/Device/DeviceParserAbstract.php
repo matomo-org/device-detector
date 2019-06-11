@@ -242,6 +242,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'I5' => 'InnJoo',
         'IN' => 'Innostream',
         'I4' => 'Inoi',
+        'IR' => 'iRola',
         'II' => 'Inkti',
         'IX' => 'Intex',
         'IO' => 'i-mobile',
