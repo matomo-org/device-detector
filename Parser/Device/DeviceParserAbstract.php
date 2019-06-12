@@ -254,6 +254,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'JA' => 'JAY-Tech',
         'JI' => 'Jiayu',
         'JO' => 'Jolla',
+        'J5' => 'Just5',
         'KL' => 'Kalley',
         'KA' => 'Karbonn',
         'KD' => 'KDDI',
