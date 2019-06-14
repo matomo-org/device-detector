@@ -83,6 +83,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'AR' => 'Archos',
         'AS' => 'ARRIS',
         'AT' => 'Airties',
+        'A6' => 'Ark',
         'A4' => 'Ask',
         'AU' => 'Asus',
         'AH' => 'AVH',
