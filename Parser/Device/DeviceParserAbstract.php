@@ -188,6 +188,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'EX' => 'Explay',
         'E5' => 'Extrem',
         'EZ' => 'Ezze',
+        'E8' => 'E-tel',
         'FA' => 'Fairphone',
         'FI' => 'FiGO',
         'FL' => 'Fly',
@@ -444,7 +445,6 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'SZ' => 'Sumvision',
         'SS' => 'SWISSMOBILITY',
         'X1' => 'Safaricom',
-
         'TA' => 'Tesla',
         'T5' => 'TB Touch',
         'TC' => 'TCL',
