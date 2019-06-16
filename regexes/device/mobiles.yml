@@ -1247,6 +1247,22 @@ Ask:
     - regex: 'SP618'
       model: 'SP618'
 
+# Ark
+Ark:
+  regex: '(ARK[_ -])?Benefit[_ -]([^/;]*) Build|EDGE A5HD|ICON (R40\+|R45)|Impulse[ _](P[12])'
+  device: 'smartphone'
+  models:
+    - regex: '(?:ARK[_ -])?Benefit[_ -]([^/;]*) Build'
+      model: 'Benefit $1'
+    - regex: 'Impulse[ _]P1\+'
+      model: 'Impulse P1 Plus'
+    - regex: 'Impulse[ _](P[12])'
+      model: 'Impulse $1'
+    - regex: 'EDGE (A5HD)'
+      model: 'Edge $1'
+    - regex: 'ICON (R40\+|R45)'
+      model: 'Icon $1'
+
 # Garmin-Asus
 Garmin-Asus:
   regex: 'Garmin-Asus|Garminfone'
@@ -2733,6 +2749,14 @@ Essential:
     - regex: 'PH-1[ )]'
       model: 'PH-1'
 
+# E-tel
+E-tel:
+  regex: 'E-tel_i250'
+  device: 'smartphone'
+  models:
+    - regex: 'E-tel[_ ]i250'
+      model: 'i250'
+
 # Eton
 Eton:
   regex: 'Eton'
@@ -4048,6 +4072,8 @@ Huawei:
       model: 'Mate 10 Pro'
     - regex: 'HMA-(?:[AT]L00|L[02]9)'
       model: 'Mate 20'
+    - regex: 'VOG-AL10'
+      model: 'P30 Pro'
     - regex: 'LYA-(?:AL[01]0|L[02]9)'
       model: 'Mate 20 Pro'
     - regex: 'SNE-(?:AL00|LX[0-3])'
@@ -5827,7 +5853,7 @@ MEEG:
 
 # Meizu
 Meizu:
-  regex: 'Meizu|MZ-[a-z]|(M04[05]|M35[1356]|M6T|MX[ -]?[2345](?: Pro)?|(?:MZ-)?m[1-6] note|M57[18]C|M3[ESX]|M031|m1 metal|M1 E|M2|M2 E|M5s Build|PRO 6|PRO 7-H)[);/ ]'
+  regex: 'Meizu|MZ-[a-z]|(M04[05]|MZ-16s|M35[1356]|M6T|MX[ -]?[2345](?: Pro)?|(?:MZ-)?m[1-6] note|M57[18]C|M3[ESX]|M031|m1 metal|M1 E|M2|M2 E|M5s Build|PRO 6|PRO 7-H)[);/ ]'
   device: 'smartphone'
   models:
     - regex: '(?:MZ-)?M571C'
@@ -6603,9 +6629,11 @@ Onda:
 
 # OnePlus
 OnePlus:
-  regex: '(?:du_)?ONEPLUS|(?:A0001|A200[135]|A300[03]|A3010|A5000|A600[03]|A601[03]|E100[135])(?: Build|\))'
+  regex: '(?:du_)?ONEPLUS|(?:A0001|A200[135]|A300[03]|A3010|A5000|A600[03]|A601[03]|E100[135]|GM1911)(?: Build|\))'
   device: 'smartphone'
   models:
+    - regex: 'GM1911'
+      model: '7 Pro'
     - regex: 'A0001'
       model: 'One'
     - regex: 'A200[135]|OnePlus2'
@@ -6629,7 +6657,7 @@ OnePlus:
 
 # oppo
 OPPO:
-  regex: '(?:OB-)?OPPO[ _]?([a-z0-9]+)|N1T|(?:X90[07][0679]|U707T?|X909T?|R(?:10[01]1|2001|201[07]|6007|7005|7007|80[13579]|81[13579]|82[01379]|83[013]|800[067]|8015|810[679]|811[13]|820[057])[KLSTW]?|N520[79]|N5117|A33f|A33fw|A37fw?|PAAM00|PAC[T|M]00|PBAM00)[);/ ]|R7kf|R7plusf|R7Plusm|A1601|CPH[0-9]{4}|PADM00|RMX18(0[1579]|11|3[13])'
+  regex: '(?:OB-)?OPPO[ _]?([a-z0-9]+)|N1T|(?:X90[07][0679]|U707T?|X909T?|R(?:10[01]1|2001|201[07]|6007|7005|7007|80[13579]|81[13579]|82[01379]|83[013]|800[067]|8015|810[679]|811[13]|820[057])[KLSTW]?|N520[79]|N5117|A33f|A33fw|A37fw?|PAAM00|PAC[T|M]00|PBAM00)[);/ ]|R7kf|R7plusf|R7Plusm|A1601|CPH[0-9]{4}|PCAM10|PADM00|RMX18(0[1579]|11|3[13])'
   device: 'smartphone'
   models:
     - regex: '(?:OPPO[ _]?)?U707T?[);/ ]'
@@ -6771,7 +6799,8 @@ OPPO:
     - regex: 'N1T?[);/ ]'
       model: 'N1T'
       device: 'phablet'
-
+    - regex: 'PCAM10'
+      model: 'A9'
     - regex: 'R([0-9]{3,4}[KSTW]?)[);/ ]' # valid model numbers are filtered in main regex
       model: 'R$1'
 
@@ -7126,6 +7155,15 @@ RT Project:
     - regex: 'Shock 5'
       model: 'Shock 5'
 
+# Safaricom
+Safaricom:
+  regex: 'NEON_RAY'
+  device: 'smartphone'
+  models:
+    - regex: 'NEON_RAY'
+      model: 'Neon Ray'
+
+
 # Santin BiTBiZ
 Santin BiTBiZ:
   regex: 'BiTBiZ'
@@ -7240,6 +7278,9 @@ Samsung:
     - regex: '(?:SAMSUNG-)?SM-P905'
       device: 'tablet'
       model: 'GALAXY NotePRO 12.2" LTE'
+    - regex: '(?:SAMSUNG-)?SM-P205'
+      device: 'tablet'
+      model: 'Galaxy Tab A with S Pen (2019)'
     - regex: '(?:SAMSUNG-)?SM-T110'
       device: 'tablet'
       model: 'GALAXY Tab 3 7.0" Lite WiFi'
