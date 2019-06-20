@@ -147,7 +147,6 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'DA' => 'Danew',
         'DT' => 'Datang',
         'D1' => 'Datsun',
-        'D4' => 'Dapeng',
         'DE' => 'Denver',
         'DX' => 'DEXP',
         'DS' => 'Desay',
