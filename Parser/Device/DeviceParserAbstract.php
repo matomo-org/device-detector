@@ -543,6 +543,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
 
         // legacy brands, might be removed in future versions
         'WB' => 'Web TV',
+        'XT' => 'X-TIGI',
         'XX' => 'Unknown'
     );
 
