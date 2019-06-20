@@ -65,6 +65,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         '4G' => '4Good',
         'AA' => 'AllCall',
         'AC' => 'Acer',
+        'A9' => 'Advan',
         'AD' => 'Advance',
         'A3' => 'AGM',
         'AZ' => 'Ainol',
@@ -189,6 +190,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'E5' => 'Extrem',
         'EZ' => 'Ezze',
         'E8' => 'E-tel',
+        'E9' => 'Evercoss',
         'FA' => 'Fairphone',
         'FI' => 'FiGO',
         'FL' => 'Fly',
@@ -241,6 +243,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'IW' => 'iNew',
         'IP' => 'iPro',
         'IF' => 'Infinix',
+        'I0' => 'InFocus',
         'I5' => 'InnJoo',
         'IN' => 'Innostream',
         'I4' => 'Inoi',
@@ -405,6 +408,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'RM' => 'RIM',
         'RK' => 'Roku',
         'RO' => 'Rover',
+        'R1' => 'Rokit',
         'RT' => 'RT Project',
         'SQ' => 'Santin BiTBiZ',
         'SA' => 'Samsung',
@@ -539,6 +543,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
 
         // legacy brands, might be removed in future versions
         'WB' => 'Web TV',
+        'XT' => 'X-TIGI',
         'XX' => 'Unknown'
     );
 
