@@ -303,7 +303,7 @@ class Browser extends ClientParserAbstract
         }
 
         // This Exception should never be thrown. If so a defined browser name is missing in $availableBrowsers
-        throw new \Exception('Detected browser name was not found in $availableBrowsers'); // @codeCoverageIgnore
+        throw new \Exception('Detected browser name was not found in $availableBrowsers. Tried to parse user agent: '.$this->userAgent); // @codeCoverageIgnore
     }
 
     protected function buildEngine($engineData, $browserVersion)
