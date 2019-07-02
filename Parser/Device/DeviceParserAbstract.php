@@ -199,6 +199,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'FO' => 'Foxconn',
         'FN' => 'FNB',
         'FU' => 'Fujitsu',
+        'FD' => 'Fondi',
         'GT' => 'G-TiDE',
         'GM' => 'Garmin-Asus',
         'GA' => 'Gateway',
