@@ -3380,10 +3380,15 @@ Foxconn:
 
 # Fondi
 Fondi:
-  regex: 'T702 Build'
+  regex: 'Fondi[- _]([^;/)]+)|(T702|Q008B|Q010B|Q718B|Q902|T602B|T707G|T708B|T725B|T725B1|T907B)(?:\)| Build)'
   device: 'smartphone'
   models:
-    - regex: '(T702)'
+    - regex: '(T702|T602B)'
+      model: '$1'
+    - regex: '(Q008B|Q010B|Q718B|Q902|T707G|T708B|T725B|T725B1|T907B)'
+      device: 'tablet'
+      model: '$1'
+    - regex: 'Fondi[- _]([^;/)]+)'
       model: '$1'
 
 # Fairphone
