@@ -397,6 +397,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'PU' => 'PULID',
         'QI' => 'Qilive',
         'QT' => 'Qtek',
+        'QH' => 'Q-Touch',
         'QM' => 'QMobile',
         'QA' => 'Quantum',
         'QU' => 'Quechua',
