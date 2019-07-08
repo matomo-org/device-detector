@@ -155,6 +155,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'DC' => 'DoCoMo',
         'DG' => 'Dialog',
         'DI' => 'Dicam',
+        'D4' => 'Digi',
         'D3' => 'Digicel',
         'DD' => 'Digiland',
         'D2' => 'Digma',
