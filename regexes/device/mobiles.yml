@@ -1261,6 +1261,13 @@ Ask:
     - regex: 'SP618'
       model: 'SP618'
 
+# ANS
+ANS:
+  regex: 'UL40 Build'
+  device: 'smartphone'
+  model: 'UL40'
+
+
 # Ark
 Ark:
   regex: '(ARK[_ -])?Benefit[_ -]([^/;]*) Build|EDGE A5HD|ICON (R40\+|R45)|Impulse[ _](P[12])'
@@ -2496,6 +2503,12 @@ Dicam:
   device: 'feature phone'
   model: '$1'
 
+# Digi
+Digi:
+  regex: 'Digi ([^);/]+)[);/ ]'
+  device: 'smartphone'
+  model: '$1'
+
 # Digicel
 Digicel:
   regex: 'DIGICEL'
@@ -3378,6 +3391,19 @@ Foxconn:
     - regex: 'InFocus M([0-9]+[a-z]?)'
       model: 'InFocus M$1'
 
+# Fondi
+Fondi:
+  regex: 'Fondi[- _]([^;/)]+)|(T702|Q008B|Q010B|Q718B|Q902|T602B|T707G|T708B|T725B|T725B1|T907B)(?:\)| Build)'
+  device: 'smartphone'
+  models:
+    - regex: '(T702|T602B)'
+      model: '$1'
+    - regex: '(Q008B|Q010B|Q718B|Q902|T707G|T708B|T725B|T725B1|T907B)'
+      device: 'tablet'
+      model: '$1'
+    - regex: 'Fondi[- _]([^;/)]+)'
+      model: '$1'
+
 # Fairphone
 Fairphone:
   regex: '(FP(?:1U?|2))[);/ ]'
@@ -3840,7 +3866,7 @@ Hosin:
 
 # Huawei
 Huawei:
-  regex: '(HW-)?(?:Huawei|Ideos|Honor[ _]?|(?:(?:AGS2|AGS|ALE|ALP|ANE|ARE|ATH|ATU|AUM|BAC|BAH|BG2|BGO||BKK|BKL|BLA|BLL|BLN|BND|BTV|CAG|CAM|CAN|CAZ|CHC|CHE[12]?|CHM|CLT|CMR|COL|COR|CPN|CRO|CRR|CUN|DIG|DLI|DRA|DUA|DUB|DUK|EDI|ELE|EML|EVA|EVR|FDR|FIG|FLA|FRD|G(?:527|620S|621|630|735)|GRA|H[36]0|HMA|HRY|INE|JAT|JKM|JMM|JSN|KIW|KOB|LDN|LLD|LND|LON|LUA|LYA|MHA|MYA|NEM|NEO|NXT|PAR|PCT|PIC|PLE|PLK|POT|PRA|RIO|RNE|SCC|SCL|SHT|SLA|SNE|STF|TAG|TIT|TNY|TRT|VCE|VEN|VIE|VKY|VNS|VOG|VTR|WAS|Y(?:221|330|550|6[23]5))-[A-Z]{0,2}[0-9]{1,4}[A-Z]?|H1711|U(?:8230|8500|8661|8665|8667|8800|8818|8860|9200|9508))[);/ ])|hi6210sft|DIG-L21HN'
+  regex: '(HW-)?(?:Huawei|Ideos|Honor[ _]?|(?:(?:AGS2|AGS|ALE|ALP|ANE|ARE|ATH|ATU|AUM|BAC|BAH|BG2|BGO||BKK|BKL|BLA|BLL|BLN|BND|BTV|CAG|CAM|CAN|CAZ|CHC|CHE[12]?|CHM|CLT|CMR|COL|COR|CPN|CRO|CRR|CUN|DIG|DLI|DRA|DUA|DUB|DUK|EDI|ELE|EML|EVA|EVR|FDR|FIG|FLA|FRD|G(?:527|620S|621|630|735)|GRA|H[36]0|HMA|HRY|INE|JAT|JKM|JMM|JSN|KIW|KOB|LDN|LLD|LND|LON|LUA|LYA|MHA|MYA|NEM|NEO|NXT|PAR|PCT|PIC|PLE|PLK|POT|PRA|RIO|RNE|SCC|SCL|SHT|SLA|SNE|STF|TAG|TIT|TNY|TRT|VCE|VEN|VIE|VKY|VNS|VOG|VTR|WAS|Y(?:221|330|550|6[23]5))-[A-Z]{0,2}[0-9]{1,4}[A-Z]?|H1711|U(?:8230|8500|8661|8665|8667|8800|8818|8860|9200|9508))[);/ ])|hi6210sft|DIG-L21HN|JDN2-L09'
   device: 'smartphone'
   models:
     - regex: 'U(8230|8661|8667)[);/ ]'
@@ -4159,6 +4185,9 @@ Huawei:
     - regex: 'CMR-(?:AL[01]9|W09)'
       device: 'tablet'
       model: 'MediaPad M5 10.8'
+    - regex: 'JDN2-L09'
+      device: 'tablet'
+      model: 'MediaPad M5 lite'
     - regex: 'SHT-(?:AL|W)09'
       device: 'tablet'
       model: 'MediaPad M5 8.4'
@@ -5447,7 +5476,7 @@ Lexibook:
 
 # LG
 LG:
-  regex: 'LG|portalmmm/2\.0 (?:KE|KG|KP|L3)|(?:VX[0-9]+|L-0[12]D|L-07C|P713|LM-Q710(?:\(FGN\)|\.FGN?)?|LM-X210(?:\(G\)|CM)?|LM-G710N?|LM-V405|LM-X410(?:\(FGN?\)|\.F(?:GN?)?))[);/ ]|NetCast|RS987|VS(?:501|988|99[56]|(410|415|425|500)PP)|Nexsus 5|LML211BL|LML212VL'
+  regex: 'LG|portalmmm/2\.0 (?:KE|KG|KP|L3)|(?:VX[0-9]+|L-0[12]D|L-07C|P713|LM-Q710(?:\(FGN\)|\.FGN?)?|LM-X210(?:\(G\)|CM)?|LM-G710N?|LM-V405|LM-X410(?:\(FGN?\)|\.F(?:GN?)?))[);/ ]|NetCast|RS987|VS(?:501|988|99[56]|(410|415|425|500)PP)|Nexsus 5|LML211BL|LML212VL|LM-X525'
   device: 'smartphone'
   models:
     - regex: 'LG-D325'
@@ -5504,6 +5533,8 @@ LG:
       model: 'Fortune 2'
     - regex: 'LM-X410\.F[);/ ]'
       model: 'Premier Pro'
+    - regex: 'LM-X525'
+      model: 'Q60'
     - regex: 'LM-X410'
       model: 'LM-X410'
     - regex: 'LM-X210'
@@ -8184,11 +8215,13 @@ Smartisan:
 
 # STF Mobile
 STF Mobile:
-  regex: 'Fractal|AERIAL PLUS'
+  regex: 'Fractal|AERIAL PLUS|Origins Pro'
   device: 'smartphone'
   models:
     - regex: 'Fractal'
       model: 'Fractal'
+    - regex: 'Origins Pro'
+      model: 'Origins Pro'
     - regex: 'AERIAL PLUS'
       model: 'Aerial Plus'
 
@@ -8456,7 +8489,7 @@ Qilive:
 
 # QMobile
 QMobile:
-  regex: 'QMobile|QTab|Q-Smart|Noir X1S'
+  regex: 'QMobile|QTab|Q-Smart|Noir X1S|LUNA PRO|NICE S'
   device: 'smartphone'
   models:
     - regex: 'QTab[ _-]([^;/]+) Build'
@@ -8471,6 +8504,10 @@ QMobile:
       model: '$1'
     - regex: 'Noir X1S'
       model: 'Noir X1S'
+    - regex: 'LUNA PRO'
+      model: 'Luna Pro'
+    - regex: 'NICE S'
+      model: 'Nice S'
 
 # Quantum
 Quantum:
@@ -8667,6 +8704,12 @@ Symphony:
 # Qtek
 Qtek:
   regex: 'Qtek[ _]?([a-z0-9]+)'
+  device: 'smartphone'
+  model: '$1'
+
+# Q-Touch
+Q-Touch:
+  regex: '(Q09) Build'
   device: 'smartphone'
   model: '$1'
 
@@ -10262,6 +10305,8 @@ ZTE:
       model: 'Blade L3'
     - regex: 'Blade L5[);/ ]'
       model: 'Blade L5'
+    - regex: 'Blade L8[);/ ]'
+      model: 'Blade L8'
     - regex: 'Blade S6[);/ ]'
       model: 'Blade S6'
     - regex: 'Blade V6 MAX[);/ ]'
