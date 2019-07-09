@@ -122,7 +122,7 @@ class DeviceDetectorTest extends TestCase
         $ua = $fixtureData['user_agent'];
         DeviceParserAbstract::setVersionTruncation(DeviceParserAbstract::VERSION_TRUNCATION_NONE);
         $uaInfo = DeviceDetector::getInfoFromUserAgent($ua);
-        $this->assertEquals($fixtureData, $uaInfo);
+        $this->assertEquals($fixtureData, $uaInfo, "UserAgent: {$ua}");
     }
 
     public function getFixtures()
