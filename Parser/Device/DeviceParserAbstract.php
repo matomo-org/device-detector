@@ -547,10 +547,12 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'ZU' => 'Zuum',
         'ZN' => 'Zen',
         'ZY' => 'Zync',
+        'ZQ' => 'ZYQ',
+        'XT' => 'X-TIGI',
+        'XB' => 'NEXBOX',
 
         // legacy brands, might be removed in future versions
         'WB' => 'Web TV',
-        'XT' => 'X-TIGI',
         'XX' => 'Unknown'
     );
 
