@@ -170,6 +170,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'EB' => 'E-Boda',
         'EA' => 'EBEST',
         'EC' => 'Ericsson',
+        'E7' => 'Ergo',
         'ED' => 'Energizer',
         'E4' => 'Echo Mobiles',
         'ES' => 'ECS',
@@ -318,6 +319,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'MX' => 'MEU',
         'MI' => 'MicroMax',
         'M5' => 'MIXC',
+        'MH' => 'Mobiola',
         'M6' => 'Mobiistar',
         'MC' => 'Mediacom',
         'MK' => 'MediaTek',
@@ -452,6 +454,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'S3' => 'SunVan',
         'SZ' => 'Sumvision',
         'SS' => 'SWISSMOBILITY',
+        'S10' => 'Simbans',
         'X1' => 'Safaricom',
         'TA' => 'Tesla',
         'T5' => 'TB Touch',
@@ -544,10 +547,12 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'ZU' => 'Zuum',
         'ZN' => 'Zen',
         'ZY' => 'Zync',
+        'ZQ' => 'ZYQ',
+        'XT' => 'X-TIGI',
+        'XB' => 'NEXBOX',
 
         // legacy brands, might be removed in future versions
         'WB' => 'Web TV',
-        'XT' => 'X-TIGI',
         'XX' => 'Unknown'
     );
 
