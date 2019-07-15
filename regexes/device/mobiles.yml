@@ -1817,9 +1817,23 @@ Beeline:
   models:
     - regex: 'Beeline_Pro_6'
       model: 'Pro 6'
-    - regex: 'Tab Fast'
-      model: 'Tab Fast'
+    - regex: 'Tab (Fast|Pro)'
+      model: 'Tab $1'
       device: 'tablet'
+    - regex: 'Tab ([0-9])'
+      model: 'Tab $1'
+      device: 'tablet'
+    - regex: 'Tab'
+      model: 'Tab'
+      device: 'tablet'
+    - regex: 'E700'
+      model: 'E700'
+    - regex: 'Smart2'
+      model: 'Smart 2'
+    - regex: 'Smart ([0-9])'
+      model: 'Smart $1'
+    - regex: 'Smart Dual'
+      model: 'Smart Dual'
 
 # Beetel
 Beetel:
@@ -1921,7 +1935,7 @@ bq:
       model: 'Fast Plus'
     - regex: 'BQ-6016L'
       model: 'Mercury'
-    - regex: 'BQ-6015L'
+    - regex: 'BQ(ru)?[ -]6015L'
       model: 'Universe'
     - regex: 'BQ-6001L|BQ-6050'
       model: 'Jumbo'
@@ -2788,7 +2802,7 @@ Digma:
     - regex: 'NS9797MG'
       model: 'Platina 7.2 3G'
       device: 'tablet'
-    - regex: '((?:Optima|Platina|Plane)[ _](?:[EM])?(?:[0-9\.ST]+|Prime)(?:[ _][43]G)?)'
+    - regex: '((?:Optima|Platina|Plane)[ _](?:[EM])?(?:[0-9\.STNM]+|Prime)(?:[ _][43]G)?)'
       model: '$1'
       device: 'tablet'
     - regex: 'Digma[_ ]([^;/]+) Build'
@@ -4862,8 +4876,10 @@ Infinix:
       model: 'Hot 5'
     - regex: 'Infinix[ _-]X559'
       model: 'Hot 5 Lite'
-    - regex: 'Infinix[ _-]X606B?'
+    - regex: 'Infinix[ _-]X606[BC]?'
       model: 'Hot 6'
+    - regex: 'Infinix[ _-]X608'
+      model: 'Hot 6 Pro'
     - regex: 'Infinix[ _-]X573B?'
       model: 'Hot S3'
     - regex: 'Infinix[ _-]X556'
@@ -10957,8 +10973,9 @@ NEXBOX:
     - regex: 'NEXBOX-([^) ]+)'
       model: '$1'
 
-True:
-  regex: 'SMART[ _](MAX 4.0 PLUS|4G Speedy 5.0 Plus) '
+# True
+'True':
+  regex: 'SMART[ _](MAX 4.0 PLUS|4G Speedy 5.0 Plus)'
   device: 'smartphone'
   models:
     - regex: 'SMART MAX 4.0 PLUS'
