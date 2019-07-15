@@ -485,6 +485,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'T3' => 'Trevi',
         'TU' => 'Tunisie Telecom',
         'TR' => 'Turbo-X',
+        'T10' => 'True',
         'TV' => 'TVC',
         'TX' => 'TechniSat',
         'TZ' => 'teXet',
