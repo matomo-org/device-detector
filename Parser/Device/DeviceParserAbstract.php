@@ -508,6 +508,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'VS' => 'ViewSonic',
         'VT' => 'Vestel',
         'VR' => 'Vernee',
+        'V4' => 'Verizon',
         'VL' => 'Verykool',
         'VV' => 'Vivo',
         'VX' => 'Vertex',
