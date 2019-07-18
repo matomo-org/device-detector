@@ -65,6 +65,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         '4G' => '4Good',
         'AA' => 'AllCall',
         'AC' => 'Acer',
+        'A9' => 'Advan',
         'AD' => 'Advance',
         'A3' => 'AGM',
         'AZ' => 'Ainol',
@@ -83,7 +84,9 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'AR' => 'Archos',
         'AS' => 'ARRIS',
         'AT' => 'Airties',
+        'A6' => 'Ark',
         'A4' => 'Ask',
+        'A0' => 'ANS',
         'AU' => 'Asus',
         'AH' => 'AVH',
         'AV' => 'Avvio',
@@ -152,6 +155,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'DC' => 'DoCoMo',
         'DG' => 'Dialog',
         'DI' => 'Dicam',
+        'D4' => 'Digi',
         'D3' => 'Digicel',
         'DD' => 'Digiland',
         'D2' => 'Digma',
@@ -166,6 +170,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'EB' => 'E-Boda',
         'EA' => 'EBEST',
         'EC' => 'Ericsson',
+        'E7' => 'Ergo',
         'ED' => 'Energizer',
         'E4' => 'Echo Mobiles',
         'ES' => 'ECS',
@@ -187,6 +192,8 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'EX' => 'Explay',
         'E5' => 'Extrem',
         'EZ' => 'Ezze',
+        'E8' => 'E-tel',
+        'E9' => 'Evercoss',
         'FA' => 'Fairphone',
         'FI' => 'FiGO',
         'FL' => 'Fly',
@@ -195,6 +202,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'FO' => 'Foxconn',
         'FN' => 'FNB',
         'FU' => 'Fujitsu',
+        'FD' => 'Fondi',
         'GT' => 'G-TiDE',
         'GM' => 'Garmin-Asus',
         'GA' => 'Gateway',
@@ -239,9 +247,11 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'IW' => 'iNew',
         'IP' => 'iPro',
         'IF' => 'Infinix',
+        'I0' => 'InFocus',
         'I5' => 'InnJoo',
         'IN' => 'Innostream',
         'I4' => 'Inoi',
+        'IR' => 'iRola',
         'II' => 'Inkti',
         'IX' => 'Intex',
         'IO' => 'i-mobile',
@@ -253,6 +263,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'JA' => 'JAY-Tech',
         'JI' => 'Jiayu',
         'JO' => 'Jolla',
+        'J5' => 'Just5',
         'KL' => 'Kalley',
         'KA' => 'Karbonn',
         'KD' => 'KDDI',
@@ -308,6 +319,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'MX' => 'MEU',
         'MI' => 'MicroMax',
         'M5' => 'MIXC',
+        'MH' => 'Mobiola',
         'M6' => 'Mobiistar',
         'MC' => 'Mediacom',
         'MK' => 'MediaTek',
@@ -390,6 +402,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'PU' => 'PULID',
         'QI' => 'Qilive',
         'QT' => 'Qtek',
+        'QH' => 'Q-Touch',
         'QM' => 'QMobile',
         'QA' => 'Quantum',
         'QU' => 'Quechua',
@@ -401,6 +414,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'RM' => 'RIM',
         'RK' => 'Roku',
         'RO' => 'Rover',
+        'R1' => 'Rokit',
         'RT' => 'RT Project',
         'SQ' => 'Santin BiTBiZ',
         'SA' => 'Samsung',
@@ -440,6 +454,8 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'S3' => 'SunVan',
         'SZ' => 'Sumvision',
         'SS' => 'SWISSMOBILITY',
+        'S10' => 'Simbans',
+        'X1' => 'Safaricom',
         'TA' => 'Tesla',
         'T5' => 'TB Touch',
         'TC' => 'TCL',
@@ -531,6 +547,9 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'ZU' => 'Zuum',
         'ZN' => 'Zen',
         'ZY' => 'Zync',
+        'ZQ' => 'ZYQ',
+        'XT' => 'X-TIGI',
+        'XB' => 'NEXBOX',
 
         // legacy brands, might be removed in future versions
         'WB' => 'Web TV',
@@ -639,7 +658,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
             $brandId = array_search($brand, self::$deviceBrands);
             if ($brandId === false) {
                 // This Exception should never be thrown. If so a defined brand name is missing in $deviceBrands
-                throw new \Exception("The brand with name '$brand' should be listed in the deviceBrands array."); // @codeCoverageIgnore
+                throw new \Exception("The brand with name '$brand' should be listed in the deviceBrands array. Tried to parse user agent: ".$this->userAgent); // @codeCoverageIgnore
             }
             $this->brand = $brandId;
         }

@@ -11,7 +11,7 @@ $data = array();
 
 foreach ($fixtureFiles AS $file) {
 
-    if (basename($file, '.yml') != 'unknown' && !in_array(preg_replace('/-[0-9]$/', '', str_replace('_', ' ', basename($file, '.yml'))),array_keys( \DeviceDetector\Parser\Device\DeviceParserAbstract::getAvailableDeviceTypes() ))) {
+    if (basename($file, '.yml') != 'unknown' && !in_array(preg_replace('/-[0-9]+$/', '', str_replace('_', ' ', basename($file, '.yml'))),array_keys( \DeviceDetector\Parser\Device\DeviceParserAbstract::getAvailableDeviceTypes() ))) {
         continue;
     }
 
