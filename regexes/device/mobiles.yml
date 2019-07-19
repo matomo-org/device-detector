@@ -2720,7 +2720,7 @@ Dicam:
 
 # Digi
 Digi:
-  regex: 'Digi ([^);/]+)[);/ ]'
+  regex: 'Digi[ _]([^/;]+)( Build|\))'
   device: 'smartphone'
   model: '$1'
 
@@ -7834,6 +7834,9 @@ Samsung:
     - regex: '(?:SAMSUNG-)?SM-(?:P350|T3[58]5(?:Y)?)'
       device: 'tablet'
       model: 'GALAXY Tab A 8.0" LTE'
+    - regex: '(?:SAMSUNG-)?SM-T295'
+      device: 'tablet'
+      model: 'GALAXY Tab A 8.0" LTE (2019)'
     - regex: '(?:SAMSUNG-)?SM-(?:P355([MY])?|T550)'
       device: 'tablet'
       model: 'GALAXY Tab A 9.7" WiFi'
@@ -11068,10 +11071,18 @@ Simbans:
 
 # X-TIGI
 X-TIGI:
-  regex: 'X-TIGI'
+  regex: 'X[-_]TIGI'
   device: 'smartphone'
   models:
-    - regex: 'X-TIGI[ _-]([^/;\)]+)(?:Build)?'
+    - regex: 'X-TIGI_JOY10_PRO'
+      model: 'Joy 10 Pro'
+      device: 'tablet'
+    - regex: 'X-TIGI_JOY7_MAX'
+      model: 'Joy 7 Max'
+      device: 'tablet'
+    - regex: 'X-TIGI[_ ]V28[_ ]LTE'
+      model: 'V28 LTE'
+    - regex: 'X[-_]TIGI[ _-]([^/;)]+) Build'
       model: '$1'
 
 # NEXBOX
