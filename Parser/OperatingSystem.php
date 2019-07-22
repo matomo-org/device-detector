@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
@@ -189,7 +190,7 @@ class OperatingSystem extends ParserAbstract
         $return = array(
             'name'       => $name,
             'short_name' => $short,
-            'version'    => $this->buildVersion($osRegex['version'], $matches),
+            'version'    => $this->buildVersion((string)$osRegex['version'], $matches),
             'platform'   => $this->parsePlatform()
         );
 

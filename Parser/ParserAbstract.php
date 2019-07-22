@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
@@ -85,7 +86,7 @@ abstract class ParserAbstract
     /**
      * Versioning constant used to set versioning to unlimited (no truncation)
      */
-    const VERSION_TRUNCATION_NONE  = null;
+    const VERSION_TRUNCATION_NONE  = -1;
 
     /**
      * @var Cache|\Doctrine\Common\Cache\CacheProvider
@@ -106,7 +107,7 @@ abstract class ParserAbstract
 
     /**
      * Set how DeviceDetector should return versions
-     * @param int|null $type Any of the VERSION_TRUNCATION_* constants
+     * @param int $type Any of the VERSION_TRUNCATION_* constants
      */
     public static function setVersionTruncation($type)
     {
@@ -198,7 +199,7 @@ abstract class ParserAbstract
                 continue;
             }
 
-            $replace = isset($matches[$nb]) ? $matches[$nb] : '';
+            $replace = $matches[$nb] ?? '';
             $item = trim(str_replace('$' . $nb, $replace, $item));
         }
         return $item;
@@ -214,13 +215,13 @@ abstract class ParserAbstract
      *
      * @param $versionString
      * @param $matches
-     * @return mixed|string
+     * @return string
      */
     protected function buildVersion($versionString, $matches)
     {
         $versionString = $this->buildByMatch($versionString, $matches);
         $versionString = str_replace('_', '.', $versionString);
-        if (null !== self::$maxMinorParts && substr_count($versionString, '.') > self::$maxMinorParts) {
+        if (self::VERSION_TRUNCATION_NONE !== self::$maxMinorParts && substr_count($versionString, '.') > self::$maxMinorParts) {
             $versionParts = explode('.', $versionString);
             $versionParts = array_slice($versionParts, 0, 1+self::$maxMinorParts);
             $versionString = implode('.', $versionParts);

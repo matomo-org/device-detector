@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
@@ -39,7 +40,7 @@ abstract class ClientParserAbstract extends ParserAbstract
                     $result = array(
                         'type'       => $this->parserName,
                         'name'       => $this->buildByMatch($regex['name'], $matches),
-                        'version'    => $this->buildVersion($regex['version'], $matches)
+                        'version'    => $this->buildVersion((string)$regex['version'], $matches)
                     );
                     break;
                 }

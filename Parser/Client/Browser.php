@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
@@ -289,7 +290,7 @@ class Browser extends ClientParserAbstract
 
         foreach (self::getAvailableBrowsers() as $browserShort => $browserName) {
             if (strtolower($name) == strtolower($browserName)) {
-                $version = (string) $this->buildVersion($regex['version'], $matches);
+                $version = $this->buildVersion((string)$regex['version'], $matches);
                 $engine = $this->buildEngine(isset($regex['engine']) ? $regex['engine'] : array(), $version);
                 $engineVersion = $this->buildEngineVersion($engine);
                 return array(
@@ -317,7 +318,7 @@ class Browser extends ClientParserAbstract
         // check if engine is set for browser version
         if (array_key_exists('versions', $engineData) && is_array($engineData['versions'])) {
             foreach ($engineData['versions'] as $version => $versionEngine) {
-                if (version_compare($browserVersion, $version) >= 0) {
+                if (version_compare($browserVersion, (string) $version) >= 0) {
                     $engine = $versionEngine;
                 }
             }

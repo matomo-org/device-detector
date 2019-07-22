@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
@@ -8,13 +9,12 @@
 
 namespace DeviceDetector\Yaml;
 
-use Symfony\Component\Yaml\Parser AS SymfonyParser;
+use Symfony\Component\Yaml\Yaml;
 
 class Symfony implements Parser
 {
     public function parseFile($file)
     {
-        $parser = new SymfonyParser();
-        return $parser->parse(file_get_contents($file));
+        return Yaml::parseFile($file);
     }
 }
