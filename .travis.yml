@@ -1,13 +1,10 @@
 language: php
 
 php:
-  - 5.5
-  - 5.6
-  - 7.0
   - 7.1
   - 7.2
   - 7.3
-
+ 
 dist: trusty
 
 sudo: false
@@ -16,10 +13,15 @@ services:
   - memcached
 
 before_script:
-  - sh -c 'echo "extension = memcache.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini;'
+  - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm" ]; then echo "extension = memcache.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
   - (composer self-update; true)
+  - if [[ "$TRAVIS_PHP_VERSION" = 7.1 ]]; then composer require php-coveralls/php-coveralls ^2.1; fi
   - composer require doctrine/cache ~1.2
   - composer install
 
 script:
-  - ./vendor/phpunit/phpunit/phpunit
+  - mkdir -p build/logs
+  - ./vendor/phpunit/phpunit/phpunit --coverage-clover build/logs/clover.xml
+
+after_success:
+  - if [[ "$TRAVIS_PHP_VERSION" = 7.1 ]]; then travis_retry php vendor/bin/php-coveralls -v; fi
