@@ -4,6 +4,7 @@
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link http://piwik.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 namespace DeviceDetector\Parser\Client\Browser\Engine;
@@ -14,8 +15,6 @@ use DeviceDetector\Parser\Client\ClientParserAbstract;
  * Class Version
  *
  * Client parser for browser engine version detection
- *
- * @package DeviceDetector\Parser\Client\Browser\Engine
  */
 class Version extends ClientParserAbstract
 {
@@ -30,25 +29,25 @@ class Version extends ClientParserAbstract
      * @param string $ua
      * @param string $engine
      */
-    public function __construct($ua, $engine)
+    public function __construct(string $ua, string $engine)
     {
         parent::__construct($ua);
 
         $this->engine = $engine;
     }
 
-    public function parse()
+    public function parse(): ?array
     {
         if (empty($this->engine)) {
-            return '';
+            return null;
         }
 
-        preg_match("~$this->engine\s*/?\s*((?(?=\d+\.\d)\d+[.\d]*|\d{1,7}(?=(?:\D|$))))~i", $this->userAgent, $matches);
+        preg_match("~{$this->engine}\s*/?\s*((?(?=\d+\.\d)\d+[.\d]*|\d{1,7}(?=(?:\D|$))))~i", $this->userAgent, $matches);
 
         if (!$matches) {
-            return '';
+            return null;
         }
 
-        return array_pop($matches);
+        return ['version' => array_pop($matches)];
     }
 }

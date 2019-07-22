@@ -23,7 +23,7 @@ class VendorFragmentTest extends TestCase
     {
         $vfParser = new VendorFragment();
         $vfParser->setUserAgent($useragent);
-        $this->assertEquals($vendor, $vfParser->parse());
+        $this->assertEquals(['brand' => $vendor], $vfParser->parse());
         self::$regexesTested[] = $vfParser->getMatchedRegex();
     }
 

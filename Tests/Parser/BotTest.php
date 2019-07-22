@@ -35,7 +35,7 @@ class BotTest extends TestCase
         $botParser = new Bot();
         $botParser->discardDetails();
         $botParser->setUserAgent('Googlebot/2.1 (http://www.googlebot.com/bot.html)');
-        $this->assertTrue($botParser->parse());
+        $this->assertEquals([true], $botParser->parse());
     }
 
     public function testParseNoBot()

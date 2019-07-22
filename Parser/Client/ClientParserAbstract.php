@@ -4,6 +4,7 @@
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link http://piwik.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 namespace DeviceDetector\Parser\Client;
@@ -13,7 +14,7 @@ use DeviceDetector\Parser\ParserAbstract;
 abstract class ClientParserAbstract extends ParserAbstract
 {
     protected $fixtureFile = '';
-    protected $parserName = '';
+    protected $parserName  = '';
 
     /**
      * Parses the current UA and checks whether it contains any client information
@@ -28,7 +29,7 @@ abstract class ClientParserAbstract extends ParserAbstract
      *
      * NOTE: Doing the big match before matching every single regex speeds up the detection
      */
-    public function parse()
+    public function parse(): ?array
     {
         $result = null;
 
@@ -37,11 +38,11 @@ abstract class ClientParserAbstract extends ParserAbstract
                 $matches = $this->matchUserAgent($regex['regex']);
 
                 if ($matches) {
-                    $result = array(
-                        'type'       => $this->parserName,
-                        'name'       => $this->buildByMatch($regex['name'], $matches),
-                        'version'    => $this->buildVersion((string)$regex['version'], $matches)
-                    );
+                    $result = [
+                        'type'    => $this->parserName,
+                        'name'    => $this->buildByMatch($regex['name'], $matches),
+                        'version' => $this->buildVersion((string) $regex['version'], $matches),
+                    ];
                     break;
                 }
             }
@@ -57,15 +58,17 @@ abstract class ClientParserAbstract extends ParserAbstract
      *
      * @return array
      */
-    public static function getAvailableClients()
+    public static function getAvailableClients(): array
     {
         $instance = new static();
-        $regexes = $instance->getRegexes();
-        $names = array();
+        $regexes  = $instance->getRegexes();
+        $names    = [];
         foreach ($regexes as $regex) {
-            if ($regex['name'] != '$1') {
-                $names[] = $regex['name'];
+            if ($regex['name'] == '$1') {
+                continue;
             }
+
+            $names[] = $regex['name'];
         }
 
         natcasesort($names);

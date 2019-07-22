@@ -21,7 +21,7 @@ class CameraTest extends TestCase
     {
         $consoleParser = new Camera;
         $consoleParser->setUserAgent($useragent);
-        $this->assertTrue($consoleParser->parse());
+        $this->assertTrue(is_array($consoleParser->parse()));
         $this->assertEquals($device['type'], $consoleParser->getDeviceType());
         $this->assertEquals($device['brand'], $consoleParser->getBrand());
         $this->assertEquals($device['model'], $consoleParser->getModel());

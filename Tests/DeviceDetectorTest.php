@@ -8,9 +8,11 @@
  */
 namespace DeviceDetector\Tests;
 
+use DeviceDetector\Cache\StaticCache;
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
 use DeviceDetector\Parser\ParserAbstract;
+use DeviceDetector\Yaml\Spyc;
 use DeviceDetector\Yaml\Symfony;
 use PHPUnit\Framework\TestCase;
 
@@ -250,7 +252,7 @@ class DeviceDetectorTest extends TestCase
         $dd = new DeviceDetector($user_agent);
         $dd->discardBotInformation();
         $dd->parse();
-        $this->assertTrue($dd->getBot());
+        $this->assertEquals([true], $dd->getBot());
     }
 
     public function testMagicMMethods()
