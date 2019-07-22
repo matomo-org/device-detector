@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
@@ -103,23 +104,6 @@ class DeviceDetectorTest extends TestCase
     /**
      * @expectedException \Exception
      */
-    public function testSetYamlParserInvalid()
-    {
-        $dd = new DeviceDetector();
-        $dd->setYamlParser('Invalid');
-    }
-
-    public function testSetYamlParser()
-    {
-        $dd = new DeviceDetector();
-        $dd->setYamlParser(new Symfony());
-        $dd->setUserAgent('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36');
-        $dd->parse();
-    }
-
-    /**
-     * @expectedException \Exception
-     */
     public function testSetCacheInvalid()
     {
         $dd = new DeviceDetector();
@@ -143,13 +127,17 @@ class DeviceDetectorTest extends TestCase
     {
         $dd = new DeviceDetector('');
         $dd->parse();
-        $dd->parse(); // call second time complete code coverage
+        $dd->parse(); // call second time completes code coverage
+        $this->assertFalse($dd->isDesktop());
+        $this->assertFalse($dd->isMobile());
     }
 
     public function testParseInvalidUA()
     {
         $dd = new DeviceDetector('12345');
         $dd->parse();
+        $this->assertFalse($dd->isDesktop());
+        $this->assertFalse($dd->isMobile());
     }
 
     public function testIsParsed()
@@ -420,5 +408,23 @@ class DeviceDetectorTest extends TestCase
         $dd->parse();
         $this->assertTrue($dd->isMobile());
         $this->assertFalse($dd->isBot());
+    }
+
+    /**
+     * @expectedException \Exception
+     */
+    public function testSetYamlParserInvalid()
+    {
+        $dd = new DeviceDetector();
+        $dd->setYamlParser('Invalid');
+    }
+
+    public function testSetYamlParser()
+    {
+        $dd = new DeviceDetector();
+        $dd->setYamlParser(new Symfony());
+        $dd->setUserAgent('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36');
+        $dd->parse();
+        $this->assertTrue($dd->isMobile());
     }
 }
