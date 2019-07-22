@@ -4,6 +4,7 @@
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link https://matomo.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 namespace DeviceDetector\Parser\Client\Browser;
@@ -14,20 +15,18 @@ use DeviceDetector\Parser\Client\ClientParserAbstract;
  * Class Engine
  *
  * Client parser for browser engine detection
- *
- * @package DeviceDetector\Parser\Client\Browser
  */
 class Engine extends ClientParserAbstract
 {
     protected $fixtureFile = 'regexes/client/browser_engine.yml';
-    protected $parserName = 'browserengine';
+    protected $parserName  = 'browserengine';
 
     /**
      * Known browser engines mapped to their internal short codes
      *
      * @var array
      */
-    protected static $availableEngines = array(
+    protected static $availableEngines = [
         'WebKit',
         'Blink',
         'Trident',
@@ -43,18 +42,18 @@ class Engine extends ClientParserAbstract
         'NetSurf',
         'Servo',
         'Goanna'
-    );
+    ];
 
     /**
      * Returns list of all available browser engines
      * @return array
      */
-    public static function getAvailableEngines()
+    public static function getAvailableEngines(): array
     {
         return self::$availableEngines;
     }
 
-    public function parse()
+    public function parse(): ?array
     {
         $matches = false;
         foreach ($this->getRegexes() as $regex) {
@@ -64,15 +63,15 @@ class Engine extends ClientParserAbstract
             }
         }
 
-        if (!$matches) {
-            return '';
+        if (empty($matches) || empty($regex)) {
+            return null;
         }
 
-        $name  = $this->buildByMatch($regex['name'], $matches);
+        $name = $this->buildByMatch($regex['name'], $matches);
 
         foreach (self::getAvailableEngines() as $engineName) {
             if (strtolower($name) == strtolower($engineName)) {
-                return $engineName;
+                return ['engine' => $engineName];
             }
         }
 

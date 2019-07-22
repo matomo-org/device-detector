@@ -21,7 +21,7 @@ class CarBrowserTest extends TestCase
     {
         $consoleParser = new CarBrowser();
         $consoleParser->setUserAgent($useragent);
-        $this->assertTrue($consoleParser->parse());
+        $this->assertTrue(is_array($consoleParser->parse()));
         $this->assertEquals($device['type'], $consoleParser->getDeviceType());
         $this->assertEquals($device['brand'], $consoleParser->getBrand());
         $this->assertEquals($device['model'], $consoleParser->getModel());
