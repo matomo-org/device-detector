@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
@@ -939,7 +940,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
                 return true;
             }
 
-            $this->model = trim($this->buildModel($modelRegex['model'], $modelMatches));
+            $this->model = $this->buildModel($modelRegex['model'], $modelMatches);
 
             if (isset($modelRegex['brand']) && $brandId = array_search($modelRegex['brand'], self::$deviceBrands)) {
                 $this->brand = $brandId;
@@ -965,7 +966,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
             return null;
         }
 
-        return $model;
+        return trim($model);
     }
 
     protected function reset()
