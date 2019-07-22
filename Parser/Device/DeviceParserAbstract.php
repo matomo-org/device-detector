@@ -288,6 +288,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'KE' => 'Krüger&Matz',
         'LQ' => 'LAIQ',
         'L2' => 'Landvo',
+        'L6' => 'Land Rover',
         'LV' => 'Lava',
         'LA' => 'Lanix',
         'LC' => 'LCT',
