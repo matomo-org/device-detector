@@ -180,6 +180,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'EI' => 'Ezio',
         'EM' => 'Eks Mobility',
         'EL' => 'Elephone',
+        'EG' => 'Elenberg',
         'EP' => 'Easypix',
         'EK' => 'EKO',
         'E1' => 'Energy Sistem',
