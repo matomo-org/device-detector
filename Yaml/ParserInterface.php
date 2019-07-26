@@ -10,12 +10,13 @@
 
 namespace DeviceDetector\Yaml;
 
-interface Parser
+interface ParserInterface
 {
     /**
      * Parses the file with the given filename and returns the converted content
      *
      * @param string $file
+     *
      * @return mixed
      */
     public function parseFile(string $file);

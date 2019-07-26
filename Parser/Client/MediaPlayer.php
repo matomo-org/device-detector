@@ -15,8 +15,15 @@ namespace DeviceDetector\Parser\Client;
  *
  * Client parser for mediaplayer detection
  */
-class MediaPlayer extends ClientParserAbstract
+class MediaPlayer extends AbstractClientParser
 {
+    /**
+     * @var string
+     */
     protected $fixtureFile = 'regexes/client/mediaplayers.yml';
-    protected $parserName  = 'mediaplayer';
+
+    /**
+     * @var string
+     */
+    protected $parserName = 'mediaplayer';
 }

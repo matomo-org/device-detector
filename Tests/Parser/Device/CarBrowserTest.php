@@ -10,8 +10,8 @@
 
 namespace DeviceDetector\Tests\Parser\Device;
 
-use DeviceDetector\Parser\Device\CarBrowser;
 use \Spyc;
+use DeviceDetector\Parser\Device\CarBrowser;
 use PHPUnit\Framework\TestCase;
 
 class CarBrowserTest extends TestCase

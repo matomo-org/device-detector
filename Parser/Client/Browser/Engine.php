@@ -10,17 +10,24 @@
 
 namespace DeviceDetector\Parser\Client\Browser;
 
-use DeviceDetector\Parser\Client\ClientParserAbstract;
+use DeviceDetector\Parser\Client\AbstractClientParser;
 
 /**
  * Class Engine
  *
  * Client parser for browser engine detection
  */
-class Engine extends ClientParserAbstract
+class Engine extends AbstractClientParser
 {
+    /**
+     * @var string
+     */
     protected $fixtureFile = 'regexes/client/browser_engine.yml';
-    protected $parserName  = 'browserengine';
+
+    /**
+     * @var string
+     */
+    protected $parserName = 'browserengine';
 
     /**
      * Known browser engines mapped to their internal short codes
@@ -54,6 +61,9 @@ class Engine extends ClientParserAbstract
         return self::$availableEngines;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function parse(): ?array
     {
         $matches = false;
@@ -72,12 +82,12 @@ class Engine extends ClientParserAbstract
         $name = $this->buildByMatch($regex['name'], $matches);
 
         foreach (self::getAvailableEngines() as $engineName) {
-            if (strtolower($name) == strtolower($engineName)) {
+            if (strtolower($name) === strtolower($engineName)) {
                 return ['engine' => $engineName];
             }
         }
 
         // This Exception should never be thrown. If so a defined browser name is missing in $availableEngines
-        throw new \Exception('Detected browser engine was not found in $availableEngines. Tried to parse user agent: ' . $this->userAgent); // @codeCoverageIgnore
+        throw new \Exception(sprintf('Detected browser engine was not found in $availableEngines. Tried to parse user agent: %s', $this->userAgent)); // @codeCoverageIgnore
     }
 }

@@ -15,8 +15,15 @@ namespace DeviceDetector\Parser\Client;
  *
  * Client parser for pim (personal information manager) detection
  */
-class PIM extends ClientParserAbstract
+class PIM extends AbstractClientParser
 {
+    /**
+     * @var string
+     */
     protected $fixtureFile = 'regexes/client/pim.yml';
-    protected $parserName  = 'pim';
+
+    /**
+     * @var string
+     */
+    protected $parserName = 'pim';
 }

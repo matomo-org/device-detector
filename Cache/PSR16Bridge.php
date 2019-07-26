@@ -3,27 +3,27 @@
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
 namespace DeviceDetector\Cache;
 
-use Psr\SimpleCache\CacheInterface;
+use Psr\SimpleCache\CacheInterface as PsrCacheInterface;
 
-class PSR16Bridge implements Cache
+class PSR16Bridge implements CacheInterface
 {
     /**
-     * @var CacheInterface
+     * @var PsrCacheInterface
      */
     private $cache;
 
     /**
      * PSR16Bridge constructor.
-     * @param CacheInterface $cache
+     * @param PsrCacheInterface $cache
      */
-    public function __construct(CacheInterface $cache)
+    public function __construct(PsrCacheInterface $cache)
     {
         $this->cache = $cache;
     }
@@ -31,7 +31,7 @@ class PSR16Bridge implements Cache
     /**
      * @inheritDoc
      */
-    public function fetch($id)
+    public function fetch(string $id)
     {
         return $this->cache->get($id, false);
     }
@@ -39,7 +39,7 @@ class PSR16Bridge implements Cache
     /**
      * @inheritDoc
      */
-    public function contains($id): bool
+    public function contains(string $id): bool
     {
         return $this->cache->has($id);
     }
@@ -47,7 +47,7 @@ class PSR16Bridge implements Cache
     /**
      * @inheritDoc
      */
-    public function save($id, $data, $lifeTime = 0): bool
+    public function save(string $id, $data, int $lifeTime = 0): bool
     {
         return $this->cache->set($id, $data, func_num_args() < 3 ? null : $lifeTime);
     }
@@ -55,7 +55,7 @@ class PSR16Bridge implements Cache
     /**
      * @inheritDoc
      */
-    public function delete($id): bool
+    public function delete(string $id): bool
     {
         return $this->cache->delete($id);
     }

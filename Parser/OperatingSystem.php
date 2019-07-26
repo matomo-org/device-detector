@@ -18,10 +18,16 @@ namespace DeviceDetector\Parser;
  * Detected operating systems can be found in self::$operatingSystems and /regexes/oss.yml
  * This class also defined some operating system families and methods to get the family for a specific os
  */
-class OperatingSystem extends ParserAbstract
+class OperatingSystem extends AbstractParser
 {
+    /**
+     * @var string
+     */
     protected $fixtureFile = 'regexes/oss.yml';
-    protected $parserName  = 'os';
+    /**
+     * @var string
+     */
+    protected $parserName = 'os';
 
     /**
      * Known operating systems mapped to their internal short codes
@@ -132,7 +138,11 @@ class OperatingSystem extends ParserAbstract
         'IBM'                   => ['OS2'],
         'iOS'                   => ['IOS'],
         'RISC OS'               => ['ROS'],
-        'GNU/Linux'             => ['LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED', 'RHT', 'VLN', 'MDR', 'GNT', 'SAB', 'SLW', 'SSE', 'CES', 'BTR', 'SAF', 'ORD', 'TOS'],
+        'GNU/Linux'             => [
+            'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
+            'RHT', 'VLN', 'MDR', 'GNT', 'SAB', 'SLW', 'SSE', 'CES', 'BTR', 'SAF',
+            'ORD', 'TOS'
+        ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
         'Real-time OS'          => ['MTK', 'TDX'],
@@ -164,6 +174,9 @@ class OperatingSystem extends ParserAbstract
         return self::$osFamilies;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function parse(): ?array
     {
         $return = $osRegex = $matches = [];
@@ -184,7 +197,7 @@ class OperatingSystem extends ParserAbstract
         $short = 'UNK';
 
         foreach (self::$operatingSystems as $osShort => $osName) {
-            if (strtolower($name) != strtolower($osName)) {
+            if (strtolower($name) !== strtolower($osName)) {
                 continue;
             }
 
@@ -206,7 +219,47 @@ class OperatingSystem extends ParserAbstract
         return $return;
     }
 
-    protected function parsePlatform()
+    /**
+     * Returns the operating system family for the given operating system
+     *
+     * @param string $osLabel
+     *
+     * @return string|null If null, "Unknown"
+     */
+    public static function getOsFamily(string $osLabel): ?string
+    {
+        foreach (self::$osFamilies as $family => $labels) {
+            if (in_array($osLabel, $labels)) {
+                return (string) $family;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Returns the full name for the given short name
+     *
+     * @param string      $os
+     * @param string|null $ver
+     *
+     * @return ?string
+     */
+    public static function getNameFromId(string $os, ?string $ver = null): ?string
+    {
+        if (array_key_exists($os, self::$operatingSystems)) {
+            $osFullName = self::$operatingSystems[$os];
+
+            return trim($osFullName . ' ' . $ver);
+        }
+
+        return null;
+    }
+
+    /**
+     * @return string
+     */
+    protected function parsePlatform(): string
     {
         if ($this->matchUserAgent('arm')) {
             return 'ARM';
@@ -221,43 +274,5 @@ class OperatingSystem extends ParserAbstract
         }
 
         return '';
-    }
-
-
-    /**
-     * Returns the operating system family for the given operating system
-     *
-     * @param string $osLabel
-     *
-     * @return bool|string If false, "Unknown"
-     */
-    public static function getOsFamily(string $osLabel)
-    {
-        foreach (self::$osFamilies as $family => $labels) {
-            if (in_array($osLabel, $labels)) {
-                return $family;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * Returns the full name for the given short name
-     *
-     * @param string      $os
-     * @param string|null $ver
-     *
-     * @return bool|string
-     */
-    public static function getNameFromId(string $os, ?string $ver = null)
-    {
-        if (array_key_exists($os, self::$operatingSystems)) {
-            $osFullName = self::$operatingSystems[$os];
-
-            return trim($osFullName . ' ' . $ver);
-        }
-
-        return false;
     }
 }

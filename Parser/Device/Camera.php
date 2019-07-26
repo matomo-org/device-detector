@@ -15,11 +15,21 @@ namespace DeviceDetector\Parser\Device;
  *
  * Device parser for camera detection
  */
-class Camera extends DeviceParserAbstract
+class Camera extends AbstractDeviceParser
 {
+    /**
+     * @var string
+     */
     protected $fixtureFile = 'regexes/device/cameras.yml';
-    protected $parserName  = 'camera';
 
+    /**
+     * @var string
+     */
+    protected $parserName = 'camera';
+
+    /**
+     * @inheritdoc
+     */
     public function parse(): ?array
     {
         if (!$this->preMatchOverall()) {

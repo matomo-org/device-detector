@@ -15,11 +15,20 @@ namespace DeviceDetector\Parser\Device;
  *
  * Device parser for portable media player detection
  */
-class PortableMediaPlayer extends DeviceParserAbstract
+class PortableMediaPlayer extends AbstractDeviceParser
 {
+    /**
+     * @var string
+     */
     protected $fixtureFile = 'regexes/device/portable_media_player.yml';
-    protected $parserName  = 'portablemediaplayer';
+    /**
+     * @var string
+     */
+    protected $parserName = 'portablemediaplayer';
 
+    /**
+     * @inheritdoc
+     */
     public function parse(): ?array
     {
         if (!$this->preMatchOverall()) {

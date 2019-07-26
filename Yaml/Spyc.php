@@ -12,12 +12,13 @@ namespace DeviceDetector\Yaml;
 
 use \Spyc as SpycParser;
 
-class Spyc implements Parser
+class Spyc implements ParserInterface
 {
     /**
      * Parses the file with the given filename using Spyc and returns the converted content
      *
      * @param string $file
+     *
      * @return mixed
      */
     public function parseFile(string $file)

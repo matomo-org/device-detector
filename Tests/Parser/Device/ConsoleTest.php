@@ -10,8 +10,8 @@
 
 namespace DeviceDetector\Tests\Parser\Device;
 
-use DeviceDetector\Parser\Device\Console;
 use \Spyc;
+use DeviceDetector\Parser\Device\Console;
 use PHPUnit\Framework\TestCase;
 
 class ConsoleTest extends TestCase
