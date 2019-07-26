@@ -88,7 +88,7 @@ abstract class ParserAbstract
     const VERSION_TRUNCATION_NONE = -1;
 
     /**
-     * @var Cache|\Doctrine\Common\Cache\CacheProvider
+     * @var Cache
      */
     protected $cache;
 
@@ -177,12 +177,14 @@ abstract class ParserAbstract
     /**
      * Matches the useragent against the given regex
      *
-     * @param $regex
+     * @param string $regex
      *
-     * @return array|bool
+     * @return ?array
      */
     protected function matchUserAgent($regex)
     {
+        $matches = [];
+
         // only match if useragent begins with given regex or there is no letter before it
         $regex = '/(?:^|[^A-Z0-9\-_]|[^A-Z0-9\-]_|sprd-)(?:'.str_replace('/', '\/', $regex).')/i';
 
@@ -190,7 +192,7 @@ abstract class ParserAbstract
             return $matches;
         }
 
-        return false;
+        return null;
     }
 
     /**
@@ -221,8 +223,8 @@ abstract class ParserAbstract
      * $matches = array('version_1_0_1', '1_0_1')
      * return value would be v1.0.1
      *
-     * @param $versionString
-     * @param $matches
+     * @param string $versionString
+     * @param array $matches
      *
      * @return string
      */
@@ -247,9 +249,9 @@ abstract class ParserAbstract
      *
      * Method can be used to speed up detections by making a big check before doing checks for every single regex
      *
-     * @return array|bool
+     * @return ?array
      */
-    protected function preMatchOverall()
+    protected function preMatchOverall(): ?array
     {
         $regexes = $this->getRegexes();
 
@@ -276,27 +278,17 @@ abstract class ParserAbstract
     /**
      * Sets the Cache class
      *
-     * @param Cache|\Doctrine\Common\Cache\CacheProvider $cache
-     *
-     * @throws \Exception
+     * @param Cache $cache
      */
-    public function setCache($cache): void
+    public function setCache(Cache $cache): void
     {
-        if ($cache instanceof Cache
-            || (class_exists('\Doctrine\Common\Cache\CacheProvider') && $cache instanceof \Doctrine\Common\Cache\CacheProvider)
-        ) {
-            $this->cache = $cache;
-
-            return;
-        }
-
-        throw new \Exception('Cache not supported');
+        $this->cache = $cache;
     }
 
     /**
      * Returns Cache object
      *
-     * @return Cache|\Doctrine\Common\Cache\CacheProvider
+     * @return Cache
      */
     public function getCache()
     {
@@ -310,19 +302,11 @@ abstract class ParserAbstract
     /**
      * Sets the YamlParser class
      *
-     * @param YamlParser
-     *
-     * @throws \Exception
+     * @param YamlParser $yamlParser
      */
-    public function setYamlParser($yamlParser): void
+    public function setYamlParser(YamlParser $yamlParser): void
     {
-        if ($yamlParser instanceof YamlParser) {
-            $this->yamlParser = $yamlParser;
-
-            return;
-        }
-
-        throw new \Exception('Yaml Parser not supported');
+        $this->yamlParser = $yamlParser;
     }
 
     /**

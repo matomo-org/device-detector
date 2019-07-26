@@ -671,6 +671,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
 
     public function parse(): ?array
     {
+        $brand = '';
         $regexes = $this->getRegexes();
         foreach ($regexes as $brand => $regex) {
             $matches = $this->matchUserAgent($regex['regex']);
@@ -702,6 +703,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         }
 
         if (isset($regex['models'])) {
+            $modelRegex = '';
             foreach ($regex['models'] as $modelRegex) {
                 $modelMatches = $this->matchUserAgent($modelRegex['regex']);
                 if ($modelMatches) {
@@ -735,7 +737,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
 
         $model = preg_replace('/ TD$/i', '', $model);
 
-        if ($model === 'Build') {
+        if ($model === 'Build' || empty($model)) {
             return '';
         }
 

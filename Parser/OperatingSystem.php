@@ -163,7 +163,7 @@ class OperatingSystem extends ParserAbstract
 
     public function parse(): ?array
     {
-        $return = [];
+        $return = $osRegex = $matches = [];
 
         foreach ($this->getRegexes() as $osRegex) {
             $matches = $this->matchUserAgent($osRegex['regex']);
@@ -172,7 +172,7 @@ class OperatingSystem extends ParserAbstract
             }
         }
 
-        if (!$matches) {
+        if (empty($matches)) {
             return $return;
         }
 
@@ -223,11 +223,11 @@ class OperatingSystem extends ParserAbstract
     /**
      * Returns the operating system family for the given operating system
      *
-     * @param $osLabel
+     * @param string $osLabel
      *
      * @return bool|string If false, "Unknown"
      */
-    public static function getOsFamily($osLabel)
+    public static function getOsFamily(string $osLabel)
     {
         foreach (self::$osFamilies as $family => $labels) {
             if (in_array($osLabel, $labels)) {

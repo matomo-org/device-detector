@@ -77,19 +77,19 @@ class DeviceDetector
 
     /**
      * Holds the operating system data after parsing the UA
-     * @var array?
+     * @var ?array
      */
     protected $os = null;
 
     /**
      * Holds the client data after parsing the UA
-     * @var array?
+     * @var ?array
      */
     protected $client = null;
 
     /**
      * Holds the device type after parsing the UA
-     * @var int?
+     * @var ?int
      */
     protected $device = null;
 
@@ -115,7 +115,7 @@ class DeviceDetector
      * If $skipBotDetection is set to true, bot detection will not be performed and isBot will
      * always be false
      *
-     * @var array|boolean
+     * @var array|boolean|null
      */
     protected $bot = null;
 
@@ -131,7 +131,7 @@ class DeviceDetector
 
     /**
      * Holds the cache class used for caching the parsed yml-Files
-     * @var \DeviceDetector\Cache\Cache|\Doctrine\Common\Cache\CacheProvider
+     * @var \DeviceDetector\Cache\Cache
      */
     protected $cache = null;
 
@@ -144,17 +144,17 @@ class DeviceDetector
     /**
      * @var ClientParserAbstract[]
      */
-    protected $clientParsers = array();
+    protected $clientParsers = [];
 
     /**
      * @var DeviceParserAbstract[]
      */
-    protected $deviceParsers = array();
+    protected $deviceParsers = [];
 
     /**
      * @var BotParserAbstract[]
      */
-    public $botParsers = array();
+    public $botParsers = [];
 
     /**
      * @var bool
@@ -374,7 +374,7 @@ class DeviceDetector
 
     protected function usesMobileBrowser(): bool
     {
-        return $this->getClient('type') === 'browser' && Browser::isMobileOnlyBrowser($this->getClient('short_name'));
+        return $this->getClient('type') === 'browser' && Browser::isMobileOnlyBrowser($this->getClientAttribute('short_name'));
     }
 
     public function isMobile(): bool
@@ -455,6 +455,15 @@ class DeviceDetector
             return $this->os;
         }
 
+        return $this->getOsAttribute($attr);
+    }
+
+    /**
+     * @param string $attr
+     * @return string
+     */
+    protected function getOsAttribute(string $attr)
+    {
         if (!isset($this->os[$attr])) {
             return self::UNKNOWN;
         }
@@ -477,6 +486,15 @@ class DeviceDetector
             return $this->client;
         }
 
+        return $this->getClientAttribute($attr);
+    }
+
+    /**
+     * @param string $attr
+     * @return string
+     */
+    protected function getClientAttribute(string $attr)
+    {
         if (!isset($this->client[$attr])) {
             return self::UNKNOWN;
         }
@@ -559,7 +577,7 @@ class DeviceDetector
     /**
      * Returns the bot extracted from the parsed UA
      *
-     * @return array
+     * @return array|bool|null
      */
     public function getBot()
     {
@@ -679,10 +697,10 @@ class DeviceDetector
             $this->brand = $vendorParser->parse()['brand'] ?? '';
         }
 
-        $osShortName = $this->getOs('short_name');
+        $osShortName = $this->getOsAttribute('short_name');
         $osFamily = OperatingSystem::getOsFamily($osShortName);
-        $osVersion = $this->getOs('version');
-        $clientName = $this->getClient('name');
+        $osVersion = $this->getOsAttribute('version');
+        $clientName = $this->getClientAttribute('name');
 
         /**
          * Assume all devices running iOS / Mac OS are from Apple
@@ -822,7 +840,7 @@ class DeviceDetector
         }
 
         $osFamily = OperatingSystem::getOsFamily($deviceDetector->getOs('short_name'));
-        $browserFamily = \DeviceDetector\Parser\Client\Browser::getBrowserFamily($deviceDetector->getClient('short_name'));
+        $browserFamily = \DeviceDetector\Parser\Client\Browser::getBrowserFamily((string) $deviceDetector->getClient('short_name'));
 
         $processed = array(
             'user_agent' => $deviceDetector->getUserAgent(),
@@ -842,25 +860,17 @@ class DeviceDetector
     /**
      * Sets the Cache class
      *
-     * @param Cache|\Doctrine\Common\Cache\CacheProvider $cache
-     * @throws \Exception
+     * @param Cache $cache
      */
-    public function setCache($cache): void
+    public function setCache(Cache $cache): void
     {
-        if ($cache instanceof Cache ||
-            (class_exists('\Doctrine\Common\Cache\CacheProvider') && $cache instanceof \Doctrine\Common\Cache\CacheProvider)
-        ) {
-            $this->cache = $cache;
-            return;
-        }
-
-        throw new \Exception('Cache not supported');
+        $this->cache = $cache;
     }
 
     /**
      * Returns Cache object
      *
-     * @return \Doctrine\Common\Cache\CacheProvider
+     * @return Cache
      */
     public function getCache()
     {
@@ -874,17 +884,11 @@ class DeviceDetector
     /**
      * Sets the Yaml Parser class
      *
-     * @param YamlParser
-     * @throws \Exception
+     * @param YamlParser $yamlParser
      */
-    public function setYamlParser($yamlParser): void
+    public function setYamlParser(YamlParser $yamlParser): void
     {
-        if ($yamlParser instanceof YamlParser) {
-            $this->yamlParser = $yamlParser;
-            return;
-        }
-
-        throw new \Exception('Yaml Parser not supported');
+        $this->yamlParser = $yamlParser;
     }
 
     /**
