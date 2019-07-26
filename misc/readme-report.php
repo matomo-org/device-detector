@@ -2,7 +2,7 @@
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
@@ -58,7 +58,7 @@ The lists below are auto generated and updated from time to time. Some of them m
 
 <?php
 
-$brands = \DeviceDetector\Parser\Device\DeviceParserAbstract::$deviceBrands;
+$brands = \DeviceDetector\Parser\Device\AbstractDeviceParser::$deviceBrands;
 natcasesort($brands);
 echo implode(', ', $brands);
 

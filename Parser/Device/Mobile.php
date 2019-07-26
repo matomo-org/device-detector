@@ -3,7 +3,7 @@
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
@@ -15,8 +15,15 @@ namespace DeviceDetector\Parser\Device;
  *
  * Device parser for mobile detection
  */
-class Mobile extends DeviceParserAbstract
+class Mobile extends AbstractDeviceParser
 {
+    /**
+     * @var string
+     */
     protected $fixtureFile = 'regexes/device/mobiles.yml';
-    protected $parserName  = 'mobile';
+
+    /**
+     * @var string
+     */
+    protected $parserName = 'mobile';
 }

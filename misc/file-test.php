@@ -26,7 +26,7 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 use DeviceDetector\DeviceDetector;
-use DeviceDetector\Parser\Device\DeviceParserAbstract;
+use DeviceDetector\Parser\Device\AbstractDeviceParser;
 
 if (php_sapi_name() !== 'cli') {
     echo "web not supported";
@@ -87,7 +87,7 @@ $fn = fopen($file, "r");
 while (!feof($fn)) {
     $userAgent = fgets($fn);
     $userAgent = trim($userAgent);
-    DeviceParserAbstract::setVersionTruncation(DeviceParserAbstract::VERSION_TRUNCATION_NONE);
+    AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
     $result = DeviceDetector::getInfoFromUserAgent($userAgent);
 
     if (!isset($result['device']['model'])) {

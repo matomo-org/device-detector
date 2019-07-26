@@ -2,7 +2,7 @@
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
@@ -15,9 +15,9 @@ if(count($argv) != 2) {
 $parsedUAs = $unknownDeviceTypes =
 $detectedBots = 0;
 
-\DeviceDetector\Parser\Device\DeviceParserAbstract::setVersionTruncation(\DeviceDetector\Parser\Device\DeviceParserAbstract::VERSION_TRUNCATION_NONE);
+\DeviceDetector\Parser\Device\AbstractDeviceParser::setVersionTruncation(\DeviceDetector\Parser\Device\AbstractDeviceParser::VERSION_TRUNCATION_NONE);
 
-$deviceTypes = (array_fill(0, count(\DeviceDetector\Parser\Device\DeviceParserAbstract::getAvailableDeviceTypes()), 0));
+$deviceTypes = (array_fill(0, count(\DeviceDetector\Parser\Device\AbstractDeviceParser::getAvailableDeviceTypes()), 0));
 
 $startTime = microtime(true);
 

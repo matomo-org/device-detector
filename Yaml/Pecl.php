@@ -3,7 +3,7 @@
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
@@ -18,7 +18,7 @@ use Exception;
  * Parses a YAML file with LibYAML library
  * @see http://php.net/manual/en/function.yaml-parse-file.php
  */
-class Pecl implements Parser
+class Pecl implements ParserInterface
 {
     /**
      * Parses the file with the given filename using PECL and returns the converted content
@@ -34,7 +34,7 @@ class Pecl implements Parser
         if (false === function_exists('yaml_parse_file')) {
             throw new Exception('Pecl YAML extension is not installed');
         }
-        
+
         return yaml_parse_file($file);
     }
 }

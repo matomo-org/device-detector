@@ -3,7 +3,7 @@
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
@@ -15,11 +15,21 @@ namespace DeviceDetector\Parser\Device;
  *
  * Device parser for camera detection
  */
-class Camera extends DeviceParserAbstract
+class Camera extends AbstractDeviceParser
 {
+    /**
+     * @var string
+     */
     protected $fixtureFile = 'regexes/device/cameras.yml';
-    protected $parserName  = 'camera';
 
+    /**
+     * @var string
+     */
+    protected $parserName = 'camera';
+
+    /**
+     * @inheritdoc
+     */
     public function parse(): ?array
     {
         if (!$this->preMatchOverall()) {

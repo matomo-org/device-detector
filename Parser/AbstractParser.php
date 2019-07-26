@@ -3,29 +3,30 @@
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
 namespace DeviceDetector\Parser;
 
-use DeviceDetector\Cache\Cache;
+use DeviceDetector\Cache\CacheInterface;
 use DeviceDetector\Cache\StaticCache;
 use DeviceDetector\DeviceDetector;
-use DeviceDetector\Yaml\Parser as YamlParser;
+use DeviceDetector\Yaml\ParserInterface as YamlParser;
 use DeviceDetector\Yaml\Spyc;
 
 /**
- * Class ParserAbstract
+ * Class AbstractParser
  */
-abstract class ParserAbstract
+abstract class AbstractParser
 {
     /**
      * Holds the path to the yml file containing regexes
      * @var string
      */
     protected $fixtureFile;
+
     /**
      * Holds the internal name of the parser
      * Used for caching
@@ -62,34 +63,33 @@ abstract class ParserAbstract
      * Versioning constant used to set max versioning to major version only
      * Version examples are: 3, 5, 6, 200, 123, ...
      */
-
-    const VERSION_TRUNCATION_MAJOR = 0;
+    public const VERSION_TRUNCATION_MAJOR = 0;
 
     /**
      * Versioning constant used to set max versioning to minor version
      * Version examples are: 3.4, 5.6, 6.234, 0.200, 1.23, ...
      */
-    const VERSION_TRUNCATION_MINOR = 1;
+    public const VERSION_TRUNCATION_MINOR = 1;
 
     /**
      * Versioning constant used to set max versioning to path level
      * Version examples are: 3.4.0, 5.6.344, 6.234.2, 0.200.3, 1.2.3, ...
      */
-    const VERSION_TRUNCATION_PATCH = 2;
+    public const VERSION_TRUNCATION_PATCH = 2;
 
     /**
      * Versioning constant used to set versioning to build number
      * Version examples are: 3.4.0.12, 5.6.334.0, 6.234.2.3, 0.200.3.1, 1.2.3.0, ...
      */
-    const VERSION_TRUNCATION_BUILD = 3;
+    public const VERSION_TRUNCATION_BUILD = 3;
 
     /**
      * Versioning constant used to set versioning to unlimited (no truncation)
      */
-    const VERSION_TRUNCATION_NONE = -1;
+    public const VERSION_TRUNCATION_NONE = -1;
 
     /**
-     * @var Cache
+     * @var CacheInterface
      */
     protected $cache;
 
@@ -98,9 +98,19 @@ abstract class ParserAbstract
      */
     protected $yamlParser;
 
+    /**
+     * parses the currently set useragents and returns possible results
+     *
+     * @return array|null
+     */
     abstract public function parse(): ?array;
 
-    public function __construct($ua = '')
+    /**
+     * AbstractParser constructor.
+     *
+     * @param string $ua
+     */
+    public function __construct(string $ua = '')
     {
         $this->setUserAgent($ua);
     }
@@ -146,6 +156,54 @@ abstract class ParserAbstract
     }
 
     /**
+     * Sets the Cache class
+     *
+     * @param CacheInterface $cache
+     */
+    public function setCache(CacheInterface $cache): void
+    {
+        $this->cache = $cache;
+    }
+
+    /**
+     * Returns Cache object
+     *
+     * @return CacheInterface
+     */
+    public function getCache(): CacheInterface
+    {
+        if (!empty($this->cache)) {
+            return $this->cache;
+        }
+
+        return new StaticCache();
+    }
+
+    /**
+     * Sets the YamlParser class
+     *
+     * @param YamlParser $yamlParser
+     */
+    public function setYamlParser(YamlParser $yamlParser): void
+    {
+        $this->yamlParser = $yamlParser;
+    }
+
+    /**
+     * Returns YamlParser object
+     *
+     * @return YamlParser
+     */
+    public function getYamlParser(): YamlParser
+    {
+        if (!empty($this->yamlParser)) {
+            return $this->yamlParser;
+        }
+
+        return new Spyc();
+    }
+
+    /**
      * Returns the result of the parsed yml file defined in $fixtureFile
      *
      * @return array
@@ -154,7 +212,7 @@ abstract class ParserAbstract
     {
         if (empty($this->regexList)) {
             $cacheKey        = 'DeviceDetector-' . DeviceDetector::VERSION . 'regexes-' . $this->getName();
-            $cacheKey        = preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
+            $cacheKey        = (string) preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
             $this->regexList = $this->getCache()->fetch($cacheKey);
 
             if (empty($this->regexList)) {
@@ -235,7 +293,9 @@ abstract class ParserAbstract
         $versionString = $this->buildByMatch($versionString, $matches);
         $versionString = str_replace('_', '.', $versionString);
 
-        if (self::VERSION_TRUNCATION_NONE !== self::$maxMinorParts && substr_count($versionString, '.') > self::$maxMinorParts) {
+        if (self::VERSION_TRUNCATION_NONE !== self::$maxMinorParts
+            && substr_count($versionString, '.') > self::$maxMinorParts
+        ) {
             $versionParts  = explode('.', $versionString);
             $versionParts  = array_slice($versionParts, 0, 1 + self::$maxMinorParts);
             $versionString = implode('.', $versionParts);
@@ -261,7 +321,7 @@ abstract class ParserAbstract
         static $overAllMatch;
 
         $cacheKey = $this->parserName . DeviceDetector::VERSION . '-all';
-        $cacheKey = preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
+        $cacheKey = (string) preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
 
         if (empty($overAllMatch)) {
             $overAllMatch = $this->getCache()->fetch($cacheKey);
@@ -276,53 +336,5 @@ abstract class ParserAbstract
         }
 
         return $this->matchUserAgent($overAllMatch);
-    }
-
-    /**
-     * Sets the Cache class
-     *
-     * @param Cache $cache
-     */
-    public function setCache(Cache $cache): void
-    {
-        $this->cache = $cache;
-    }
-
-    /**
-     * Returns Cache object
-     *
-     * @return Cache
-     */
-    public function getCache(): Cache
-    {
-        if (!empty($this->cache)) {
-            return $this->cache;
-        }
-
-        return new StaticCache();
-    }
-
-    /**
-     * Sets the YamlParser class
-     *
-     * @param YamlParser $yamlParser
-     */
-    public function setYamlParser(YamlParser $yamlParser): void
-    {
-        $this->yamlParser = $yamlParser;
-    }
-
-    /**
-     * Returns YamlParser object
-     *
-     * @return YamlParser
-     */
-    public function getYamlParser(): YamlParser
-    {
-        if (!empty($this->yamlParser)) {
-            return $this->yamlParser;
-        }
-
-        return new Spyc();
     }
 }

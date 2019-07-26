@@ -3,7 +3,7 @@
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
@@ -12,7 +12,7 @@ namespace DeviceDetector\Cache;
 
 use Psr\Cache\CacheItemPoolInterface;
 
-class PSR6Bridge implements Cache
+class PSR6Bridge implements CacheInterface
 {
     /**
      * @var CacheItemPoolInterface
@@ -31,7 +31,7 @@ class PSR6Bridge implements Cache
     /**
      * @inheritDoc
      */
-    public function fetch($id)
+    public function fetch(string $id)
     {
         $item = $this->pool->getItem($id);
 
@@ -41,7 +41,7 @@ class PSR6Bridge implements Cache
     /**
      * @inheritDoc
      */
-    public function contains($id): bool
+    public function contains(string $id): bool
     {
         return $this->pool->hasItem($id);
     }
@@ -49,7 +49,7 @@ class PSR6Bridge implements Cache
     /**
      * @inheritDoc
      */
-    public function save($id, $data, $lifeTime = 0): bool
+    public function save(string $id, $data, int $lifeTime = 0): bool
     {
         $item = $this->pool->getItem($id);
         $item->set($data);
@@ -64,7 +64,7 @@ class PSR6Bridge implements Cache
     /**
      * @inheritDoc
      */
-    public function delete($id): bool
+    public function delete(string $id): bool
     {
         return $this->pool->deleteItem($id);
     }

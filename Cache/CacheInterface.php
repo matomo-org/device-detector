@@ -3,38 +3,44 @@
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
- * @link http://piwik.org
+ * @link https://matomo.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Cache;
 
-interface Cache
+interface CacheInterface
 {
     /**
      * @param string $id
+     *
      * @return mixed
      */
-    public function fetch($id);
+    public function fetch(string $id);
 
     /**
-     * @param $id
+     * @param string $id
+     *
      * @return bool
      */
-    public function contains($id): bool;
+    public function contains(string $id): bool;
 
     /**
      * @param string $id
      * @param mixed  $data
      * @param int    $lifeTime
+     *
      * @return bool
      */
-    public function save($id, $data, $lifeTime = 0): bool;
+    public function save(string $id, $data, int $lifeTime = 0): bool;
 
     /**
      * @param string $id
+     *
      * @return bool
      */
-    public function delete($id): bool;
+    public function delete(string $id): bool;
 
     /**
      * @return bool

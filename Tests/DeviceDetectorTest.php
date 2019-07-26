@@ -3,7 +3,7 @@
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
@@ -11,8 +11,8 @@
 namespace DeviceDetector\Tests;
 
 use DeviceDetector\DeviceDetector;
-use DeviceDetector\Parser\Device\DeviceParserAbstract;
-use DeviceDetector\Parser\ParserAbstract;
+use DeviceDetector\Parser\AbstractParser;
+use DeviceDetector\Parser\Device\AbstractDeviceParser;
 use DeviceDetector\Yaml\Symfony;
 use PHPUnit\Framework\TestCase;
 
@@ -132,7 +132,7 @@ class DeviceDetectorTest extends TestCase
     public function testParse($fixtureData): void
     {
         $ua = $fixtureData['user_agent'];
-        DeviceParserAbstract::setVersionTruncation(DeviceParserAbstract::VERSION_TRUNCATION_NONE);
+        AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
         $uaInfo = DeviceDetector::getInfoFromUserAgent($ua);
         $this->assertEquals($fixtureData, $uaInfo, "UserAgent: {$ua}");
     }
@@ -196,22 +196,22 @@ class DeviceDetectorTest extends TestCase
      */
     public function testVersionTruncation($useragent, $truncationType, $osVersion, $clientVersion): void
     {
-        ParserAbstract::setVersionTruncation($truncationType);
+        AbstractParser::setVersionTruncation($truncationType);
         $dd = new DeviceDetector($useragent);
         $dd->parse();
         $this->assertEquals($osVersion, $dd->getOs('version'));
         $this->assertEquals($clientVersion, $dd->getClient('version'));
-        ParserAbstract::setVersionTruncation(ParserAbstract::VERSION_TRUNCATION_NONE);
+        AbstractParser::setVersionTruncation(AbstractParser::VERSION_TRUNCATION_NONE);
     }
 
     public function getVersionTruncationFixtures()
     {
         return [
-            ['Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', ParserAbstract::VERSION_TRUNCATION_NONE, '4.2.2', '34.0.1847.114'],
-            ['Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', ParserAbstract::VERSION_TRUNCATION_BUILD, '4.2.2', '34.0.1847.114'],
-            ['Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', ParserAbstract::VERSION_TRUNCATION_PATCH, '4.2.2', '34.0.1847'],
-            ['Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', ParserAbstract::VERSION_TRUNCATION_MINOR, '4.2', '34.0'],
-            ['Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', ParserAbstract::VERSION_TRUNCATION_MAJOR, '4', '34'],
+            ['Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', AbstractParser::VERSION_TRUNCATION_NONE, '4.2.2', '34.0.1847.114'],
+            ['Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', AbstractParser::VERSION_TRUNCATION_BUILD, '4.2.2', '34.0.1847.114'],
+            ['Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', AbstractParser::VERSION_TRUNCATION_PATCH, '4.2.2', '34.0.1847'],
+            ['Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', AbstractParser::VERSION_TRUNCATION_MINOR, '4.2', '34.0'],
+            ['Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', AbstractParser::VERSION_TRUNCATION_MAJOR, '4', '34'],
         ];
     }
 

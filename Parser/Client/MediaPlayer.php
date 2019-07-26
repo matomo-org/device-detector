@@ -3,7 +3,7 @@
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
@@ -15,8 +15,15 @@ namespace DeviceDetector\Parser\Client;
  *
  * Client parser for mediaplayer detection
  */
-class MediaPlayer extends ClientParserAbstract
+class MediaPlayer extends AbstractClientParser
 {
+    /**
+     * @var string
+     */
     protected $fixtureFile = 'regexes/client/mediaplayers.yml';
-    protected $parserName  = 'mediaplayer';
+
+    /**
+     * @var string
+     */
+    protected $parserName = 'mediaplayer';
 }

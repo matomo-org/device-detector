@@ -3,7 +3,7 @@
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
@@ -17,7 +17,7 @@ namespace DeviceDetector\Parser;
  *
  * Detected bots are defined in regexes/bots.yml
  */
-class Bot extends BotParserAbstract
+class Bot extends AbstractBotParser
 {
     /**
      * @var string

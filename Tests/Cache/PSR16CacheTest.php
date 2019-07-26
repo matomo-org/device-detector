@@ -3,7 +3,7 @@
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
@@ -15,14 +15,15 @@ use MatthiasMullie\Scrapbook\Adapters\MemoryStore;
 use MatthiasMullie\Scrapbook\Psr16\SimpleCache;
 use PHPUnit\Framework\TestCase;
 
-if (!class_exists('\MatthiasMullie\Scrapbook\Adapters\MemoryStore')) {
-    return;
-}
-
 class PSR16CacheTest extends TestCase
 {
     protected function setUp(): void
     {
+        if (!class_exists('\MatthiasMullie\Scrapbook\Adapters\MemoryStore')) {
+            $this->markTestSkipped('class \MatthiasMullie\Scrapbook\Adapters\MemoryStore required for tests');
+            return;
+        }
+
         $cache = new PSR16Bridge(new SimpleCache(new MemoryStore()));
         $cache->flushAll();
     }

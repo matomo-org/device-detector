@@ -10,8 +10,8 @@
 
 namespace DeviceDetector\Tests\Parser\Client;
 
-use DeviceDetector\Parser\Client\Browser;
 use \Spyc;
+use DeviceDetector\Parser\Client\Browser;
 use PHPUnit\Framework\TestCase;
 
 class BrowserTest extends TestCase

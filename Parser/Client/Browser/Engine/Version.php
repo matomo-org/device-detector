@@ -3,21 +3,21 @@
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
 namespace DeviceDetector\Parser\Client\Browser\Engine;
 
-use DeviceDetector\Parser\Client\ClientParserAbstract;
+use DeviceDetector\Parser\Client\AbstractClientParser;
 
 /**
  * Class Version
  *
  * Client parser for browser engine version detection
  */
-class Version extends ClientParserAbstract
+class Version extends AbstractClientParser
 {
     /**
      * @var string
@@ -37,13 +37,20 @@ class Version extends ClientParserAbstract
         $this->engine = $engine;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function parse(): ?array
     {
         if (empty($this->engine)) {
             return null;
         }
 
-        preg_match("~{$this->engine}\s*/?\s*((?(?=\d+\.\d)\d+[.\d]*|\d{1,7}(?=(?:\D|$))))~i", $this->userAgent, $matches);
+        preg_match(
+            "~{$this->engine}\s*/?\s*((?(?=\d+\.\d)\d+[.\d]*|\d{1,7}(?=(?:\D|$))))~i",
+            $this->userAgent,
+            $matches
+        );
 
         if (!$matches) {
             return null;

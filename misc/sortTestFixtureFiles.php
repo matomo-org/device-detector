@@ -2,7 +2,7 @@
 
 include __DIR__.'/../vendor/autoload.php';
 
-\DeviceDetector\Parser\ParserAbstract::setVersionTruncation(\DeviceDetector\Parser\ParserAbstract::VERSION_TRUNCATION_NONE);
+\DeviceDetector\Parser\AbstractParser::setVersionTruncation(\DeviceDetector\Parser\AbstractParser::VERSION_TRUNCATION_NONE);
 
 $fixtureFiles = glob(__DIR__.'/../Tests/fixtures/*.yml');
 
@@ -11,7 +11,7 @@ $data = array();
 
 foreach ($fixtureFiles AS $file) {
 
-    if (basename($file, '.yml') != 'unknown' && !in_array(preg_replace('/-[0-9]+$/', '', str_replace('_', ' ', basename($file, '.yml'))),array_keys( \DeviceDetector\Parser\Device\DeviceParserAbstract::getAvailableDeviceTypes() ))) {
+    if (basename($file, '.yml') != 'unknown' && !in_array(preg_replace('/-[0-9]+$/', '', str_replace('_', ' ', basename($file, '.yml'))),array_keys( \DeviceDetector\Parser\Device\AbstractDeviceParser::getAvailableDeviceTypes() ))) {
         continue;
     }
 

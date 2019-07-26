@@ -10,8 +10,8 @@
 
 namespace DeviceDetector\Tests\Parser\Client;
 
-use DeviceDetector\Parser\Client\Library;
 use \Spyc;
+use DeviceDetector\Parser\Client\Library;
 use PHPUnit\Framework\TestCase;
 
 class LibraryTest extends TestCase

@@ -3,7 +3,7 @@
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
@@ -15,11 +15,21 @@ namespace DeviceDetector\Parser\Device;
  *
  * Device parser for car browser detection
  */
-class CarBrowser extends DeviceParserAbstract
+class CarBrowser extends AbstractDeviceParser
 {
+    /**
+     * @var string
+     */
     protected $fixtureFile = 'regexes/device/car_browsers.yml';
-    protected $parserName  = 'car browser';
 
+    /**
+     * @var string
+     */
+    protected $parserName = 'car browser';
+
+    /**
+     * @inheritdoc
+     */
     public function parse(): ?array
     {
         if (!$this->preMatchOverall()) {

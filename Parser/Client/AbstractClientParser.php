@@ -3,19 +3,26 @@
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
 namespace DeviceDetector\Parser\Client;
 
-use DeviceDetector\Parser\ParserAbstract;
+use DeviceDetector\Parser\AbstractParser;
 
-abstract class ClientParserAbstract extends ParserAbstract
+abstract class AbstractClientParser extends AbstractParser
 {
+    /**
+     * @var string
+     */
     protected $fixtureFile = '';
-    protected $parserName  = '';
+
+    /**
+     * @var string
+     */
+    protected $parserName = '';
 
     /**
      * Parses the current UA and checks whether it contains any client information
@@ -29,6 +36,8 @@ abstract class ClientParserAbstract extends ParserAbstract
      * -> Return the matched feed reader
      *
      * NOTE: Doing the big match before matching every single regex speeds up the detection
+     *
+     * @return array|null
      */
     public function parse(): ?array
     {
@@ -67,7 +76,7 @@ abstract class ClientParserAbstract extends ParserAbstract
         $names    = [];
 
         foreach ($regexes as $regex) {
-            if ('$1' == $regex['name']) {
+            if ('$1' === $regex['name']) {
                 continue;
             }
 

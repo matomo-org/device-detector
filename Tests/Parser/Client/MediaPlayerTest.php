@@ -10,8 +10,8 @@
 
 namespace DeviceDetector\Tests\Parser\Client;
 
-use DeviceDetector\Parser\Client\MediaPlayer;
 use \Spyc;
+use DeviceDetector\Parser\Client\MediaPlayer;
 use PHPUnit\Framework\TestCase;
 
 class MediaPlayerTest extends TestCase

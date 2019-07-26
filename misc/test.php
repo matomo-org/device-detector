@@ -3,14 +3,14 @@
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
 require __DIR__ . '/../vendor/autoload.php';
 
 use DeviceDetector\DeviceDetector;
-use DeviceDetector\Parser\Device\DeviceParserAbstract;
+use DeviceDetector\Parser\Device\AbstractDeviceParser;
 
 if (php_sapi_name() === 'cli') {
     if (isset($argv[1])) {
@@ -24,7 +24,7 @@ if (php_sapi_name() === 'cli') {
     }
 }
 
-DeviceParserAbstract::setVersionTruncation(DeviceParserAbstract::VERSION_TRUNCATION_NONE);
+AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
 
 $result = DeviceDetector::getInfoFromUserAgent($userAgent);
 
