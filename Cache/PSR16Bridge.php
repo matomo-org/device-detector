@@ -4,15 +4,16 @@
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link http://piwik.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Cache;
 
 use Psr\SimpleCache\CacheInterface;
 
 class PSR16Bridge implements Cache
 {
-
     /**
      * @var CacheInterface
      */
@@ -38,7 +39,7 @@ class PSR16Bridge implements Cache
     /**
      * @inheritDoc
      */
-    public function contains($id)
+    public function contains($id): bool
     {
         return $this->cache->has($id);
     }
@@ -46,7 +47,7 @@ class PSR16Bridge implements Cache
     /**
      * @inheritDoc
      */
-    public function save($id, $data, $lifeTime = 0)
+    public function save($id, $data, $lifeTime = 0): bool
     {
         return $this->cache->set($id, $data, func_num_args() < 3 ? null : $lifeTime);
     }
@@ -54,7 +55,7 @@ class PSR16Bridge implements Cache
     /**
      * @inheritDoc
      */
-    public function delete($id)
+    public function delete($id): bool
     {
         return $this->cache->delete($id);
     }
@@ -62,7 +63,7 @@ class PSR16Bridge implements Cache
     /**
      * @inheritDoc
      */
-    public function flushAll()
+    public function flushAll(): bool
     {
         return $this->cache->clear();
     }

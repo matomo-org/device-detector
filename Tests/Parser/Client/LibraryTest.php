@@ -4,8 +4,10 @@
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link http://piwik.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Tests\Parser\Client;
 
 use DeviceDetector\Parser\Client\Library;
@@ -17,7 +19,7 @@ class LibraryTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
-    public function testParse($useragent, $client)
+    public function testParse($useragent, $client): void
     {
         $LibraryParser = new Library();
         $LibraryParser->setUserAgent($useragent);
@@ -26,7 +28,8 @@ class LibraryTest extends TestCase
 
     public function getFixtures()
     {
-        $fixtureData = \Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/library.yml');
+        $fixtureData = Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/library.yml');
+
         return $fixtureData;
     }
 }

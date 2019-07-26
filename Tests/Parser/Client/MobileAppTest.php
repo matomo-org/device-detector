@@ -4,8 +4,10 @@
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link http://piwik.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Tests\Parser\Client;
 
 use DeviceDetector\Parser\Client\MobileApp;
@@ -17,7 +19,7 @@ class MobileAppTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
-    public function testParse($useragent, $client)
+    public function testParse($useragent, $client): void
     {
         $mobileAppParser = new MobileApp();
         $mobileAppParser->setUserAgent($useragent);
@@ -26,7 +28,8 @@ class MobileAppTest extends TestCase
 
     public function getFixtures()
     {
-        $fixtureData = \Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/mobile_app.yml');
+        $fixtureData = Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/mobile_app.yml');
+
         return $fixtureData;
     }
 }

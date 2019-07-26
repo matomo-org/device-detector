@@ -4,8 +4,10 @@
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link http://piwik.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Tests\Cache;
 
 use DeviceDetector\Cache\StaticCache;
@@ -13,19 +15,19 @@ use PHPUnit\Framework\TestCase;
 
 class StaticCacheTest extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $cache = new StaticCache();
         $cache->flushAll();
     }
 
-    public function testSetNotPresent()
+    public function testSetNotPresent(): void
     {
         $cache = new StaticCache();
         $this->assertFalse($cache->fetch('NotExistingKey'));
     }
 
-    public function testSetAndGet()
+    public function testSetAndGet(): void
     {
         $cache = new StaticCache();
 
@@ -48,5 +50,4 @@ class StaticCacheTest extends TestCase
         $this->assertFalse($cache->fetch('key'));
         $this->assertFalse($cache->fetch('key3'));
     }
-
 }

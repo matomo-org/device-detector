@@ -7,6 +7,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Parser;
 
 /**
@@ -167,6 +168,7 @@ class OperatingSystem extends ParserAbstract
 
         foreach ($this->getRegexes() as $osRegex) {
             $matches = $this->matchUserAgent($osRegex['regex']);
+
             if ($matches) {
                 break;
             }
@@ -241,17 +243,17 @@ class OperatingSystem extends ParserAbstract
     /**
      * Returns the full name for the given short name
      *
-     * @param string $os
+     * @param string      $os
      * @param string|null $ver
      *
      * @return bool|string
      */
-    public static function getNameFromId(string $os, string $ver = null)
+    public static function getNameFromId(string $os, ?string $ver = null)
     {
         if (array_key_exists($os, self::$operatingSystems)) {
             $osFullName = self::$operatingSystems[$os];
 
-            return trim($osFullName.' '.$ver);
+            return trim($osFullName . ' ' . $ver);
         }
 
         return false;

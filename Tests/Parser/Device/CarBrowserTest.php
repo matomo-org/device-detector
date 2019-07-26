@@ -4,8 +4,10 @@
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link http://piwik.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Tests\Parser\Device;
 
 use DeviceDetector\Parser\Device\CarBrowser;
@@ -17,7 +19,7 @@ class CarBrowserTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
-    public function testParse($useragent, $device)
+    public function testParse($useragent, $device): void
     {
         $consoleParser = new CarBrowser();
         $consoleParser->setUserAgent($useragent);
@@ -29,7 +31,8 @@ class CarBrowserTest extends TestCase
 
     public function getFixtures()
     {
-        $fixtureData = \Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/car_browser.yml');
+        $fixtureData = Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/car_browser.yml');
+
         return $fixtureData;
     }
 }

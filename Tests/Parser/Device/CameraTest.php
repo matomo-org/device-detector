@@ -4,8 +4,10 @@
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link http://piwik.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Tests\Parser\Device;
 
 use DeviceDetector\Parser\Device\Camera;
@@ -17,9 +19,9 @@ class CameraTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
-    public function testParse($useragent, $device)
+    public function testParse($useragent, $device): void
     {
-        $consoleParser = new Camera;
+        $consoleParser = new Camera();
         $consoleParser->setUserAgent($useragent);
         $this->assertTrue(is_array($consoleParser->parse()));
         $this->assertEquals($device['type'], $consoleParser->getDeviceType());
@@ -29,7 +31,8 @@ class CameraTest extends TestCase
 
     public function getFixtures()
     {
-        $fixtureData = \Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/camera.yml');
+        $fixtureData = Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/camera.yml');
+
         return $fixtureData;
     }
 }

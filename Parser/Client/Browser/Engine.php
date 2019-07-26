@@ -7,6 +7,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Parser\Client\Browser;
 
 use DeviceDetector\Parser\Client\ClientParserAbstract;
@@ -55,6 +56,7 @@ class Engine extends ClientParserAbstract
     {
         foreach ($this->getRegexes() as $regex) {
             $matches = $this->matchUserAgent($regex['regex']);
+
             if ($matches) {
                 break;
             }
@@ -73,6 +75,6 @@ class Engine extends ClientParserAbstract
         }
 
         // This Exception should never be thrown. If so a defined browser name is missing in $availableEngines
-        throw new \Exception('Detected browser engine was not found in $availableEngines. Tried to parse user agent: '.$this->userAgent); // @codeCoverageIgnore
+        throw new \Exception('Detected browser engine was not found in $availableEngines. Tried to parse user agent: ' . $this->userAgent); // @codeCoverageIgnore
     }
 }

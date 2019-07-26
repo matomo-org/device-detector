@@ -4,16 +4,23 @@
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link http://piwik.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
 namespace DeviceDetector\Yaml;
 
-use \Spyc AS SpycParser;
+use \Spyc as SpycParser;
 
 class Spyc implements Parser
 {
-    public function parseFile($file)
+    /**
+     * Parses the file with the given filename using Spyc and returns the converted content
+     *
+     * @param string $file
+     * @return mixed
+     */
+    public function parseFile(string $file)
     {
         return SpycParser::YAMLLoad($file);
     }
