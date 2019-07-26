@@ -7,6 +7,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Parser;
 
 use DeviceDetector\Cache\Cache;
@@ -152,12 +153,13 @@ abstract class ParserAbstract
     protected function getRegexes(): array
     {
         if (empty($this->regexList)) {
-            $cacheKey        = 'DeviceDetector-'.DeviceDetector::VERSION.'regexes-'.$this->getName();
+            $cacheKey        = 'DeviceDetector-' . DeviceDetector::VERSION . 'regexes-' . $this->getName();
             $cacheKey        = preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
             $this->regexList = $this->getCache()->fetch($cacheKey);
+
             if (empty($this->regexList)) {
                 $this->regexList = $this->getYamlParser()->parseFile(
-                    $this->getRegexesDirectory().DIRECTORY_SEPARATOR.$this->fixtureFile
+                    $this->getRegexesDirectory() . DIRECTORY_SEPARATOR . $this->fixtureFile
                 );
                 $this->getCache()->save($cacheKey, $this->regexList);
             }
@@ -182,12 +184,12 @@ abstract class ParserAbstract
      * @return ?array
      * @throws \Exception
      */
-    protected function matchUserAgent($regex)
+    protected function matchUserAgent(string $regex)
     {
         $matches = [];
 
         // only match if useragent begins with given regex or there is no letter before it
-        $regex = '/(?:^|[^A-Z0-9\-_]|[^A-Z0-9\-]_|sprd-)(?:'.str_replace('/', '\/', $regex).')/i';
+        $regex = '/(?:^|[^A-Z0-9\-_]|[^A-Z0-9\-]_|sprd-)(?:' . str_replace('/', '\/', $regex) . ')/i';
 
         try {
             if (preg_match($regex, $this->userAgent, $matches)) {
@@ -213,12 +215,12 @@ abstract class ParserAbstract
     protected function buildByMatch(string $item, array $matches): string
     {
         for ($nb = 1; $nb <= 3; $nb++) {
-            if (strpos($item, '$'.$nb) === false) {
+            if (false === strpos($item, '$' . $nb)) {
                 continue;
             }
 
             $replace = $matches[$nb] ?? '';
-            $item    = trim(str_replace('$'.$nb, $replace, $item));
+            $item    = trim(str_replace('$' . $nb, $replace, $item));
         }
 
         return $item;
@@ -233,14 +235,15 @@ abstract class ParserAbstract
      * return value would be v1.0.1
      *
      * @param string $versionString
-     * @param array $matches
+     * @param array  $matches
      *
      * @return string
      */
-    protected function buildVersion($versionString, $matches): string
+    protected function buildVersion(string $versionString, array $matches): string
     {
         $versionString = $this->buildByMatch($versionString, $matches);
         $versionString = str_replace('_', '.', $versionString);
+
         if (self::VERSION_TRUNCATION_NONE !== static::$maxMinorParts && substr_count($versionString, '.') > static::$maxMinorParts) {
             $versionParts  = explode('.', $versionString);
             $versionParts  = array_slice($versionParts, 0, 1 + static::$maxMinorParts);
@@ -266,7 +269,7 @@ abstract class ParserAbstract
 
         static $overAllMatch;
 
-        $cacheKey = $this->parserName.DeviceDetector::VERSION.'-all';
+        $cacheKey = $this->parserName . DeviceDetector::VERSION . '-all';
         $cacheKey = preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
 
         if (empty($overAllMatch)) {
@@ -276,7 +279,7 @@ abstract class ParserAbstract
         if (empty($overAllMatch)) {
             // reverse all regexes, so we have the generic one first, which already matches most patterns
             $overAllMatch = array_reduce(array_reverse($regexes), function ($val1, $val2) {
-                return !empty($val1) ? $val1.'|'.$val2['regex'] : $val2['regex'];
+                return !empty($val1) ? $val1 . '|' . $val2['regex'] : $val2['regex'];
             });
             $this->getCache()->save($cacheKey, $overAllMatch);
         }
@@ -299,7 +302,7 @@ abstract class ParserAbstract
      *
      * @return Cache
      */
-    public function getCache()
+    public function getCache(): Cache
     {
         if (!empty($this->cache)) {
             return $this->cache;

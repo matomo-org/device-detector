@@ -7,6 +7,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Parser;
 
 /**
@@ -68,9 +69,11 @@ class Bot extends BotParserAbstract
 
             foreach ($this->getRegexes() as $regex) {
                 $matches = $this->matchUserAgent($regex['regex']);
+
                 if ($matches) {
                     unset($regex['regex']);
                     $result = $regex;
+
                     break;
                 }
             }

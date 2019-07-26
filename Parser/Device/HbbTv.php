@@ -7,6 +7,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Parser\Device;
 
 /**
@@ -42,7 +43,7 @@ class HbbTv extends DeviceParserAbstract
     /**
      * Returns if the parsed UA was identified as a HbbTV device
      *
-     * @return null|string
+     * @return string|null
      */
     public function isHbbTv(): ?string
     {
