@@ -2767,11 +2767,11 @@ Desay:
 
 # DEXP
 DEXP:
-  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/]+) Build|H135[ _]Build'
+  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build'
   device: 'smartphone'
   models:
 
-    - regex: 'Ixion[_ ]([^;/]+) Build'
+    - regex: 'Ixion[_ ]([^;/]+)(?: Build|\))'
       model: 'Ixion $1'
 
     - regex: 'Ursus ([^;/]+) Build'
@@ -4689,6 +4689,12 @@ iRola:
       model: '$1'
     - regex: 'iRola ([^/;]+) Build'
       model: '$1'
+
+# Irbis
+Irbis:
+  regex: '(TZ753|TZone|TZ49)[;)\ ]'
+  device: 'tablet'
+  model: '$1'
 
 iBerry:
   regex: 'AUXUS ([^/;]+) Build'
@@ -7070,7 +7076,7 @@ NYX Mobile:
 
 # Nous
 Nous:
-  regex: 'NS([356]|500[3468]|5511)[;/) ]'
+  regex: 'NS([356]|500[23468]|5511)[;/) ]'
   device: 'smartphone'
   models:
     - regex: '(NS[0-9]{1,4})[;/) ]'
