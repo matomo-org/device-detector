@@ -15,8 +15,15 @@ namespace DeviceDetector\Parser\Client;
  *
  * Client parser for mobile app detection
  */
-class MobileApp extends ClientParserAbstract
+class MobileApp extends AbstractClientParser
 {
+    /**
+     * @var string
+     */
     protected $fixtureFile = 'regexes/client/mobile_apps.yml';
-    protected $parserName  = 'mobile app';
+
+    /**
+     * @var string
+     */
+    protected $parserName = 'mobile app';
 }

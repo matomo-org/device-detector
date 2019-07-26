@@ -10,14 +10,14 @@
 
 namespace DeviceDetector\Parser\Client\Browser\Engine;
 
-use DeviceDetector\Parser\Client\ClientParserAbstract;
+use DeviceDetector\Parser\Client\AbstractClientParser;
 
 /**
  * Class Version
  *
  * Client parser for browser engine version detection
  */
-class Version extends ClientParserAbstract
+class Version extends AbstractClientParser
 {
     /**
      * @var string
@@ -37,6 +37,9 @@ class Version extends ClientParserAbstract
         $this->engine = $engine;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function parse(): ?array
     {
         if (empty($this->engine)) {
@@ -45,13 +48,19 @@ class Version extends ClientParserAbstract
 
         if ($this->engine === 'Gecko') {
             $pattern = "~[ ](?:rv[: ]([0-9\.]+)).*gecko/[0-9]{8,10}~i";
+
             if (preg_match($pattern, $this->userAgent, $matches)) {
                 return array_pop($matches);
             }
 
         }
 
-        preg_match("~{$this->engine}\s*/?\s*((?(?=\d+\.\d)\d+[.\d]*|\d{1,7}(?=(?:\D|$))))~i", $this->userAgent, $matches);
+        preg_match(
+            "~{$this->engine}\s*/?\s*((?(?=\d+\.\d)\d+[.\d]*|\d{1,7}(?=(?:\D|$))))~i",
+            $this->userAgent,
+            $matches
+        );
+
         if (!$matches) {
             return null;
         }

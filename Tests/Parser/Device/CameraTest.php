@@ -10,8 +10,8 @@
 
 namespace DeviceDetector\Tests\Parser\Devices;
 
-use DeviceDetector\Parser\Device\Camera;
 use \Spyc;
+use DeviceDetector\Parser\Device\Camera;
 use PHPUnit\Framework\TestCase;
 
 class CameraTest extends TestCase

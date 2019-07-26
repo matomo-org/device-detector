@@ -17,7 +17,7 @@ namespace DeviceDetector\Parser;
  *
  * Detected bots are defined in regexes/bots.yml
  */
-class Bot extends BotParserAbstract
+class Bot extends AbstractBotParser
 {
     /**
      * @var string

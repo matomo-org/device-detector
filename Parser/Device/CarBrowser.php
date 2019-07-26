@@ -15,11 +15,21 @@ namespace DeviceDetector\Parser\Device;
  *
  * Device parser for car browser detection
  */
-class CarBrowser extends DeviceParserAbstract
+class CarBrowser extends AbstractDeviceParser
 {
+    /**
+     * @var string
+     */
     protected $fixtureFile = 'regexes/device/car_browsers.yml';
-    protected $parserName  = 'car browser';
 
+    /**
+     * @var string
+     */
+    protected $parserName = 'car browser';
+
+    /**
+     * @inheritdoc
+     */
     public function parse(): ?array
     {
         if (!$this->preMatchOverall()) {

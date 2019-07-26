@@ -10,8 +10,8 @@
 
 namespace DeviceDetector\Tests\Parser\Client;
 
-use DeviceDetector\Parser\Client\FeedReader;
 use \Spyc;
+use DeviceDetector\Parser\Client\FeedReader;
 use PHPUnit\Framework\TestCase;
 
 class FeedReaderTest extends TestCase

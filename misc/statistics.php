@@ -22,9 +22,9 @@ $parsedUAs = $unknownDeviceTypes = $detectedBots = 0;
 
 $deviceAvailableDeviceTypes = array_flip(DeviceParserAbstract::getAvailableDeviceTypes());
 
-DeviceParserAbstract::setVersionTruncation(DeviceParserAbstract::VERSION_TRUNCATION_NONE);
+\DeviceDetector\Parser\Device\AbstractDeviceParser::setVersionTruncation(\DeviceDetector\Parser\Device\AbstractDeviceParser::VERSION_TRUNCATION_NONE);
 
-$deviceTypes = (array_fill(0, count($deviceAvailableDeviceTypes), 0));
+$deviceTypes = (array_fill(0, count(\DeviceDetector\Parser\Device\AbstractDeviceParser::getAvailableDeviceTypes()), 0));
 
 $startTime = microtime(true);
 

@@ -11,11 +11,11 @@
 namespace DeviceDetector\Parser;
 
 /**
- * Class BotParserAbstract
+ * Class AbstractBotParser
  *
  * Abstract class for all bot parsers
  */
-abstract class BotParserAbstract extends ParserAbstract
+abstract class AbstractBotParser extends AbstractParser
 {
     /**
      * Enables information discarding

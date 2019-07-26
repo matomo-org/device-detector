@@ -10,7 +10,7 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 use DeviceDetector\DeviceDetector;
-use DeviceDetector\Parser\Device\DeviceParserAbstract;
+use DeviceDetector\Parser\Device\AbstractDeviceParser;
 
 if (php_sapi_name() === 'cli') {
     if (isset($argv[1])) {
@@ -24,7 +24,7 @@ if (php_sapi_name() === 'cli') {
     }
 }
 
-DeviceParserAbstract::setVersionTruncation(DeviceParserAbstract::VERSION_TRUNCATION_NONE);
+AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
 
 $result = DeviceDetector::getInfoFromUserAgent($userAgent);
 

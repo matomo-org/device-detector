@@ -10,8 +10,8 @@
 
 namespace DeviceDetector\Tests\Parser\Client;
 
-use DeviceDetector\Parser\Client\PIM;
 use \Spyc;
+use DeviceDetector\Parser\Client\PIM;
 use PHPUnit\Framework\TestCase;
 
 class PIMTest extends TestCase

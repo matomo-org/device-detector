@@ -15,8 +15,15 @@ namespace DeviceDetector\Parser\Client;
  *
  * Client parser for feed reader detection
  */
-class FeedReader extends ClientParserAbstract
+class FeedReader extends AbstractClientParser
 {
+    /**
+     * @var string
+     */
     protected $fixtureFile = 'regexes/client/feed_readers.yml';
-    protected $parserName  = 'feed reader';
+
+    /**
+     * @var string
+     */
+    protected $parserName = 'feed reader';
 }

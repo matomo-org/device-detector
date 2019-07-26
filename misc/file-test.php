@@ -27,7 +27,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\Client\Browser;
-use DeviceDetector\Parser\Device\DeviceParserAbstract;
+use DeviceDetector\Parser\Device\AbstractDeviceParser;
 use DeviceDetector\Parser\OperatingSystem;
 
 if (php_sapi_name() !== 'cli') {
