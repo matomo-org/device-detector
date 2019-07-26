@@ -9,11 +9,9 @@
 
 namespace DeviceDetector\Tests;
 
-use DeviceDetector\Cache\StaticCache;
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
 use DeviceDetector\Parser\ParserAbstract;
-use DeviceDetector\Yaml\Spyc;
 use DeviceDetector\Yaml\Symfony;
 use PHPUnit\Framework\TestCase;
 
@@ -104,7 +102,7 @@ class DeviceDetectorTest extends TestCase
     }
 
     /**
-     * @expectedException \Exception
+     * @expectedException \TypeError
      */
     public function testSetCacheInvalid()
     {
@@ -121,8 +119,8 @@ class DeviceDetectorTest extends TestCase
         $dd = new DeviceDetector();
         $memcacheServer = new \Memcache();
         $memcacheServer->connect('localhost', 11211);
-        $dd->setCache(new \Doctrine\Common\Cache\MemcacheCache($memcacheServer));
-        $this->assertInstanceOf('Doctrine\\Common\\Cache\\MemcacheCache', $dd->getCache());
+        $dd->setCache(new DoctrineBridge(new \Doctrine\Common\Cache\MemcacheCache($memcacheServer)));
+        $this->assertInstanceOf(DoctrineBridge::class, $dd->getCache());
     }
 
     public function testParseEmptyUA()
@@ -413,7 +411,7 @@ class DeviceDetectorTest extends TestCase
     }
 
     /**
-     * @expectedException \Exception
+     * @expectedException \TypeError
      */
     public function testSetYamlParserInvalid()
     {
