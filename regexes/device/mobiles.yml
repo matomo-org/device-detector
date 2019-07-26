@@ -4692,9 +4692,14 @@ iRola:
 
 # Irbis
 Irbis:
-  regex: '(TZ753|TZone|TZ49)[;)\ ]'
+  regex: 'TZ(753|85[47]|86[45]|88[124]|89[12]|49)|T(?:Zone|Zart)|(SP(?:0[56]|2[01]|4[1-36]|45[45]|50))[;)\ ]'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: '(TZ(?:753|85[47]|86[45]|88[124]|89[12]|49)|T(?:Zone|Zart))[;)\ ]'
+      model: '$1'
+    - regex: '(SP(?:0[56]|2[01]|4[1-36]|45[45]|50))[;)\ ]'
+      device: 'smartphone'
+      model: '$1'
 
 iBerry:
   regex: 'AUXUS ([^/;]+) Build'
