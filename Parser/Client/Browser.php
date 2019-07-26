@@ -7,6 +7,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Parser\Client;
 
 use DeviceDetector\Parser\Client\Browser\Engine;
@@ -378,6 +379,7 @@ class Browser extends ClientParserAbstract
     {
         foreach ($this->getRegexes() as $regex) {
             $matches = $this->matchUserAgent($regex['regex']);
+
             if ($matches) {
                 break;
             }
@@ -413,10 +415,12 @@ class Browser extends ClientParserAbstract
     protected function buildEngine($engineData, $browserVersion): string
     {
         $engine = '';
+
         // if an engine is set as default
         if (isset($engineData['default'])) {
             $engine = $engineData['default'];
         }
+
         // check if engine is set for browser version
         if (array_key_exists('versions', $engineData) && is_array($engineData['versions'])) {
             foreach ($engineData['versions'] as $version => $versionEngine) {
@@ -427,6 +431,7 @@ class Browser extends ClientParserAbstract
                 $engine = $versionEngine;
             }
         }
+
         // try to detect the engine using the regexes
         if (empty($engine)) {
             $engineParser = new Engine();
@@ -445,6 +450,7 @@ class Browser extends ClientParserAbstract
         $engineVersionParser = new Engine\Version($this->userAgent, $engine);
 
         $result = $engineVersionParser->parse();
+
         return $result['version'] ?: '';
     }
 }

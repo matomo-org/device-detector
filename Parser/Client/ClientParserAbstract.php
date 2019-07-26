@@ -7,6 +7,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Parser\Client;
 
 use DeviceDetector\Parser\ParserAbstract;
@@ -43,6 +44,7 @@ abstract class ClientParserAbstract extends ParserAbstract
                         'name'    => $this->buildByMatch($regex['name'], $matches),
                         'version' => $this->buildVersion((string) $regex['version'], $matches),
                     ];
+
                     break;
                 }
             }
@@ -63,8 +65,9 @@ abstract class ClientParserAbstract extends ParserAbstract
         $instance = new static();
         $regexes  = $instance->getRegexes();
         $names    = [];
+
         foreach ($regexes as $regex) {
-            if ($regex['name'] == '$1') {
+            if ('$1' == $regex['name']) {
                 continue;
             }
 
