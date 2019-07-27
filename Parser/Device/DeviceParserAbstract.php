@@ -352,6 +352,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'MG' => 'MyWigo',
         'M8' => 'Myria',
         'N3' => 'Navon',
+        'N5' => 'NOA',
         'NE' => 'NEC',
         'NF' => 'Neffos',
         'NA' => 'Netgear',
