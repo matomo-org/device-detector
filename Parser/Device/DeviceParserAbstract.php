@@ -298,6 +298,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'L6' => 'Land Rover',
         'LV' => 'Lava',
         'LA' => 'Lanix',
+        'LK' => 'Lark',
         'LC' => 'LCT',
         'L5' => 'Leagoo',
         'LD' => 'Ledstar',
