@@ -87,6 +87,7 @@ class Browser extends ClientParserAbstract
         'FE' => 'Fennec',
         'FF' => 'Firefox',
         'FK' => 'Firefox Focus',
+        'FR' => 'Firefox Rocket',
         'FL' => 'Flock',
         'FM' => 'Firefox Mobile',
         'FW' => 'Fireweb',
@@ -207,7 +208,7 @@ class Browser extends ClientParserAbstract
         'Baidu'              => array('BD', 'BS'),
         'Amiga'              => array('AV', 'AW'),
         'Chrome'             => array('CH', 'BA', 'BR', 'CC', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'IR', 'RM', 'AO', 'TS', 'VI', 'PT', 'AS', 'TB', 'AD', 'SB'),
-        'Firefox'            => array('FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF', 'CU', 'TF', 'QM'),
+        'Firefox'            => array('FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF', 'CU', 'TF', 'QM', 'FR'),
         'Internet Explorer'  => array('IE', 'IM', 'PS'),
         'Konqueror'          => array('KO'),
         'NetFront'           => array('NF'),
@@ -224,7 +225,7 @@ class Browser extends ClientParserAbstract
      * @var array
      */
     protected static $mobileOnlyBrowsers = array(
-        '36', 'PU', 'SK', 'MF', 'OI', 'OM', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB'
+        '36', 'PU', 'SK', 'MF', 'OI', 'OM', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR'
     );
 
     /**
