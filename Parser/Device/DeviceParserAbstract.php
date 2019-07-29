@@ -194,6 +194,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'E3' => 'Evolio',
         'EO' => 'Evolveo',
         'EX' => 'Explay',
+        'E0' => 'EvroMedia',
         'E5' => 'Extrem',
         'EZ' => 'Ezze',
         'E8' => 'E-tel',
