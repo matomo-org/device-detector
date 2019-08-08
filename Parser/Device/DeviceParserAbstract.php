@@ -434,6 +434,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'RK' => 'Roku',
         'RO' => 'Rover',
         'R1' => 'Rokit',
+        'R3' => 'Rombica',
         'RT' => 'RT Project',
         'R2' => 'R-TV',
         'SQ' => 'Santin BiTBiZ',
