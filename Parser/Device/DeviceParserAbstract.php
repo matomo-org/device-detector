@@ -189,6 +189,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'EE' => 'Essential',
         'EN' => 'Eton',
         'E2' => 'Essentielb',
+        '1E' => 'Etuline',
         'ET' => 'eTouch',
         'EV' => 'Evertek',
         'E3' => 'Evolio',
