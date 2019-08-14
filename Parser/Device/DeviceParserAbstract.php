@@ -468,6 +468,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'SV' => 'Selevision',
         'SY' => 'Sanyo',
         'SM' => 'Symphony',
+        '4S' => 'Syrox',
         'SR' => 'Smart',
         'S7' => 'Smartisan',
         'S4' => 'Star',
