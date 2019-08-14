@@ -6601,7 +6601,7 @@ Mediacom:
 
 # Medion
 Medion:
-  regex: 'Medion|(?:MD_)?LIFETAB|X5001[);/ ]|[SPX]10[0-9]{2}X[);/ ]'
+  regex: 'Medion|(?:MD_)?LIFETAB|X5001[);/ ]|([SPX]10[0-9]{2}X|E10[45]1X)[);/ ]'
   device: 'smartphone'
   models:
     - regex: '(?:MD_)?LIFETAB_([a-z0-9]+)'
@@ -6609,6 +6609,9 @@ Medion:
       model: 'Lifetab $1'
     - regex: 'X5001'
       model: 'Life X5001'
+    - regex: '(E10[45]1X)[);/ ]'
+      device: 'tablet'
+      model: '$1'
     - regex: '([SPX]10[0-9]{2}X)[);/ ]'
       model: 'Lifetab $1'
       device: 'tablet'
