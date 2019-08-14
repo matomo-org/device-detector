@@ -276,6 +276,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'JO' => 'Jolla',
         'J5' => 'Just5',
         'KL' => 'Kalley',
+        'K4' => 'Kaan',
         'KA' => 'Karbonn',
         'KD' => 'KDDI',
         'K1' => 'Kiano',
