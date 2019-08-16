@@ -12,8 +12,20 @@
   engine:
     default: 'Blink'
 
+# QwantBrowser
+- regex: 'QwantBrowser(?:/(\d+[\.\d]+))?'
+  name: 'QwantBrowser'
+  version: '$1'
+  engine:
+    default: 'Gecko'
+
 # Qwant Mobile
-- regex: 'QwantMobile(?:/(\d+[\.\d]+))?'
+- regex: 'QwantiOS(?:/(\d+[\.\d]+))?'
+  name: 'Qwant Mobile iOS'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+- regex: 'Qwant(?:Mobile)?(?:/(\d+[\.\d]+))?'
   name: 'Qwant Mobile'
   version: '$1'
   engine:
@@ -81,7 +93,7 @@
     default: 'Gecko'
 
 # SeaMonkey
-- regex: '(Iceape|SeaMonkey|gnuzilla)(?:/(\d+[\.\d]+))?'
+- regex: '(Iceape|IceCat|SeaMonkey|gnuzilla|Mobicip)(?:/(\d+[\.\d]+))?'
   name: '$1'
   version: '$2'
   engine:
@@ -275,11 +287,16 @@
     default: 'Gecko'
 
 #Firefox Mobile
-- regex: '(Mobile|Tablet).*Firefox(?:/(\d+[\.\d]+))?'
+- regex: '(?:Mobile|Tablet).*Firefox(?:/(\d+[\.\d]+))?'
   name: 'Firefox Mobile'
-  version: '$2'
+  version: '$1'
   engine:
     default: 'Gecko'
+- regex: 'FxiOS/(\d+[\.\d]+)'
+  name: 'Firefox Mobile iOS'
+  version: '$1'
+  engine:
+    default: 'WebKit'
 
 #Firefox
 - regex: 'Firefox(?:/(\d+[\.\d]+))?'
@@ -287,16 +304,11 @@
   version: '$1'
   engine:
     default: 'Gecko'
-- regex: '(BonEcho|GranParadiso|Lorentz|Minefield|Namoroka|Shiretoko)/(\d+[\.\d]+)'
+- regex: '(?:BonEcho|GranParadiso|Lorentz|Minefield|Namoroka|Shiretoko)/(\d+[\.\d]+)'
   name: 'Firefox'
-  version: '$1 ($2)'
+  version: '$1'
   engine:
     default: 'Gecko'
-- regex: 'FxiOS/(\d+[\.\d]+)'
-  name: 'Firefox Mobile'
-  version: 'iOS $1'
-  engine:
-    default: 'WebKit'
 
 #ANT Fresco
 - regex: 'ANTFresco(?:[/ ](\d+[\.\d]+))?'
@@ -352,6 +364,11 @@
   name: 'Dooble'
   version: '$1'
 
+# Whale
+- regex: 'Whale/(\d+[\.\d]+)'
+  name: 'Whale Browser'
+  version: '$1'
+
 #Opera
 - regex: '(?:Opera Tablet.*Version|Opera/.+Opera Mobi.+Version|Mobile.+OPR)/(\d+[\.\d]+)'
   name: 'Opera Mobile'
@@ -360,9 +377,21 @@
     default: 'Presto'
     versions:
       15: 'Blink'
-- regex: '(?:OPT)/(\d+[\.\d]+)'
+- regex: '[ ]MMS(?:/(\d+[\.\d]+))?'
+  name: 'Opera Neon'
+  version: '$1'
+  engine:
+    default: 'Blink'
+- regex: '[ ]OMI(?:/(\d+[\.\d]+))?'
+  name: 'Opera Devices'
+  version: '$1'
+  engine:
+    default: 'Blink'
+- regex: 'OPT(?:/(\d+[\.\d]+))?'
   name: 'Opera Touch'
   version: '$1'
+  engine:
+    default: 'Blink'
 - regex: 'Opera/(\d+[\.\d]+).+Opera Mobi'
   name: 'Opera Mobile'
   version: '$1'
@@ -380,6 +409,11 @@
   version: '$1'
   engine:
     default: 'Presto'
+- regex: 'OPiOS/(\d+[\.\d]+)'
+  name: 'Opera Mini iOS'
+  version: '$1'
+  engine:
+    default: 'WebKit'
 - regex: 'Opera.+Edition Next.+Version/(\d+[\.\d]+)'
   name: 'Opera Next'
   version: '$1'
@@ -419,7 +453,7 @@
     default: '' # multi engine
 
 #Comodo Dragon
-- regex: 'Comodo[ _]Dragon(?:/(\d+[\.\d]+))?'
+- regex: '(?:Comodo[ _])?Dragon(?:/(\d+[\.\d]+))?'
   name: 'Comodo Dragon'
   version: '$1'
   engine:
@@ -452,6 +486,9 @@
 
 #Baidu Browser
 - regex: 'baidubrowser(?:[/ ](\d+[\.\d]*))?'
+  name: 'Baidu Browser'
+  version: '$1'
+- regex: 'FlyFlow(?:[/ ](\d+[\.\d]*))?'
   name: 'Baidu Browser'
   version: '$1'
 
@@ -513,6 +550,13 @@
   name: 'Puffin'
   version: '$1'
 
+#MobileIron
+- regex: 'MobileIron(?:/(\d+[\.\d]+))?'
+  name: 'Iron Mobile'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
 #Iron
 - regex: 'Iron(?:/(\d+[\.\d]+))?'
   name: 'Iron'
@@ -532,6 +576,11 @@
       '2.9.16': '' # multi engine
       '2.28': 'WebKit'
 
+# LieBaoFast
+- regex: 'LieBaoFast(?:[ /](\d+[\.\d]+))?'
+  name: 'LieBaoFast'
+  version: '$1'
+
 # Liebao
 - regex: 'LBBrowser(?:[ /](\d+[\.\d]+))?'
   name: 'Liebao'
@@ -542,15 +591,22 @@
   name: 'Sogou Explorer'
   version: '$1'
 
+# QQ Browser Mini
+- regex: 'M?QQBrowser/Mini([\.\d]+)?'
+  name: 'QQ Browser Mini'
+  version: '$1'
+
 # QQ Browser
-- regex: 'M?QQBrowser(?:/(?:Mini)?([\.\d]+))?'
+- regex: 'M?QQBrowser(?:/([\.\d]+))?'
   name: 'QQ Browser'
   version: '$1'
 
 # MIUI Browser
-- regex: 'MIUIBrowser(?:/(\d+[\.\d]+))?'
+- regex: '(?:MIUIBrowser|MiuiBrowser)(?:/(\d+[\.\d]+))?'
   name: 'MIUI Browser'
   version: '$1'
+  engine:
+    default: 'Blink'
 
 # Coc Coc
 # This browser (http://coccoc.vn/) is built on top of Chromium with
@@ -588,6 +644,14 @@
   engine:
     default: 'WebKit'
 
+#UC Browser Mini
+- regex: 'UCMini(?:[ /]?(\d+[\.\d]+))?'
+  name: 'UC Browser Mini'
+  version: '$1'
+- regex: 'UC[ ]?Browser.* \(UCMini\)'
+  name: 'UC Browser Mini'
+  version: ''
+
 #UC Browser
 - regex: 'UC[ ]?Browser(?:[ /]?(\d+[\.\d]+))?'
   name: 'UC Browser'
@@ -595,6 +659,9 @@
 - regex: 'UCWEB(?:[ /]?(\d+[\.\d]+))?'
   name: 'UC Browser'
   version: '$1'
+- regex: 'UC AppleWebKit'
+  name: 'UC Browser'
+  version: ''
 
 #Tenta Browser
 #It should be checked before Chrome since the UA contains the Chrome
@@ -610,6 +677,67 @@
   version: '$1'
   engine:
     default: 'Webkit'
+
+# Seznam Browser
+- regex: 'SznProhlizec/(\d+[\.\d]+)'
+  name: 'Seznam Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# SogouMobileBrowser
+- regex: 'SogouMobileBrowser/(\d+[\.\d]+)'
+  name: 'Sogou Mobile Browser'
+  version: '$1'
+
+# Mint Browser
+- regex: 'Mint Browser/(\d+[\.\d]+)'
+  name: 'Mint Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# Ecosia
+- regex: 'Ecosia (?:android|ios)@(\d+[\.\d]+)'
+  name: 'Ecosia'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# CM Browser
+- regex: 'ACHEETAHI'
+  name: 'CM Browser'
+  version: ''
+  engine:
+    default: '' # multi engine
+
+# Kiwi Browser
+- regex: 'Kiwi Chrome'
+  name: 'Kiwi'
+  version: ''
+
+# 2345 Browser
+- regex: 'Mb2345Browser/(\d+[\.\d]+)'
+  name: '2345 Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# QtWebEngine
+- regex: 'QtWebEngine/(\d+[\.\d]+)'
+  name: 'QtWebEngine'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# Chrome Webview
+- regex: 'Version/.* Chrome(?:/(\d+[\.\d]+))?'
+  name: 'Chrome Webview'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+    versions:
+      28: 'Blink'
 
 #Chrome
 - regex: 'CrMo(?:/(\d+[\.\d]+))?'
@@ -648,7 +776,7 @@
   version: '$1'
   engine:
     default: 'Blink'
-- regex: 'Chrome(?:/(\d+[\.\d]+))?'
+- regex: 'Chrome(?!book)(?:/(\d+[\.\d]+))?'
   name: 'Chrome'
   version: '$1'
   engine:
@@ -884,7 +1012,7 @@
   version: 10.0
   engine:
     default: 'Trident'
-- regex: 'Trident/7.0'
+- regex: 'Trident/[78].0'
   name: 'Internet Explorer'
   version: 11.0
   engine:
@@ -1110,6 +1238,13 @@
 - regex: 'BriskBard(?:/(\d+[\.\d]+))?'
   name: 'BriskBard'
   version: '$1'
+
+#Dalvik
+- regex: 'Dalvik(?:/(\d+[\.\d]+))?'
+  name: 'Dalvik'
+  version: '$1'
+  engine:
+    default: 'WebKit'
 
 #Android Browser
 - regex: 'Android'
