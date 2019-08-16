@@ -254,6 +254,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'I1' => 'iOcean',
         'I2' => 'IconBIT',
         'IL' => 'IMO Mobile',
+        'I7' => 'iLA',
         'IW' => 'iNew',
         'IP' => 'iPro',
         'IF' => 'Infinix',
