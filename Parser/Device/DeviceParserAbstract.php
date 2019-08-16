@@ -560,6 +560,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'WX' => 'Woxter',
         'XV' => 'X-View',
         'XI' => 'Xiaomi',
+        'XL' => 'Xiaolajiao',
         'XN' => 'Xion',
         'XO' => 'Xolo',
         'YA' => 'Yarvik',
