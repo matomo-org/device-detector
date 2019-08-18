@@ -20,7 +20,6 @@ stages:
   - test with coverage
 
 before_install:
-  - echo "extension = memcache.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - phpenv config-rm xdebug.ini || echo "xdebug not available"
   - (composer self-update; true)
   - composer require doctrine/cache ~1.2
@@ -40,7 +39,6 @@ jobs:
     - stage: test with coverage
       php: 7.1
       before_install:
-        - echo "extension = memcache.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
         - (composer self-update; true)
         - composer require doctrine/cache ~1.2
       before_script: mkdir -p build/logs
