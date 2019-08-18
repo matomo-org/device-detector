@@ -28,8 +28,6 @@ before_install:
 
 install: composer install
 
-before_script: mkdir -p build/logs
-
 script: vendor/bin/phpunit --no-coverage
 
 jobs:
@@ -47,6 +45,7 @@ jobs:
         - echo "extension = memcache.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
         - (composer self-update; true)
         - composer require doctrine/cache ~1.2
+      before_script: mkdir -p build/logs
       script: vendor/bin/phpunit --coverage-clover build/logs/clover.xml --coverage-text
       after_success: wget https://github.com/php-coveralls/php-coveralls/releases/download/v2.1.0/php-coveralls.phar && php -n php-coveralls.phar --verbose --coverage_clover=build/logs/clover.xml
 
