@@ -69,7 +69,7 @@ echo implode(', ', $brands);
 
 <?php
 
-$bots = [];
+$bots = array();
 $ymlParser = new Spyc();
 
 $parsedBots = $ymlParser->loadFile(__DIR__ . '/../regexes/bots.yml');

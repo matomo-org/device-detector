@@ -10,7 +10,7 @@ namespace DeviceDetector\Parser;
 use DeviceDetector\Cache\StaticCache;
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Cache\Cache;
-use DeviceDetector\Yaml\Parser AS YamlParser;
+use DeviceDetector\Yaml\Parser as YamlParser;
 use DeviceDetector\Yaml\Spyc;
 
 /**

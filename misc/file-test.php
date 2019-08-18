@@ -98,11 +98,11 @@ while (!feof($fn)) {
         if ($result['device']['model'] === '') {
             printReport($result, $reportMode);
         }
-    } else if ($showMode === DETECT_MODE_TYPE_DETECT) {
+    } elseif ($showMode === DETECT_MODE_TYPE_DETECT) {
         if ($result['device']['model'] !== '') {
             printReport($result, $reportMode);
         }
-    } else if ($showMode === DETECT_MODE_TYPE_ALL) {
+    } elseif ($showMode === DETECT_MODE_TYPE_ALL) {
         printReport($result, $reportMode);
     }
 }

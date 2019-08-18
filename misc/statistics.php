@@ -8,7 +8,7 @@
 
 require_once(__DIR__.'/../vendor/autoload.php');
 
-if(count($argv) != 2) {
+if (count($argv) != 2) {
     die("invalid arguments. Useage: php statistics.php filetoparse.txt");
 }
 
@@ -27,7 +27,6 @@ $parser = new \DeviceDetector\DeviceDetector();
 
 if ($handle) {
     while (($line = fgets($handle, 4096)) !== false) {
-
         if (empty($line)) {
             continue;
         }
@@ -53,7 +52,6 @@ if ($handle) {
         } else {
             $unknownDeviceTypes++;
         }
-
     }
     if (!feof($handle)) {
         echo "Error: unexpected fgets() fail\n";
@@ -63,7 +61,8 @@ if ($handle) {
 
 $timeElapsed = microtime(true) - $startTime;
 
-function getPercentage($cur, $max) {
+function getPercentage($cur, $max)
+{
     return format(round($cur*100/$max), '   ');
 }
 

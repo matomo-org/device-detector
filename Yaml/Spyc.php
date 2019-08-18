@@ -8,7 +8,7 @@
 
 namespace DeviceDetector\Yaml;
 
-use \Spyc AS SpycParser;
+use \Spyc as SpycParser;
 
 class Spyc implements Parser
 {
