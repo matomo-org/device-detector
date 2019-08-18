@@ -9,16 +9,15 @@ $fixtureFiles = glob(__DIR__.'/../Tests/fixtures/*.yml');
 $overwrite = !empty($argv[1]) && $argv[1] === '--f';
 $data = array();
 
-foreach ($fixtureFiles AS $file) {
+foreach ($fixtureFiles as $file) {
 
-    if (basename($file, '.yml') != 'unknown' && !in_array(preg_replace('/-[0-9]+$/', '', str_replace('_', ' ', basename($file, '.yml'))),array_keys( \DeviceDetector\Parser\Device\AbstractDeviceParser::getAvailableDeviceTypes() ))) {
+    if (basename($file, '.yml') != 'unknown' && !in_array(preg_replace('/-[0-9]+$/', '', str_replace('_', ' ', basename($file, '.yml'))), array_keys(\DeviceDetector\Parser\Device\AbstractDeviceParser::getAvailableDeviceTypes()))) {
         continue;
     }
 
     $fileFixtures = Spyc::YAMLLoad(file_get_contents($file));
 
-    foreach( $fileFixtures AS $fixture) {
-
+    foreach ($fileFixtures as $fixture) {
         if (isset($fixture['client']['short_name']) && $fixture['client']['short_name'] === true) {
             $fixture['client']['short_name'] = 'ON';
         }
@@ -32,30 +31,22 @@ foreach ($fixtureFiles AS $file) {
         }
 
         $data[$fixture['device']['type']][] = $fixture;
-
     }
 }
 
-foreach( $data AS $deviceType => $fixtures) {
-
+foreach ($data as $deviceType => $fixtures) {
     $fixtures = array_values(array_map("unserialize", array_unique(array_map("serialize", $fixtures))));
 
-    usort($fixtures, function($a, $b) {
-
+    usort($fixtures, function ($a, $b) {
         if (empty($b)) {
             return -1;
         }
 
-        if( @$a['device']['brand'] == @$b['device']['brand'] ) {
-
-            if( strtolower(@$a['device']['model']) == strtolower(@$b['device']['model']) ) {
-
+        if (@$a['device']['brand'] == @$b['device']['brand']) {
+            if (strtolower(@$a['device']['model']) == strtolower(@$b['device']['model'])) {
                 if (@$a['os']['name'] == @$b['os']['name']) {
-
                     if (@$a['os']['version'] == @$b['os']['version']) {
-
                         if (@$a['client']['name'] == @$b['client']['name']) {
-
                             if (@$a['client']['version'] == @$b['client']['version']) {
                                 if ($a['user_agent'] == $b['user_agent']) {
                                     return 0;
@@ -65,22 +56,18 @@ foreach( $data AS $deviceType => $fixtures) {
                             }
 
                             return strtolower(@$a['client']['version']) < strtolower(@$b['client']['version']) ? -1 : 1;
-
                         }
 
                         return strtolower(@$a['client']['name']) < strtolower(@$b['client']['name']) ? -1 : 1;
-
                     }
 
                     return strtolower(@$a['os']['version']) < strtolower(@$b['os']['version']) ? -1 : 1;
                 }
 
                 return strtolower(@$a['os']['name']) < strtolower(@$b['os']['name']) ? -1 : 1;
-
             }
 
             return strtolower(@$a['device']['model']) < strtolower(@$b['device']['model']) ? -1 : 1;
-
         }
 
         return @$a['device']['brand'] < @$b['device']['brand'] ? -1 : 1;
@@ -88,7 +75,7 @@ foreach( $data AS $deviceType => $fixtures) {
 
     $chunks = array_chunk($fixtures, 500);
 
-    foreach($chunks AS $nr => $chunk) {
+    foreach ($chunks as $nr => $chunk) {
         $content = Spyc::YAMLDump($chunk, false, 0);
 
         $content = str_replace(": ON\n", ": 'ON'\n", $content);
@@ -117,14 +104,13 @@ shell_exec("sed -i -e 's/version: \\([^\"].*\\)/version: \"\\1\"/g' ".__DIR__."/
 
 $botFixtures = Spyc::YAMLLoad(file_get_contents(__DIR__ . '/../Tests/fixtures/bots.yml'));
 
-foreach( $botFixtures AS &$fixture) {
+foreach ($botFixtures as &$fixture) {
     if ($overwrite) {
         $fixture = \DeviceDetector\DeviceDetector::getInfoFromUserAgent($fixture['user_agent']);
     }
 }
 
-usort($botFixtures, function($a, $b) {
-
+usort($botFixtures, function ($a, $b) {
     if (empty($b)) {
         return -1;
     }
@@ -143,4 +129,3 @@ usort($botFixtures, function($a, $b) {
 file_put_contents(__DIR__ . '/../Tests/fixtures/bots.yml', Spyc::YAMLDump($botFixtures, false, 0));
 
 echo "done.\n";
-

@@ -16,8 +16,7 @@ function dd_autoload($class)
 {
     if (strpos($class, 'DeviceDetector\\') !== false) {
         $namespace_map = array('DeviceDetector\\' => __DIR__ . '/');
-        foreach ($namespace_map as $prefix => $dir)
-        {
+        foreach ($namespace_map as $prefix => $dir) {
             /* First swap out the namespace prefix with a directory... */
             $path = str_replace($prefix, $dir, $class);
             /* replace the namespace separator with a directory separator... */
