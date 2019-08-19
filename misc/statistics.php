@@ -34,7 +34,6 @@ $parser = new DeviceDetector();
 
 if ($handle) {
     while (($line = fgets($handle, 4096)) !== false) {
-
         if (empty($line)) {
             continue;
         }
@@ -60,7 +59,6 @@ if ($handle) {
         } else {
             $unknownDeviceTypes++;
         }
-
     }
     if (!feof($handle)) {
         echo "Error: unexpected fgets() fail\n";
