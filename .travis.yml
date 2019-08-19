@@ -4,26 +4,52 @@ php:
   - 7.1
   - 7.2
   - 7.3
- 
-dist: trusty
+  - 7.4snapshot
+
+dist: xenial
 
 sudo: false
 
 services:
   - memcached
 
-before_script:
-  - (echo yes | pecl install -f memcache; true)
+stages:
+  - style check
+  - static code analysis
+  - test
+  - test with coverage
+
+before_install:
+  - phpenv config-rm xdebug.ini || echo "xdebug not available"
   - (composer self-update; true)
-  - if [[ "$TRAVIS_PHP_VERSION" = 7.1 ]]; then composer require php-coveralls/php-coveralls ^2.1; fi
   - composer require doctrine/cache ~1.2
-  - composer install
 
-script:
-  - mkdir -p build/logs
-  - ./vendor/phpunit/phpunit/phpunit --coverage-clover build/logs/clover.xml
-  - if [[ "$TRAVIS_PHP_VERSION" = 7.1 ]]; then vendor/bin/phpstan analyse -c phpstan.neon . --no-interaction --no-progress; fi
-  - if [[ "$TRAVIS_PHP_VERSION" = 7.1 ]]; then vendor/bin/phpcs --standard=phpcs.xml .; fi
+install: composer install
 
-after_success:
-  - if [[ "$TRAVIS_PHP_VERSION" = 7.1 ]]; then travis_retry php vendor/bin/php-coveralls -v; fi
+script: vendor/bin/phpunit --no-coverage
+
+jobs:
+  allow_failures:
+    - php: 7.4snapshot
+    - php: nightly
+  include:
+    - php: nightly
+      install: travis_retry composer install --ignore-platform-reqs
+
+    - stage: test with coverage
+      php: 7.1
+      before_install:
+        - (composer self-update; true)
+        - composer require doctrine/cache ~1.2
+      before_script: mkdir -p build/logs
+      script: vendor/bin/phpunit --coverage-clover build/logs/clover.xml --coverage-text
+      after_success: wget https://github.com/php-coveralls/php-coveralls/releases/download/v2.1.0/php-coveralls.phar && php -n php-coveralls.phar --verbose --coverage_clover=build/logs/clover.xml
+
+    - stage: style check
+      php: 7.1
+      script: php -n -d memory_limit=768M vendor/bin/phpcs --colors --standard=phpcs.xml .
+
+    - stage: static code analysis
+      os: linux
+      php: 7.1
+      script: vendor/bin/phpstan analyse -c phpstan.neon --memory-limit=768M --no-interaction --no-progress .
