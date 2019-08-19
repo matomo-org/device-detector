@@ -6,7 +6,7 @@ php:
   - 7.3
   - 7.4snapshot
 
-dist: trusty
+dist: xenial
 
 sudo: false
 
@@ -47,12 +47,9 @@ jobs:
 
     - stage: style check
       php: 7.1
-      script: php -n -d memory_limit=768M vendor/bin/phpcs --colors --standard=phpcs.xml
+      script: php -n -d memory_limit=768M vendor/bin/phpcs --colors --standard=phpcs.xml .
 
     - stage: static code analysis
       os: linux
       php: 7.1
-      env:
-        - TEST=phpstan
-        - COMPOSER_FLAGS=""
-      script: vendor/bin/phpstan analyse -c phpstan.neon --memory-limit=768M --no-progress
+      script: vendor/bin/phpstan analyse -c phpstan.neon --memory-limit=768M --no-interaction --no-progress .
