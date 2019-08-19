@@ -189,6 +189,7 @@ class Browser extends ClientParserAbstract
         'UC' => 'UC Browser',
         'VI' => 'Vivaldi',
         'VB' => 'Vision Mobile Browser',
+        'WP' => 'Web Explorer',
         'WE' => 'WebPositive',
         'WF' => 'Waterfox',
         'WO' => 'wOSBrowser',
@@ -207,7 +208,7 @@ class Browser extends ClientParserAbstract
         'BlackBerry Browser' => array('BB'),
         'Baidu'              => array('BD', 'BS'),
         'Amiga'              => array('AV', 'AW'),
-        'Chrome'             => array('CH', 'BA', 'BR', 'CC', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'IR', 'RM', 'AO', 'TS', 'VI', 'PT', 'AS', 'TB', 'AD', 'SB'),
+        'Chrome'             => array('CH', 'BA', 'BR', 'CC', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'IR', 'RM', 'AO', 'TS', 'VI', 'PT', 'AS', 'TB', 'AD', 'SB', 'WP'),
         'Firefox'            => array('FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF', 'CU', 'TF', 'QM', 'FR'),
         'Internet Explorer'  => array('IE', 'IM', 'PS'),
         'Konqueror'          => array('KO'),
@@ -225,7 +226,7 @@ class Browser extends ClientParserAbstract
      * @var array
      */
     protected static $mobileOnlyBrowsers = array(
-        '36', 'PU', 'SK', 'MF', 'OI', 'OM', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR'
+        '36', 'PU', 'SK', 'MF', 'OI', 'OM', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR', 'WP'
     );
 
     /**
