@@ -25,8 +25,12 @@ class OperatingSystemTest extends TestCase
     {
         $osParser = new OperatingSystem();
         $osParser->setUserAgent($useragent);
+
+        // @todo remove me
+        unset($os['short_name']);
+
         $this->assertEquals($os, $osParser->parse());
-        self::$osTested[] = $os['short_name'];
+        self::$osTested[] = $os['name'];
     }
 
     public function getFixtures()
@@ -47,7 +51,7 @@ class OperatingSystemTest extends TestCase
 
     public function getAllOs()
     {
-        $allOs = array_keys(OperatingSystem::getAvailableOperatingSystems());
+        $allOs = OperatingSystem::getAvailableOperatingSystems();
         $allOs = array_map(function ($os) {
             return [$os];
         }, $allOs);
@@ -60,7 +64,7 @@ class OperatingSystemTest extends TestCase
      */
     public function testFamilyOSExists($os): void
     {
-        $allOs = array_keys(OperatingSystem::getAvailableOperatingSystems());
+        $allOs = OperatingSystem::getAvailableOperatingSystems();
         $this->assertContains($os, $allOs);
     }
 
@@ -79,27 +83,9 @@ class OperatingSystemTest extends TestCase
         $this->assertGreaterThan(70, OperatingSystem::getAvailableOperatingSystems());
     }
 
-    /**
-     * @dataProvider getNameFromIds
-     */
-    public function testGetNameFromId($os, $version, $expected): void
-    {
-        $this->assertEquals($expected, OperatingSystem::getNameFromId($os, $version));
-    }
-
-    public function getNameFromIds()
-    {
-        return [
-            ['DEB', '4.5', 'Debian 4.5'],
-            ['WRT', '', 'Windows RT'],
-            ['WIN', '98', 'Windows 98'],
-            ['XXX', '4.5', false],
-        ];
-    }
-
     public function testAllOperatingSystemsTested(): void
     {
-        $allBrowsers = array_keys(OperatingSystem::getAvailableOperatingSystems());
+        $allBrowsers = OperatingSystem::getAvailableOperatingSystems();
         $osNotTested = array_diff($allBrowsers, self::$osTested);
         $this->assertEmpty($osNotTested, 'Following browsers are not tested: ' . implode(', ', $osNotTested));
     }

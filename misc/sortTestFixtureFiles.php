@@ -18,14 +18,6 @@ foreach ($fixtureFiles as $file) {
     $fileFixtures = Spyc::YAMLLoad(file_get_contents($file));
 
     foreach ($fileFixtures as $fixture) {
-        if (isset($fixture['client']['short_name']) && $fixture['client']['short_name'] === true) {
-            $fixture['client']['short_name'] = 'ON';
-        }
-
-        if (isset($fixture['client']['short_name']) && $fixture['client']['short_name'] === false) {
-            $fixture['client']['short_name'] = 'NO';
-        }
-
         if ($overwrite) {
             $fixture = \DeviceDetector\DeviceDetector::getInfoFromUserAgent($fixture['user_agent']);
         }

@@ -30,128 +30,137 @@ class OperatingSystem extends AbstractParser
     protected $parserName = 'os';
 
     /**
-     * Known operating systems mapped to their internal short codes
+     * Known operating systems
      *
      * @var array
      */
     protected static $operatingSystems = [
-        'AIX' => 'AIX',
-        'AND' => 'Android',
-        'AMG' => 'AmigaOS',
-        'ATV' => 'Apple TV',
-        'ARL' => 'Arch Linux',
-        'BTR' => 'BackTrack',
-        'SBA' => 'Bada',
-        'BEO' => 'BeOS',
-        'BLB' => 'BlackBerry OS',
-        'QNX' => 'BlackBerry Tablet OS',
-        'BMP' => 'Brew',
-        'CES' => 'CentOS',
-        'COS' => 'Chrome OS',
-        'CYN' => 'CyanogenMod',
-        'DEB' => 'Debian',
-        'DFB' => 'DragonFly',
-        'FED' => 'Fedora',
-        'FOS' => 'Firefox OS',
-        'FIR' => 'Fire OS',
-        'BSD' => 'FreeBSD',
-        'GNT' => 'Gentoo',
-        'GTV' => 'Google TV',
-        'HPX' => 'HP-UX',
-        'HAI' => 'Haiku OS',
-        'IRI' => 'IRIX',
-        'INF' => 'Inferno',
-        'KOS' => 'KaiOS',
-        'KNO' => 'Knoppix',
-        'KBT' => 'Kubuntu',
-        'LIN' => 'GNU/Linux',
-        'LBT' => 'Lubuntu',
-        'VLN' => 'VectorLinux',
-        'MAC' => 'Mac',
-        'MAE' => 'Maemo',
-        'MDR' => 'Mandriva',
-        'SMG' => 'MeeGo',
-        'MCD' => 'MocorDroid',
-        'MIN' => 'Mint',
-        'MLD' => 'MildWild',
-        'MOR' => 'MorphOS',
-        'NBS' => 'NetBSD',
-        'MTK' => 'MTK / Nucleus',
-        'WII' => 'Nintendo',
-        'NDS' => 'Nintendo Mobile',
-        'OS2' => 'OS/2',
-        'T64' => 'OSF1',
-        'OBS' => 'OpenBSD',
-        'ORD' => 'Ordissimo',
-        'PSP' => 'PlayStation Portable',
-        'PS3' => 'PlayStation',
-        'RHT' => 'Red Hat',
-        'ROS' => 'RISC OS',
-        'REM' => 'Remix OS',
-        'RZD' => 'RazoDroiD',
-        'SAB' => 'Sabayon',
-        'SSE' => 'SUSE',
-        'SAF' => 'Sailfish OS',
-        'SLW' => 'Slackware',
-        'SOS' => 'Solaris',
-        'SYL' => 'Syllable',
-        'SYM' => 'Symbian',
-        'SYS' => 'Symbian OS',
-        'S40' => 'Symbian OS Series 40',
-        'S60' => 'Symbian OS Series 60',
-        'SY3' => 'Symbian^3',
-        'TDX' => 'ThreadX',
-        'TIZ' => 'Tizen',
-        'TOS' => 'TmaxOS',
-        'UBT' => 'Ubuntu',
-        'WTV' => 'WebTV',
-        'WIN' => 'Windows',
-        'WCE' => 'Windows CE',
-        'WIO' => 'Windows IoT',
-        'WMO' => 'Windows Mobile',
-        'WPH' => 'Windows Phone',
-        'WRT' => 'Windows RT',
-        'XBX' => 'Xbox',
-        'XBT' => 'Xubuntu',
-        'YNS' => 'YunOs',
-        'IOS' => 'iOS',
-        'POS' => 'palmOS',
-        'WOS' => 'webOS',
+        'AIX',
+        'Android',
+        'AmigaOS',
+        'Apple TV',
+        'Arch Linux',
+        'BackTrack',
+        'Bada',
+        'BeOS',
+        'BlackBerry OS',
+        'BlackBerry Tablet OS',
+        'Brew',
+        'CentOS',
+        'Chrome OS',
+        'CyanogenMod',
+        'Debian',
+        'DragonFly',
+        'Fedora',
+        'Firefox OS',
+        'Fire OS',
+        'FreeBSD',
+        'Gentoo',
+        'Google TV',
+        'HP-UX',
+        'Haiku OS',
+        'IRIX',
+        'Inferno',
+        'KaiOS',
+        'Knoppix',
+        'Kubuntu',
+        'GNU/Linux',
+        'Lubuntu',
+        'VectorLinux',
+        'Mac',
+        'Maemo',
+        'Mandriva',
+        'MeeGo',
+        'MocorDroid',
+        'Mint',
+        'MildWild',
+        'MorphOS',
+        'NetBSD',
+        'MTK / Nucleus',
+        'Nintendo',
+        'Nintendo Mobile',
+        'OS/2',
+        'OSF1',
+        'OpenBSD',
+        'Ordissimo',
+        'PlayStation Portable',
+        'PlayStation',
+        'Red Hat',
+        'RISC OS',
+        'Remix OS',
+        'RazoDroiD',
+        'Sabayon',
+        'SUSE',
+        'Sailfish OS',
+        'Slackware',
+        'Solaris',
+        'Syllable',
+        'Symbian',
+        'Symbian OS',
+        'Symbian OS Series 40',
+        'Symbian OS Series 60',
+        'Symbian^3',
+        'ThreadX',
+        'Tizen',
+        'TmaxOS',
+        'Ubuntu',
+        'WebTV',
+        'Windows',
+        'Windows CE',
+        'Windows IoT',
+        'Windows Mobile',
+        'Windows Phone',
+        'Windows RT',
+        'Xbox',
+        'Xubuntu',
+        'YunOs',
+        'iOS',
+        'palmOS',
+        'webOS',
     ];
 
     /**
-     * Operating system families mapped to the short codes of the associated operating systems
+     * Operating system families mapped to the associated operating systems
      *
      * @var array
      */
     protected static $osFamilies = [
-        'Android'               => ['AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS'],
-        'AmigaOS'               => ['AMG', 'MOR'],
-        'Apple TV'              => ['ATV'],
-        'BlackBerry'            => ['BLB', 'QNX'],
-        'Brew'                  => ['BMP'],
-        'BeOS'                  => ['BEO', 'HAI'],
-        'Chrome OS'             => ['COS'],
-        'Firefox OS'            => ['FOS', 'KOS'],
-        'Gaming Console'        => ['WII', 'PS3'],
-        'Google TV'             => ['GTV'],
-        'IBM'                   => ['OS2'],
-        'iOS'                   => ['IOS'],
-        'RISC OS'               => ['ROS'],
-        'GNU/Linux'             => [
-            'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
-            'RHT', 'VLN', 'MDR', 'GNT', 'SAB', 'SLW', 'SSE', 'CES', 'BTR', 'SAF',
-            'ORD', 'TOS'
+        'Android'               => [
+            'Android', 'CyanogenMod', 'Fire OS',
+            'Remix OS', 'RazoDroiD', 'MildWild',
+            'MocorDroid', 'YunOs',
         ],
-        'Mac'                   => ['MAC'],
-        'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
-        'Real-time OS'          => ['MTK', 'TDX'],
-        'Other Mobile'          => ['WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE'],
-        'Symbian'               => ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
-        'Unix'                  => ['SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64', 'INF'],
-        'WebTV'                 => ['WTV'],
-        'Windows'               => ['WIN'],
-        'Windows Mobile'        => ['WPH', 'WMO', 'WCE', 'WRT', 'WIO'],
+        'AmigaOS'               => ['AmigaOS', 'MorphOS'],
+        'Apple TV'              => ['Apple TV'],
+        'BlackBerry'            => ['BlackBerry OS', 'BlackBerry Tablet OS'],
+        'Brew'                  => ['Brew'],
+        'BeOS'                  => ['BeOS', 'Haiku OS'],
+        'Chrome OS'             => ['Chrome OS'],
+        'Firefox OS'            => ['Firefox OS', 'KaiOS'],
+        'Gaming Console'        => ['Nintendo', 'PlayStation'],
+        'Google TV'             => ['Google TV'],
+        'IBM'                   => ['OS/2'],
+        'iOS'                   => ['iOS'],
+        'RISC OS'               => ['RISC OS'],
+        'GNU/Linux'             => [
+            'GNU/Linux', 'Arch Linux', 'Debian', 'Knoppix', 'Mint', 'Ubuntu', 'Kubuntu', 'Xubuntu', 'Lubuntu', 'Fedora',
+            'Red Hat', 'VectorLinux', 'Mandriva', 'Gentoo', 'Sabayon', 'Slackware', 'SUSE', 'CentOS', 'BackTrack',
+            'Sailfish OS', 'Ordissimo', 'TmaxOS'
+        ],
+        'Mac'                   => ['Mac'],
+        'Mobile Gaming Console' => ['PlayStation Portable', 'Nintendo Mobile', 'Xbox'],
+        'Real-time OS'          => ['MTK / Nucleus', 'ThreadX'],
+        'Other Mobile'          => ['webOS', 'palmOS', 'Bada', 'Tizen', 'MeeGo', 'Maemo'],
+        'Symbian'               => [
+            'Symbian', 'Symbian OS', 'Symbian^3', 'Symbian OS Series 60', 'Symbian OS Series 40',
+        ],
+        'Unix'                  => [
+            'Solaris', 'AIX', 'HP-UX', 'FreeBSD', 'NetBSD', 'OpenBSD',
+            'DragonFly', 'Syllable', 'IRIX', 'OSF1', 'Inferno',
+        ],
+        'WebTV'                 => ['WebTV'],
+        'Windows'               => ['Windows'],
+        'Windows Mobile'        => ['Windows Phone', 'Windows Mobile', 'Windows CE', 'Windows RT', 'Windows IoT'],
     ];
 
     /**
@@ -193,28 +202,21 @@ class OperatingSystem extends AbstractParser
             return $return;
         }
 
-        $name  = $this->buildByMatch($osRegex['name'], $matches);
-        $short = 'UNK';
+        $name = $this->buildByMatch($osRegex['name'], $matches);
 
-        foreach (self::$operatingSystems as $osShort => $osName) {
+        foreach (self::$operatingSystems as $osName) {
             if (strtolower($name) !== strtolower($osName)) {
                 continue;
             }
 
-            $name  = $osName;
-            $short = $osShort;
+            $name = $osName;
         }
 
         $return = [
-            'name'       => $name,
-            'short_name' => $short,
-            'version'    => $this->buildVersion((string) $osRegex['version'], $matches),
-            'platform'   => $this->parsePlatform(),
+            'name'     => $name,
+            'version'  => $this->buildVersion((string) $osRegex['version'], $matches),
+            'platform' => $this->parsePlatform(),
         ];
-
-        if (in_array($return['name'], self::$operatingSystems)) {
-            $return['short_name'] = array_search($return['name'], self::$operatingSystems);
-        }
 
         return $return;
     }
@@ -232,25 +234,6 @@ class OperatingSystem extends AbstractParser
             if (in_array($osLabel, $labels)) {
                 return (string) $family;
             }
-        }
-
-        return null;
-    }
-
-    /**
-     * Returns the full name for the given short name
-     *
-     * @param string      $os
-     * @param string|null $ver
-     *
-     * @return ?string
-     */
-    public static function getNameFromId(string $os, ?string $ver = null): ?string
-    {
-        if (array_key_exists($os, self::$operatingSystems)) {
-            $osFullName = self::$operatingSystems[$os];
-
-            return trim($osFullName . ' ' . $ver);
         }
 
         return null;
