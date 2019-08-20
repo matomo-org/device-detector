@@ -612,7 +612,7 @@ class DeviceDetector
         }
 
         $osFamily      = OperatingSystem::getOsFamily($deviceDetector->getOsAttribute('short_name'));
-        $browserFamily = Browser::getBrowserFamily($deviceDetector->getClientAttribute('short_name'));
+        $browserFamily = Browser::getBrowserFamily($deviceDetector->getClientAttribute('name'));
 
         $processed = [
             'user_agent'     => $deviceDetector->getUserAgent(),
@@ -738,7 +738,7 @@ class DeviceDetector
     protected function usesMobileBrowser(): bool
     {
         return 'browser' === $this->getClient('type')
-            && Browser::isMobileOnlyBrowser($this->getClientAttribute('short_name'));
+            && Browser::isMobileOnlyBrowser($this->getClientAttribute('name'));
     }
 
     /**

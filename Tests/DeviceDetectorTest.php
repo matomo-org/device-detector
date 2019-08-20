@@ -160,6 +160,9 @@ class DeviceDetectorTest extends TestCase
     {
         $ua = $fixtureData['user_agent'];
 
+        // @todo remove me
+        unset($fixtureData['client']['short_name']);
+
         AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
         $uaInfo = DeviceDetector::getInfoFromUserAgent($ua);
         $this->assertEquals($fixtureData, $uaInfo, "UserAgent: {$ua}");
@@ -255,8 +258,8 @@ class DeviceDetectorTest extends TestCase
         $botData = $dd->getBot();
         $this->assertEquals($botData, $fixtureData['bot']);
         // client and os will always be unknown for bots
-        $this->assertEquals($dd->getOs('short_name'), DeviceDetector::UNKNOWN);
-        $this->assertEquals($dd->getClient('short_name'), DeviceDetector::UNKNOWN);
+        $this->assertEquals($dd->getOs('name'), DeviceDetector::UNKNOWN);
+        $this->assertEquals($dd->getClient('name'), DeviceDetector::UNKNOWN);
     }
 
     public function getBotFixtures()
@@ -383,7 +386,6 @@ class DeviceDetectorTest extends TestCase
         $expected = [
             'type'           => 'browser',
             'name'           => 'Internet Explorer',
-            'short_name'     => 'IE',
             'version'        => '9.0',
             'engine'         => 'Trident',
             'engine_version' => '5.0',
