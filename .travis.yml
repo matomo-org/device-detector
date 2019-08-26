@@ -35,6 +35,10 @@ jobs:
   include:
     - php: nightly
       install: travis_retry composer install --ignore-platform-reqs
+      before_install:
+        - phpenv config-rm xdebug.ini || echo "xdebug not available"
+        - (composer self-update; true)
+        - composer require doctrine/cache ~1.2  --ignore-platform-reqs
 
     - stage: test with coverage
       php: 7.1
