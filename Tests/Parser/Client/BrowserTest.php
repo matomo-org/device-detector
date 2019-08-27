@@ -48,6 +48,6 @@ class BrowserTest extends TestCase
     public function testGetAvailableClients()
     {
         $available = Browser::getAvailableClients();
-        $this->assertGreaterThan(count($available), count(Browser::getAvailableBrowsers()));
+        $this->assertGreaterThanOrEqual(count($available), count(Browser::getAvailableBrowsers()));
     }
 }
