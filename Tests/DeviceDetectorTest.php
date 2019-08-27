@@ -40,11 +40,28 @@ class DeviceDetectorTest extends TestCase
             $ymlData = \Spyc::YAMLLoad($file);
             foreach ($ymlData AS $brand => $regex) {
                 $this->assertArrayHasKey('regex', $regex);
+                $this->assertTrue(strpos($regex['regex'], '||') === false, sprintf(
+                    "Detect `||` in regex, file %s, brand %s, common regex %s",
+                    $file,
+                    $brand,
+                    $regex['regex']
+                ));
                 if (array_key_exists('models', $regex)) {
                     $this->assertInternalType('array', $regex['models']);
                     foreach ($regex['models'] AS $model) {
                         $this->assertArrayHasKey('regex', $model);
-                        $this->assertArrayHasKey('model', $model);
+                        $this->assertArrayHasKey('model', $model, sprintf(
+                            "Key model not exist, file %s, brand %s, model regex %s",
+                            $file,
+                            $brand,
+                            $model['regex']
+                        ));
+                        $this->assertTrue(strpos($model['regex'], '||') === false, sprintf(
+                            "Detect `||` in regex, file %s, brand %s, model regex %s",
+                            $file,
+                            $brand,
+                            $model['regex']
+                        ));
                     }
                 } else {
                     $this->assertArrayHasKey('device', $regex);
