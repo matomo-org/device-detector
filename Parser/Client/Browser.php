@@ -214,6 +214,10 @@ class Browser extends ClientParserAbstract
         'WT' => 'WeTab Browser',
         'YA' => 'Yandex Browser',
         'XI' => 'Xiino'
+
+        // detected browsers in older versions
+        // 'IA' => 'Iceape',  => pim
+        // 'SM' => 'SeaMonkey',  => pim
     );
 
     /**
