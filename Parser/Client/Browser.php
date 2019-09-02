@@ -99,7 +99,6 @@ class Browser extends ClientParserAbstract
         'FN' => 'Fireweb Navigator',
         'GA' => 'Galeon',
         'GE' => 'Google Earth',
-        'GZ' => 'gnuzilla',
         'HJ' => 'HotJava',
         'IB' => 'IBrowse',
         'IC' => 'iCab',
