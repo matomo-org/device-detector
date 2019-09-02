@@ -755,6 +755,18 @@
   engine:
     default: '' # multi engine -- WebKit or Blink
 
+#Mobile Silk
+- regex: 'Silk/(\d+[\.\d]+) like Chrome'
+  name: 'Mobile Silk'
+  version: '$1'
+  engine:
+    default: 'Blink'
+- regex: 'Silk(?:/(\d+[\.\d]+))?'
+  name: 'Mobile Silk'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+
 # Chrome Webview
 - regex: 'Version/.* Chrome(?:/(\d+[\.\d]+))?'
   name: 'Chrome Webview'
@@ -1108,13 +1120,6 @@
 - regex: 'Phoenix(?:/(\d+[\.\d]+))?'
   name: 'Phoenix'
   version: '$1'
-
-#Mobile Silk
-- regex: 'Silk(?:/(\d+[\.\d]+))?'
-  name: 'Mobile Silk'
-  version: '$1'
-  engine:
-    default: 'Blink'
 
 #NetFront
 - regex: 'NetFrontLifeBrowser(?:/(\d+[\.\d]+))?'
