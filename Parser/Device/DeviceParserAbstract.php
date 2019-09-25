@@ -360,6 +360,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'MQ' => 'M.T.T.',
         'N4' => 'MTN',
         'MY' => 'MyPhone',
+        '1M' => 'MYFON',
         'MG' => 'MyWigo',
         'M8' => 'Myria',
         'N3' => 'Navon',
