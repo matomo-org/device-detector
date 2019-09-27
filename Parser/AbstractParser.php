@@ -240,6 +240,7 @@ abstract class AbstractParser
      * @param string $regex
      *
      * @return ?array
+     *
      * @throws \Exception
      */
     protected function matchUserAgent(string $regex)
@@ -253,7 +254,7 @@ abstract class AbstractParser
             if (preg_match($regex, $this->userAgent, $matches)) {
                 return $matches;
             }
-        } catch (\Exception $exception){
+        } catch (\Exception $exception) {
             throw new \Exception(
                 sprintf("%s\nRegex: %s", $exception->getMessage(), $regex),
                 $exception->getCode(),

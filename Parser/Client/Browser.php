@@ -325,13 +325,13 @@ class Browser extends AbstractClientParser
             'UBrowser', 'Lovense Browser', 'AVG Secure Browser', 'TV Bro', 'Atom', '115 Browser',
             'Steam In-Game Overlay', 'Elements Browser', 'AOL Desktop', 'VMware AirWatch', 'Origin In-Game Overlay',
             'ToGate', 'Glass Browser', 'Sizzy', 'OhHai Browser', 'Yahoo! Japan Browser', 'Lulumi', 'Tungsten',
-            'Xvast', 'Colibri', 'Quark', 'Yaani Browser'
+            'Xvast', 'Colibri', 'Quark', 'Yaani Browser',
         ],
         'Firefox'            => [
             'Firefox', 'Fennec', 'Firefox Mobile', 'Swiftfox', 'Firebird', 'Phoenix', 'MicroB', 'Epic', 'Waterfox',
             'Cunaguaro', 'TenFourFox', 'Qwant Mobile', 'Firefox Rocket', 'IceCat', 'Mobicip', 'Firefox Mobile iOS',
             'Basilisk', 'Minimo', 'BlackHawk', 't-online.de Browser', 'Ordissimo', 'Mypal', 'Firefox Reality',
-            'Arctic Fox', 'Centaury', 'Light', 'Safe Exam Browser', 'Zvu'
+            'Arctic Fox', 'Centaury', 'Light', 'Safe Exam Browser', 'Zvu',
         ],
         'Internet Explorer'  => ['Internet Explorer', 'IE Mobile', 'Microsoft Edge'],
         'Konqueror'          => ['Konqueror'],
@@ -444,7 +444,11 @@ class Browser extends AbstractClientParser
         }
 
         // This Exception should never be thrown. If so a defined browser name is missing in $availableBrowsers
-        throw new \Exception(sprintf('Detected browser name "%s" was not found in $availableBrowsers. Tried to parse user agent: %s', $name, $this->userAgent)); // @codeCoverageIgnore
+        throw new \Exception(sprintf(
+            'Detected browser name "%s" was not found in $availableBrowsers. Tried to parse user agent: %s',
+            $name,
+            $this->userAgent
+        )); // @codeCoverageIgnore
     }
 
     /**

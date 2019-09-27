@@ -866,7 +866,13 @@ abstract class AbstractDeviceParser extends AbstractParser
 
             if (false === $brandId) {
                 // This Exception should never be thrown. If so a defined brand name is missing in $deviceBrands
-                throw new \Exception(sprintf("The brand with name '%s' should be listed in the deviceBrands array. Tried to parse user agent: %s", $brand, $this->userAgent)); // @codeCoverageIgnore
+                throw new \Exception(
+                    sprintf(
+                        "The brand name '%s' needs to be in deviceBrands array. Tried parsing user agent: %s",
+                        $brand,
+                        $this->userAgent
+                    )
+                ); // @codeCoverageIgnore
             }
 
             $this->brand = (string) $brandId;

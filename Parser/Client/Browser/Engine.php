@@ -49,7 +49,7 @@ class Engine extends AbstractClientParser
         'Edge',
         'NetSurf',
         'Servo',
-        'Goanna'
+        'Goanna',
     ];
 
     /**
@@ -67,6 +67,7 @@ class Engine extends AbstractClientParser
     public function parse(): ?array
     {
         $matches = false;
+
         foreach ($this->getRegexes() as $regex) {
             $matches = $this->matchUserAgent($regex['regex']);
 
@@ -88,6 +89,9 @@ class Engine extends AbstractClientParser
         }
 
         // This Exception should never be thrown. If so a defined browser name is missing in $availableEngines
-        throw new \Exception(sprintf('Detected browser engine was not found in $availableEngines. Tried to parse user agent: %s', $this->userAgent)); // @codeCoverageIgnore
+        throw new \Exception(sprintf(
+            'Detected browser engine was not found in $availableEngines. Tried to parse user agent: %s',
+            $this->userAgent
+        )); // @codeCoverageIgnore
     }
 }

@@ -145,7 +145,7 @@ class OperatingSystem extends AbstractParser
         'GNU/Linux'             => [
             'GNU/Linux', 'Arch Linux', 'Debian', 'Knoppix', 'Mint', 'Ubuntu', 'Kubuntu', 'Xubuntu', 'Lubuntu', 'Fedora',
             'Red Hat', 'VectorLinux', 'Mandriva', 'Gentoo', 'Sabayon', 'Slackware', 'SUSE', 'CentOS', 'BackTrack',
-            'Sailfish OS', 'Ordissimo', 'TmaxOS'
+            'Sailfish OS', 'Ordissimo', 'TmaxOS',
         ],
         'Mac'                   => ['Mac'],
         'Mobile Gaming Console' => ['PlayStation Portable', 'Nintendo Mobile', 'Xbox'],
