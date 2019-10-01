@@ -200,6 +200,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'EZ' => 'Ezze',
         'E8' => 'E-tel',
         'E9' => 'Evercoss',
+        'EU' => 'Eurostar',
         'FA' => 'Fairphone',
         'FI' => 'FiGO',
         'FL' => 'Fly',
