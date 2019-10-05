@@ -74,6 +74,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'AK' => 'Akai',
         'AL' => 'Alcatel',
         'A2' => 'Allview',
+        'A7' => 'Allwinner',
         'A1' => 'Altech UEC',
         'A5' => 'altron',
         'AN' => 'Arnova',
