@@ -441,6 +441,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'RC' => 'RCA Tablets',
         'RB' => 'Readboy',
         'RI' => 'Rikomagic',
+        'RN' => 'Rinno',
         'RV' => 'Riviera',
         'RM' => 'RIM',
         'RK' => 'Roku',
