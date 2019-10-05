@@ -5401,10 +5401,12 @@ INQ:
 
 # Intex
 Intex:
-  regex: 'Intex|(Aqua|Cloud[ _][XY][0-9]{1})'
+  regex: 'Intex|(Aqua|Cloud[ _][XY][0-9]{1}|Cloud (?:Fame|Glory) 4G)'
   device: 'smartphone'
   models:
     - regex: 'Intex[ _]([^/;]*)[ _]Build'
+      model: '$1'
+    - regex: '(Cloud (?:Fame|Glory) 4G)'
       model: '$1'
     - regex: '(Aqua|Cloud)[ _\.]([^/;\)]+)(?:[ _]Build|(?<!Build)/|\))'
       model: '$1 $2'
