@@ -122,7 +122,7 @@ class Browser extends ClientParserAbstract
         'KW' => 'Kiwi',
         'KY' => 'Kylo',
         'KZ' => 'Kazehakase',
-        'LB' => 'Liebao',
+        'LB' => 'Cheetah Browser',
         'LF' => 'LieBaoFast',
         'LG' => 'LG Browser',
         'LI' => 'Links',
