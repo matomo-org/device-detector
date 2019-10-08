@@ -170,19 +170,25 @@ abstract class ParserAbstract
 
     /**
      * Matches the useragent against the given regex
-     *
      * @param $regex
-     * @return array|bool
+     * @return bool
+     * @throws \Exception
      */
     protected function matchUserAgent($regex)
     {
         // only match if useragent begins with given regex or there is no letter before it
         $regex = '/(?:^|[^A-Z0-9\-_]|[^A-Z0-9\-]_|sprd-)(?:' . str_replace('/', '\/', $regex) . ')/i';
-
-        if (preg_match($regex, $this->userAgent, $matches)) {
-            return $matches;
+        try {
+            if (preg_match($regex, $this->userAgent, $matches)) {
+                return $matches;
+            }
+        } catch (\Exception $exception) {
+            throw new \Exception(
+                sprintf('RegEx compilation failed: %s', $regex),
+                $exception->getCode(),
+                $exception
+            );
         }
-
         return false;
     }
 
