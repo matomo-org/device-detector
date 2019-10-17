@@ -178,17 +178,11 @@ abstract class ParserAbstract
     {
         // only match if useragent begins with given regex or there is no letter before it
         $regex = '/(?:^|[^A-Z0-9\-_]|[^A-Z0-9\-]_|sprd-)(?:' . str_replace('/', '\/', $regex) . ')/i';
-        try {
-            if (preg_match($regex, $this->userAgent, $matches)) {
-                return $matches;
-            }
-        } catch (\Exception $exception) {
-            throw new \Exception(
-                sprintf('RegEx compilation failed: %s', $regex),
-                $exception->getCode(),
-                $exception
-            );
+
+        if (preg_match($regex, $this->userAgent, $matches)) {
+            return $matches;
         }
+
         return false;
     }
 
