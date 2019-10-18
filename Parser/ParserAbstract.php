@@ -170,9 +170,9 @@ abstract class ParserAbstract
 
     /**
      * Matches the useragent against the given regex
-     * @param $regex
-     * @return bool
-     * @throws \Exception
+     
+     * @param string $regex
+     * @return array
      */
     protected function matchUserAgent($regex)
     {
