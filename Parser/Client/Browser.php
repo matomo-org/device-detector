@@ -118,6 +118,7 @@ class Browser extends ClientParserAbstract
         'IR' => 'Iron',
         'JS' => 'Jasmine',
         'JI' => 'Jig Browser',
+        'KB' => 'K.Browser',
         'KI' => 'Kindle Browser',
         'KM' => 'K-meleon',
         'KO' => 'Konqueror',
