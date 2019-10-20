@@ -243,7 +243,7 @@ class Browser extends ClientParserAbstract
         'BlackBerry Browser' => array('BB'),
         'Baidu'              => array('BD', 'BS'),
         'Amiga'              => array('AV', 'AW'),
-        'Chrome'             => array('CH', 'BA', 'BR', 'CC', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'DD', 'IR', 'RM', 'AO', 'TS', 'VI', 'PT', 'AS', 'TB', 'AD', 'SB', 'WP', 'I3', 'CV', 'WH', 'SZ', 'QW', 'LF', 'KW', '2B', 'CE', 'EC', 'MT', 'MS', 'HA'),
+        'Chrome'             => array('CH', 'BA', 'BR', 'CC', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'DD', 'IR', 'RM', 'AO', 'TS', 'VI', 'PT', 'AS', 'TB', 'AD', 'SB', 'WP', 'I3', 'CV', 'WH', 'SZ', 'QW', 'LF', 'KW', '2B', 'CE', 'EC', 'MT', 'MS', 'HA', 'OC'),
         'Firefox'            => array('FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF', 'CU', 'TF', 'QM', 'FR', 'I4', 'GZ', 'MO', 'F1', 'BI'),
         'Internet Explorer'  => array('IE', 'IM', 'PS'),
         'Konqueror'          => array('KO'),
@@ -252,8 +252,7 @@ class Browser extends ClientParserAbstract
         'Nokia Browser'      => array('NB', 'NO', 'NV', 'DO'),
         'Opera'              => array('OP', 'OM', 'OI', 'ON', 'OO', 'OG', 'OH', 'O1'),
         'Safari'             => array('SF', 'MF', 'SO'),
-        'Sailfish Browser'   => array('SA'),
-        'Samsung Browser'    => array('OC')
+        'Sailfish Browser'   => array('SA')
     );
 
     /**
