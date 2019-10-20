@@ -153,6 +153,7 @@ class Browser extends ClientParserAbstract
         'NP' => 'NetPositive',
         'NS' => 'Netscape',
         'NT' => 'NTENT Browser',
+        'OC' => 'Oculus Browser',
         'O1' => 'Opera Mini iOS',
         'OB' => 'Obigo',
         'OD' => 'Odyssey Web Browser',
@@ -246,7 +247,8 @@ class Browser extends ClientParserAbstract
         'Nokia Browser'      => array('NB', 'NO', 'NV', 'DO'),
         'Opera'              => array('OP', 'OM', 'OI', 'ON', 'OO', 'OG', 'OH', 'O1'),
         'Safari'             => array('SF', 'MF', 'SO'),
-        'Sailfish Browser'   => array('SA')
+        'Sailfish Browser'   => array('SA'),
+        'Samsung Browser'    => array('OC')
     );
 
     /**
@@ -255,7 +257,7 @@ class Browser extends ClientParserAbstract
      * @var array
      */
     protected static $mobileOnlyBrowsers = array(
-        '36', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR', 'WP', 'HA'
+        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR', 'WP', 'HA'
     );
 
     /**
