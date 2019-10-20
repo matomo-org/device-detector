@@ -103,6 +103,7 @@ class Browser extends ClientParserAbstract
         'GA' => 'Galeon',
         'GE' => 'Google Earth',
         'HA' => 'Hawk Turbo Browser',
+        'HO' => 'hola! Browser',
         'HJ' => 'HotJava',
         'IB' => 'IBrowse',
         'IC' => 'iCab',
