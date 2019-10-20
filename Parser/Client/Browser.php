@@ -105,6 +105,7 @@ class Browser extends ClientParserAbstract
         'HA' => 'Hawk Turbo Browser',
         'HO' => 'hola! Browser',
         'HJ' => 'HotJava',
+        'HU' => 'Huawei Browser',
         'IB' => 'IBrowse',
         'IC' => 'iCab',
         'I2' => 'iCab Mobile',
@@ -259,7 +260,7 @@ class Browser extends ClientParserAbstract
      * @var array
      */
     protected static $mobileOnlyBrowsers = array(
-        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR', 'WP', 'HA', 'NX'
+        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR', 'WP', 'HA', 'NX', 'HU'
     );
 
     /**
