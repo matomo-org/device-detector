@@ -214,9 +214,7 @@ class Browser extends ClientParserAbstract
         'WO' => 'wOSBrowser',
         'WT' => 'WeTab Browser',
         'YA' => 'Yandex Browser',
-        'Y1' => 'Yandex Browser (alpha)',
-        'Y2' => 'Yandex Browser Lite',
-        'Y3' => 'Yandex Browser (beta)',
+        'YL' => 'Yandex Browser Lite',
         'XI' => 'Xiino'
 
         // detected browsers in older versions
