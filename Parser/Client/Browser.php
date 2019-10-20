@@ -216,6 +216,7 @@ class Browser extends ClientParserAbstract
         'YA' => 'Yandex Browser',
         'Y1' => 'Yandex Browser (alpha)',
         'Y2' => 'Yandex Browser Lite',
+        'Y3' => 'Yandex Browser (beta)',
         'XI' => 'Xiino'
 
         // detected browsers in older versions
