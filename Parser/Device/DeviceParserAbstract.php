@@ -451,6 +451,8 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'R1' => 'Rokit',
         'R3' => 'Rombica',
         'RT' => 'RT Project',
+        'RX' => 'Ritmix',
+        'R5' => 'Ross&Moor',
         'R2' => 'R-TV',
         'SQ' => 'Santin BiTBiZ',
         'SA' => 'Samsung',
