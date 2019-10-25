@@ -115,7 +115,7 @@ abstract class ParserAbstract
                                  self::VERSION_TRUNCATION_MAJOR,
                                  self::VERSION_TRUNCATION_MINOR,
                                  self::VERSION_TRUNCATION_PATCH))) {
-            self::$maxMinorParts = $type;
+            static::$maxMinorParts = $type;
         }
     }
 
@@ -220,9 +220,9 @@ abstract class ParserAbstract
     {
         $versionString = $this->buildByMatch($versionString, $matches);
         $versionString = str_replace('_', '.', $versionString);
-        if (null !== self::$maxMinorParts && substr_count($versionString, '.') > self::$maxMinorParts) {
+        if (null !== static::$maxMinorParts && substr_count($versionString, '.') > static::$maxMinorParts) {
             $versionParts = explode('.', $versionString);
-            $versionParts = array_slice($versionParts, 0, 1+self::$maxMinorParts);
+            $versionParts = array_slice($versionParts, 0, 1+static::$maxMinorParts);
             $versionString = implode('.', $versionParts);
         }
         return trim($versionString, ' .');
