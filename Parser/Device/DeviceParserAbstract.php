@@ -350,6 +350,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'MI' => 'MicroMax',
         'M5' => 'MIXC',
         'MH' => 'Mobiola',
+        '4M' => 'Mobicel',
         'M6' => 'Mobiistar',
         'MC' => 'Mediacom',
         'MK' => 'MediaTek',
