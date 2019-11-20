@@ -72,6 +72,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'A3' => 'AGM',
         'AZ' => 'Ainol',
         'AI' => 'Airness',
+        '0A' => 'AIS',
         'AW' => 'Aiwa',
         'AK' => 'Akai',
         'AL' => 'Alcatel',
