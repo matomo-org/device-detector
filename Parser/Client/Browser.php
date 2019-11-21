@@ -231,6 +231,7 @@ class Browser extends ClientParserAbstract
         'VI' => 'Vivaldi',
         'VV' => 'vivo Browser',
         'VB' => 'Vision Mobile Browser',
+        'WI' => 'Wear Internet Browser',
         'WP' => 'Web Explorer',
         'WE' => 'WebPositive',
         'WF' => 'Waterfox',
