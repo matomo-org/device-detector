@@ -88,6 +88,7 @@ class Browser extends ClientParserAbstract
         'EI' => 'Epic',
         'EL' => 'Elinks',
         'EB' => 'Element Browser',
+        'EZ' => 'eZ Browser',
         'EP' => 'GNOME Web',
         'ES' => 'Espial TV Browser',
         'FA' => 'Falkon',
