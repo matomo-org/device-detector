@@ -205,6 +205,7 @@ class Browser extends ClientParserAbstract
         'SF' => 'Safari',
         'SW' => 'SalamWeb',
         'SH' => 'Shiira',
+        'S1' => 'SimpleBrowser',
         'SK' => 'Skyfire',
         'SS' => 'Seraphic Sraf',
         'SL' => 'Sleipnir',
