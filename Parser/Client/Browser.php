@@ -162,6 +162,7 @@ class Browser extends ClientParserAbstract
         'OD' => 'Odyssey Web Browser',
         'OF' => 'Off By One',
         'OE' => 'ONE Browser',
+        'OX' => 'Opera GX',
         'OG' => 'Opera Neon',
         'OH' => 'Opera Devices',
         'OI' => 'Opera Mini',
@@ -251,7 +252,7 @@ class Browser extends ClientParserAbstract
         'NetFront'           => array('NF'),
         'NetSurf'            => array('NE'),
         'Nokia Browser'      => array('NB', 'NO', 'NV', 'DO'),
-        'Opera'              => array('OP', 'OM', 'OI', 'ON', 'OO', 'OG', 'OH', 'O1'),
+        'Opera'              => array('OP', 'OM', 'OI', 'ON', 'OO', 'OG', 'OH', 'O1', 'OX'),
         'Safari'             => array('SF', 'MF', 'SO'),
         'Sailfish Browser'   => array('SA')
     );
