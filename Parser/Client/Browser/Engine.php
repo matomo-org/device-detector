@@ -39,7 +39,8 @@ class Engine extends ClientParserAbstract
         'KHTML',
         'NetFront',
         'Edge',
-        'NetSurf'
+        'NetSurf',
+        'Servo'
     );
 
     /**
