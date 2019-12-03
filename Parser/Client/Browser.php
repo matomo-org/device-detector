@@ -231,6 +231,7 @@ class Browser extends ClientParserAbstract
         'UB' => 'UBrowser',
         'UC' => 'UC Browser',
         'UM' => 'UC Browser Mini',
+        'UT' => 'UC Browser Turbo',
         'UZ' => 'Uzbl',
         'VI' => 'Vivaldi',
         'VV' => 'vivo Browser',
@@ -279,7 +280,7 @@ class Browser extends ClientParserAbstract
      * @var array
      */
     protected static $mobileOnlyBrowsers = array(
-        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR', 'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'MN', 'SU', 'M1', 'FK'
+        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR', 'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'MN', 'SU', 'M1', 'FK', 'UT'
     );
 
     /**
