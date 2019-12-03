@@ -225,6 +225,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'GM' => 'Garmin-Asus',
         'GA' => 'Gateway',
         'GD' => 'Gemini',
+        'GN' => 'General Mobile',
         'GE' => 'Geotel',
         'GH' => 'Ghia',
         'GI' => 'Gionee',
