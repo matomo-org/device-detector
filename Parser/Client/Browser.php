@@ -145,6 +145,7 @@ class Browser extends ClientParserAbstract
         'M1' => 'mCent',
         'MB' => 'MicroB',
         'MC' => 'NCSA Mosaic',
+        'MZ' => 'Meizu Browser',
         'ME' => 'Mercury',
         'MF' => 'Mobile Safari',
         'MI' => 'Midori',
@@ -282,7 +283,7 @@ class Browser extends ClientParserAbstract
      * @var array
      */
     protected static $mobileOnlyBrowsers = array(
-        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'AH', 'SA', 'SB', 'FR', 'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'MN', 'SU', 'M1', 'FK', 'UT', 'UM', 'FX'
+        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'AH', 'SA', 'SB', 'FR', 'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'MN', 'SU', 'M1', 'FK', 'UT', 'UM', 'FX', 'MZ'
     );
 
     /**
