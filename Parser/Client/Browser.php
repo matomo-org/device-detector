@@ -82,6 +82,7 @@ class Browser extends ClientParserAbstract
         'DO' => 'Dorado',
         'DL' => 'Dooble',
         'DI' => 'Dillo',
+        'DU' => 'DU Browser',
         'DD' => 'DuckDuckGo Privacy Browser',
         'EC' => 'Ecosia',
         'EI' => 'Epic',
@@ -243,7 +244,7 @@ class Browser extends ClientParserAbstract
     protected static $browserFamilies = array(
         'Android Browser'    => array('AN', 'MU'),
         'BlackBerry Browser' => array('BB'),
-        'Baidu'              => array('BD', 'BS'),
+        'Baidu'              => array('BD', 'BS', 'DU'),
         'Amiga'              => array('AV', 'AW'),
         'Chrome'             => array('CH', 'BA', 'BR', 'CC', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'DD', 'IR', 'RM', 'AO', 'TS', 'VI', 'PT', 'AS', 'TB', 'AD', 'SB', 'WP', 'I3', 'CV', 'WH', 'SZ', 'QW', 'LF', 'KW', '2B', 'CE', 'EC', 'MT', 'MS', 'HA', 'OC'),
         'Firefox'            => array('FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF', 'CU', 'TF', 'QM', 'FR', 'I4', 'GZ', 'MO', 'F1', 'BI'),
@@ -263,7 +264,7 @@ class Browser extends ClientParserAbstract
      * @var array
      */
     protected static $mobileOnlyBrowsers = array(
-        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR', 'WP', 'HA', 'NX', 'HU', 'VV', 'RE'
+        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR', 'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'DU'
     );
 
     /**
