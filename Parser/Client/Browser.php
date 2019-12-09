@@ -74,6 +74,7 @@ class Browser extends ClientParserAbstract
         'CR' => 'Chromium',
         'CY' => 'Cyberfox',
         'CS' => 'Cheshire',
+        'CT' => 'Crusta',
         'CU' => 'Cunaguaro',
         'CV' => 'Chrome Webview',
         'DB' => 'dbrowser',
