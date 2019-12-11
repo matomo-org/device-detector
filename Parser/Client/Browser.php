@@ -218,6 +218,7 @@ class Browser extends ClientParserAbstract
         'TS' => 'TweakStyle',
         'UC' => 'UC Browser',
         'UM' => 'UC Browser Mini',
+        'UZ' => 'Uzbl',
         'VI' => 'Vivaldi',
         'VV' => 'vivo Browser',
         'VB' => 'Vision Mobile Browser',
