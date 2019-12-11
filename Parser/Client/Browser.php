@@ -172,6 +172,7 @@ class Browser extends ClientParserAbstract
         'ON' => 'Opera Next',
         'OO' => 'Opera Touch',
         'OR' => 'Oregano',
+        'OY' => 'Origyn Web Browser',
         'OV' => 'Openwave Mobile Browser',
         'OW' => 'OmniWeb',
         'OT' => 'Otter Browser',
