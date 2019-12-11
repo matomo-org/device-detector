@@ -207,6 +207,7 @@ class Browser extends ClientParserAbstract
         'SL' => 'Sleipnir',
         'SN' => 'Snowshoe',
         'SO' => 'Sogou Mobile Browser',
+        'S2' => 'Splash',
         'SI' => 'Sputnik Browser',
         'SR' => 'Sunrise',
         'SP' => 'SuperBird',
