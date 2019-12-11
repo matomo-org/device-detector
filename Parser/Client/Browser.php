@@ -201,6 +201,7 @@ class Browser extends ClientParserAbstract
         'SE' => 'Sogou Explorer',
         'SF' => 'Safari',
         'SH' => 'Shiira',
+        'S1' => 'SimpleBrowser',
         'SK' => 'Skyfire',
         'SS' => 'Seraphic Sraf',
         'SL' => 'Sleipnir',
