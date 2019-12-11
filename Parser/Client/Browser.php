@@ -90,6 +90,7 @@ class Browser extends ClientParserAbstract
         'EB' => 'Element Browser',
         'EP' => 'GNOME Web',
         'ES' => 'Espial TV Browser',
+        'FX' => 'Faux Browser',
         'F1' => 'Firefox Mobile iOS',
         'FB' => 'Firebird',
         'FD' => 'Fluid',
@@ -266,7 +267,7 @@ class Browser extends ClientParserAbstract
      * @var array
      */
     protected static $mobileOnlyBrowsers = array(
-        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR', 'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM', 'FK'
+        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR', 'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM', 'FK', 'FX'
     );
 
     /**
