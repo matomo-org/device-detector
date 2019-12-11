@@ -155,6 +155,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'C8' => 'Concord',
         'CX' => 'Crescent',
         'C4' => 'Cyrus',
+        'CV' => 'CVTE',
         'DA' => 'Danew',
         'DT' => 'Datang',
         'D1' => 'Datsun',
