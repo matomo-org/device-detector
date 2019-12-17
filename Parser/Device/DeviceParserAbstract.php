@@ -247,6 +247,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'HE' => 'HannSpree',
         'HI' => 'Hisense',
         'HL' => 'Hi-Level',
+        'H2' => 'Highscreen',
         'H1' => 'Hoffmann',
         'HM' => 'Homtom',
         'HO' => 'Hosin',
