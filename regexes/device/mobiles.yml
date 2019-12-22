@@ -660,7 +660,7 @@ MicroMax:
 
 # 4Good
 4Good:
-  regex: '4Good[ _]|(?:4Good)?(S450m [43]G|S555m 4G|S501m 3G|T700i_3G|Light A103)'
+  regex: '4Good[ _]|S450m [43]G|S555m 4G|S501m 3G|T700i_3G|Light A103'
   device: 'smartphone'
   models:
     - regex: 'T700i_3G'
@@ -920,9 +920,7 @@ Advance:
 AGM:
   regex: 'AGM ([^/;\)]+)(?: Build|\))'
   device: 'smartphone'
-  models:
-    - regex: 'AGM ([^/;\)]+)(?: Build|\))'
-      model: '$1'
+  model: '$1'
 
 # Airness
 Airness:
@@ -949,9 +947,9 @@ Akai:
     - regex: 'TAB-([79]8[03]0Q?)'
       device: 'tablet'
       model: 'TAB $1'
-    - regex: '(AKTB-703MZ)'
+    - regex: 'AKTB-703MZ'
       device: 'tablet'
-      model: '$1'
+      model: 'AKTB-703MZ'
 
     - regex: 'X6 METAL'
       model: 'iLike'
@@ -1629,11 +1627,14 @@ ARRIS:
 
 # Ask
 Ask:
-  regex: 'ASK '
+  regex: 'ASK[ _]'
   device: 'smartphone'
   models:
-    - regex: 'SP618'
-      model: 'SP618'
+    - regex: 'ASK[ _]791SP[ _]3G'
+      model: '791SP 3G'
+      device: 'tablet'
+    - regex: 'ASK[_ ]([^/;]*) Build'
+      model: '$1'
 
 # ANS
 ANS:
@@ -1957,11 +1958,14 @@ Audiovox:
 
 # AVH
 AVH:
-  regex: 'Excer_10_PRO'
-  device: 'smartphone'
+  regex: 'Excer[ _]'
+  device: 'tablet'
   models:
-    - regex: 'Excer_10_PRO'
-      device: 'tablet'
+    - regex: 'Excer[ _]G5.3'
+      model: 'Excer G5.3'
+    - regex: 'Excer[ _]G5'
+      model: 'Excer G5'
+    - regex: 'Excer[ _]10[ _]PRO'
       model: 'Excer 10 Pro'
 
 # Avvio
@@ -2166,10 +2170,18 @@ Bluboo:
 
 # bogo
 bogo:
-  regex: 'BO-(FRSP4|LFSPBS5)'
+  regex: 'BO-(FRSP4|LFSPBS5|LFSP4|LFSPSL4|LFSPBS5|LFSPSL6QCI)'
   device: 'smartphone'
   models:
-    - regex: 'BO-(FRSP4|LFSPBS5)'
+    - regex: 'BO-LFSP4'
+      model: 'LifeStyle 4DC'
+    - regex: 'BO-LFSPSL4'
+      model: 'LifeStyle 4SL'
+    - regex: 'BO-LFSPBS5'
+      model: 'LifeStyle 5BS'
+    - regex: 'BO-LFSPSL6QCI'
+      model: 'LifeStyle 6QC'
+    - regex: 'BO-(FRSP4)'
       model: '$1'
 
 # Boway
