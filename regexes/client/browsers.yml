@@ -5,12 +5,85 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
-# Opera GX (https://www.opera.com/gx#start | http://ftp.opera.com/pub/opera_gx/)
-- regex: 'OPRGX(?:/(\d+[\.\d]+))?'
-  name: 'Opera GX'
+# Ordissimo (https://www.ordissimo.fr/)
+- regex: '(?:Ordissimo|webissimo3)(?:/(\d+[\.\d]+))?'
+  name: 'Ordissimo'
   version: '$1'
-  engine:
-    default: 'Blink'
+
+# CCleaner (https://www.ccleaner.com/ccleaner/browser)
+- regex: 'CCleaner(?:/(\d+[\.\d]+))?'
+  name: 'CCleaner'
+  version: '$1'
+
+# Aloha Browser Lite (https://play.google.com/store/apps/details?id=com.alohamobile.browser.lite)
+- regex: 'AlohaLite(?:/(\d+[\.\d]+))?'
+  name: 'Aloha Browser Lite'
+  version: '$1'
+
+# Tao Browser (https://browser.taobao.com/)
+- regex: 'TaoBrowser(?:/(\d+[\.\d]+))?'
+  name: 'Tao Browser'
+  version: '$1'
+
+# Falkon (https://www.falkon.org/)
+- regex: 'Falkon(?:/(\d+[\.\d]+))?'
+  name: 'Falkon'
+  version: '$1'
+
+# mCent (http://mcentbrowser.com/)
+- regex: 'mCent(?:/(\d+[\.\d]+))?'
+  name: 'mCent'
+  version: '$1'
+
+# SalamWeb (https://salamweb.com/)
+- regex: 'SalamWeb(?:/(\d+[\.\d]+))?'
+  name: 'SalamWeb'
+  version: '$1'
+
+# BlackHawk (http://www.netgate.sk/blackhawk/)
+- regex: 'BlackHawk(?:/(\d+[\.\d]+))?'
+  name: 'BlackHawk'
+  version: '$1'
+
+# Minimo (https://www-archive.mozilla.org/projects/minimo/)
+- regex: 'Minimo(?:/(\d+[\.\d]+))?'
+  name: 'Minimo'
+  version: '$1'
+
+# Wear Internet Browser (https://play.google.com/store/apps/details?id=com.appfour.wearbrowser)
+- regex: 'WIB(?:/(\d+[\.\d]+))?'
+  name: 'Wear Internet Browser'
+  version: '$1'
+
+# Origyn Web Browser (https://en.wikipedia.org/wiki/Origyn_Web_Browser)
+- regex: 'Origyn Web Browser'
+  name: 'Origyn Web Browser'
+  version: ''
+
+# Kinza (https://www.kinza.jp/en/)
+- regex: 'Kinza(?:/(\d+[\.\d]+))?'
+  name: 'Kinza'
+  version: '$1'
+
+# Beamrise (https://web.archive.org/web/20170520043839/http://beamrise.com/)
+- regex: 'Beamrise(?:/(\d+[\.\d]+))?'
+  name: 'Beamrise'
+  version: '$1'
+
+# Faux Browser (https://apps.apple.com/us/app/faux-browser/id472250940)
+- regex: 'Faux(?:/(\d+[\.\d]+))?'
+  name: 'Faux Browser'
+  version: '$1'
+
+# Splash (https://scrapinghub.com/splash)
+- regex: 'splash Version(?:/(\d+[\.\d]+))?'
+  name: 'Splash'
+  version: '$1'
+
+# Meizu Browser (https://www.meizu.com/)
+- regex: 'MZBrowser(?:/(\d+[\.\d]+))?'
+  name: 'Meizu Browser'
+  version: '$1'
 
 # COS Browser (https://sj.qq.com/myapp/detail.htm?apkName=com.qcloud.cos.client)
 - regex: 'COSBrowser(?:/(\d+[\.\d]+))?'
@@ -360,6 +433,18 @@
   name: 'Cunaguaro'
   version: '$1'
 
+# t-online.de Browser (https://www.t-online.de/computer/browser/)
+- regex: 'TO-Browser(?:/TOB(\d+[\.\d]+))?'
+  name: 't-online.de Browser'
+  version: '$1'
+
+#Kazehakase
+- regex: 'Kazehakase(?:/(\d+[\.\d]+))?'
+  name: 'Kazehakase'
+  version: '$1'
+  engine:
+    default: '' # multi engine
+
 #Firefox Focus / Firefox Klar
 - regex: '(?:Focus|Klar)(?:/(\d+[\.\d]+))?'
   name: 'Firefox Focus'
@@ -489,6 +574,21 @@
 - regex: 'UC[ ]?Browser.* \(UCMini\)'
   name: 'UC Browser Mini'
   version: ''
+
+# UC Browser Turbo
+- regex: 'UCTurbo(?:[ /]?(\d+[\.\d]+))?'
+  name: 'UC Browser Turbo'
+  version: '$1'
+- regex: 'UC[ ]?Browser.* \(UCTurbo\)'
+  name: 'UC Browser Turbo'
+  version: ''
+
+# Opera GX (https://www.opera.com/gx#start | http://ftp.opera.com/pub/opera_gx/)
+- regex: 'OPRGX(?:/(\d+[\.\d]+))?'
+  name: 'Opera GX'
+  version: '$1'
+  engine:
+    default: 'Blink'
 
 #Opera
 - regex: '(?:Opera Tablet.*Version|Opera/.+Opera Mobi.+Version|Mobile.+OPR)/(\d+[\.\d]+)'
@@ -667,7 +767,7 @@
     versions:
       3: 'WebKit'
 
-- regex: '(?:Maxthon|MyIE2|Uzbl)'
+- regex: '(?:Maxthon|MyIE2)'
   name: 'Maxthon'
   version: ''
   engine:
@@ -685,7 +785,13 @@
   engine:
     default: 'Blink'
 
-#Iron
+# Iron
+- regex: 'Chrome(?:/(\d+[\.\d]+))?.*Iron'
+  name: 'Iron'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+
 - regex: 'Iron(?:/(\d+[\.\d]+))?'
   name: 'Iron'
   version: '$1'
@@ -764,18 +870,29 @@
   name: 'Samsung Browser'
   version: '$1'
 
-#Streamy
-#This browser is built on top of Chromium.
-#It should be checked first.
+# Super Fast Browser (https://play.google.com/store/apps/details?id=com.browser.tssomas)
+- regex: '(?:SFBrowser|com.browser.tssomas)(?:/(\d+[\.\d]+))?'
+  name: 'Super Fast Browser'
+  version: '$1'
+
+# EUI Browser
+- regex: 'EUI Browser(?:/(\d+[\.\d]+))?'
+  name: 'EUI Browser'
+  version: '$1'
+
+# UBrowser (https://callumprentice.github.io/)
+- regex: 'UBrowser(?:/(\d+[\.\d]+))?'
+  name: 'UBrowser'
+  version: '$1'
+
+#Streamy (Chromium based)
 - regex: 'Streamy(?:/(\d+[\.\d]+))?'
   name: 'Streamy'
   version: '$1'
   engine:
     default: 'WebKit'
 
-#Isivioo
-#Andorid version of the browser is built on top of Chrome Mobile.
-#It should be checked first.
+#Isivioo (Android version is Chrome based)
 - regex: 'isivioo'
   name: 'Isivioo'
   version: ''
@@ -919,6 +1036,18 @@
 - regex: '^Nokia|Nokia[EN]?\d+'
   name: 'Nokia Browser'
   version: ''
+
+#Sleipnir
+- regex: 'Sleipnir(?:[ /](\d+[\.\d]+))?'
+  name: 'Sleipnir'
+  version: '$1'
+  engine:
+    default: '' # multi engine
+
+# NTENT Browser
+- regex: 'NTENTBrowser(?:/(\d+[\.\d]+))?'
+  name: 'NTENT Browser'
+  version: '$1'
 
 # Chrome Webview
 - regex: 'Version/.* Chrome(?:/(\d+[\.\d]+))?'
@@ -1108,6 +1237,11 @@
   name: 'Element Browser'
   version: '$1'
 
+# eZ Browser (https://play.google.com/store/apps/details?id=com.asc.csbrowser)
+- regex: 'eZBrowser(?:/(\d+[\.\d]+))?'
+  name: 'eZ Browser'
+  version: '$1'
+
 #Firebird
 - regex: 'Firebird(?! Build)(?:/(\d+[\.\d]+))?'
   name: 'Firebird'
@@ -1157,13 +1291,6 @@
     versions:
       4: 'WebKit'
 
-#Sleipnir
-- regex: 'Sleipnir(?:[ /](\d+[\.\d]+))?'
-  name: 'Sleipnir'
-  version: '$1'
-  engine:
-    default: '' # multi engine
-
 #Lunascape
 - regex: 'Lunascape(?:[/ ](\d+[\.\d]+))?'
   name: 'Lunascape'
@@ -1212,13 +1339,6 @@
   version: '$1'
   engine:
     default: 'Trident'
-
-#Kazehakase
-- regex: 'Kazehakase(?:/(\d+[\.\d]+))?'
-  name: 'Kazehakase'
-  version: '$1'
-  engine:
-    default: '' # multi engine
 
 #Kindle Browser
 - regex: 'Kindle/(\d+[\.\d]+)'
@@ -1279,11 +1399,6 @@
 #NetPositive
 - regex: 'NetPositive(?:/(\d+[\.\d]+))?'
   name: 'NetPositive'
-  version: '$1'
-
-# NTENT Browser
-- regex: 'NTENTBrowser(?:/(\d+[\.\d]+))?'
-  name: 'NTENT Browser'
   version: '$1'
 
 #Odyssey Web Browser
@@ -1427,3 +1542,13 @@
   version: '$1'
   engine:
     default: 'NetSurf'
+
+# Uzbl (https://www.uzbl.org/)
+- regex: 'Uzbl'
+  name: 'Uzbl'
+  version: ''
+
+# SimpleBrowser (https://github.com/SimpleBrowserDotNet/SimpleBrowser)
+- regex: 'SimpleBrowser'
+  name: 'SimpleBrowser'
+  version: ''
