@@ -84,6 +84,7 @@ class Browser extends ClientParserAbstract
         'CV' => 'Chrome Webview',
         'DB' => 'dbrowser',
         'DE' => 'Deepnet Explorer',
+        'DT' => 'Delta Browser',
         'DF' => 'Dolphin',
         'DO' => 'Dorado',
         'DL' => 'Dooble',
@@ -145,6 +146,7 @@ class Browser extends ClientParserAbstract
         'LF' => 'LieBaoFast',
         'LG' => 'LG Browser',
         'LI' => 'Links',
+        'LO' => 'Lovense Browser',
         'LU' => 'LuaKit',
         'LS' => 'Lunascape',
         'LX' => 'Lynx',
@@ -229,6 +231,7 @@ class Browser extends ClientParserAbstract
         'SR' => 'Sunrise',
         'SP' => 'SuperBird',
         'SU' => 'Super Fast Browser',
+        'S0' => 'START Internet Browser',
         'ST' => 'Streamy',
         'SX' => 'Swiftfox',
         'SZ' => 'Seznam Browser',
@@ -272,7 +275,7 @@ class Browser extends ClientParserAbstract
         'BlackBerry Browser' => array('BB'),
         'Baidu'              => array('BD', 'BS'),
         'Amiga'              => array('AV', 'AW'),
-        'Chrome'             => array('CH', 'BA', 'BR', 'CC', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'DD', 'IR', 'RM', 'AO', 'TS', 'VI', 'PT', 'AS', 'TB', 'AD', 'SB', 'WP', 'I3', 'CV', 'WH', 'SZ', 'QW', 'LF', 'KW', '2B', 'CE', 'EC', 'MT', 'MS', 'HA', 'OC', 'MZ', 'BM', 'KN', 'SW', 'M1', 'FA', 'TA', 'AH', 'CL', 'SU', 'EU', 'UB', 'VG'),
+        'Chrome'             => array('CH', 'BA', 'BR', 'CC', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'DD', 'IR', 'RM', 'AO', 'TS', 'VI', 'PT', 'AS', 'TB', 'AD', 'SB', 'WP', 'I3', 'CV', 'WH', 'SZ', 'QW', 'LF', 'KW', '2B', 'CE', 'EC', 'MT', 'MS', 'HA', 'OC', 'MZ', 'BM', 'KN', 'SW', 'M1', 'FA', 'TA', 'AH', 'CL', 'SU', 'EU', 'UB', 'LO', 'VG'),
         'Firefox'            => array('FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF', 'CU', 'TF', 'QM', 'FR', 'I4', 'GZ', 'MO', 'F1', 'BI', 'MN', 'BH', 'TO', 'OS'),
         'Internet Explorer'  => array('IE', 'IM', 'PS'),
         'Konqueror'          => array('KO'),
@@ -290,7 +293,7 @@ class Browser extends ClientParserAbstract
      * @var array
      */
     protected static $mobileOnlyBrowsers = array(
-        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR', 'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM', 'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ', 'UT'
+        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR', 'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM', 'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ', 'UT', 'DT', 'S0'
     );
 
     /**
