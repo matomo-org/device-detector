@@ -230,6 +230,7 @@ class Browser extends ClientParserAbstract
         'SR' => 'Sunrise',
         'SP' => 'SuperBird',
         'SU' => 'Super Fast Browser',
+        'S0' => 'START Internet Browser',
         'ST' => 'Streamy',
         'SX' => 'Swiftfox',
         'SZ' => 'Seznam Browser',
@@ -291,7 +292,7 @@ class Browser extends ClientParserAbstract
      * @var array
      */
     protected static $mobileOnlyBrowsers = array(
-        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR', 'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM', 'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ', 'UT', 'DT'
+        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR', 'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM', 'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ', 'UT', 'DT', 'S0'
     );
 
     /**
