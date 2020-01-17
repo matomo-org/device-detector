@@ -441,8 +441,12 @@ TiPhone:
 
 # Apple
 Apple:
-  regex: '(?:iTunes-)?Apple[ _]?TV|(?:Apple-|iTunes-)?(?<!like )(?:iPad|iPhone)|iPh[0-9],[0-9]|CFNetwork'
+  regex: '(?:iTunes-)?Apple[ _]?TV|(?:Apple-|iTunes-)?(?<!like )(?:iPad|iPhone)|iPh[0-9],[0-9]|CFNetwork|HomePod'
   models:
+    - regex: 'HomePod'
+      device: 'smart speaker'
+      model: 'HomePod'
+
     # specific smartphone devices
     - regex: '(?:Apple-)?iPh(?:one)?1[C,_]1'
       model: 'iPhone'
@@ -889,7 +893,7 @@ Acer:
 
 # Advan
 Advan:
-  regex: '(i7U|S45E|5061|S50H|I7D|i55[KD]|i4U|S7D|S4Z|i5[KE]|S5E[ _]NXT) Build'
+  regex: '(i7U|S45E|50[46]1|5059|S50H|I7D|i55[KD]|i4U|S7D|S4Z|i5[KE]|S5E[ _]NXT) Build'
   device: 'smartphone'
   models:
     - regex: 'i7U'
@@ -900,7 +904,7 @@ Advan:
       model: 'I$1'
     - regex: 'i4U'
       model: 'I4U'
-    - regex: '(S45E|5061|S50H|I7D|S7D|S4Z)'
+    - regex: '(S45E|50[46]1|5059|S50H|I7D|S7D|S4Z)'
       model: '$1'
 
 # Advance
@@ -1944,7 +1948,7 @@ Asus:
 
 # Audiovox
 Audiovox:
-  regex: 'Audiovox|CDM|UTS(?:TARCOM)?\-|audio[a-z0-9\-]+'
+  regex: 'Audiovox|CDM|UTS(?:TARCOM)?\-|audio(?!book)[a-z0-9\-]+'
   device: 'smartphone'
   models:
     - regex: 'Audiovox[_\-]([a-z0-9\-]+)'
@@ -2231,11 +2235,13 @@ VGO TEL:
 
 # Vivo
 Vivo:
-  regex: '((?:VIV-|BBG-)?vivo)|V1813B[AT]|V1818T|V1731CA|V1809T|V1813[AT]|V1901A|V18[13]8A'
+  regex: '((?:VIV-|BBG-)?vivo)|V1813B[AT]|V1818T|V1731CA|V1809T|V1813[AT]|V1901A|V18[13]8A|V1932[AT]'
   device: 'smartphone'
   models:
     - regex: '(?:VIV-|BBG-)?vivo[ _]1601[);/ ]'
       model: 'V5'
+    - regex: 'V1932[AT]'
+      model: 'S5'
     - regex: 'V1813B[AT]'
       model: 'Z3'
     - regex: 'Vivo ONE'
