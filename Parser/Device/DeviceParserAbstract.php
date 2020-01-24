@@ -346,6 +346,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'MN' => 'M4tel',
         'MJ' => 'Majestic',
         'MA' => 'Manta Multimedia',
+        '5M' => 'Mann',
         '2M' => 'Masstel',
         'MW' => 'Maxwest',
         'M0' => 'Maze',
