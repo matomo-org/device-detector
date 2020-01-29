@@ -562,6 +562,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'UK' => 'UTOK',
         'UA' => 'Umax',
         'UT' => 'UTStarcom',
+        'UZ' => 'Unihertz',
         'VA' => 'Vastking',
         'VD' => 'Videocon',
         'VE' => 'Vertu',
