@@ -282,6 +282,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'IS' => 'Insignia',
         'I4' => 'Inoi',
         'IR' => 'iRola',
+        'IU' => 'iRulu',
         'I6' => 'Irbis',
         'II' => 'Inkti',
         'IX' => 'Intex',
