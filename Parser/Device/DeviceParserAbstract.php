@@ -396,6 +396,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'NA' => 'Netgear',
         'NU' => 'NeuImage',
         'NG' => 'NGM',
+        'NZ' => 'NG Optics',
         'N6' => 'Nobby',
         'NO' => 'Nous',
         'NI' => 'Nintendo',
