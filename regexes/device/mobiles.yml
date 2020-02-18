@@ -3047,12 +3047,15 @@ ConCorde:
 
 # Condor
 Condor:
-  regex: 'Allure M[13]|Griffe T6|(?:PGN\-?[456][012][0-9]|PHS\-601|Plume L[12])[;/) ]|CTAB[^/;]+ Build'
+  regex: 'Allure M[13]|Griffe T6|TGW[-]?(710G|709)|(?:PGN\-?[456][012][0-9]|PHS\-601|Plume L[12])[;/) ]|CTAB[^/;]+ Build'
   device: 'smartphone'
   models:
     - regex: 'CTAB([^/;]+) Build'
       device: 'tablet'
       model: 'CTAB $1'
+    - regex: '(TGW)-?(710G|709)[);/ ]'
+      device: 'tablet'
+      model: '$1 $2'
 
     - regex: 'PHS\-601'
       model: 'C8'
