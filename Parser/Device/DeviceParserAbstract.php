@@ -504,6 +504,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'SO' => 'Sony',
         'OI' => 'Sonim',
         'SP' => 'Spice',
+        '5S' => 'Sunvell',
         'SU' => 'SuperSonic',
         'S5' => 'Supra',
         'SV' => 'Selevision',
