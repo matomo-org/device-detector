@@ -561,6 +561,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'TZ' => 'teXet',
         'UC' => 'U.S. Cellular',
         'UH' => 'Uhappy',
+        'UG' => 'Ugoos',
         'UL' => 'Ulefone',
         'UO' => 'Unnecto',
         'UN' => 'Unowhy',
