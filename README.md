@@ -191,6 +191,7 @@ There are already a few ports of this tool to other languages:
 - **Python 3** https://github.com/thinkwelltwd/device_detector
 - **Crystal** https://github.com/creadone/device_detector
 - **Elixir** https://github.com/elixir-inspector/ua_inspector
+- **Java** https://github.com/mngsk/device-detector
 
 
 ## What Device Detector is able to detect
