@@ -4863,11 +4863,13 @@ Hafury:
 
 # Haier
 Haier:
-  regex: 'Haier|I6_Infinity|Titan[ _]T[13]|(?:HW-)?W(?:716|757|860|970)[);/ ]|(?:HM-)?(N700|G(?:152|303|353|552|70[01])?-FL|G(?:303)?-W|I(?:557)?-FL)|(?:PAD[ _](D71|G781|d85))'
+  regex: 'Haier|I6_Infinity|Titan[ _]T[13]|(?:HW-)?W(?:716|757|860|970)[);/ ]|(?:HM-)?(N700|G(?:152|303|353|552|70[01])?-FL|HM-N501-FL|G(?:303)?-W|I(?:557)?-FL)|(?:PAD[ _](D71|G781|d85))'
   device: 'smartphone'
   models:
     - regex: 'HM-N700-FL'
       model: 'L7'
+    - regex: 'HM-N501-FL'
+      model: 'L56'
     - regex: '(?:HM-)?(G(?:152|353|552|70[01])|G(?:303)|I(?:557))'
       model: '$1'
     - regex: '(Titan[_ ]T[13]|I6_Infinity)'
@@ -13122,9 +13124,13 @@ X-TIGI:
 
 # Xiaolajiao
 Xiaolajiao:
-  regex: '(LA2-(?:L|S[N]?))[);/ ]'
+  regex: '(LA2-(?:L|S[N]?)|HLA Note3)[);/ ]'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'HLA Note3[);/ ]'
+      model: 'Red Pepper Note 3'
+    - regex: '(LA2-(?:L|S[N]?))[);/ ]'
+      model: '$1'
 
 # Ritmix
 Ritmix:
@@ -13367,4 +13373,10 @@ Ugoos:
 Yxtel:
   regex: 'YXTEL_([HU]1|U3)[);/ ]'
   device: 'smartphone'
+  model: '$1'
+
+# Proline
+Proline:
+  regex: '(H10882M-TN)[);/ ]'
+  device: 'tablet'
   model: '$1'

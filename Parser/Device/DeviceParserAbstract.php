@@ -444,6 +444,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'PL' => 'Polaroid',
         'P5' => 'Polytron',
         'P9' => 'Primepad',
+        'P6' => 'Proline',
         'PM' => 'Palm',
         'PO' => 'phoneOne',
         'PT' => 'Pantech',
