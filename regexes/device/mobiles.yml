@@ -13250,9 +13250,14 @@ Qumo:
 
 # Umax
 Umax:
-  regex: '(VisionBook[ _](?:7Qi 3G|P55 LTE Pro|10Qi_3G))[;)/ ]'
+  regex: 'VisionBook[ _]'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: '(VisionBook[ _](?:7Qi 3G|7Q Plus|8Q LTE|8Q_Plus|10Qi_3G))[;)/ ]'
+      model: '$1'
+    - regex: '(VisionBook[ _](?:P50 LTE|P55 LTE(?: Pro)?))[;)/ ]'
+      device: 'smartphone'
+      model: '$1'
 
 # Mann
 Mann:
