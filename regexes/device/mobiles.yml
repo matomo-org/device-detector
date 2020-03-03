@@ -1698,10 +1698,10 @@ Assistant:
 
 # Ark
 Ark:
-  regex: '(ARK[_ -])?Benefit[_ -]([^/;]*) Build|EDGE A5HD|ICON (R40\+|R45)|Impulse[ _](P[12])|Wizard_1[/;) ]'
+  regex: '(ARK[_ -])?Benefit[_ -]([^/;]*)(?: Build|\))|EDGE A5HD|ICON (R40\+|R45)|Impulse[ _](P[12])|Wizard_1[/;) ]'
   device: 'smartphone'
   models:
-    - regex: '(?:ARK[_ -])?Benefit[_ -]([^/;]*) Build'
+    - regex: '(?:ARK[_ -])?Benefit[_ -]([^/;]*)(?: Build|\))'
       model: 'Benefit $1'
     - regex: 'Impulse[ _]P1\+'
       model: 'Impulse P1 Plus'
@@ -12264,7 +12264,7 @@ ZYQ:
 
 # Toshiba
 Toshiba:
-  regex: 'Toshiba|TSBNetTV/|portalmmm/[12].0 TS|T-01C|T-0[12]D|IS04|IS11T|AT1S0|AT300SE|AT(10-A|10[PL]E-A|100|200|270|300|330|374|400|470|500|503|570|703|830)'
+  regex: 'Toshiba|TSBNetTV/|portalmmm/[12].0 TS|T-01C|T-0[12]D|IS04|IS11T|AT1S0|AT300SE|AT(7-C|10-A|10[PL]E-A|100|200|270|300|330|374|400|470|500|503|570|703|830)'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -12280,6 +12280,9 @@ Toshiba:
       model: 'Regza IS11T'
 
     # explicit tablet models
+    - regex: 'AT7-C'
+      model: 'Excite'
+      device: 'tablet'
     - regex: 'AT1S0'
       model: 'Regza AT1S0'
       device: 'tablet'
