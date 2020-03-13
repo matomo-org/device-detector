@@ -32,12 +32,26 @@ jobs:
           git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git config --global user.name "$GITHUB_ACTOR"
           
-    - name: push changes if any
+    - name: push changes & create PR
       run: |
           if [[ $( git diff --numstat ) ]]
           then
             cd $GITHUB_WORKSPACE
+            git branch -D updatereadme
+            git checkout -b updatereadme
             git add README.md
             git commit -m "update README.md"
             git push
+            curl \
+                 --request POST \
+                 --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+                 --header 'content-type: application/json' \
+                 --data '{
+                  "title":"Update README.md",
+                  "body":"updates detections in README.md",
+                  "head":"updatereadme",
+                  "base":"master"
+                  }' \
+                 --url https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls
           fi
+      shell: bash
