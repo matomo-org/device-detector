@@ -37,7 +37,8 @@ jobs:
           if [[ $( git diff --numstat ) ]]
           then
             cd $GITHUB_WORKSPACE
-            git branch -D updatereadme
+            git push origin --delete updatereadme || true
+            git branch -D updatereadme || true
             git checkout -b updatereadme
             git add README.md
             git commit -m "update README.md"
