@@ -162,6 +162,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'CX' => 'Crescent',
         'C4' => 'Cyrus',
         'CV' => 'CVTE',
+        'D5' => 'Daewoo',
         'DA' => 'Danew',
         'DT' => 'Datang',
         'D1' => 'Datsun',
