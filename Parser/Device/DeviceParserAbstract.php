@@ -400,6 +400,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'M8' => 'Myria',
         '6M' => 'Mystery',
         'N3' => 'Navon',
+        'N7' => 'National',
         'N5' => 'NOA',
         'NE' => 'NEC',
         'NF' => 'Neffos',
