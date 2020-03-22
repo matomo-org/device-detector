@@ -34,7 +34,8 @@ jobs:
           
     - name: push changes & create PR
       run: |
-          if [[ $( git diff --numstat ) ]]
+          changes=($( git diff --numstat ))
+          if [[ ${changes[0]} -gt 1 ]]
           then
             cd $GITHUB_WORKSPACE
             git push origin --delete updatereadme || true
