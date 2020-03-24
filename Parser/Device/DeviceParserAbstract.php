@@ -504,6 +504,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'SX' => 'SFR',
         'SG' => 'Sagem',
         'SH' => 'Sharp',
+        '7S' => 'Shift Phones',
         '3S' => 'Shuttle',
         'SI' => 'Siemens',
         'SJ' => 'Silent Circle',
