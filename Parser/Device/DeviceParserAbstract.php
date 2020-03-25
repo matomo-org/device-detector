@@ -492,6 +492,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'R7' => 'Ritzviva',
         'R5' => 'Ross&Moor',
         'R2' => 'R-TV',
+        'RG' => 'RugGear',
         'RU' => 'Runbo',
         'SQ' => 'Santin BiTBiZ',
         'SA' => 'Samsung',
