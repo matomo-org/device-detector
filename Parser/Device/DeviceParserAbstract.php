@@ -65,6 +65,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
     public static $deviceBrands = array(
         '3Q' => '3Q',
         '4G' => '4Good',
+        'AE' => 'Ace',
         'AA' => 'AllCall',
         'AC' => 'Acer',
         'A9' => 'Advan',
@@ -435,6 +436,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'OS' => 'Ordissimo',
         'OT' => 'O2',
         'OK' => 'Ouki',
+        'OE' => 'Oukitel',
         'OU' => 'OUYA',
         'OO' => 'Opsson',
         'OV' => 'Overmax',
