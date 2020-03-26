@@ -436,6 +436,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'OS' => 'Ordissimo',
         'OT' => 'O2',
         'OK' => 'Ouki',
+        'OE' => 'Oukitel',
         'OU' => 'OUYA',
         'OO' => 'Opsson',
         'OV' => 'Overmax',
