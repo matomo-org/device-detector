@@ -357,6 +357,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'LX' => 'Lexibook',
         'LY' => 'LYF',
         'LU' => 'Lumus',
+        'L9' => 'Luna',
         'MN' => 'M4tel',
         'MJ' => 'Majestic',
         'MA' => 'Manta Multimedia',
