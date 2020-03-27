@@ -3425,13 +3425,13 @@ Desay:
 
 # DEXP
 DEXP:
-  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|(ML450|BL150|BS155|BS160|BS550|BS650|AL[12]40)[);/ ]'
+  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|(ML450|MS[56]50|BL150|BS155|BS160|BS550|BS650|AL[12]40)[);/ ]'
   device: 'smartphone'
   models:
 
     - regex: 'Ixion[_ ]([^;/]+)(?: Build|\))'
       model: 'Ixion $1'
-    - regex: '(ML450)[);/ ]'
+    - regex: '(ML450|MS[56]50)[);/ ]'
       model: 'Ixion $1'
 
     - regex: 'Ursus ([^;/)]+)(?: Build|\))'
@@ -13684,3 +13684,13 @@ Aligator:
   models:
     - regex: 'ALIGATOR (S50(?:65|70))[);/ ]'
       model: '$1'
+
+# Maxcom
+Maxcom:
+  regex: '(MS(?:45[036]|505|514)|MS457(?:PLUS)?)[);/ ]'
+  device: 'smartphone'
+  models:
+    - regex: '(MS457)PLUS[);/ ]'
+      model: '$1 Plus'
+    - regex: 'MS(45[0367]|505|514|)[);/ ]'
+      model: 'MS$1'

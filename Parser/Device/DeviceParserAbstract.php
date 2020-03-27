@@ -363,6 +363,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         '5M' => 'Mann',
         '2M' => 'Masstel',
         'MW' => 'Maxwest',
+        '7M' => 'Maxcom',
         'M0' => 'Maze',
         'MB' => 'Mobistel',
         '0M' => 'Mecool',
