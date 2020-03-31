@@ -13709,9 +13709,13 @@ Shift Phones:
 
 # RugGear
 RugGear:
-  regex: '(RG702)[);/ ]'
+  regex: '(RG(?:310|500|65[05]|702|850)|RugGear RG[0-9]+)[);/ ]'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'RugGear (RG[0-9]+)[);/ ]'
+      model: '$1'
+    - regex: '(RG(?:310|500|65[05]|702|850))[);/ ]'
+      model: '$1'
 
 # Aligator
 Aligator:
