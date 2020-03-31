@@ -472,6 +472,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'P3' => 'PPTV',
         'PS' => 'Positivo',
         'PR' => 'Prestigio',
+        'P7' => 'Protruly',
         'P1' => 'ProScan',
         'PU' => 'PULID',
         'QI' => 'Qilive',
