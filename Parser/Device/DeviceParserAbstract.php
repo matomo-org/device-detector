@@ -34,7 +34,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
     const DEVICE_TYPE_PORTABLE_MEDIA_PAYER = 9;
     const DEVICE_TYPE_PHABLET              = 10;
     const DEVICE_TYPE_SMART_SPEAKER        = 11;
-    const DEVICE_TYPE_SMART_WATCH          = 12;
+    const DEVICE_TYPE_WEARABLE             = 12; // including set watches, headsets
 
     /**
      * Detectable device types
@@ -54,7 +54,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'portable media player' => self::DEVICE_TYPE_PORTABLE_MEDIA_PAYER,
         'phablet'               => self::DEVICE_TYPE_PHABLET,
         'smart speaker'         => self::DEVICE_TYPE_SMART_SPEAKER,
-        'smart watch'           => self::DEVICE_TYPE_SMART_WATCH,
+        'wearable'              => self::DEVICE_TYPE_WEARABLE,
     );
 
     /**
