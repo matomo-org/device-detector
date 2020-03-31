@@ -13332,9 +13332,14 @@ Xiaolajiao:
 
 # Ritmix
 Ritmix:
-  regex: 'RMD[-_](10(?:2[68]|5[89])|726|857|870)[);/ ]'
+  regex: '(RMD[-_](?:10(?:2[68]|5[89])|751|726|857|870)|RMP-(?:530|600))[);/ ]'
   device: 'tablet'
-  model: 'RMD-$1'
+  models:
+    - regex: 'RMD[-_](10(?:2[68]|5[89])|751|726|857|870)[);/ ]'
+      model: 'RMD-$1'
+    - regex: 'RMP[-_](530|600)[);/ ]'
+      model: 'RMP-$1'
+      device: 'smartphone'
 
 # Ross&Moor
 'Ross&Moor':
