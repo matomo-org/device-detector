@@ -499,7 +499,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'R2' => 'R-TV',
         'RG' => 'RugGear',
         'RU' => 'Runbo',
-        'SQ' => 'Santin BiTBiZ',
+        'SQ' => 'Santin',
         'SA' => 'Samsung',
         'S0' => 'Sanei',
         'SD' => 'Sega',
