@@ -5592,9 +5592,13 @@ Hyundai:
 
 # iBall
 iBall:
-  regex: 'iBall[ _]([^/;]*)[ _]Build'
+  regex: 'iBall[ _]([^;/)]+)[ _]Build|(Snap_4G2)[;)\ ]'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: '(Snap_4G2)[;)\ ]'
+      model: '$1'
+    - regex: 'iBall[ _]([^;/)]+)[ _]Build'
+      model: '$1'
 
 # iRola
 iRola:
