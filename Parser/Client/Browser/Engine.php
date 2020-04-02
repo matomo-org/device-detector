@@ -40,7 +40,8 @@ class Engine extends ClientParserAbstract
         'NetFront',
         'Edge',
         'NetSurf',
-        'Servo'
+        'Servo',
+        'Goanna'
     );
 
     /**
