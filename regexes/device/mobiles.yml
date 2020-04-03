@@ -3775,6 +3775,12 @@ Elephone:
     - regex: '(P[68]000)'
       model: '$1'
 
+# Element
+Element:
+  regex: 'AFTRS'
+  model: 'Element 4K (2017)'
+  device: 'tv'
+
 # Elenberg
 Elenberg:
   regex: '(TAB(?:101|728)[ _]3G|TAB7(?:[03]8|16|40|3[30]))[/;) ]'
@@ -4910,7 +4916,7 @@ Gradiente:
 
 # Grundig
 Grundig:
-  regex: 'GR?-TB[0-9]+[a-z]*|GRUNDIG|portalmmm/2\.0 G'
+  regex: 'GR?-TB[0-9]+[a-z]*|GRUNDIG|portalmmm/2\.0 G|AFTEU(?:011|014|FF014)'
   device: 'tv'
   models:
     - regex: '(GR?-TB[0-9]+[a-z]*)'
@@ -4920,6 +4926,12 @@ Grundig:
       model: '$1'
     - regex: 'portalmmm/2\.0 G([a-z0-9]+)'
       model: 'G$1'
+    - regex: 'AFTEU014'
+      model: 'Vision 7 4K (2019)'
+    - regex: 'AFTEUFF014'
+      model: 'OLED 4K (2019)'
+    - regex: 'AFTEU011'
+      model: 'Vision 6 HD (2019)'
 
 # Hafury
 Hafury:
@@ -6052,7 +6064,7 @@ Innostream:
 
 # Insignia
 Insignia:
-  regex: 'NS-(P11A8100|P10A8100|P10A6100|P16AT08|P16AT10|P16AT785HD|P08A7100|P10A7100)[);/ ]'
+  regex: 'NS-(P11A8100|P10A8100|P10A6100|P16AT08|P16AT10|P16AT785HD|P08A7100|P10A7100)[);/ ]|AFTEAMR311|AFTJMST12'
   device: 'tablet'
   models:
     - regex: 'NS-P11A8100'
@@ -6067,6 +6079,12 @@ Insignia:
       model: '10.1"'
     - regex: 'NS-P16AT785HD'
       model: 'Flex Elite 7.85"'
+    - regex: 'AFTEAMR311'
+      model: 'HD (2018)'
+      device: 'tv'
+    - regex: 'AFTJMST12'
+      model: '4K (2018)'
+      device: 'tv'
 
 # Inq
 INQ:
@@ -10845,9 +10863,18 @@ Star:
 
 # Kindle
 Amazon:
-  regex: 'KF(?:OT|TT|JWI|JWA|[DFS]OWI|A[PRSU]WI|T[BH]WI|SAW[IA]|GIWI|SUWI)[);/ ]|Kindle|Silk/\d+\.\d+|Amazon (?:Tate|Jem)|AFT[BMST]|SD4930UR|AEO(BC|KN)[);/ ]'
+  regex: 'KF(?:OT|TT|JWI|JWA|[DFS]OWI|A[PRSU]WI|T[BH]WI|SAW[IA]|GIWI|KAWI|MAWI|MEWI|MUWI|SUWI)[);/ ]|Kindle|Silk/\d+\.\d+|Amazon (?:Tate|Jem)|AFT[ABMNRST]|SD4930UR|AEO(BC|KN)[);/ ]'
   device: 'tablet'
   models:
+    - regex: 'AFTA'
+      model: 'Fire TV Cube (Gen 1)'
+      device: 'tv'
+    - regex: 'AFTR'
+      model: 'Fire TV Cube (Gen 2)'
+      device: 'tv'
+    - regex: 'AFTN'
+      model: 'Fire TV (Gen 3)'
+      device: 'tv'
     - regex: 'AFTB'
       model: 'Fire TV'
       device: 'tv'
@@ -10856,6 +10883,8 @@ Amazon:
       device: 'tv'
     - regex: 'KFFOWI[);/ ]'
       model: 'Fire 7"'
+    - regex: 'KFMUWI[);/ ]'
+      model: 'Fire 7" (2019)'
     - regex: 'KFTT[);/ ]'
       model: 'Kindle Fire HD'
     - regex: 'KFJWI[);/ ]|Amazon Jem'
@@ -10878,10 +10907,14 @@ Amazon:
       model: 'Fire HD 7'
     - regex: 'KFAUWI[);/ ]'
       model: 'Fire HD 7 2017'
+    - regex: 'KFMEWI[);/ ]'
+      model: 'Fire HD 8 (2015)'
     - regex: 'KFGIWI[);/ ]'
       model: 'Fire HD 8 2016'
     - regex: 'KFDOWI[);/ ]'
       model: 'Fire HD 8 2017'
+    - regex: 'KFKAWI[);/ ]'
+      model: 'Fire HD 8 (2018)'
     - regex: 'KFSAWI[);/ ]'
       model: 'Fire HDX 8.9'
     - regex: 'KFSAWA[);/ ]'
@@ -10890,6 +10923,8 @@ Amazon:
       model: 'Fire HD 10'
     - regex: 'KFSUWI[);/ ]'
       model: 'Fire HD 10 (2017)'
+    - regex: 'KFMAWI[);/ ]'
+      model: 'Fire HD 10 (2019)'
     - regex: 'SD4930UR'
       model: 'Fire Phone'
       device: 'smartphone'
@@ -11880,7 +11915,7 @@ Wexler:
 
 # Wiko
 Wiko:
-  regex: '(?:WIKO[_ -])|(?:WIKO-)?CINK_[a-z0-9_]+|(?:WIKO-)?HIGHWAY_[a-z0-9_]+|(?:WIKO-)?(?:Cink([^/;]*)|Highway([^/;]*)|Iggy|Stairway|Rainbow ?(Jam|Lite|Up)?|Darkside|Darkmoon|Darkfull|Darknight|Freddy|FEVER|Jerry[2]?|Sublim|Ozzy|JIMMY|Barry|Birdy|Bloom|Getaway|Goa|Kite|Robby|Lenny[2-9]?|Slide|Sunset[2-9]?|Sunny[2-9]?|Tommy[2-9]?|PULP(?: Fab)?|Wax|HARRY|Ridge(?: Fab)?|U FEEL(?: Prime| Lite)?|U PULSE(?: LITE)?|View2 Go|View XL|View Prime)(?: Plus)?(?: 4G)?(?: Build|$)?|W_(?:C800|K[346]00|P200)|WC300|W-(V800|P[36]11|K510)-EEA|WIM Lite'
+  regex: '(?:WIKO[_ -])|(?:WIKO-)?CINK_[a-z0-9_]+|(?:WIKO-)?HIGHWAY_[a-z0-9_]+|(?:WIKO-)?(?:Cink([^/;]*)|Highway([^/;]*)|Iggy|Stairway|Rainbow ?(Jam|Lite|Up)?|Darkside|Darkmoon|Darkfull|Darknight|Freddy|FEVER|Jerry[2]?|Sublim|Ozzy|JIMMY|Barry|Birdy|Bloom|Getaway|Goa(?!nna)|Kite|Robby|Lenny[2-9]?|Slide|Sunset[2-9]?|Sunny[2-9]?|Tommy[2-9]?|PULP(?: Fab)?|Wax|HARRY|Ridge(?: Fab)?|U FEEL(?: Prime| Lite)?|U PULSE(?: LITE)?|View2 Go|View XL|View Prime)(?: Plus)?(?: 4G)?(?: Build|$)?|W_(?:C800|K[346]00|P200)|WC300|W-(V800|P[36]11|K510)-EEA|WIM Lite'
   device: 'smartphone'
   models:
     - regex: '(?:Wiko-)?Cink([^/;]*) Build'
@@ -11937,7 +11972,7 @@ Wiko:
       model: 'Jerry'
     - regex: '(?:WIKO-)?Getaway'
       model: 'Getaway'
-    - regex: '(?:WIKO-)?Goa'
+    - regex: '(?:WIKO-)?Goa(?!nna)'
       model: 'Goa'
     - regex: '(?:WIKO-)?Freddy'
       model: 'Freddy'
