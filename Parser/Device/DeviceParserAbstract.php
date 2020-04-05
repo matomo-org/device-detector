@@ -34,6 +34,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
     const DEVICE_TYPE_PORTABLE_MEDIA_PAYER = 9;
     const DEVICE_TYPE_PHABLET              = 10;
     const DEVICE_TYPE_SMART_SPEAKER        = 11;
+    const DEVICE_TYPE_WEARABLE             = 12; // including set watches, headsets
 
     /**
      * Detectable device types
@@ -53,6 +54,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'portable media player' => self::DEVICE_TYPE_PORTABLE_MEDIA_PAYER,
         'phablet'               => self::DEVICE_TYPE_PHABLET,
         'smart speaker'         => self::DEVICE_TYPE_SMART_SPEAKER,
+        'wearable'              => self::DEVICE_TYPE_WEARABLE,
     );
 
     /**
@@ -85,6 +87,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'A1' => 'Altech UEC',
         'A5' => 'altron',
         'AN' => 'Arnova',
+        '5A' => 'ArmPhone',
         '2A' => 'Atom',
         'KN' => 'Amazon',
         'AG' => 'AMGOO',
@@ -200,6 +203,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'EI' => 'Ezio',
         'EM' => 'Eks Mobility',
         'EL' => 'Elephone',
+        'L0' => 'Element',
         'EG' => 'Elenberg',
         'EP' => 'Easypix',
         'EK' => 'EKO',
@@ -305,6 +309,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'JI' => 'Jiayu',
         'JO' => 'Jolla',
         'J5' => 'Just5',
+        'JF' => 'JFone',
         'KL' => 'Kalley',
         'K4' => 'Kaan',
         'K7' => 'Kaiomy',
@@ -470,6 +475,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'P3' => 'PPTV',
         'PS' => 'Positivo',
         'PR' => 'Prestigio',
+        'P7' => 'Protruly',
         'P1' => 'ProScan',
         'PU' => 'PULID',
         'QI' => 'Qilive',
@@ -582,6 +588,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'TZ' => 'teXet',
         'UC' => 'U.S. Cellular',
         'UH' => 'Uhappy',
+        'U1' => 'Uhans',
         'UG' => 'Ugoos',
         'UL' => 'Ulefone',
         'UO' => 'Unnecto',
