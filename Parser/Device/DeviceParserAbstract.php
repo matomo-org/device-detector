@@ -530,6 +530,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'SC' => 'Smartfren',
         'SO' => 'Sony',
         'OI' => 'Sonim',
+        '8S' => 'Soyes',
         'SP' => 'Spice',
         '6S' => 'Spectrum',
         '5S' => 'Sunvell',
