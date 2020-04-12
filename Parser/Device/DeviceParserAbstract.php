@@ -273,6 +273,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'HX' => 'Humax',
         'HY' => 'Hyrican',
         'HN' => 'Hyundai',
+        'IG' => 'iGet',
         'IA' => 'Ikea',
         'IB' => 'iBall',
         'IJ' => 'i-Joy',
