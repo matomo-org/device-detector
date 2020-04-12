@@ -13512,9 +13512,13 @@ Shuttle:
 
 # BDF
 BDF:
-  regex: 'BDF-(819)[;)/ ]'
+  regex: '(BDF-(?:819)|K960N_MT(?:6580|6753)(?:_32_N)?)[;)/ ]'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: 'BDF-(819)[;)/ ]'
+      model: '$1'
+    - regex: 'K960N_MT(6580|6753)(_32_N)?[;)/ ]'
+      model: 'BK960N MT$1'
 
 # Highscreen
 Highscreen:
