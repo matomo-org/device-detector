@@ -661,6 +661,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'ZE' => 'Zeemi',
         'ZK' => 'Zenek',
         'ZO' => 'Zonda',
+        'ZI' => 'Zidoo',
         'ZP' => 'Zopo',
         'ZT' => 'ZTE',
         'ZU' => 'Zuum',
