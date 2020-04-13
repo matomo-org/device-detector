@@ -269,6 +269,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'HZ' => 'Hoozo',
         'HP' => 'HP',
         'HT' => 'HTC',
+        'HD' => 'Huadoo',
         'HU' => 'Huawei',
         'HX' => 'Humax',
         'HY' => 'Hyrican',
