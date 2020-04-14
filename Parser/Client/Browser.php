@@ -27,6 +27,7 @@ class Browser extends ClientParserAbstract
      * @var array
      */
     protected static $availableBrowsers = array(
+        '1B' => '115 Browser',
         '2B' => '2345 Browser',
         '36' => '360 Phone Browser',
         '3B' => '360 Browser',
@@ -41,8 +42,10 @@ class Browser extends ClientParserAbstract
         'AN' => 'Android Browser',
         'AD' => 'AOL Shield',
         'AR' => 'Arora',
+        'AX' => 'Arctic Fox',
         'AV' => 'Amiga Voyager',
         'AW' => 'Amiga Aweb',
+        'A0' => 'Atom',
         'AT' => 'Atomic Web Browser',
         'AS' => 'Avast Secure Browser',
         'VG' => 'AVG Secure Browser',
@@ -165,6 +168,7 @@ class Browser extends ClientParserAbstract
         'MN' => 'Minimo',
         'MT' => 'Mint Browser',
         'MX' => 'Maxthon',
+        'MY' => 'Mypal',
         'NB' => 'Nokia Browser',
         'NO' => 'Nokia OSS Browser',
         'NV' => 'Nokia Ovi Browser',
@@ -279,8 +283,8 @@ class Browser extends ClientParserAbstract
         'BlackBerry Browser' => array('BB'),
         'Baidu'              => array('BD', 'BS'),
         'Amiga'              => array('AV', 'AW'),
-        'Chrome'             => array('CH', 'BA', 'BR', 'CC', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'DD', 'IR', 'RM', 'AO', 'TS', 'VI', 'PT', 'AS', 'TB', 'AD', 'SB', 'WP', 'I3', 'CV', 'WH', 'SZ', 'QW', 'LF', 'KW', '2B', 'CE', 'EC', 'MT', 'MS', 'HA', 'OC', 'MZ', 'BM', 'KN', 'SW', 'M1', 'FA', 'TA', 'AH', 'CL', 'SU', 'EU', 'UB', 'LO', 'VG', 'TV'),
-        'Firefox'            => array('FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF', 'CU', 'TF', 'QM', 'FR', 'I4', 'GZ', 'MO', 'F1', 'BI', 'MN', 'BH', 'TO', 'OS', 'FY', 'C0'),
+        'Chrome'             => array('CH', 'BA', 'BR', 'CC', 'CD', 'CM', 'CI', 'CF', 'CN', 'CR', 'CP', 'DD', 'IR', 'RM', 'AO', 'TS', 'VI', 'PT', 'AS', 'TB', 'AD', 'SB', 'WP', 'I3', 'CV', 'WH', 'SZ', 'QW', 'LF', 'KW', '2B', 'CE', 'EC', 'MT', 'MS', 'HA', 'OC', 'MZ', 'BM', 'KN', 'SW', 'M1', 'FA', 'TA', 'AH', 'CL', 'SU', 'EU', 'UB', 'LO', 'VG', 'TV', 'A0', '1B'),
+        'Firefox'            => array('FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF', 'CU', 'TF', 'QM', 'FR', 'I4', 'GZ', 'MO', 'F1', 'BI', 'MN', 'BH', 'TO', 'OS', 'MY', 'FY', 'AX', 'C0'),
         'Internet Explorer'  => array('IE', 'IM', 'PS'),
         'Konqueror'          => array('KO'),
         'NetFront'           => array('NF'),
