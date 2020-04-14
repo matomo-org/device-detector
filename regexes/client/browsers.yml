@@ -7,12 +7,17 @@
 
 # Steam (https://www.valvesoftware.com/)
 - regex: 'Valve Steam GameOverlay/(?:(\d+[\.\d]+))?'
-  name: 'Steam'
+  name: 'Steam In-Game Overlay'
   version: '$1'
 
 # 115 Browser (https://pc.115.com/)
 - regex: '115Browser/(?:(\d+[\.\d]+))?'
   name: '115 Browser'
+  version: '$1'
+
+# Atom (https://browser.ru/)
+- regex: 'Atom/(?:(\d+[\.\d]+))?'
+  name: 'Atom'
   version: '$1'
 
 # Firefox Reality (https://mixedreality.mozilla.org/firefox-reality/)
@@ -156,7 +161,7 @@
   name: 'Basilisk'
   version: '$1'
   engine:
-    default: 'Gecko'
+    default: 'Goanna'
 
 # Sputnik Browser (https://play.google.com/store/apps/details?id=ru.sputnik.browser)
 - regex: 'SputnikBrowser(?:/(\d+[\.\d]+))?'
@@ -319,8 +324,8 @@
   name: 'Aloha Browser'
   version: '$1'
 
-#Avast Secure Browser
-- regex: 'Avast(?:/(\d+[\.\d]+))?'
+# Avast Secure Browser | Avast SafeZone Browser (https://www.avast.com/)
+- regex: '(?:Avast|ASW)(?:/(\d+[\.\d]+))?'
   name: 'Avast Secure Browser'
   version: '$1'
 
@@ -484,6 +489,20 @@
   version: '$1'
   engine:
     default: '' # multi engine
+
+# ArcticFox (https://github.com/wicknix/Arctic-Fox)
+- regex: 'ArcticFox(?:/(\d+[\.\d]+))?'
+  name: 'Arctic Fox'
+  version: '$1'
+  engine:
+    default: 'Goanna'
+
+# Mypal (https://github.com/Feodor2/Mypal)
+- regex: 'Mypal(?:/(\d+[\.\d]+))?'
+  name: 'Mypal'
+  version: '$1'
+  engine:
+    default: 'Goanna'
 
 #Firefox Focus / Firefox Klar
 - regex: '(?:Focus|Klar)(?:/(\d+[\.\d]+))?'
