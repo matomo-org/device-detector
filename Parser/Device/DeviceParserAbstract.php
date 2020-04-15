@@ -511,6 +511,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'R2' => 'R-TV',
         'RG' => 'RugGear',
         'RU' => 'Runbo',
+        'RY' => 'Ryte',
         'SQ' => 'Santin',
         'SA' => 'Samsung',
         'S0' => 'Sanei',
