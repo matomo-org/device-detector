@@ -5,6 +5,7 @@
  * @link http://piwik.org
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Tests;
 
 use DeviceDetector\DeviceDetector;
@@ -33,6 +34,19 @@ class DeviceDetectorTest extends TestCase
         $dd->addDeviceParser('Invalid');
     }
 
+    /**
+     * check the regular expression for the vertical line closing the group
+     * @param string $regexString
+     * @return bool
+     */
+    protected function checkRegexVerticalLineClosingGroup($regexString)
+    {
+        if (strpos($regexString, '|)') !== false) {
+            return !preg_match('#(?<!\\\)(\|\))#is', $regexString);
+        }
+        return true;
+    }
+
     public function testDevicesYmlFiles()
     {
         $fixtureFiles = glob(realpath(dirname(__FILE__)) . '/../regexes/device/*.yml');
@@ -46,6 +60,13 @@ class DeviceDetectorTest extends TestCase
                     $brand,
                     $regex['regex']
                 ));
+                $this->assertTrue($this->checkRegexVerticalLineClosingGroup($regex['regex']), sprintf(
+                    "Detect `|)` in regex, file %s, brand %s, common regex %s",
+                    $file,
+                    $brand,
+                    $regex['regex']
+                ));
+
                 if (array_key_exists('models', $regex)) {
                     $this->assertInternalType('array', $regex['models']);
                     foreach ($regex['models'] AS $model) {
@@ -58,6 +79,13 @@ class DeviceDetectorTest extends TestCase
                         ));
                         $this->assertTrue(strpos($model['regex'], '||') === false, sprintf(
                             "Detect `||` in regex, file %s, brand %s, model regex %s",
+                            $file,
+                            $brand,
+                            $model['regex']
+                        ));
+
+                        $this->assertTrue($this->checkRegexVerticalLineClosingGroup($model['regex']), sprintf(
+                            "Detect `|)` in regex, file %s, brand %s, model regex %s",
                             $file,
                             $brand,
                             $model['regex']
@@ -88,6 +116,7 @@ class DeviceDetectorTest extends TestCase
         $dd->setUserAgent('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36');
         $dd->parse();
     }
+
     /**
      * @expectedException \Exception
      */
@@ -99,7 +128,7 @@ class DeviceDetectorTest extends TestCase
 
     public function testCacheSetAndGet()
     {
-        if ( !extension_loaded('memcache') || !class_exists('\Doctrine\Common\Cache\MemcacheCache') ) {
+        if (!extension_loaded('memcache') || !class_exists('\Doctrine\Common\Cache\MemcacheCache')) {
             $this->markTestSkipped('memcache not enabled');
         }
 
@@ -150,7 +179,9 @@ class DeviceDetectorTest extends TestCase
             $typeFixtures = \Spyc::YAMLLoad($fixturesPath);
             $deviceType = str_replace('_', ' ', substr(basename($fixturesPath), 0, -4));
             if ($deviceType != 'bots') {
-                $fixtures = array_merge(array_map(function($elem) {return array($elem);}, $typeFixtures), $fixtures);
+                $fixtures = array_merge(array_map(function ($elem) {
+                    return array($elem);
+                }, $typeFixtures), $fixtures);
             }
         }
         return $fixtures;
@@ -234,21 +265,23 @@ class DeviceDetectorTest extends TestCase
     {
         $fixturesPath = realpath(dirname(__FILE__) . '/fixtures/bots.yml');
         $fixtures = \Spyc::YAMLLoad($fixturesPath);
-        return array_map(function($elem) {return array($elem);}, $fixtures);
+        return array_map(function ($elem) {
+            return array($elem);
+        }, $fixtures);
     }
 
     public function testGetInfoFromUABot()
     {
         $expected = array(
             'user_agent' => 'Googlebot/2.1 (http://www.googlebot.com/bot.html)',
-            'bot'        => array(
+            'bot' => array(
                 'name' => 'Googlebot',
                 'category' => 'Search bot',
                 'url' => 'http://www.google.com/bot.html',
                 'producer' => array(
                     'name' => 'Google Inc.',
                     'url' => 'http://www.google.com'
-    )
+                )
             )
         );
         $this->assertEquals($expected, DeviceDetector::getInfoFromUserAgent($expected['user_agent']));
