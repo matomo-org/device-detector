@@ -228,6 +228,7 @@ class Browser extends ClientParserAbstract
         'SC' => 'SEMC-Browser',
         'SE' => 'Sogou Explorer',
         'SF' => 'Safari',
+        'S5' => 'Safe Exam Browser',
         'SW' => 'SalamWeb',
         'SH' => 'Shiira',
         'S1' => 'SimpleBrowser',
