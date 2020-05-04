@@ -159,6 +159,7 @@ class Browser extends ClientParserAbstract
         'LO' => 'Lovense Browser',
         'LU' => 'LuaKit',
         'LS' => 'Lunascape',
+        'LN' => 'Lunascape Lite',
         'LX' => 'Lynx',
         'M1' => 'mCent',
         'MB' => 'MicroB',
