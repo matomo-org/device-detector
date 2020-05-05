@@ -517,6 +517,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'SQ' => 'Santin',
         'SA' => 'Samsung',
         'S0' => 'Sanei',
+        'C0' => 'Schneider',
         'SD' => 'Sega',
         'SL' => 'Selfix',
         'SE' => 'Sony Ericsson',
