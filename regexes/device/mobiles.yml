@@ -1,7 +1,7 @@
 ###############
 # Device Detector - The Universal Device Detection library for parsing User Agents
 #
-# @link http://piwik.org
+# @link https://matomo.org
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
@@ -2297,7 +2297,7 @@ VGO TEL:
 
 # Vivo
 Vivo:
-  regex: '((?:VIV-|BBG-)?vivo)|V1730(D[AT]|GA)|V18(01A0|13B[AT]|18T|09[AT]|13[AT]|[13]8A|14A|24[B]?A|21A|36A)|V1731CA|V19[01]1A|V1932[AT]|V1923A|V1928A'
+  regex: '((?:VIV-|BBG-)?(?<!FBCR/)vivo)|V1730(D[AT]|GA)|V18(01A0|13B[AT]|18T|09[AT]|13[AT]|[13]8A|14A|24[B]?A|21A|36A)|V1731CA|V19[01]1A|V1932[AT]|V1923A|V1928A'
   device: 'smartphone'
   models:
     - regex: '(?:VIV-|BBG-)?vivo[ _]1601[);/ ]'
@@ -3512,7 +3512,7 @@ Dicam:
 
 # Digi
 Digi:
-  regex: 'Digi[ _]([^);/]+)[);/ ]'
+  regex: '(?<!FBCR/)Digi[ _]([^);/]+)[);/ ]'
   device: 'smartphone'
   model: '$1'
 
@@ -4916,7 +4916,7 @@ Goly:
 
 # Google
 Google:
-  regex: 'Nexus|GoogleTV|Glass|CrKey[^a-z0-9]|Pixel(?: Build|\))|Pixel (?:XL|C|[2-4]|[2-4] XL)|Google 2XL'
+  regex: 'Nexus|GoogleTV|Glass(?<!Browser)|CrKey[^a-z0-9]|Pixel(?: Build|\))|Pixel (?:XL|C|[2-4]|[2-4] XL)|Google 2XL'
   device: 'smartphone'
   models:
     - regex: 'Glass'
@@ -7228,6 +7228,8 @@ LG:
       model: 'X6'
     - regex: 'LM-X625N'
       model: 'X6 (2019)'
+    - regex: 'LGMS210'
+      model: 'Aristo'
     - regex: 'LM-X210[G]?'
       model: 'Aristo 2'
     - regex: 'LM-X220'
@@ -7302,6 +7304,8 @@ LG:
       model: 'Optimus 4X HD'
     - regex: '(?:LG-)?(H340n?|H324)'
       model: 'Leon'
+    - regex: '(?:LG-)?H342'
+      model: 'Leon 4G LTE'
     - regex: '(?:LG-)?H422'
       model: 'Spirit'
     - regex: '(?:LG)?C660'
@@ -7350,6 +7354,8 @@ LG:
     - regex: '(LM-[A-Z]{1}[0-9]{3}([A-Z]{1,3})?)'
       model: '$1'
     - regex: 'LGE(?: |-LG| LG-AX|-)([a-z0-9]+)'
+      model: '$1'
+    - regex: 'FBDV/LG-([a-z0-9]+);FBSV'
       model: '$1'
     - regex: 'LGE;([a-z0-9\-]+)'
       model: '$1'
@@ -7648,6 +7654,9 @@ Mediacom:
       device: 'phablet'
     - regex: 'M-MP5303G[);/ ]'
       model: 'SmartPad Mini Mobile'
+      device: 'phablet'
+    - regex: 'M-PPxB400[);/ ]'
+      model: 'PhonePad Duo B400'
       device: 'phablet'
     - regex: 'M-PPAG550[);/ ]'
       model: 'PhonePad Duo G550'
@@ -8555,7 +8564,7 @@ O+:
 
 # o2
 O2:
-  regex: 'Xda|O2[ \-]|COCOON'
+  regex: 'Xda|(?<!FBCR/)O2[ \-]|COCOON'
   device: 'smartphone'
   models:
     - regex: '(Xda[ _][a-z0-9_]+)'
@@ -8898,6 +8907,8 @@ OPPO:
       model: 'AX7'
     - regex: '(?:OPPO[ _]?)?A37f(w)?(?: Build|\))'
       model: 'A37f$1'
+    - regex: 'A37f'
+      model: 'A37f'
     - regex: '(?:OPPO[ _]?)?(CPH1837|PADM00)[);/ ]'
       model: 'A3'
     - regex: '(?:OPPO[ _]?)?PBAM00'
@@ -8975,7 +8986,7 @@ Opsson:
 
 # orange
 Orange:
-  regex: 'SPV[ \-]?([a-z0-9]+)|Orange[ _-](?!Tahiti-LS\))([^/;]+)( Build|\))(?<!Tahiti-LS\))|SC/IHD92|FunTab ([^/;]+) Build'
+  regex: 'SPV[ \-]?([a-z0-9]+)|(?<!FBCR/)Orange[ _-](?!Tahiti-LS\))([^/;]+)( Build|\))(?<!Tahiti-LS\))|SC/IHD92|FunTab ([^/;]+) Build'
   device: 'smartphone'
   models:
     - regex: 'SC/IHD92'
@@ -11144,6 +11155,8 @@ Tecno Mobile:
       model: 'Phantom 6 Plus'
     - regex: 'Phantom6'
       model: 'Phantom 6'
+    - regex: 'TECNO-W3'
+      model: 'W3'
     - regex: 'TECNO[ _]ID6[);/ ]'
       model: 'Camon iClick 2'
     - regex: 'Tecno[ _]7C[);/ ]'
@@ -11308,7 +11321,7 @@ Telego:
 
 # Telenor
 Telenor:
-  regex: 'Telenor'
+  regex: '(?<!FBCR/)Telenor'
   device: 'smartphone'
   models:
     - regex: 'Telenor[ _]([^;/]+) Build'
@@ -11735,7 +11748,11 @@ Verykool:
   regex: 'verykool'
   device: 'smartphone'
   models:
+    - regex: 'verykoolS5004'
+      model: 'Lotus JR.'
     - regex: 'verykool[ _]?([^/;]+) Build'
+      model: '$1'
+    - regex: 'verykool[ _]?([^/;]+);'
       model: '$1'
 
 # Vestel
@@ -11785,7 +11802,7 @@ Videocon:
 
 # Vodafone
 Vodafone:
-  regex: 'Vodafone[ _-]|Smart ?Tab ?(?:III? ?)?(?:|4G|7|10)[);/ -]|VodafoneSmartChat|VFD[ _][0-9]+[;/) ]|VFD320|VF6[89]5|VF-(696|1397|795|895N|1497)'
+  regex: '(?<!FBCR/)Vodafone[ _-]|Smart ?Tab ?(?:III? ?)?(?:|4G|7|10)[);/ -]|VodafoneSmartChat|VFD[ _][0-9]+[;/) ]|VFD320|VF6[89]5|VF-(696|1397|795|895N|1497)'
   device: 'smartphone'
   models:
     - regex: 'VFD 100'
