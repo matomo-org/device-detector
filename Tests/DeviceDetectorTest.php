@@ -312,6 +312,7 @@ class DeviceDetectorTest extends TestCase
         $this->assertFalse($dd->isConsole());
         $this->assertFalse($dd->isPortableMediaPlayer());
         $this->assertFalse($dd->isCamera());
+        $this->assertFalse($dd->isNotebook());
 
         $this->assertTrue($dd->isBrowser());
         $this->assertFalse($dd->isLibrary());

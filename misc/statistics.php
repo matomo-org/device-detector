@@ -9,7 +9,7 @@
 require_once(__DIR__.'/../vendor/autoload.php');
 
 if(count($argv) != 2) {
-    die("invalid arguments. Useage: php statistics.php filetoparse.txt");
+    die("Invalid arguments. Usage: php statistics.php filetoparse.txt");
 }
 
 $parsedUAs = $unknownDeviceTypes =
@@ -94,6 +94,7 @@ Smart Display:    %s    (%s%%)
 Camera:           %s    (%s%%)
 Media Player:     %s    (%s%%)
 Phablet:          %s    (%s%%)
+Notebook:         %s    (%s%%)
 Unknown:          %s    (%s%%)
 ----------------------------------
 ",
@@ -109,5 +110,6 @@ $parsedUAs, round($timeElapsed, 2), round($timeElapsed/$parsedUAs, 6), format($d
     format($deviceTypes[8], $parsedUAs), getPercentage($deviceTypes[8], $parsedUAs),
     format($deviceTypes[9], $parsedUAs), getPercentage($deviceTypes[9], $parsedUAs),
     format($deviceTypes[10], $parsedUAs), getPercentage($deviceTypes[10], $parsedUAs),
+    format($deviceTypes[10], $parsedUAs), getPercentage($deviceTypes[13], $parsedUAs),
     format($unknownDeviceTypes, $parsedUAs), getPercentage($unknownDeviceTypes, $parsedUAs)
 );
