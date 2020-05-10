@@ -192,6 +192,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'DV' => 'Doov',
         'DP' => 'Dopod',
         'DR' => 'Doro',
+        'D8' => 'Droxio',
         'DU' => 'Dune HD',
         'EB' => 'E-Boda',
         'EA' => 'EBEST',
