@@ -170,6 +170,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'D5' => 'Daewoo',
         'DA' => 'Danew',
         'DT' => 'Datang',
+        'D7' => 'Datawind',
         'D1' => 'Datsun',
         'DE' => 'Denver',
         'DW' => 'DeWalt',
