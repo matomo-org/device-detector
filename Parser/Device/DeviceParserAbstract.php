@@ -485,6 +485,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'P7' => 'Protruly',
         'P1' => 'ProScan',
         'PU' => 'PULID',
+        'QB' => 'Q.Bell',
         'QI' => 'Qilive',
         'QT' => 'Qtek',
         'QH' => 'Q-Touch',
