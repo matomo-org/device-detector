@@ -184,7 +184,6 @@ php composer.phar install
 
 There are already a few ports of this tool to other languages:
 
-- **.NET** https://github.com/AgileFlexAgency/MatomoDeviceDetector.NET
 - **.NET** https://github.com/totpero/DeviceDetector.NET
 - **Ruby** https://github.com/podigee/device_detector
 - **JavaScript/TypeScript/NodeJS** https://github.com/etienne-martin/device-detector-js
@@ -198,7 +197,7 @@ There are already a few ports of this tool to other languages:
 
 The lists below are auto generated and updated from time to time. Some of them might not be complete.
 
-*Last update: 2020/05/05*
+*Last update: 2020/05/10*
 
 ### List of detected operating systems:
 
