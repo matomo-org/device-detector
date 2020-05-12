@@ -18,7 +18,8 @@ use DeviceDetector\Parser\Device\DeviceParserAbstract;
  *      use DeviceDetector\Parser\AliasDevice;
  *
  *      $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
- *      $parser = new AliasDevice($userAgent);
+ *      $parser = new AliasDevice;
+ *      $parser->setUserAgent($userAgent);
  *      $result = $parser->parse();
  *      var_dump($result);
  * ```
