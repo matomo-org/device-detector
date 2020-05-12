@@ -52,15 +52,15 @@ class Bot extends BotParserAbstract
 
         if ($this->preMatchOverall()) {
             if ($this->discardDetails) {
-                $result = true;
-            } else {
-                foreach ($this->getRegexes() as $regex) {
-                    $matches = $this->matchUserAgent($regex['regex']);
-                    if ($matches) {
-                        unset($regex['regex']);
-                        $result = $regex;
-                        break;
-                    }
+                return true;
+            }
+
+            foreach ($this->getRegexes() as $regex) {
+                $matches = $this->matchUserAgent($regex['regex']);
+                if ($matches) {
+                    unset($regex['regex']);
+                    $result = $regex;
+                    break;
                 }
             }
         }

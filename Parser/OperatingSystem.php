@@ -166,6 +166,7 @@ class OperatingSystem extends ParserAbstract
     public function parse()
     {
         $return = array();
+        $matches = false;
 
         foreach ($this->getRegexes() as $osRegex) {
             $matches = $this->matchUserAgent($osRegex['regex']);
