@@ -479,6 +479,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'PT' => 'Pantech',
         'PY' => 'Ployer',
         'P4' => 'Plum',
+        'P8' => 'PocketBook',
         'PV' => 'Point of View',
         'PP' => 'PolyPad',
         'P2' => 'Pomp',
