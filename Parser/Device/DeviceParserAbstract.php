@@ -258,6 +258,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'G1' => 'GoMobile',
         'GR' => 'Gradiente',
         'GP' => 'Grape',
+        'G0' => 'Goophone',
         'GU' => 'Grundig',
         'HF' => 'Hafury',
         'HA' => 'Haier',
