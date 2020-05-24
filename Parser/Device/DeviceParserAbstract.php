@@ -498,6 +498,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'QU' => 'Quechua',
         'QO' => 'Qumo',
         'RA' => 'Ramos',
+        'RE' => 'Realme',
         'RZ' => 'Razer',
         'RC' => 'RCA Tablets',
         'RB' => 'Readboy',
