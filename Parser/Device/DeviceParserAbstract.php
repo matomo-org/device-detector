@@ -549,6 +549,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         '8S' => 'Soyes',
         'SP' => 'Spice',
         '6S' => 'Spectrum',
+        '9S' => 'Sugar',
         '5S' => 'Sunvell',
         'SU' => 'SuperSonic',
         'S5' => 'Supra',
