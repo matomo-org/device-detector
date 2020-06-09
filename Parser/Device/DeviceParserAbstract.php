@@ -690,6 +690,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'ZN' => 'Zen',
         'ZY' => 'Zync',
         'ZQ' => 'ZYQ',
+        'XS' => 'Xshitou',
         'XT' => 'X-TIGI',
         'XB' => 'NEXBOX',
 
