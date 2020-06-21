@@ -605,6 +605,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         '1T' => 'Turbo',
         '11' => 'True',
         'TV' => 'TVC',
+        'TW' => 'TWM',
         'TX' => 'TechniSat',
         'TZ' => 'teXet',
         'UC' => 'U.S. Cellular',
