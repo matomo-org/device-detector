@@ -647,6 +647,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'V1' => 'Voto',
         'VO' => 'Voxtel',
         'VF' => 'Vodafone',
+        'VM' => 'Vodacom',
         'VY' => 'Voyo',
         'VZ' => 'Vizio',
         'VW' => 'Videoweb',
