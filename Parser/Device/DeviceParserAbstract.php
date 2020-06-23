@@ -405,6 +405,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'MO' => 'Mio',
         'M7' => 'Miray',
         'MM' => 'Mpman',
+        'LS' => 'MLS',
         'M4' => 'Modecom',
         'MF' => 'Mofut',
         'MR' => 'Motorola',
