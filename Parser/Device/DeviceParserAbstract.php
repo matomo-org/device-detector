@@ -444,6 +444,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'NL' => 'NUU Mobile',
         'NY' => 'NYX Mobile',
         'NN' => 'Nikon',
+        'N9' => 'Newland',
         'NW' => 'Newgen',
         'NS' => 'NewsMy',
         'NX' => 'Nexian',
