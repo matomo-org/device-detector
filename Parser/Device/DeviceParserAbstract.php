@@ -198,6 +198,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'D8' => 'Droxio',
         'DU' => 'Dune HD',
         'EB' => 'E-Boda',
+        '2E' => 'E-Ceros',
         'EA' => 'EBEST',
         'EC' => 'Ericsson',
         'E7' => 'Ergo',
