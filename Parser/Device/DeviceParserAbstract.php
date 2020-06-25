@@ -158,6 +158,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'CR' => 'CreNova',
         'CT' => 'Capitel',
         'CQ' => 'Compaq',
+        '3C' => 'Contixo',
         'CO' => 'Coolpad',
         'C5' => 'Condor',
         'CW' => 'Cowon',
