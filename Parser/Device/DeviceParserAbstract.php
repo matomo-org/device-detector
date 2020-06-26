@@ -492,6 +492,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         '2P' => 'Prixton',
         'P6' => 'Proline',
         'PM' => 'Palm',
+        '0P' => 'POCO',
         'PO' => 'phoneOne',
         'PT' => 'Pantech',
         'PY' => 'Ployer',
