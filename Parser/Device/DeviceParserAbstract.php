@@ -382,6 +382,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'XM' => 'Macoox',
         'MJ' => 'Majestic',
         'MA' => 'Manta Multimedia',
+        '6X' => 'Maxtron',
         '5M' => 'Mann',
         '2M' => 'Masstel',
         'MW' => 'Maxwest',
