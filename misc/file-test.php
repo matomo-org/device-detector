@@ -80,6 +80,7 @@ function printReport($result, $format)
         return;
     }
     if ($format === REPORT_TYPE_USERAGENT) {
+
         echo "{$result['user_agent']}\n";
         return;
     }
@@ -92,6 +93,10 @@ $fn = fopen($file, "r");
 while (!feof($fn)) {
     $userAgent = fgets($fn);
     $userAgent = trim($userAgent);
+
+    if (empty($userAgent)) {
+        continue;
+    }
 
     $deviceDetector->setUserAgent($userAgent);
     $deviceDetector->parse();
