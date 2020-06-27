@@ -484,6 +484,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'PE' => 'PEAQ',
         'PG' => 'Pentagram',
         'PH' => 'Philips',
+        '4P' => 'Philco',
         '1P' => 'Phicomm',
         'PI' => 'Pioneer',
         'PX' => 'Pixus',

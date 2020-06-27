@@ -9003,7 +9003,7 @@ OnePlus:
 
 # Realme (sub brand Oppo)
 Realme:
-  regex: '(?:RMX(?:19(03|4[1235]|9[23]|2[157]|[01379]1)|20[06]1|2027|20[34]0|2051|18(0[1579]|11|3[13]|2[157]|[45]1|45))|(?:OPPO[ _]?)?CPH1861)[ ;/)]'
+  regex: '(?:RMX(?:19(03|4[1235]|9[23]|2[157]|[01379]1)|20[06]1|2027|20[234]0|2051|18(0[1579]|11|3[13]|2[157]|[45]1|45))|(?:OPPO[ _]?)?CPH1861)[ ;/)]'
   device: 'smartphone'
   models:
     - regex: '(?:OPPO[ _]?)?CPH1861[);/ ]'
@@ -9046,7 +9046,7 @@ Realme:
       model: 'C1'
     - regex: 'RMX194[1235]'
       model: 'C2'
-    - regex: 'RMX2027'
+    - regex: 'RMX202[07]'
       model: 'C3'
     - regex: 'RMX1831'
       model: 'U1'
@@ -11128,13 +11128,15 @@ QMobile:
 
 # Quantum
 Quantum:
-  regex: 'Quantum (Fit|MUV PRO|Go|Mini|V|You [2E])[);/ ]'
+  regex: 'Quantum (Fit|MUV (?:PRO|UP)|Go|Mini|V|You [2E])[);/ ]'
   device: 'smartphone'
   models:
     - regex: 'Quantum (Fit|Go|Mini|V|You [2E])[);/ ]'
       model: '$1'
     - regex: 'Quantum MUV PRO[);/ ]'
       model: 'MUV Pro'
+    - regex: 'Quantum MUV UP[);/ ]'
+      model: 'MUV Up'
 
 # Quechua
 Quechua:
@@ -14820,23 +14822,28 @@ How:
 
 # Multilaser
 Multilaser:
-  regex: '(Multilaser[ _](?:[FE])|MS50G)[);/ ]'
+  regex: '(Multilaser[ _](?:[FE])|MS50G|M7[_-]3G[_-]PLUS)[);/ ]'
   device: 'smartphone'
   models:
     - regex: 'Multilaser[ _]([FE])[);/ ]' #P9118
       model: '$1'
     - regex: '(MS50G)[);/ ]'
       model: '$1'
+    - regex: '(M7[_-]3G[_-]PLUS)[);/ ]'
+      device: 'tablet'
+      model: 'M7 3G Plus'
 
 # Positivo BGH
 Positivo BGH:
-  regex: '(Positivo Twist [SM]|Twist (?:\(2018\)|2 (?:Fit|Pro)|Mini|Metal 32GB|Max|XL))[);/ ]'
+  regex: '(Positivo Twist|Twist (?:\(2018\)|2 (?:Fit|Pro)|Mini|Metal(?: 32GB)?|Max|XL|[2SM]))[);/ ]'
   device: 'smartphone'
   models:
     - regex: 'Twist \(2018\)[);/ ]'
       model: 'Twist (2018)'
     - regex: 'Twist Metal 32GB[);/ ]'
       model: 'Twist Metal 32GB'
+    - regex: 'Twist Metal[);/ ]'
+      model: 'Twist Metal'
     - regex: 'Twist Max[);/ ]'
       model: 'Twist Max'
     - regex: 'Twist Mini[);/ ]'
@@ -14847,12 +14854,17 @@ Positivo BGH:
       model: 'Twist 2 Pro'
     - regex: 'Twist XL[);/ ]'
       model: 'Twist XL'
-    - regex: 'Positivo Twist S[);/ ]'
-      model: 'Twist S'
-    - regex: 'Positivo Twist M[);/ ]'
-      model: 'Twist M'
+    - regex: '(?:Positivo )?Twist ([2SM])[);/ ]'
+      model: 'Twist $1'
 
+# Maxtron
 Maxtron:
   regex: 'Maxtron[ _-](V[327]|S8)[);/ ]'
+  device: 'smartphone'
+  model: '$1'
+
+# Philco
+Philco:
+  regex: '(PCS01|PH350B)[);/ ]'
   device: 'smartphone'
   model: '$1'
