@@ -591,6 +591,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'S3' => 'SunVan',
         'SZ' => 'Sumvision',
         'SS' => 'SWISSMOBILITY',
+        '0W' => 'Swipe',
         '10' => 'Simbans',
         'X1' => 'Safaricom',
         'TA' => 'Tesla',
