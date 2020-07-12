@@ -26,7 +26,9 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 use DeviceDetector\DeviceDetector;
+use DeviceDetector\Parser\Client\Browser;
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
+use DeviceDetector\Parser\OperatingSystem;
 
 if (php_sapi_name() !== 'cli') {
     echo "web not supported";
@@ -78,17 +80,48 @@ function printReport($result, $format)
         return;
     }
     if ($format === REPORT_TYPE_USERAGENT) {
+
         echo "{$result['user_agent']}\n";
         return;
     }
 }
 
+DeviceParserAbstract::setVersionTruncation(DeviceParserAbstract::VERSION_TRUNCATION_NONE);
+$deviceDetector = new DeviceDetector();
+
 $fn = fopen($file, "r");
 while (!feof($fn)) {
     $userAgent = fgets($fn);
     $userAgent = trim($userAgent);
-    DeviceParserAbstract::setVersionTruncation(DeviceParserAbstract::VERSION_TRUNCATION_NONE);
-    $result = DeviceDetector::getInfoFromUserAgent($userAgent);
+
+    if (empty($userAgent)) {
+        continue;
+    }
+
+    $deviceDetector->setUserAgent($userAgent);
+    $deviceDetector->parse();
+
+    if ($deviceDetector->isBot()) {
+        $result = array(
+            'user_agent' => $deviceDetector->getUserAgent(),
+            'bot' => $deviceDetector->getBot()
+        );
+    } else {
+        $osFamily = OperatingSystem::getOsFamily($deviceDetector->getOs('short_name'));
+        $browserFamily = Browser::getBrowserFamily($deviceDetector->getClient('short_name'));
+        $result = array(
+            'user_agent' => $deviceDetector->getUserAgent(),
+            'os' => $deviceDetector->getOs(),
+            'client' => $deviceDetector->getClient(),
+            'device' => array(
+                'type' => $deviceDetector->getDeviceName(),
+                'brand' => $deviceDetector->getBrand(),
+                'model' => $deviceDetector->getModel(),
+            ),
+            'os_family' => $osFamily !== false ? $osFamily : 'Unknown',
+            'browser_family' => $browserFamily !== false ? $browserFamily : 'Unknown',
+        );
+    }
 
     if (!isset($result['device']['model'])) {
         continue;
