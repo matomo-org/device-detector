@@ -477,6 +477,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'OV' => 'Overmax',
         'OY' => 'Oysters',
         'OW' => 'öwn',
+        'O2' => 'Owwo',
         'PN' => 'Panacom',
         'PA' => 'Panasonic',
         'PB' => 'PCBOX',
