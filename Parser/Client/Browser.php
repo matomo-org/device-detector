@@ -60,6 +60,7 @@ class Browser extends ClientParserAbstract
         'BH' => 'BlackHawk',
         'BJ' => 'Bunjalloo',
         'BL' => 'B-Line',
+        'BU' => 'Blue Browser',
         'BR' => 'Brave',
         'BK' => 'BriskBard',
         'BX' => 'BrowseX',
