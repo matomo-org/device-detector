@@ -65,6 +65,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
      * @var array
      */
     public static $deviceBrands = array(
+        '36' => '360',
         '3Q' => '3Q',
         '4G' => '4Good',
         'AE' => 'Ace',
@@ -477,6 +478,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'OV' => 'Overmax',
         'OY' => 'Oysters',
         'OW' => 'öwn',
+        'O2' => 'Owwo',
         'PN' => 'Panacom',
         'PA' => 'Panasonic',
         'PB' => 'PCBOX',
@@ -604,6 +606,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'TB' => 'Tecno Mobile',
         'TP' => 'TechPad',
         'TD' => 'Tesco',
+        'T0' => 'TD Systems',
         'TI' => 'TIANYU',
         'TG' => 'Telego',
         'TL' => 'Telefunken',
