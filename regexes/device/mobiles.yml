@@ -15130,10 +15130,18 @@ How:
 
 # Multilaser
 Multilaser:
-  regex: '(?:Multilaser[ _](?:[FE])|MS50[LGX]|M7[_-]3G[_-]PLUS|MS45S_A6|M7SQC_Plus|MS40[GS]|MS55M|MS70|M7-3G QUAD CORE)[);/ ]'
+  regex: '(?:Multilaser[ _](?:[FEGH])(?:[_ ](?:Pro|Max|Lite))?|MS50[LGX]|M7[_-]3G[_-]PLUS|MS45S_A6|M7SQC_Plus|MS40[GS]|MS55M|MS70|M7-3G QUAD CORE|M7sLite)[);/ ]'
   device: 'smartphone'
   models:
-    - regex: 'Multilaser[ _]([FE])[);/ ]' #P9118
+    - regex: 'Multilaser[ _]G[_ ]Pro[);/ ]'
+      model: 'G Pro'
+    - regex: 'Multilaser[ _]G[_ ]Max[);/ ]'
+      model: 'G Max'
+    - regex: 'Multilaser[ _]G[);/ ]'
+      model: 'G'
+    - regex: 'Multilaser[ _]E[_ ]Lite[);/ ]'
+      model: 'E Lite'
+    - regex: 'Multilaser[ _]([FEH])[);/ ]'
       model: '$1'
     - regex: '(MS50[LGX]|MS45S_A6|MS40[GS]|MS55M|MS70)[);/ ]'
       model: '$1'
@@ -15146,10 +15154,13 @@ Multilaser:
     - regex: 'M7-3G QUAD CORE[);/ ]'
       device: 'tablet'
       model: 'M7 3G Quad Core'
+    - regex: 'M7sLite[);/ ]'
+      device: 'tablet'
+      model: 'M7s Lite'
 
 # Positivo BGH
 Positivo BGH:
-  regex: '(?:T1060B|S455|Positivo Twist|Twist (?:\(2018\)|2 (?:Fit|Pro)|Mini|Metal(?: 32GB)?|Max|XL|[2SM]))[);/ ]'
+  regex: '(?:T1060B|S455|Positivo Twist|Twist (?:\(2018\)|2 (?:Fit|Pro)|Mini|Tab|Metal(?: 32GB)?|Max|XL|[23SM]))[);/ ]'
   device: 'smartphone'
   models:
     - regex: 'S455[);/ ]'
@@ -15170,12 +15181,15 @@ Positivo BGH:
       model: 'Twist 2 Pro'
     - regex: 'Twist XL[);/ ]'
       model: 'Twist XL'
-    - regex: '(?:Positivo )?Twist ([2SM])[);/ ]'
+    - regex: '(?:Positivo )?Twist ([23SM])[);/ ]'
       model: 'Twist $1'
 
     - regex: 'T1060B[);/ ]'
       device: 'tablet'
       model: 'T1060B'
+    - regex: 'Twist Tab[);/ ]'
+      device: 'tablet'
+      model: 'Twist Tab'
 
 # Maxtron
 Maxtron:
