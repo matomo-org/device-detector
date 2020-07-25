@@ -15171,9 +15171,13 @@ Contixo:
 
 # How
 How:
-  regex: '(HT-705XS)[);/ ]'
+  regex: '(?:HT-705XS|705-G Go)[);/ ]'
   device: 'tablet'
-  model: '$1'
+  models: '$1'
+    - regex: '(HT-705XS)[);/ ]'
+      model: '$1'
+    - regex: '(705-G Go)[);/ ]'
+      model: 'HT-$1'
 
 # Multilaser
 Multilaser:
