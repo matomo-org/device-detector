@@ -343,6 +343,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'KO' => 'Konka',
         'KM' => 'Komu',
         'KB' => 'Koobee',
+        'K9' => 'Kooper',
         'KT' => 'K-Touch',
         'KH' => 'KT-Tech',
         'KK' => 'Kodak',
