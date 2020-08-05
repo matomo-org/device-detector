@@ -3590,9 +3590,13 @@ Danew:
 
 # Denver Electronics
 Denver:
-  regex: '(TA[CDQ]-[0-9]+)'
+  regex: '(?:TA[CDQ]-[0-9]+)|P(?:.+)TAQ-(?:[0-9]+)'
   device: 'tablet'
-  model: '$1'
+  models: '$1'
+    - regex: 'P(?:.+)TAQ-(10172MK3|10242MK2|70242MK2|[0-9]+)[);/ ]'
+      model: 'TAQ-$1'
+    - regex: '(TA[CDQ]-[0-9]+)'
+      model: '$1'
 
 # Dell
 Dell:
