@@ -2,7 +2,7 @@
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 namespace DeviceDetector\Parser;
@@ -75,6 +75,7 @@ class OperatingSystem extends ParserAbstract
         'OS2' => 'OS/2',
         'T64' => 'OSF1',
         'OBS' => 'OpenBSD',
+        'ORD' => 'Ordissimo',
         'PSP' => 'PlayStation Portable',
         'PS3' => 'PlayStation',
         'RHT' => 'Red Hat',
@@ -94,6 +95,7 @@ class OperatingSystem extends ParserAbstract
         'SY3' => 'Symbian^3',
         'TDX' => 'ThreadX',
         'TIZ' => 'Tizen',
+        'TOS' => 'TmaxOS',
         'UBT' => 'Ubuntu',
         'WTV' => 'WebTV',
         'WIN' => 'Windows',
@@ -129,7 +131,7 @@ class OperatingSystem extends ParserAbstract
         'IBM'                   => array('OS2'),
         'iOS'                   => array('IOS'),
         'RISC OS'               => array('ROS'),
-        'GNU/Linux'             => array('LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED', 'RHT', 'VLN', 'MDR', 'GNT', 'SAB', 'SLW', 'SSE', 'CES', 'BTR', 'SAF'),
+        'GNU/Linux'             => array('LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED', 'RHT', 'VLN', 'MDR', 'GNT', 'SAB', 'SLW', 'SSE', 'CES', 'BTR', 'SAF', 'ORD', 'TOS'),
         'Mac'                   => array('MAC'),
         'Mobile Gaming Console' => array('PSP', 'NDS', 'XBX'),
         'Real-time OS'          => array('MTK', 'TDX'),
@@ -164,6 +166,7 @@ class OperatingSystem extends ParserAbstract
     public function parse()
     {
         $return = array();
+        $matches = false;
 
         foreach ($this->getRegexes() as $osRegex) {
             $matches = $this->matchUserAgent($osRegex['regex']);

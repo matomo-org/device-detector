@@ -1,0 +1,59 @@
+name: Update README.md
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-suggest
+      
+    - name: update readme
+      run: php misc/update-readme.php
+
+    - name: Prepare git config
+      run: | 
+          cat <<- EOF > $HOME/.netrc
+            machine github.com
+            login $GITHUB_ACTOR
+            password $GITHUB_TOKEN
+            machine api.github.com
+            login $GITHUB_ACTOR
+            password $GITHUB_TOKEN
+          EOF
+          chmod 600 $HOME/.netrc
+          git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git config --global user.name "$GITHUB_ACTOR"
+          
+    - name: push changes & create PR
+      run: |
+          changes=($( git diff --numstat ))
+          if [[ ${changes[0]} -gt 1 ]]
+          then
+            cd $GITHUB_WORKSPACE
+            git push origin --delete updatereadme || true
+            git branch -D updatereadme || true
+            git checkout -b updatereadme
+            git add README.md
+            git commit -m "update README.md"
+            git push --set-upstream origin updatereadme
+            curl \
+                 --request POST \
+                 --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+                 --header 'content-type: application/json' \
+                 --data '{
+                  "title":"Update README.md",
+                  "body":"updates detections in README.md",
+                  "head":"updatereadme",
+                  "base":"master"
+                  }' \
+                 --url https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls
+          fi
+      shell: bash

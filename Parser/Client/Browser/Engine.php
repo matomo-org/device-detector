@@ -2,7 +2,7 @@
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 namespace DeviceDetector\Parser\Client\Browser;
@@ -39,7 +39,9 @@ class Engine extends ClientParserAbstract
         'KHTML',
         'NetFront',
         'Edge',
-        'NetSurf'
+        'NetSurf',
+        'Servo',
+        'Goanna'
     );
 
     /**
@@ -53,6 +55,7 @@ class Engine extends ClientParserAbstract
 
     public function parse()
     {
+        $matches = false;
         foreach ($this->getRegexes() as $regex) {
             $matches = $this->matchUserAgent($regex['regex']);
             if ($matches) {

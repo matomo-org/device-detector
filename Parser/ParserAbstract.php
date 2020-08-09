@@ -2,7 +2,7 @@
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 namespace DeviceDetector\Parser;
@@ -173,14 +173,23 @@ abstract class ParserAbstract
      *
      * @param string $regex
      * @return array|bool
+     * @throws \Exception
      */
     protected function matchUserAgent($regex)
     {
         // only match if useragent begins with given regex or there is no letter before it
         $regex = '/(?:^|[^A-Z0-9\-_]|[^A-Z0-9\-]_|sprd-)(?:' . str_replace('/', '\/', $regex) . ')/i';
 
-        if (preg_match($regex, $this->userAgent, $matches)) {
-            return $matches;
+        try {
+            if (preg_match($regex, $this->userAgent, $matches)) {
+                return $matches;
+            }
+        } catch (\Exception $exception){
+            throw new \Exception(
+                sprintf("%s\nRegex: %s", $exception->getMessage(), $regex),
+                $exception->getCode(),
+                $exception
+            );
         }
 
         return false;
