@@ -102,6 +102,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         '6A' => 'AT&T',
         'A6' => 'Ark',
         'A4' => 'Ask',
+        '8A' => 'Asano',
         'A8' => 'Assistant',
         'A0' => 'ANS',
         'AU' => 'Asus',
