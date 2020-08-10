@@ -697,6 +697,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'WY' => 'Wexler',
         'W2' => 'Wigor',
         'WI' => 'Wiko',
+        'WS' => 'Winds',
         'WP' => 'Wieppo',
         'WL' => 'Wolder',
         'WG' => 'Wolfgang',
