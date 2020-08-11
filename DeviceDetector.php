@@ -34,6 +34,7 @@ use DeviceDetector\Yaml\Spyc;
  * @method boolean isTV()
  * @method boolean isSmartDisplay()
  * @method boolean isCamera()
+ * @method boolean isNotebook()
  *
  * Magic Client Type Methods
  * @method boolean isBrowser()
@@ -186,6 +187,7 @@ class DeviceDetector
         $this->addDeviceParser('Camera');
         $this->addDeviceParser('PortableMediaPlayer');
         $this->addDeviceParser('Mobile');
+        $this->addDeviceParser('Notebook');
 
         $this->addBotParser(new Bot());
     }

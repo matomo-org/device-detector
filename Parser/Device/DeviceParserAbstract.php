@@ -35,6 +35,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
     const DEVICE_TYPE_PHABLET              = 10;
     const DEVICE_TYPE_SMART_SPEAKER        = 11;
     const DEVICE_TYPE_WEARABLE             = 12; // including set watches, headsets
+    const DEVICE_TYPE_NOTEBOOK             = 13;
 
     /**
      * Detectable device types
@@ -55,6 +56,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'phablet'               => self::DEVICE_TYPE_PHABLET,
         'smart speaker'         => self::DEVICE_TYPE_SMART_SPEAKER,
         'wearable'              => self::DEVICE_TYPE_WEARABLE,
+        'notebook'              => self::DEVICE_TYPE_NOTEBOOK,
     );
 
     /**
@@ -555,6 +557,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'SQ' => 'Santin',
         'SA' => 'Samsung',
         'S0' => 'Sanei',
+        'C0' => 'Schneider',
         'SD' => 'Sega',
         'SL' => 'Selfix',
         'SE' => 'Sony Ericsson',
