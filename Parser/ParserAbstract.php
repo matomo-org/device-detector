@@ -115,7 +115,7 @@ abstract class ParserAbstract
                                  self::VERSION_TRUNCATION_MAJOR,
                                  self::VERSION_TRUNCATION_MINOR,
                                  self::VERSION_TRUNCATION_PATCH))) {
-            self::$maxMinorParts = $type;
+            static::$maxMinorParts = $type;
         }
     }
 
@@ -173,14 +173,23 @@ abstract class ParserAbstract
      *
      * @param string $regex
      * @return array|bool
+     * @throws \Exception
      */
     protected function matchUserAgent($regex)
     {
         // only match if useragent begins with given regex or there is no letter before it
         $regex = '/(?:^|[^A-Z0-9\-_]|[^A-Z0-9\-]_|sprd-)(?:' . str_replace('/', '\/', $regex) . ')/i';
 
-        if (preg_match($regex, $this->userAgent, $matches)) {
-            return $matches;
+        try {
+            if (preg_match($regex, $this->userAgent, $matches)) {
+                return $matches;
+            }
+        } catch (\Exception $exception){
+            throw new \Exception(
+                sprintf("%s\nRegex: %s", $exception->getMessage(), $regex),
+                $exception->getCode(),
+                $exception
+            );
         }
 
         return false;
@@ -220,9 +229,9 @@ abstract class ParserAbstract
     {
         $versionString = $this->buildByMatch($versionString, $matches);
         $versionString = str_replace('_', '.', $versionString);
-        if (null !== self::$maxMinorParts && substr_count($versionString, '.') > self::$maxMinorParts) {
+        if (null !== static::$maxMinorParts && substr_count($versionString, '.') > static::$maxMinorParts) {
             $versionParts = explode('.', $versionString);
-            $versionParts = array_slice($versionParts, 0, 1+self::$maxMinorParts);
+            $versionParts = array_slice($versionParts, 0, 1+static::$maxMinorParts);
             $versionString = implode('.', $versionParts);
         }
         return trim($versionString, ' .');
