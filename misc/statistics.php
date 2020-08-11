@@ -94,7 +94,8 @@ Smart Display:    %s    (%s%%)
 Camera:           %s    (%s%%)
 Media Player:     %s    (%s%%)
 Phablet:          %s    (%s%%)
-Notebook:         %s    (%s%%)
+Smart Speaker:    %s    (%s%%)
+Wearable:         %s    (%s%%)
 Unknown:          %s    (%s%%)
 ----------------------------------
 ",
@@ -110,6 +111,7 @@ $parsedUAs, round($timeElapsed, 2), round($timeElapsed/$parsedUAs, 6), format($d
     format($deviceTypes[8], $parsedUAs), getPercentage($deviceTypes[8], $parsedUAs),
     format($deviceTypes[9], $parsedUAs), getPercentage($deviceTypes[9], $parsedUAs),
     format($deviceTypes[10], $parsedUAs), getPercentage($deviceTypes[10], $parsedUAs),
-    format($deviceTypes[13], $parsedUAs), getPercentage($deviceTypes[13], $parsedUAs),
+    format($deviceTypes[11], $parsedUAs), getPercentage($deviceTypes[11], $parsedUAs),
+    format($deviceTypes[12], $parsedUAs), getPercentage($deviceTypes[12], $parsedUAs),
     format($unknownDeviceTypes, $parsedUAs), getPercentage($unknownDeviceTypes, $parsedUAs)
 );
