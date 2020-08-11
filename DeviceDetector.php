@@ -181,12 +181,12 @@ class DeviceDetector
         $this->addClientParser('Library');
 
         $this->addDeviceParser('HbbTv');
+        $this->addDeviceParser('Notebook');
         $this->addDeviceParser('Console');
         $this->addDeviceParser('CarBrowser');
         $this->addDeviceParser('Camera');
         $this->addDeviceParser('PortableMediaPlayer');
         $this->addDeviceParser('Mobile');
-        $this->addDeviceParser('Notebook');
 
         $this->addBotParser(new Bot());
     }
