@@ -10,7 +10,7 @@ namespace DeviceDetector\Parser\Device;
 /**
  * Class Notebook
  *
- * Device parser for notebook detection
+ * Device parser for notebook detection in Facebook useragents
  *
  * @package DeviceDetector\Parser\Device
  */
@@ -21,7 +21,7 @@ class Notebook extends DeviceParserAbstract
 
     public function parse()
     {
-        if (!$this->preMatchOverall()) {
+        if (!$this->matchUserAgent('FBMD/')) {
             return false;
         }
 

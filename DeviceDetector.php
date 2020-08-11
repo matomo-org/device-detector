@@ -34,7 +34,6 @@ use DeviceDetector\Yaml\Spyc;
  * @method boolean isTV()
  * @method boolean isSmartDisplay()
  * @method boolean isCamera()
- * @method boolean isNotebook()
  *
  * Magic Client Type Methods
  * @method boolean isBrowser()
