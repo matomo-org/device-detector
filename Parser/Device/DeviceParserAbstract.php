@@ -509,6 +509,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         '0P' => 'POCO',
         '3P' => 'Positivo BGH',
         'PO' => 'phoneOne',
+        '5P' => 'Phonemax',
         'PT' => 'Pantech',
         'PY' => 'Ployer',
         'P4' => 'Plum',
