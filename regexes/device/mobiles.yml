@@ -9093,9 +9093,11 @@ NYX Mobile:
 
 # Nous
 Nous:
-  regex: 'NS([356]|500[2-68]|5511|5502)[;/) ]'
+  regex: '(?:NS(?:[356]|500[2-68]|5511|5502)|NS 5511)[;/) ]'
   device: 'smartphone'
   models:
+    - regex: 'NS 5511[;/) ]'
+      model: 'NS5511'
     - regex: '(NS[0-9]{1,4})[;/) ]'
       model: '$1'
 
@@ -13337,6 +13339,9 @@ Xiaomi:
     - regex: 'Redmi Note 7 Pro[);/ ]'
       model: 'Redmi Note 7 Pro'
       device: 'phablet'
+    - regex: 'Redmi Note 8 Pro[);/ ]'
+      model: 'Redmi Note 8 Pro'
+      device: 'phablet'
 
     - regex: 'Redmi[ _]Note[ _]([^;/) ]+)?'
       model: 'Redmi Note $1'
@@ -15650,3 +15655,13 @@ Phonemax:
   regex: 'PHONEMAX_Mars[);/ ]'
   device: 'smartphone'
   model: 'Mars'
+
+# Vipro (Vipro Mobile)
+Vipro:
+  regex: 'VIPRO[);/ ]'
+  device: 'smartphone'
+  models:
+    - regex: 'VIPRO PRO2X[);/ ]'
+      model: 'Pro 2X'
+    - regex: 'VIPRO PRO[ _-]([0-9])[);/ ]'
+      model: 'Pro $1'

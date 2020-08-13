@@ -665,6 +665,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'VE' => 'Vertu',
         'VN' => 'Venso',
         'V5' => 'Vivax',
+        '0V' => 'Vipro',
         'VI' => 'Vitelcom',
         'V7' => 'Vinga',
         'VK' => 'VK Mobile',
