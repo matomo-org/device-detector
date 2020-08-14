@@ -18,8 +18,8 @@ services:
 before_script:
   - sh -c 'echo "extension = memcache.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini;'
   - (composer self-update; true)
-  - composer require doctrine/cache ~1.2
-  - composer install
+  - travis_retry composer require doctrine/cache ~1.2
+  - travis_retry composer install
 
 script:
   - ./vendor/phpunit/phpunit/phpunit
