@@ -6,23 +6,19 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-require_once(__DIR__.'/../vendor/autoload.php');
+require_once(__DIR__ . '/../vendor/autoload.php');
 
 if (php_sapi_name() !== 'cli') {
     die("web not supported");
 }
-if(count($argv) != 2) {
+if (count($argv) != 2) {
     die("Invalid arguments. Usage: php statistics.php filetoparse.txt");
 }
 
-use DeviceDetector\Parser\Device\DeviceParserAbstract;
 use DeviceDetector\DeviceDetector;
+use DeviceDetector\Parser\Device\DeviceParserAbstract;
 
-
-
-$parsedUAs = $unknownDeviceTypes =
-$detectedBots = 0;
-
+$parsedUAs = $unknownDeviceTypes = $detectedBots = 0;
 
 $deviceAvailableDeviceTypes = array_flip(DeviceParserAbstract::getAvailableDeviceTypes());
 
@@ -34,7 +30,7 @@ $startTime = microtime(true);
 
 $handle = @fopen($argv[1], "r");
 
-$parser = new \DeviceDetector\DeviceDetector();
+$parser = new DeviceDetector();
 
 if ($handle) {
     while (($line = fgets($handle, 4096)) !== false) {
@@ -43,7 +39,7 @@ if ($handle) {
             continue;
         }
 
-        if ($parsedUAs > 0 && $parsedUAs%80 == 0) {
+        if ($parsedUAs > 0 && $parsedUAs % 80 == 0) {
             echo " $parsedUAs\n";
         }
 
@@ -74,13 +70,14 @@ if ($handle) {
 
 $timeElapsed = microtime(true) - $startTime;
 
-function getPercentage($cur, $max) {
-    return format(round($cur*100/$max), '   ');
+function getPercentage($cur, $max)
+{
+    return format(round($cur * 100 / $max), '   ');
 }
 
 function format($str, $length)
 {
-    return sprintf("%".strlen($length)."d", $str);
+    return sprintf("%" . strlen($length) . "d", $str);
 }
 
 $line = "-------------------------------------------\n";
@@ -91,7 +88,7 @@ $reportStat[] = $line;
 foreach ($deviceTypes as $deviceTypeId => $deviceCount) {
     $reportStat[] = sprintf(
         $mask,
-        sprintf('%s',mb_convert_case($deviceAvailableDeviceTypes[$deviceTypeId], MB_CASE_TITLE)),
+        sprintf('%s', mb_convert_case($deviceAvailableDeviceTypes[$deviceTypeId], MB_CASE_TITLE)),
         format($deviceCount, $parsedUAs),
         sprintf('(%s%%)', trim(getPercentage($deviceCount, $parsedUAs)))
     );
@@ -101,7 +98,7 @@ $reportStat[] = sprintf(
     $mask,
     'Unknown',
     format($unknownDeviceTypes, $parsedUAs),
-    sprintf('(%s%%)',trim(getPercentage($unknownDeviceTypes, $parsedUAs)))
+    sprintf('(%s%%)', trim(getPercentage($unknownDeviceTypes, $parsedUAs)))
 );
 $reportStat[] = $line;
 
