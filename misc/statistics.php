@@ -6,24 +6,31 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-require_once(__DIR__.'/../vendor/autoload.php');
+require_once(__DIR__ . '/../vendor/autoload.php');
 
-if(count($argv) != 2) {
+if (php_sapi_name() !== 'cli') {
+    die("web not supported");
+}
+if (count($argv) != 2) {
     die("Invalid arguments. Usage: php statistics.php filetoparse.txt");
 }
 
-$parsedUAs = $unknownDeviceTypes =
-$detectedBots = 0;
+use DeviceDetector\DeviceDetector;
+use DeviceDetector\Parser\Device\DeviceParserAbstract;
 
-\DeviceDetector\Parser\Device\DeviceParserAbstract::setVersionTruncation(\DeviceDetector\Parser\Device\DeviceParserAbstract::VERSION_TRUNCATION_NONE);
+$parsedUAs = $unknownDeviceTypes = $detectedBots = 0;
 
-$deviceTypes = (array_fill(0, count(\DeviceDetector\Parser\Device\DeviceParserAbstract::getAvailableDeviceTypes()), 0));
+$deviceAvailableDeviceTypes = array_flip(DeviceParserAbstract::getAvailableDeviceTypes());
+
+DeviceParserAbstract::setVersionTruncation(DeviceParserAbstract::VERSION_TRUNCATION_NONE);
+
+$deviceTypes = (array_fill(0, count($deviceAvailableDeviceTypes), 0));
 
 $startTime = microtime(true);
 
 $handle = @fopen($argv[1], "r");
 
-$parser = new \DeviceDetector\DeviceDetector();
+$parser = new DeviceDetector();
 
 if ($handle) {
     while (($line = fgets($handle, 4096)) !== false) {
@@ -32,7 +39,7 @@ if ($handle) {
             continue;
         }
 
-        if ($parsedUAs > 0 && $parsedUAs%80 == 0) {
+        if ($parsedUAs > 0 && $parsedUAs % 80 == 0) {
             echo " $parsedUAs\n";
         }
 
@@ -63,14 +70,37 @@ if ($handle) {
 
 $timeElapsed = microtime(true) - $startTime;
 
-function getPercentage($cur, $max) {
-    return format(round($cur*100/$max), '   ');
+function getPercentage($cur, $max)
+{
+    return format(round($cur * 100 / $max), '   ');
 }
 
 function format($str, $length)
 {
-    return sprintf("%".strlen($length)."d", $str);
+    return sprintf("%" . strlen($length) . "d", $str);
 }
+
+$line = "-------------------------------------------\n";
+$mask = "%-24s %8s %8s \n";
+$reportStat = [];
+$reportStat[] = sprintf($mask, 'Type', 'Count', 'Percent');
+$reportStat[] = $line;
+foreach ($deviceTypes as $deviceTypeId => $deviceCount) {
+    $reportStat[] = sprintf(
+        $mask,
+        sprintf('%s', mb_convert_case($deviceAvailableDeviceTypes[$deviceTypeId], MB_CASE_TITLE)),
+        format($deviceCount, $parsedUAs),
+        sprintf('(%s%%)', trim(getPercentage($deviceCount, $parsedUAs)))
+    );
+}
+
+$reportStat[] = sprintf(
+    $mask,
+    'Unknown',
+    format($unknownDeviceTypes, $parsedUAs),
+    sprintf('(%s%%)', trim(getPercentage($unknownDeviceTypes, $parsedUAs)))
+);
+$reportStat[] = $line;
 
 echo sprintf("
 
@@ -82,36 +112,11 @@ Average time per user agent:   %s
 Detected Bots:    %s    (%s%%)
 
 Detected device types:
-----------------------------------
-Desktop:          %s    (%s%%)
-Smartphone:       %s    (%s%%)
-Tablet:           %s    (%s%%)
-Feature Phone:    %s    (%s%%)
-Console:          %s    (%s%%)
-TV:               %s    (%s%%)
-Car Browser:      %s    (%s%%)
-Smart Display:    %s    (%s%%)
-Camera:           %s    (%s%%)
-Media Player:     %s    (%s%%)
-Phablet:          %s    (%s%%)
-Smart Speaker:    %s    (%s%%)
-Wearable:         %s    (%s%%)
-Unknown:          %s    (%s%%)
-----------------------------------
-",
-$parsedUAs, round($timeElapsed, 2), round($timeElapsed/$parsedUAs, 6), format($detectedBots, $parsedUAs), getPercentage($detectedBots, $parsedUAs),
-    format($deviceTypes[0], $parsedUAs), getPercentage($deviceTypes[0], $parsedUAs),
-    format($deviceTypes[1], $parsedUAs), getPercentage($deviceTypes[1], $parsedUAs),
-    format($deviceTypes[2], $parsedUAs), getPercentage($deviceTypes[2], $parsedUAs),
-    format($deviceTypes[3], $parsedUAs), getPercentage($deviceTypes[3], $parsedUAs),
-    format($deviceTypes[4], $parsedUAs), getPercentage($deviceTypes[4], $parsedUAs),
-    format($deviceTypes[5], $parsedUAs), getPercentage($deviceTypes[5], $parsedUAs),
-    format($deviceTypes[6], $parsedUAs), getPercentage($deviceTypes[6], $parsedUAs),
-    format($deviceTypes[7], $parsedUAs), getPercentage($deviceTypes[7], $parsedUAs),
-    format($deviceTypes[8], $parsedUAs), getPercentage($deviceTypes[8], $parsedUAs),
-    format($deviceTypes[9], $parsedUAs), getPercentage($deviceTypes[9], $parsedUAs),
-    format($deviceTypes[10], $parsedUAs), getPercentage($deviceTypes[10], $parsedUAs),
-    format($deviceTypes[11], $parsedUAs), getPercentage($deviceTypes[11], $parsedUAs),
-    format($deviceTypes[12], $parsedUAs), getPercentage($deviceTypes[12], $parsedUAs),
-    format($unknownDeviceTypes, $parsedUAs), getPercentage($unknownDeviceTypes, $parsedUAs)
+%s
+", $parsedUAs,
+    round($timeElapsed, 2),
+    round($timeElapsed / $parsedUAs, 6),
+    format($detectedBots, $parsedUAs),
+    getPercentage($detectedBots, $parsedUAs),
+    implode('', $reportStat)
 );
