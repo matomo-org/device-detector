@@ -406,6 +406,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'M1' => 'Meizu',
         '3M' => 'Meitu',
         'ME' => 'Metz',
+        '0E' => 'Melrose',
         'MX' => 'MEU',
         'MI' => 'MicroMax',
         '8M' => 'Mito',
