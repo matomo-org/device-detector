@@ -359,6 +359,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'KU' => 'Kumai',
         'KY' => 'Kyocera',
         'KZ' => 'Kazam',
+        '1K' => 'Kzen',
         'KE' => 'Krüger&Matz',
         'LQ' => 'LAIQ',
         'L2' => 'Landvo',
