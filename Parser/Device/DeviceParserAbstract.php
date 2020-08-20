@@ -161,6 +161,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'CM' => 'Crius Mea',
         'C3' => 'China Mobile',
         'CR' => 'CreNova',
+        '0C' => 'Crony',
         'CT' => 'Capitel',
         'CQ' => 'Compaq',
         '3C' => 'Contixo',
