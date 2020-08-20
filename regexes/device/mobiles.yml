@@ -3689,7 +3689,7 @@ Desay:
 
 # DEXP
 DEXP:
-  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|(VA[12]10|ML450|MS[56]50|BL[12]50|BS155|BS160|BS[1256]50|AL[12]40)[);/ ]'
+  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|(F4[38]D8000K|VA[12]10|ML450|MS[56]50|BL[12]50|BS155|BS160|BS[1256]50|AL[12]40)[);/ ]'
   device: 'smartphone'
   models:
 
@@ -3713,6 +3713,10 @@ DEXP:
     - regex: 'DEXP[ _]([^;/]+) Build'
       model: '$1'
     - regex: 'DEXP[ _]([^);/]+)[);/ ]'
+      model: '$1'
+
+    - regex: '(F4[38]D8000K)[);/ ]'
+      device: 'tv'
       model: '$1'
 
 # Dbtel
@@ -6294,9 +6298,13 @@ LYF:
 
 # Lumus
 Lumus:
-  regex: 'NEO(SR620|SC600)[;)/ ]'
+  regex: '(?:NEO(SR620|SC600)|Lumus[_ ]Ion)[;)/ ]'
   device: 'smartphone'
-  model: 'Neo $1'
+  models:
+    - regex: 'NEO(SR620|SC600)[;)/ ]'
+      model: '$1'
+    - regex: 'Lumus[_ ]Ion[;)/ ]'
+      model: 'Ion'
 
 # M4tel
 M4tel:
@@ -15353,7 +15361,7 @@ ONN:
 
 # Q.Bell
 'Q.Bell':
-  regex: '(QPHONE_10.1)[);/ ]'
+  regex: '(QPHONE[_ ](?:10.1|9.1|5.4))[);/ ]'
   device: 'smartphone'
   model: '$1'
 
@@ -15815,5 +15823,11 @@ Tronsmart:
 # Amigoo
 Amigoo:
   regex: 'AMIGOO (R300|R9 Max|M1 Max)[);/ ]'
+  device: 'smartphone'
+  model: '$1'
+
+# Lumigon
+Lumigon:
+  regex: 'Lumigon[ _](T3)[);/ ]'
   device: 'smartphone'
   model: '$1'
