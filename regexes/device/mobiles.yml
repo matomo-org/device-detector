@@ -692,7 +692,7 @@ MicroMax:
 
 # 4Good
 4Good:
-  regex: '4Good[ _]|S450m [43]G|S555m 4G|S501m 3G|T700i_3G|Light (?:A103|B100)'
+  regex: '4Good[ _]|S450m [43]G|S555m 4G|S501m 3G|T700i_3G|People (?:G503|G410)|Light (?:A103|B100)'
   device: 'smartphone'
   models:
     - regex: 'T700i_3G'
@@ -700,7 +700,7 @@ MicroMax:
       device: 'tablet'
     - regex: 'S555m[_ ]4G'
       model: 'People'
-    - regex: '(S(?:450m|501m)[_ ][43]G|Light (?:A103|B100))'
+    - regex: '(S(?:450m|501m)[_ ][43]G|Light (?:A103|B100)|People (?:G503|G410))'
       model: '$1'
     - regex: '4Good[ _]([^;/]+) Build'
       model: '$1'
@@ -2253,13 +2253,15 @@ Blackview:
 
 # Bluboo
 Bluboo:
-  regex: 'Bluboo|Xfire|Maya Build'
+  regex: 'Bluboo|Xfire|Picasso 4G|Maya Build'
   device: 'smartphone'
   models:
     - regex: 'Maya Build'
       model: 'Maya'
     - regex: 'Xfire2'
       model: 'Xfire 2'
+    - regex: 'Picasso 4G'
+      model: 'Picasso 4G'
     - regex: 'Xfire'
       model: 'Xfire'
     - regex: 'Bluboo[ _-]?([^;/)]+) Build'
@@ -11588,8 +11590,10 @@ Prestigio:
   models:
     - regex: 'PMT3277_3G'
       model: 'MultiPad Ranger 7.0 3G'
-    - regex: 'PGPS7799CIS08GBPG'
+    - regex: 'PGPS7799CIS08GBPG[);/ ]'
       model: 'Geo Vision Tour 3'
+    - regex: 'PGPS7797[);/ ]'
+      model: 'Geo Vision Tour 2'
     - regex: 'PMT3201_4G'
       model: 'Grace 4G'
     - regex: 'PSP5551DUO'
@@ -14830,7 +14834,7 @@ BDF:
 
 # Highscreen
 Highscreen:
-  regex: 'HIGHSCREEN|(Easy-Power-Pro|Pure[_ ]Power|Power Ice(?: Max)?|Easy_S_Pro|Razar_Pro|Power Rage(?: Evo)?|Zera[ _][UFS]|Power[ _]?Five[ _]?(?:Pro|Evo)|PowerFour|BOOST II(?:se)?|FestXL)[;)/ ]'
+  regex: 'HIGHSCREEN|(Easy-Power-Pro|Pure[_ ]Power|Power Ice(?: Max)?|Easy_S_Pro|Razar_Pro|Power Rage(?: Evo)?|Zera[ _][UFS]|Power[ _]?Five[ _]?(?:Pro|Evo|Max)|PowerFour|BOOST II(?:se)?|FestXL)[;)/ ]'
   device: 'smartphone'
   models:
     - regex: '(Power Ice(?:[ ](?:Max|Evo))?|Power Rage(?: Evo)?|Zera[ _][UFS])[;)/ ]'
@@ -14839,6 +14843,8 @@ Highscreen:
       model: 'Power Five Pro'
     - regex: 'Power Five Evo[;)/ ]'
       model: 'Power Five Evo'
+    - regex: 'Power Five Max[;)/ ]'
+      model: 'Power Five Max'
     - regex: 'FestXL[;)/ ]'
       model: 'Fest XL'
     - regex: 'PowerFour[;)/ ]'
@@ -15752,9 +15758,13 @@ Asano:
 
 # Phonemax
 Phonemax:
-  regex: 'PHONEMAX_Mars[);/ ]'
+  regex: 'PHONEMAX[_ ](Saturn[_ ]X|Mars)[);/ ]'
   device: 'smartphone'
-  model: 'Mars'
+  models:
+    - regex: 'PHONEMAX[_ ]Saturn[_ ]X[);/ ]'
+      model: 'Saturn X'
+    - regex: 'PHONEMAX[_ ]Mars[);/ ]'
+      model: 'Mars'
 
 # Vipro (Vipro Mobile)
 Vipro:
