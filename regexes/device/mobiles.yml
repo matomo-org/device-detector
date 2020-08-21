@@ -1591,11 +1591,13 @@ Amoi:
 
 # Ainol
 Ainol:
-  regex: 'Numy|novo[0-9]|Novo 10 Hero|AX10PRO|NUMY3GAX9|NOVO10 Spark'
+  regex: 'Numy|(?:novo[0-9]|Novo 10 Hero|AX10PRO|NUMY3GAX9|NOVO10 Spark)[);/ ]'
   device: 'tablet'
   models:
     - regex: 'Numy 3G AX1'
       model: 'Novo 7 Numy AX1 3G'
+    - regex: 'NOVO7[);/ ]'
+      model: 'Novo 7'
     - regex: 'NOVO10 Spark'
       model: 'Novo 10 Spark'
     - regex: 'AX10PRO'
@@ -9324,12 +9326,33 @@ Obi:
 
 # onda
 Onda:
-  regex: 'Onda'
+  regex: 'Onda|(?:V820w|V891[w]?|V919(?: 3G)? Air)[ _-]DualOS|(?:V919 4G Air|V989 Air) Core8'
   device: 'smartphone'
   models:
     # explicit tablet models
     - regex: 'ONDA MID'
       model: 'MID'
+      device: 'tablet'
+    - regex: 'V820w[ _-]DualOS'
+      model: 'V820W Dual OS'
+      device: 'tablet'
+    - regex: 'V891W[ _-]DualOS'
+      model: 'V891W Dual OS'
+      device: 'tablet'
+    - regex: 'V891[ _-]DualOS'
+      model: 'V891 Dual OS'
+      device: 'tablet'
+    - regex: 'V919 3G Air[ _-]DualOS'
+      model: 'V891 3G Air Dual OS'
+      device: 'tablet'
+    - regex: 'V919 Air[ _-]DualOS'
+      model: 'V891 Air Dual OS'
+      device: 'tablet'
+    - regex: 'V919 4G Air Core8'
+      model: 'V919 4G Air Core 8'
+      device: 'tablet'
+    - regex: 'V989 Air Core8'
+      model: 'V989 Air Core 8'
       device: 'tablet'
 
     - regex: '([a-z0-9]+)[ _]Onda'
