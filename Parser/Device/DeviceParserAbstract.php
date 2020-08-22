@@ -571,6 +571,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'SD' => 'Sega',
         'SL' => 'Selfix',
         'SE' => 'Sony Ericsson',
+        '01' => 'Senkatel',
         'S1' => 'Sencor',
         'SF' => 'Softbank',
         'SX' => 'SFR',
