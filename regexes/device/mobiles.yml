@@ -425,15 +425,21 @@ Palm:
 
 # HP
 HP:
-  regex: 'TouchPad/\d+\.\d+|hp-tablet|HP ?iPAQ|webOS.*P160U|HP (?:Pro )?Slate|HP [78]|Compaq [7|8]|HP; [^;/)]+'
+  regex: 'TouchPad/\d+\.\d+|hp-tablet|HP ?iPAQ|webOS.*P160U|HP (?:Pro )?Slate|HP [78]|HP 10 Plus|Compaq [7|8]|HP; [^;/)]+'
   device: 'smartphone'
   models:
     - regex: 'HP Slate 6 Voice Tab'
       model: 'Slate 6 VoiceTab'
       device: 'phablet'
-    - regex: 'HP ([78][^/;]*) Build'
+
+    - regex: 'HP 10 Plus'
+      model: '10 Plus'
+      device: 'tablet'
+
+    - regex: 'HP ([78][^)/;]*)(?: Build|\))'
       model: 'Slate $1'
       device: 'tablet'
+
     - regex: 'Compaq ([78][^/;]*) Build'
       model: 'Compaq $1'
       device: 'tablet'
@@ -2668,7 +2674,7 @@ Bmobile:
 
 # bq
 bq:
-  regex: 'Aquaris|bq [^/;]+ Build|BQS[-_]([0-9]{4})|(BQ(ru)?[_ -][0-9]{3,4})|BQ5059'
+  regex: 'Aquaris|bq [^/;]+ Build|BQS[-_]([0-9]{4})|(BQ(ru)?[_ -][0-9]{3,4})|BQ5059|BQ1008G'
   device: 'smartphone'
   models:
     - regex: 'BQ(?:ru)?-(?:5209L|5044)[);/ ]'
@@ -2971,7 +2977,7 @@ bq:
     - regex: 'BQ-1050G[);/ ]'
       model: 'Hawaii'
       device: 'tablet'
-    - regex: 'BQ-1008G[);/ ]'
+    - regex: 'BQ[-]?1008G[);/ ]'
       model: 'Grace'
       device: 'tablet'
     - regex: 'Aquaris M8'
