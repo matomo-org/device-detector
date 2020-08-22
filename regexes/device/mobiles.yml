@@ -64,7 +64,7 @@ SFR:
 
 # HTC
 HTC:
-  regex: 'HTC|Sprint (?:APA|ATP)|ADR(?!910L)[a-z0-9]+|NexusHD2|Amaze[ _]4G[);/ ]|(Desire|Sensation|Evo ?3D|IncredibleS|Wildfire|Butterfly)[ _]?([^;/)]+)(?: Build|\))|(Amaze[ _]4G|One ?[XELSV\+]+)[);/ ]|SPV E6[05]0|(One M8|X525a|PG86100|PC36100|XV6975|PJ83100|2PYB2|2PZC5|0PJA10|0PJA2|HTV33|0PM92|0PCV1|601HT|0PAJ5)[);/ ]'
+  regex: 'HTC|Sprint (?:APA|ATP)|ADR(?!910L)[a-z0-9]+|NexusHD2|Amaze[ _]4G[);/ ]|(Desire|Sensation|Evo ?3D|IncredibleS|Wildfire|Butterfly)[ _]?([^;/)]+)(?: Build|\))|(Amaze[ _]4G|One ?[XELSV\+]+)[);/ ]|SPV E6[05]0|(One M8|X525a|PG86100|PC36100|XV6975|PJ83100|2PYB2|2PZC5|0PJA10|0PJA2|HTV33|0PM92|0PCV1|601HT|0PAJ5|HTL2[23])[);/ ]'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -82,6 +82,10 @@ HTC:
       model: 'One'
     - regex: 'PJ83100[);/ ]'
       model: 'One X'
+    - regex: 'HTL22[);/ ]'
+      model: 'J One'
+    - regex: 'HTL23[);/ ]'
+      model: 'J Butterfly'
     - regex: '(?:0PJA2|0PJA10)[);/ ]'
       model: 'One M9'
     - regex: 'X525a'
@@ -4771,11 +4775,13 @@ Evolveo:
 
 # Explay
 Explay:
-  regex: 'Explay|ActiveD[ _]|Atlant |Informer[ _][0-9]+|CinemaTV 3G|Surfer[ _][0-9\.]|sQuad[ _][0-9\.]|Onliner[1-3]|RioPlay|Leader|Infinityll'
+  regex: 'Explay|ActiveD[ _]|Atlant |Informer[ _][0-9]+|CinemaTV 3G|Surfer[ _][0-9\.]|sQuad[ _][0-9\.]|Onliner[1-3]|RioPlay|Leader|Infinityll|Imperium[78]'
   device: 'tablet'
   models:
     - regex: 'ActiveD[ _]7.4[ _]3G'
       model: 'ActiveD 7.4 3G'
+    - regex: 'Imperium([78])[;/) ]'
+      model: 'Imperium $1 3G'
     - regex: 'ActiveD[ _]8.2[ _]3G'
       model: 'ActiveD 8.2 3G'
     - regex: 'CinemaTV[ _]3G'
@@ -6779,9 +6785,15 @@ JAY-Tech:
 
 # Jiayu
 Jiayu:
-  regex: '(JY-[a-z0-9]+)[);/ ]'
+  regex: '(?:JIAYU|JY-G4[\\_]G5|(?:JY-[a-z0-9]+))[);/ ]'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: '(?:JIAYU G4_G5|JY-G4[\\_]G5)[);/ ]'
+      model: 'G4/G5'
+    - regex: 'JIAYU (G4[S]?|S2|G2F|G3S)[);/ ]'
+      model: '$1'
+    - regex: '(JY-[a-z0-9]+)[);/ ]'
+      model: '$1'
 
 # Jolla
 Jolla:
@@ -11472,11 +11484,13 @@ Pantech:
 
 # Ployer
 Ployer:
-  regex: 'MOMO([0-9]|miniS)'
+  regex: 'MOMO([0-9]|[ ]?mini[ ]?(?:S|3GS)?)'
   device: 'tablet'
   models:
     - regex: 'MOMOminiS'
       model: 'MOMO mini S'
+    - regex: 'momo mini 3GS'
+      model: 'MOMO Mini 3GS'
     - regex: 'MOMO([0-9][^);/]*) Build'
       model: 'MOMO $1'
     - regex: 'MOMO([0-9][^);/]*)[);/]'
