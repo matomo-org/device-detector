@@ -1015,12 +1015,14 @@ Airness:
 
 # Aiwa
 Aiwa:
-  regex: 'AW790|M300'
+  regex: '(?:AW790|M300|AWM533)[);/ ]'
   device: 'smartphone'
   models:
-    - regex: 'AW790'
+    - regex: 'AW790[);/ ]'
       model: 'AW790'
-    - regex: 'M300'
+    - regex: 'AWM533[);/ ]'
+      model: 'AWM533'
+    - regex: 'M300[);/ ]'
       model: 'M300'
       device: 'phablet'
 
@@ -1777,7 +1779,7 @@ ANS:
 
 # Assistant
 Assistant:
-  regex: '(AS[-_](?:50[123]|543[1-6]|44[12]1|541[12]|54[23]1|6431|401L)|AP-(?:109|115G|721N|753G|7[25]7G|10[68]|107G|110N|941|719))[;/)_ ]'
+  regex: '(AS[-_](?:50[123]|543[1-6]|44[12]1|541[12]|54[23]1|6431|[46]01L)|AP-(?:109|115G|721N|753G|7[25]7G|10[68]|107G|110N|941|719))[;/)_ ]'
   device: 'smartphone'
   models:
     - regex: 'AS[-_]401L[);/ ]'
@@ -1786,6 +1788,8 @@ Assistant:
       model: 'Agio'
     - regex: 'AS[-_](?:5434|501)[);/ ]'
       model: 'Club'
+    - regex: 'AS_601L[);/ ]'
+      model: 'AS-601L'
     - regex: 'AS-5433 Secret[);/ ]'
       model: 'Secret'
     - regex: 'AS-5433[);/ ]'
@@ -2062,7 +2066,7 @@ Asus:
       model: 'ZenFone 4 Selfie'
     - regex: '(?:ASUS_)?(?:X00LD|Z01KS|Z01KDA|ZE554KL)'
       model: 'ZenFone 4'
-    - regex: '(?:ASUS_)?X00[HIK]D|ZC554KL|ZC520KL'
+    - regex: '(?:ASUS_)?X00(?:[HIK]D|IS)|ZC554KL|ZC520KL'
       model: 'ZenFone 4 Max'
     - regex: '(?:ASUS_)?X015D'
       model: 'ZenFone 4 Max Plus'
@@ -3665,7 +3669,8 @@ Datsun:
   models:
     - regex: 'DATSUN_D5500'
       model: 'D5500'
-
+    - regex: 'Datsun_D5001'
+      model: 'D5001'
 
 # Danew
 Danew:
@@ -3724,7 +3729,7 @@ Desay:
 
 # DEXP
 DEXP:
-  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|(F4[38]D8000K|VA[12]10|ML450|MS[56]50|BL[12]50|BS155|BS160|BS[1256]50|AL[12]40)[);/ ]'
+  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|(F4[38]D8000K|VA[12]10|ML450|MS[56]50|BL[12]50|BS155|BS160|BS[1256]50|AL[12]40|AS260)[);/ ]'
   device: 'smartphone'
   models:
 
@@ -3732,6 +3737,9 @@ DEXP:
       model: 'Ixion $1'
     - regex: '(ML450|MS[56]50)[);/ ]'
       model: 'Ixion $1'
+    - regex: 'AS260[);/ ]'
+      model: '5.85" AS260'
+      device: 'phablet'
 
     - regex: 'Ursus ([^;/)]+)(?: Build|\))'
       model: 'Ursus $1'
@@ -16027,3 +16035,9 @@ BB Mobile:
   regex: 'E500A_2019[);/ ]'
   device: 'smartphone'
   model: 'E500A (2019)'
+
+# Billion
+Billion:
+  regex: 'Capture\+[);/ ]'
+  device: 'smartphone'
+  model: 'Capture Plus'
