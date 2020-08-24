@@ -8112,7 +8112,7 @@ Mpman:
   regex: '(?:MPQC|MPDC)[0-9]+|PH(?:150|340|350|360|451|500|520)|(?:MID(?:7C|74C|82C|84C|801|811|701|711|170|77C|43C|102C|103C|104C|114C)|MP(?:843|717|718|1010|7007|7008|843|888|959|969)|MGP7)[);/ ]'
   device: 'tablet'
   models:
-    - regex: '((?:MPQC|MPDC)[0-9]+[^/;]+) Build'
+    - regex: '((?:MPQC|MPDC)[0-9]+[^/;)]+)(?: Build|\))'
       model: '$1'
     - regex: '(MID(?:7C|74C|82C|84C|801|811|701|711|170|77C|43C|102C|103C|104C|114C)|MP(?:843|717|718|1010|7007|7008|843|888|959|969)|MGP7)[);/ ]'
       model: '$1'
@@ -15964,3 +15964,30 @@ Bobarry:
   regex: '(?:K10[ ]?SE)[);/ ]'
   device: 'tablet'
   model: 'K10 SE'
+
+# Wortmann
+Wortmann:
+  regex: 'TERRA PAD 1004[);/ ]'
+  device: 'tablet'
+  model: 'Terra Pad 1004'
+
+# BB Mobile
+BB Mobile:
+  regex: 'Techno[_ ](TQ863Q|X595BT|S700BF|I700AJ|10.1 LTE TQ060X|7.0 LTE TQ763I)[);/ ]'
+  device: 'tablet'
+  models:
+    - regex: 'Techno[_ ]S700BF[);/ ]'
+      model: 'Techno 7.0" Pioneer LTE S700BF'
+    - regex: 'Techno[_ ]10.1 LTE TQ060X[);/ ]'
+      model: 'Techno 10.0" LTE TQ060X'
+    - regex: 'Techno[_ ]TQ863Q[);/ ]'
+      model: 'Techno 8.0" Poplar LTE TQ863Q'
+    - regex: 'Techno[_ ]I700AJ[);/ ]'
+      model: 'Techno 7.0" Mozg LTE I700AJ'
+    - regex: 'Techno[_ ]7.0 LTE TQ763I[);/ ]'
+      model: 'Techno 7.0" Kalash LTE TQ763I'
+
+    - regex: 'Techno[_ ](X595BT)[);/ ]'
+      device: 'smartphone'
+      model: 'Techno Spark 3G X595BT'
+
