@@ -87,6 +87,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'A7' => 'Allwinner',
         'A1' => 'Altech UEC',
         'A5' => 'altron',
+        '3L' => 'Alfawise',
         'AN' => 'Arnova',
         '7A' => 'Anry',
         '5A' => 'ArmPhone',
