@@ -827,7 +827,7 @@ Bravis:
 
 # Acer
 Acer:
-  regex: 'acer|(?<!Satellite |ZTE BLADE |ImSmart |ERGO |X-Style Tab )a(?:101|110|2[10]0|211|50[10]|51[10]|70[10])[);/ ]|Android.*V3[67]0[);/ ]|Android.*Z1[23456]0 Build|Android.*Z5\d{2} Build|Android.*T0[234678] Build|Android.*S55[);/ ]|(?:A1-(713(HD)?|7[23]4|830|841|840FHD|81[01])|A3-A[1234][01]|B1-(7[1235-8][01](HD)?|7[23]3|8[1235]0|A71)|B3-(A[12]0|A3[02]|A40FHD)|E39)[);/ ]|S5[12]0 Build|(DA[0-9]+HQ?L|Aspire V5-121|Predator G9-793|GT-810|B1-870)[);/ ]'
+  regex: 'acer|(?<!Satellite |ZTE BLADE |ImSmart |ERGO |X-Style Tab )a(?:101|110|2[10]0|211|50[10]|51[10]|70[10])[);/ ]|Android.*V3[67]0[);/ ]|Android.*Z1[23456]0 Build|Android.*Z5\d{2} Build|Android.*T0[234678] Build|Android.*S55[);/ ]|(?:A1-(713(HD)?|7[23]4|830|841|840FHD|81[01])|A3-A[1234][01]|B1-(7[1235-8][01](HD)?|7[23]3|8[1235]0|A71)|B3-(A[125]0|A3[02]|A40FHD)|E39)[);/ ]|S5[12]0 Build|(DA[0-9]+HQ?L|Aspire V5-121|Predator G9-793|GT-810|B1-870)[);/ ]'
   device: 'smartphone'
   models:
     # smart displays
@@ -875,7 +875,7 @@ Acer:
     - regex: 'B1-8[12357]0'
       model: 'Iconia One 8'
       device: 'tablet'
-    - regex: 'B3-A([12]0|3[02]|40FHD)'
+    - regex: 'B3-A([125]0|3[02]|40FHD)'
       model: 'Iconia One 10'
       device: 'tablet'
     - regex: 'A101'
@@ -3128,10 +3128,10 @@ Casio:
 
 # Casper
 Casper:
-  regex: 'CASPER_|VIA[- _](T7D|A[34]|E3|F[123]|G4|M4|[LS]8|S7|P2|V8C|A1_Plus|A1|S10|S|T17_M|T17)[);/ ]'
+  regex: 'CASPER[_ ]|VIA[- _](T7D|A[34]|E3|F[123]|G4|M4|[LS]8|S7|P2|V8C|A1_Plus|A1|S10|S|T17_M|T17)[);/ ]'
   device: 'smartphone'
   models:
-    - regex: 'CASPER_VIA_(G1_Plus|G1|E1|[AE]2|M[123]|V[35689]|V10)[);/ ]'
+    - regex: 'CASPER[_ ]VIA_(G1_Plus|G1|E1|[AE]2|M[123]|V[35689]|V10|G3)[);/ ]'
       model: 'VIA $1'
     - regex: 'CASPER_VIA_E1c'
       model: 'VIA E1C'
@@ -3739,7 +3739,7 @@ Desay:
 
 # DEXP
 DEXP:
-  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|(F4[38]D8000K|VA[12]10|ML450|MS[56]50|BL[12]50|BS155|BS160|BS[1256]50|AL[12]40|AS260| B450)[);/ ]'
+  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|(F4[38]D8000K|VA[12]10|ML450|MS[56]50|BL[12]50|BS155|BS160|BS[1256]50|AL[12]40|AS260| (?:B450|B340))[);/ ]'
   device: 'smartphone'
   models:
 
@@ -3758,7 +3758,7 @@ DEXP:
       model: 'Ursus $1'
       device: 'tablet'
 
-    - regex: ' (B450)[);/ ]'
+    - regex: ' (B450|B340)[);/ ]'
       model: '$1'
 
     - regex: 'H135[ _]Build'
@@ -4189,9 +4189,13 @@ Eton:
 
 # Essentielb
 Essentielb:
-  regex: '(Wooze[_ ](?:I5|L|XL)) Build'
+  regex: '(?:Wooze[_ ](?:I5|L|XL)|HEYOU[135])[);/ ]'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'HEYOU([135])[);/ ]'
+      model: 'HEYou $1'
+    - regex: '(Wooze[_ ](?:I5|L|XL))[);/ ]'
+      model: '$1'
 
 # Rikomagic
 Rikomagic:
@@ -9191,11 +9195,13 @@ Noblex:
 
 # Nomi
 Nomi:
-  regex: 'Nomi[ _-]|(C101010 Ultra2|i501[23]|i5032|i5050|i5532|C0(700(?:[02358]|2HD)|7850)|C1010[0-3])[;/) ]'
+  regex: 'Nomi[ _-]|(C101010 Ultra2|i501[234]|i5032|i5050|i5532|C0(700(?:[02358]|2HD)|7850)|C1010[0-3])[;/) ]'
   device: 'smartphone'
   models:
     - regex: 'i501[23][;/) ]'
       model: 'Evo M2'
+    - regex: 'i5014[;/) ]'
+      model: 'Evo M4'
     - regex: 'i5032[;/) ]'
       model: 'Evo X2'
     - regex: 'i5050[;/) ]'
