@@ -708,11 +708,14 @@ MicroMax:
 
 # 4Good
 4Good:
-  regex: '4Good[ _]|S450m [43]G|S555m 4G|S501m 3G|T700i_3G|People (?:G503|G410)|Light (?:A103|B100)'
+  regex: '4Good[ _]|S450m [43]G|S555m 4G|S501m 3G|T700i_3G|People (?:G503|G410|GT300)|Light (?:A103|B100)'
   device: 'smartphone'
   models:
     - regex: 'T700i_3G'
       model: 'T700i 3G'
+      device: 'tablet'
+    - regex: 'People GT300'
+      model: 'People GT300'
       device: 'tablet'
     - regex: 'S555m[_ ]4G'
       model: 'People'
@@ -6836,12 +6839,12 @@ JAY-Tech:
 
 # Jiayu
 Jiayu:
-  regex: '(?:JIAYU|JY-G4[\\_]G5|(?:JY-[a-z0-9]+))[);/ ]'
+  regex: 'JIAYU[ _-]|(?:JY-G4[\\_]G5|(?:JY-[a-z0-9]+))[);/ ]'
   device: 'smartphone'
   models:
     - regex: '(?:JIAYU G4_G5|JY-G4[\\_]G5)[);/ ]'
       model: 'G4/G5'
-    - regex: 'JIAYU (G4[S]?|S2|G2F|G3S)[);/ ]'
+    - regex: 'JIAYU[ _-](G4[S]?|G2F|G3[S]?|S[23])[);/ ]'
       model: '$1'
     - regex: '(JY-[a-z0-9]+)[);/ ]'
       model: '$1'
@@ -9039,7 +9042,7 @@ M.T.T.:
 
 # Navon
 Navon:
-  regex: '(?:Superme_Max|Supreme[_ ](?:Fine|Chief|Pure|Pro)(?:[_ ](?:Mini|Plus))?)[);/ ]'
+  regex: '(?:Superme_Max|Supreme[_ ](?:Fine|Chief|Pure|Pro)(?:[_ ](?:Mini|Plus))?|Navon[_ ]Infinity)[);/ ]'
   device: 'smartphone'
   models:
     - regex: 'Superme_Max[);/ ]'
@@ -9054,8 +9057,12 @@ Navon:
       model: 'Supreme Chief'
     - regex: 'Supreme[_ ]Pure[ _]Plus[);/ ]'
       model: 'Supreme Pure Plus'
+    - regex: 'Supreme Pure[);/ ]'
+      model: 'Supreme Pure'
     - regex: 'Supreme[_ ]Pro[);/ ]'
       model: 'Supreme Pro'
+    - regex: 'Navon[_ ]Infinity[);/ ]'
+      model: 'Infinity'
 
 # NOA
 NOA:
@@ -9218,6 +9225,16 @@ Noblex:
     - regex: '(?:Noblex|NBX)[ _-]([^;/)]+)[;/)]'
       model: '$1'
 
+# Nomu
+Nomu:
+  regex: 'Nomu[ _-](?:T18|S30mini)[;/) ]'
+  device: 'smartphone'
+  models:
+    - regex: 'Nomu[ _-]T18[;/) ]'
+      model: 'T18'
+    - regex: 'Nomu[ _-]S30mini[;/) ]'
+      model: 'S30 Mini'
+
 # Nomi
 Nomi:
   regex: 'Nomi[ _-]|(C101010 Ultra2|i501[234]|i5032|i5050|i5532|C0(700(?:[02358]|2HD)|7850)|C1010[0-3])[;/) ]'
@@ -9248,11 +9265,15 @@ Nomi:
 
 # NUU Mobile
 NUU Mobile:
-  regex: 'NUU_|((?:N(5702|5001)L|S6001L)|A6L-[CG])[;)/ ]'
+  regex: 'NUU_|(?:(?:N(5702|5001)L|S6001L)|A6L-[CG])[;)/ ]'
   device: 'smartphone'
   models:
     - regex: 'NUU_A([13])'
       model: 'A$1'
+    - regex: 'NUU_M3[;)/ ]'
+      model: 'M3'
+    - regex: 'NUU_X5[;)/ ]'
+      model: 'X5'
     - regex: 'S6001L'
       model: 'G2'
     - regex: 'N5702L'
@@ -9880,10 +9901,10 @@ Ouki:
 
 # Oukitel
 Oukitel:
-  regex: '(?:(?:C15|C16|K10000|K6000)(?:[ _]Pro)|U20_Plus|K[46]000[ _](?:Plus|Lite)|Y4800|K10000|K[567]000)[ ;/)]'
+  regex: '(?:(?:C15|C16|K10000|K[46]000)(?:[ _]Pro)|U20_Plus|K[46]000[ _](?:Plus|Lite)|Y4800|K10000|K[4567]000)[ ;/)]'
   device: 'smartphone'
   models:
-    - regex: '(C15|C16|K10000|K6000)[ _]Pro[ ;/)]'
+    - regex: '(C15|C16|K10000|K[46]000)[ _]Pro[ ;/)]'
       model: '$1 Pro'
     - regex: '(K10000)[ _]Max[ ;/)]'
       model: '$1 Max'
@@ -9891,7 +9912,7 @@ Oukitel:
       model: '$1 Plus'
     - regex: '(K4000)[_ ]Lite[ ;/)]'
       model: '$1 Lite'
-    - regex: '(Y4800|K10000|K[567]000)[ ;/)]'
+    - regex: '(Y4800|K10000|K[4567]000)[ ;/)]'
       model: '$1'
 
 # Overmax
@@ -14935,7 +14956,7 @@ MegaFon:
     - regex: 'MFLogin3T|MegaFon Login 3'
       model: 'Login 3'
       device: 'tablet'
-    - regex: 'MS3B'
+    - regex: 'MS3B|Megafon Optima'
       model: 'Optima'
     - regex: 'SP-A20i'
       model: 'Mint'
@@ -16233,3 +16254,23 @@ TurboKids:
   regex: 'Turbokids[-_ ]?(TMNT|3G|S4)[);/ ]'
   device: 'tablet'
   model: '$1'
+
+# Jinga
+Jinga:
+  regex: 'Jinga[-_ ]|(?:Optim4G)[);/ ]'
+  device: 'smartphone'
+  models:
+    - regex: 'Optim4G[);/ ]'
+      model: 'Optim 4G'
+    - regex: 'Jinga Iron[);/ ]'
+      model: 'Iron'
+    - regex: 'Jinga Basco neo[);/ ]'
+      model: 'Basco Neo'
+    - regex: 'Jinga Basco L3[);/ ]'
+      model: 'Basco L3'
+    - regex: 'Jinga Trezor S1 Plus[);/ ]'
+      model: 'Trezor S1 Plus'
+    - regex: 'JINGA_IGO_L2[);/ ]'
+      model: 'IGO L2'
+    - regex: 'JINGA_IGO_M1[);/ ]'
+      model: 'IGO M1'
