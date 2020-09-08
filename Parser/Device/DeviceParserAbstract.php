@@ -203,6 +203,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'DN' => 'DNS',
         'DM' => 'DMM',
         'DO' => 'Doogee',
+        'DF' => 'Doffler',
         'DV' => 'Doov',
         'DP' => 'Dopod',
         'DR' => 'Doro',
