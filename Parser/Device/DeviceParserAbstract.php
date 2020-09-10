@@ -158,6 +158,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'CH' => 'Cherry Mobile',
         '1C' => 'Chuwi',
         'L8' => 'Clarmin',
+        'CD' => 'Cloudfone',
         'C0' => 'Clout',
         'CK' => 'Cricket',
         'C1' => 'Crosscall',
