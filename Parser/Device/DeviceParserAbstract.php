@@ -428,6 +428,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         '8M' => 'Mito',
         '1X' => 'Minix',
         'M5' => 'MIXC',
+        '1Z' => 'MiXzo',
         'MH' => 'Mobiola',
         '4M' => 'Mobicel',
         'M6' => 'Mobiistar',
