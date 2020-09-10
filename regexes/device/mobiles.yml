@@ -16430,9 +16430,15 @@ iMars:
 
 # Logic
 Logic:
-  regex: 'LOGIC_X5_LITE[);/ ]'
+  regex: 'LOGIC[_ ](X[135]|X4M|L5D|X5[AFT]|X60G)(:?[_ ]LITE2?)?[);/ ]'
   device: 'smartphone'
-  model: 'X5 Lite'
+  models:
+    - regex: 'LOGIC[_ ](X5|X4M)[_ ]LITE[);/ ]'
+      model: '$1 Lite'
+    - regex: 'LOGIC[_ ](X5)[_ ]LITE2[);/ ]'
+      model: '$1 Lite 2'
+    - regex: 'LOGIC[_ ](X[13]|X4M|L5D|X5[AFT]|X60G)[);/ ]'
+      model: '$1'
 
 # Cloudfone
 Cloudfone:
