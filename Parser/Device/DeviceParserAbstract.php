@@ -308,6 +308,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'IK' => 'iKoMo',
         'IE' => 'iView',
         'I8' => 'iVA',
+        '1I' => 'iMars',
         'IM' => 'i-mate',
         'I1' => 'iOcean',
         'I2' => 'IconBIT',
