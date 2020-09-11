@@ -495,6 +495,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'OD' => 'Onda',
         'ON' => 'OnePlus',
         'OX' => 'Onix',
+        'OH' => 'Openbox',
         'OP' => 'OPPO',
         'O4' => 'ONN',
         'OR' => 'Orange',
