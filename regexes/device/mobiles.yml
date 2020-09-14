@@ -3714,10 +3714,10 @@ Datsun:
 
 # Danew
 Danew:
-  regex: 'Dslide ?([^;/]+) Build|Konnect_(504|601)'
+  regex: 'Dslide ?([^;/]+) Build|Konnect_?(402|504|60[127])'
   device: 'smartphone'
   models:
-    - regex: 'Konnect_(504|601)'
+    - regex: 'Konnect_?(402|504|60[127])'
       model: 'Konnect $1'
     - regex: 'Dslide ?([^;/]+) Build'
       device: 'tablet'
@@ -6827,6 +6827,12 @@ Impression:
       device: 'smartphone'
     - regex: 'Impression[ _\-]?([^/;)]+)(?: Build|\))'
       model: '$1'
+
+#iLife or i-life (lifedigital.com)
+iLife:
+  regex: '(ITELL_K3500N)[);/ ]'
+  device: 'tablet'
+  model: '$1'
 
 # iTel
 iTel:
@@ -13278,7 +13284,7 @@ Vodafone:
 
 # Vonino
 Vonino:
-  regex: 'Vonino|Epic (?:E8|P7)|Gyga[ _](?:X|S|QS|XS)|Jax[ _](?:Q|QS|S|X|Mini)|Magnet[ _]M[19]|Navo_QS|Onyx_(QS|Z)|Orin_QS|Pluri[ _](?:[BCMQ]7|[CQ]8)|Sirius_QS|Volt[ _][XS]|Xavy_(T7|L8)|Xylo[ _][XSPQ]|Zun[ _]X[OS]?'
+  regex: 'Vonino|Epic (?:E8|P7)|Gyga[ _](?:X|S|QS|XS)|Jax[ _](?:QS|[SXQN]|Mini)|Magnet[ _]M[19]|Navo_QS|Onyx_(QS|Z)|Orin_QS|Pluri[ _](?:[BCMQ]7|[CQ]8)|Sirius_QS|Volt[ _][XS]|Xavy_(T7|L8)|Xylo[ _][XSPQ]|Zun[ _]X[OS]?|JAX_N'
   device: 'smartphone'
   models:
     - regex: 'Zun[ _]XO'
@@ -13305,7 +13311,7 @@ Vonino:
       model: 'Jax QS'
     - regex: 'Jax[ _]S_A7'
       model: 'Jax S A7'
-    - regex: 'Jax[ _](S|Q|X)'
+    - regex: 'Jax[ _]([SQXN])'
       model: 'Jax $1'
     - regex: 'Jax[ _]Mini'
       model: 'Jax Mini'
@@ -14302,7 +14308,7 @@ MLS:
 
 # Fly
 Fly:
-  regex: 'Fly(?!Flow|touch)|Power Plus 5000|FS50[1-9]|FS51[0-8]|FS52[0-9]|FS530|FS55[134]|FS40[1-9]|FS45[1-9]|4FS06|MERIDIAN-|(?:IQ(?!10[134]0)[0-9]{3,}[i]?)[ _]?(?:Quad|Firebird|Quattro|Turbo|Magic)?[;)/ ]'
+  regex: 'Fly(?!Flow|touch)|Power Plus 5000|Slimline|FS50[1-9]|FS51[0-8]|FS52[0-9]|FS530|FS55[134]|FS40[1-9]|FS45[1-9]|4FS06|MERIDIAN-|(?:IQ(?!10[134]0)[0-9]{3,}[i]?)[ _]?(?:Quad|Firebird|Quattro|Turbo|Magic)?[;)/ ]'
   device: 'smartphone'
   models:
     - regex: '(?:Fly_)?IQ310[;)/ ]'
@@ -14311,6 +14317,8 @@ Fly:
 
     - regex: '(?:Fly_)?IQ236[;)/ ]'
       model: 'Victory'
+    - regex: 'Slimline[;)/ ]'
+      model: 'Slimline'
     - regex: 'Power Plus 5000[;)/ ]'
       model: 'Power Plus 5000'
     - regex: 'FS506'
