@@ -96,6 +96,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'AG' => 'AMGOO',
         '9A' => 'Amigoo',
         'AO' => 'Amoi',
+        '3N' => 'Aoson',
         'AP' => 'Apple',
         'AR' => 'Archos',
         'AS' => 'ARRIS',
