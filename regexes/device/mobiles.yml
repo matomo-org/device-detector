@@ -4771,11 +4771,19 @@ Ericsson:
 
 # Energizer
 Energizer:
-  regex: 'PowerMax'
+  regex: 'PowerMax|ENERGY[_ ]?(?:[45]00|400S|S[56]00|E520)(?:[_ ]LTE)?'
   device: 'smartphone'
   models:
     - regex: 'PowerMax(P[0-9]+S?)'
       model: 'Power Max $1'
+    - regex: 'ENERGY[_ ]([45]00|E520)[_ ]LTE'
+      model: 'Energy $1 LTE'
+    - regex: 'ENERGY[_ ]400S'
+      model: 'Energy 400S'
+    - regex: 'ENERGY400'
+      model: 'Energy 400'
+    - regex: 'ENERGY[_ ]S([56]00)'
+      model: 'Energy S$1'
 
 # eTouch
 eTouch:
@@ -6972,7 +6980,7 @@ Keneksi:
 
 # Kiano
 Kiano:
-  regex: 'Kiano|Elegance_5_0|CORE 10.1 DUAL 3G|Intelect ?(7|8|10)|Slim ?Tab ?\d+(?:[_ ]3GR?)?[);/ ]|Cavion[_ ]'
+  regex: 'Kiano|Elegance_[45]_[015](?:_PRO)?|CORE 10.1 DUAL 3G|Intelect ?(7|8|10)|Slim ?Tab ?\d+(?:[_ ]3GR?)?[);/ ]|Cavion[_ ]'
   device: 'smartphone'
   models:
     - regex: 'Slim ?Tab ?(\d+)(?:[_ ]3GR?)?'
@@ -6984,8 +6992,10 @@ Kiano:
     - regex: 'CORE 10.1 DUAL 3G'
       model: 'CORE 10.1 DUAL 3G'
       device: 'tablet'
-    - regex: 'Elegance_5_0'
-      model: 'Elegance 5.0'
+    - regex: 'Elegance_(5)_([51])_Pro'
+      model: 'Elegance $1.$2" Pro'
+    - regex: 'Elegance_([45])_([015])'
+      model: 'Elegance $1.$2"'
     - regex: '(Kiano)?(Intelect|Elegance) ?(7|8|10)?'
       model: '$2 $3'
       device: 'tablet'
