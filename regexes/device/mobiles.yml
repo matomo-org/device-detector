@@ -2688,7 +2688,7 @@ BenQ:
 
 # Blaupunkt
 Blaupunkt:
-  regex: 'Blaupunkt|Atlantis[_ ](?:1001A|1010A|A10\.G40[23])|Discovery[_ ](?:111C|1000C|1001A?)|Endeavour[_ ](?:785|101[GLM]|1000|1001|101[03]|1100)|Polaris[_ ]803
+  regex: 'Blaupunkt|Atlantis[_ ](?:1001A|1010A|A10\.G40[23])|Discovery[_ ](?:111C|1000C|1001A?)|Endeavour[_ ](?:785|101[GLM]|1000|1001|101[03]|1100)|Polaris[_ ]803'
   device: 'tablet'
   models:
     - regex: 'Discovery[_ ]111C'
@@ -3968,13 +3968,13 @@ DoCoMo:
 
 # Doogee
 Doogee:
-  regex: 'DOOGEE[ _-]|Valencia2_Y100pro|Y100_Plus|X5max(?:[_ ]PRO)?|(KISSME|BIGBOY|COLLO[23]?|DAGGER|DISCOVERY2?|FIND|HOTWIND|LATTE|MAX|MINT|MOON|PIXELS|RAINBOX|TURBO|VALENCIA|VOYAGER2?|TITANS2?)[ -_](DG[0-9]+C?)[);/ ]|BL[579]000[);/ ]|BL12000|BL5500[_ ]Lite|X9 Mini|LEO_DG280|Y9Plus|Hitman_DG850'
+  regex: 'DOOGEE[ _-]|Valencia2_Y100_?(?:pro|plus)|Y100_Plus|X5max(?:[_ ]PRO)?|(KISSME|BIGBOY|COLLO[23]?|DAGGER|DISCOVERY2?|FIND|HOTWIND|LATTE|MAX|MINT|MOON|PIXELS|RAINBOX|TURBO|VALENCIA|VOYAGER2?|TITANS2?)[ -_](DG[0-9]+C?)[);/ ]|BL[579]000[);/ ]|BL12000|BL5500[_ ]Lite|X9 Mini|LEO_DG280|Y9Plus|Hitman_DG850'
   device: 'smartphone'
   models:
-    - regex: 'Y100_Plus[);/ ]'
+    - regex: '(?:Valencia2_)?Y100_Plus[);/ ]'
       model: 'Valencia2 Y100 Plus'
     - regex: 'Valencia2_Y100pro'
-      model: 'Valencia2 Y100pro'
+      model: 'Valencia2 Y100 Pro'
     - regex: 'LEO_(DG280)'
       model: 'Leo $1'
     - regex: '(BL[579]000)[);/ ]'
@@ -9568,7 +9568,7 @@ Obi:
 
 # onda
 Onda:
-  regex: 'Onda|(?:(?:V820w|V891[w]?|V919(?: 3G)? Air)[ _-]DualOS|(?:V919 4G Air|V989 Air) Core8|T2101L2B1C| V10 4G|OBOOK (?:20 SE|20 PLUS DUALOS)|OBOOK10 SE)[);/ ]'
+  regex: 'Onda|(?:(?:V820w|V891[w]?|V919(?: 3G)? Air)[ _-]DualOS|(?:V919 4G Air|V989 Air) Core8|T2101L2B1C| V10 4G|OBOOK (?:20 SE|20 PLUS DUALOS)|OBOOK10 SE|V919 Air CH DualOS)[);/ ]'
   device: 'smartphone'
   models:
     # explicit tablet models
@@ -9585,10 +9585,13 @@ Onda:
       model: 'V891 Dual OS'
       device: 'tablet'
     - regex: 'V919 3G Air[ _-]DualOS'
-      model: 'V891 3G Air Dual OS'
+      model: 'V919 3G Air Dual OS'
       device: 'tablet'
     - regex: 'V919 Air[ _-]DualOS'
-      model: 'V891 Air Dual OS'
+      model: 'V919 Air Dual OS'
+      device: 'tablet'
+    - regex: 'V919 Air CH DualOS'
+      model: 'V919 Air CH Dual OS'
       device: 'tablet'
     - regex: 'V919 4G Air Core8'
       model: 'V919 4G Air Core 8'
@@ -9596,17 +9599,14 @@ Onda:
     - regex: 'V989 Air Core8'
       model: 'V989 Air Core 8'
       device: 'tablet'
-    - regex: 'T2101L2B1C'
-      model: 'oBook 20 Plus DualOS'
+    - regex: 'T2101L2B1C|OBOOK 20 PLUS DUALOS'
+      model: 'oBook 20 Plus Dual OS'
       device: 'tablet'
     - regex: ' V10 4G[);/ ]'
       model: 'V10 10.1" 4G'
       device: 'tablet'
     - regex: 'OBOOK 20 SE[);/ ]'
       model: 'oBook 20 SE'
-      device: 'tablet'
-    - regex: 'OBOOK 20 PLUS DUALOS[);/ ]'
-      model: 'oBook 20 Plus'
       device: 'tablet'
     - regex: 'OBOOK10 SE[);/ ]'
       model: 'oBook 10 SE'
@@ -10430,11 +10430,13 @@ Safaricom:
 
 # Santin
 Santin:
-  regex: '(?:SANTIN|BiTBiZ_V58|ACTOMA ACE)[);/_ ]'
+  regex: '(?:SANTIN|BiTBiZ_V58|ACTOMA ACE|DREAMPLUS03A)[);/_ ]'
   device: 'smartphone'
   models:
     - regex: 'BiTBiZ_V58[);/ ]'
       model: 'BiTBiZ V58'
+    - regex: 'DREAMPLUS03A[);/ ]'
+      model: 'Dream Plus 03A'
     - regex: 'GreenOrange[);/ ]'
       model: 'Green Orange'
     - regex: 'halove[);/ ]'
@@ -15344,7 +15346,7 @@ Highscreen:
       model: 'Pure Power'
     - regex: 'Razar_Pro[;)/ ]'
       model: 'Razar Pro'
-    - regex: 'Easy[_ ]([SL]|XL)[_ ]Pro[;)/ ]'
+    - regex: 'Easy[_ ]([SLF]|XL)[_ ]Pro[;)/ ]'
       model: 'Easy $1 Pro'
     - regex: 'Easy[_ ]([SFL]|XL)[;)/ ]'
       model: 'Easy $1'
@@ -15352,8 +15354,6 @@ Highscreen:
       model: 'Easy Power Pro'
     - regex: '(?:HIGHSCREEN )?Easy-Power[;)/ ]'
       model: 'Easy Power'
-    - regex: 'HIGHSCREEN Easy F PRO[;)/ ]'
-      model: 'Easy F Pro'
     - regex: 'BOOST II[;)/ ]'
       model: 'Boost 2'
     - regex: 'BOOST IIse[;)/ ]'
