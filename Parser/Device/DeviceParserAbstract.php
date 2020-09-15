@@ -294,6 +294,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'HM' => 'Homtom',
         'HO' => 'Hosin',
         'HW' => 'How',
+        'HV' => 'Hotwav',
         'HZ' => 'Hoozo',
         'HP' => 'HP',
         'HT' => 'HTC',

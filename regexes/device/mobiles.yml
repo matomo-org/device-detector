@@ -2436,11 +2436,12 @@ Brondi:
 
 # VGO TEL
 VGO TEL:
-  regex: 'Venture V8'
+  regex: 'Venture V(?:[278]|12)[);/ ]'
   device: 'smartphone'
   models:
-    - regex: 'Venture V8'
-      model: 'Venture V8'
+    - regex: 'Venture V([278]|12)[);/ ]'
+      model: 'Venture V$1'
+
 #
 # Vivo
 Vivo:
@@ -3744,12 +3745,13 @@ Dell:
   models:
     - regex: 'XCD35'
       model: 'XCD35'
+    - regex: 'Venue (8 7840|10 7040)'
+      model: 'Venue $1'
+      device: 'tablet'
     - regex: '(?:Dell )?Venue Build'
       model: 'Venue'
-      device: 'smartphone'
     - regex: 'Dell; Venue Pro'
       model: 'Venue Pro'
-      device: 'smartphone'
     - regex: '(?:Dell )?(Streak|Venue) ?([^/;]*) Build'
       model: '$1 $2'
       device: 'tablet'
@@ -7437,7 +7439,7 @@ LCT:
 
 # Leagoo
 Leagoo:
-  regex: 'LEAGOO|(?:M5 EDGE|KIICAA (POWER|MIX)|Leapad[ _]7s|Elite 1)[);/ ]'
+  regex: 'LEAGOO|(?:M5 EDGE|KIICAA (POWER|MIX)|Leapad[ _]7s|Elite 1|Venture 1)[);/ ]'
   device: 'smartphone'
   models:
     - regex: 'LEAGOO[- _](Z[156]|M8)[);/ ]'
@@ -7454,6 +7456,8 @@ Leagoo:
       model: 'KICCAA Mix'
     - regex: 'Elite 1[);/ ]'
       model: 'Elite 1'
+    - regex: 'Venture 1[);/ ]'
+      model: 'Venture 1'
 
     - regex: '(Leapad[ _]7s)'
       model: '$1'
@@ -16632,7 +16636,14 @@ Time2:
  device: 'tablet'
  model: '$1 10.1"'
 
+# Sunstech
 Sunstech:
   regex: '(TAB2323GMQC)[);/ ]'
   device: 'tablet'
+  model: '$1'
+
+# Hotwav
+Hotwav:
+  regex: '(Venus[_ ]X1[024569])[);/ ]'
+  device: 'smartphone'
   model: '$1'
