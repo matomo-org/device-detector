@@ -339,6 +339,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         '4I' => 'Invin',
         'IO' => 'i-mobile',
         'IQ' => 'INQ',
+        '8Q' => 'IQM',
         'IT' => 'Intek',
         'IV' => 'Inverto',
         'I3' => 'Impression',
