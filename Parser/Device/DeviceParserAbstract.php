@@ -71,6 +71,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'AE' => 'Ace',
         'AA' => 'AllCall',
         'AC' => 'Acer',
+        '00' => 'Accent',
         'A9' => 'Advan',
         'AD' => 'Advance',
         'A3' => 'AGM',
