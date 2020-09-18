@@ -473,6 +473,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'N5' => 'NOA',
         'NE' => 'NEC',
         '4N' => 'NextTab',
+        '5N' => 'Nos',
         '1N' => 'Neomi',
         'NF' => 'Neffos',
         'NA' => 'Netgear',
