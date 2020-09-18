@@ -3779,7 +3779,7 @@ Desay:
 
 # DEXP
 DEXP:
-  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|(F4[38]D8000K|VA[12]10|ML450|MS[56]50|BL[12]50|BS155|BS160|BS[1256]50|AL[12]40|AS260| (?:B450|B340))[);/ ]'
+  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|(SENIOR|F4[38]D8000K|VA[12]10|ML450|MS[56]50|BL[12]50|BS155|BS160|BS[1256]50|AL[12]40|AS260| (?:B450|B340))[);/ ]'
   device: 'smartphone'
   models:
 
@@ -3800,6 +3800,8 @@ DEXP:
 
     - regex: ' (B450|B340)[);/ ]'
       model: '$1'
+    - regex: 'SENIOR[);/ ]'
+      model: 'Senior'
 
     - regex: 'H135[ _]Build'
       model: 'Atlas'
@@ -5546,7 +5548,7 @@ Hosin:
 
 # Hoozo
 Hoozo:
-  regex: 'HOOZO[_ ](MT232|MT Pad 116 LTE|X1001)[);/ ]'
+  regex: 'HOOZO[_ ](MT232|MT116|MT Pad 116 LTE|X1001)[);/ ]'
   device: 'tablet'
   model: '$1'
 
@@ -8339,12 +8341,14 @@ Maxwest:
 
 # Maze
 Maze:
-  regex: 'SSB-500|Alpha[_ ]X'
+  regex: '(?:SSB-500|Alpha[_ ]X|SSB504R)[);/ ]'
   device: 'smartphone'
   models:
-    - regex: 'SSB-500'
+    - regex: 'SSB-500[);/ ]'
       model: 'SSB-500'
-    - regex: 'Alpha[_ ]X'
+    - regex: 'SSB504R[);/ ]'
+      model: 'Speed'
+    - regex: 'Alpha[_ ]X[);/ ]'
       model: 'Alpha X'
 
 # Mediacom
@@ -14361,7 +14365,7 @@ MLS:
 
 # Fly
 Fly:
-  regex: 'Fly(?!Flow|touch)|Power Plus 5000|Slimline|FS50[1-9]|FS51[0-8]|FS52[0-9]|FS530|FS55[134]|FS40[1-9]|FS45[1-9]|4FS06|MERIDIAN-|(?:IQ(?!10[134]0)[0-9]{3,}[i]?)[ _]?(?:Quad|Firebird|Quattro|Turbo|Magic)?[;)/ ]'
+  regex: 'Fly(?!Flow|touch)|Power Plus 5000|Photo Pro|Slimline|Life (?:Ace|Jet|Sky|Compact 4G)|FS50[1-9]|FS51[0-8]|FS52[0-9]|FS530|FS55[134]|FS40[1-9]|FS45[1-9]|4FS06|MERIDIAN-|(?:IQ(?!10[134]0)[0-9]{3,}[i]?)[ _]?(?:Quad|Firebird|Quattro|Turbo|Magic)?[;)/ ]'
   device: 'smartphone'
   models:
     - regex: '(?:Fly_)?IQ310[;)/ ]'
@@ -14374,6 +14378,16 @@ Fly:
       model: 'Slimline'
     - regex: 'Power Plus 5000[;)/ ]'
       model: 'Power Plus 5000'
+    - regex: 'Photo Pro[;)/ ]'
+      model: 'Photo Pro'
+    - regex: 'Life Ace[;)/ ]'
+      model: 'Life Ace'
+    - regex: 'Life Jet[;)/ ]'
+      model: 'Life Jet'
+    - regex: 'Life Sky[;)/ ]'
+      model: 'Life Sky'
+    - regex: 'Life Compact 4G[;)/ ]'
+      model: 'Life Compact 4G'
     - regex: 'FS506'
       model: 'Cirrus 3'
     - regex: 'FS403'
@@ -16483,11 +16497,13 @@ TurboKids:
 
 # Jinga
 Jinga:
-  regex: 'Jinga[-_ ]|(?:Optim4G)[);/ ]'
+  regex: 'Jinga[-_ ]|(?:Optim4G|PassPlus)[);/ ]'
   device: 'smartphone'
   models:
     - regex: 'Optim4G[);/ ]'
       model: 'Optim 4G'
+    - regex: 'PassPlus[);/ ]'
+      model: 'Pass Plus'
     - regex: 'Jinga Iron[);/ ]'
       model: 'Iron'
     - regex: 'Jinga Basco neo[);/ ]'
