@@ -7323,7 +7323,7 @@ Kyocera:
 
 # Krüger&Matz (Kruger&Matz)
 Krüger&Matz:
-  regex: 'Kruger[ _&]Matz|MOVE_|LIVE4_KM043[89]|KM1066|KM1065G'
+  regex: 'Kruger[ _&]Matz|KrugerMatz[ _]|MOVE_|LIVE4_KM043[89]|KM(?:106[67]|1065G|0701_1|0805_1)'
   device: 'smartphone'
   models:
     - regex: 'MOVE_6_mini'
@@ -7340,15 +7340,23 @@ Krüger&Matz:
       model: 'FLOW $1'
     - regex: 'LIVE4_(KM043[89])[;/) ]'
       model: 'LIVE 4 $1'
+    - regex: 'KrugerMatz_LIVE4[;/) ]'
+      model: 'LIVE 4'
     - regex: '_LIVE5_(KM0450)[;/) ]'
       model: 'LIVE 5 $1'
 
-    - regex: 'KM(1066)[;/) ]'
+    - regex: 'KM(106[67])[;/) ]'
       device: 'tablet'
       model: 'EAGLE $1 10.1"'
     - regex: 'KM(1065G)[;/) ]'
       device: 'tablet'
       model: 'EAGLE $1 10.1"'
+    - regex: 'KM0(701)_1[;/) ]'
+      device: 'tablet'
+      model: 'EAGLE $1 7.1"'
+    - regex: 'KM0(805)_1[;/) ]'
+      device: 'tablet'
+      model: 'EAGLE $1 8.0"'
 
 # LAIQ
 LAIQ:
@@ -7496,7 +7504,7 @@ Leagoo:
   models:
     - regex: 'LEAGOO[- _]M8[_-]?Pro[);/ ]'
       model: 'M8 Pro'
-    - regex: 'LEAGOO[- _](Z[156]|M8|T1)[);/ ]'
+    - regex: 'LEAGOO[- _](Z[156]|M[58]|T1)[);/ ]'
       model: '$1'
     - regex: 'M5 EDGE'
       model: 'M5 Edge'
@@ -8173,11 +8181,13 @@ Lingwin:
 
 # Logicom
 Logicom:
-  regex: '(TAB950|TAB1062|E731|E812|E912|E1031|POWER BOT|La Tab 72|(?:B|C|M|ID|VR)[ _]?BOT[ _]?(?:TAB[ _])?([0-9]+\+?)(?:PLUS)?|KT712A_4\.4|L-?IXIR[0-9]*|L-ITE|L-?EMENT|Le[ _]?(?:Hop|Lift|Hola|Moov[2]?|Fit FR|Smooth(?: FR)?))[_);/ ]'
+  regex: 'LOGICOM[_ ]|(TAB950|TAB1062|E731|E812|E912|E1031|POWER BOT|La Tab 72|(?:B|C|M|ID|VR)[ _]?BOT[ _]?(?:TAB[ _])?([0-9]+\+?)(?:PLUS)?|KT712A_4\.4|L-?IXIR[0-9]*|L-ITE|L-?EMENT|Le[ _]?(?:Hop|Lift|Hola|Moov[2]?|Fit FR|Smooth(?: FR)?))[_);/ ]'
   device: 'tablet'
   models:
     - regex: 'La Tab 72'
       model: 'La Tab 72'
+    - regex: 'LOGICOM_LA_TAB_LINK_71'
+      model: 'La Tab Link 71'
     - regex: 'KT712A_4.4'
       model: 'L-ixir Tab 701'
     - regex: 'LIXIR1041'
@@ -16250,7 +16260,7 @@ Multilaser:
 
 # Positivo BGH
 Positivo BGH:
-  regex: '(?:T1060B|S455|Positivo (?:Twist|Ypy)|Twist[ _](?:\(2018\)|2 (?:Fit|Pro)|Mini|Tab|Metal(?: 32GB)?|Max|XL|SE|[23SM]))[);/ ]'
+  regex: '(?:T1060B|S455|Positivo (?:Twist|Ypy|Mini I)|Twist[ _](?:\(2018\)|2 (?:Fit|Pro)|Mini|Tab|Metal(?: 32GB)?|Max|XL|SE|[23SM]))[);/ ]'
   device: 'smartphone'
   models:
     - regex: 'S455[);/ ]'
@@ -16275,6 +16285,8 @@ Positivo BGH:
       model: 'Twist SE'
     - regex: '(?:Positivo )?Twist ([23SM])[);/ ]'
       model: 'Twist $1'
+    - regex: '(?:Positivo )Mini I[);/ ]'
+      model: 'Mini I'
 
     - regex: 'T1060B[);/ ]'
       device: 'tablet'
