@@ -14091,11 +14091,15 @@ Yarvik:
 
 # Yes
 'Yes':
-  regex: 'M631Y'
+  regex: 'M631Y|M651G_MY|YES (MPY(?:48|54))'
   device: 'smartphone'
   models:
     - regex: 'M631Y'
       model: 'Altitude'
+    - regex: 'M651G_MY'
+      model: 'Altitude 2'
+    - regex: 'YES (MPY(?:48|54))'
+      model: '$1'
 
 # Yezz
 Yezz:
@@ -16888,3 +16892,22 @@ Beelink:
   regex: 'Beelink (GT1|LAKE I|SEA I|A1)[);/ ]'
   device: 'tv'
   model: '$1'
+
+# MAXVI
+MAXVI:
+  regex: 'MAXVI[ _](MS401)[);/ ]'
+  device: 'smartphone'
+  model: '$1'
+
+# meanIT (meanit.hr)
+meanIT:
+  regex: 'meanIT[ _](?:C[12]|X10|X[126]|MG430|Q[145])[);/ ]'
+  device: 'smartphone'
+  models:
+    - regex: 'meanIT[ _]Q1 plus[);/ ]'
+      model: 'Q1 Plus'
+    - regex: 'meanIT[ _](C[12]|X[126]|MG430|Q[145])[);/ ]'
+      model: '$1'
+    - regex: 'meanIT[ _]X10[);/ ]'
+      device: 'tablet'
+      model: 'X10'
