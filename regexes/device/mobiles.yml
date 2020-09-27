@@ -12938,11 +12938,13 @@ Touchmate:
 
 # TrekStor
 TrekStor:
-  regex: '(?:TrekStor|Surftab) ([^/;]+) Build|Surftab[^;\)]*(?:[;\)]|$)|ST10216-2A|VT10416-[12]|TFMTKAW01232'
+  regex: '(?:TrekStor|Surftab) ([^/;]+)(?: Build|\))|Surftab[^;\)]*(?:[;\)]|$)|ST10216-2A|VT10416-[12]|TFMTKAW01232'
   device: 'tablet'
   models:
     - regex: 'ST10216-2A|VT10416-[12]'
       model: 'SurfTab 10.1'
+    - regex: 'PrimeTab P10'
+      model: 'PrimeTab P10'
     - regex: 'TrekStor ([^/;]+) Build'
       model: '$1'
     - regex: 'Surftab ([^/;]+) Build'
@@ -16123,10 +16125,10 @@ VKworld:
 
 # Mito
 Mito:
-  regex: 'MITO[- _](A(?:1[08]|55|180|2[36]0|313|322|33|3[136]0|[35]50|6[89]|7[235]|82|[356]0|810|950)|T(?:10|35|3[03]0|510|888)|311)[);/ ]'
+  regex: 'MITO[- _](A(?:1[068]|39|55|180|2[36]0|313|322|33|3[136]0|[35]50|6[89]|7[235]|82|[356]0|810|950)|T(?:10|35|3[03]0|510|888)|311)[);/ ]'
   device: 'smartphone'
   models:
-    - regex: 'MITO[ _](A(?:1[08]|55|180|2[36]0|33|322|313|3[136]0|[35]50|6[89]|7[235]|82|[356]0|810|950))[);/ ]'
+    - regex: 'MITO[ _](A(?:1[068]|39|55|180|2[36]0|33|322|313|3[136]0|[35]50|6[89]|7[235]|82|[356]0|810|950))[);/ ]'
       model: '$1'
     - regex: 'MITO-(311)[);/ ]'
       model: '$1'
@@ -16711,9 +16713,17 @@ Logic:
 
 # Cloudfone
 Cloudfone:
-  regex: 'Thrill Boost 3[);/ ]'
+  regex: 'Thrill (?:Boost[ ]?(2|3)?|Snap|Access|)[);/ ]'
   device: 'smartphone'
-  model: 'Thrill Boost 3'
+  models:
+    - regex: 'Thrill Boost (2|3)[);/ ]'
+      model: 'Thrill Boost $1'
+    - regex: 'Thrill Boost[);/ ]'
+      model: 'Thrill Boost'
+    - regex: 'Thrill Snap[);/ ]'
+      model: 'Thrill Snap'
+    - regex: 'Thrill Access[);/ ]'
+      model: 'Thrill Access'
 
 # Vsmart
 Vsmart:
@@ -16729,9 +16739,15 @@ Vsmart:
 
 # MiXzo
 MiXzo:
-  regex: 'MiXzo ME1030_3G[);/ ]'
+  regex: '(?:MiXzo )?(?:ME1030|MX1037|MX1041)[ _][34]G[);/ ]'
   device: 'tablet'
-  model: 'ME1030 3G'
+  models:
+    - regex: 'MiXzo ME1030[_ ]3G[);/ ]'
+      model: 'ME1030 3G'
+    - regex: '(?:MiXzo )?MX1041[ _]4G[);/ ]'
+      model: 'MX1041 4G'
+    - regex: '(?:MiXzo )?MX1037[ _]4G[);/ ]'
+      model: 'MX1037 4G'
 
 # Openbox
 Openbox:
@@ -16911,3 +16927,9 @@ meanIT:
     - regex: 'meanIT[ _]X10[);/ ]'
       device: 'tablet'
       model: 'X10'
+
+# Kenxinda
+Kenxinda:
+  regex: 'Three[_ ]Proofings[_ ]W([5-9])[);/ ]'
+  device: 'smartphone'
+  model: 'Three Proofings W$1'

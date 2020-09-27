@@ -388,6 +388,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'KZ' => 'Kazam',
         '1K' => 'Kzen',
         'KE' => 'Krüger&Matz',
+        'KX' => 'Kenxinda',
         'LQ' => 'LAIQ',
         'L2' => 'Landvo',
         'L6' => 'Land Rover',
