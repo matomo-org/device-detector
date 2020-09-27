@@ -796,6 +796,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'XS' => 'Xshitou',
         'XT' => 'X-TIGI',
         'XB' => 'NEXBOX',
+        'X3' => 'X-BO',
 
         // legacy brands, might be removed in future versions
         'WB' => 'Web TV',
