@@ -771,6 +771,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'XN' => 'Xion',
         'XO' => 'Xolo',
         'XR' => 'Xoro',
+        'XG' => 'Xgody',
         'YA' => 'Yarvik',
         'YD' => 'Yandex',
         'Y2' => 'Yes',
