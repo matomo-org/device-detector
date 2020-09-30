@@ -15655,13 +15655,22 @@ Ghong:
 
 # Xoro
 Xoro:
-  regex: 'TelePAD(795|731|1032|10A3|7A3)|Era 2X[;)/ ]'
+  regex: '(?:TelePAD(?:795|731|1032|10A3|7A3)|Era 2X|HMT(?:390Q?|400)|HST 260)[;)/ ]'
   device: 'tablet'
   models:
     - regex: 'TelePAD(7|10)A3 4G[;)/ ]'
       model: 'TelePad $1 A3 4G'
     - regex: 'TelePAD(795|731|1032)[;)/ ]'
       model: 'TelePad $1'
+
+    - regex: 'HMT(390Q?|400)[;)/ ]'
+      model: 'HMT $1'
+      device: 'portable media player'
+
+    - regex: 'HST 260[;)/ ]'
+      model: 'HST 260'
+      device: 'tv'
+
     - regex: '(Era 2X)[;)/ ]'
       model: '$1'
       device: 'smartphone'
