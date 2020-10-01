@@ -23,7 +23,7 @@ class BrowserTest extends TestCase
         $browserParser = new Browser();
         $browserParser->setVersionTruncation(Browser::VERSION_TRUNCATION_NONE);
         $browserParser->setUserAgent($useragent);
-        $this->assertEquals($client, $browserParser->parse());
+        $this->assertEquals($client, $browserParser->parse(), "UserAgent: {$useragent}");
         self::$browsersTested[] = $client['short_name'];
     }
 
