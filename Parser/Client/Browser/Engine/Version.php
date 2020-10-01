@@ -43,7 +43,7 @@ class Version extends ClientParserAbstract
             return '';
         }
 
-        preg_match("~$this->engine\s*/?\s*((?(?=\d+\.\d)\d+[.\d]*|\d{1,7}(?=(?:\D|$))))~i", $this->userAgent, $matches);
+        preg_match("~$this->engine\s*/?\s*((?(?=\d+\.\d)\d+[.\d]*|\d{1,8}(?=(?:\D|$))))~i", $this->userAgent, $matches);
 
         if (!$matches) {
             return '';
