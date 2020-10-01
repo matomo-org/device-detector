@@ -316,6 +316,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'IJ' => 'i-Joy',
         'IC' => 'iDroid',
         'IY' => 'iBerry',
+        '7I' => 'iBrit',
         'IH' => 'iHunt',
         'IK' => 'iKoMo',
         'IE' => 'iView',
