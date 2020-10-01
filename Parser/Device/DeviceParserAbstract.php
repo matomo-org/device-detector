@@ -527,6 +527,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'OU' => 'OUYA',
         'OO' => 'Opsson',
         'OV' => 'Overmax',
+        '30' => 'Ovvi',
         'OY' => 'Oysters',
         'O6' => 'Oyyu',
         'OW' => 'öwn',
