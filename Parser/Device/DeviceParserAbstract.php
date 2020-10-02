@@ -261,6 +261,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'FL' => 'Fly',
         'F1' => 'FinePower',
         'FT' => 'Freetel',
+        'F7' => 'Fero',
         'FR' => 'Forstar',
         'FO' => 'Foxconn',
         'F2' => 'FORME',
