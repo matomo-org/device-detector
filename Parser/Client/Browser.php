@@ -437,7 +437,6 @@ class Browser extends ClientParserAbstract
     protected function buildEngineVersion($engine)
     {
         $engineVersionParser = new Engine\Version($this->userAgent, $engine);
-
         return $engineVersionParser->parse();
     }
 }
