@@ -126,6 +126,9 @@ while (!feof($fn)) {
     if (!isset($result['device']['model'])) {
         continue;
     }
+    if (strpos(strtolower($result['device']['model']), 'sm-')=== false) {
+        continue;
+    }
 
     if ($showMode === DETECT_MODE_TYPE_NOT) {
         if ($result['device']['model'] === '') {
