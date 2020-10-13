@@ -56,9 +56,9 @@ class DeviceDetectorTest extends TestCase
     protected function checkRegexRestrictionEndCondition($regexString)
     {
         // get conditions [);/ ]
-        if (preg_match_all('~(\[[);\/ ]+\])~m', $regexString, $matches1)) {
+        if (preg_match_all('~(\[[);\/ ]{3,4}\])~m', $regexString, $matches1)) {
             // get conditions (?:[);/ ]|$)
-            if (!preg_match_all('~(?:(?<=(?:\?:))(\[[);\/ ]+\])(?=\|\$))~m', $regexString, $matches2)) {
+            if (!preg_match_all('~(?:(?<=(?:\?:))(\[[);\/ ]{3,4}\])(?=\|\$))~m', $regexString, $matches2)) {
                 return false;
             }
             return count($matches1[0]) === count($matches2[1]);
@@ -89,7 +89,8 @@ class DeviceDetectorTest extends TestCase
                     $regex['regex']
                 ));
 
-                $this->assertTrue($this->checkRegexRestrictionEndCondition($regex['regex']), printf(
+
+                $this->assertTrue($this->checkRegexRestrictionEndCondition($regex['regex']), sprintf(
                     "Detect end of regular expression does not match the format `(?:[);/ ]|$)`, file %s, brand %s, common regex %s",
                     $file,
                     $brand,
