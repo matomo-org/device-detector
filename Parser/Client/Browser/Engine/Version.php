@@ -6,6 +6,7 @@
  * @link https://matomo.org
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Parser\Client\Browser\Engine;
 
 use DeviceDetector\Parser\Client\ClientParserAbstract;
@@ -43,9 +44,9 @@ class Version extends ClientParserAbstract
             return '';
         }
 
-        if($this->engine === 'Gecko'){
+        if ($this->engine === 'Gecko') {
             $pattern = "~[ ](?:rv[: ]([0-9\.]+)).*gecko/[0-9]{8,10}~i";
-            if(preg_match($pattern, $this->userAgent, $matches)){
+            if (preg_match($pattern, $this->userAgent, $matches)) {
                 return array_pop($matches);
             }
 
