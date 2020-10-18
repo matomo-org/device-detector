@@ -66,6 +66,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
      */
     public static $deviceBrands = array(
         '36' => '360',
+        '88' => '8848',
         '3Q' => '3Q',
         '4G' => '4Good',
         'AE' => 'Ace',
