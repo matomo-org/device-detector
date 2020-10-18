@@ -2090,7 +2090,7 @@ Asus:
       model: 'ZenFone Go TV'
     - regex: '(?:ASUS_)?Z00VD' #ZC500TG
       model: 'ZenFone Go'
-    - regex: '(?:ASUS_)?(X003)'
+    - regex: '(?:ASUS_)?(X00[23])'
       model: 'ZenFone Pegasus'
     - regex: '(?:ASUS_)?X005'
       model: 'ZenFone Pegasus 5000'
@@ -3533,7 +3533,7 @@ Condor:
 
 # Coolpad
 Coolpad:
-  regex: '(?:YL-)?Coolpad|(?:8190Q|8676-A01|CP8298_I00|CP3648A|CP8676_I0[23]|REVVLPLUS C3701A|VCR-[AI]0|C106-7|MTS-T0|cp3705A[S]?|ORL-C0)[);/ ]|(8295|5860S) Build'
+  regex: '(?:YL-)?Coolpad|(?:Cool_9S|8190Q|8676-A01|CP8298_I00|CP3648A|CP8676_I0[23]|REVVLPLUS C3701A|VCR-[AI]0|C106-7|MTS-T0|cp3705A[S]?|ORL-C0)[);/ ]|(8295|5860S) Build'
   device: 'smartphone'
   models:
     - regex: 'VCR-[AI]0'
@@ -3553,6 +3553,8 @@ Coolpad:
       model: 'Cool 1'
     - regex: 'ORL-C0[);/ ]'
       model: 'Cool 9'
+    - regex: 'Cool_9S[);/ ]'
+      model: 'Cool 9S'
     - regex: '(5860S|8295) Build'
       model: '$1'
     - regex: 'CP8676_I02[);/ ]'
@@ -3608,14 +3610,16 @@ Crosscall:
 
 # AllDocube (https://www.alldocube.com/)
 AllDocube:
-  regex: '(?:T1001XS|iPlay_20|U1006)[);/ ]'
+  regex: '(?:T1001XS?|iPlay_20|U1006)[);/ ]'
   device: 'tablet'
   models:
-    - regex: 'T1001XS(?:[);/ ]|$)'
+    - regex: 'T1001XS[);/ ]'
       model: 'M5XS'
-    - regex: 'U1006(?:[);/ ]|$)'
+    - regex: 'T1001X[);/ ]'
+      model: 'M5X'
+    - regex: 'U1006[);/ ]'
       model: 'iPlay 10 Pro 10.1"'
-    - regex: 'iPlay_20(?:[);/ ]|$)'
+    - regex: 'iPlay_20[);/ ]'
       model: 'iPlay 20'
 
 # Cube (short name Alldocube)
@@ -5529,7 +5533,7 @@ Hasee:
 
 # Hisense
 Hisense:
-  regex: '(?:HS-)?Hisense ([^;/]+) Build|Hisense [^);/]+|HS-(?:G|U|EG?|I|L|T|X)[0-9]+[a-z0-9\-]*|E270BSA|HITV300C|M470BS[AE]|E2281|EG680|I46D1G|HAT4KDTV|HLTE([237]00T|200M|21[237]T|22[13]E|310M|510T)'
+  regex: '(?:HS-)?Hisense ([^;/]+) Build|Hisense [^);/]+|HS-(?:G|U|EG?|I|L|T|X)[0-9]+[a-z0-9\-]*|E270BSA|HITV300C|M470BS[AE]|E2281|EG680|I46D1G|HAT4KDTV|HLTE([237]00T|200M|21[23567]T|22[67]T|22[13]E|310[TM]|316T|510T|720T)'
   device: 'smartphone'
   models:
     # explicit tablet models
@@ -5554,14 +5558,27 @@ Hisense:
       model: 'Smartfren Andromax Z'
     - regex: 'HLTE200T[);/ ]'
       model: 'F26'
+    - regex: 'HLTE215T[);/ ]'
+      model: 'F29'
     - regex: 'HLTE213T[);/ ]'
       model: 'King Kong 4'
+    - regex: 'HLTE216T[);/ ]'
+      model: 'King Kong 5'
+    - regex: 'HLTE316T[);/ ]'
+      model: 'King Kong 5 Pro'
+    - regex: 'HLTE226T[);/ ]'
+      model: 'King Kong 6'
     - regex: 'HLTE217T[);/ ]'
       model: 'F30S'
-    - regex: 'HLTE310M[);/ ]'
+    - regex: 'HLTE227T[);/ ]'
+      model: 'F40'
+    - regex: 'HLTE310[TM][);/ ]'
       model: 'H18'
     - regex: 'HLTE510T[);/ ]'
       model: 'H20'
+    - regex: 'HLTE720T[);/ ]'
+      model: 'U30'
+      device: 'phablet'
     - regex: '(HLTE300T|HLTE200M|HLTE212T)[);/ ]'
       model: '$1'
     - regex: 'HITV300C[);/ ]'
@@ -12563,7 +12580,7 @@ Sharp:
       device: 'tablet'
       model: 'Sharp Aquos Pad'
 
-    - regex: '(LC-(?:[0-9]{2})[a-z0-9]+)(?:[);/ ]|$)'
+    - regex: '(LC-(?:[0-9]{2})[a-z0-9]+)[);/ ]'
       device: 'tv'
       model: '$1'
     - regex: 'SHARP-AQUOS|AQUOSBrowser'
