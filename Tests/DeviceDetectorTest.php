@@ -47,6 +47,26 @@ class DeviceDetectorTest extends TestCase
         return true;
     }
 
+
+    /**
+     * check the regular expression for end condition constraint (?:[);/ ]|$)
+     * @param $regexString
+     * @return bool
+     */
+    protected function checkRegexRestrictionEndCondition($regexString)
+    {
+        // get conditions [);/ ]
+        if (preg_match_all('~(\[[);\/ ]{3,4}\])~m', $regexString, $matches1)) {
+            // get conditions (?:[);/ ]|$)
+            if (!preg_match_all('~(?:(?<=(?:\?:))(\[[);\/ ]{3,4}\])(?=\|\$))~m', $regexString, $matches2)) {
+                return false;
+            }
+            return count($matches1[0]) === count($matches2[1]);
+        }
+
+        return true;
+    }
+
     public function testDevicesYmlFiles()
     {
         $fixtureFiles = glob(realpath(dirname(__FILE__)) . '/../regexes/device/*.yml');
@@ -54,14 +74,23 @@ class DeviceDetectorTest extends TestCase
             $ymlData = \Spyc::YAMLLoad($file);
             foreach ($ymlData AS $brand => $regex) {
                 $this->assertArrayHasKey('regex', $regex);
+
                 $this->assertTrue(strpos($regex['regex'], '||') === false, sprintf(
                     "Detect `||` in regex, file %s, brand %s, common regex %s",
                     $file,
                     $brand,
                     $regex['regex']
                 ));
+
                 $this->assertTrue($this->checkRegexVerticalLineClosingGroup($regex['regex']), sprintf(
                     "Detect `|)` in regex, file %s, brand %s, common regex %s",
+                    $file,
+                    $brand,
+                    $regex['regex']
+                ));
+
+                $this->assertTrue($this->checkRegexRestrictionEndCondition($regex['regex']), sprintf(
+                    "Detect end of regular expression does not match the format `(?:[);/ ]|$)`, file %s, brand %s, common regex %s",
                     $file,
                     $brand,
                     $regex['regex']
@@ -90,6 +119,15 @@ class DeviceDetectorTest extends TestCase
                             $brand,
                             $model['regex']
                         ));
+
+                        $this->assertTrue($this->checkRegexRestrictionEndCondition($model['regex']), sprintf(
+                            "Detect end of regular expression does not match the format `(?:[);/ ]|$)`, file %s, brand %s, model regex %s",
+                            $file,
+                            $brand,
+                            $model['regex']
+                        ));
+
+
                     }
                 } else {
                     $this->assertArrayHasKey('device', $regex);
@@ -168,7 +206,15 @@ class DeviceDetectorTest extends TestCase
         $ua = $fixtureData['user_agent'];
 
         DeviceParserAbstract::setVersionTruncation(DeviceParserAbstract::VERSION_TRUNCATION_NONE);
-        $uaInfo = DeviceDetector::getInfoFromUserAgent($ua);
+        try {
+            $uaInfo = DeviceDetector::getInfoFromUserAgent($ua);
+        } catch (\Exception $exception){
+            throw new \Exception(
+                sprintf("Error: %s from useragent %s", $exception->getMessage(), $ua),
+                $exception->getCode(),
+                $exception
+            );
+        }
         $this->assertEquals($fixtureData, $uaInfo, "UserAgent: {$ua}");
     }
 
