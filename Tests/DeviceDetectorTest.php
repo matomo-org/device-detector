@@ -89,7 +89,6 @@ class DeviceDetectorTest extends TestCase
                     $regex['regex']
                 ));
 
-
                 $this->assertTrue($this->checkRegexRestrictionEndCondition($regex['regex']), sprintf(
                     "Detect end of regular expression does not match the format `(?:[);/ ]|$)`, file %s, brand %s, common regex %s",
                     $file,
@@ -207,8 +206,16 @@ class DeviceDetectorTest extends TestCase
         $ua = $fixtureData['user_agent'];
 
         DeviceParserAbstract::setVersionTruncation(DeviceParserAbstract::VERSION_TRUNCATION_NONE);
-        $uaInfo = DeviceDetector::getInfoFromUserAgent($ua);
-        $this->assertEquals($fixtureData, $uaInfo, "UserAgent: {$ua}");
+        try {
+            $uaInfo = DeviceDetector::getInfoFromUserAgent($ua);
+            $this->assertEquals($fixtureData, $uaInfo, "UserAgent: {$ua}");
+        } catch (\Exception $exception){
+            throw new \Exception(
+                sprintf("Error: %s from useragent %s", $exception->getMessage(), $ua),
+                $exception->getCode(),
+                $exception
+            );
+        }
     }
 
     public function getFixtures()
