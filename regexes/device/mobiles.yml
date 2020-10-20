@@ -8326,6 +8326,9 @@ Logicom:
       model: 'L-ixir Tab $1'
     - regex: 'L-ITE[ _]([^;/]+) Build'
       model: 'L-ite Tab $1'
+    - regex: 'L-EMENT (400)(?:[);/ ]|$)'
+      model: 'L-ement $1'
+      device: 'smartphone'
     - regex: 'L-?EMENT[ _](?:TAB)?([^;/]+) Build'
       model: 'L-ement Tab $1'
     - regex: '(TAB950|TAB1062|E731|E812|E912|E1031)(?:[);/ ]|$)'
@@ -9460,9 +9463,11 @@ Neffos:
 
 # Nextbit
 Nextbit:
-  regex: '(Robin)(?: Build|\))'
+  regex: 'Nextbit|(?:Robin)(?: Build|\))'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: '(Robin)(?:[);/ ]|$)'
+      model: '$1'
 
 # newgen
 Newgen:
@@ -10278,7 +10283,7 @@ Orange:
 
 # Ouki
 Ouki:
-  regex: 'OUKI|OK[AU][0-9]+[a-z]* Build'
+  regex: 'OUKI[ _-]|OK[AU][0-9]+[a-z]* Build'
   device: 'smartphone'
   models:
     - regex: 'OUKI[ _-]?([^;/]+) Build'
@@ -10292,11 +10297,13 @@ Ouki:
 
 # Oukitel
 Oukitel:
-  regex: '(?:(?:C15|C16|K10000|K[46]000)(?:[ _]Pro)|U20_Plus|K[46]000[ _](?:Plus|Lite)|Y4800|K10000|K[4567]000)(?:[);/ ]|$)'
+  regex: 'OUKITEL|(?:(?:C15|C16|K10000|K[46]000)(?:[ _]Pro)|U20_Plus|K[46]000[ _](?:Plus|Lite)|Y4800|K10000|K[4567]000)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(C15|C16|K10000|K[46]000)[ _]Pro(?:[);/ ]|$)'
       model: '$1 Pro'
+    - regex: 'OUKITEL K3(?:[);/ ]|$)'
+      model: 'K3'
     - regex: '(K10000)[ _]Max(?:[);/ ]|$)'
       model: '$1 Max'
     - regex: '(U20|K[46]000)[_ ]Plus(?:[);/ ]|$)'
