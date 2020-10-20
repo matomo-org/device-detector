@@ -66,6 +66,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
      */
     public static $deviceBrands = array(
         '36' => '360',
+        '88' => '8848',
         '3Q' => '3Q',
         '4G' => '4Good',
         'AE' => 'Ace',
@@ -662,6 +663,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'TA' => 'Tesla',
         'TK' => 'Takara',
         '4T' => 'Tronsmart',
+        '5R' => 'Transpeed',
         'T5' => 'TB Touch',
         'TC' => 'TCL',
         'T7' => 'Teclast',
@@ -738,6 +740,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'VL' => 'Verykool',
         'V6' => 'VGO TEL',
         'VV' => 'Vivo',
+        '3V' => 'VVETIME',
         'VX' => 'Vertex',
         'V3' => 'Vinsoc',
         'V2' => 'Vonino',

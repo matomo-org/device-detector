@@ -208,7 +208,6 @@ class DeviceDetectorTest extends TestCase
         DeviceParserAbstract::setVersionTruncation(DeviceParserAbstract::VERSION_TRUNCATION_NONE);
         try {
             $uaInfo = DeviceDetector::getInfoFromUserAgent($ua);
-            $this->assertEquals($fixtureData, $uaInfo, "UserAgent: {$ua}");
         } catch (\Exception $exception){
             throw new \Exception(
                 sprintf("Error: %s from useragent %s", $exception->getMessage(), $ua),
@@ -216,6 +215,7 @@ class DeviceDetectorTest extends TestCase
                 $exception
             );
         }
+        $this->assertEquals($fixtureData, $uaInfo, "UserAgent: {$ua}");
     }
 
     public function getFixtures()
