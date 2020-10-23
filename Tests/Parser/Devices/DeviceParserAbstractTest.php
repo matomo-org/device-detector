@@ -5,7 +5,7 @@
  * @link https://matomo.org
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
-namespace DeviceDetector\Tests\Parser\Device;
+namespace DeviceDetector\Tests\Parser\Devices;
 
 use DeviceDetector\Parser\Device\DeviceParserAbstract;
 use PHPUnit\Framework\TestCase;
