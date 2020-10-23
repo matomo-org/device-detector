@@ -55,6 +55,10 @@ class DeviceDetectorTest extends TestCase
      */
     protected function checkRegexRestrictionEndCondition($regexString)
     {
+        // get conditions [;)\ ]
+        if (preg_match_all('~(\[[);\\\ ]{4}\])~m', $regexString, $matches1)) {
+            return false;
+        }
         // get conditions [);/ ]
         if (preg_match_all('~(\[[);\/ ]{3,4}\])~m', $regexString, $matches1)) {
             // get conditions (?:[);/ ]|$)
@@ -70,9 +74,9 @@ class DeviceDetectorTest extends TestCase
     public function testDevicesYmlFiles()
     {
         $fixtureFiles = glob(realpath(dirname(__FILE__)) . '/../regexes/device/*.yml');
-        foreach ($fixtureFiles AS $file) {
+        foreach ($fixtureFiles as $file) {
             $ymlData = \Spyc::YAMLLoad($file);
-            foreach ($ymlData AS $brand => $regex) {
+            foreach ($ymlData as $brand => $regex) {
                 $this->assertArrayHasKey('regex', $regex);
 
                 $this->assertTrue(strpos($regex['regex'], '||') === false, sprintf(
@@ -98,7 +102,7 @@ class DeviceDetectorTest extends TestCase
 
                 if (array_key_exists('models', $regex)) {
                     $this->assertInternalType('array', $regex['models']);
-                    foreach ($regex['models'] AS $model) {
+                    foreach ($regex['models'] as $model) {
                         $this->assertArrayHasKey('regex', $model);
                         $this->assertArrayHasKey('model', $model, sprintf(
                             "Key model not exist, file %s, brand %s, model regex %s",
@@ -208,7 +212,7 @@ class DeviceDetectorTest extends TestCase
         DeviceParserAbstract::setVersionTruncation(DeviceParserAbstract::VERSION_TRUNCATION_NONE);
         try {
             $uaInfo = DeviceDetector::getInfoFromUserAgent($ua);
-        } catch (\Exception $exception){
+        } catch (\Exception $exception) {
             throw new \Exception(
                 sprintf("Error: %s from useragent %s", $exception->getMessage(), $ua),
                 $exception->getCode(),
@@ -222,7 +226,7 @@ class DeviceDetectorTest extends TestCase
     {
         $fixtures = array();
         $fixtureFiles = glob(realpath(dirname(__FILE__)) . '/fixtures/*.yml');
-        foreach ($fixtureFiles AS $fixturesPath) {
+        foreach ($fixtureFiles as $fixturesPath) {
             $typeFixtures = \Spyc::YAMLLoad($fixturesPath);
             $deviceType = str_replace('_', ' ', substr(basename($fixturesPath), 0, -4));
             if ($deviceType != 'bots') {
