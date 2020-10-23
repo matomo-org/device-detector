@@ -11,7 +11,7 @@ use DeviceDetector\Parser\Client\Library;
 use \Spyc;
 use PHPUnit\Framework\TestCase;
 
-class ToolTest extends TestCase
+class LibraryTest extends TestCase
 {
     /**
      * @dataProvider getFixtures
