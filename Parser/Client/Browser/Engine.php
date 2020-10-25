@@ -49,7 +49,7 @@ class Engine extends AbstractClientParser
         'Edge',
         'NetSurf',
         'Servo',
-        'Goanna'
+        'Goanna',
     ];
 
     /**
@@ -67,6 +67,7 @@ class Engine extends AbstractClientParser
     public function parse(): ?array
     {
         $matches = false;
+
         foreach ($this->getRegexes() as $regex) {
             $matches = $this->matchUserAgent($regex['regex']);
 
