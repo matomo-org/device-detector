@@ -69,6 +69,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         '88' => '8848',
         '3Q' => '3Q',
         '4G' => '4Good',
+        '41' => 'A1',
         'AE' => 'Ace',
         'AA' => 'AllCall',
         '3A' => 'AllDocube',
