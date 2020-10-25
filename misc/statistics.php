@@ -16,15 +16,15 @@ if (count($argv) != 2) {
 }
 
 use DeviceDetector\DeviceDetector;
-use DeviceDetector\Parser\Device\DeviceParserAbstract;
+use DeviceDetector\Parser\Device\AbstractDeviceParser;
 
 $parsedUAs = $unknownDeviceTypes = $detectedBots = 0;
 
-$deviceAvailableDeviceTypes = array_flip(DeviceParserAbstract::getAvailableDeviceTypes());
+$deviceAvailableDeviceTypes = array_flip(AbstractDeviceParser::getAvailableDeviceTypes());
 
-\DeviceDetector\Parser\Device\AbstractDeviceParser::setVersionTruncation(\DeviceDetector\Parser\Device\AbstractDeviceParser::VERSION_TRUNCATION_NONE);
+AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
 
-$deviceTypes = (array_fill(0, count(\DeviceDetector\Parser\Device\AbstractDeviceParser::getAvailableDeviceTypes()), 0));
+$deviceTypes = (array_fill(0, count(AbstractDeviceParser::getAvailableDeviceTypes()), 0));
 
 $startTime = microtime(true);
 

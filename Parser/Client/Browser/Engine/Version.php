@@ -46,13 +46,12 @@ class Version extends AbstractClientParser
             return null;
         }
 
-        if ($this->engine === 'Gecko') {
-            $pattern = "~[ ](?:rv[: ]([0-9\.]+)).*gecko/[0-9]{8,10}~i";
+        if ('Gecko' === $this->engine) {
+            $pattern = '~[ ](?:rv[: ]([0-9\.]+)).*gecko/[0-9]{8,10}~i';
 
             if (\preg_match($pattern, $this->userAgent, $matches)) {
-                return \array_pop($matches);
+                return ['version' => \array_pop($matches)];
             }
-
         }
 
         \preg_match(

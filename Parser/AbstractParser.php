@@ -339,7 +339,7 @@ abstract class AbstractParser
 
         if (empty($overAllMatch)) {
             // reverse all regexes, so we have the generic one first, which already matches most patterns
-            $overAllMatch = \array_reduce(\array_reverse($regexes), function ($val1, $val2) {
+            $overAllMatch = \array_reduce(\array_reverse($regexes), static function ($val1, $val2) {
                 return !empty($val1) ? $val1 . '|' . $val2['regex'] : $val2['regex'];
             });
             $this->getCache()->save($cacheKey, $overAllMatch);

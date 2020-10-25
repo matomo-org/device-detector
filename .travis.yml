@@ -20,10 +20,10 @@ stages:
 
 before_install:
   - phpenv config-rm xdebug.ini || echo "xdebug not available"
-  - (composer self-update; true)
-  - composer require doctrine/cache ~1.2
 
-install: composer install
+install:
+  - composer install
+  - composer require doctrine/cache ~1.2
 
 script: vendor/bin/phpunit --no-coverage
 
