@@ -18,20 +18,16 @@ use PHPUnit\Framework\TestCase;
 
 class DeviceDetectorTest extends TestCase
 {
-    /**
-     * @expectedException \Exception
-     */
     public function testAddClientParserInvalid(): void
     {
+        $this->expectException(\Exception::class);
         $dd = new DeviceDetector();
         $dd->addClientParser('Invalid');
     }
 
-    /**
-     * @expectedException \Exception
-     */
     public function testAddDeviceParserInvalid(): void
     {
+        $this->expectException(\Exception::class);
         $dd = new DeviceDetector();
         $dd->addDeviceParser('Invalid');
     }
@@ -106,7 +102,7 @@ class DeviceDetectorTest extends TestCase
                 ));
 
                 if (array_key_exists('models', $regex)) {
-                    $this->assertInternalType('array', $regex['models']);
+                    $this->assertIsArray($regex['models']);
 
                     foreach ($regex['models'] as $model) {
                         $this->assertArrayHasKey('regex', $model);
@@ -142,17 +138,15 @@ class DeviceDetectorTest extends TestCase
                 } else {
                     $this->assertArrayHasKey('device', $regex);
                     $this->assertArrayHasKey('model', $regex);
-                    $this->assertInternalType('string', $regex['model']);
+                    $this->assertIsString($regex['model']);
                 }
             }
         }
     }
 
-    /**
-     * @expectedException \TypeError
-     */
     public function testSetCacheInvalid(): void
     {
+        $this->expectException(\TypeError::class);
         $dd = new DeviceDetector();
         $dd->setCache('Invalid');
     }
@@ -371,11 +365,9 @@ class DeviceDetectorTest extends TestCase
         $this->assertFalse($dd->isFeedReader());
     }
 
-    /**
-     * @expectedException \BadMethodCallException
-     */
     public function testInvalidMagicMethod(): void
     {
+        $this->expectException(\BadMethodCallException::class);
         $dd = new DeviceDetector('Mozilla/5.0');
         $dd->parse();
         $dd->inValidMethod();
@@ -471,11 +463,10 @@ class DeviceDetectorTest extends TestCase
         $this->assertFalse($dd->isBot());
     }
 
-    /**
-     * @expectedException \TypeError
-     */
     public function testSetYamlParserInvalid(): void
     {
+        $this->expectException(\TypeError::class);
+
         $dd = new DeviceDetector();
         $dd->setYamlParser('Invalid');
     }

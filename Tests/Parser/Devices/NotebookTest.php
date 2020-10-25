@@ -18,12 +18,12 @@ class NotebookTest extends TestCase
      */
     public function testParse($useragent, $device)
     {
-        $consoleParser = new Notebook();
-        $consoleParser->setUserAgent($useragent);
-        $this->assertTrue($consoleParser->parse());
-        $this->assertEquals($device['type'], $consoleParser->getDeviceType());
-        $this->assertEquals($device['brand'], $consoleParser->getBrand());
-        $this->assertEquals($device['model'], $consoleParser->getModel());
+        $NotebookParser = new Notebook();
+        $NotebookParser->setUserAgent($useragent);
+        $this->assertNotNull($NotebookParser->parse());
+        $this->assertEquals($device['type'], $NotebookParser->getDeviceType());
+        $this->assertEquals($device['brand'], $NotebookParser->getBrand());
+        $this->assertEquals($device['model'], $NotebookParser->getModel());
     }
 
     public function getFixtures()
