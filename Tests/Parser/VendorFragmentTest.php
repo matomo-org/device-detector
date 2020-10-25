@@ -16,12 +16,12 @@ use PHPUnit\Framework\TestCase;
 
 class VendorFragmentTest extends TestCase
 {
-    static $regexesTested = [];
+    protected static $regexesTested = [];
 
     /**
      * @dataProvider getFixtures
      */
-    public function testParse($useragent, $vendor): void
+    public function testParse(string $useragent, string $vendor): void
     {
         $vfParser = new VendorFragment();
         $vfParser->setUserAgent($useragent);
@@ -29,9 +29,9 @@ class VendorFragmentTest extends TestCase
         self::$regexesTested[] = $vfParser->getMatchedRegex();
     }
 
-    public function getFixtures()
+    public function getFixtures(): array
     {
-        $fixtureData = Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/vendorfragments.yml');
+        $fixtureData = Spyc::YAMLLoad(\realpath(\dirname(__FILE__)) . '/fixtures/vendorfragments.yml');
 
         return $fixtureData;
     }
@@ -40,11 +40,11 @@ class VendorFragmentTest extends TestCase
     {
         $regexesNotTested = [];
 
-        $vendorRegexes = Spyc::YAMLLoad(realpath(__DIR__ . '/../../regexes/') . DIRECTORY_SEPARATOR . 'vendorfragments.yml');
+        $vendorRegexes = Spyc::YAMLLoad(\realpath(__DIR__ . '/../../regexes/') . DIRECTORY_SEPARATOR . 'vendorfragments.yml');
 
         foreach ($vendorRegexes as $vendor => $regexes) {
             foreach ($regexes as $regex) {
-                if (in_array($regex, self::$regexesTested)) {
+                if (\in_array($regex, self::$regexesTested)) {
                     continue;
                 }
 
@@ -52,6 +52,6 @@ class VendorFragmentTest extends TestCase
             }
         }
 
-        $this->assertEmpty($regexesNotTested, 'Following vendor fragments are not tested: ' . implode(', ', $regexesNotTested));
+        $this->assertEmpty($regexesNotTested, 'Following vendor fragments are not tested: ' . \implode(', ', $regexesNotTested));
     }
 }

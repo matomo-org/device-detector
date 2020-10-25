@@ -16,12 +16,12 @@ use PHPUnit\Framework\TestCase;
 
 class BrowserTest extends TestCase
 {
-    static $browsersTested = [];
+    protected static $browsersTested = [];
 
     /**
      * @dataProvider getFixtures
      */
-    public function testParse($useragent, $client): void
+    public function testParse(string $useragent, array $client): void
     {
         $browserParser = new Browser();
         $browserParser->setVersionTruncation(Browser::VERSION_TRUNCATION_NONE);
@@ -30,9 +30,9 @@ class BrowserTest extends TestCase
         self::$browsersTested[] = $client['short_name'];
     }
 
-    public function getFixtures()
+    public function getFixtures(): array
     {
-        $fixtureData = Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/browser.yml');
+        $fixtureData = Spyc::YAMLLoad(\realpath(\dirname(__FILE__)) . '/fixtures/browser.yml');
 
         return $fixtureData;
     }
@@ -44,14 +44,14 @@ class BrowserTest extends TestCase
 
     public function testAllBrowsersTested(): void
     {
-        $allBrowsers       = array_keys(Browser::getAvailableBrowsers());
-        $browsersNotTested = array_diff($allBrowsers, self::$browsersTested);
-        $this->assertEmpty($browsersNotTested, 'Following browsers are not tested: ' . implode(', ', $browsersNotTested));
+        $allBrowsers       = \array_keys(Browser::getAvailableBrowsers());
+        $browsersNotTested = \array_diff($allBrowsers, self::$browsersTested);
+        $this->assertEmpty($browsersNotTested, 'This browsers are not tested: ' . \implode(', ', $browsersNotTested));
     }
 
     public function testGetAvailableClients(): void
     {
         $available = Browser::getAvailableClients();
-        $this->assertGreaterThanOrEqual(count($available), count(Browser::getAvailableBrowsers()));
+        $this->assertGreaterThanOrEqual(\count($available), \count(Browser::getAvailableBrowsers()));
     }
 }

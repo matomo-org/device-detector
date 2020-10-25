@@ -19,16 +19,16 @@ class PIMTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
-    public function testParse($useragent, $client): void
+    public function testParse(string $useragent, array $client): void
     {
         $PIMParser = new PIM();
         $PIMParser->setUserAgent($useragent);
         $this->assertEquals($client, $PIMParser->parse());
     }
 
-    public function getFixtures()
+    public function getFixtures(): array
     {
-        $fixtureData = Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/pim.yml');
+        $fixtureData = Spyc::YAMLLoad(\realpath(\dirname(__FILE__)) . '/fixtures/pim.yml');
 
         return $fixtureData;
     }

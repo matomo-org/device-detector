@@ -18,14 +18,14 @@ class DeviceParserAbstractTest extends TestCase
     public function testGetAvailableDeviceTypes(): void
     {
         $available = AbstractDeviceParser::getAvailableDeviceTypes();
-        $this->assertGreaterThan(5, count($available));
-        $this->assertContains('desktop', array_keys($available));
+        $this->assertGreaterThan(5, \count($available));
+        $this->assertContains('desktop', \array_keys($available));
     }
 
     public function testGetAvailableDeviceTypeNames(): void
     {
         $available = AbstractDeviceParser::getAvailableDeviceTypeNames();
-        $this->assertGreaterThan(5, count($available));
+        $this->assertGreaterThan(5, \count($available));
         $this->assertContains('desktop', $available);
     }
 

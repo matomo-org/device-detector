@@ -19,16 +19,16 @@ class MediaPlayerTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
-    public function testParse($useragent, $client): void
+    public function testParse(string $useragent, array $client): void
     {
         $mediaPlayerParser = new MediaPlayer();
         $mediaPlayerParser->setUserAgent($useragent);
         $this->assertEquals($client, $mediaPlayerParser->parse());
     }
 
-    public function getFixtures()
+    public function getFixtures(): array
     {
-        $fixtureData = Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/mediaplayer.yml');
+        $fixtureData = Spyc::YAMLLoad(\realpath(\dirname(__FILE__)) . '/fixtures/mediaplayer.yml');
 
         return $fixtureData;
     }

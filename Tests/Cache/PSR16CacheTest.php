@@ -19,8 +19,9 @@ class PSR16CacheTest extends TestCase
 {
     protected function setUp(): void
     {
-        if (!class_exists('\MatthiasMullie\Scrapbook\Adapters\MemoryStore')) {
+        if (!\class_exists('\MatthiasMullie\Scrapbook\Adapters\MemoryStore')) {
             $this->markTestSkipped('class \MatthiasMullie\Scrapbook\Adapters\MemoryStore required for tests');
+
             return;
         }
 

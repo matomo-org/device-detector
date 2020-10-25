@@ -19,19 +19,19 @@ class CarBrowserTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
-    public function testParse($useragent, $device): void
+    public function testParse(string $useragent, array $device): void
     {
         $consoleParser = new CarBrowser();
         $consoleParser->setUserAgent($useragent);
-        $this->assertTrue(is_array($consoleParser->parse()));
+        $this->assertTrue(\is_array($consoleParser->parse()));
         $this->assertEquals($device['type'], $consoleParser->getDeviceType());
         $this->assertEquals($device['brand'], $consoleParser->getBrand());
         $this->assertEquals($device['model'], $consoleParser->getModel());
     }
 
-    public function getFixtures()
+    public function getFixtures(): array
     {
-        $fixtureData = Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/car_browser.yml');
+        $fixtureData = Spyc::YAMLLoad(\realpath(\dirname(__FILE__)) . '/fixtures/car_browser.yml');
 
         return $fixtureData;
     }

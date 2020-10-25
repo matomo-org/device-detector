@@ -10,18 +10,18 @@
 
 namespace DeviceDetector\Tests\Parser;
 
-use DeviceDetector\Parser\OperatingSystem;
 use \Spyc;
+use DeviceDetector\Parser\OperatingSystem;
 use PHPUnit\Framework\TestCase;
 
 class OperatingSystemTest extends TestCase
 {
-    static $osTested = [];
+    protected static $osTested = [];
 
     /**
      * @dataProvider getFixtures
      */
-    public function testParse($useragent, $os): void
+    public function testParse(string $useragent, array $os): void
     {
         $osParser = new OperatingSystem();
         $osParser->setUserAgent($useragent);
@@ -29,9 +29,9 @@ class OperatingSystemTest extends TestCase
         self::$osTested[] = $os['short_name'];
     }
 
-    public function getFixtures()
+    public function getFixtures(): array
     {
-        $fixtureData = Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/oss.yml');
+        $fixtureData = Spyc::YAMLLoad(\realpath(\dirname(__FILE__)) . '/fixtures/oss.yml');
 
         return $fixtureData;
     }
@@ -39,16 +39,16 @@ class OperatingSystemTest extends TestCase
     /**
      * @dataProvider getAllOs
      */
-    public function testOSInGroup($os): void
+    public function testOSInGroup(string $os): void
     {
-        $familyOs = call_user_func_array('array_merge', OperatingSystem::getAvailableOperatingSystemFamilies());
+        $familyOs = \call_user_func_array('array_merge', OperatingSystem::getAvailableOperatingSystemFamilies());
         $this->assertContains($os, $familyOs);
     }
 
-    public function getAllOs()
+    public function getAllOs(): array
     {
-        $allOs = array_keys(OperatingSystem::getAvailableOperatingSystems());
-        $allOs = array_map(function ($os) {
+        $allOs = \array_keys(OperatingSystem::getAvailableOperatingSystems());
+        $allOs = \array_map(static function ($os) {
             return [$os];
         }, $allOs);
 
@@ -58,16 +58,16 @@ class OperatingSystemTest extends TestCase
     /**
      * @dataProvider getAllFamilyOs
      */
-    public function testFamilyOSExists($os): void
+    public function testFamilyOSExists(string $os): void
     {
-        $allOs = array_keys(OperatingSystem::getAvailableOperatingSystems());
+        $allOs = \array_keys(OperatingSystem::getAvailableOperatingSystems());
         $this->assertContains($os, $allOs);
     }
 
-    public function getAllFamilyOs()
+    public function getAllFamilyOs(): array
     {
-        $allFamilyOs = call_user_func_array('array_merge', OperatingSystem::getAvailableOperatingSystemFamilies());
-        $allFamilyOs = array_map(function ($os) {
+        $allFamilyOs = \call_user_func_array('array_merge', OperatingSystem::getAvailableOperatingSystemFamilies());
+        $allFamilyOs = \array_map(static function ($os) {
             return [$os];
         }, $allFamilyOs);
 
@@ -82,25 +82,25 @@ class OperatingSystemTest extends TestCase
     /**
      * @dataProvider getNameFromIds
      */
-    public function testGetNameFromId($os, $version, $expected): void
+    public function testGetNameFromId(string $os, string $version, ?string $expected): void
     {
         $this->assertEquals($expected, OperatingSystem::getNameFromId($os, $version));
     }
 
-    public function getNameFromIds()
+    public function getNameFromIds(): array
     {
         return [
             ['DEB', '4.5', 'Debian 4.5'],
             ['WRT', '', 'Windows RT'],
             ['WIN', '98', 'Windows 98'],
-            ['XXX', '4.5', false],
+            ['XXX', '4.5', null],
         ];
     }
 
     public function testAllOperatingSystemsTested(): void
     {
-        $allBrowsers = array_keys(OperatingSystem::getAvailableOperatingSystems());
-        $osNotTested = array_diff($allBrowsers, self::$osTested);
-        $this->assertEmpty($osNotTested, 'Following browsers are not tested: ' . implode(', ', $osNotTested));
+        $allBrowsers = \array_keys(OperatingSystem::getAvailableOperatingSystems());
+        $osNotTested = \array_diff($allBrowsers, self::$osTested);
+        $this->assertEmpty($osNotTested, 'Following browsers are not tested: ' . \implode(', ', $osNotTested));
     }
 }

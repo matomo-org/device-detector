@@ -19,16 +19,16 @@ class LibraryTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
-    public function testParse($useragent, $client): void
+    public function testParse(string $useragent, array $client): void
     {
-        $LibraryParser = new Library();
-        $LibraryParser->setUserAgent($useragent);
-        $this->assertEquals($client, $LibraryParser->parse());
+        $libraryParser = new Library();
+        $libraryParser->setUserAgent($useragent);
+        $this->assertEquals($client, $libraryParser->parse());
     }
 
-    public function getFixtures()
+    public function getFixtures(): array
     {
-        $fixtureData = Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/library.yml');
+        $fixtureData = Spyc::YAMLLoad(\realpath(\dirname(__FILE__)) . '/fixtures/library.yml');
 
         return $fixtureData;
     }

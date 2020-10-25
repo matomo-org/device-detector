@@ -32,47 +32,9 @@ class DeviceDetectorTest extends TestCase
         $dd->addDeviceParser('Invalid');
     }
 
-    /**
-     * check the regular expression for the vertical line closing the group
-     * @param string $regexString
-     * @return bool
-     */
-    protected function checkRegexVerticalLineClosingGroup($regexString)
-    {
-        if (strpos($regexString, '|)') !== false) {
-            return !preg_match('#(?<!\\\)(\|\))#is', $regexString);
-        }
-        return true;
-    }
-
-
-    /**
-     * check the regular expression for end condition constraint (?:[);/ ]|$)
-     *
-     * @param string $regexString
-     * @return bool
-     */
-    protected function checkRegexRestrictionEndCondition(string $regexString): bool
-    {
-        // get conditions [;)\ ]
-        if (preg_match_all('~(\[[);\\\ ]{4}\])~m', $regexString, $matches1)) {
-            return false;
-        }
-        // get conditions [);/ ]
-        if (preg_match_all('~(\[[);\/ ]{3,4}\])~m', $regexString, $matches1)) {
-            // get conditions (?:[);/ ]|$)
-            if (!preg_match_all('~(?:(?<=(?:\?:))(\[[);\/ ]{3,4}\])(?=\|\$))~m', $regexString, $matches2)) {
-                return false;
-            }
-            return count($matches1[0]) === count($matches2[1]);
-        }
-
-        return true;
-    }
-
     public function testDevicesYmlFiles(): void
     {
-        $fixtureFiles = glob(realpath(dirname(__FILE__)) . '/../regexes/device/*.yml');
+        $fixtureFiles = \glob(\realpath(\dirname(__FILE__)) . '/../regexes/device/*.yml');
 
         foreach ($fixtureFiles as $file) {
             $ymlData = \Spyc::YAMLLoad($file);
@@ -80,60 +42,58 @@ class DeviceDetectorTest extends TestCase
             foreach ($ymlData as $brand => $regex) {
                 $this->assertArrayHasKey('regex', $regex);
 
-                $this->assertTrue(false === strpos($regex['regex'], '||'), sprintf(
+                $this->assertTrue(false === \strpos($regex['regex'], '||'), \sprintf(
                     'Detect `||` in regex, file %s, brand %s, common regex %s',
                     $file,
                     $brand,
                     $regex['regex']
                 ));
 
-                $this->assertTrue($this->checkRegexVerticalLineClosingGroup($regex['regex']), sprintf(
-                    "Detect `|)` in regex, file %s, brand %s, common regex %s",
+                $this->assertTrue($this->checkRegexVerticalLineClosingGroup($regex['regex']), \sprintf(
+                    'Detect `|)` in regex, file %s, brand %s, common regex %s',
                     $file,
                     $brand,
                     $regex['regex']
                 ));
 
-                $this->assertTrue($this->checkRegexRestrictionEndCondition($regex['regex']), sprintf(
-                    "Detect end of regular expression does not match the format `(?:[);/ ]|$)`, file %s, brand %s, common regex %s",
+                $this->assertTrue($this->checkRegexRestrictionEndCondition($regex['regex']), \sprintf(
+                    'Detect end of regular expression does not match the format `(?:[);/ ]|$)`, file %s, brand %s, common regex %s',
                     $file,
                     $brand,
                     $regex['regex']
                 ));
 
-                if (array_key_exists('models', $regex)) {
+                if (\array_key_exists('models', $regex)) {
                     $this->assertIsArray($regex['models']);
 
                     foreach ($regex['models'] as $model) {
                         $this->assertArrayHasKey('regex', $model);
-                        $this->assertArrayHasKey('model', $model, sprintf(
+                        $this->assertArrayHasKey('model', $model, \sprintf(
                             'Key model not exist, file %s, brand %s, model regex %s',
                             $file,
                             $brand,
                             $model['regex']
                         ));
-                        $this->assertTrue(false === strpos($model['regex'], '||'), sprintf(
+                        $this->assertTrue(false === \strpos($model['regex'], '||'), \sprintf(
                             'Detect `||` in regex, file %s, brand %s, model regex %s',
                             $file,
                             $brand,
                             $model['regex']
                         ));
 
-                        $this->assertTrue($this->checkRegexVerticalLineClosingGroup($model['regex']), sprintf(
-                            "Detect `|)` in regex, file %s, brand %s, model regex %s",
+                        $this->assertTrue($this->checkRegexVerticalLineClosingGroup($model['regex']), \sprintf(
+                            'Detect `|)` in regex, file %s, brand %s, model regex %s',
                             $file,
                             $brand,
                             $model['regex']
                         ));
 
-                        $this->assertTrue($this->checkRegexRestrictionEndCondition($model['regex']), sprintf(
-                            "Detect end of regular expression does not match the format `(?:[);/ ]|$)`, file %s, brand %s, model regex %s",
+                        $this->assertTrue($this->checkRegexRestrictionEndCondition($model['regex']), \sprintf(
+                            'Detect end of regular expression does not match the format `(?:[);/ ]|$)`, file %s, brand %s, model regex %s',
                             $file,
                             $brand,
                             $model['regex']
                         ));
-
-
                     }
                 } else {
                     $this->assertArrayHasKey('device', $regex);
@@ -153,7 +113,7 @@ class DeviceDetectorTest extends TestCase
 
     public function testCacheSetAndGet(): void
     {
-        if (!extension_loaded('memcache') || !class_exists('\Doctrine\Common\Cache\MemcacheCache')) {
+        if (!\extension_loaded('memcache') || !\class_exists('\Doctrine\Common\Cache\MemcacheCache')) {
             $this->markTestSkipped('memcache not enabled');
         }
 
@@ -192,7 +152,7 @@ class DeviceDetectorTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
-    public function testParse($fixtureData): void
+    public function testParse(array $fixtureData): void
     {
         $ua = $fixtureData['user_agent'];
 
@@ -202,28 +162,29 @@ class DeviceDetectorTest extends TestCase
             $uaInfo = DeviceDetector::getInfoFromUserAgent($ua);
         } catch (\Exception $exception) {
             throw new \Exception(
-                sprintf("Error: %s from useragent %s", $exception->getMessage(), $ua),
+                \sprintf('Error: %s from useragent %s', $exception->getMessage(), $ua),
                 $exception->getCode(),
                 $exception
             );
         }
+
         $this->assertEquals($fixtureData, $uaInfo, "UserAgent: {$ua}");
     }
 
-    public function getFixtures()
+    public function getFixtures(): array
     {
         $fixtures     = [];
-        $fixtureFiles = glob(realpath(dirname(__FILE__)) . '/fixtures/*.yml');
+        $fixtureFiles = \glob(\realpath(\dirname(__FILE__)) . '/fixtures/*.yml');
 
         foreach ($fixtureFiles as $fixturesPath) {
             $typeFixtures = \Spyc::YAMLLoad($fixturesPath);
-            $deviceType   = str_replace('_', ' ', substr(basename($fixturesPath), 0, -4));
+            $deviceType   = \str_replace('_', ' ', \substr(\basename($fixturesPath), 0, -4));
 
-            if ('bots' == $deviceType) {
+            if ('bots' === $deviceType) {
                 continue;
             }
 
-            $fixtures = array_merge(array_map(function ($elem) {
+            $fixtures = \array_merge(\array_map(static function ($elem) {
                 return [$elem];
             }, $typeFixtures), $fixtures);
         }
@@ -267,7 +228,7 @@ class DeviceDetectorTest extends TestCase
     /**
      * @dataProvider getVersionTruncationFixtures
      */
-    public function testVersionTruncation($useragent, $truncationType, $osVersion, $clientVersion): void
+    public function testVersionTruncation(string $useragent, int $truncationType, string $osVersion, string $clientVersion): void
     {
         AbstractParser::setVersionTruncation($truncationType);
         $dd = new DeviceDetector($useragent);
@@ -277,7 +238,7 @@ class DeviceDetectorTest extends TestCase
         AbstractParser::setVersionTruncation(AbstractParser::VERSION_TRUNCATION_NONE);
     }
 
-    public function getVersionTruncationFixtures()
+    public function getVersionTruncationFixtures(): array
     {
         return [
             ['Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', AbstractParser::VERSION_TRUNCATION_NONE, '4.2.2', '34.0.1847.114'],
@@ -291,7 +252,7 @@ class DeviceDetectorTest extends TestCase
     /**
      * @dataProvider getBotFixtures
      */
-    public function testParseBots($fixtureData): void
+    public function testParseBots(array $fixtureData): void
     {
         $ua = $fixtureData['user_agent'];
         $dd = new DeviceDetector($ua);
@@ -304,12 +265,12 @@ class DeviceDetectorTest extends TestCase
         $this->assertEquals($dd->getClient('short_name'), DeviceDetector::UNKNOWN);
     }
 
-    public function getBotFixtures()
+    public function getBotFixtures(): array
     {
-        $fixturesPath = realpath(dirname(__FILE__) . '/fixtures/bots.yml');
+        $fixturesPath = \realpath(\dirname(__FILE__) . '/fixtures/bots.yml');
         $fixtures     = \Spyc::YAMLLoad($fixturesPath);
 
-        return array_map(function ($elem) {
+        return \array_map(static function ($elem) {
             return [$elem];
         }, $fixtures);
     }
@@ -318,7 +279,7 @@ class DeviceDetectorTest extends TestCase
     {
         $expected = [
             'user_agent' => 'Googlebot/2.1 (http://www.googlebot.com/bot.html)',
-            'bot' => [
+            'bot'        => [
                 'name'     => 'Googlebot',
                 'category' => 'Search bot',
                 'url'      => 'http://www.google.com/bot.html',
@@ -331,11 +292,10 @@ class DeviceDetectorTest extends TestCase
         $this->assertEquals($expected, DeviceDetector::getInfoFromUserAgent($expected['user_agent']));
     }
 
-
     public function testParseNoDetails(): void
     {
-        $user_agent = 'Googlebot/2.1 (http://www.googlebot.com/bot.html)';
-        $dd         = new DeviceDetector($user_agent);
+        $userAgent = 'Googlebot/2.1 (http://www.googlebot.com/bot.html)';
+        $dd        = new DeviceDetector($userAgent);
         $dd->discardBotInformation();
         $dd->parse();
         $this->assertEquals([true], $dd->getBot());
@@ -376,7 +336,7 @@ class DeviceDetectorTest extends TestCase
     /**
      * @dataProvider getUserAgents
      */
-    public function testTypeMethods($useragent, $isBot, $isMobile, $isDesktop): void
+    public function testTypeMethods(string $useragent, bool $isBot, bool $isMobile, bool $isDesktop): void
     {
         $dd = new DeviceDetector($useragent);
         $dd->discardBotInformation();
@@ -386,7 +346,7 @@ class DeviceDetectorTest extends TestCase
         $this->assertEquals($isDesktop, $dd->isDesktop());
     }
 
-    public function getUserAgents()
+    public function getUserAgents(): array
     {
         return [
             ['Googlebot/2.1 (http://www.googlebot.com/bot.html)', true, false, false],
@@ -448,7 +408,6 @@ class DeviceDetectorTest extends TestCase
         $this->assertTrue($dd->isTouchEnabled());
     }
 
-
     public function testSkipBotDetection(): void
     {
         $ua = 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)';
@@ -478,5 +437,47 @@ class DeviceDetectorTest extends TestCase
         $dd->setUserAgent('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36');
         $dd->parse();
         $this->assertTrue($dd->isMobile());
+    }
+
+    /**
+     * check the regular expression for the vertical line closing the group
+     * @param string $regexString
+     *
+     * @return bool
+     */
+    protected function checkRegexVerticalLineClosingGroup(string $regexString): bool
+    {
+        if (false !== \strpos($regexString, '|)')) {
+            return !\preg_match('#(?<!\\\)(\|\))#is', $regexString);
+        }
+
+        return true;
+    }
+
+    /**
+     * check the regular expression for end condition constraint (?:[);/ ]|$)
+     *
+     * @param string $regexString
+     *
+     * @return bool
+     */
+    protected function checkRegexRestrictionEndCondition(string $regexString): bool
+    {
+        // get conditions [;)\ ]
+        if (\preg_match_all('~(\[[);\\\ ]{4}\])~m', $regexString, $matches1)) {
+            return false;
+        }
+
+        // get conditions [);/ ]
+        if (\preg_match_all('~(\[[);\/ ]{3,4}\])~m', $regexString, $matches1)) {
+            // get conditions (?:[);/ ]|$)
+            if (!\preg_match_all('~(?:(?<=(?:\?:))(\[[);\/ ]{3,4}\])(?=\|\$))~m', $regexString, $matches2)) {
+                return false;
+            }
+
+            return \count($matches1[0]) === \count($matches2[1]);
+        }
+
+        return true;
     }
 }

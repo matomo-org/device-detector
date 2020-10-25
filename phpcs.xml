@@ -3,13 +3,25 @@
     <description>Device Detector Coding Standard</description>
 
     <exclude-pattern>vendor/</exclude-pattern>
-    <exclude-pattern>misc/</exclude-pattern>
-    <exclude-pattern>Tests/</exclude-pattern>
-    <exclude-pattern>autoload.php</exclude-pattern>
 
     <!-- use MO4 coding standard as base -->
     <rule ref="MO4">
        <exclude name="SlevomatCodingStandard.Commenting.UselessInheritDocComment"></exclude>
+    </rule>
+
+    <rule ref="Symfony.Commenting">
+        <exclude-pattern>misc/</exclude-pattern>
+        <exclude-pattern>Tests/</exclude-pattern>
+    </rule>
+
+    <rule ref="Squiz.Functions.GlobalFunction.Found">
+        <exclude-pattern>misc/</exclude-pattern>
+        <exclude-pattern>autoload.php</exclude-pattern>
+    </rule>
+
+    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+        <exclude-pattern>misc/</exclude-pattern>
+        <exclude-pattern>autoload.php</exclude-pattern>
     </rule>
 
     <!-- Disallow more than 120 chars per line -->
@@ -18,6 +30,8 @@
             <property name="lineLimit" value="120" />
             <property name="absoluteLineLimit" value="120" />
         </properties>
+        <exclude-pattern>misc/</exclude-pattern>
+        <exclude-pattern>Tests/</exclude-pattern>
     </rule>
 
     <!-- Require spaces around string concatenating -->
