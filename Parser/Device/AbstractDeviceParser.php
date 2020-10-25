@@ -949,7 +949,7 @@ abstract class AbstractDeviceParser extends AbstractParser
             $this->brand = (string) $brandId;
         }
 
-        if (isset($regex['device']) && \in_array($regex['device'], self::$deviceTypes)) {
+        if (isset($regex['device']) && \array_key_exists($regex['device'], self::$deviceTypes)) {
             $this->deviceType = self::$deviceTypes[$regex['device']];
         }
 
@@ -980,7 +980,7 @@ abstract class AbstractDeviceParser extends AbstractParser
                 $this->brand = (string) \array_search($modelRegex['brand'], self::$deviceBrands);
             }
 
-            if (isset($modelRegex['device']) && \in_array($modelRegex['device'], self::$deviceTypes)) {
+            if (isset($modelRegex['device']) && \array_key_exists($modelRegex['device'], self::$deviceTypes)) {
                 $this->deviceType = self::$deviceTypes[$modelRegex['device']];
             }
         }

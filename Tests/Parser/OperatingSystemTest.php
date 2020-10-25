@@ -41,7 +41,7 @@ class OperatingSystemTest extends TestCase
      */
     public function testOSInGroup(string $os): void
     {
-        $familyOs = \call_user_func_array('array_merge', OperatingSystem::getAvailableOperatingSystemFamilies());
+        $familyOs = \call_user_func_array('array_merge', \array_values(OperatingSystem::getAvailableOperatingSystemFamilies()));
         $this->assertContains($os, $familyOs);
     }
 
@@ -66,7 +66,7 @@ class OperatingSystemTest extends TestCase
 
     public function getAllFamilyOs(): array
     {
-        $allFamilyOs = \call_user_func_array('array_merge', OperatingSystem::getAvailableOperatingSystemFamilies());
+        $allFamilyOs = \call_user_func_array('array_merge', \array_values(OperatingSystem::getAvailableOperatingSystemFamilies()));
         $allFamilyOs = \array_map(static function ($os) {
             return [$os];
         }, $allFamilyOs);
