@@ -32,17 +32,15 @@ jobs:
     - php: nightly
   include:
     - php: nightly
-      install: travis_retry composer install --ignore-platform-reqs
+      install:
+        - travis_retry composer install --ignore-platform-reqs
+        - composer require doctrine/cache ~1.2 --ignore-platform-reqs
       before_install:
         - phpenv config-rm xdebug.ini || echo "xdebug not available"
-        - (composer self-update; true)
-        - composer require doctrine/cache ~1.2  --ignore-platform-reqs
 
     - stage: test with coverage
       php: 7.2
       before_install:
-        - (composer self-update; true)
-        - composer require doctrine/cache ~1.2
       before_script: mkdir -p build/logs
       script: vendor/bin/phpunit --coverage-clover build/logs/clover.xml --coverage-text
       after_success: wget https://github.com/php-coveralls/php-coveralls/releases/download/v2.1.0/php-coveralls.phar && php -n php-coveralls.phar --verbose --coverage_clover=build/logs/clover.xml
