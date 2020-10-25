@@ -83,8 +83,8 @@ abstract class AbstractClientParser extends AbstractParser
             $names[] = $regex['name'];
         }
 
-        natcasesort($names);
+        \natcasesort($names);
 
-        return array_unique($names);
+        return \array_unique($names);
     }
 }

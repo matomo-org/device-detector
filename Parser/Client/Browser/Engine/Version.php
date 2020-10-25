@@ -49,13 +49,13 @@ class Version extends AbstractClientParser
         if ($this->engine === 'Gecko') {
             $pattern = "~[ ](?:rv[: ]([0-9\.]+)).*gecko/[0-9]{8,10}~i";
 
-            if (preg_match($pattern, $this->userAgent, $matches)) {
-                return array_pop($matches);
+            if (\preg_match($pattern, $this->userAgent, $matches)) {
+                return \array_pop($matches);
             }
 
         }
 
-        preg_match(
+        \preg_match(
             "~{$this->engine}\s*/?\s*((?(?=\d+\.\d)\d+[.\d]*|\d{1,7}(?=(?:\D|$))))~i",
             $this->userAgent,
             $matches
@@ -65,6 +65,6 @@ class Version extends AbstractClientParser
             return null;
         }
 
-        return ['version' => array_pop($matches)];
+        return ['version' => \array_pop($matches)];
     }
 }

@@ -37,7 +37,7 @@ class StaticCache implements CacheInterface
      */
     public function contains(string $id): bool
     {
-        return isset(self::$staticCache[$id]) || array_key_exists($id, self::$staticCache);
+        return isset(self::$staticCache[$id]) || \array_key_exists($id, self::$staticCache);
     }
 
     /**

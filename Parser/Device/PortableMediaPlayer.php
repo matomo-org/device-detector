@@ -21,6 +21,7 @@ class PortableMediaPlayer extends AbstractDeviceParser
      * @var string
      */
     protected $fixtureFile = 'regexes/device/portable_media_player.yml';
+
     /**
      * @var string
      */

@@ -24,6 +24,7 @@ class OperatingSystem extends AbstractParser
      * @var string
      */
     protected $fixtureFile = 'regexes/oss.yml';
+
     /**
      * @var string
      */
@@ -141,7 +142,7 @@ class OperatingSystem extends AbstractParser
         'GNU/Linux'             => [
             'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
             'RHT', 'VLN', 'MDR', 'GNT', 'SAB', 'SLW', 'SSE', 'CES', 'BTR', 'SAF',
-            'ORD', 'TOS'
+            'ORD', 'TOS',
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
@@ -197,7 +198,7 @@ class OperatingSystem extends AbstractParser
         $short = 'UNK';
 
         foreach (self::$operatingSystems as $osShort => $osName) {
-            if (strtolower($name) !== strtolower($osName)) {
+            if (\strtolower($name) !== \strtolower($osName)) {
                 continue;
             }
 
@@ -212,8 +213,8 @@ class OperatingSystem extends AbstractParser
             'platform'   => $this->parsePlatform(),
         ];
 
-        if (in_array($return['name'], self::$operatingSystems)) {
-            $return['short_name'] = array_search($return['name'], self::$operatingSystems);
+        if (\in_array($return['name'], self::$operatingSystems)) {
+            $return['short_name'] = \array_search($return['name'], self::$operatingSystems);
         }
 
         return $return;
@@ -229,7 +230,7 @@ class OperatingSystem extends AbstractParser
     public static function getOsFamily(string $osLabel): ?string
     {
         foreach (self::$osFamilies as $family => $labels) {
-            if (in_array($osLabel, $labels)) {
+            if (\in_array($osLabel, $labels)) {
                 return (string) $family;
             }
         }
@@ -247,10 +248,10 @@ class OperatingSystem extends AbstractParser
      */
     public static function getNameFromId(string $os, ?string $ver = null): ?string
     {
-        if (array_key_exists($os, self::$operatingSystems)) {
+        if (\array_key_exists($os, self::$operatingSystems)) {
             $osFullName = self::$operatingSystems[$os];
 
-            return trim($osFullName . ' ' . $ver);
+            return \trim($osFullName . ' ' . $ver);
         }
 
         return null;

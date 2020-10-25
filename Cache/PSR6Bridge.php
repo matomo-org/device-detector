@@ -54,7 +54,7 @@ class PSR6Bridge implements CacheInterface
         $item = $this->pool->getItem($id);
         $item->set($data);
 
-        if (func_num_args() > 2) {
+        if (\func_num_args() > 2) {
             $item->expiresAfter($lifeTime);
         }
 

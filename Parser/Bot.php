@@ -23,10 +23,12 @@ class Bot extends AbstractBotParser
      * @var string
      */
     protected $fixtureFile = 'regexes/bots.yml';
+
     /**
      * @var string
      */
     protected $parserName = 'bot';
+
     /**
      * @var bool
      */

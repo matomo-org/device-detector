@@ -49,7 +49,7 @@ class PSR16Bridge implements CacheInterface
      */
     public function save(string $id, $data, int $lifeTime = 0): bool
     {
-        return $this->cache->set($id, $data, func_num_args() < 3 ? null : $lifeTime);
+        return $this->cache->set($id, $data, \func_num_args() < 3 ? null : $lifeTime);
     }
 
     /**

@@ -83,12 +83,15 @@ class Engine extends AbstractClientParser
         $name = $this->buildByMatch($regex['name'], $matches);
 
         foreach (self::getAvailableEngines() as $engineName) {
-            if (strtolower($name) === strtolower($engineName)) {
+            if (\strtolower($name) === \strtolower($engineName)) {
                 return ['engine' => $engineName];
             }
         }
 
         // This Exception should never be thrown. If so a defined browser name is missing in $availableEngines
-        throw new \Exception(sprintf('Detected browser engine was not found in $availableEngines. Tried to parse user agent: %s', $this->userAgent)); // @codeCoverageIgnore
+        throw new \Exception(\sprintf(
+            'Detected browser engine was not found in $availableEngines. Tried to parse user agent: %s',
+            $this->userAgent
+        )); // @codeCoverageIgnore
     }
 }

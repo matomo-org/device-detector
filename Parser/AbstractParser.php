@@ -121,7 +121,7 @@ abstract class AbstractParser
      */
     public static function setVersionTruncation(int $type): void
     {
-        if (!in_array($type, [
+        if (!\in_array($type, [
             self::VERSION_TRUNCATION_BUILD,
             self::VERSION_TRUNCATION_NONE,
             self::VERSION_TRUNCATION_MAJOR,
@@ -212,7 +212,7 @@ abstract class AbstractParser
     {
         if (empty($this->regexList)) {
             $cacheKey        = 'DeviceDetector-' . DeviceDetector::VERSION . 'regexes-' . $this->getName();
-            $cacheKey        = (string) preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
+            $cacheKey        = (string) \preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
             $this->regexList = $this->getCache()->fetch($cacheKey);
 
             if (empty($this->regexList)) {
@@ -231,7 +231,7 @@ abstract class AbstractParser
      */
     protected function getRegexesDirectory(): string
     {
-        return dirname(__DIR__);
+        return \dirname(__DIR__);
     }
 
     /**
@@ -243,20 +243,20 @@ abstract class AbstractParser
      *
      * @throws \Exception
      */
-    protected function matchUserAgent(string $regex)
+    protected function matchUserAgent(string $regex): ?array
     {
         $matches = [];
 
         // only match if useragent begins with given regex or there is no letter before it
-        $regex = '/(?:^|[^A-Z0-9\-_]|[^A-Z0-9\-]_|sprd-)(?:' . str_replace('/', '\/', $regex) . ')/i';
+        $regex = '/(?:^|[^A-Z0-9\-_]|[^A-Z0-9\-]_|sprd-)(?:' . \str_replace('/', '\/', $regex) . ')/i';
 
         try {
-            if (preg_match($regex, $this->userAgent, $matches)) {
+            if (\preg_match($regex, $this->userAgent, $matches)) {
                 return $matches;
             }
         } catch (\Exception $exception) {
             throw new \Exception(
-                sprintf("%s\nRegex: %s", $exception->getMessage(), $regex),
+                \sprintf("%s\nRegex: %s", $exception->getMessage(), $regex),
                 $exception->getCode(),
                 $exception
             );
@@ -274,12 +274,12 @@ abstract class AbstractParser
     protected function buildByMatch(string $item, array $matches): string
     {
         for ($nb = 1; $nb <= 3; $nb++) {
-            if (false === strpos($item, '$' . $nb)) {
+            if (false === \strpos($item, '$' . $nb)) {
                 continue;
             }
 
             $replace = $matches[$nb] ?? '';
-            $item    = trim(str_replace('$' . $nb, $replace, $item));
+            $item    = \trim(\str_replace('$' . $nb, $replace, $item));
         }
 
         return $item;
@@ -301,17 +301,17 @@ abstract class AbstractParser
     protected function buildVersion(string $versionString, array $matches): string
     {
         $versionString = $this->buildByMatch($versionString, $matches);
-        $versionString = str_replace('_', '.', $versionString);
+        $versionString = \str_replace('_', '.', $versionString);
 
         if (self::VERSION_TRUNCATION_NONE !== static::$maxMinorParts
-            && substr_count($versionString, '.') > static::$maxMinorParts
+            && \substr_count($versionString, '.') > static::$maxMinorParts
         ) {
-            $versionParts  = explode('.', $versionString);
-            $versionParts  = array_slice($versionParts, 0, 1 + static::$maxMinorParts);
-            $versionString = implode('.', $versionParts);
+            $versionParts  = \explode('.', $versionString);
+            $versionParts  = \array_slice($versionParts, 0, 1 + static::$maxMinorParts);
+            $versionString = \implode('.', $versionParts);
         }
 
-        return trim($versionString, ' .');
+        return \trim($versionString, ' .');
     }
 
     /**
@@ -331,7 +331,7 @@ abstract class AbstractParser
         static $overAllMatch;
 
         $cacheKey = $this->parserName . DeviceDetector::VERSION . '-all';
-        $cacheKey = (string) preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
+        $cacheKey = (string) \preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
 
         if (empty($overAllMatch)) {
             $overAllMatch = $this->getCache()->fetch($cacheKey);
@@ -339,7 +339,7 @@ abstract class AbstractParser
 
         if (empty($overAllMatch)) {
             // reverse all regexes, so we have the generic one first, which already matches most patterns
-            $overAllMatch = array_reduce(array_reverse($regexes), function ($val1, $val2) {
+            $overAllMatch = \array_reduce(\array_reverse($regexes), function ($val1, $val2) {
                 return !empty($val1) ? $val1 . '|' . $val2['regex'] : $val2['regex'];
             });
             $this->getCache()->save($cacheKey, $overAllMatch);

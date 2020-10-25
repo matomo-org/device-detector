@@ -323,13 +323,13 @@ class Browser extends AbstractClientParser
             'OC', 'MZ', 'BM', 'KN', 'SW', 'M1', 'FA', 'TA', 'AH',
             'CL', 'SU', 'EU', 'UB', 'LO', 'VG', 'TV', 'A0', '1B',
             'S4', 'EE', 'AE', 'VM', 'O0', 'TG', 'GB', 'SY', 'HH',
-            'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN'
+            'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
             'CU', 'TF', 'QM', 'FR', 'I4', 'GZ', 'MO', 'F1', 'BI',
             'MN', 'BH', 'TO', 'OS', 'MY', 'FY', 'AX', 'C0', 'LH',
-            'S5', 'ZV', 'IW'
+            'S5', 'ZV', 'IW',
         ],
         'Internet Explorer'  => ['IE', 'IM', 'PS'],
         'Konqueror'          => ['KO'],
@@ -347,7 +347,9 @@ class Browser extends AbstractClientParser
      * @var array
      */
     protected static $mobileOnlyBrowsers = [
-        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR', 'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM', 'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ', 'UT', 'DT', 'S0', 'QU', 'YN',
+        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR',
+        'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM', 'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
+        'UT', 'DT', 'S0', 'QU', 'YN',
     ];
 
     /**
@@ -368,7 +370,6 @@ class Browser extends AbstractClientParser
         return self::$browserFamilies;
     }
 
-
     /**
      * @param string $browserLabel
      *
@@ -377,7 +378,7 @@ class Browser extends AbstractClientParser
     public static function getBrowserFamily(string $browserLabel): ?string
     {
         foreach (self::$browserFamilies as $browserFamily => $browserLabels) {
-            if (in_array($browserLabel, $browserLabels)) {
+            if (\in_array($browserLabel, $browserLabels)) {
                 return $browserFamily;
             }
         }
@@ -394,8 +395,8 @@ class Browser extends AbstractClientParser
      */
     public static function isMobileOnlyBrowser(string $browser): bool
     {
-        return in_array($browser, self::$mobileOnlyBrowsers) || (in_array($browser, self::$availableBrowsers)
-                && in_array(array_search($browser, self::$availableBrowsers), self::$mobileOnlyBrowsers));
+        return \in_array($browser, self::$mobileOnlyBrowsers) || (\in_array($browser, self::$availableBrowsers)
+                && \in_array(\array_search($browser, self::$availableBrowsers), self::$mobileOnlyBrowsers));
     }
 
     /**
@@ -418,7 +419,7 @@ class Browser extends AbstractClientParser
         $name = $this->buildByMatch($regex['name'], $matches);
 
         foreach (self::getAvailableBrowsers() as $browserShort => $browserName) {
-            if (strtolower($name) === strtolower($browserName)) {
+            if (\strtolower($name) === \strtolower($browserName)) {
                 $version       = $this->buildVersion((string) $regex['version'], $matches);
                 $engine        = $this->buildEngine($regex['engine'] ?? [], $version);
                 $engineVersion = $this->buildEngineVersion($engine);
@@ -435,7 +436,11 @@ class Browser extends AbstractClientParser
         }
 
         // This Exception should never be thrown. If so a defined browser name is missing in $availableBrowsers
-        throw new \Exception(sprintf('Detected browser name "%s" was not found in $availableBrowsers. Tried to parse user agent: %s', $name, $this->userAgent)); // @codeCoverageIgnore
+        throw new \Exception(\sprintf(
+            'Detected browser name "%s" was not found in $availableBrowsers. Tried to parse user agent: %s',
+            $name,
+            $this->userAgent
+        )); // @codeCoverageIgnore
     }
 
     /**
@@ -454,9 +459,9 @@ class Browser extends AbstractClientParser
         }
 
         // check if engine is set for browser version
-        if (array_key_exists('versions', $engineData) && is_array($engineData['versions'])) {
+        if (\array_key_exists('versions', $engineData) && \is_array($engineData['versions'])) {
             foreach ($engineData['versions'] as $version => $versionEngine) {
-                if (version_compare($browserVersion, (string) $version) < 0) {
+                if (\version_compare($browserVersion, (string) $version) < 0) {
                     continue;
                 }
 
@@ -471,7 +476,7 @@ class Browser extends AbstractClientParser
             $engineParser->setCache($this->getCache());
             $engineParser->setUserAgent($this->userAgent);
             $result = $engineParser->parse();
-            $engine = $result['engine'] ?: '';
+            $engine = $result['engine'] ?? '';
         }
 
         return $engine;
@@ -487,6 +492,6 @@ class Browser extends AbstractClientParser
         $engineVersionParser = new Engine\Version($this->userAgent, $engine);
         $result = $engineVersionParser->parse();
 
-        return $result['version'] ?: '';
+        return $result['version'] ?? '';
     }
 }

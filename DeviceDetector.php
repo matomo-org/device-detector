@@ -200,13 +200,13 @@ class DeviceDetector
     public function __call(string $methodName, array $arguments): bool
     {
         foreach (AbstractDeviceParser::getAvailableDeviceTypes() as $deviceName => $deviceType) {
-            if (strtolower($methodName) === 'is' . strtolower(str_replace(' ', '', $deviceName))) {
+            if (\strtolower($methodName) === 'is' . \strtolower(\str_replace(' ', '', $deviceName))) {
                 return $this->getDevice() === $deviceType;
             }
         }
 
         foreach (self::$clientTypes as $client) {
-            if (strtolower($methodName) === 'is' . strtolower(str_replace(' ', '', $client))) {
+            if (\strtolower($methodName) === 'is' . \strtolower(\str_replace(' ', '', $client))) {
                 return $this->getClient('type') === $client;
             }
         }
@@ -235,7 +235,7 @@ class DeviceDetector
      */
     public function addClientParser($parser): void
     {
-        if (is_string($parser) && class_exists('DeviceDetector\\Parser\\Client\\' . $parser)) {
+        if (\is_string($parser) && \class_exists('DeviceDetector\\Parser\\Client\\' . $parser)) {
             $className = 'DeviceDetector\\Parser\\Client\\' . $parser;
             $parser    = new $className();
         }
@@ -265,7 +265,7 @@ class DeviceDetector
      */
     public function addDeviceParser($parser): void
     {
-        if (is_string($parser) && class_exists('DeviceDetector\\Parser\\Device\\' . $parser)) {
+        if (\is_string($parser) && \class_exists('DeviceDetector\\Parser\\Device\\' . $parser)) {
             $className = 'DeviceDetector\\Parser\\Device\\' . $parser;
             $parser    = new $className();
         }
@@ -361,7 +361,7 @@ class DeviceDetector
     public function isMobile(): bool
     {
         // Mobile device types
-        if (!empty($this->device) && in_array($this->device, [
+        if (!empty($this->device) && \in_array($this->device, [
             AbstractDeviceParser::DEVICE_TYPE_FEATURE_PHONE,
             AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE,
             AbstractDeviceParser::DEVICE_TYPE_TABLET,
@@ -374,7 +374,7 @@ class DeviceDetector
         }
 
         // non mobile device types
-        if (!empty($this->device) && in_array($this->device, [
+        if (!empty($this->device) && \in_array($this->device, [
             AbstractDeviceParser::DEVICE_TYPE_TV,
             AbstractDeviceParser::DEVICE_TYPE_SMART_DISPLAY,
             AbstractDeviceParser::DEVICE_TYPE_CONSOLE,
@@ -420,7 +420,7 @@ class DeviceDetector
 
         $decodedFamily = OperatingSystem::getOsFamily($osShort);
 
-        return in_array($decodedFamily, self::$desktopOsArray);
+        return \in_array($decodedFamily, self::$desktopOsArray);
     }
 
     /**
@@ -563,7 +563,7 @@ class DeviceDetector
         $this->parsed = true;
 
         // skip parsing for empty useragents or those not containing any letter
-        if (empty($this->userAgent) || !preg_match('/([a-z])/i', $this->userAgent)) {
+        if (empty($this->userAgent) || !\preg_match('/([a-z])/i', $this->userAgent)) {
             return;
         }
 
@@ -834,7 +834,7 @@ class DeviceDetector
         /**
          * Assume all devices running iOS / Mac OS are from Apple
          */
-        if (empty($this->brand) && in_array($osShortName, ['ATV', 'IOS', 'MAC'])) {
+        if (empty($this->brand) && \in_array($osShortName, ['ATV', 'IOS', 'MAC'])) {
             $this->brand = 'AP';
         }
 
@@ -880,10 +880,10 @@ class DeviceDetector
          * Devices running Android 3.X are tablets. Device type of Android 2.X and 4.X+ are unknown
          */
         if (null === $this->device && 'AND' === $osShortName && '' !== $osVersion) {
-            if (-1 === version_compare($osVersion, '2.0')) {
+            if (-1 === \version_compare($osVersion, '2.0')) {
                 $this->device = AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE;
-            } elseif (version_compare($osVersion, '3.0') >= 0
-                && -1 === version_compare($osVersion, '4.0')
+            } elseif (\version_compare($osVersion, '3.0') >= 0
+                && -1 === \version_compare($osVersion, '4.0')
             ) {
                 $this->device = AbstractDeviceParser::DEVICE_TYPE_TABLET;
             }
@@ -907,7 +907,7 @@ class DeviceDetector
          */
 
         if (null === $this->device && ('WRT' === $osShortName || ('WIN' === $osShortName
-            && version_compare($osVersion, '8') >= 0)) && $this->isTouchEnabled()
+            && \version_compare($osVersion, '8') >= 0)) && $this->isTouchEnabled()
         ) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TABLET;
         }
@@ -922,7 +922,7 @@ class DeviceDetector
         /**
          * Devices running Kylo or Espital TV Browsers are assumed to be a TV
          */
-        if (null === $this->device && in_array($clientName, ['Kylo', 'Espial TV Browser'])) {
+        if (null === $this->device && \in_array($clientName, ['Kylo', 'Espial TV Browser'])) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
         }
 
@@ -953,9 +953,9 @@ class DeviceDetector
      */
     protected function matchUserAgent(string $regex): ?array
     {
-        $regex = '/(?:^|[^A-Z_-])(?:' . str_replace('/', '\/', $regex) . ')/i';
+        $regex = '/(?:^|[^A-Z_-])(?:' . \str_replace('/', '\/', $regex) . ')/i';
 
-        if (preg_match($regex, $this->userAgent, $matches)) {
+        if (\preg_match($regex, $this->userAgent, $matches)) {
             return $matches;
         }
 
