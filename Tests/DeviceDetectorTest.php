@@ -118,8 +118,8 @@ class DeviceDetectorTest extends TestCase
             $this->markTestSkipped('memcached not enabled');
         }
 
-        $dd = new DeviceDetector();
-        $memcached = new \Memcached();
+        $dd            = new DeviceDetector();
+        $memcached     = new \Memcached();
         $doctrineCache = new \Doctrine\Common\Cache\MemcachedCache();
         $doctrineCache->setMemcached($memcached);
         $dd->setCache(new DoctrineBridge($doctrineCache));
