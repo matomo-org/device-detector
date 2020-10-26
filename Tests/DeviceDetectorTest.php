@@ -10,6 +10,7 @@
 
 namespace DeviceDetector\Tests;
 
+use DeviceDetector\Cache\DoctrineBridge;
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\AbstractParser;
 use DeviceDetector\Parser\Device\AbstractDeviceParser;
@@ -113,14 +114,15 @@ class DeviceDetectorTest extends TestCase
 
     public function testCacheSetAndGet(): void
     {
-        if (!\extension_loaded('memcache') || !\class_exists('\Doctrine\Common\Cache\MemcacheCache')) {
-            $this->markTestSkipped('memcache not enabled');
+        if (!\extension_loaded('memcached') || !\class_exists('\Doctrine\Common\Cache\MemcachedCache')) {
+            $this->markTestSkipped('memcached not enabled');
         }
 
-        $dd             = new DeviceDetector();
-        $memcacheServer = new \Memcache();
-        $memcacheServer->connect('localhost', 11211);
-        $dd->setCache(new DoctrineBridge(new \Doctrine\Common\Cache\MemcacheCache($memcacheServer)));
+        $dd = new DeviceDetector();
+        $memcached = new \Memcached();
+        $doctrineCache = new \Doctrine\Common\Cache\MemcachedCache();
+        $doctrineCache->setMemcached($memcached);
+        $dd->setCache(new DoctrineBridge($doctrineCache));
         $this->assertInstanceOf(DoctrineBridge::class, $dd->getCache());
     }
 
