@@ -235,9 +235,10 @@ class DeviceDetector
      */
     public function addClientParser($parser): void
     {
-        if (\is_string($parser) && \class_exists('DeviceDetector\\Parser\\Client\\' . $parser)) {
-            $className = 'DeviceDetector\\Parser\\Client\\' . $parser;
-            $parser    = new $className();
+        $className = 'DeviceDetector\\Parser\\Client\\' . $parser;
+
+        if (\is_string($parser) && \class_exists($className)) {
+            $parser = new $className();
         }
 
         if ($parser instanceof AbstractClientParser) {
@@ -265,9 +266,10 @@ class DeviceDetector
      */
     public function addDeviceParser($parser): void
     {
-        if (\is_string($parser) && \class_exists('DeviceDetector\\Parser\\Device\\' . $parser)) {
-            $className = 'DeviceDetector\\Parser\\Device\\' . $parser;
-            $parser    = new $className();
+        $className = 'DeviceDetector\\Parser\\Device\\' . $parser;
+
+        if (\is_string($parser) && \class_exists($className)) {
+            $parser = new $className();
         }
 
         if ($parser instanceof AbstractDeviceParser) {
