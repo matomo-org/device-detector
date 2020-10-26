@@ -20,14 +20,14 @@ class DeviceDetectorTest extends TestCase
 {
     public function testAddClientParserInvalid(): void
     {
-        $this->expectException(\Exception::class);
+        $this->expectException(\Throwable::class);
         $dd = new DeviceDetector();
         $dd->addClientParser('Invalid');
     }
 
     public function testAddDeviceParserInvalid(): void
     {
-        $this->expectException(\Exception::class);
+        $this->expectException(\Throwable::class);
         $dd = new DeviceDetector();
         $dd->addDeviceParser('Invalid');
     }

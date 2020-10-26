@@ -16,7 +16,19 @@ use DeviceDetector\Parser\AbstractBotParser;
 use DeviceDetector\Parser\Bot;
 use DeviceDetector\Parser\Client\AbstractClientParser;
 use DeviceDetector\Parser\Client\Browser;
+use DeviceDetector\Parser\Client\FeedReader;
+use DeviceDetector\Parser\Client\Library;
+use DeviceDetector\Parser\Client\MediaPlayer;
+use DeviceDetector\Parser\Client\MobileApp;
+use DeviceDetector\Parser\Client\PIM;
 use DeviceDetector\Parser\Device\AbstractDeviceParser;
+use DeviceDetector\Parser\Device\Camera;
+use DeviceDetector\Parser\Device\CarBrowser;
+use DeviceDetector\Parser\Device\Console;
+use DeviceDetector\Parser\Device\HbbTv;
+use DeviceDetector\Parser\Device\Mobile;
+use DeviceDetector\Parser\Device\Notebook;
+use DeviceDetector\Parser\Device\PortableMediaPlayer;
 use DeviceDetector\Parser\OperatingSystem;
 use DeviceDetector\Parser\VendorFragment;
 use DeviceDetector\Yaml\ParserInterface as YamlParser;
@@ -173,20 +185,20 @@ class DeviceDetector
             $this->setUserAgent($userAgent);
         }
 
-        $this->addClientParser('FeedReader');
-        $this->addClientParser('MobileApp');
-        $this->addClientParser('MediaPlayer');
-        $this->addClientParser('PIM');
-        $this->addClientParser('Browser');
-        $this->addClientParser('Library');
+        $this->addClientParser(new FeedReader());
+        $this->addClientParser(new MobileApp());
+        $this->addClientParser(new MediaPlayer());
+        $this->addClientParser(new PIM());
+        $this->addClientParser(new Browser());
+        $this->addClientParser(new Library());
 
-        $this->addDeviceParser('HbbTv');
-        $this->addDeviceParser('Notebook');
-        $this->addDeviceParser('Console');
-        $this->addDeviceParser('CarBrowser');
-        $this->addDeviceParser('Camera');
-        $this->addDeviceParser('PortableMediaPlayer');
-        $this->addDeviceParser('Mobile');
+        $this->addDeviceParser(new HbbTv());
+        $this->addDeviceParser(new Notebook());
+        $this->addDeviceParser(new Console());
+        $this->addDeviceParser(new CarBrowser());
+        $this->addDeviceParser(new Camera());
+        $this->addDeviceParser(new PortableMediaPlayer());
+        $this->addDeviceParser(new Mobile());
 
         $this->addBotParser(new Bot());
     }
@@ -229,26 +241,14 @@ class DeviceDetector
     }
 
     /**
-     * @param AbstractClientParser|string $parser
+     * @param AbstractClientParser $parser
      *
      * @throws \Exception
      */
-    public function addClientParser($parser): void
+    public function addClientParser(AbstractClientParser $parser): void
     {
-        $className = 'DeviceDetector\\Parser\\Client\\' . $parser;
-
-        if (\is_string($parser) && \class_exists($className)) {
-            $parser = new $className();
-        }
-
-        if ($parser instanceof AbstractClientParser) {
-            $this->clientParsers[] = $parser;
-            self::$clientTypes[]   = $parser->getName();
-
-            return;
-        }
-
-        throw new \Exception('client parser not found');
+        $this->clientParsers[] = $parser;
+        self::$clientTypes[]   = $parser->getName();
     }
 
     /**
@@ -260,25 +260,13 @@ class DeviceDetector
     }
 
     /**
-     * @param AbstractDeviceParser|string $parser
+     * @param AbstractDeviceParser $parser
      *
      * @throws \Exception
      */
-    public function addDeviceParser($parser): void
+    public function addDeviceParser(AbstractDeviceParser $parser): void
     {
-        $className = 'DeviceDetector\\Parser\\Device\\' . $parser;
-
-        if (\is_string($parser) && \class_exists($className)) {
-            $parser = new $className();
-        }
-
-        if ($parser instanceof AbstractDeviceParser) {
-            $this->deviceParsers[] = $parser;
-
-            return;
-        }
-
-        throw new \Exception('device parser not found');
+        $this->deviceParsers[] = $parser;
     }
 
     /**
