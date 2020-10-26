@@ -35,7 +35,7 @@ class DeviceDetectorTest extends TestCase
 
     public function testDevicesYmlFiles(): void
     {
-        $fixtureFiles = \glob(\realpath(\dirname(__FILE__)) . '/../regexes/device/*.yml');
+        $fixtureFiles = \glob(\realpath(__DIR__) . '/../regexes/device/*.yml');
 
         foreach ($fixtureFiles as $file) {
             $ymlData = \Spyc::YAMLLoad($file);
@@ -176,7 +176,7 @@ class DeviceDetectorTest extends TestCase
     public function getFixtures(): array
     {
         $fixtures     = [];
-        $fixtureFiles = \glob(\realpath(\dirname(__FILE__)) . '/fixtures/*.yml');
+        $fixtureFiles = \glob(\realpath(__DIR__) . '/fixtures/*.yml');
 
         foreach ($fixtureFiles as $fixturesPath) {
             $typeFixtures = \Spyc::YAMLLoad($fixturesPath);
@@ -269,7 +269,7 @@ class DeviceDetectorTest extends TestCase
 
     public function getBotFixtures(): array
     {
-        $fixturesPath = \realpath(\dirname(__FILE__) . '/fixtures/bots.yml');
+        $fixturesPath = \realpath(__DIR__ . '/fixtures/bots.yml');
         $fixtures     = \Spyc::YAMLLoad($fixturesPath);
 
         return \array_map(static function ($elem) {

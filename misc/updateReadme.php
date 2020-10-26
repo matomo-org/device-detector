@@ -71,7 +71,7 @@ The lists below are auto generated and updated from time to time. Some of them m
 
 ' . implode(', ', $bots);
 
-$file = dirname(__FILE__) . '/../README.md';
+$file = __DIR__ . '/../README.md';
 
 $readme = file_get_contents($file);
 
