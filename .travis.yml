@@ -13,8 +13,6 @@ services:
   - memcached
 
 stages:
-  - style check
-  - static code analysis
   - test
   - test with coverage
 
@@ -35,8 +33,6 @@ jobs:
       install:
         - travis_retry composer install --ignore-platform-reqs
         - composer require doctrine/cache ~1.2 --ignore-platform-reqs
-      before_install:
-        - phpenv config-rm xdebug.ini || echo "xdebug not available"
 
     - stage: test with coverage
       php: 7.2
@@ -44,12 +40,3 @@ jobs:
       before_script: mkdir -p build/logs
       script: vendor/bin/phpunit --coverage-clover build/logs/clover.xml --coverage-text
       after_success: wget https://github.com/php-coveralls/php-coveralls/releases/download/v2.1.0/php-coveralls.phar && php -n php-coveralls.phar --verbose --coverage_clover=build/logs/clover.xml
-
-    - stage: style check
-      php: 7.2
-      script: php -n -d memory_limit=768M vendor/bin/phpcs --colors --standard=phpcs.xml .
-
-    - stage: static code analysis
-      os: linux
-      php: 7.2
-      script: vendor/bin/phpstan analyse -c phpstan.neon --memory-limit=768M --no-interaction --no-progress .
