@@ -592,7 +592,14 @@ class DeviceDetector
      */
     public static function getInfoFromUserAgent(string $ua): array
     {
-        $deviceDetector = new DeviceDetector($ua);
+        static $deviceDetector;
+
+        if (!($deviceDetector instanceof DeviceDetector)) {
+            $deviceDetector = new DeviceDetector();
+        }
+
+        $deviceDetector->setUserAgent($ua);
+
         $deviceDetector->parse();
 
         if ($deviceDetector->isBot()) {
