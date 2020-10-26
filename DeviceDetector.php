@@ -363,7 +363,7 @@ class DeviceDetector
     public function isMobile(): bool
     {
         // Mobile device types
-        if (!empty($this->device) && \in_array($this->device, [
+        if (\in_array($this->device, [
             AbstractDeviceParser::DEVICE_TYPE_FEATURE_PHONE,
             AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE,
             AbstractDeviceParser::DEVICE_TYPE_TABLET,
@@ -376,7 +376,7 @@ class DeviceDetector
         }
 
         // non mobile device types
-        if (!empty($this->device) && \in_array($this->device, [
+        if (\in_array($this->device, [
             AbstractDeviceParser::DEVICE_TYPE_TV,
             AbstractDeviceParser::DEVICE_TYPE_SMART_DISPLAY,
             AbstractDeviceParser::DEVICE_TYPE_CONSOLE,
