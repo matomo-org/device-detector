@@ -612,13 +612,19 @@ class DeviceDetector
         $osFamily      = OperatingSystem::getOsFamily($deviceDetector->getOsAttribute('short_name'));
         $browserFamily = Browser::getBrowserFamily($deviceDetector->getClientAttribute('short_name'));
 
+        $os = $deviceDetector->getOs();
+        unset($os['short_name']);
+
+        $client = $deviceDetector->getClient();
+        unset($client['short_name']);
+
         $processed = [
             'user_agent'     => $deviceDetector->getUserAgent(),
-            'os'             => $deviceDetector->getOs(),
-            'client'         => $deviceDetector->getClient(),
+            'os'             => $os,
+            'client'         => $client,
             'device'         => [
                 'type'  => $deviceDetector->getDeviceName(),
-                'brand' => $deviceDetector->getBrand(),
+                'brand' => $deviceDetector->getBrandName(),
                 'model' => $deviceDetector->getModel(),
             ],
             'os_family'      => $osFamily ?? 'Unknown',
