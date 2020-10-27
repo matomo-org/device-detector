@@ -19,14 +19,6 @@ foreach ($fixtureFiles as $file) {
     foreach ($fileFixtures as $i => $fixture) {
         $keys = array_flip(array_keys($fixture));
 
-        if (isset($fixture['client']['short_name']) && true === $fixture['client']['short_name']) {
-            $fixture['client']['short_name'] = 'ON';
-        }
-
-        if (isset($fixture['client']['short_name']) && false === $fixture['client']['short_name']) {
-            $fixture['client']['short_name'] = 'NO';
-        }
-
         if ($overwrite) {
             $fixture = \DeviceDetector\DeviceDetector::getInfoFromUserAgent($fixture['user_agent']);
         }
