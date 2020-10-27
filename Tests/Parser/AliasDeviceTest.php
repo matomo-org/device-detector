@@ -19,8 +19,6 @@ use PHPUnit\Framework\TestCase;
  */
 class AliasDeviceTest extends TestCase
 {
-    static $aliasDevicesTested = [];
-
     /**
      * @dataProvider getFixtures
      * @param string $useragent
@@ -32,7 +30,6 @@ class AliasDeviceTest extends TestCase
         $parser = new AliasDevice();
         $parser->setUserAgent($useragent);
         $this->assertEquals($alias, $parser->parse());
-        self::$aliasDevicesTested[] = $alias['name'];
     }
 
     public function getFixtures(): array

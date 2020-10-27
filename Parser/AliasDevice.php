@@ -65,7 +65,7 @@ class AliasDevice extends AbstractParser
                 $escapeeChars = ['+' => '\+', '.' => '\.'];
                 $brands       = \implode('|', \array_values(AbstractDeviceParser::$deviceBrands));
                 $brands       = \str_replace(\array_keys($escapeeChars), \array_values($escapeeChars), $brands);
-                $pattern      = \sprintf('#([ _-]?(?:%s)[ _-]?)#i', $brands);
+                $pattern      = \sprintf('#(%s)([ _])#i', $brands);
 
                 $this->brandReplaceRegexp = $pattern;
                 $this->getCache()->save($cacheKey, $this->brandReplaceRegexp);
