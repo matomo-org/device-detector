@@ -1,24 +1,32 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link https://matomo.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Parser\Client\Browser;
 
-use DeviceDetector\Parser\Client\ClientParserAbstract;
+use DeviceDetector\Parser\Client\AbstractClientParser;
 
 /**
  * Class Engine
  *
  * Client parser for browser engine detection
- *
- * @package DeviceDetector\Parser\Client\Browser
  */
-class Engine extends ClientParserAbstract
+class Engine extends AbstractClientParser
 {
+    /**
+     * @var string
+     */
     protected $fixtureFile = 'regexes/client/browser_engine.yml';
+
+    /**
+     * @var string
+     */
     protected $parserName = 'browserengine';
 
     /**
@@ -26,7 +34,7 @@ class Engine extends ClientParserAbstract
      *
      * @var array
      */
-    protected static $availableEngines = array(
+    protected static $availableEngines = [
         'WebKit',
         'Blink',
         'Trident',
@@ -41,41 +49,49 @@ class Engine extends ClientParserAbstract
         'Edge',
         'NetSurf',
         'Servo',
-        'Goanna'
-    );
+        'Goanna',
+    ];
 
     /**
      * Returns list of all available browser engines
      * @return array
      */
-    public static function getAvailableEngines()
+    public static function getAvailableEngines(): array
     {
         return self::$availableEngines;
     }
 
-    public function parse()
+    /**
+     * @inheritdoc
+     */
+    public function parse(): ?array
     {
         $matches = false;
+
         foreach ($this->getRegexes() as $regex) {
             $matches = $this->matchUserAgent($regex['regex']);
+
             if ($matches) {
                 break;
             }
         }
 
-        if (!$matches) {
-            return '';
+        if (empty($matches) || empty($regex)) {
+            return null;
         }
 
-        $name  = $this->buildByMatch($regex['name'], $matches);
+        $name = $this->buildByMatch($regex['name'], $matches);
 
         foreach (self::getAvailableEngines() as $engineName) {
-            if (strtolower($name) == strtolower($engineName)) {
-                return $engineName;
+            if (\strtolower($name) === \strtolower($engineName)) {
+                return ['engine' => $engineName];
             }
         }
 
         // This Exception should never be thrown. If so a defined browser name is missing in $availableEngines
-        throw new \Exception('Detected browser engine was not found in $availableEngines. Tried to parse user agent: '.$this->userAgent); // @codeCoverageIgnore
+        throw new \Exception(\sprintf(
+            'Detected browser engine was not found in $availableEngines. Tried to parse user agent: %s',
+            $this->userAgent
+        )); // @codeCoverageIgnore
     }
 }

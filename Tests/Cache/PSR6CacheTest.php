@@ -1,10 +1,13 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link https://matomo.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Tests\Cache;
 
 use DeviceDetector\Cache\PSR6Bridge;
@@ -12,25 +15,27 @@ use MatthiasMullie\Scrapbook\Adapters\MemoryStore;
 use MatthiasMullie\Scrapbook\Psr6\Pool;
 use PHPUnit\Framework\TestCase;
 
-if (!class_exists('\MatthiasMullie\Scrapbook\Adapters\MemoryStore')) {
-    return;
-}
-
 class PSR6CacheTest extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
+        if (!\class_exists('\MatthiasMullie\Scrapbook\Adapters\MemoryStore')) {
+            $this->markTestSkipped('class \MatthiasMullie\Scrapbook\Adapters\MemoryStore required for tests');
+
+            return;
+        }
+
         $cache = new PSR6Bridge(new Pool(new MemoryStore()));
         $cache->flushAll();
     }
 
-    public function testSetNotPresent()
+    public function testSetNotPresent(): void
     {
         $cache = new PSR6Bridge(new Pool(new MemoryStore()));
         $this->assertFalse($cache->fetch('NotExistingKey'));
     }
 
-    public function testSetAndGet()
+    public function testSetAndGet(): void
     {
         $cache = new PSR6Bridge(new Pool(new MemoryStore()));
 
@@ -53,5 +58,4 @@ class PSR6CacheTest extends TestCase
         $this->assertFalse($cache->fetch('key'));
         $this->assertFalse($cache->fetch('key3'));
     }
-
 }

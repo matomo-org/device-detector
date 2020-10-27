@@ -1,47 +1,59 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link https://matomo.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Parser\Device;
 
-use DeviceDetector\Parser\ParserAbstract;
+use DeviceDetector\Parser\AbstractParser;
 
 /**
- * Class DeviceParserAbstract
+ * Class AbstractDeviceParser
  *
  * Abstract class for all device parsers
- *
- * @package DeviceDetector\Parser\Device
  */
-abstract class DeviceParserAbstract extends ParserAbstract
+abstract class AbstractDeviceParser extends AbstractParser
 {
+    /**
+     * @var ?int
+     */
     protected $deviceType = null;
-    protected $model = null;
-    protected $brand = null;
 
-    const DEVICE_TYPE_DESKTOP              = 0;
-    const DEVICE_TYPE_SMARTPHONE           = 1;
-    const DEVICE_TYPE_TABLET               = 2;
-    const DEVICE_TYPE_FEATURE_PHONE        = 3;
-    const DEVICE_TYPE_CONSOLE              = 4;
-    const DEVICE_TYPE_TV                   = 5; // including set top boxes, blu-ray players,...
-    const DEVICE_TYPE_CAR_BROWSER          = 6;
-    const DEVICE_TYPE_SMART_DISPLAY        = 7;
-    const DEVICE_TYPE_CAMERA               = 8;
-    const DEVICE_TYPE_PORTABLE_MEDIA_PAYER = 9;
-    const DEVICE_TYPE_PHABLET              = 10;
-    const DEVICE_TYPE_SMART_SPEAKER        = 11;
-    const DEVICE_TYPE_WEARABLE             = 12; // including set watches, headsets
+    /**
+     * @var string
+     */
+    protected $model = '';
+
+    /**
+     * @var string
+     */
+    protected $brand = '';
+
+    public const DEVICE_TYPE_DESKTOP              = 0;
+    public const DEVICE_TYPE_SMARTPHONE           = 1;
+    public const DEVICE_TYPE_TABLET               = 2;
+    public const DEVICE_TYPE_FEATURE_PHONE        = 3;
+    public const DEVICE_TYPE_CONSOLE              = 4;
+    public const DEVICE_TYPE_TV                   = 5; // including set top boxes, blu-ray players,...
+    public const DEVICE_TYPE_CAR_BROWSER          = 6;
+    public const DEVICE_TYPE_SMART_DISPLAY        = 7;
+    public const DEVICE_TYPE_CAMERA               = 8;
+    public const DEVICE_TYPE_PORTABLE_MEDIA_PAYER = 9;
+    public const DEVICE_TYPE_PHABLET              = 10;
+    public const DEVICE_TYPE_SMART_SPEAKER        = 11;
+    public const DEVICE_TYPE_WEARABLE             = 12; // including set watches, headsets
 
     /**
      * Detectable device types
      *
      * @var array
      */
-    protected static $deviceTypes = array(
+    protected static $deviceTypes = [
         'desktop'               => self::DEVICE_TYPE_DESKTOP,
         'smartphone'            => self::DEVICE_TYPE_SMARTPHONE,
         'tablet'                => self::DEVICE_TYPE_TABLET,
@@ -55,7 +67,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'phablet'               => self::DEVICE_TYPE_PHABLET,
         'smart speaker'         => self::DEVICE_TYPE_SMART_SPEAKER,
         'wearable'              => self::DEVICE_TYPE_WEARABLE,
-    );
+    ];
 
     /**
      * Known device brands
@@ -64,12 +76,16 @@ abstract class DeviceParserAbstract extends ParserAbstract
      *
      * @var array
      */
-    public static $deviceBrands = array(
+    public static $deviceBrands = [
+        '36' => '360',
+        '88' => '8848',
         '3Q' => '3Q',
         '4G' => '4Good',
         'AE' => 'Ace',
         'AA' => 'AllCall',
+        '3A' => 'AllDocube',
         'AC' => 'Acer',
+        '00' => 'Accent',
         'A9' => 'Advan',
         'AD' => 'Advance',
         'A3' => 'AGM',
@@ -80,38 +96,49 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'AK' => 'Akai',
         '1A' => 'Alba',
         'AL' => 'Alcatel',
+        '20' => 'Alcor',
         '4A' => 'Aligator',
-        '3A' => 'AllDocube',
         'A2' => 'Allview',
         'A7' => 'Allwinner',
         'A1' => 'Altech UEC',
         'A5' => 'altron',
+        '3L' => 'Alfawise',
         'AN' => 'Arnova',
+        '7A' => 'Anry',
         '5A' => 'ArmPhone',
         '2A' => 'Atom',
         'KN' => 'Amazon',
         'AG' => 'AMGOO',
+        '9A' => 'Amigoo',
         'AO' => 'Amoi',
+        '3N' => 'Aoson',
         'AP' => 'Apple',
         'AR' => 'Archos',
         'AS' => 'ARRIS',
         'AB' => 'Arian Space',
         'AT' => 'Airties',
+        '6A' => 'AT&T',
         'A6' => 'Ark',
         'A4' => 'Ask',
+        '8A' => 'Asano',
         'A8' => 'Assistant',
         'A0' => 'ANS',
         'AU' => 'Asus',
         'AH' => 'AVH',
+        'ZA' => 'Avenzo',
         'AV' => 'Avvio',
         'AX' => 'Audiovox',
         'AY' => 'Axxion',
         'AM' => 'Azumi Mobile',
         'BB' => 'BBK',
+        '0B' => 'BB Mobile',
         'BE' => 'Becker',
         'B5' => 'Beeline',
+        'B0' => 'Beelink',
         'BI' => 'Bird',
+        '1B' => 'Billion',
         'BT' => 'Bitel',
+        'B8' => 'BIHEE',
         'B7' => 'Bitmore',
         'BG' => 'BGH',
         'BL' => 'Beetel',
@@ -122,6 +149,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'BM' => 'Bmobile',
         'BN' => 'Barnes & Noble',
         'BO' => 'BangOlufsen',
+        'B9' => 'Bobarry',
         'BQ' => 'BenQ',
         'BS' => 'BenQ-Siemens',
         'BU' => 'Blu',
@@ -148,6 +176,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'CH' => 'Cherry Mobile',
         '1C' => 'Chuwi',
         'L8' => 'Clarmin',
+        'CD' => 'Cloudfone',
         'C0' => 'Clout',
         'CK' => 'Cricket',
         'C1' => 'Crosscall',
@@ -156,8 +185,10 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'CM' => 'Crius Mea',
         'C3' => 'China Mobile',
         'CR' => 'CreNova',
+        '0C' => 'Crony',
         'CT' => 'Capitel',
         'CQ' => 'Compaq',
+        '3C' => 'Contixo',
         'CO' => 'Coolpad',
         'C5' => 'Condor',
         'CW' => 'Cowon',
@@ -180,6 +211,8 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'DS' => 'Desay',
         'DB' => 'Dbtel',
         'DC' => 'DoCoMo',
+        'D9' => 'Dolamee',
+        'D0' => 'Doopro',
         'DG' => 'Dialog',
         'DI' => 'Dicam',
         'D4' => 'Digi',
@@ -191,12 +224,15 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'DN' => 'DNS',
         'DM' => 'DMM',
         'DO' => 'Doogee',
+        'DF' => 'Doffler',
         'DV' => 'Doov',
         'DP' => 'Dopod',
         'DR' => 'Doro',
         'D8' => 'Droxio',
         'DU' => 'Dune HD',
         'EB' => 'E-Boda',
+        '2E' => 'E-Ceros',
+        '5E' => '2E',
         'EA' => 'EBEST',
         'EC' => 'Ericsson',
         'E7' => 'Ergo',
@@ -207,11 +243,13 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'EI' => 'Ezio',
         'EM' => 'Eks Mobility',
         'EL' => 'Elephone',
+        '4E' => 'Eltex',
         'L0' => 'Element',
         'EG' => 'Elenberg',
         'EP' => 'Easypix',
         'EK' => 'EKO',
         'E1' => 'Energy Sistem',
+        '3E' => 'Enot',
         'ER' => 'Ericy',
         'EE' => 'Essential',
         'EN' => 'Eton',
@@ -232,9 +270,11 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'FM' => 'Famoco',
         'FE' => 'Fengxiang',
         'FI' => 'FiGO',
+        'F3' => 'FireFly Mobile',
         'FL' => 'Fly',
         'F1' => 'FinePower',
         'FT' => 'Freetel',
+        'F7' => 'Fero',
         'FR' => 'Forstar',
         'FO' => 'Foxconn',
         'F2' => 'FORME',
@@ -273,6 +313,8 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'H1' => 'Hoffmann',
         'HM' => 'Homtom',
         'HO' => 'Hosin',
+        'HW' => 'How',
+        'HV' => 'Hotwav',
         'HZ' => 'Hoozo',
         'HP' => 'HP',
         'HT' => 'HTC',
@@ -284,13 +326,18 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'IG' => 'iGet',
         'IA' => 'Ikea',
         'IB' => 'iBall',
+        '3I' => 'i-Cherry',
         'IJ' => 'i-Joy',
+        'IC' => 'iDroid',
         'IY' => 'iBerry',
+        '7I' => 'iBrit',
         'IH' => 'iHunt',
         'IK' => 'iKoMo',
         'IE' => 'iView',
         'I8' => 'iVA',
+        '1I' => 'iMars',
         'IM' => 'i-mate',
+        '2I' => 'iLife',
         'I1' => 'iOcean',
         'I2' => 'IconBIT',
         'IL' => 'IMO Mobile',
@@ -308,20 +355,25 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'I6' => 'Irbis',
         'II' => 'Inkti',
         'IX' => 'Intex',
+        '4I' => 'Invin',
         'IO' => 'i-mobile',
         'IQ' => 'INQ',
+        '8Q' => 'IQM',
         'IT' => 'Intek',
         'IV' => 'Inverto',
         'I3' => 'Impression',
         'IZ' => 'iTel',
+        '0I' => 'iTruck',
         'I9' => 'iZotron',
         'JA' => 'JAY-Tech',
         'JI' => 'Jiayu',
+        'JG' => 'Jinga',
         'JO' => 'Jolla',
         'J5' => 'Just5',
         'JF' => 'JFone',
         'JK' => 'JKL',
         'KL' => 'Kalley',
+        '0K' => 'Klipad',
         'K4' => 'Kaan',
         'K7' => 'Kaiomy',
         'K6' => 'Kanji',
@@ -336,6 +388,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'KO' => 'Konka',
         'KM' => 'Komu',
         'KB' => 'Koobee',
+        'K9' => 'Kooper',
         'KT' => 'K-Touch',
         'KH' => 'KT-Tech',
         'KK' => 'Kodak',
@@ -349,7 +402,9 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'KU' => 'Kumai',
         'KY' => 'Kyocera',
         'KZ' => 'Kazam',
+        '1K' => 'Kzen',
         'KE' => 'Krüger&Matz',
+        'KX' => 'Kenxinda',
         'LQ' => 'LAIQ',
         'L2' => 'Landvo',
         'L6' => 'Land Rover',
@@ -365,24 +420,29 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'LN' => 'Lenco',
         'LT' => 'Leotec',
         'L7' => 'Lephone',
+        'LZ' => 'Lesia',
         'LP' => 'Le Pan',
         'LG' => 'LG',
         'LI' => 'Lingwin',
         'LO' => 'Loewe',
         'LM' => 'Logicom',
+        '1L' => 'Logic',
         'L3' => 'Lexand',
         'LX' => 'Lexibook',
         'LY' => 'LYF',
         'LU' => 'Lumus',
+        '0L' => 'Lumigon',
         'L9' => 'Luna',
         'MN' => 'M4tel',
         'XM' => 'Macoox',
         'MJ' => 'Majestic',
         'MA' => 'Manta Multimedia',
+        '6X' => 'Maxtron',
         '5M' => 'Mann',
         '2M' => 'Masstel',
         'MW' => 'Maxwest',
         '7M' => 'Maxcom',
+        '0D' => 'MAXVI',
         'M0' => 'Maze',
         'MB' => 'Mobistel',
         '9M' => 'Mobo',
@@ -393,10 +453,14 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'M1' => 'Meizu',
         '3M' => 'Meitu',
         'ME' => 'Metz',
+        '09' => 'meanIT',
+        '0E' => 'Melrose',
         'MX' => 'MEU',
         'MI' => 'MicroMax',
         '8M' => 'Mito',
+        '1X' => 'Minix',
         'M5' => 'MIXC',
+        '1Z' => 'MiXzo',
         'MH' => 'Mobiola',
         '4M' => 'Mobicel',
         'M6' => 'Mobiistar',
@@ -420,14 +484,19 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'MQ' => 'M.T.T.',
         'N4' => 'MTN',
         'MY' => 'MyPhone',
+        '3T' => 'MyTab',
         '1M' => 'MYFON',
         'MG' => 'MyWigo',
         'M8' => 'Myria',
         '6M' => 'Mystery',
+        '1R' => 'Multilaser',
         'N3' => 'Navon',
         'N7' => 'National',
         'N5' => 'NOA',
         'NE' => 'NEC',
+        '4N' => 'NextTab',
+        '5N' => 'Nos',
+        '1N' => 'Neomi',
         'NF' => 'Neffos',
         'NA' => 'Netgear',
         'NU' => 'NeuImage',
@@ -436,16 +505,19 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'N6' => 'Nobby',
         'NO' => 'Nous',
         'NI' => 'Nintendo',
+        '0N' => 'Newman',
         'N1' => 'Noain',
         'N2' => 'Nextbit',
         'NK' => 'Nokia',
         'NV' => 'Nvidia',
         'NB' => 'Noblex',
         'NM' => 'Nomi',
+        '2N' => 'Nomu',
         'N0' => 'Nuvo',
         'NL' => 'NUU Mobile',
         'NY' => 'NYX Mobile',
         'NN' => 'Nikon',
+        'N9' => 'Newland',
         'NW' => 'Newgen',
         'NS' => 'NewsMy',
         'NX' => 'Nexian',
@@ -457,9 +529,11 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'OD' => 'Onda',
         'ON' => 'OnePlus',
         'OX' => 'Onix',
+        'OH' => 'Openbox',
         'OP' => 'OPPO',
         'O4' => 'ONN',
         'OR' => 'Orange',
+        'O5' => 'Orbic',
         'OS' => 'Ordissimo',
         'OT' => 'O2',
         'OK' => 'Ouki',
@@ -467,8 +541,12 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'OU' => 'OUYA',
         'OO' => 'Opsson',
         'OV' => 'Overmax',
+        '30' => 'Ovvi',
         'OY' => 'Oysters',
+        'O6' => 'Oyyu',
         'OW' => 'öwn',
+        'O2' => 'Owwo',
+        'OZ' => 'OzoneHD',
         'PN' => 'Panacom',
         'PA' => 'Panasonic',
         'PB' => 'PCBOX',
@@ -477,15 +555,20 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'PE' => 'PEAQ',
         'PG' => 'Pentagram',
         'PH' => 'Philips',
+        '4P' => 'Philco',
         '1P' => 'Phicomm',
         'PI' => 'Pioneer',
         'PX' => 'Pixus',
         'PL' => 'Polaroid',
         'P5' => 'Polytron',
         'P9' => 'Primepad',
+        '2P' => 'Prixton',
         'P6' => 'Proline',
         'PM' => 'Palm',
+        '0P' => 'POCO',
+        '3P' => 'Positivo BGH',
         'PO' => 'phoneOne',
+        '5P' => 'Phonemax',
         'PT' => 'Pantech',
         'PY' => 'Ployer',
         'P4' => 'Plum',
@@ -496,6 +579,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'P3' => 'PPTV',
         'PS' => 'Positivo',
         'PR' => 'Prestigio',
+        '6P' => 'Primux',
         'P7' => 'Protruly',
         'P1' => 'ProScan',
         'PU' => 'PULID',
@@ -508,11 +592,12 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'QU' => 'Quechua',
         'QO' => 'Qumo',
         'RA' => 'Ramos',
+        'RE' => 'Realme',
+        'R8' => 'RED',
+        'R9' => 'Ravoz',
         'RZ' => 'Razer',
         'RC' => 'RCA Tablets',
-        'RE' => 'Realme',
         'RB' => 'Readboy',
-        'R8' => 'RED',
         'RI' => 'Rikomagic',
         'RN' => 'Rinno',
         'RV' => 'Riviera',
@@ -534,9 +619,11 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'SQ' => 'Santin',
         'SA' => 'Samsung',
         'S0' => 'Sanei',
+        'CZ' => 'Schneider',
         'SD' => 'Sega',
         'SL' => 'Selfix',
         'SE' => 'Sony Ericsson',
+        '01' => 'Senkatel',
         'S1' => 'Sencor',
         'SF' => 'Softbank',
         'SX' => 'SFR',
@@ -548,6 +635,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'SJ' => 'Silent Circle',
         '1S' => 'Sigma',
         'SN' => 'Sendo',
+        '0S' => 'SEMP TCL',
         'S6' => 'Senseit',
         'EW' => 'Senwa',
         'SW' => 'Sky',
@@ -555,11 +643,13 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'SC' => 'Smartfren',
         'SO' => 'Sony',
         'OI' => 'Sonim',
+        'X2' => 'Soundmax',
         '8S' => 'Soyes',
         'SP' => 'Spice',
         '6S' => 'Spectrum',
         '9S' => 'Sugar',
         '5S' => 'Sunvell',
+        '0H' => 'Sunstech',
         'SU' => 'SuperSonic',
         'S5' => 'Supra',
         'SV' => 'Selevision',
@@ -578,29 +668,41 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'S3' => 'SunVan',
         'SZ' => 'Sumvision',
         'SS' => 'SWISSMOBILITY',
+        'QS' => 'SQOOL',
+        '0W' => 'Swipe',
         '10' => 'Simbans',
         'X1' => 'Safaricom',
         'TA' => 'Tesla',
+        'TK' => 'Takara',
+        '4T' => 'Tronsmart',
+        '5R' => 'Transpeed',
         'T5' => 'TB Touch',
         'TC' => 'TCL',
         'T7' => 'Teclast',
         'TE' => 'Telit',
+        '9T' => 'Tetratab',
         'T4' => 'ThL',
         'TH' => 'TiPhone',
         'TB' => 'Tecno Mobile',
         'TP' => 'TechPad',
         'TD' => 'Tesco',
+        'T0' => 'TD Systems',
         'TI' => 'TIANYU',
+        '2T' => 'Tinai',
         'TG' => 'Telego',
         'TL' => 'Telefunken',
+        '2L' => 'Tele2',
         'T2' => 'Telenor',
         'TM' => 'T-Mobile',
         'TN' => 'Thomson',
+        '8T' => 'Time2',
         'TQ' => 'Timovi',
         'TY' => 'Tooky',
+        '0T' => 'Tone',
         'T1' => 'Tolino',
         'T9' => 'Top House',
         'TO' => 'Toplux',
+        '7T' => 'Torex',
         'T8' => 'Touchmate',
         'TS' => 'Toshiba',
         'TT' => 'TechnoTrend',
@@ -609,9 +711,11 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'TU' => 'Tunisie Telecom',
         'TR' => 'Turbo-X',
         '1T' => 'Turbo',
+        '5T' => 'TurboKids',
         '11' => 'True',
         'TV' => 'TVC',
         'TW' => 'TWM',
+        '6T' => 'Twoe',
         'TX' => 'TechniSat',
         'TZ' => 'teXet',
         'UC' => 'U.S. Cellular',
@@ -634,10 +738,12 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'VE' => 'Vertu',
         'VN' => 'Venso',
         'V5' => 'Vivax',
+        '0V' => 'Vipro',
         'VI' => 'Vitelcom',
         'V7' => 'Vinga',
         'VK' => 'VK Mobile',
         'VS' => 'ViewSonic',
+        'VH' => 'Vsmart',
         'V9' => 'Vsun',
         'V8' => 'Vesta',
         'VT' => 'Vestel',
@@ -646,6 +752,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'VL' => 'Verykool',
         'V6' => 'VGO TEL',
         'VV' => 'Vivo',
+        '3V' => 'VVETIME',
         'VX' => 'Vertex',
         'V3' => 'Vinsoc',
         'V2' => 'Vonino',
@@ -669,18 +776,21 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'WY' => 'Wexler',
         'W2' => 'Wigor',
         'WI' => 'Wiko',
+        'WS' => 'Winds',
         'WP' => 'Wieppo',
         'WL' => 'Wolder',
         'WG' => 'Wolfgang',
         'WO' => 'Wonu',
         'W1' => 'Woo',
         'WX' => 'Woxter',
+        'WR' => 'Wortmann',
         'XV' => 'X-View',
         'XI' => 'Xiaomi',
         'XL' => 'Xiaolajiao',
         'XN' => 'Xion',
         'XO' => 'Xolo',
         'XR' => 'Xoro',
+        'XG' => 'Xgody',
         'YA' => 'Yarvik',
         'YD' => 'Yandex',
         'Y2' => 'Yes',
@@ -696,6 +806,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'ZF' => 'Zfiner',
         'ZO' => 'Zonda',
         'ZI' => 'Zidoo',
+        'ZX' => 'Ziox',
         'ZP' => 'Zopo',
         'ZT' => 'ZTE',
         'ZU' => 'Zuum',
@@ -705,13 +816,19 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'XS' => 'Xshitou',
         'XT' => 'X-TIGI',
         'XB' => 'NEXBOX',
+        'X3' => 'X-BO',
 
         // legacy brands, might be removed in future versions
         'WB' => 'Web TV',
-        'XX' => 'Unknown'
-    );
+        'XX' => 'Unknown',
+    ];
 
-    public function getDeviceType()
+    /**
+     * Returns the device type represented by one of the DEVICE_TYPE_* constants
+     *
+     * @return int|null
+     */
+    public function getDeviceType(): ?int
     {
         return $this->deviceType;
     }
@@ -720,9 +837,10 @@ abstract class DeviceParserAbstract extends ParserAbstract
      * Returns available device types
      *
      * @see $deviceTypes
+     *
      * @return array
      */
-    public static function getAvailableDeviceTypes()
+    public static function getAvailableDeviceTypes(): array
     {
         return self::$deviceTypes;
     }
@@ -732,9 +850,9 @@ abstract class DeviceParserAbstract extends ParserAbstract
      *
      * @return array
      */
-    public static function getAvailableDeviceTypeNames()
+    public static function getAvailableDeviceTypeNames(): array
     {
-        return array_keys(self::$deviceTypes);
+        return \array_keys(self::$deviceTypes);
     }
 
     /**
@@ -744,9 +862,9 @@ abstract class DeviceParserAbstract extends ParserAbstract
      *
      * @return mixed
      */
-    public static function getDeviceName($deviceType)
+    public static function getDeviceName(int $deviceType)
     {
-        return array_search($deviceType, self::$deviceTypes);
+        return \array_search($deviceType, self::$deviceTypes);
     }
 
     /**
@@ -754,7 +872,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
      *
      * @return string
      */
-    public function getModel()
+    public function getModel(): string
     {
         return $this->model;
     }
@@ -764,7 +882,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
      *
      * @return string
      */
-    public function getBrand()
+    public function getBrand(): string
     {
         return $this->brand;
     }
@@ -772,12 +890,13 @@ abstract class DeviceParserAbstract extends ParserAbstract
     /**
      * Returns the full brand name for the given short name
      *
-     * @param string $brandId  short brand name
+     * @param string $brandId short brand name
+     *
      * @return string
      */
-    public static function getFullName($brandId)
+    public static function getFullName(string $brandId): string
     {
-        if (array_key_exists($brandId, self::$deviceBrands)) {
+        if (\array_key_exists($brandId, self::$deviceBrands)) {
             return self::$deviceBrands[$brandId];
         }
 
@@ -789,89 +908,126 @@ abstract class DeviceParserAbstract extends ParserAbstract
      *
      * @param string $userAgent
      */
-    public function setUserAgent($userAgent)
+    public function setUserAgent(string $userAgent): void
     {
         $this->reset();
         parent::setUserAgent($userAgent);
     }
 
-    public function parse()
+    /**
+     * @inheritdoc
+     */
+    public function parse(): ?array
     {
+        $brand   = '';
         $regexes = $this->getRegexes();
+
         foreach ($regexes as $brand => $regex) {
             $matches = $this->matchUserAgent($regex['regex']);
+
             if ($matches) {
                 break;
             }
         }
 
         if (empty($matches)) {
-            return false;
+            return null;
         }
 
-        if ($brand != 'Unknown') {
-            $brandId = array_search($brand, self::$deviceBrands);
-            if ($brandId === false) {
+        if ('Unknown' !== $brand) {
+            $brandId = \array_search($brand, self::$deviceBrands);
+
+            if (false === $brandId) {
                 // This Exception should never be thrown. If so a defined brand name is missing in $deviceBrands
-                throw new \Exception("The brand with name '$brand' should be listed in the deviceBrands array. Tried to parse user agent: ".$this->userAgent); // @codeCoverageIgnore
+                throw new \Exception(\sprintf(
+                    "The brand with name '%s' should be listed in deviceBrands array. Tried to parse user agent: %s",
+                    $brand,
+                    $this->userAgent
+                )); // @codeCoverageIgnore
             }
-            $this->brand = $brandId;
+
+            $this->brand = (string) $brandId;
         }
 
-        if (isset($regex['device']) && in_array($regex['device'], self::$deviceTypes)) {
+        if (isset($regex['device']) && \array_key_exists($regex['device'], self::$deviceTypes)) {
             $this->deviceType = self::$deviceTypes[$regex['device']];
         }
 
         $this->model = '';
+
         if (isset($regex['model'])) {
             $this->model = $this->buildModel($regex['model'], $matches);
         }
 
         if (isset($regex['models'])) {
+            $modelRegex = '';
+
             foreach ($regex['models'] as $modelRegex) {
                 $modelMatches = $this->matchUserAgent($modelRegex['regex']);
+
                 if ($modelMatches) {
                     break;
                 }
             }
 
             if (empty($modelMatches)) {
-                return true;
+                return $this->getResult();
             }
 
-            $this->model = trim($this->buildModel($modelRegex['model'], $modelMatches));
+            $this->model = $this->buildModel($modelRegex['model'], $modelMatches);
 
-            if (isset($modelRegex['brand']) && $brandId = array_search($modelRegex['brand'], self::$deviceBrands)) {
-                $this->brand = $brandId;
+            if (isset($modelRegex['brand']) && \array_search($modelRegex['brand'], self::$deviceBrands)) {
+                $this->brand = (string) \array_search($modelRegex['brand'], self::$deviceBrands);
             }
 
-            if (isset($modelRegex['device']) && in_array($modelRegex['device'], self::$deviceTypes)) {
+            if (isset($modelRegex['device']) && \array_key_exists($modelRegex['device'], self::$deviceTypes)) {
                 $this->deviceType = self::$deviceTypes[$modelRegex['device']];
             }
         }
 
-        return true;
+        return $this->getResult();
     }
 
-    protected function buildModel($model, $matches)
+    /**
+     * @param string $model
+     * @param array  $matches
+     *
+     * @return string
+     */
+    protected function buildModel(string $model, array $matches): string
     {
         $model = $this->buildByMatch($model, $matches);
 
-        $model = str_replace('_', ' ', $model);
+        $model = \str_replace('_', ' ', $model);
 
-        $model = preg_replace('/ TD$/i', '', $model);
+        $model = \preg_replace('/ TD$/i', '', $model);
 
-        if ($model === 'Build') {
-            return null;
+        if ('Build' === $model || empty($model)) {
+            return '';
         }
 
-        return $model;
+        return \trim($model);
     }
 
-    protected function reset()
+    /**
+     * Resets the stored values
+     */
+    protected function reset(): void
     {
         $this->deviceType = null;
-        $this->model      = null;
-        $this->brand      = null;
+        $this->model      = '';
+        $this->brand      = '';
+    }
+
+    /**
+     * @return array
+     */
+    protected function getResult(): array
+    {
+        return [
+            'deviceType' => $this->deviceType,
+            'model'      => $this->model,
+            'brand'      => $this->brand,
+        ];
     }
 }

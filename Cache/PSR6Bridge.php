@@ -1,10 +1,18 @@
-<?php
+<?php declare(strict_types=1);
+
+/**
+ * Device Detector - The Universal Device Detection library for parsing User Agents
+ *
+ * @link https://matomo.org
+ *
+ * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+ */
 
 namespace DeviceDetector\Cache;
 
 use Psr\Cache\CacheItemPoolInterface;
 
-class PSR6Bridge implements Cache
+class PSR6Bridge implements CacheInterface
 {
     /**
      * @var CacheItemPoolInterface
@@ -23,16 +31,17 @@ class PSR6Bridge implements Cache
     /**
      * @inheritDoc
      */
-    public function fetch($id)
+    public function fetch(string $id)
     {
         $item = $this->pool->getItem($id);
+
         return $item->isHit() ? $item->get() : false;
     }
 
     /**
      * @inheritDoc
      */
-    public function contains($id)
+    public function contains(string $id): bool
     {
         return $this->pool->hasItem($id);
     }
@@ -40,20 +49,22 @@ class PSR6Bridge implements Cache
     /**
      * @inheritDoc
      */
-    public function save($id, $data, $lifeTime = 0)
+    public function save(string $id, $data, int $lifeTime = 0): bool
     {
         $item = $this->pool->getItem($id);
         $item->set($data);
-        if (func_num_args() > 2) {
+
+        if (\func_num_args() > 2) {
             $item->expiresAfter($lifeTime);
         }
+
         return $this->pool->save($item);
     }
 
     /**
      * @inheritDoc
      */
-    public function delete($id)
+    public function delete(string $id): bool
     {
         return $this->pool->deleteItem($id);
     }
@@ -61,7 +72,7 @@ class PSR6Bridge implements Cache
     /**
      * @inheritDoc
      */
-    public function flushAll()
+    public function flushAll(): bool
     {
         return $this->pool->clear();
     }
