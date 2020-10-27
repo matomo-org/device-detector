@@ -1,22 +1,29 @@
-<?php
+<?php declare(strict_types=1);
+
+/**
+ * Device Detector - The Universal Device Detection library for parsing User Agents
+ *
+ * @link https://matomo.org
+ *
+ * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+ */
 
 namespace DeviceDetector\Cache;
 
-use Psr\SimpleCache\CacheInterface;
+use Psr\SimpleCache\CacheInterface as PsrCacheInterface;
 
-class PSR16Bridge implements Cache
+class PSR16Bridge implements CacheInterface
 {
-
     /**
-     * @var CacheInterface
+     * @var PsrCacheInterface
      */
     private $cache;
 
     /**
      * PSR16Bridge constructor.
-     * @param CacheInterface $cache
+     * @param PsrCacheInterface $cache
      */
-    public function __construct(CacheInterface $cache)
+    public function __construct(PsrCacheInterface $cache)
     {
         $this->cache = $cache;
     }
@@ -24,7 +31,7 @@ class PSR16Bridge implements Cache
     /**
      * @inheritDoc
      */
-    public function fetch($id)
+    public function fetch(string $id)
     {
         return $this->cache->get($id, false);
     }
@@ -32,7 +39,7 @@ class PSR16Bridge implements Cache
     /**
      * @inheritDoc
      */
-    public function contains($id)
+    public function contains(string $id): bool
     {
         return $this->cache->has($id);
     }
@@ -40,15 +47,15 @@ class PSR16Bridge implements Cache
     /**
      * @inheritDoc
      */
-    public function save($id, $data, $lifeTime = 0)
+    public function save(string $id, $data, int $lifeTime = 0): bool
     {
-        return $this->cache->set($id, $data, func_num_args() < 3 ? null : $lifeTime);
+        return $this->cache->set($id, $data, \func_num_args() < 3 ? null : $lifeTime);
     }
 
     /**
      * @inheritDoc
      */
-    public function delete($id)
+    public function delete(string $id): bool
     {
         return $this->cache->delete($id);
     }
@@ -56,7 +63,7 @@ class PSR16Bridge implements Cache
     /**
      * @inheritDoc
      */
-    public function flushAll()
+    public function flushAll(): bool
     {
         return $this->cache->clear();
     }

@@ -1,20 +1,28 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link https://matomo.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
 namespace DeviceDetector\Yaml;
 
-use Symfony\Component\Yaml\Parser AS SymfonyParser;
+use Symfony\Component\Yaml\Yaml;
 
-class Symfony implements Parser
+class Symfony implements ParserInterface
 {
-    public function parseFile($file)
+    /**
+     * Parses the file with the given filename using Symfony Yaml parser and returns the converted content
+     *
+     * @param string $file
+     *
+     * @return mixed
+     */
+    public function parseFile(string $file)
     {
-        $parser = new SymfonyParser();
-        return $parser->parse(file_get_contents($file));
+        return Yaml::parseFile($file);
     }
 }

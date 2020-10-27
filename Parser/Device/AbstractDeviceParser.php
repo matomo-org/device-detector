@@ -1,47 +1,59 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link https://matomo.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Parser\Device;
 
-use DeviceDetector\Parser\ParserAbstract;
+use DeviceDetector\Parser\AbstractParser;
 
 /**
- * Class DeviceParserAbstract
+ * Class AbstractDeviceParser
  *
  * Abstract class for all device parsers
- *
- * @package DeviceDetector\Parser\Device
  */
-abstract class DeviceParserAbstract extends ParserAbstract
+abstract class AbstractDeviceParser extends AbstractParser
 {
+    /**
+     * @var ?int
+     */
     protected $deviceType = null;
-    protected $model = null;
-    protected $brand = null;
 
-    const DEVICE_TYPE_DESKTOP              = 0;
-    const DEVICE_TYPE_SMARTPHONE           = 1;
-    const DEVICE_TYPE_TABLET               = 2;
-    const DEVICE_TYPE_FEATURE_PHONE        = 3;
-    const DEVICE_TYPE_CONSOLE              = 4;
-    const DEVICE_TYPE_TV                   = 5; // including set top boxes, blu-ray players,...
-    const DEVICE_TYPE_CAR_BROWSER          = 6;
-    const DEVICE_TYPE_SMART_DISPLAY        = 7;
-    const DEVICE_TYPE_CAMERA               = 8;
-    const DEVICE_TYPE_PORTABLE_MEDIA_PAYER = 9;
-    const DEVICE_TYPE_PHABLET              = 10;
-    const DEVICE_TYPE_SMART_SPEAKER        = 11;
-    const DEVICE_TYPE_WEARABLE             = 12; // including set watches, headsets
+    /**
+     * @var string
+     */
+    protected $model = '';
+
+    /**
+     * @var string
+     */
+    protected $brand = '';
+
+    public const DEVICE_TYPE_DESKTOP              = 0;
+    public const DEVICE_TYPE_SMARTPHONE           = 1;
+    public const DEVICE_TYPE_TABLET               = 2;
+    public const DEVICE_TYPE_FEATURE_PHONE        = 3;
+    public const DEVICE_TYPE_CONSOLE              = 4;
+    public const DEVICE_TYPE_TV                   = 5; // including set top boxes, blu-ray players,...
+    public const DEVICE_TYPE_CAR_BROWSER          = 6;
+    public const DEVICE_TYPE_SMART_DISPLAY        = 7;
+    public const DEVICE_TYPE_CAMERA               = 8;
+    public const DEVICE_TYPE_PORTABLE_MEDIA_PAYER = 9;
+    public const DEVICE_TYPE_PHABLET              = 10;
+    public const DEVICE_TYPE_SMART_SPEAKER        = 11;
+    public const DEVICE_TYPE_WEARABLE             = 12; // including set watches, headsets
 
     /**
      * Detectable device types
      *
      * @var array
      */
-    protected static $deviceTypes = array(
+    protected static $deviceTypes = [
         'desktop'               => self::DEVICE_TYPE_DESKTOP,
         'smartphone'            => self::DEVICE_TYPE_SMARTPHONE,
         'tablet'                => self::DEVICE_TYPE_TABLET,
@@ -55,7 +67,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
         'phablet'               => self::DEVICE_TYPE_PHABLET,
         'smart speaker'         => self::DEVICE_TYPE_SMART_SPEAKER,
         'wearable'              => self::DEVICE_TYPE_WEARABLE,
-    );
+    ];
 
     /**
      * Known device brands
@@ -64,7 +76,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
      *
      * @var array
      */
-    public static $deviceBrands = array(
+    public static $deviceBrands = [
         '36' => '360',
         '88' => '8848',
         '3Q' => '3Q',
@@ -808,10 +820,15 @@ abstract class DeviceParserAbstract extends ParserAbstract
 
         // legacy brands, might be removed in future versions
         'WB' => 'Web TV',
-        'XX' => 'Unknown'
-    );
+        'XX' => 'Unknown',
+    ];
 
-    public function getDeviceType()
+    /**
+     * Returns the device type represented by one of the DEVICE_TYPE_* constants
+     *
+     * @return int|null
+     */
+    public function getDeviceType(): ?int
     {
         return $this->deviceType;
     }
@@ -820,9 +837,10 @@ abstract class DeviceParserAbstract extends ParserAbstract
      * Returns available device types
      *
      * @see $deviceTypes
+     *
      * @return array
      */
-    public static function getAvailableDeviceTypes()
+    public static function getAvailableDeviceTypes(): array
     {
         return self::$deviceTypes;
     }
@@ -832,9 +850,9 @@ abstract class DeviceParserAbstract extends ParserAbstract
      *
      * @return array
      */
-    public static function getAvailableDeviceTypeNames()
+    public static function getAvailableDeviceTypeNames(): array
     {
-        return array_keys(self::$deviceTypes);
+        return \array_keys(self::$deviceTypes);
     }
 
     /**
@@ -844,9 +862,9 @@ abstract class DeviceParserAbstract extends ParserAbstract
      *
      * @return mixed
      */
-    public static function getDeviceName($deviceType)
+    public static function getDeviceName(int $deviceType)
     {
-        return array_search($deviceType, self::$deviceTypes);
+        return \array_search($deviceType, self::$deviceTypes);
     }
 
     /**
@@ -854,7 +872,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
      *
      * @return string
      */
-    public function getModel()
+    public function getModel(): string
     {
         return $this->model;
     }
@@ -864,7 +882,7 @@ abstract class DeviceParserAbstract extends ParserAbstract
      *
      * @return string
      */
-    public function getBrand()
+    public function getBrand(): string
     {
         return $this->brand;
     }
@@ -872,12 +890,13 @@ abstract class DeviceParserAbstract extends ParserAbstract
     /**
      * Returns the full brand name for the given short name
      *
-     * @param string $brandId  short brand name
+     * @param string $brandId short brand name
+     *
      * @return string
      */
-    public static function getFullName($brandId)
+    public static function getFullName(string $brandId): string
     {
-        if (array_key_exists($brandId, self::$deviceBrands)) {
+        if (\array_key_exists($brandId, self::$deviceBrands)) {
             return self::$deviceBrands[$brandId];
         }
 
@@ -889,89 +908,126 @@ abstract class DeviceParserAbstract extends ParserAbstract
      *
      * @param string $userAgent
      */
-    public function setUserAgent($userAgent)
+    public function setUserAgent(string $userAgent): void
     {
         $this->reset();
         parent::setUserAgent($userAgent);
     }
 
-    public function parse()
+    /**
+     * @inheritdoc
+     */
+    public function parse(): ?array
     {
+        $brand   = '';
         $regexes = $this->getRegexes();
+
         foreach ($regexes as $brand => $regex) {
             $matches = $this->matchUserAgent($regex['regex']);
+
             if ($matches) {
                 break;
             }
         }
 
         if (empty($matches)) {
-            return false;
+            return null;
         }
 
-        if ($brand != 'Unknown') {
-            $brandId = array_search($brand, self::$deviceBrands);
-            if ($brandId === false) {
+        if ('Unknown' !== $brand) {
+            $brandId = \array_search($brand, self::$deviceBrands);
+
+            if (false === $brandId) {
                 // This Exception should never be thrown. If so a defined brand name is missing in $deviceBrands
-                throw new \Exception("The brand with name '$brand' should be listed in the deviceBrands array. Tried to parse user agent: ".$this->userAgent); // @codeCoverageIgnore
+                throw new \Exception(\sprintf(
+                    "The brand with name '%s' should be listed in deviceBrands array. Tried to parse user agent: %s",
+                    $brand,
+                    $this->userAgent
+                )); // @codeCoverageIgnore
             }
-            $this->brand = $brandId;
+
+            $this->brand = (string) $brandId;
         }
 
-        if (isset($regex['device']) && in_array($regex['device'], self::$deviceTypes)) {
+        if (isset($regex['device']) && \array_key_exists($regex['device'], self::$deviceTypes)) {
             $this->deviceType = self::$deviceTypes[$regex['device']];
         }
 
         $this->model = '';
+
         if (isset($regex['model'])) {
             $this->model = $this->buildModel($regex['model'], $matches);
         }
 
         if (isset($regex['models'])) {
+            $modelRegex = '';
+
             foreach ($regex['models'] as $modelRegex) {
                 $modelMatches = $this->matchUserAgent($modelRegex['regex']);
+
                 if ($modelMatches) {
                     break;
                 }
             }
 
             if (empty($modelMatches)) {
-                return true;
+                return $this->getResult();
             }
 
-            $this->model = trim($this->buildModel($modelRegex['model'], $modelMatches));
+            $this->model = $this->buildModel($modelRegex['model'], $modelMatches);
 
-            if (isset($modelRegex['brand']) && $brandId = array_search($modelRegex['brand'], self::$deviceBrands)) {
-                $this->brand = $brandId;
+            if (isset($modelRegex['brand']) && \array_search($modelRegex['brand'], self::$deviceBrands)) {
+                $this->brand = (string) \array_search($modelRegex['brand'], self::$deviceBrands);
             }
 
-            if (isset($modelRegex['device']) && in_array($modelRegex['device'], self::$deviceTypes)) {
+            if (isset($modelRegex['device']) && \array_key_exists($modelRegex['device'], self::$deviceTypes)) {
                 $this->deviceType = self::$deviceTypes[$modelRegex['device']];
             }
         }
 
-        return true;
+        return $this->getResult();
     }
 
-    protected function buildModel($model, $matches)
+    /**
+     * @param string $model
+     * @param array  $matches
+     *
+     * @return string
+     */
+    protected function buildModel(string $model, array $matches): string
     {
         $model = $this->buildByMatch($model, $matches);
 
-        $model = str_replace('_', ' ', $model);
+        $model = \str_replace('_', ' ', $model);
 
-        $model = preg_replace('/ TD$/i', '', $model);
+        $model = \preg_replace('/ TD$/i', '', $model);
 
-        if ($model === 'Build') {
-            return null;
+        if ('Build' === $model || empty($model)) {
+            return '';
         }
 
-        return $model;
+        return \trim($model);
     }
 
-    protected function reset()
+    /**
+     * Resets the stored values
+     */
+    protected function reset(): void
     {
         $this->deviceType = null;
-        $this->model      = null;
-        $this->brand      = null;
+        $this->model      = '';
+        $this->brand      = '';
+    }
+
+    /**
+     * @return array
+     */
+    protected function getResult(): array
+    {
+        return [
+            'deviceType' => $this->deviceType,
+            'model'      => $this->model,
+            'brand'      => $this->brand,
+        ];
     }
 }

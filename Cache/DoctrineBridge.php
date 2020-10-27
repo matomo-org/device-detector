@@ -10,22 +10,21 @@
 
 namespace DeviceDetector\Cache;
 
-use Psr\Cache\CacheItemPoolInterface;
+use Doctrine\Common\Cache\CacheProvider ;
 
-class PSR6Bridge implements CacheInterface
+class DoctrineBridge implements CacheInterface
 {
     /**
-     * @var CacheItemPoolInterface
+     * @var CacheProvider
      */
-    private $pool;
+    private $cache;
 
     /**
-     * PSR6Bridge constructor.
-     * @param CacheItemPoolInterface $pool
+     * @param CacheProvider $cache
      */
-    public function __construct(CacheItemPoolInterface $pool)
+    public function __construct(CacheProvider $cache)
     {
-        $this->pool = $pool;
+        $this->cache = $cache;
     }
 
     /**
@@ -33,9 +32,7 @@ class PSR6Bridge implements CacheInterface
      */
     public function fetch(string $id)
     {
-        $item = $this->pool->getItem($id);
-
-        return $item->isHit() ? $item->get() : false;
+        return $this->cache->fetch($id);
     }
 
     /**
@@ -43,7 +40,7 @@ class PSR6Bridge implements CacheInterface
      */
     public function contains(string $id): bool
     {
-        return $this->pool->hasItem($id);
+        return $this->cache->contains($id);
     }
 
     /**
@@ -51,14 +48,7 @@ class PSR6Bridge implements CacheInterface
      */
     public function save(string $id, $data, int $lifeTime = 0): bool
     {
-        $item = $this->pool->getItem($id);
-        $item->set($data);
-
-        if (\func_num_args() > 2) {
-            $item->expiresAfter($lifeTime);
-        }
-
-        return $this->pool->save($item);
+        return $this->cache->save($id, $data, $lifeTime);
     }
 
     /**
@@ -66,7 +56,7 @@ class PSR6Bridge implements CacheInterface
      */
     public function delete(string $id): bool
     {
-        return $this->pool->deleteItem($id);
+        return $this->cache->delete($id);
     }
 
     /**
@@ -74,6 +64,6 @@ class PSR6Bridge implements CacheInterface
      */
     public function flushAll(): bool
     {
-        return $this->pool->clear();
+        return $this->cache->flushAll();
     }
 }

@@ -1,46 +1,48 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link https://matomo.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-require_once(__DIR__ . '/../vendor/autoload.php');
-
-if (php_sapi_name() !== 'cli') {
-    die("web not supported");
-}
-if (count($argv) != 2) {
-    die("Invalid arguments. Usage: php statistics.php filetoparse.txt");
-}
-
 use DeviceDetector\DeviceDetector;
-use DeviceDetector\Parser\Device\DeviceParserAbstract;
+use DeviceDetector\Parser\Device\AbstractDeviceParser;
+
+if ('cli' !== php_sapi_name()) {
+    die('web not supported');
+}
+
+if (2 !== count($argv)) {
+    die('Invalid arguments. Usage: php statistics.php filetoparse.txt');
+}
+
+require_once(__DIR__ . '/../vendor/autoload.php');
 
 $parsedUAs = $unknownDeviceTypes = $detectedBots = 0;
 
-$deviceAvailableDeviceTypes = array_flip(DeviceParserAbstract::getAvailableDeviceTypes());
+$deviceAvailableDeviceTypes = array_flip(AbstractDeviceParser::getAvailableDeviceTypes());
 
-DeviceParserAbstract::setVersionTruncation(DeviceParserAbstract::VERSION_TRUNCATION_NONE);
+AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
 
-$deviceTypes = (array_fill(0, count($deviceAvailableDeviceTypes), 0));
+$deviceTypes = (array_fill(0, count(AbstractDeviceParser::getAvailableDeviceTypes()), 0));
 
 $startTime = microtime(true);
 
-$handle = @fopen($argv[1], "r");
+$handle = @fopen($argv[1], 'r');
 
 $parser = new DeviceDetector();
 
 if ($handle) {
-    while (($line = fgets($handle, 4096)) !== false) {
-
+    while (false !== ($line = fgets($handle, 4096))) {
         if (empty($line)) {
             continue;
         }
 
-        if ($parsedUAs > 0 && $parsedUAs % 80 == 0) {
-            echo " $parsedUAs\n";
+        if ($parsedUAs > 0 && 0 === $parsedUAs % 80) {
+            echo " {$parsedUAs}\n";
         }
 
         $parser->setUserAgent(trim($line));
@@ -52,39 +54,47 @@ if ($handle) {
 
         if ($parser->isBot()) {
             $detectedBots++;
+
             continue;
         }
 
-        if ($parser->getDevice() !== null) {
+        if (null !== $parser->getDevice()) {
             $deviceTypes[$parser->getDevice()]++;
         } else {
             $unknownDeviceTypes++;
         }
-
     }
+
     if (!feof($handle)) {
         echo "Error: unexpected fgets() fail\n";
     }
+
     fclose($handle);
 }
 
 $timeElapsed = microtime(true) - $startTime;
 
-function getPercentage($cur, $max)
+function getPercentage(int $cur, int $max): string
 {
-    return format(round($cur * 100 / $max), '   ');
+    return format((int) round($cur * 100 / $max), '   ');
 }
 
-function format($str, $length)
+/**
+ * @param int|string $str
+ * @param int|string $length
+ * @return string
+ */
+function format($str, $length): string
 {
-    return sprintf("%" . strlen($length) . "d", $str);
+    return sprintf('%' . strlen((string) $length) . 'd', $str);
 }
 
-$line = "-------------------------------------------\n";
-$mask = "%-24s %8s %8s \n";
-$reportStat = [];
+$line         = "-------------------------------------------\n";
+$mask         = "%-24s %8s %8s \n";
+$reportStat   = [];
 $reportStat[] = sprintf($mask, 'Type', 'Count', 'Percent');
 $reportStat[] = $line;
+
 foreach ($deviceTypes as $deviceTypeId => $deviceCount) {
     $reportStat[] = sprintf(
         $mask,
@@ -102,7 +112,8 @@ $reportStat[] = sprintf(
 );
 $reportStat[] = $line;
 
-echo sprintf("
+echo sprintf(
+    '
 
 Parsed user agents:            %u
 
@@ -113,7 +124,8 @@ Detected Bots:    %s    (%s%%)
 
 Detected device types:
 %s
-", $parsedUAs,
+',
+    $parsedUAs,
     round($timeElapsed, 2),
     round($timeElapsed / $parsedUAs, 6),
     format($detectedBots, $parsedUAs),
