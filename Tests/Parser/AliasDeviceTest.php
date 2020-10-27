@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
@@ -36,6 +36,6 @@ class AliasDeviceTest extends TestCase
 
     public function getFixtures(): array
     {
-        return \Spyc::YAMLLoad(realpath(__DIR__) . '/fixtures/alias_devices.yml');
+        return Spyc::YAMLLoad(realpath(__DIR__) . '/fixtures/alias_devices.yml');
     }
 }

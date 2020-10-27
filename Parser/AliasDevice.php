@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
@@ -14,7 +14,7 @@ use DeviceDetector\Parser\Device\AbstractDeviceParser;
 /**
  * Class AliasDevice
  * @package DeviceDetector\Parser
- * @uses ```php
+ * @example ```php
  *      use DeviceDetector\Parser\AliasDevice;
  *
  *      $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
@@ -27,7 +27,7 @@ use DeviceDetector\Parser\Device\AbstractDeviceParser;
 class AliasDevice extends AbstractParser
 {
     protected $fixtureFile = 'regexes/alias_devices.yml';
-    protected $parserName = 'alias_device';
+    protected $parserName  = 'alias_device';
 
     private $brandReplaceRegexp = null;
 
@@ -68,7 +68,6 @@ class AliasDevice extends AbstractParser
             $cacheKey = sprintf('DeviceDetector-%s-brands-regexp', DeviceDetector::VERSION);
             $this->brandReplaceRegexp = $this->getCache()->fetch($cacheKey);
             if (empty($this->brandReplaceRegexp)) {
-
                 $escapeeChars = ['+' => '\+', '.' => '\.'];
                 $brands = implode('|', array_values(AbstractDeviceParser::$deviceBrands));
                 $brands = str_replace(array_keys($escapeeChars), array_values($escapeeChars), $brands);
@@ -80,5 +79,4 @@ class AliasDevice extends AbstractParser
         }
         return $this->brandReplaceRegexp;
     }
-
 }
