@@ -69,7 +69,7 @@ The lists below are auto generated and updated from time to time. Some of them m
 
 ### List of detected bots:
 
-' . implode(', ', $bots);
+' . implode(', ', $bots) . "\n";
 
 $file = __DIR__ . '/../README.md';
 
