@@ -29,7 +29,7 @@ class AliasDevice extends AbstractParser
     public function parse(): array
     {
         $matches = false;
-
+        $name = '';
         $find = [];
 
         foreach ($this->getRegexes() as $aliasDeviceRegex) {
@@ -42,7 +42,7 @@ class AliasDevice extends AbstractParser
         }
 
         if (!$matches) {
-            return [];
+            return \compact('name');
         }
 
         $name = $this->buildByMatch($find['name'], $matches);
