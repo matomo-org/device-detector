@@ -113,20 +113,7 @@ while (!feof($fn)) {
             'bot'        => $deviceDetector->getBot(),
         ];
     } else {
-        $osFamily      = OperatingSystem::getOsFamily($deviceDetector->getOs('short_name'));
-        $browserFamily = Browser::getBrowserFamily($deviceDetector->getClient('short_name'));
-        $result        = [
-            'user_agent'     => $deviceDetector->getUserAgent(),
-            'os'             => $deviceDetector->getOs(),
-            'client'         => $deviceDetector->getClient(),
-            'device'         => [
-                'type'  => $deviceDetector->getDeviceName(),
-                'brand' => $deviceDetector->getBrand(),
-                'model' => $deviceDetector->getModel(),
-            ],
-            'os_family'      => false !== $osFamily ? $osFamily : 'Unknown',
-            'browser_family' => false !== $browserFamily ? $browserFamily : 'Unknown',
-        ];
+        $result = DeviceDetector::getInfoFromUserAgent($userAgent);
     }
 
     if (!isset($result['device']['model'])) {
