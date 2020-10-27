@@ -9,8 +9,8 @@
 
 namespace DeviceDetector\Tests\Parser;
 
-use DeviceDetector\Parser\AliasDevice;
 use \Spyc;
+use DeviceDetector\Parser\AliasDevice;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -19,7 +19,7 @@ use PHPUnit\Framework\TestCase;
  */
 class AliasDeviceTest extends TestCase
 {
-    static $aliasDevicesTested = array();
+    static $aliasDevicesTested = [];
 
     /**
      * @dataProvider getFixtures
@@ -27,7 +27,7 @@ class AliasDeviceTest extends TestCase
      * @param array $alias
      * @throws
      */
-    public function testParse(string $useragent, array $alias)
+    public function testParse(string $useragent, array $alias): void
     {
         $parser = new AliasDevice();
         $parser->setUserAgent($useragent);
@@ -37,6 +37,6 @@ class AliasDeviceTest extends TestCase
 
     public function getFixtures(): array
     {
-        return Spyc::YAMLLoad(realpath(__DIR__) . '/fixtures/alias_devices.yml');
+        return Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/alias_devices.yml');
     }
 }
