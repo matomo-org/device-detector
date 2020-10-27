@@ -1,53 +1,59 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link https://matomo.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Tests\Parser\Client;
 
-use DeviceDetector\Parser\Client\Browser;
 use \Spyc;
+use DeviceDetector\Parser\Client\Browser;
 use PHPUnit\Framework\TestCase;
 
 class BrowserTest extends TestCase
 {
-    static $browsersTested = array();
+    protected static $browsersTested = [];
 
     /**
      * @dataProvider getFixtures
      */
-    public function testParse($useragent, $client)
+    public function testParse(string $useragent, array $client): void
     {
         $browserParser = new Browser();
         $browserParser->setVersionTruncation(Browser::VERSION_TRUNCATION_NONE);
         $browserParser->setUserAgent($useragent);
-        $this->assertEquals($client, $browserParser->parse(), "UserAgent: {$useragent}");
-        self::$browsersTested[] = $client['short_name'];
+        $browser = $browserParser->parse();
+        unset($browser['short_name']);
+        $this->assertEquals($client, $browser, "UserAgent: {$useragent}");
+        self::$browsersTested[] = $client['name'];
     }
 
-    public function getFixtures()
+    public function getFixtures(): array
     {
-        $fixtureData = \Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/browser.yml');
+        $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/browser.yml');
+
         return $fixtureData;
     }
 
-    public function testGetAvailableBrowserFamilies()
+    public function testGetAvailableBrowserFamilies(): void
     {
         $this->assertGreaterThan(5, Browser::getAvailableBrowserFamilies());
     }
 
-    public function testAllBrowsersTested()
+    public function testAllBrowsersTested(): void
     {
-        $allBrowsers = array_keys(Browser::getAvailableBrowsers());
-        $browsersNotTested = array_diff($allBrowsers, self::$browsersTested);
-        $this->assertEmpty($browsersNotTested, 'Following browsers are not tested: '.implode(', ', $browsersNotTested));
+        $allBrowsers       = \array_values(Browser::getAvailableBrowsers());
+        $browsersNotTested = \array_diff($allBrowsers, self::$browsersTested);
+        $this->assertEmpty($browsersNotTested, 'This browsers are not tested: ' . \implode(', ', $browsersNotTested));
     }
 
-    public function testGetAvailableClients()
+    public function testGetAvailableClients(): void
     {
         $available = Browser::getAvailableClients();
-        $this->assertGreaterThanOrEqual(count($available), count(Browser::getAvailableBrowsers()));
+        $this->assertGreaterThanOrEqual(\count($available), \count(Browser::getAvailableBrowsers()));
     }
 }

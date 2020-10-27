@@ -1,17 +1,27 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link https://matomo.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Parser\Client;
 
-use DeviceDetector\Parser\ParserAbstract;
+use DeviceDetector\Parser\AbstractParser;
 
-abstract class ClientParserAbstract extends ParserAbstract
+abstract class AbstractClientParser extends AbstractParser
 {
+    /**
+     * @var string
+     */
     protected $fixtureFile = '';
+
+    /**
+     * @var string
+     */
     protected $parserName = '';
 
     /**
@@ -26,8 +36,10 @@ abstract class ClientParserAbstract extends ParserAbstract
      * -> Return the matched feed reader
      *
      * NOTE: Doing the big match before matching every single regex speeds up the detection
+     *
+     * @return array|null
      */
-    public function parse()
+    public function parse(): ?array
     {
         $result = null;
 
@@ -36,11 +48,12 @@ abstract class ClientParserAbstract extends ParserAbstract
                 $matches = $this->matchUserAgent($regex['regex']);
 
                 if ($matches) {
-                    $result = array(
-                        'type'       => $this->parserName,
-                        'name'       => $this->buildByMatch($regex['name'], $matches),
-                        'version'    => $this->buildVersion($regex['version'], $matches)
-                    );
+                    $result = [
+                        'type'    => $this->parserName,
+                        'name'    => $this->buildByMatch($regex['name'], $matches),
+                        'version' => $this->buildVersion((string) $regex['version'], $matches),
+                    ];
+
                     break;
                 }
             }
@@ -56,19 +69,22 @@ abstract class ClientParserAbstract extends ParserAbstract
      *
      * @return array
      */
-    public static function getAvailableClients()
+    public static function getAvailableClients(): array
     {
-        $instance = new static();
-        $regexes = $instance->getRegexes();
-        $names = array();
+        $instance = new static(); // @phpstan-ignore-line
+        $regexes  = $instance->getRegexes();
+        $names    = [];
+
         foreach ($regexes as $regex) {
-            if ($regex['name'] != '$1') {
-                $names[] = $regex['name'];
+            if ('$1' === $regex['name']) {
+                continue;
             }
+
+            $names[] = $regex['name'];
         }
 
-        natcasesort($names);
+        \natcasesort($names);
 
-        return array_unique($names);
+        return \array_unique($names);
     }
 }
