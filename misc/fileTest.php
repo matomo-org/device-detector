@@ -25,9 +25,7 @@
  * `php file-test.php /tmp/source-useragent.txt "not" "useragent" > /tmp/useragent-not-detected.txt`
  */
 use DeviceDetector\DeviceDetector;
-use DeviceDetector\Parser\Client\Browser;
 use DeviceDetector\Parser\Device\AbstractDeviceParser;
-use DeviceDetector\Parser\OperatingSystem;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -107,27 +105,10 @@ while (!feof($fn)) {
     $deviceDetector->setUserAgent($userAgent);
     $deviceDetector->parse();
 
-    if ($deviceDetector->isBot()) {
-        $result = [
-            'user_agent' => $deviceDetector->getUserAgent(),
-            'bot'        => $deviceDetector->getBot(),
-        ];
-    } else {
-        $osFamily      = OperatingSystem::getOsFamily($deviceDetector->getOs('short_name'));
-        $browserFamily = Browser::getBrowserFamily($deviceDetector->getClient('short_name'));
-        $result        = [
-            'user_agent'     => $deviceDetector->getUserAgent(),
-            'os'             => $deviceDetector->getOs(),
-            'client'         => $deviceDetector->getClient(),
-            'device'         => [
-                'type'  => $deviceDetector->getDeviceName(),
-                'brand' => $deviceDetector->getBrand(),
-                'model' => $deviceDetector->getModel(),
-            ],
-            'os_family'      => false !== $osFamily ? $osFamily : 'Unknown',
-            'browser_family' => false !== $browserFamily ? $browserFamily : 'Unknown',
-        ];
-    }
+    $result = $deviceDetector->isBot() ? [
+        'user_agent' => $deviceDetector->getUserAgent(),
+        'bot'        => $deviceDetector->getBot(),
+    ] : DeviceDetector::getInfoFromUserAgent($userAgent);
 
     if (!isset($result['device']['model'])) {
         continue;

@@ -26,8 +26,10 @@ class BrowserTest extends TestCase
         $browserParser = new Browser();
         $browserParser->setVersionTruncation(Browser::VERSION_TRUNCATION_NONE);
         $browserParser->setUserAgent($useragent);
-        $this->assertEquals($client, $browserParser->parse(), "UserAgent: {$useragent}");
-        self::$browsersTested[] = $client['short_name'];
+        $browser = $browserParser->parse();
+        unset($browser['short_name']);
+        $this->assertEquals($client, $browser, "UserAgent: {$useragent}");
+        self::$browsersTested[] = $client['name'];
     }
 
     public function getFixtures(): array
@@ -44,7 +46,7 @@ class BrowserTest extends TestCase
 
     public function testAllBrowsersTested(): void
     {
-        $allBrowsers       = \array_keys(Browser::getAvailableBrowsers());
+        $allBrowsers       = \array_values(Browser::getAvailableBrowsers());
         $browsersNotTested = \array_diff($allBrowsers, self::$browsersTested);
         $this->assertEmpty($browsersNotTested, 'This browsers are not tested: ' . \implode(', ', $browsersNotTested));
     }

@@ -24,8 +24,8 @@ class NotebookTest extends TestCase
         $notebookParser = new Notebook();
         $notebookParser->setUserAgent($useragent);
         $this->assertNotNull($notebookParser->parse());
-        $this->assertEquals($device['type'], $notebookParser->getDeviceType());
-        $this->assertEquals($device['brand'], $notebookParser->getBrand());
+        $this->assertEquals($device['type'], Notebook::getDeviceName($notebookParser->getDeviceType()));
+        $this->assertEquals($device['brand'], Notebook::getFullName($notebookParser->getBrand()));
         $this->assertEquals($device['model'], $notebookParser->getModel());
     }
 
