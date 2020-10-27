@@ -1,28 +1,39 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link https://matomo.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Parser\Device;
 
 /**
  * Class PortableMediaPlayer
  *
  * Device parser for portable media player detection
- *
- * @package DeviceDetector\Parser\Device
  */
-class PortableMediaPlayer extends DeviceParserAbstract
+class PortableMediaPlayer extends AbstractDeviceParser
 {
+    /**
+     * @var string
+     */
     protected $fixtureFile = 'regexes/device/portable_media_player.yml';
-    protected $parserName  = 'portablemediaplayer';
 
-    public function parse()
+    /**
+     * @var string
+     */
+    protected $parserName = 'portablemediaplayer';
+
+    /**
+     * @inheritdoc
+     */
+    public function parse(): ?array
     {
         if (!$this->preMatchOverall()) {
-            return false;
+            return null;
         }
 
         return parent::parse();

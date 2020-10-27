@@ -270,7 +270,7 @@
     default: 'Blink'
 
 # hola! Browser (https://hola.org/browser)
-- regex: 'Hola(?:/(\d+[\.\d]+))?'
+- regex: 'Chrome/.+ Hola(?:/(\d+[\.\d]+))?'
   name: 'hola! Browser'
   version: '$1'
   engine:
@@ -643,7 +643,7 @@
   version: '$1'
   engine:
     default: 'Servo'
-- regex: 'Firefox(?:/(\d+[\.\d]+))?'
+- regex: '(?!.*Opera[ /])Firefox(?:/(\d+[\.\d]+))?'
   name: 'Firefox'
   version: '$1'
   engine:
@@ -885,6 +885,13 @@
 - regex: 'YaBrowser(?:/(\d+[\.\d]*))(?: \((alpha|beta)\))?'
   name: 'Yandex Browser'
   version: '$1 $2'
+  engine:
+    default: 'Blink'
+
+# Yaani Browser
+- regex: 'YaaniBrowser(?:/(\d+[\.\d]+))?'
+  name: 'Yaani Browser'
+  version: '$1'
   engine:
     default: 'Blink'
 
@@ -1213,6 +1220,12 @@
 # Quark
 - regex: 'Chrome/.+ Quark(?:/(\d+[\.\d]+))?'
   name: 'Quark'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+
+- regex: 'BlueBrowser(?:/(\d+[\.\d]+))?'
+  name: 'Blue Browser'
   version: '$1'
   engine:
     default: 'WebKit'
@@ -1734,3 +1747,9 @@
   version: '$1'
   engine:
     default: 'Gecko'
+
+# GOG Galaxy
+- regex: 'GOGGalaxyClient/(?:(\d+[\.\d]+))?'
+  name: 'GOG Galaxy'
+  version: '$1'
+  

@@ -1,43 +1,61 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link https://matomo.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Parser;
 
-use DeviceDetector\Parser\Device\DeviceParserAbstract;
+use DeviceDetector\Parser\Device\AbstractDeviceParser;
 
 /**
  * Class VendorFragments
  *
  * Device parser for vendor fragment detection
- *
- * @package DeviceDetector\Parser\Device
  */
-class VendorFragment extends ParserAbstract
+class VendorFragment extends AbstractParser
 {
+    /**
+     * @var string
+     */
     protected $fixtureFile = 'regexes/vendorfragments.yml';
-    protected $parserName  = 'vendorfragments';
 
+    /**
+     * @var string
+     */
+    protected $parserName = 'vendorfragments';
+
+    /**
+     * @var string
+     */
     protected $matchedRegex = null;
 
-    public function parse()
+    /**
+     * @inheritdoc
+     */
+    public function parse(): ?array
     {
         foreach ($this->getRegexes() as $brand => $regexes) {
             foreach ($regexes as $regex) {
-                if ($this->matchUserAgent($regex.'[^a-z0-9]+')) {
+                if ($this->matchUserAgent($regex . '[^a-z0-9]+')) {
                     $this->matchedRegex = $regex;
-                    return array_search($brand, DeviceParserAbstract::$deviceBrands);
+
+                    return ['brand' => \array_search($brand, AbstractDeviceParser::$deviceBrands)];
                 }
             }
         }
 
-        return '';
+        return null;
     }
 
-    public function getMatchedRegex()
+    /**
+     * @return string|null
+     */
+    public function getMatchedRegex(): ?string
     {
         return $this->matchedRegex;
     }

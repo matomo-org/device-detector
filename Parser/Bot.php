@@ -1,10 +1,13 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
  * @link https://matomo.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Parser;
 
 /**
@@ -13,19 +16,28 @@ namespace DeviceDetector\Parser;
  * Parses a user agent for bot information
  *
  * Detected bots are defined in regexes/bots.yml
- *
- * @package DeviceDetector\Parser
  */
-class Bot extends BotParserAbstract
+class Bot extends AbstractBotParser
 {
+    /**
+     * @var string
+     */
     protected $fixtureFile = 'regexes/bots.yml';
+
+    /**
+     * @var string
+     */
     protected $parserName = 'bot';
+
+    /**
+     * @var bool
+     */
     protected $discardDetails = false;
 
     /**
      * Enables information discarding
      */
-    public function discardDetails()
+    public function discardDetails(): void
     {
         $this->discardDetails = true;
     }
@@ -45,21 +57,25 @@ class Bot extends BotParserAbstract
      * $bot will be set to TRUE instead
      *
      * NOTE: Doing the big match before matching every single regex speeds up the detection
+     *
+     * @return array|null
      */
-    public function parse()
+    public function parse(): ?array
     {
         $result = null;
 
         if ($this->preMatchOverall()) {
             if ($this->discardDetails) {
-                return true;
+                return [true];
             }
 
             foreach ($this->getRegexes() as $regex) {
                 $matches = $this->matchUserAgent($regex['regex']);
+
                 if ($matches) {
                     unset($regex['regex']);
                     $result = $regex;
+
                     break;
                 }
             }
