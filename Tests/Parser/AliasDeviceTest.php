@@ -5,6 +5,7 @@
  * @link https://matomo.org
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Tests\Parser;
 
 use DeviceDetector\Parser\AliasDevice;
@@ -21,8 +22,11 @@ class AliasDeviceTest extends TestCase
 
     /**
      * @dataProvider getFixtures
+     * @param string $useragent
+     * @param array $alias
+     * @throws
      */
-    public function testParse($useragent, $alias)
+    public function testParse(string $useragent, array $alias)
     {
         $parser = new AliasDevice();
         $parser->setUserAgent($useragent);
@@ -30,9 +34,8 @@ class AliasDeviceTest extends TestCase
         self::$aliasDevicesTested[] = $alias['name'];
     }
 
-    public function getFixtures()
+    public function getFixtures(): array
     {
-        $fixtureData = \Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/alias_devices.yml');
-        return $fixtureData;
+        return \Spyc::YAMLLoad(realpath(__DIR__) . '/fixtures/alias_devices.yml');
     }
 }

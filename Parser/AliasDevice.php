@@ -9,7 +9,7 @@
 namespace DeviceDetector\Parser;
 
 use DeviceDetector\DeviceDetector;
-use DeviceDetector\Parser\Device\DeviceParserAbstract;
+use DeviceDetector\Parser\Device\AbstractDeviceParser;
 
 /**
  * Class AliasDevice
@@ -24,30 +24,35 @@ use DeviceDetector\Parser\Device\DeviceParserAbstract;
  *      var_dump($result);
  * ```
  */
-class AliasDevice extends ParserAbstract
+class AliasDevice extends AbstractParser
 {
     protected $fixtureFile = 'regexes/alias_devices.yml';
     protected $parserName = 'alias_device';
 
     private $brandReplaceRegexp = null;
 
-    public function parse()
+    /**
+     * @return array
+     * @throws \Exception
+     */
+    public function parse(): array
     {
-        $return = array();
         $matches = false;
 
+        $find = [];
         foreach ($this->getRegexes() as $aliasDeviceRegex) {
-            $matches = $this->matchUserAgent($aliasDeviceRegex['regex']);
+            $find = $aliasDeviceRegex;
+            $matches = $this->matchUserAgent($find['regex']);
             if ($matches) {
                 break;
             }
         }
 
         if (!$matches) {
-            return $return;
+            return [];
         }
 
-        $name = $this->buildByMatch($aliasDeviceRegex['name'], $matches);
+        $name = $this->buildByMatch($find['name'], $matches);
         $name = preg_replace($this->getBrandReplaceRegexp(), '', $name);
         $name = trim($name);
 
@@ -65,7 +70,7 @@ class AliasDevice extends ParserAbstract
             if (empty($this->brandReplaceRegexp)) {
 
                 $escapeeChars = ['+' => '\+', '.' => '\.'];
-                $brands = implode('|', array_values(DeviceParserAbstract::$deviceBrands));
+                $brands = implode('|', array_values(AbstractDeviceParser::$deviceBrands));
                 $brands = str_replace(array_keys($escapeeChars), array_values($escapeeChars), $brands);
                 $pattern = sprintf('#([ _-]?(?:%s)[ _-]?)#i', $brands);
 
