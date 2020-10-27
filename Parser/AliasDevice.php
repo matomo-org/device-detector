@@ -22,14 +22,13 @@ class AliasDevice extends AbstractParser
     private $brandReplaceRegexp = null;
 
     /**
-     * @return array
+     * @return array|null
      *
      * @throws \Exception
      */
-    public function parse(): array
+    public function parse(): ?array
     {
         $matches = false;
-        $name = '';
         $find = [];
 
         foreach ($this->getRegexes() as $aliasDeviceRegex) {
@@ -42,7 +41,7 @@ class AliasDevice extends AbstractParser
         }
 
         if (!$matches) {
-            return \compact('name');
+            return null;
         }
 
         $name = $this->buildByMatch($find['name'], $matches);
