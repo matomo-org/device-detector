@@ -904,6 +904,20 @@ abstract class AbstractDeviceParser extends AbstractParser
     }
 
     /**
+     * Returns the brand short code for the given name
+     *
+     * @param string $brand brand name
+     *
+     * @return string
+     *
+     * @deprecated since 4.0 - short codes might be removed in next major release
+     */
+    public static function getShortCode(string $brand): string
+    {
+        return \array_search($brand, self::$deviceBrands) ?: '';
+    }
+
+    /**
      * Sets the useragent to be parsed
      *
      * @param string $userAgent
@@ -935,9 +949,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         }
 
         if ('Unknown' !== $brand) {
-            $brandId = \array_search($brand, self::$deviceBrands);
-
-            if (false === $brandId) {
+            if (!\in_array($brand, self::$deviceBrands)) {
                 // This Exception should never be thrown. If so a defined brand name is missing in $deviceBrands
                 throw new \Exception(\sprintf(
                     "The brand with name '%s' should be listed in deviceBrands array. Tried to parse user agent: %s",
@@ -946,7 +958,7 @@ abstract class AbstractDeviceParser extends AbstractParser
                 )); // @codeCoverageIgnore
             }
 
-            $this->brand = (string) $brandId;
+            $this->brand = (string) $brand;
         }
 
         if (isset($regex['device']) && \array_key_exists($regex['device'], self::$deviceTypes)) {
@@ -976,8 +988,8 @@ abstract class AbstractDeviceParser extends AbstractParser
 
             $this->model = $this->buildModel($modelRegex['model'], $modelMatches);
 
-            if (isset($modelRegex['brand']) && \array_search($modelRegex['brand'], self::$deviceBrands)) {
-                $this->brand = (string) \array_search($modelRegex['brand'], self::$deviceBrands);
+            if (isset($modelRegex['brand']) && \in_array($modelRegex['brand'], self::$deviceBrands)) {
+                $this->brand = (string) $modelRegex['brand'];
             }
 
             if (isset($modelRegex['device']) && \array_key_exists($modelRegex['device'], self::$deviceTypes)) {

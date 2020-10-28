@@ -10,8 +10,6 @@
 
 namespace DeviceDetector\Parser;
 
-use DeviceDetector\Parser\Device\AbstractDeviceParser;
-
 /**
  * Class VendorFragments
  *
@@ -44,7 +42,7 @@ class VendorFragment extends AbstractParser
                 if ($this->matchUserAgent($regex . '[^a-z0-9]+')) {
                     $this->matchedRegex = $regex;
 
-                    return ['brand' => \array_search($brand, AbstractDeviceParser::$deviceBrands)];
+                    return ['brand' => $brand];
                 }
             }
         }
