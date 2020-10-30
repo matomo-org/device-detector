@@ -378,9 +378,9 @@ class DeviceDetector
             return true;
         }
 
-        $osShort = $this->getOs('short_name');
+        $osName = $this->getOs('name');
 
-        if (empty($osShort) || self::UNKNOWN === $osShort) {
+        if (empty($osName) || self::UNKNOWN === $osName) {
             return false;
         }
 
@@ -397,9 +397,9 @@ class DeviceDetector
      */
     public function isDesktop(): bool
     {
-        $osShort = $this->getOsAttribute('short_name');
+        $osName = $this->getOsAttribute('name');
 
-        if (empty($osShort) || self::UNKNOWN === $osShort) {
+        if (empty($osName) || self::UNKNOWN === $osName) {
             return false;
         }
 
@@ -408,7 +408,7 @@ class DeviceDetector
             return false;
         }
 
-        $decodedFamily = OperatingSystem::getOsFamily($osShort);
+        $decodedFamily = OperatingSystem::getOsFamily($osName);
 
         return \in_array($decodedFamily, self::$desktopOsArray);
     }
@@ -483,10 +483,12 @@ class DeviceDetector
      * @see self::$deviceBrand for available device brands
      *
      * @return string
+     *
+     * @deprecated since 4.0 - short codes might be removed in next major release
      */
     public function getBrand(): string
     {
-        return $this->brand;
+        return AbstractDeviceParser::getShortCode($this->brand);
     }
 
     /**
@@ -498,7 +500,7 @@ class DeviceDetector
      */
     public function getBrandName(): string
     {
-        return AbstractDeviceParser::getFullName($this->getBrand());
+        return $this->brand;
     }
 
     /**
@@ -609,8 +611,8 @@ class DeviceDetector
             ];
         }
 
-        $osFamily      = OperatingSystem::getOsFamily($deviceDetector->getOsAttribute('short_name'));
-        $browserFamily = Browser::getBrowserFamily($deviceDetector->getClientAttribute('short_name'));
+        $osFamily      = OperatingSystem::getOsFamily($deviceDetector->getOsAttribute('name'));
+        $browserFamily = Browser::getBrowserFamily($deviceDetector->getClientAttribute('name'));
 
         $os = $deviceDetector->getOs();
         unset($os['short_name']);
@@ -742,7 +744,7 @@ class DeviceDetector
     protected function usesMobileBrowser(): bool
     {
         return 'browser' === $this->getClient('type')
-            && Browser::isMobileOnlyBrowser($this->getClientAttribute('short_name'));
+            && Browser::isMobileOnlyBrowser($this->getClientAttribute('name'));
     }
 
     /**
@@ -829,16 +831,16 @@ class DeviceDetector
             $this->brand = $vendorParser->parse()['brand'] ?? '';
         }
 
-        $osShortName = $this->getOsAttribute('short_name');
-        $osFamily    = OperatingSystem::getOsFamily($osShortName);
-        $osVersion   = $this->getOsAttribute('version');
-        $clientName  = $this->getClientAttribute('name');
+        $osName     = $this->getOsAttribute('name');
+        $osFamily   = OperatingSystem::getOsFamily($osName);
+        $osVersion  = $this->getOsAttribute('version');
+        $clientName = $this->getClientAttribute('name');
 
         /**
          * Assume all devices running iOS / Mac OS are from Apple
          */
-        if (empty($this->brand) && \in_array($osShortName, ['ATV', 'IOS', 'MAC'])) {
-            $this->brand = 'AP';
+        if (empty($this->brand) && \in_array($osName, ['Apple TV', 'iOS', 'Mac'])) {
+            $this->brand = 'Apple';
         }
 
         /**
@@ -882,7 +884,7 @@ class DeviceDetector
          * So were are expecting that all devices running Android < 2 are smartphones
          * Devices running Android 3.X are tablets. Device type of Android 2.X and 4.X+ are unknown
          */
-        if (null === $this->device && 'AND' === $osShortName && '' !== $osVersion) {
+        if (null === $this->device && 'Android' === $osName && '' !== $osVersion) {
             if (-1 === \version_compare($osVersion, '2.0')) {
                 $this->device = AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE;
             } elseif (\version_compare($osVersion, '3.0') >= 0
@@ -909,7 +911,7 @@ class DeviceDetector
          * all Windows 8 touch devices are tablets.
          */
 
-        if (null === $this->device && ('WRT' === $osShortName || ('WIN' === $osShortName
+        if (null === $this->device && ('Windows RT' === $osName || ('Windows' === $osName
             && \version_compare($osVersion, '8') >= 0)) && $this->isTouchEnabled()
         ) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TABLET;
