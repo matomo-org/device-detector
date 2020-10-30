@@ -118,7 +118,7 @@ $deviceDetector = new DeviceDetector();
 
 By default, DeviceDetector uses a built-in array cache. To get better performance, you can use your own caching solution:
 
-* You can create a class that implement `DeviceDetector\Cache\Cache`
+* You can create a class that implement `DeviceDetector\Cache\CacheInterface`
 * You can directly use a Doctrine Cache object (useful if your project already uses Doctrine)
 * Or if your project uses a [PSR-6](http://www.php-fig.org/psr/psr-6/) or [PSR-16](http://www.php-fig.org/psr/psr-16/) compliant caching system (like [symfony/cache](https://github.com/symfony/cache) or [matthiasmullie/scrapbook](https://github.com/matthiasmullie/scrapbook)), you can inject them the following way:
 
