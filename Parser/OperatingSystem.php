@@ -223,12 +223,16 @@ class OperatingSystem extends AbstractParser
     /**
      * Returns the operating system family for the given operating system
      *
-     * @param string $osLabel
+     * @param string $osLabel name or short name
      *
      * @return string|null If null, "Unknown"
      */
     public static function getOsFamily(string $osLabel): ?string
     {
+        if (\in_array($osLabel, self::$operatingSystems)) {
+            $osLabel = \array_search($osLabel, self::$operatingSystems);
+        }
+
         foreach (self::$osFamilies as $family => $labels) {
             if (\in_array($osLabel, $labels)) {
                 return (string) $family;
