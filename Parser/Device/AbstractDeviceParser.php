@@ -336,6 +336,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'IH' => 'iHunt',
         'IK' => 'iKoMo',
         'IE' => 'iView',
+        '0J' => 'iVooMi',
         'I8' => 'iVA',
         '1I' => 'iMars',
         'IM' => 'i-mate',
