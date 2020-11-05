@@ -18,7 +18,13 @@ The Universal Device Detection library that parses User Agents and detects devic
 
 ## Usage
 
-Using DeviceDetector with composer is quite easy. Just add matomo/device-detector to your projects requirements. And use some code like this one:
+Using DeviceDetector with composer is quite easy. Just add `matomo/device-detector` to your projects requirements.
+
+```
+composer require matomo/device-detector
+```
+
+And use some code like this one:
 
 
 ```php
@@ -119,14 +125,13 @@ $deviceDetector = new DeviceDetector();
 By default, DeviceDetector uses a built-in array cache. To get better performance, you can use your own caching solution:
 
 * You can create a class that implement `DeviceDetector\Cache\CacheInterface`
-* You can directly use a Doctrine Cache object (useful if your project already uses Doctrine)
 * Or if your project uses a [PSR-6](http://www.php-fig.org/psr/psr-6/) or [PSR-16](http://www.php-fig.org/psr/psr-16/) compliant caching system (like [symfony/cache](https://github.com/symfony/cache) or [matthiasmullie/scrapbook](https://github.com/matthiasmullie/scrapbook)), you can inject them the following way:
 
 ```php
 // Example with PSR-6 and Symfony
-$cache = new Symfony\Component\Cache\Adapter\ApcuAdapter();
+$cache = new \Symfony\Component\Cache\Adapter\ApcuAdapter();
 $dd->setCache(
-    new DeviceDetector\Cache\PSR6Bridge($cache)
+    new \DeviceDetector\Cache\PSR6Bridge($cache)
 );
 
 // Example with PSR-16 and ScrapBook
@@ -134,12 +139,13 @@ $cache = new \MatthiasMullie\Scrapbook\Psr16\SimpleCache(
     new \MatthiasMullie\Scrapbook\Adapters\Apc()
 );
 $dd->setCache(
-    new DeviceDetector\Cache\PSR16Bridge($cache)
+    new \DeviceDetector\Cache\PSR16Bridge($cache)
 );
 
 // Example with Doctrine
+$cache = new \Doctrine\Common\Cache\ApcuCache();
 $dd->setCache(
-    new Doctrine\Common\Cache\ApcuCache()
+    new \DeviceDetector\Cache\DoctrineBridge($cache)
 );
 ```
 
