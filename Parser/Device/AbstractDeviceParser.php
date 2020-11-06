@@ -562,6 +562,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '1P' => 'Phicomm',
         'PI' => 'Pioneer',
         'PX' => 'Pixus',
+        '8P' => 'Pixelphone',
         'PL' => 'Polaroid',
         'P5' => 'Polytron',
         'P9' => 'Primepad',
