@@ -14286,9 +14286,13 @@ Woo:
 
 # Woxter
 Woxter:
-  regex: 'Woxter[ _]([^/;]+) Build'
+  regex: 'Woxter[ _]([^/;)]+)(?: Build|\))|Nimbus 101Q'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: 'Nimbus 101Q'
+      model: 'Nimbus 101Q'
+    - regex: 'Woxter[ _]([^/;)]+)(?: Build|\))'
+      model: '$1'
 
 # X-View
 X-View:
