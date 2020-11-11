@@ -356,6 +356,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'IR' => 'iRola',
         'IU' => 'iRulu',
         'I6' => 'Irbis',
+        '5I' => 'Iris',
         'II' => 'Inkti',
         'IX' => 'Intex',
         '4I' => 'Invin',

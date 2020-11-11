@@ -149,6 +149,7 @@ class Browser extends AbstractClientParser
         'IE' => 'Internet Explorer',
         'IM' => 'IE Mobile',
         'IR' => 'Iron',
+        'JB' => 'Japan Browser',
         'JS' => 'Jasmine',
         'JI' => 'Jig Browser',
         'JP' => 'Jig Browser Plus',
@@ -187,6 +188,7 @@ class Browser extends AbstractClientParser
         'MT' => 'Mint Browser',
         'MX' => 'Maxthon',
         'MY' => 'Mypal',
+        'MR' => 'Monument Browser',
         'NB' => 'Nokia Browser',
         'NO' => 'Nokia OSS Browser',
         'NV' => 'Nokia Ovi Browser',
@@ -323,7 +325,7 @@ class Browser extends AbstractClientParser
             'OC', 'MZ', 'BM', 'KN', 'SW', 'M1', 'FA', 'TA', 'AH',
             'CL', 'SU', 'EU', 'UB', 'LO', 'VG', 'TV', 'A0', '1B',
             'S4', 'EE', 'AE', 'VM', 'O0', 'TG', 'GB', 'SY', 'HH',
-            'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN',
+            'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
@@ -349,7 +351,7 @@ class Browser extends AbstractClientParser
     protected static $mobileOnlyBrowsers = [
         '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR',
         'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM', 'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
-        'UT', 'DT', 'S0', 'QU', 'YN',
+        'UT', 'DT', 'S0', 'QU', 'YN', 'JB',
     ];
 
     /**
