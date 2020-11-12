@@ -7,7 +7,7 @@ include __DIR__ . '/../vendor/autoload.php';
 $fixtureFiles = array_merge(
     glob(__DIR__ . '/../Tests/fixtures/*.yml'),
     glob(__DIR__ . '/../Tests/Parser/Client/fixtures/*.yml'),
-    glob(__DIR__ . '/../Tests/Parser/Devices/fixtures/*.yml')
+    glob(__DIR__ . '/../Tests/Parser/Device/fixtures/*.yml')
 );
 
 $overwrite = !empty($argv[1]) && '--f' === $argv[1];
@@ -18,14 +18,6 @@ foreach ($fixtureFiles as $file) {
 
     foreach ($fileFixtures as $i => $fixture) {
         $keys = array_flip(array_keys($fixture));
-
-        if (isset($fixture['client']['short_name']) && true === $fixture['client']['short_name']) {
-            $fixture['client']['short_name'] = 'ON';
-        }
-
-        if (isset($fixture['client']['short_name']) && false === $fixture['client']['short_name']) {
-            $fixture['client']['short_name'] = 'NO';
-        }
 
         if ($overwrite) {
             $fixture = \DeviceDetector\DeviceDetector::getInfoFromUserAgent($fixture['user_agent']);

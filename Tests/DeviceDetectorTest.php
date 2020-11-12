@@ -403,6 +403,13 @@ class DeviceDetectorTest extends TestCase
         $this->assertEquals('Google', $dd->getBrandName());
     }
 
+    public function testGetBrand(): void
+    {
+        $dd = new DeviceDetector('Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.136 Mobile Safari/537.36');
+        $dd->parse();
+        $this->assertEquals('GO', $dd->getBrand());
+    }
+
     public function testIsTouchEnabled(): void
     {
         $dd = new DeviceDetector('Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0; Touch; ARMBJS)');

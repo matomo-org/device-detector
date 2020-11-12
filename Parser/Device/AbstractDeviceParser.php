@@ -81,6 +81,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '88' => '8848',
         '3Q' => '3Q',
         '4G' => '4Good',
+        '41' => 'A1',
         'AE' => 'Ace',
         'AA' => 'AllCall',
         '3A' => 'AllDocube',
@@ -106,6 +107,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'AN' => 'Arnova',
         '7A' => 'Anry',
         '5A' => 'ArmPhone',
+        '40' => 'Artel',
         '2A' => 'Atom',
         'KN' => 'Amazon',
         'AG' => 'AMGOO',
@@ -334,6 +336,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'IH' => 'iHunt',
         'IK' => 'iKoMo',
         'IE' => 'iView',
+        '0J' => 'iVooMi',
         'I8' => 'iVA',
         '1I' => 'iMars',
         'IM' => 'i-mate',
@@ -353,6 +356,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'IR' => 'iRola',
         'IU' => 'iRulu',
         'I6' => 'Irbis',
+        '5I' => 'Iris',
         'II' => 'Inkti',
         'IX' => 'Intex',
         '4I' => 'Invin',
@@ -559,6 +563,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '1P' => 'Phicomm',
         'PI' => 'Pioneer',
         'PX' => 'Pixus',
+        '8P' => 'Pixelphone',
         'PL' => 'Polaroid',
         'P5' => 'Polytron',
         'P9' => 'Primepad',
@@ -583,6 +588,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'P7' => 'Protruly',
         'P1' => 'ProScan',
         'PU' => 'PULID',
+        '7P' => 'P-UP',
         'QB' => 'Q.Bell',
         'QI' => 'Qilive',
         'QT' => 'Qtek',
@@ -668,6 +674,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'S3' => 'SunVan',
         'SZ' => 'Sumvision',
         'SS' => 'SWISSMOBILITY',
+        '1W' => 'Swisstone',
         'QS' => 'SQOOL',
         '0W' => 'Swipe',
         '10' => 'Simbans',
@@ -904,6 +911,20 @@ abstract class AbstractDeviceParser extends AbstractParser
     }
 
     /**
+     * Returns the brand short code for the given name
+     *
+     * @param string $brand brand name
+     *
+     * @return string
+     *
+     * @deprecated since 4.0 - short codes might be removed in next major release
+     */
+    public static function getShortCode(string $brand): string
+    {
+        return \array_search($brand, self::$deviceBrands) ?: '';
+    }
+
+    /**
      * Sets the useragent to be parsed
      *
      * @param string $userAgent
@@ -935,9 +956,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         }
 
         if ('Unknown' !== $brand) {
-            $brandId = \array_search($brand, self::$deviceBrands);
-
-            if (false === $brandId) {
+            if (!\in_array($brand, self::$deviceBrands)) {
                 // This Exception should never be thrown. If so a defined brand name is missing in $deviceBrands
                 throw new \Exception(\sprintf(
                     "The brand with name '%s' should be listed in deviceBrands array. Tried to parse user agent: %s",
@@ -946,7 +965,7 @@ abstract class AbstractDeviceParser extends AbstractParser
                 )); // @codeCoverageIgnore
             }
 
-            $this->brand = (string) $brandId;
+            $this->brand = (string) $brand;
         }
 
         if (isset($regex['device']) && \array_key_exists($regex['device'], self::$deviceTypes)) {
@@ -976,8 +995,8 @@ abstract class AbstractDeviceParser extends AbstractParser
 
             $this->model = $this->buildModel($modelRegex['model'], $modelMatches);
 
-            if (isset($modelRegex['brand']) && \array_search($modelRegex['brand'], self::$deviceBrands)) {
-                $this->brand = (string) \array_search($modelRegex['brand'], self::$deviceBrands);
+            if (isset($modelRegex['brand']) && \in_array($modelRegex['brand'], self::$deviceBrands)) {
+                $this->brand = (string) $modelRegex['brand'];
             }
 
             if (isset($modelRegex['device']) && \array_key_exists($modelRegex['device'], self::$deviceTypes)) {

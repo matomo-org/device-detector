@@ -25,9 +25,7 @@
  * `php file-test.php /tmp/source-useragent.txt "not" "useragent" > /tmp/useragent-not-detected.txt`
  */
 use DeviceDetector\DeviceDetector;
-use DeviceDetector\Parser\Client\Browser;
 use DeviceDetector\Parser\Device\AbstractDeviceParser;
-use DeviceDetector\Parser\OperatingSystem;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -37,6 +35,22 @@ if ('cli' !== php_sapi_name()) {
 }
 
 if (count($argv) < 2) {
+    printHelpAndExit();
+}
+
+define('DETECT_MODE_TYPE_DETECT', 'detect');
+define('DETECT_MODE_TYPE_ALL', 'all');
+define('DETECT_MODE_TYPE_NOT', 'not');
+
+define('REPORT_TYPE_YML', 'yml');
+define('REPORT_TYPE_USERAGENT', 'useragent');
+
+$file       = $argv[1] ?? '';
+$showMode   = $argv[2] ?? 'not';
+$reportMode = $argv[3] ?? 'yml';
+
+function printHelpAndExit(): void
+{
     echo "Usage command:\n";
     echo "php file-test.php <patch to file> <detect mode> <report mode> > report.txt\n\n";
 
@@ -49,27 +63,9 @@ if (count($argv) < 2) {
     exit;
 }
 
-define('DETECT_MODE_TYPE_DETECT', 'detect');
-define('DETECT_MODE_TYPE_ALL', 'all');
-define('DETECT_MODE_TYPE_NOT', 'not');
-
-define('REPORT_TYPE_YML', 'yml');
-define('REPORT_TYPE_USERAGENT', 'useragent');
-
-if (isset($argv[1])) {
-    $file = $argv[1];
-}
-
-$showMode = 'not';
-
-if (isset($argv[2])) {
-    $showMode = $argv[2];
-}
-
-$reportMode = 'yml';
-
-if (isset($argv[3])) {
-    $reportMode = $argv[3];
+if (!is_file($file)) {
+    echo sprintf("Error: file `%s` not fount\n\n", $file);
+    printHelpAndExit();
 }
 
 /**
@@ -98,6 +94,11 @@ $fn = fopen($file, 'r');
 
 while (!feof($fn)) {
     $userAgent = fgets($fn);
+
+    if (false === $userAgent) {
+        break;
+    }
+
     $userAgent = trim($userAgent);
 
     if (empty($userAgent)) {
@@ -107,27 +108,10 @@ while (!feof($fn)) {
     $deviceDetector->setUserAgent($userAgent);
     $deviceDetector->parse();
 
-    if ($deviceDetector->isBot()) {
-        $result = [
-            'user_agent' => $deviceDetector->getUserAgent(),
-            'bot'        => $deviceDetector->getBot(),
-        ];
-    } else {
-        $osFamily      = OperatingSystem::getOsFamily($deviceDetector->getOs('short_name'));
-        $browserFamily = Browser::getBrowserFamily($deviceDetector->getClient('short_name'));
-        $result        = [
-            'user_agent'     => $deviceDetector->getUserAgent(),
-            'os'             => $deviceDetector->getOs(),
-            'client'         => $deviceDetector->getClient(),
-            'device'         => [
-                'type'  => $deviceDetector->getDeviceName(),
-                'brand' => $deviceDetector->getBrand(),
-                'model' => $deviceDetector->getModel(),
-            ],
-            'os_family'      => false !== $osFamily ? $osFamily : 'Unknown',
-            'browser_family' => false !== $browserFamily ? $browserFamily : 'Unknown',
-        ];
-    }
+    $result = $deviceDetector->isBot() ? [
+        'user_agent' => $deviceDetector->getUserAgent(),
+        'bot'        => $deviceDetector->getBot(),
+    ] : DeviceDetector::getInfoFromUserAgent($userAgent);
 
     if (!isset($result['device']['model'])) {
         continue;

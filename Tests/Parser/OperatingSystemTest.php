@@ -26,7 +26,7 @@ class OperatingSystemTest extends TestCase
         $osParser = new OperatingSystem();
         $osParser->setUserAgent($useragent);
         $this->assertEquals($os, $osParser->parse());
-        self::$osTested[] = $os['short_name'];
+        self::$osTested[] = $os['name'];
     }
 
     public function getFixtures(): array
@@ -99,7 +99,7 @@ class OperatingSystemTest extends TestCase
 
     public function testAllOperatingSystemsTested(): void
     {
-        $allBrowsers = \array_keys(OperatingSystem::getAvailableOperatingSystems());
+        $allBrowsers = OperatingSystem::getAvailableOperatingSystems();
         $osNotTested = \array_diff($allBrowsers, self::$osTested);
         $this->assertEmpty($osNotTested, 'Following browsers are not tested: ' . \implode(', ', $osNotTested));
     }

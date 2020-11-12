@@ -8,7 +8,7 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-namespace DeviceDetector\Tests\Parser\Devices;
+namespace DeviceDetector\Tests\Parser\Device;
 
 use \Spyc;
 use DeviceDetector\Parser\Device\Notebook;
@@ -24,7 +24,7 @@ class NotebookTest extends TestCase
         $notebookParser = new Notebook();
         $notebookParser->setUserAgent($useragent);
         $this->assertNotNull($notebookParser->parse());
-        $this->assertEquals($device['type'], $notebookParser->getDeviceType());
+        $this->assertEquals($device['type'], Notebook::getDeviceName($notebookParser->getDeviceType()));
         $this->assertEquals($device['brand'], $notebookParser->getBrand());
         $this->assertEquals($device['model'], $notebookParser->getModel());
     }
