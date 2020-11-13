@@ -33,74 +33,94 @@ class DeviceDetectorTest extends TestCase
         $dd->addDeviceParser('Invalid');
     }
 
-    public function testDevicesYmlFiles(): void
+    private function assetDeviceBrandRegex(string $file, string $brand, array $regex): void
     {
-        $fixtureFiles = \glob(\realpath(__DIR__) . '/../regexes/device/*.yml');
+        $this->assertArrayHasKey('regex', $regex);
+        $this->assertTrue(false === \strpos($regex['regex'], '||'), \sprintf(
+            'Detect `||` in regex, file %s, brand %s, common regex %s',
+            $file,
+            $brand,
+            $regex['regex']
+        ));
 
-        foreach ($fixtureFiles as $file) {
-            $ymlData = \Spyc::YAMLLoad($file);
+        $this->assertTrue($this->checkRegexVerticalLineClosingGroup($regex['regex']), \sprintf(
+            'Detect `|)` in regex, file %s, brand %s, common regex %s',
+            $file,
+            $brand,
+            $regex['regex']
+        ));
 
-            foreach ($ymlData as $brand => $regex) {
-                $this->assertArrayHasKey('regex', $regex);
+        $this->assertTrue($this->checkRegexRestrictionEndCondition($regex['regex']), \sprintf(
+            'Detect end of regular expression does not match the format `(?:[);/ ]|$)`, file %s, brand %s, common regex %s',
+            $file,
+            $brand,
+            $regex['regex']
+        ));
+    }
 
-                $this->assertTrue(false === \strpos($regex['regex'], '||'), \sprintf(
-                    'Detect `||` in regex, file %s, brand %s, common regex %s',
-                    $file,
-                    $brand,
-                    $regex['regex']
-                ));
+    private function assetDeviceModelRegex(string $file, string $brand, array $model): void
+    {
+        $this->assertArrayHasKey('regex', $model);
+        $this->assertArrayHasKey('model', $model, \sprintf(
+            'Key model not exist, file %s, brand %s, model regex %s',
+            $file,
+            $brand,
+            $model['regex']
+        ));
+        $this->assertTrue(false === \strpos($model['regex'], '||'), \sprintf(
+            'Detect `||` in regex, file %s, brand %s, model regex %s',
+            $file,
+            $brand,
+            $model['regex']
+        ));
 
-                $this->assertTrue($this->checkRegexVerticalLineClosingGroup($regex['regex']), \sprintf(
-                    'Detect `|)` in regex, file %s, brand %s, common regex %s',
-                    $file,
-                    $brand,
-                    $regex['regex']
-                ));
+        $this->assertTrue($this->checkRegexVerticalLineClosingGroup($model['regex']), \sprintf(
+            'Detect `|)` in regex, file %s, brand %s, model regex %s',
+            $file,
+            $brand,
+            $model['regex']
+        ));
 
-                $this->assertTrue($this->checkRegexRestrictionEndCondition($regex['regex']), \sprintf(
-                    'Detect end of regular expression does not match the format `(?:[);/ ]|$)`, file %s, brand %s, common regex %s',
-                    $file,
-                    $brand,
-                    $regex['regex']
-                ));
+        $this->assertTrue($this->checkRegexRestrictionEndCondition($model['regex']), \sprintf(
+            'Detect end of regular expression does not match the format `(?:[);/ ]|$)`, file %s, brand %s, model regex %s',
+            $file,
+            $brand,
+            $model['regex']
+        ));
+    }
 
-                if (\array_key_exists('models', $regex)) {
-                    $this->assertIsArray($regex['models']);
+    public function getDeviceFilesFixtures(): array
+    {
+        $files = \glob(\realpath(__DIR__) . '/../regexes/device/*.yml');
 
-                    foreach ($regex['models'] as $model) {
-                        $this->assertArrayHasKey('regex', $model);
-                        $this->assertArrayHasKey('model', $model, \sprintf(
-                            'Key model not exist, file %s, brand %s, model regex %s',
-                            $file,
-                            $brand,
-                            $model['regex']
-                        ));
-                        $this->assertTrue(false === \strpos($model['regex'], '||'), \sprintf(
-                            'Detect `||` in regex, file %s, brand %s, model regex %s',
-                            $file,
-                            $brand,
-                            $model['regex']
-                        ));
+        return \array_merge(\array_map(static function ($elem) {
+            return [\pathinfo($elem, PATHINFO_FILENAME) => ['file' => $elem]];
+        }, $files), []);
+    }
 
-                        $this->assertTrue($this->checkRegexVerticalLineClosingGroup($model['regex']), \sprintf(
-                            'Detect `|)` in regex, file %s, brand %s, model regex %s',
-                            $file,
-                            $brand,
-                            $model['regex']
-                        ));
+    /**
+     * @dataProvider getDeviceFilesFixtures
+     */
+    public function testDevicesYmlFiles(array $fixture): void
+    {
+        $file = $fixture['file'] ?? '';
+        $this->assertNotEmpty($file);
 
-                        $this->assertTrue($this->checkRegexRestrictionEndCondition($model['regex']), \sprintf(
-                            'Detect end of regular expression does not match the format `(?:[);/ ]|$)`, file %s, brand %s, model regex %s',
-                            $file,
-                            $brand,
-                            $model['regex']
-                        ));
-                    }
-                } else {
-                    $this->assertArrayHasKey('device', $regex);
-                    $this->assertArrayHasKey('model', $regex);
-                    $this->assertIsString($regex['model']);
+        $ymlData = \Spyc::YAMLLoad($file);
+
+        foreach ($ymlData as $brand => $regex) {
+            $this->assetDeviceBrandRegex($file, (string) $brand, $regex);
+
+            if (\array_key_exists('models', $regex)) {
+                $this->assertIsArray($regex['models']);
+
+                foreach ($regex['models'] as $model) {
+                    $this->assetDeviceModelRegex($file, (string) $brand, $model);
                 }
+            } elseif (!\array_key_exists('includes', $regex)) {
+                $this->assertArrayHasKey('device', $regex);
+                $this->assertArrayHasKey('model', $regex);
+                $this->assertIsString($regex['model']);
             }
         }
     }

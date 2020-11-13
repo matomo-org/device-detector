@@ -216,9 +216,29 @@ abstract class AbstractParser
             $this->regexList = $this->getCache()->fetch($cacheKey);
 
             if (empty($this->regexList)) {
-                $this->regexList = $this->getYamlParser()->parseFile(
-                    $this->getRegexesDirectory() . DIRECTORY_SEPARATOR . $this->fixtureFile
-                );
+                $fixturePath = $this->getRegexesDirectory() . DIRECTORY_SEPARATOR . $this->fixtureFile;
+                $regexList   = $this->getYamlParser()->parseFile($fixturePath);
+
+                foreach ($regexList as $key => $item) {
+                    $includes = $item['includes'] ?? [];
+
+                    if ([] === $includes) {
+                        continue;
+                    }
+
+                    foreach ($includes as $include) {
+                        if (empty($include)) {
+                            continue;
+                        }
+
+                        $particleRegexList = $this->getYamlParser()->parseFile(
+                            \pathinfo($fixturePath, PATHINFO_DIRNAME) . DIRECTORY_SEPARATOR . $include
+                        );
+                        $regexList[$key]   = \array_merge_recursive($regexList[$key], $particleRegexList);
+                    }
+                }
+
+                $this->regexList = $regexList;
                 $this->getCache()->save($cacheKey, $this->regexList);
             }
         }
