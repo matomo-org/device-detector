@@ -33,62 +33,6 @@ class DeviceDetectorTest extends TestCase
         $dd->addDeviceParser('Invalid');
     }
 
-    private function assetDeviceBrandRegex(string $file, string $brand, array $regex): void
-    {
-        $this->assertArrayHasKey('regex', $regex);
-        $this->assertTrue(false === \strpos($regex['regex'], '||'), \sprintf(
-            'Detect `||` in regex, file %s, brand %s, common regex %s',
-            $file,
-            $brand,
-            $regex['regex']
-        ));
-
-        $this->assertTrue($this->checkRegexVerticalLineClosingGroup($regex['regex']), \sprintf(
-            'Detect `|)` in regex, file %s, brand %s, common regex %s',
-            $file,
-            $brand,
-            $regex['regex']
-        ));
-
-        $this->assertTrue($this->checkRegexRestrictionEndCondition($regex['regex']), \sprintf(
-            'Detect end of regular expression does not match the format `(?:[);/ ]|$)`, file %s, brand %s, common regex %s',
-            $file,
-            $brand,
-            $regex['regex']
-        ));
-    }
-
-    private function assetDeviceModelRegex(string $file, string $brand, array $model): void
-    {
-        $this->assertArrayHasKey('regex', $model);
-        $this->assertArrayHasKey('model', $model, \sprintf(
-            'Key model not exist, file %s, brand %s, model regex %s',
-            $file,
-            $brand,
-            $model['regex']
-        ));
-        $this->assertTrue(false === \strpos($model['regex'], '||'), \sprintf(
-            'Detect `||` in regex, file %s, brand %s, model regex %s',
-            $file,
-            $brand,
-            $model['regex']
-        ));
-
-        $this->assertTrue($this->checkRegexVerticalLineClosingGroup($model['regex']), \sprintf(
-            'Detect `|)` in regex, file %s, brand %s, model regex %s',
-            $file,
-            $brand,
-            $model['regex']
-        ));
-
-        $this->assertTrue($this->checkRegexRestrictionEndCondition($model['regex']), \sprintf(
-            'Detect end of regular expression does not match the format `(?:[);/ ]|$)`, file %s, brand %s, model regex %s',
-            $file,
-            $brand,
-            $model['regex']
-        ));
-    }
-
     public function getDeviceFilesFixtures(): array
     {
         $files = \glob(\realpath(__DIR__) . '/../regexes/device/*.yml');
@@ -508,5 +452,61 @@ class DeviceDetectorTest extends TestCase
         }
 
         return true;
+    }
+
+    protected function assetDeviceBrandRegex(string $file, string $brand, array $regex): void
+    {
+        $this->assertArrayHasKey('regex', $regex);
+        $this->assertTrue(false === \strpos($regex['regex'], '||'), \sprintf(
+            'Detect `||` in regex, file %s, brand %s, common regex %s',
+            $file,
+            $brand,
+            $regex['regex']
+        ));
+
+        $this->assertTrue($this->checkRegexVerticalLineClosingGroup($regex['regex']), \sprintf(
+            'Detect `|)` in regex, file %s, brand %s, common regex %s',
+            $file,
+            $brand,
+            $regex['regex']
+        ));
+
+        $this->assertTrue($this->checkRegexRestrictionEndCondition($regex['regex']), \sprintf(
+            'Detect end of regular expression does not match the format `(?:[);/ ]|$)`, file %s, brand %s, common regex %s',
+            $file,
+            $brand,
+            $regex['regex']
+        ));
+    }
+
+    protected function assetDeviceModelRegex(string $file, string $brand, array $model): void
+    {
+        $this->assertArrayHasKey('regex', $model);
+        $this->assertArrayHasKey('model', $model, \sprintf(
+            'Key model not exist, file %s, brand %s, model regex %s',
+            $file,
+            $brand,
+            $model['regex']
+        ));
+        $this->assertTrue(false === \strpos($model['regex'], '||'), \sprintf(
+            'Detect `||` in regex, file %s, brand %s, model regex %s',
+            $file,
+            $brand,
+            $model['regex']
+        ));
+
+        $this->assertTrue($this->checkRegexVerticalLineClosingGroup($model['regex']), \sprintf(
+            'Detect `|)` in regex, file %s, brand %s, model regex %s',
+            $file,
+            $brand,
+            $model['regex']
+        ));
+
+        $this->assertTrue($this->checkRegexRestrictionEndCondition($model['regex']), \sprintf(
+            'Detect end of regular expression does not match the format `(?:[);/ ]|$)`, file %s, brand %s, model regex %s',
+            $file,
+            $brand,
+            $model['regex']
+        ));
     }
 }
