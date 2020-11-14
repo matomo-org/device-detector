@@ -690,6 +690,11 @@ MicroMax:
       model: 'Bolt Selfie'
     - regex: 'Q426'
       model: 'Canvas Mega 2'
+
+    - regex: 'MicroMax(?:[ \-\_])?(X291|X246|X252|X458|X312)'
+      model: '$1'
+      device: 'feature phone'
+
     - regex: 'MicroMax(?:[ \-\_])?(P[a-z0-9]+)'
       model: '$1'
       device: 'tablet'
@@ -2777,7 +2782,7 @@ Blaupunkt:
 
 # Bmobile
 Bmobile:
-  regex: 'Bmobile[_ ]|AX-?([1-9][0-9]{2,3}[eEO+]?|7OO)'
+  regex: 'Bmobile[_ ]|AX-?(?:[1-9][0-9]{2,3}[eEO+]?|7OO)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'AX-?([1-9][0-9]{2,3}[eEO+]?)'
@@ -3191,10 +3196,10 @@ Bush:
   regex: 'Bush[ _-]'
   device: 'smartphone'
   models:
-    - regex: 'BUSH ([^;/]+)Tablet Build'
+    - regex: 'BUSH ([^;/)]+)Tablet(?: Build|[);])'
       model: '$1Tablet'
       device: 'tablet'
-    - regex: 'BUSH ([^;/]+) Build'
+    - regex: 'BUSH ([^;/)]+)(?: Build|[);])'
       model: '$1'
 
 # CAGI
@@ -3257,7 +3262,7 @@ Casper:
 
 # Cat (Caterpillar, Catphones)
 Cat:
-  regex: 'Cat ?(tablet|stargate|nova)|B15Q|CAT B35'
+  regex: 'Cat ?(tablet|stargate|nova)|B15Q|CAT B35|CAT-B100'
   device: 'tablet'
   models:
     - regex: 'B15Q'
@@ -3270,6 +3275,10 @@ Cat:
       model: '$1'
     - regex: 'Cat ?tablet'
       model: 'Nova'
+
+    - regex: 'CAT-(B100)'
+      device: 'feature phone'
+      model: '$1'
 
 # Carrefour
 Carrefour:
@@ -3390,7 +3399,7 @@ Compal:
 
 # Artel
 Artel:
-  regex: 'Artel[_ ]'
+  regex: 'Artel[_ ]|\w+_ARTEL_\w+'
   device: 'smartphone'
   models:
     - regex: 'Artel[_ ](Quadro(?: Pro)?|Tesla|Air|Tomchi|Premium|U3_4G|Z5|Sentinel (?:X 8G|X D5|X))'
@@ -3400,6 +3409,10 @@ Artel:
     - regex: 'Artel[_ ](Star|Nova|Connect|Choice|Style)'
       model: '$1'
       device: 'tablet'
+
+    - regex: '(?:\w+_)?ARTEL_([FVM]5|X4)_\w+'
+      device: 'feature phone'
+      model: '$1'
 
 # ComTrade Tesla
 ComTrade Tesla:
@@ -3898,7 +3911,7 @@ Desay:
 
 # DEXP
 DEXP:
-  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|(SENIOR|F4[38]D8000K|VA[12]10|VA170|ML450|MS[56]50|BL[12]50|BS155|BS160|BS[1256]50|AL[12]40|AS260| (?:B450|B340|A1[45]0))(?:[);/ ]|$)'
+  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|Larus_TV1|(SENIOR|F4[38]D8000K|VA[12]10|VA170|ML450|MS[56]50|BL[12]50|BS155|BS160|BS[1256]50|AL[12]40|AS260| (?:B450|B340|A1[45]0))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
 
@@ -3921,6 +3934,10 @@ DEXP:
       model: '$1'
     - regex: 'SENIOR(?:[);/ ]|$)'
       model: 'Senior'
+
+    - regex: 'Larus_TV1'
+      device: 'feature phone'
+      model: 'Larus_TV1'
 
     - regex: 'H135[ _]Build'
       model: 'Atlas'
@@ -5004,7 +5021,7 @@ Evolveo:
 
 # Explay
 Explay:
-  regex: 'Explay|ActiveD[ _]|Atlant |Informer[ _][0-9]+|CinemaTV 3G|Surfer[ _][0-9\.]|sQuad[ _][0-9\.]|Onliner[1-3]|RioPlay|Leader|Infinityll|Imperium[78]'
+  regex: 'Explay|[\w]+-EXPLAY-FIN|ActiveD[ _]|Atlant |Informer[ _][0-9]+|CinemaTV 3G|Surfer[ _][0-9\.]|sQuad[ _][0-9\.]|Onliner[1-3]|RioPlay|Leader|Infinityll|Imperium[78]'
   device: 'tablet'
   models:
     - regex: 'ActiveD[ _]7.4[ _]3G'
@@ -5028,6 +5045,12 @@ Explay:
     - regex: 'Atlant(?:[);/ ]|$)'
       device: 'smartphone'
       model: 'Atlant'
+
+    - regex: '[\w]+-EXPLAY-FIN'
+      device: 'feature phone'
+      model: 'Fin'
+
+
     - regex: 'Explay[ _-]([^;/]+) Build'
       model: '$1'
     - regex: 'Explay[ _-]([^;/]+)(?:[;/)]|$)'
@@ -7637,9 +7660,9 @@ AIS:
     - regex: 'Kingcomm C500'
       model: 'Super Smart Plus X3'
 
-# Lava
+# Lava (Lavamobiles.com)
 Lava:
-  regex: 'Lava[ _]|iris[ _]?([^/;]+)(?:\)| Build)|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|(?:Flair Z1|PixelV1|Z61_2GB|A97 IPS)(?:[);/ ]|$)'
+  regex: 'Lava[ _]|(?:DISCOVER136|KKT QUADRA)|iris[ _]?([^/;]+)(?:\)| Build)|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|(?:Flair Z1|PixelV1|Z61_2GB|A97 IPS)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Flair Z1(?:[);/ ]|$)'
@@ -7662,6 +7685,17 @@ Lava:
       model: 'R1'
     - regex: 'Z61_2GB(?:[);/ ]|$)'
       model: 'Z61'
+
+    - regex: 'DISCOVER136'
+      device: 'feature phone'
+      model: 'Discover 136'
+    - regex: 'KKT QUADRA'
+      device: 'feature phone'
+      model: 'KKT Quadra'
+    - regex: 'KKT40[ ]?Power[P\+]'
+      device: 'feature phone'
+      model: 'KKT40 Power Plus'
+
     - regex: 'iris[ _]?([^/;]+)(?:\)| Build)'
       model: 'Iris $1'
     - regex: 'Lava[ _]?([^/;]+)(?:/| Build)'
@@ -12738,7 +12772,7 @@ Sigma:
 
 # Spice
 Spice:
-  regex: 'Spice'
+  regex: '(?<![\d];)Spice'
   device: 'smartphone'
   models:
     - regex: 'Spice[ _\-]?([^/;]+)(?:[\)]| Build)'
@@ -13822,6 +13856,9 @@ Videocon:
   regex: 'Videocon[_ \-]|VT75C|V502430'
   device: 'smartphone'
   models:
+    - regex: 'Videocon_V1585'
+      device: 'feature phone'
+      model: 'V1585'
     - regex: 'Videocon[_ \-]([a-z0-9]+)'
       model: '$1'
     - regex: 'VT75C(?:[);/ ]|$)'
@@ -17459,9 +17496,15 @@ Beelink:
 
 # MAXVI
 MAXVI:
-  regex: 'MAXVI[ _](MS401)(?:[);/ ]|$)'
+  regex: 'MAXVI[ _](?:MS401)(?:[);/ ]|$)|(?:\w+)?_MAXVI_\w+'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'MAXVI[ _](MS401)'
+      model: '$1'
+    - regex: '(?:\w+)?MAXVI_(P11|K10|X[358]00)_\w+'
+      device: 'feature phone'
+      model: '$1'
+
 
 # meanIT (meanit.hr)
 meanIT:
