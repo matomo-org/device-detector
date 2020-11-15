@@ -191,6 +191,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CT' => 'Capitel',
         'CQ' => 'Compaq',
         '3C' => 'Contixo',
+        '4C' => 'Conquest',
         'CO' => 'Coolpad',
         'C5' => 'Condor',
         'CW' => 'Cowon',
