@@ -89,6 +89,7 @@ class OperatingSystem extends AbstractParser
         'PS3' => 'PlayStation',
         'RHT' => 'Red Hat',
         'ROS' => 'RISC OS',
+        'RSO' => 'Rosa',
         'REM' => 'Remix OS',
         'RZD' => 'RazoDroiD',
         'SAB' => 'Sabayon',
@@ -143,7 +144,7 @@ class OperatingSystem extends AbstractParser
         'GNU/Linux'             => [
             'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
             'RHT', 'VLN', 'MDR', 'GNT', 'SAB', 'SLW', 'SSE', 'CES', 'BTR', 'SAF',
-            'ORD', 'TOS',
+            'ORD', 'TOS', 'RSO',
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
