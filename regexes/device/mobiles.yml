@@ -17694,6 +17694,10 @@ Fonos:
 
 # Conquest
 Conquest:
-  regex: 'Conquest-(S(?:[68]|1[0126])|F2)(?:[);/ ]|$)'
+  regex: 'Conquest-(?:S(?:[68]|1[0126])|F2)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'Conquest-S([68]|1[0126])'
+      model: 'S$1'
+    - regex: 'Conquest-F2'
+      model: 'F2'
