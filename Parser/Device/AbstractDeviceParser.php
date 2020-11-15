@@ -283,6 +283,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FN' => 'FNB',
         'FU' => 'Fujitsu',
         'FD' => 'Fondi',
+        'F0' => 'Fonos',
         'GT' => 'G-TiDE',
         'GM' => 'Garmin-Asus',
         'GA' => 'Gateway',
