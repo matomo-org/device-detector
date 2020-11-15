@@ -824,6 +824,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ZQ' => 'ZYQ',
         'XS' => 'Xshitou',
         'XT' => 'X-TIGI',
+        '4X' => 'Xtouch',
         'XB' => 'NEXBOX',
         'X3' => 'X-BO',
 
