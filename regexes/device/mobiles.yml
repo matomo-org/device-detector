@@ -3744,7 +3744,7 @@ Cube:
 
 # CUBOT
 CUBOT:
-  regex: 'CUBOT|RAINBOW 2|KING_KONG_3|KINGKONG_MINI|KING KONG CS|(?<!QUMO )QUEST(?: LITE)?'
+  regex: 'CUBOT|RAINBOW 2|KING_KONG_3|KINGKONG_MINI|KING KONG CS|(?<!QUMO )QUEST(?!(?:[0-9]|\s[0-9]))(?: LITE)?'
   device: 'smartphone'
   models:
     - regex: 'CHEETAH 2'
@@ -5081,13 +5081,15 @@ Explay:
 
 # EvroMedia
 EvroMedia:
-  regex: 'EVROMEDIA|Playpad[ _]'
+  regex: 'EVROMEDIA|Playpad[ _]|PLAY_PAD_PRO_XL'
   device: 'tablet'
   models:
     - regex: 'Playpad 3G GOO'
       model: 'Play Pad 3G Goo'
     - regex: 'Play Pad PRO'
       model: 'Play Pad Pro'
+    - regex: 'PLAY_PAD_PRO_XL'
+      model: 'Play Pad Pro XL'
     - regex: 'PlayPad 3GTab XL'
       model: 'Play Pad 3G Tab XL'
 # EKO
@@ -9815,11 +9817,13 @@ Nomu:
 
 # Nomi
 Nomi:
-  regex: 'Nomi[ _-]|(C101010 Ultra2|i501[234]|i5032|i5050|i5510|i5532|C0(700(?:[02358]|2HD)|7850)|C1010[0-3])(?:[);/ ]|$)'
+  regex: 'Nomi[ _-]|(C101010 Ultra2|i501[234]|i5032|i50[57]0|i5510|i5532|C0(700(?:[02358]|2HD)|7850)|C1010[0-3])(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'i501[23](?:[);/ ]|$)'
       model: 'Evo M2'
+    - regex: 'I5070(?:[);/ ]|$)'
+      model: 'Iron-X'
     - regex: 'i5014(?:[);/ ]|$)'
       model: 'Evo M4'
     - regex: 'i5032(?:[);/ ]|$)'
@@ -10836,6 +10840,8 @@ Pixus:
       model: 'Play Three v$1'
     - regex: 'Play Two'
       model: 'Play Two'
+    - regex: 'Play Five'
+      model: 'Play Five'
     - regex: 'Pixus[ _]Sprint'
       model: 'Sprint'
     - regex: 'Touch 7 3G'
@@ -10846,6 +10852,8 @@ Pixus:
       model: 'Blast 10.1"'
     - regex: 'Pixus[ _]Joker'
       model: 'Joker 10.1"'
+    - regex: 'Pixus Blaze 10.1 3G'
+      model: 'Blaze 10.1" 3G'
 
     - regex: 'Raze'
       model: 'Raze'
@@ -12592,7 +12600,7 @@ Positivo:
 
 # Prestigio
 Prestigio:
-  regex: '(?:PMP|PAP|PMT|PSP|PGPS)[0-9]+[a-z0-9_]+(?:[);/ ]|$)|Muze C3'
+  regex: 'Prestigio 5500 DUO|(?:PMP|PAP|PMT|PSP|PGPS)[0-9]+[a-z0-9_]+(?:[);/ ]|$)|Muze C3'
   device: 'tablet'
   models:
     - regex: 'PMT3277_3G'
@@ -12607,6 +12615,9 @@ Prestigio:
       model: 'Grace S5'
     - regex: 'PMT3287_3G'
       model: 'MultiPad Ranger 8.0 3G'
+    - regex: 'Prestigio 5500 DUO'    # PAP5500DUO
+      model: 'MultiPhone 5500 Duo'
+      device: 'smartphone'
     - regex: 'PMT3208[_ ]3G'
       model: 'MultiPad Wize 8.0 3G'
     - regex: 'PSP7546DUO([ _][A-Z]{2})?'
@@ -13846,9 +13857,9 @@ Verykool:
     - regex: 'verykool[ _]?([^/;]+);'
       model: '$1'
 
-# Vestel
+# Vestel (vestel.com)
 Vestel:
-  regex: 'Venus[ _](GO|E4|V[1-9]|Z[1-9]0)|V_?TAB|VP74|VT97PRO|VSP145M|VSP250[GS]|VSP355[GS]|V3_5580_Dual'
+  regex: 'Vestel[ _]|Venus[ _](GO|E4|V[1-9]|Z[1-9]0)|V_?TAB|VP74|VT97PRO|VSP145M|VSP250[GS]|VSP355[GS]|V3_5580_Dual'
   device: 'smartphone'
   models:
     - regex: 'VT97PRO'
@@ -13886,6 +13897,12 @@ Vestel:
       model: 'Venus Go'
     - regex: 'Venus[ _]E4'
       model: 'Venus E4'
+    - regex: 'Vestel_5000_Dual'
+      model: '5000 Dual'
+    - regex: 'Vestel_5000_2gb'
+      model: '5000 2GB'
+    - regex: 'Vestel[ _](5000)'
+      model: '$1'
 
 # Videocon
 Videocon:
@@ -16142,7 +16159,7 @@ Atom:
 
 # Qumo
 Qumo:
-  regex: 'QUMO[ _]?|(Vega[ _]?78[23])(?:[);/ ]|$)'
+  regex: 'QUMO[ _]?|(Quest[ _]?(?:45[56]|50[67])|Vega[ _]?78[23])(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: '(?:QUMO[ _]?)?Vega[ _]?(78[23]|8002)(?:[);/ ]|$)'
@@ -16151,7 +16168,10 @@ Qumo:
       model: 'Yooda'
     - regex: '(?:QUMO)?(Sirius 101-4G 8GB Black|Altair 701 8GB Black|Altair 71 4GB Black|Altair 700[24]|Altair 706)(?:[);/ ]|$)'
       model: '$1'
-    - regex: 'QUMO[ _]Quest[ _]?(35[34]|40[26]|45[28]|476|507|570|600)(?:[);/ ]|$)'
+    - regex: 'QUMO[ _]Quest[ _]?(35[34]|40[26]|45[28]|47[46]|507|5[17]0|600)(?:[);/ ]|$)'
+      device: 'smartphone'
+      model: 'Quest $1'
+    - regex: 'Quest[ _]?(45[56]|50[67])(?:[);/ ]|$)'
       device: 'smartphone'
       model: 'Quest $1'
 
