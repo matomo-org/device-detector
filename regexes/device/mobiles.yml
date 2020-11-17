@@ -5367,13 +5367,15 @@ Ghia:
 
 # Gigabyte
 Gigabyte:
-  regex: 'GSmart[ _][a-z0-9 ]+(?: Build|\))|Gigabyte-[a-z0-9]+'
+  regex: 'GSmart[ _][a-z0-9 ]+(?: Build|\))|Gigabyte-[a-z0-9]+|Simba SX1'
   device: 'smartphone'
   models:
     - regex: '(GSmart[ _][a-z0-9 ]+)(?: Build|\))'
       model: '$1'
     - regex: 'Gigabyte-([a-z0-9]+)'
       model: '$1'
+    - regex: 'Simba SX1'
+      model: 'GSmart Simba SX1'
 
 # Gigaset
 Gigaset:
@@ -10606,7 +10608,7 @@ Overmax:
 
 # Oysters
 Oysters:
-  regex: 'Oysters|T84ERI[ _]3G|T72HM(s_)?3G|T102MS_3G|T102ER3G|(T74HMi|T84Bi)[_ ]4G|T74MR4G|T84Ni[_ ][34]G|Pacific[ ]?800i|T104B_[34]G|IndianV|T72HA_3G|T74D_3G|T74N_3G|T74SC_3G|T74Mai_3G|T104MBi_3G|T104SCi_3G|T104ER4G|Atlantic4G|AntarcticE'
+  regex: 'Oysters|T84ERI[ _]3G|T72HM(s_)?3G|T102MS_3G|T102ER3G|(T74HMi|T84Bi)[_ ]4G|T74MR4G|T84Ni[_ ][34]G|Pacific[ ]?800i|T104B_[34]G|IndianV|T72HA_3G|T74D_3G|T74N_3G|T74SC_3G|T74Mai_3G|T104MBi_3G|T104SCi_3G|T104ER4G|Atlantic4G|AntarcticE|T7V 3G'
   device: 'tablet'
   models:
     - regex: 'Pacific[ ]?800i'
@@ -10626,7 +10628,7 @@ Oysters:
       model: '$1'
     - regex: '(T84ERI[ _]3G|T72HM(s_)?3G|(?:(T74HMi|T84Bi)[_ ]4G)|T84Ni[_ ][34]G)'
       model: '$1'
-    - regex: '(T74MR|T102MS|T104B|T74SC|T74[DN]|T72HA|T102ER|T104SCi|T104MBi|T104ER)[ _]?([34]G)'
+    - regex: '(T74MR|T102MS|T104B|T74SC|T74[DN]|T72HA|T102ER|T104SCi|T104MBi|T104ER|T7V)[ _]?([34]G)'
       model: '$1 $2'
     - regex: 'T74Mai_3G'
       model: 'T74MAi 3G'
@@ -10992,16 +10994,17 @@ Rover:
 
 # RoverPad or Rover Pad
 RoverPad:
-  regex: '(Rover[ ]?Pad|RoverPhone)(?:[);/ ]|$)'
+  regex: '(?:Rover[ ]?Pad|RoverPhone|Sky 7.85 3G)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'RoverPhone(?:[);/ ]|$)'
       model: ''
       device: 'smartphone'
-    - regex: 'Rover[ ]?Pad sky 7.85(?:[);/ ]|$)'
-      model: 'Sky 7.85'
+    - regex: '(?:Rover[ ]?Pad)?sky 7.85(?: 3G)?(?:[);/ ]|$)'
+      model: 'Sky 7.85" 3G'
     - regex: 'RoverPad (10.4|Air S70|9.7 3G|Sky 9.7|3W A73|3W7|3WT70|3W9.4)(?:[);/ ]|$)'
       model: '$1'
+
 
 # Roadrover
 Roadrover:
@@ -14150,7 +14153,7 @@ WellcoM:
 
 # Wexler
 Wexler:
-  regex: 'Wexler|ULTIMA 7 TWIST PLUS|TAB[ _]10Q(?:[);/ ]|$)|ZEN[ _](?:4\.5|4\.7|5)'
+  regex: 'Wexler|(?:ULTIMA 7 TWIST PLUS|TAB10iQ3G|TAB[ _]10Q)(?:[);/ ]|$)|ZEN[ _](?:4\.5|4\.7|5)'
   device: 'tablet'
   models:
     - regex: '(?:Wexler[ _\-\.])?ZEN[ _]4\.5(?:[);/ ]|$)'
@@ -14164,6 +14167,8 @@ Wexler:
       device: 'smartphone'
     - regex: '(?:Wexler[ _\-\.])?TAB[ _]10Q(?:[);/ ]|$)'
       model: 'TAB 10Q'
+    - regex: 'TAB10iQ3G(?:[);/ ]|$)'
+      model: 'TAB 10iQ 3G'
     - regex: 'Wexler[ _\-\.]([^;/]+) Build'
       model: '$1'
     - regex: 'Wexler[ _\-\.]([^);/]+)(?:[);/]|$)'
@@ -16159,13 +16164,15 @@ Atom:
 
 # Qumo
 Qumo:
-  regex: 'QUMO[ _]?|(Quest[ _]?(?:45[56]|50[67])|Vega[ _]?78[23])(?:[);/ ]|$)'
+  regex: 'QUMO[ _]?|(?:Quest[ _]?(?:45[56]|50[67])|Vega[ _]?78[23]|Sirius[ _]?(?:1001|890))(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: '(?:QUMO[ _]?)?Vega[ _]?(78[23]|8002)(?:[);/ ]|$)'
       model: 'Vega $1'
     - regex: 'Yooda(?:[);/ ]|$)'
       model: 'Yooda'
+    - regex: 'Sirius[ _]?(1001|890)(?:[);/ ]|$)'
+      model: 'Sirius $1'
     - regex: '(?:QUMO)?(Sirius 101-4G 8GB Black|Altair 701 8GB Black|Altair 71 4GB Black|Altair 700[24]|Altair 706)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'QUMO[ _]Quest[ _]?(35[34]|40[26]|45[28]|47[46]|507|5[17]0|600)(?:[);/ ]|$)'
@@ -17194,7 +17201,7 @@ Wortmann:
 
 # BB Mobile
 BB Mobile:
-  regex: 'Techno[_ ](TQ863Q|X595BT|S700BF|I700AJ|10.1 LTE TQ060X|7.0 LTE TQ763I)(?:[);/ ]|$)'
+  regex: 'Techno[_ ](8\.0|9\.7|TQ863Q|X595BT|S700BF|I700AJ|10.1 LTE TQ060X|7.0 LTE TQ763I)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'Techno[_ ]S700BF(?:[);/ ]|$)'
@@ -17208,7 +17215,10 @@ BB Mobile:
     - regex: 'Techno[_ ]7.0 LTE TQ763I(?:[);/ ]|$)'
       model: 'Techno 7.0" Kalash LTE TQ763I'
 
-    - regex: 'Techno[_ ](X595BT)(?:[);/ ]|$)'
+    - regex: 'Techno[_ ](9\.7|8\.0) 3G(?:[);/ ]|$)'
+      model: 'Techno $1" 3G'
+
+    - regex: 'Techno[_ ](?:X595BT)(?:[);/ ]|$)'
       device: 'smartphone'
       model: 'Techno Spark 3G X595BT'
 
