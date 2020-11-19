@@ -191,6 +191,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CT' => 'Capitel',
         'CQ' => 'Compaq',
         '3C' => 'Contixo',
+        '4C' => 'Conquest',
         'CO' => 'Coolpad',
         'C5' => 'Condor',
         'CW' => 'Cowon',
@@ -283,6 +284,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FN' => 'FNB',
         'FU' => 'Fujitsu',
         'FD' => 'Fondi',
+        'F0' => 'Fonos',
         'GT' => 'G-TiDE',
         'GM' => 'Garmin-Asus',
         'GA' => 'Gateway',
@@ -822,6 +824,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ZQ' => 'ZYQ',
         'XS' => 'Xshitou',
         'XT' => 'X-TIGI',
+        '4X' => 'Xtouch',
         'XB' => 'NEXBOX',
         'X3' => 'X-BO',
 
