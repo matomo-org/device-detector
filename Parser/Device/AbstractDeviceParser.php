@@ -664,6 +664,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SU' => 'SuperSonic',
         'S5' => 'Supra',
         'SV' => 'Selevision',
+        '9G' => 'Selenga',
         'SY' => 'Sanyo',
         'SM' => 'Symphony',
         '4S' => 'Syrox',
