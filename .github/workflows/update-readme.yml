@@ -14,12 +14,12 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
-      
+
     - name: update readme
       run: php misc/updateReadme.php
 
     - name: Prepare git config
-      run: | 
+      run: |
           cat <<- EOF > $HOME/.netrc
             machine github.com
             login $GITHUB_ACTOR
@@ -31,7 +31,7 @@ jobs:
           chmod 600 $HOME/.netrc
           git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git config --global user.name "$GITHUB_ACTOR"
-          
+
     - name: push changes & create PR
       run: |
           changes=($( git diff --numstat ))
