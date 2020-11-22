@@ -4026,7 +4026,7 @@ Digiland:
 
 # Digma
 Digma:
-  regex: 'Digma[_ ]([^;/]+) Build|HIT HT707[10]MG|CITI ATL 4G|CITI Octa 80|CITI 1902 3G|CITI Z530 3G|(CITI[_ ](?:[A-Z0-9]+)[_ ][34]G)[ _][TC][ST](11[459]4MG|1195MG|1196ML|3001ML|500[67]PG|7113PL|7193MG|8209MG|8139ML|8143MG|8152ML|1050PL|8205PG|7203MG)|HIT 4G|HT7074ML|IDX5|(iDx10|iDx7)|MVM900H(?:WZ|C)|MVM908HCZ|(iDxD8 3G|iDxD10 3G|iDrQ10 3G|iDxD[45]|iDxQ5|iD[nx]D7(?:[_ ]3G)?)|PS604M|PT452E|LINX B510 3G LT5037MG|LINX A452 3G LT4030PG|LINX A453 3G LT4038PG|LINX A420 3G LS4019PG|LINX A450 3G LT4028PG|Linx A400 3G LT4001PG|Linx C500 3G LT5001PG|Linx PS474S|LS504[01]PL|LT40(47|54)MG|PS1043MG|LS405[01]MG|LS5053ML|LT5048MG|HT7071MG|LT5052ML|HT5035PG|HT4039PG|LT4049PG|NS6902QL|NS9797MG|TT1004PG|TT7025MG|((?:Optima|Platina|Plane)[ _](?:[EM])?(?:[0-9\.ST]+|Prime)(?:[ _][43]G)?)|(VOX[ _](?:[0-9\.A-Z]+)[_ ][43]G)'
+  regex: 'Digma[_ ]([^;/]+) Build|HIT HT707[10]MG|CITI ATL 4G|CITI Kids|CITI Octa [178]0|CITI 1902 3G|CITI Z530 3G|(CITI[_ ](?:[A-Z0-9]+)[_ ][34]G)[ _][TC][ST](606[32]ML|11[459]4MG|1207MG|1210MG|1195MG|1196ML|3001ML|500[67]PG|7208MG|7113PL|7193MG|820[69]MG|8139ML|8143MG|8152ML|1050PL|8205PG|7203MG)|HIT 4G|HT7074ML|IDX5|(iDx10|iDx7)|MVM900H(?:WZ|C)|MVM908HCZ|(iDxD8 3G|iDxD10 3G|iDrQ10 3G|iDxD[45]|iDxQ5|iD[nx]D7(?:[_ ]3G)?)|PS604M|PT452E|LINX B510 3G LT5037MG|LINX A452 3G LT4030PG|LINX A453 3G LT4038PG|LINX A420 3G LS4019PG|LINX A450 3G LT4028PG|Linx A400 3G LT4001PG|Linx C500 3G LT5001PG|Linx PS474S|LS504[01]PL|LT40(47|54)MG|PS1043MG|LS405[01]MG|LS5053ML|LT5048MG|HT7071MG|LT5052ML|HT5035PG|HT4039PG|LT4049PG|NS6902QL|NS9797MG|TT1004PG|TT7025MG|((?:Optima|Platina|Plane)[ _](?:[EM])?(?:[0-9\.ST]+|Prime)(?:[ _][43]G)?)|(VOX[ _](?:[0-9\.A-Z]+)[_ ][43]G)'
   device: 'smartphone'
   models:
     - regex: 'HIT(?: 3G)? HT707[10]MG'
@@ -4072,6 +4072,8 @@ Digma:
       model: 'CITI ATL 4G'
     - regex: '(CITI Z530 3G)'
       model: '$1'
+    - regex: '(CITI [0-9]+ [34]G) CS(?:606[32]ML)'
+      model: '$1'
 
     - regex: 'PS1043MG'
       model: 'Plane 10.3" 3G'
@@ -4092,13 +4094,10 @@ Digma:
     - regex: 'HIT 4G HT7074ML'
       model: 'HIT 4G'
       device: 'tablet'
-    - regex: '(CITI 1902 3G)'
+    - regex: '(CITI 1902 3G|CITI Kids|CITI_8527_4G|CITI Octa [178]0)'
       model: '$1'
       device: 'tablet'
-    - regex: '(CITI_8527_4G|CITI Octa 80)'
-      model: '$1'
-      device: 'tablet'
-    - regex: '(CITI[ _](?:[A-Z0-9]+)[ _][34]G)[ _][TC][ST](?:3001ML|500[67]PG|8209MG|11[459]4MG|1195MG|1196ML|3001ML|8152ML|1050PL|7113PL|7193MG|8205PG|7203MG|8143MG)'
+    - regex: '(CITI[ _](?:[A-Z0-9]+)[ _][34]G)[ _][TC][ST](?:1207MG|1210MG|3001ML|500[67]PG|7208MG|820[69]MG|11[459]4MG|1195MG|1196ML|3001ML|8152ML|1050PL|7113PL|7193MG|7216MG|8205PG|7203MG|8143MG)'
       model: '$1'
       device: 'tablet'
     - regex: 'iDxD8 3G'
@@ -6235,7 +6234,7 @@ Huawei:
       model: 'P30'
     - regex: '(?:MAR-(?:LX(?:1[BM]|2J?|3BM)|TL00)|NIC-LX1A|HWV33)(?:[);/ ]|$)'
       model: 'P30 Lite'
-    - regex: 'MAR-LX[13]A(?:[);/ ]|$)'
+    - regex: 'MAR-LX[13]Am?(?:[);/ ]|$)'
       model: 'P30 Lite Dual SIM'
     - regex: '(?:VOG-(?:L(?:04|09|29)|TL00|AL10)|HW-02L)(?:[);/ ]|$)'
       model: 'P30 Pro'
@@ -7650,7 +7649,7 @@ Kyocera:
 
 # Krüger&Matz (Kruger&Matz)
 Krüger&Matz:
-  regex: 'Kruger[ _&]Matz|KrugerMatz[ _]|MOVE_|LIVE4_KM043[89]|KM(?:106[67]|1065G|0701_1|0702|0805_1)'
+  regex: 'Kruger[ _&]Matz|KrugerMatz[ _]|FLOW7|DRIVE[_ ]6S?|MOVE_|LIVE4_KM043[89]|KM(?:106[67]|1065G|0701_1|0702|0805_1)'
   device: 'smartphone'
   models:
     - regex: 'MOVE_6_mini'
@@ -7659,11 +7658,9 @@ Krüger&Matz:
       model: 'MOVE $1'
     - regex: 'DRIVE 4 mini LTE'
       model: 'DRIVE 4 mini LTE'
-    - regex: 'DRIVE (4[S]?)(?:[);/ ]|$)'
+    - regex: 'DRIVE[ _]([456][S]?)(?:[);/ ]|$)'
       model: 'DRIVE $1'
-    - regex: 'Drive 5(?:[);/ ]|$)'
-      model: 'DRIVE 5'
-    - regex: 'FLOW (4[S]?)(?:[);/ ]|$)'
+    - regex: 'FLOW[ _]?([47][S]?)(?:[);/ ]|$)'
       model: 'FLOW $1'
     - regex: 'LIVE4_(KM043[89])(?:[);/ ]|$)'
       model: 'LIVE 4 $1'
@@ -8237,7 +8234,7 @@ Lexibook:
 
 # LG
 LG:
-  regex: 'LG|portalmmm/2\.0 (?:KE|KG|KP|L3)|(?:VX[0-9]+|L-0[12]D|L-07C|P713|(LM-[A-Z][0-9]{3}[A-Z]{0,3}(?:\(FGN?\)|\(G\)|\.FN|\.F(?:GN?)?)?)|LM-(X625N1|G820QM[0127]))(?:[);/ ]|$)|NetCast|RS98[78]|RS500|VS(?:50[01]|835|876|880|98[0578]|99[056]|(410|415|425|500|880)PP)|VS820|VS870 4G|Nexsus 5|LML(41[34]D|211B|713D|212V)L|VK810 4G|VK815|X5-LG|L-05D|L-03K|L-01[LJK]|L-[45]1A|901LG|A001LG|802LG|402LG|LGT32|L-02K|L-01F'
+  regex: 'LG|portalmmm/2\.0 (?:KE|KG|KP|L3)|(?:VX[0-9]+|L-0[12]D|L-07C|P713|(LM-[A-Z][0-9]{3}[A-Z]{0,3}(?:\(FGN?\)|\(G\)|\.FN|\.F(?:GN?)?)?)|LM-(X625N1|G820QM[0127]))(?:[);/ ]|$)|NetCast|RS98[78]|RS500|VS(?:50[01]|835|876|880|98[0578]|99[056]|(410|415|425|500|880)PP)|VS820|VS870 4G|Nexsus 5|LML(41[34]D|211B|713D|212V)L|VK810 4G|VK815|X5-LG|L-05D|L-03K|L-01[LJK]|L-[45]1A|901LG|A001LG|802LG|402LG|LGT32|L-02K|L-01F|LM-V40'
   device: 'smartphone'
   models:
     - regex: 'LG-D325'
@@ -8390,7 +8387,7 @@ LG:
       model: 'Aristo 2'
     - regex: 'LM-X220'
       model: 'Aristo 3'
-    - regex: 'LM-V40(5|9N)'
+    - regex: 'LM-V40(?:5|9N)?(?:[);/ ]|$)'
       model: 'V40 ThinQ'
     - regex: 'LM-V500N'
       model: 'V50'
@@ -9554,7 +9551,7 @@ MyTab:
 
 # myphone
 MyPhone:
-  regex: '(?:MyPhone|MyPad|MyTab)[ _][^;/)]+( Build|\))|Cube_LTE|myTab10II|HAMMER[ _](Blade2_PRO|ENERGY|Titan 2|AXE[_ ](?:M[_ ]LTE|Pro)|Iron 2|Active[2]?(_LTE)?)|C-Smart_pix|myPhone_Fun_8|myA17'
+  regex: '(?:MyPhone|MyPad|MyTab)[ _][^;/)]+( Build|\))|Cube_LTE|myTab10II|HAMMER[ _](Blade2_PRO|IRON_3|Explorer|ENERGY|Titan 2|AXE[_ ](?:M[_ ]LTE|Pro)|Iron 2|Active[2]?(_LTE)?)|C-Smart_pix|myPhone_Fun_8|myA17'
   device: 'smartphone'
   models:
     - regex: 'MyPad[ _]([^;/]+) Build'
@@ -9574,8 +9571,10 @@ MyPhone:
       model: 'Hammer Axe M LTE'
     - regex: 'Hammer Titan 2'
       model: 'Hammer Titan 2'
-    - regex: 'Hammer Iron 2'
-      model: 'Hammer Iron 2'
+    - regex: 'Hammer[ _]Iron[ _](2|3)'
+      model: 'Hammer Iron $1'
+    - regex: 'Hammer[ _]Explorer'
+      model: 'Hammer Explorer'
     - regex: 'Hammer Active(?:[);/ ]|$)'
       model: 'Hammer Active'
     - regex: 'Hammer_Active2(?:[);/ ]|$)'
@@ -16689,7 +16688,7 @@ Wigor:
 
 # NEXON
 NEXON:
-  regex: 'NEXON (X[19])(?:[);/ ]|$)'
+  regex: 'NEXON (X[189])(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
@@ -17789,10 +17788,10 @@ Xtouch:
 
 # Conquest
 Conquest:
-  regex: 'Conquest-(?:S(?:[68]|1[0126])|F2)(?:[);/ ]|$)'
+  regex: 'Conquest[-_](?:S(?:[68]|1[0126])|F2)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'Conquest-S([68]|1[0126])'
+    - regex: 'Conquest[-_]S([68]|1[0126])'
       model: 'S$1'
     - regex: 'Conquest-F2'
       model: 'F2'
