@@ -189,6 +189,7 @@ class Browser extends AbstractClientParser
         'MX' => 'Maxthon',
         'MY' => 'Mypal',
         'MR' => 'Monument Browser',
+        'MW' => 'MAUI WAP Browser',
         'NB' => 'Nokia Browser',
         'NO' => 'Nokia OSS Browser',
         'NV' => 'Nokia Ovi Browser',
