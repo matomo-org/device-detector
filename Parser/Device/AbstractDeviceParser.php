@@ -672,6 +672,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SR' => 'Smart',
         'S7' => 'Smartisan',
         'S4' => 'Star',
+        'OL' => 'Starlight',
         'SB' => 'STF Mobile',
         'S8' => 'STK',
         'S9' => 'Savio',
