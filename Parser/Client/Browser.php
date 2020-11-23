@@ -257,6 +257,7 @@ class Browser extends AbstractClientParser
         'SK' => 'Skyfire',
         'SS' => 'Seraphic Sraf',
         'SL' => 'Sleipnir',
+        'S6' => 'Slimjet Browser',
         'SN' => 'Snowshoe',
         'SO' => 'Sogou Mobile Browser',
         'S2' => 'Splash',
@@ -327,6 +328,7 @@ class Browser extends AbstractClientParser
             'CL', 'SU', 'EU', 'UB', 'LO', 'VG', 'TV', 'A0', '1B',
             'S4', 'EE', 'AE', 'VM', 'O0', 'TG', 'GB', 'SY', 'HH',
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
+            'S6'
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
