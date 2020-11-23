@@ -21,6 +21,8 @@ class AliasDevice extends AbstractParser
 
     private $brandReplaceRegexp = null;
 
+    public $brandReplace = true;
+
     /**
      * @return array|null
      *
@@ -45,7 +47,11 @@ class AliasDevice extends AbstractParser
         }
 
         $name = $this->buildByMatch($find['name'], $matches);
-        $name = \preg_replace($this->getBrandReplaceRegexp(), '', $name);
+
+        if (true === $this->brandReplace) {
+            $name = \preg_replace($this->getBrandReplaceRegexp(), '', $name);
+        }
+
         $name = \trim($name);
 
         return \compact('name');

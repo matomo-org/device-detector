@@ -1,12 +1,7 @@
 <?php declare(strict_types=1);
 
 /**
- * This parser parses the text file
- *
- * The analyzer has 3 settings that allow you to get the desired result.
- * 1 displays only what is detected
- * 2 displays only what is not detected
- * 3 displays any not-detected + detected
+ *  Checking useragent's in the file for the presence of a test
  *
  *  source-useragent.txt format file
  *  each useragent on a new line
@@ -21,52 +16,37 @@
  * ```
  * Example
  *
- * `php fileTest.php /tmp/source-useragent.txt "not" "yml" > /tmp/useragent-not-detected.txt`
- * `php fileTest.php /tmp/source-useragent.txt "not" "useragent" > /tmp/useragent-not-detected.txt`
+ * `php checkingUseragentFileForTest.php /tmp/source-useragent.txt "yml" > /tmp/useragent-not-detected.txt`
+ * `php checkingUseragentFileForTest.php /tmp/source-useragent.txt "useragent" > /tmp/useragent-not-detected.txt`
  */
 
 use DeviceDetector\DeviceDetector;
+use DeviceDetector\Parser\AliasDevice;
+use DeviceDetector\Parser\Bot;
 use DeviceDetector\Parser\Device\AbstractDeviceParser;
 
 require __DIR__ . '/../vendor/autoload.php';
 
 if ('cli' !== php_sapi_name()) {
-    echo 'web not supported';
+    echo "web not supported\n";
     exit;
 }
-
-if (count($argv) < 2) {
-    printHelpAndExit();
-}
-
-define('DETECT_MODE_TYPE_DETECT', 'detect');
-define('DETECT_MODE_TYPE_ALL', 'all');
-define('DETECT_MODE_TYPE_NOT', 'not');
 
 define('REPORT_TYPE_YML', 'yml');
 define('REPORT_TYPE_USERAGENT', 'useragent');
 
-$file       = $argv[1] ?? '';
-$showMode   = $argv[2] ?? 'not';
-$reportMode = $argv[3] ?? 'yml';
+$fixturesPath = \realpath(__DIR__) . '/../Tests/fixtures';
+
+if (!\is_dir($fixturesPath)) {
+    echo "test fixtures not exist `{$fixturesPath}'`\n";
+    printHelpAndExit();
+}
 
 function printHelpAndExit(): void
 {
     echo "Usage command:\n";
-    echo "php fileTest.php <patch to file> <detect mode> <report mode> > report.txt\n\n";
-
-    echo "<detect mode> `detect` - displays only what is detected\n";
-    echo "<detect mode> `all` - any results not-detected + detected\n";
-    echo "<detect mode> `not` - displays only what is not detected\n\n";
-
-    echo "<report mode> `yml` report yml fixture string\n";
-    echo "<report mode> `useragent` report useragent string\n\n";
+    echo "php checkingUseragentFileForTest.php <patch to file> <report mode> > report.txt\n\n";
     exit;
-}
-
-if (!is_file($file)) {
-    echo sprintf("Error: file `%s` not fount\n\n", $file);
-    printHelpAndExit();
 }
 
 /**
@@ -89,9 +69,47 @@ function printReport(array $result, string $format): void
 }
 
 AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
-$deviceDetector = new DeviceDetector();
 
-$fn = fopen($file, 'r');
+// generate map exist tests
+$existTests = [];
+
+$aliasDevice               = new AliasDevice();
+$aliasDevice->brandReplace = false;
+
+$fixtureFiles = \glob(\sprintf('%s/*.yml', $fixturesPath));
+
+foreach ($fixtureFiles as $fixturesPath) {
+    $fixtureItems = \Spyc::YAMLLoad($fixturesPath);
+    $deviceType   = \str_replace('_', ' ', \substr(\basename($fixturesPath), 0, -4));
+
+    if ('bots' === $deviceType) {
+        continue;
+    }
+
+    foreach ($fixtureItems as $fixtureItem) {
+        $aliasDevice->setUserAgent($fixtureItem['user_agent']);
+        $result = $aliasDevice->parse();
+        $name   = is_array($result) ? $result['name'] : '';
+
+        if ('' === $name || in_array($name, $existTests)) {
+            continue;
+        }
+
+        $existTests[] = $name;
+    }
+}
+
+$file       = $argv[1] ?? '';
+$reportMode = $argv[2] ?? REPORT_TYPE_YML;
+$existEchos = [];
+
+if ('' === $file && !is_file($file)) {
+    echo sprintf("Error: file `%s` not fount\n\n", $file);
+    printHelpAndExit();
+}
+
+$botDetector = new Bot();
+$fn          = fopen($file, 'r');
 
 while (!feof($fn)) {
     $userAgent = fgets($fn);
@@ -106,29 +124,22 @@ while (!feof($fn)) {
         continue;
     }
 
-    $deviceDetector->setUserAgent($userAgent);
-    $deviceDetector->parse();
+    $botDetector->setUserAgent($userAgent);
+    $botResult = $botDetector->parse();
 
-    $result = $deviceDetector->isBot() ? [
-        'user_agent' => $deviceDetector->getUserAgent(),
-        'bot'        => $deviceDetector->getBot(),
-    ] : DeviceDetector::getInfoFromUserAgent($userAgent);
-
-    if (!isset($result['device']['model'])) {
+    if (!empty($botResult)) {
         continue;
     }
 
-    if (DETECT_MODE_TYPE_NOT === $showMode) {
-        if ('' === $result['device']['model']) {
-            printReport($result, $reportMode);
-        }
-    } elseif (DETECT_MODE_TYPE_DETECT === $showMode) {
-        if ('' !== $result['device']['model']) {
-            printReport($result, $reportMode);
-        }
-    } elseif (DETECT_MODE_TYPE_ALL === $showMode) {
-        printReport($result, $reportMode);
-    }
-}
+    $aliasDevice->setUserAgent($userAgent);
+    $result = $aliasDevice->parse();
 
-fclose($fn);
+    $name = is_array($result) ? $result['name'] : '';
+
+    if ('' === $name || in_array($name, $existTests) || in_array($name, $existEchos)) {
+        continue;
+    }
+
+    $existEchos[] = $name;
+    printReport(DeviceDetector::getInfoFromUserAgent($userAgent), $reportMode);
+}
