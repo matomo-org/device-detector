@@ -47,6 +47,7 @@ abstract class AbstractDeviceParser extends AbstractParser
     public const DEVICE_TYPE_PHABLET              = 10;
     public const DEVICE_TYPE_SMART_SPEAKER        = 11;
     public const DEVICE_TYPE_WEARABLE             = 12; // including set watches, headsets
+    public const DEVICE_TYPE_PERIPHERAL           = 13; // including portable terminal, portable projector
 
     /**
      * Detectable device types
@@ -67,6 +68,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'phablet'               => self::DEVICE_TYPE_PHABLET,
         'smart speaker'         => self::DEVICE_TYPE_SMART_SPEAKER,
         'wearable'              => self::DEVICE_TYPE_WEARABLE,
+        'peripheral'            => self::DEVICE_TYPE_PERIPHERAL,
     ];
 
     /**
@@ -639,6 +641,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SG' => 'Sagem',
         'SH' => 'Sharp',
         '7S' => 'Shift Phones',
+        'RS' => 'Shtrikh-M',
         '3S' => 'Shuttle',
         'SI' => 'Siemens',
         'SJ' => 'Silent Circle',
@@ -662,6 +665,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SU' => 'SuperSonic',
         'S5' => 'Supra',
         'SV' => 'Selevision',
+        '9G' => 'Selenga',
         'SY' => 'Sanyo',
         'SM' => 'Symphony',
         '4S' => 'Syrox',
@@ -783,6 +787,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'WN' => 'Wink',
         'WM' => 'Weimei',
         'WE' => 'WellcoM',
+        'W0' => 'Wiseasy',
         'WY' => 'Wexler',
         'W2' => 'Wigor',
         'WI' => 'Wiko',
@@ -811,6 +816,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'YO' => 'Yota',
         'YT' => 'Ytone',
         'YX' => 'Yxtel',
+        '0Z' => 'Zatec',
         'ZE' => 'Zeemi',
         'ZK' => 'Zenek',
         'ZF' => 'Zfiner',
@@ -828,7 +834,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         '4X' => 'Xtouch',
         'XB' => 'NEXBOX',
         'X3' => 'X-BO',
-
         // legacy brands, might be removed in future versions
         'WB' => 'Web TV',
         'XX' => 'Unknown',
