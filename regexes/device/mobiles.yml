@@ -2509,7 +2509,7 @@ VGO TEL:
 
 # Vivo (vivo.com.cn, vivo.com)
 Vivo:
-  regex: '((?:VIV-|BBG-)?(?<!FBCR/)vivo(?!(?:Browser)))|(?:V1730(D[AT]|GA)|V18(18CA|01A0|13B[AT]|18T|09[AT]|1[346][AT]|[13]8[AT]|14A|24[B]?A|2[19][AT]|3[12][AT]|36[AT])|V1731CA|V1732[AT]|V1818CT|V19[01]1[AT]|V1932[AT]|V191[3469][AT]|V192[1348]A|V193[04]A|V194[15]A|V1938CT|V1955A|V1938T|V1730EA|V19[26]2A|V196[35]A|V198[16]A|V1936A[L]?|V19[59]0A|V200[125]A|1819|V201[12]A|V202[0345]C?A|V202[237])(?:[);/ ]|$)'
+  regex: '((?:VIV-|BBG-)?(?<!FBCR/)vivo(?!(?:Browser)))|(?:V1730(D[AT]|GA)|V18(18CA|01A0|13B[AT]|18T|09[AT]|1[346][AT]|[13]8[AT]|14A|24[B]?A|2[19][AT]|3[12][AT]|36[AT])|V1731CA|V1732[AT]|V1818CT|V19[01]1[AT]|V1932[AT]|V191[3469][AT]|V192[1348]A|V193[04]A|V194[15]A|V1938CT|V1955A|V1938T|V1730EA|V19[26]2A|V196[35]A|V198[16]A|V1936A[L]?|V19[59]0A|V200[125]A|1819|V201[12]A|V202[0345]C?A|V202[2357])(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'V1824[B]?A(?:[);/ ]|$)'
@@ -2538,6 +2538,8 @@ Vivo:
       model: 'iQOO 5'
     - regex: 'V2025A(?:[);/ ]|$)'
       model: 'iQOO 5 Pro'
+    - regex: 'V2025(?:[);/ ]|$)'
+      model: 'V20'
     - regex: 'vivo 1805(?:[);/ ]|$)'
       model: 'Nex'
     - regex: 'V1923A(?:[);/ ]|$)'
@@ -3634,7 +3636,7 @@ Condor:
 
 # Coolpad
 Coolpad:
-  regex: '(?:YL-)?Coolpad|(?:Cool_9S|8190Q|1831-A0|8676-A01|CP8298_I00|CP3648A|CP8676_I0[23]|REVVLPLUS C3701A|VCR-[AI]0|C105-E0|C106-[79]|MTS-T0|cp3705A[S]?|ORL-C0|DLS-E0)(?:[);/ ]|$)|(8295|5860S) Build'
+  regex: '(?:YL-)?Coolpad|(?:Cool_9S|8190Q|1831-A0|8676-[AM]01|CP8298_I00|CP3648A|CP8676_I0[23]|REVVLPLUS C3701A|VCR-[AI]0|C105-E0|C106-[79]|MTS-T0|cp3705A[S]?|ORL-C0|DLS-E0)(?:[);/ ]|$)|(8295|5860S) Build'
   device: 'smartphone'
   models:
     - regex: 'VCR-[AI]0'
@@ -3670,7 +3672,7 @@ Coolpad:
       model: 'Note 3 Plus'
     - regex: 'CP8298_I00(?:[);/ ]|$)'
       model: 'Note 3 Lite'
-    - regex: '(8676-A01)(?:[);/ ]|$)'
+    - regex: '(8676-[AM]01)(?:[);/ ]|$)'
       model: '$1'
     - regex: '(?:YL-)?Coolpad[ _\-]?([^/;]+) Build'
       model: '$1'
@@ -8666,9 +8668,9 @@ Konrow:
     - regex: 'Link5(?:[);/ ]|$)'
       model: 'Link 5'
 
-# Karbonn
+# Karbonn (karbonnmobiles.com)
 Karbonn:
-  regex: '(?:Browser-)?Karbonn|K9 Kavach 4G|K9 Music 4G|K9 Smart|K9 VIRAAT 4G|Aura Sleek Plus|Aura Note Play|Titanium (?:Vista 4G|Jumbo)|K-lite F3'
+  regex: '(?:Browser-)?Karbonn|K9 Kavach 4G|K9 Music 4G|K9 Smart|K9 VIRAAT 4G|Aura Sleek Plus|Aura Note Play|Titanium[ _](?:3D-Plex|Octane Plus|Vista 4G|Jumbo|S360|S1[059]|S35|S20[13]|S22|S1|S200 HD)|K-lite F3'
   device: 'smartphone'
   models:
     - regex: 'K9 Kavach 4G'
@@ -8693,14 +8695,18 @@ Karbonn:
       model: 'K9 Viraat 4G'
     - regex: 'Titanium[ _]S2[ _]Plus'
       model: 'Titanium S2 Plus'
-    - regex: 'Titanium_S99'
-      model: 'Titanium S99'
+    - regex: 'Titanium[_ ]S(99|360|1[059]|109|35|200 HD|20[13]|22|1)(?:[);/ ]|$)'
+      model: 'Titanium S$1'
     - regex: 'Titanium Vista 4G'
       model: 'Titanium Vista 4G'
     - regex: 'Titanium Jumbo 2'
       model: 'Titanium Jumbo 2'
     - regex: 'Titanium Jumbo'
       model: 'Titanium Jumbo'
+    - regex: 'Titanium Octane Plus'
+      model: 'Titanium Octane Plus'
+    - regex: 'Titanium[ _]3D-Plex'
+      model: 'Titanium 3D Plex'
     - regex: 'K-lite F3'
       model: 'K-Lite F3'
     - regex: 'Karbonn ([a-z0-9]+) WAP-Browser'
@@ -16244,9 +16250,9 @@ Globex:
     - regex: '(GU1011C|GU7013C|GU730C)(?:[);/ ]|$)'
       model: '$1'
 
-# Atom
+# Atom ()
 Atom:
-  regex: 'ATOM-(108AM)(?:[);/ ]|$)'
+  regex: 'ATOM-(108AM|216RK)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
@@ -17482,11 +17488,13 @@ Vsmart:
 
 # MiXzo
 MiXzo:
-  regex: '(?:MiXzo[ _])?(?:ME1023|ME1030|MX1037|MX1041)[ _][34]G(?:[);/ ]|$)'
+  regex: '(?:MiXzo[ _])?(?:ME1023|ME1030|MX1037|MX10[24]1)([ _][34]G)?(?:[);/ ]|$)'
   device: 'tablet'
   models:
-    - regex: 'MiXzo[_ ]ME(1023|1030)[_ ]3G(?:[);/ ]|$)'
+    - regex: 'MiXzo[_ ]ME(1023|1030)(?:[_ ]3G)(?:[);/ ]|$)'
       model: 'ME$1 3G'
+    - regex: 'MiXzo[_ ]MX1021(?:[_ ]3G)?(?:[);/ ]|$)'
+      model: 'MX1021 3G'
     - regex: '(?:MiXzo )?MX1041[ _]4G(?:[);/ ]|$)'
       model: 'MX1041 4G'
     - regex: '(?:MiXzo )?MX1037[ _]4G(?:[);/ ]|$)'
