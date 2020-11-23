@@ -187,6 +187,7 @@ class Browser extends AbstractClientParser
         'MN' => 'Minimo',
         'MT' => 'Mint Browser',
         'MX' => 'Maxthon',
+        'NM' => 'MxNitro',
         'MY' => 'Mypal',
         'MR' => 'Monument Browser',
         'MW' => 'MAUI WAP Browser',
@@ -257,7 +258,8 @@ class Browser extends AbstractClientParser
         'SK' => 'Skyfire',
         'SS' => 'Seraphic Sraf',
         'SL' => 'Sleipnir',
-        'S6' => 'Slimjet Browser',
+        'S6' => 'Slimjet',
+        '7S' => '7Star',
         'SN' => 'Snowshoe',
         'SO' => 'Sogou Mobile Browser',
         'S2' => 'Splash',
@@ -328,7 +330,7 @@ class Browser extends AbstractClientParser
             'CL', 'SU', 'EU', 'UB', 'LO', 'VG', 'TV', 'A0', '1B',
             'S4', 'EE', 'AE', 'VM', 'O0', 'TG', 'GB', 'SY', 'HH',
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
-            'S6'
+            'S6', '7S', 'NM'
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
