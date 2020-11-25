@@ -321,6 +321,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'H2' => 'Highscreen',
         'H1' => 'Hoffmann',
         'HM' => 'Homtom',
+        'H0' => 'Hometech',
         'HO' => 'Hosin',
         'HW' => 'How',
         'HV' => 'Hotwav',
