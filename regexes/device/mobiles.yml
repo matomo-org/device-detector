@@ -2782,9 +2782,13 @@ BenQ-Siemens:
 
 # BenQ
 BenQ:
-  regex: 'BENQ(?:[ \-])?([a-z0-9]+)'
+  regex: 'BENQ(?:[ \-])?([a-z0-9]+)|F52_09(?:[);/ ]|$)'
   device: 'feature phone'
-  model: '$1'
+  models:
+    - regex: 'F52_09(?:[);/ ]|$)'
+      model: 'F52'
+    - regex: 'BENQ(?:[ \-])?([a-z0-9]+)'
+      model: '$1'
 
 # Blaupunkt
 Blaupunkt:
@@ -4289,8 +4293,8 @@ Easypix:
   models:
     - regex: '(EasyPhone[^/;]+) Build'
       model: '$1'
-    - regex: '(EasyPad[^/;]+) Build'
-      model: '$1'
+    - regex: 'EasyPad ([^/;)]+)(?: Build|[;)])'
+      model: 'EasyPad $1'
       device: 'tablet'
 
 # Ebest
@@ -5002,6 +5006,9 @@ Ergo:
     - regex: 'ERGO[_ ]Tab[ _]Hero[ _]II'
       model: 'Tab Hero II'
       device: 'tablet'
+    - regex: 'ERGO[_ ](B700)'
+      model: 'Tab $1'
+      device: 'tablet'
 
     - regex: 'ERGO SmartBox SX'
       model: 'SmartBox SX'
@@ -5097,8 +5104,8 @@ Evolveo:
       model: 'Smart TV $1'
     - regex: 'EVOLVEO StrongPhone G([248])'
       model: 'StrongPhone G$1'
-    - regex: 'EVOLVEO StrongPhone Q(6)'
-      model: 'StrongPhone Q$1'
+    - regex: 'EVOLVEO[ _]StrongPhone[ _]Q([67])(_LTE)?'
+      model: 'StrongPhone Q$1$2'
     - regex: 'EVOLVEO[ _]([^;/]*) Build'
       model: '$1'
 
@@ -12268,10 +12275,12 @@ Selfix:
 
 # Sencor
 Sencor:
-  regex: 'Sencor|ELEMENT[ _]?(?:7|8|9\.7|10[ _]1)(?:[ _]?V[23])?(?:[);/ ]|$)|ELEMENT[ _]?(?:P[0-9]+)(?:[);/ ]|$)'
+  regex: 'Sencor|ELEMENT[ _]?(?:7|8|9\.7|10[ _]1)(?:[ _]?V[23])?(?:[);/ ]|$)|ELEMENT[ _]?(?:P[0-9]+|10.1 Q001)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     # explicit tablet models
+    - regex: '(?:SENCOR[ _])?Element (10\.1) (Q001)'
+      model: 'Element $1" $2'
     - regex: '(?:SENCOR[ _])?ELEMENT[ _]?7[ _]?V3'
       model: 'Element 7 V3'
     - regex: '(?:SENCOR[ _])?ELEMENT[ _]?7[ _]?V2[ _]BASIC'
@@ -14332,7 +14341,7 @@ Wexler:
 
 # Wiko (wikomobile.com)
 Wiko:
-  regex: '(?:WIKO[_ -])|(?:WIKO-)?CINK_[a-z0-9_]+|(?:WIKO-)?HIGHWAY_[a-z0-9_]+|(?:WIKO-)?(?:Cink([^/;]*)|Highway([^/;]*)|Iggy|Stairway|Rainbow ?(Jam|Lite|Up)?|Darkside|Darkmoon|Darkfull|Darknight|Freddy|FEVER|Jerry[2]?|Sublim|Ozzy|JIMMY|Barry|Birdy|Bloom|Getaway|Goa(?!nna)|Kite|Robby|Lenny[2-9]?|Slide|Sunset[2-9]?|Sunny[2-9]?|Tommy[2-9]?|PULP(?: Fab)?|Wax|HARRY|Ridge(?: Fab)?|U FEEL(?: Prime| Lite)?|U PULSE(?: LITE)?|View2 Go|View XL|View Prime)(?: Plus)?(?: 4G)?(?: Build|$)?|W_(?:C800|K[346]00|P130|P200|C200SN)|WC300|W-(?:V7[23]0|V8[30]0|P[36]11|K420|K510|K130)-(?:TMV|TVM|EEA|SUN|OPE)|WIM Lite|W-K360-TV|W-V600|W-K200|W-U300|U307AS|CINK PEAX 2|HIGHWAY PURE'
+  regex: '(?:WIKO[_ -])|(?:WIKO-)?CINK_[a-z0-9_]+|(?:WIKO-)?HIGHWAY_[a-z0-9_]+|(?:WIKO-)?(?:Cink([^/;]*)|Highway([^/;]*)|Iggy|Stairway|Rainbow ?(Jam|Lite|Up)?|Darkside|Darkmoon|Darkfull|Darknight|Freddy|FEVER|Jerry[2]?|Sublim|Ozzy|JIMMY|Barry|Birdy|Bloom|Getaway|Goa(?!nna)|Kite|Robby|Lenny[2-9]?|Slide|Sunset[2-9]?|Sunny[2-9]?|Tommy[2-9]?|PULP(?: Fab)?|Wax|HARRY|Ridge(?: Fab)?|U FEEL(?: Prime| Lite)?|U PULSE(?: LITE)?|View2 Go|View XL|View Prime)(?: Plus)?(?: 4G)?(?: Build|$)?|W_(?:C8[06]0|K[346]00|P130|P200|C200SN)|WC300|W-(?:V7[23]0|V8[30]0|P[36]11|K420|K510|K130)-(?:TMV|TVM|EEA|SUN|OPE)|WIM Lite|W-K360-TV|W-V600|W-K200|W-U300|U307AS|CINK PEAX 2|HIGHWAY PURE'
   device: 'smartphone'
   models:
     - regex: '(?:WIKO-)?Cink Peax 2'
@@ -14479,6 +14488,8 @@ Wiko:
       model: 'View Lite'
     - regex: 'W_C800'
       model: 'View 2'
+    - regex: 'W_C860'
+      model: 'View 2 Pro'
     - regex: 'W_P200'
       model: 'View Max'
     - regex: 'W_P130'
@@ -16522,10 +16533,10 @@ Yota:
 
 # Mystery
 Mystery:
-  regex: '(MYSTERY|MID-(?:123G|72[12]|7[01348]3G|753G|833G))(?:[);/ ]|$)'
+  regex: '(MYSTERY|MID-(?:123G|72[12]|7[01348]3G|753G|8[23]3G))(?:[);/ ]|$)'
   device: 'tablet'
   models:
-    - regex: 'MID-(123G|72[12]|7[01348]3G|753G|833G)(?:[);/ ]|$)'
+    - regex: 'MID-(123G|72[12]|7[01348]3G|753G|8[23]3G)(?:[);/ ]|$)'
       model: 'MID-$1'
 
 # Ritzviva
@@ -16821,6 +16832,12 @@ NEXON:
 # ONN
 ONN:
   regex: '(ONA19TB00[327])(?:[);/ ]|$)'
+  device: 'tablet'
+  model: '$1'
+
+# EXO S.A
+EXO:
+  regex: '(Wave_i101G)(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
 
@@ -18001,7 +18018,7 @@ eSTAR:
       model: '$1 $2 Quad Core 3G'
     - regex: 'eSTAR (Zoom Quad|Gemini|GO)'
       model: '$1'
-    - regex: 'eSTAR GRAND HD quad core( [34]G)'
+    - regex: 'eSTAR GRAND HD quad core( [34]G)?'
       model: 'Grand HD Quad Core$1'
     - regex: 'eSTAR GRAND'
       model: 'Grand'
