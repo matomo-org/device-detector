@@ -7723,7 +7723,7 @@ Kyocera:
 
 # Krüger&Matz (Kruger&Matz)
 Krüger&Matz:
-  regex: 'Kruger[ _&]Matz|KrugerMatz[ _]|FLOW5PLUS|FLOW7|FLOW6S|DRIVE[_ ]6S?|MOVE_|LIVE4_KM043[89]|KM(?:106[67]|1065G|0701_1|0702|0805_1)'
+  regex: 'Kruger[ _&]Matz|KrugerMatz[ _]|FLOW5PLUS|FLOW7|FLOW6S|DRIVE[_ ]6S?|MOVE_|LIVE_6plus|LIVE4_KM043[89]|KM(?:106[67]|1065G|0701_1|0702|0805_1)'
   device: 'smartphone'
   models:
     - regex: 'MOVE_6_mini'
@@ -7744,6 +7744,8 @@ Krüger&Matz:
       model: 'LIVE 4'
     - regex: '_LIVE5_(KM0450)(?:[);/ ]|$)'
       model: 'LIVE 5 $1'
+    - regex: 'LIVE_6plus(?:[);/ ]|$)'
+      model: 'LIVE 6 Plus' # KM0454
 
     - regex: 'KM(106[67])(?:[);/ ]|$)'
       device: 'tablet'
@@ -7781,7 +7783,7 @@ AIS:
 
 # Lava (Lavamobiles.com)
 Lava:
-  regex: 'Lava[ _]|(?:DISCOVER136|KKT QUADRA)|iris[ _]?([^/;]+)(?:\)| Build)|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|(?:Flair Z1|PixelV1|Z61_2GB|A97 IPS)(?:[);/ ]|$)'
+  regex: 'Lava[ _]|LAVAA1|(?:DISCOVER136|KKT QUADRA)|iris[ _]?([^/;]+)(?:\)| Build)|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|(?:Flair Z1|PixelV1|Z61_2GB|A97 IPS)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Flair Z1(?:[);/ ]|$)'
@@ -7798,8 +7800,8 @@ Lava:
       model: 'Iris X1 Selfie'
     - regex: 'X41 Plus Build'
       model: 'X41 Plus'
-    - regex: 'LAVA_A3'
-      model: 'A3'
+    - regex: 'LAVA[_ ]?A([13])(?:[);/ ]|$)'
+      model: 'A$1'
     - regex: 'LAVA_R1'
       model: 'R1'
     - regex: 'Z61_2GB(?:[);/ ]|$)'
@@ -8002,13 +8004,13 @@ Leotec:
 
 # Lephone
 Lephone:
-  regex: 'lephone[ _]'
+  regex: 'lephone[ _]|lephoneP1'
   device: 'smartphone'
   models:
     - regex: 'lephone[ _](K7|K10)'
       device: 'feature phone'
       model: '$1'
-    - regex: 'lephone[ _](W(1[0125]|[279])|T2)(?:[);/ ]|$)'
+    - regex: 'lephone(?:[ _])?(W(1[0125]|[279])|T2|P1)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'lephone_W7_plus'
       model: 'W7 Plus'
@@ -16103,7 +16105,7 @@ Inoi:
 
 # Vertex
 Vertex:
-  regex: 'Lion_Dual|V709X|Pro_P3[01]0_4G|Baccara|Eagle[ _]4G|ImpressMAX|Impress[ _]([^;/]+)(?:Build|\))'
+  regex: 'Lion_Dual|V709X|Tab [43]G (?:7-2|8-1|10-1)|Pro_P3[01]0_4G|Baccara|Eagle[ _]4G|ImpressMAX|Impress[ _]([^;/]+)(?:Build|\))'
   device: 'smartphone'
   models:
     - regex: '(Lion_Dual|Baccara|Eagle[ _]4G)'
@@ -16117,6 +16119,9 @@ Vertex:
     - regex: '(V709X)'
       device: 'tablet'
       model: '$1'
+    - regex: 'Tab ([43])G ([78]|10)-([21])'
+      device: 'tablet'
+      model: 'Tab $1G $2.$3"'
 
 # Devices with undectable brand, but detectable model
 Unknown:
@@ -17465,9 +17470,14 @@ Alfawise:
 
 # Klipad
 Klipad:
-  regex: '(KL-V905)(?:[);/ ]|$)'
+  regex: 'KLIPAD_|(?:KL-V905|KL4889)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: '(?:KLIPAD_)?(V355B?|KL600|KL-V905)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: '(KL4889)(?:[);/ ]|$)'
+      device: 'tablet'
+      model: '$1'
 
 # SQOOL (sqool.fr)
 SQOOL:
