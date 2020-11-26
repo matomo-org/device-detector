@@ -507,6 +507,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '6M' => 'Mystery',
         '1R' => 'Multilaser',
         'N3' => 'Navon',
+        '6N' => 'Navitech',
         'N7' => 'National',
         'N5' => 'NOA',
         'NE' => 'NEC',

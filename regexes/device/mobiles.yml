@@ -10085,7 +10085,7 @@ O2:
 
 # Odys
 Odys:
-  regex: 'ODYS[ _-]|IEOS[_ ]([^/;]+)|NOON(?:_PRO)? Build|SPACE10_(?:PLUS|PRO)_3G|THOR_?10|TAO_X10|RAPID_?(?:10|7)_?LTE|MAVEN_?10_|CONNECT[78]|ELEMENT10_PLUS_3G|XELIO[_0-9P]|ADM816HC|ADM8000KP|NEO6_LTE|EOS10|AEON|FALCON_10_PLUS_3G|FUSION|THANOS_10|MAVEN_X10_HD(?:_LTE)?|JUNIOR_8_PRO|PYRO_7_PLUS_3G|UNO_X8'
+  regex: 'ODYS[ _-]|IEOS[_ ]([^/;]+)|NOON(?:_PRO)? Build|SPACE10_(?:PLUS|PRO)_3G|THOR_?10|TAO_X10|RAPID_?(?:10|7)_?LTE|MAVEN_?10_|CONNECT[78]|ELEMENT10_PLUS_3G|XELIO[_0-9P]|ADM816HC|ADM8000KP|NEO6_LTE|EOS10|AEON|FALCON_10_PLUS_3G|FUSION|THANOS_10|MAVEN_X10_HD(?:_LTE)?|JUNIOR_8_PRO|PYRO_7_PLUS_3G|UNO_X8|SLADE_X55'
   device: 'tablet'
   models:
     - regex: 'XELIO[_ ]A10'
@@ -10146,15 +10146,22 @@ Odys:
       model: 'Fusion 7'
     - regex: 'UNO_X8'
       model: 'Uno X8'
-    - regex: 'NEO6[_ ]LTE'
-      model: 'Neo 6 LTE'
-      device: 'smartphone'
     - regex: 'ADM8000KP'
       model: 'Titan'
     - regex: 'PYRO_7_PLUS_3G'
       model: 'Pyro 7 Plus 3G'
     - regex: 'THOR_?10_PLUS_3G'
       model: 'Thor 10 Plus 3G'
+
+    # explicit smartphones models
+    - regex: 'NEO6[_ ]LTE'
+      model: 'Neo 6 LTE'
+      device: 'smartphone'
+    - regex: 'SLADE_X55'
+      model: 'Slade X55'
+      device: 'smartphone'
+
+    # general detections
     - regex: 'IEOS[ _]([^/;]+) Build'
       model: 'Ieos $1'
     - regex: '(?:ODYS[ _-])?NOON Build'
@@ -18088,6 +18095,13 @@ Hipstreet:
   regex: '10DTB12(?:[);/ ]|$)'
   device: 'tablet'
   model: 'Phoenix'
+
+# Navitech
+Navitech:
+  regex: '(NeoTab)[ _-]((?:S1[23]0|S125|H85|H11[05]|KID741|S9700))(?:[);/ ]|$)'
+  device: 'tablet'
+  model: '$1 $2'
+
 
 # Wiseasy (wiseasy.com)
 Wiseasy:
