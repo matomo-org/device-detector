@@ -9870,13 +9870,19 @@ NeuImage:
 
 # NextBook
 NextBook:
-  regex: 'Next[0-9]|NX785QC8G|NXM900MC|NX008HD8G|NX010HI8G|NXM908HC|NXM726|NXA8QC116'
+  regex: 'Next[0-9]|NX(?:785QC8G|M900MC|008HD8G|010HI8G|M908HC|M726|16A8116K|A8QC116|16A10132S|16A11264)'
   device: 'tablet'
   models:
     - regex: 'NX008HD8G'
       model: 'Premium 8 HD'
     - regex: 'NXA8QC116'
       model: 'Ares 8'
+    - regex: 'NX16A8116K'
+      model: 'Ares A8'
+    - regex: 'NX16A10132S'
+      model: 'Ares A10'
+    - regex: 'NX16A11264'
+      model: 'Ares A11'
     - regex: 'NXM908HC'
       model: 'Premium 9'
     - regex: 'NX010HI8G'
@@ -10092,7 +10098,7 @@ O2:
 
 # Odys
 Odys:
-  regex: 'ODYS[ _-]|IEOS[_ ]([^/;]+)|NOON(?:_PRO)? Build|SPACE10_(?:PLUS|PRO)_3G|THOR_?10|TAO_X10|RAPID_?(?:10|7)_?LTE|MAVEN_?10_|CONNECT[78]|ELEMENT10_PLUS_3G|XELIO[_0-9P]|ADM816HC|ADM8000KP|NEO6_LTE|EOS10|AEON|FALCON_10_PLUS_3G|FUSION|THANOS_10|MAVEN_X10_HD(?:_LTE)?|JUNIOR_8_PRO|(?:NOVA|PYRO)_X?7_PLUS_3G|UNO_X8|SLADE_X55'
+  regex: 'ODYS[ _-]|IEOS[_ ]([^/;]+)|NOON(?:_PRO)? Build|SPACE10_(?:PLUS|PRO)_3G|THOR_?10|TAO_X10|RAPID_?(?:10|7)_?LTE|MAVEN_?10_|CONNECT[78]|ELEMENT10_PLUS_3G|XELIO[_0-9P]|ADM816HC|ADM8000KP|NEO6_LTE|EOS10|AEON|FALCON_10_PLUS_3G|FUSION|THANOS_10|MAVEN_X10_HD(?:_LTE)?|JUNIOR_8_PRO|JuniorT8Pro|(?:NOVA|PYRO)_X?7_PLUS_3G|UNO_X8|SLADE_X55'
   device: 'tablet'
   models:
     - regex: 'XELIO[_ ]A10'
@@ -10109,6 +10115,10 @@ Odys:
       model: 'Xelio 10 Xtreme'
     - regex: 'XELIO10_PLUS_3G'
       model: 'Xelio 10 Plus 3G'
+    - regex: 'XELIO10_HD_PLUS_3G'
+      model: 'Xelio 10 HD Plus 3G'
+    - regex: 'XELIO_10_HD'
+      model: 'Xelio 10 HD'
     - regex: 'ELEMENT10_PLUS_3G'
       model: 'Element 10 Plus 3G'
     - regex: 'CONNECT8PLUS'
@@ -10139,6 +10149,8 @@ Odys:
       model: 'Space 10 Pro 3G'
     - regex: 'THOR_?10 Build'
       model: 'Thor 10'
+    - regex: 'JuniorT8Pro'
+      model: 'Junior T8 Pro'
     - regex: 'JUNIOR_8_PRO'
       model: 'Junior 8 Pro'
     - regex: 'ADM816HC'
@@ -12525,7 +12537,7 @@ SunVan:
 
 # SWISSMOBILITY
 SWISSMOBILITY:
-  regex: 'SCHR9GR|ZUR722M'
+  regex: 'SCHR9GR|ZUR(?:722M|70016W?|700[RW]|805A)'
   device: 'smartphone'
   models:
     - regex: 'SCHR9GR'
@@ -12533,6 +12545,10 @@ SWISSMOBILITY:
     - regex: 'ZUR722M'
       device: 'phablet'
       model: 'Z72 go'
+
+    - regex: 'ZUR(70016W?|700[RW]|805A)(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'ZUR$1'
 
 # Thomson
 Thomson:
@@ -13256,9 +13272,11 @@ Amazon:
 
 # Symphony
 Symphony:
-  regex: 'SYMPHONY[ \_]([a-z0-9]+)|roar (V20|E80)'
+  regex: 'SYMPHONY[ \_]([a-z0-9]+)|(?:roar (?:V20|E80))|ZVIII(?:[);/ ]|$)'
   device: 'smartphone'
   models:
+    - regex: 'ZVIII'
+      model: 'ZVIII'
     - regex: 'roar V20'
       model: 'Roar V20'
     - regex: 'roar E80'
@@ -16760,7 +16778,7 @@ Soyes:
 
 # Zidoo
 Zidoo:
-  regex: 'ZIDOO[ _](H6 Pro|X6 Pro|X9S|Z10|X[158])(?:[);/ ]|$)'
+  regex: 'ZIDOO[ _](H6 Pro|X6 Pro|X9S|Z10|X[158]|X20 Pro)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
