@@ -131,6 +131,7 @@ class Browser extends AbstractClientParser
         'FN' => 'Fireweb Navigator',
         'FU' => 'FreeU',
         'GA' => 'Galeon',
+        'GH' => 'Ghostery Privacy Browser',
         'GB' => 'Glass Browser',
         'GE' => 'Google Earth',
         'GO' => 'GOG Galaxy',
@@ -356,9 +357,11 @@ class Browser extends AbstractClientParser
      * @var array
      */
     protected static $mobileOnlyBrowsers = [
-        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR',
-        'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM', 'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
-        'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'PI',
+        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB',
+        'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR',
+        'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM',
+        'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
+        'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH', 'PI',
     ];
 
     /**
