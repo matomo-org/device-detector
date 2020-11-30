@@ -236,6 +236,7 @@ class Browser extends AbstractClientParser
         'PX' => 'Phoenix',
         'PO' => 'Polaris',
         'PT' => 'Polarity',
+        'PI' => 'PrivacyWall',
         'PS' => 'Microsoft Edge',
         'Q1' => 'QQ Browser Mini',
         'QQ' => 'QQ Browser',
@@ -338,7 +339,7 @@ class Browser extends AbstractClientParser
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
             'CU', 'TF', 'QM', 'FR', 'I4', 'GZ', 'MO', 'F1', 'BI',
             'MN', 'BH', 'TO', 'OS', 'MY', 'FY', 'AX', 'C0', 'LH',
-            'S5', 'ZV', 'IW',
+            'S5', 'ZV', 'IW', 'PI',
         ],
         'Internet Explorer'  => ['IE', 'IM', 'PS', 'CZ'],
         'Konqueror'          => ['KO'],
@@ -356,9 +357,11 @@ class Browser extends AbstractClientParser
      * @var array
      */
     protected static $mobileOnlyBrowsers = [
-        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB', 'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR',
-        'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM', 'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
-        'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH',
+        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB',
+        'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR',
+        'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM',
+        'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
+        'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH', 'PI',
     ];
 
     /**
