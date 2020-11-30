@@ -91,6 +91,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '00' => 'Accent',
         'A9' => 'Advan',
         'AD' => 'Advance',
+        '60' => 'Andowl',
         'A3' => 'AGM',
         'AZ' => 'Ainol',
         'AI' => 'Airness',
