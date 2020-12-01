@@ -657,6 +657,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '3S' => 'Shuttle',
         'SI' => 'Siemens',
         'SJ' => 'Silent Circle',
+        '70' => 'Silelis',
         '1S' => 'Sigma',
         'SN' => 'Sendo',
         '0S' => 'SEMP TCL',
