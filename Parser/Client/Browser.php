@@ -126,6 +126,7 @@ class Browser extends AbstractClientParser
         'FY' => 'Firefox Reality',
         'FR' => 'Firefox Rocket',
         'FL' => 'Flock',
+        'FO' => 'Flow',
         'FM' => 'Firefox Mobile',
         'FW' => 'Fireweb',
         'FN' => 'Fireweb Navigator',
