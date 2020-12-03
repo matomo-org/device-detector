@@ -55,6 +55,7 @@ class OperatingSystem extends AbstractParser
         'FED' => 'Fedora',
         'FOS' => 'Firefox OS',
         'FIR' => 'Fire OS',
+        'FRE' => 'Freebox',
         'BSD' => 'FreeBSD',
         'GNT' => 'Gentoo',
         'GTV' => 'Google TV',
@@ -144,7 +145,7 @@ class OperatingSystem extends AbstractParser
         'GNU/Linux'             => [
             'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
             'RHT', 'VLN', 'MDR', 'GNT', 'SAB', 'SLW', 'SSE', 'CES', 'BTR', 'SAF',
-            'ORD', 'TOS', 'RSO',
+            'ORD', 'TOS', 'RSO', 'FRE',
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
