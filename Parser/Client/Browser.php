@@ -251,6 +251,7 @@ class Browser extends AbstractClientParser
         'RM' => 'RockMelt',
         'SB' => 'Samsung Browser',
         'SA' => 'Sailfish Browser',
+        'S8' => 'Seewo Browser',
         'SC' => 'SEMC-Browser',
         'SE' => 'Sogou Explorer',
         'SF' => 'Safari',
@@ -334,7 +335,7 @@ class Browser extends AbstractClientParser
             'CL', 'SU', 'EU', 'UB', 'LO', 'VG', 'TV', 'A0', '1B',
             'S4', 'EE', 'AE', 'VM', 'O0', 'TG', 'GB', 'SY', 'HH',
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
-            'S6', '7S', 'NM', 'PB',
+            'S6', '7S', 'NM', 'PB', 'S8',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
