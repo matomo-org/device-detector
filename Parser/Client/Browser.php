@@ -272,6 +272,7 @@ class Browser extends AbstractClientParser
         'SP' => 'SuperBird',
         'SU' => 'Super Fast Browser',
         'S3' => 'surf',
+        'SG' => 'Stargon',
         'S0' => 'START Internet Browser',
         'S4' => 'Steam In-Game Overlay',
         'ST' => 'Streamy',
@@ -334,7 +335,7 @@ class Browser extends AbstractClientParser
             'CL', 'SU', 'EU', 'UB', 'LO', 'VG', 'TV', 'A0', '1B',
             'S4', 'EE', 'AE', 'VM', 'O0', 'TG', 'GB', 'SY', 'HH',
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
-            'S6', '7S', 'NM', 'PB',
+            'S6', '7S', 'NM', 'PB', 'SG',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
@@ -362,7 +363,7 @@ class Browser extends AbstractClientParser
         'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR',
         'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM',
         'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
-        'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH', 'PI',
+        'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH', 'PI', 'SG',
     ];
 
     /**
