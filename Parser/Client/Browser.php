@@ -58,6 +58,7 @@ class Browser extends AbstractClientParser
         'AT' => 'Atomic Web Browser',
         'AS' => 'Avast Secure Browser',
         'VG' => 'AVG Secure Browser',
+        'BG' => 'Beagle Browser',
         'BA' => 'Beaker Browser',
         'BM' => 'Beamrise',
         'BB' => 'BlackBerry Browser',
@@ -334,7 +335,7 @@ class Browser extends AbstractClientParser
             'CL', 'SU', 'EU', 'UB', 'LO', 'VG', 'TV', 'A0', '1B',
             'S4', 'EE', 'AE', 'VM', 'O0', 'TG', 'GB', 'SY', 'HH',
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
-            'S6', '7S', 'NM', 'PB',
+            'S6', '7S', 'NM', 'PB', 'BG',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
