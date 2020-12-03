@@ -90,6 +90,7 @@ class Browser extends AbstractClientParser
         'CN' => 'CoolNovo',
         'CO' => 'CometBird',
         'CB' => 'COS Browser',
+        'C0' => 'Chim Lạc',
         'CP' => 'ChromePlus',
         'CR' => 'Chromium',
         'CY' => 'Cyberfox',
@@ -334,7 +335,7 @@ class Browser extends AbstractClientParser
             'CL', 'SU', 'EU', 'UB', 'LO', 'VG', 'TV', 'A0', '1B',
             'S4', 'EE', 'AE', 'VM', 'O0', 'TG', 'GB', 'SY', 'HH',
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
-            'S6', '7S', 'NM', 'PB',
+            'S6', '7S', 'NM', 'PB', 'C0',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
