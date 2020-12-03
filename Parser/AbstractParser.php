@@ -289,7 +289,7 @@ abstract class AbstractParser
      *
      * Example:
      * $versionString = 'v$2'
-     * $matches = array('version_1_0_1', '1_0_1')
+     * $matches = ['version_1_0_1', '1_0_1']
      * return value would be v1.0.1
      *
      * @param string $versionString
