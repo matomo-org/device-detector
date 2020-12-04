@@ -194,6 +194,7 @@ class Browser extends AbstractClientParser
         'MY' => 'Mypal',
         'MR' => 'Monument Browser',
         'MW' => 'MAUI WAP Browser',
+        'NR' => 'NFS Browser',
         'NB' => 'Nokia Browser',
         'NO' => 'Nokia OSS Browser',
         'NV' => 'Nokia Ovi Browser',
@@ -336,7 +337,7 @@ class Browser extends AbstractClientParser
             'CL', 'SU', 'EU', 'UB', 'LO', 'VG', 'TV', 'A0', '1B',
             'S4', 'EE', 'AE', 'VM', 'O0', 'TG', 'GB', 'SY', 'HH',
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
-            'S6', '7S', 'NM', 'PB',
+            'S6', '7S', 'NM', 'PB', 'NR',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
