@@ -295,6 +295,7 @@ class Browser extends AbstractClientParser
         'UC' => 'UC Browser',
         'UM' => 'UC Browser Mini',
         'UT' => 'UC Browser Turbo',
+        'UR' => 'UR Browser',
         'UZ' => 'Uzbl',
         'VI' => 'Vivaldi',
         'VV' => 'vivo Browser',
@@ -340,7 +341,7 @@ class Browser extends AbstractClientParser
             'CL', 'SU', 'EU', 'UB', 'LO', 'VG', 'TV', 'A0', '1B',
             'S4', 'EE', 'AE', 'VM', 'O0', 'TG', 'GB', 'SY', 'HH',
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
-            'S6', '7S', 'NM', 'PB', 'NR', 'SG',
+            'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
