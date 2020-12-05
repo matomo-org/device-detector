@@ -267,6 +267,7 @@ class Browser extends AbstractClientParser
         'SL' => 'Sleipnir',
         'S6' => 'Slimjet',
         '7S' => '7Star',
+        'LE' => 'Smart Lenovo Browser',
         'SN' => 'Snowshoe',
         'SO' => 'Sogou Mobile Browser',
         'S2' => 'Splash',
