@@ -266,6 +266,7 @@ class Browser extends AbstractClientParser
         'SL' => 'Sleipnir',
         'S6' => 'Slimjet',
         '7S' => '7Star',
+        'LE' => 'Smart Lenovo Browser',
         'SN' => 'Snowshoe',
         'SO' => 'Sogou Mobile Browser',
         'S2' => 'Splash',
@@ -338,7 +339,7 @@ class Browser extends AbstractClientParser
             'CL', 'SU', 'EU', 'UB', 'LO', 'VG', 'TV', 'A0', '1B',
             'S4', 'EE', 'AE', 'VM', 'O0', 'TG', 'GB', 'SY', 'HH',
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
-            'S6', '7S', 'NM', 'PB', 'NR', 'SG',
+            'S6', '7S', 'NM', 'PB', 'NR', 'SG', 'LE',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
