@@ -213,12 +213,16 @@ class DeviceDetector
     {
         foreach (AbstractDeviceParser::getAvailableDeviceTypes() as $deviceName => $deviceType) {
             if (\strtolower($methodName) === 'is' . \strtolower(\str_replace(' ', '', $deviceName))) {
+                $this->parse();
+
                 return $this->getDevice() === $deviceType;
             }
         }
 
         foreach (self::$clientTypes as $client) {
             if (\strtolower($methodName) === 'is' . \strtolower(\str_replace(' ', '', $client))) {
+                $this->parse();
+
                 return $this->getClient('type') === $client;
             }
         }
@@ -326,6 +330,8 @@ class DeviceDetector
      */
     public function isBot(): bool
     {
+        $this->parse();
+
         return !empty($this->bot);
     }
 
@@ -350,6 +356,8 @@ class DeviceDetector
      */
     public function isMobile(): bool
     {
+        $this->parse();
+
         // Mobile device types
         if (\in_array($this->device, [
             AbstractDeviceParser::DEVICE_TYPE_FEATURE_PHONE,
@@ -397,6 +405,8 @@ class DeviceDetector
      */
     public function isDesktop(): bool
     {
+        $this->parse();
+
         $osName = $this->getOsAttribute('name');
 
         if (empty($osName) || self::UNKNOWN === $osName) {
@@ -424,6 +434,8 @@ class DeviceDetector
      */
     public function getOs(string $attr = '')
     {
+        $this->parse();
+
         if ('' === $attr) {
             return $this->os;
         }
@@ -442,6 +454,8 @@ class DeviceDetector
      */
     public function getClient(string $attr = '')
     {
+        $this->parse();
+
         if ('' === $attr) {
             return $this->client;
         }
@@ -458,6 +472,8 @@ class DeviceDetector
      */
     public function getDevice(): ?int
     {
+        $this->parse();
+
         return $this->device;
     }
 
@@ -470,6 +486,8 @@ class DeviceDetector
      */
     public function getDeviceName(): string
     {
+        $this->parse();
+
         if (null !== $this->getDevice()) {
             return AbstractDeviceParser::getDeviceName($this->getDevice());
         }
@@ -488,6 +506,8 @@ class DeviceDetector
      */
     public function getBrand(): string
     {
+        $this->parse();
+
         return AbstractDeviceParser::getShortCode($this->brand);
     }
 
@@ -500,6 +520,8 @@ class DeviceDetector
      */
     public function getBrandName(): string
     {
+        $this->parse();
+
         return $this->brand;
     }
 
@@ -510,6 +532,8 @@ class DeviceDetector
      */
     public function getModel(): string
     {
+        $this->parse();
+
         return $this->model;
     }
 

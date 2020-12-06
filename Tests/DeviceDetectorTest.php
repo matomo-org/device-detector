@@ -449,6 +449,33 @@ class DeviceDetectorTest extends TestCase
     }
 
     /**
+     * @dataProvider parserTriggers
+     */
+    public function testAutoParser(string $method): void
+    {
+        $dd = new DeviceDetector();
+        \call_user_func([$dd, $method]);
+        $this->assertTrue($dd->isParsed());
+    }
+
+    public function parserTriggers(): array
+    {
+        return [
+            'isBrowser'     => ['isBrowser'],
+            'isDesktop'     => ['isDesktop'],
+            'isBot'         => ['isBot'],
+            'isMobile'      => ['isMobile'],
+            'isDesktop'     => ['isDesktop'],
+            'getOs'         => ['getOs'],
+            'getClient'     => ['getClient'],
+            'getDeviceName' => ['getDeviceName'],
+            'getBrand'      => ['getBrand'],
+            'getBrandName'  => ['getBrandName'],
+            'getModel'      => ['getModel'],
+        ];
+    }
+
+    /**
      * check the regular expression for the vertical line closing the group
      * @param string $regexString
      *
