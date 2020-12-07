@@ -165,6 +165,7 @@ class Browser extends AbstractClientParser
         'KP' => 'Kapiko',
         'KN' => 'Kinza',
         'KW' => 'Kiwi',
+        'KD' => 'Kode Browser',
         'KY' => 'Kylo',
         'KZ' => 'Kazehakase',
         'LB' => 'Cheetah Browser',
@@ -370,6 +371,7 @@ class Browser extends AbstractClientParser
         'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM',
         'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
         'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH', 'PI', 'SG',
+        'KD',
     ];
 
     /**
