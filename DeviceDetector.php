@@ -213,16 +213,12 @@ class DeviceDetector
     {
         foreach (AbstractDeviceParser::getAvailableDeviceTypes() as $deviceName => $deviceType) {
             if (\strtolower($methodName) === 'is' . \strtolower(\str_replace(' ', '', $deviceName))) {
-                $this->parse();
-
                 return $this->getDevice() === $deviceType;
             }
         }
 
         foreach (self::$clientTypes as $client) {
             if (\strtolower($methodName) === 'is' . \strtolower(\str_replace(' ', '', $client))) {
-                $this->parse();
-
                 return $this->getClient('type') === $client;
             }
         }
@@ -486,8 +482,6 @@ class DeviceDetector
      */
     public function getDeviceName(): string
     {
-        $this->parse();
-
         if (null !== $this->getDevice()) {
             return AbstractDeviceParser::getDeviceName($this->getDevice());
         }
@@ -554,6 +548,8 @@ class DeviceDetector
      */
     public function getBot()
     {
+        $this->parse();
+
         return $this->bot;
     }
 
