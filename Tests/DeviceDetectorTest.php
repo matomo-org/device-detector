@@ -369,7 +369,6 @@ class DeviceDetectorTest extends TestCase
     public function testGetOs(): void
     {
         $dd = new DeviceDetector('Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)');
-        $this->assertNull($dd->getOs());
         $dd->parse();
         $expected = [
             'name'       => 'Windows',
@@ -383,7 +382,6 @@ class DeviceDetectorTest extends TestCase
     public function testGetClient(): void
     {
         $dd = new DeviceDetector('Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)');
-        $this->assertNull($dd->getClient());
         $dd->parse();
         $expected = [
             'type'           => 'browser',
