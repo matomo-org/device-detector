@@ -461,17 +461,17 @@ class DeviceDetectorTest extends TestCase
     public function parserTriggers(): array
     {
         return [
-            'isBrowser'     => ['isBrowser'],
-            'isDesktop'     => ['isDesktop'],
-            'isBot'         => ['isBot'],
-            'isMobile'      => ['isMobile'],
-            'isDesktop'     => ['isDesktop'],
-            'getOs'         => ['getOs'],
-            'getClient'     => ['getClient'],
-            'getDeviceName' => ['getDeviceName'],
-            'getBrand'      => ['getBrand'],
-            'getBrandName'  => ['getBrandName'],
-            'getModel'      => ['getModel'],
+            '__call() for client' => ['isBrowser'],
+            '__call() for device' => ['isMobile'],
+            'getBot()'            => ['getBot'],
+            'getBrand()'          => ['getBrand'],
+            'getBrandName()'      => ['getBrandName'],
+            'getClient()'         => ['getClient'],
+            'getDeviceName()'     => ['getDeviceName'],
+            'getModel()'          => ['getModel'],
+            'getOs()'             => ['getOs'],
+            'isBot()'             => ['isBot'],
+            'isDesktop()'         => ['isDesktop'],
         ];
     }
 
