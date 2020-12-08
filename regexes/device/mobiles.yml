@@ -6678,7 +6678,7 @@ iRulu:
 
 # Irbis
 Irbis:
-  regex: 'IRBIS|TZ(1(?:0[04]|42|5[01]|84|65|7[01345-89]|8[356]|9[12578])|49|7(?:1[12467]|2[01567]|37|4[257]|5[23457]|6[12]|72|7[17]|8[1]|9[47])|8(?:[34]1|5[3-8]|6[45]|7[2478]|8[1-5]|9[0127])|96[0-9])|TZ85|TZ13|TZ(?:one|art|HIT|81L)|(SP(?:0[56]|2[01]|4[1-36]|40[12]|45[345]|49[34]|50|51[0147]|531|54[12]|55[0124]|571))(?:[);/ ]|$)'
+  regex: 'IRBIS|TZ(1(?:0[04]|42|5[01]|84|65|7[01345-89]|8[356]|9[12578])|49|7(?:1[12467]|2[01567]|37|4[257]|5[23457]|6[12]|72|7[17]|8[1]|9[147])|8(?:[34]1|5[3-8]|6[45]|7[2478]|8[1-5]|9[0127])|96[0-9])|TZ85|TZ13|TZ(?:one|art|HIT|81L)|(SP(?:0[56]|2[01]|4[1-36]|40[12]|45[345]|49[34]|50|51[0147]|531|54[12]|55[0124]|571))(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: '(TZ(?:[0-9]+)|TZ(?:one|art|HIT|81L))(?:[);/ ]|$)'
@@ -7969,7 +7969,7 @@ LCT:
 
 # Leagoo
 Leagoo:
-  regex: 'LEAGOO[ _-]?|(?:M5 EDGE|KIICAA (POWER|MIX)|Leapad[ _]7s|Elite 1|Venture 1|Z10-E)(?:[);/ ]|$)'
+  regex: 'LEAGOO[ _-]?|(?:M5 EDGE|KIICAA (POWER|MIX)|Leapad[ _]7s|Elite [15]|Venture 1|Z10-E)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'LEAGOO[- _]M8[_-]?Pro(?:[);/ ]|$)'
@@ -7984,8 +7984,8 @@ Leagoo:
       model: 'KICCAA Power'
     - regex: 'KIICAA MIX'
       model: 'KICCAA Mix'
-    - regex: 'Elite 1(?:[);/ ]|$)'
-      model: 'Elite 1'
+    - regex: 'Elite ([15])(?:[);/ ]|$)'
+      model: 'Elite $1'
     - regex: 'Venture 1(?:[);/ ]|$)'
       model: 'Venture 1'
     - regex: '(Z10-E)(?:[);/ ]|$)'
@@ -10815,16 +10815,16 @@ Orange:
 
 # Oukitel
 Oukitel:
-  regex: 'OUKITEL|(?:(?:C15|C16|K10000|K[46]000)(?:[ _]Pro)|K4000Pro|U20_Plus|WP5000|WP[58] Pro|K[46]000[ _](?:Plus|Lite)|Y4800|K10000|K[4567]000| WP[5-7])(?:[);/ ]|$)'
+  regex: 'OUKITEL|(?:(?:C15|C16|K10000|K[46]000)(?:[ _]Pro)|K4000Pro|U16 Max|U7 Max|U7 Plus|U11[_ ]Plus|U20_Plus|WP5000|WP[58] Pro|K[46]000[ _](?:Plus|Lite)|Y4800|K10000|K[4567]000| WP[5-7])(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(C15|C16|K10000|K[46]000|WP[258]|U15)[ _]?Pro(?:[);/ ]|$)'
       model: '$1 Pro'
     - regex: 'OUKITEL K([37])(?:[);/ ]|$)'
       model: 'K$1'
-    - regex: '(K10000)[ _]Max(?:[);/ ]|$)'
+    - regex: '(K10000|U16|U7)[ _]Max(?:[);/ ]|$)'
       model: '$1 Max'
-    - regex: '(U20|K[46]000)[_ ]?Plus(?:[);/ ]|$)'
+    - regex: '(U20|K[46]000|U7|U11)[_ ]?Plus(?:[);/ ]|$)'
       model: '$1 Plus'
     - regex: '(K4000)[_ ]Lite(?:[);/ ]|$)'
       model: '$1 Lite'
@@ -16599,7 +16599,7 @@ Unihertz:
 
 # Chuwi
 Chuwi:
-  regex: '(?:CW-(Hi8-super|Hi12|V99|V17HD3G|VX8-3G|V88-QUAD|V9-DUAL|V88S|Vi[78]|[HV]i10 (?:pro|plus))|Hi10 (?:Pro|plus)|HiPad X|HiBox-hero|HiBook pro|Hi8 (?:Air|Pro))(?:[);/ ]|$)'
+  regex: '(?:CW-(Hi8-super|Hi12|V99|V17HD3G|VX8-3G|V88-QUAD|V9-DUAL|V88S|Vi[78]|[HV]i10 (?:pro|plus))|Hi10 (?:Pro|plus)|HiPad X|HiBox-hero|HiBook(?: pro)?|Hi8 (?:Air|Pro))(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: '(CW-Hi8-super)(?:[);/ ]|$)'
@@ -16616,6 +16616,8 @@ Chuwi:
       model: '$1 Pro'
     - regex: 'HiBook pro(?:[);/ ]|$)'
       model: 'HiBook Pro'
+    - regex: 'HiBook(?:[);/ ]|$)'
+      model: 'HiBook'
     - regex: 'HiPad X(?:[);/ ]|$)'
       model: 'HiPad X'
     - regex: 'Hi8 Air(?:[);/ ]|$)'
