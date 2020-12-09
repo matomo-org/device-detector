@@ -162,6 +162,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'B2' => 'Blackview',
         'B4' => 'bogo',
         'BW' => 'Boway',
+        '4B' => 'BOE',
         'BZ' => 'Bezkam',
         'BX' => 'bq',
         'BV' => 'Bravis',
