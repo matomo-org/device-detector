@@ -618,6 +618,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'QO' => 'Qumo',
         'RA' => 'Ramos',
         'RE' => 'Realme',
+        '2R' => 'Reach',
         'R8' => 'RED',
         'R9' => 'Ravoz',
         'RZ' => 'Razer',
