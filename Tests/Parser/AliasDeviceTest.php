@@ -38,7 +38,7 @@ class AliasDeviceTest extends TestCase
             return;
         }
 
-        $this->assertEquals(null, $result);
+        $this->assertNull($result);
     }
 
     public function getFixtures(): array
