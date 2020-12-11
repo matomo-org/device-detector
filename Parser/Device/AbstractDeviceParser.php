@@ -703,6 +703,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'X1' => 'Safaricom',
         'TA' => 'Tesla',
         'TK' => 'Takara',
+        '9N' => 'Tanix',
         '4T' => 'Tronsmart',
         '5R' => 'Transpeed',
         'T5' => 'TB Touch',
