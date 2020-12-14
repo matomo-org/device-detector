@@ -858,6 +858,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'XS' => 'Xshitou',
         'XT' => 'X-TIGI',
         '4X' => 'Xtouch',
+        '04' => '4ife',
         'XB' => 'NEXBOX',
         'X3' => 'X-BO',
         // legacy brands, might be removed in future versions
