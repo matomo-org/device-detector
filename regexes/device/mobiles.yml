@@ -5910,9 +5910,13 @@ Hosin:
 
 # Hoozo
 Hoozo:
-  regex: 'HOOZO[_ ](MT232|MT116|MT Pad 116 LTE|X1001)(?:[);/ ]|$)'
+  regex: '(?:HOOZO[_ ](MT232|MT116|MT Pad 116 LTE|X1001)|HZ0010)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: 'HOOZO[_ ](MT232|MT116|MT Pad 116 LTE|X1001)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: '(HZ0010)(?:[);/ ]|$)'
+      model: '$1'
 
 # Minix (minix.us)
 Minix:
@@ -6435,7 +6439,7 @@ Huawei:
       model: 'Y7 (2017)'
     - regex: 'LDN-L(?:01|X3)(?:[);/ ]|$)'
       model: 'Y7 (2018)'
-    - regex: 'DUB-(?:LX[13]|TL00)(?:[);/ ]|$)'
+    - regex: '(?:HUAWEI[ _]?)?DUB-(?:LX[13]|TL00)(?:[);/ ]|$)'
       model: 'Y7 (2019)'
     - regex: '(LDN-(?:AL00|L21)|TRT-TL10)(?:[);/ ]|$)'
       model: 'Y7 Prime'
@@ -6595,7 +6599,7 @@ Huawei:
 
 # Hyundai
 Hyundai:
-  regex: 'Hyundai|Ultra (?:Active|Air|Charm|Dream|Energy|Latitude|Link|Live|Shadow|Shine|Storm|Style|Sync|Trend|Vision|Wave)|G(24027|2552[34])K|W25042L|HP554O|Seoul S8|L503F Plus'
+  regex: 'Hyundai|Ultra (?:Active|Air|Charm|Dream|Energy|Latitude|Link|Live|Shadow|Shine|Storm|Style|Sync|Trend|Vision|Wave)|G(24027|2552[34])K|W25042L|HP554O|Seoul S8|L503F Plus|HT0701L16|HT0704K08|HT1004L16'
   device: 'smartphone'
   models:
     - regex: 'Ultra (Active|Air|Charm|Dream|Energy Lite|Energy Plus|Energy|Latitude|Link|Live II|Live|Shadow|Shine|Storm|Style|Sync|Trend|Vision|Wave)'
@@ -6614,6 +6618,17 @@ Hyundai:
       model: 'HP554O'
     - regex: 'L503F Plus'
       model: 'L503F Plus'
+
+    # explicit tables models
+    - regex: 'HT0701L16'
+      model: 'Koral 7XL'
+      device: 'tablet'
+    - regex: 'HT1004L16'
+      model: 'Koral 10XL'
+      device: 'tablet'
+    - regex: 'HT0704K08'
+      model: 'Koral 7M4'
+      device: 'tablet'
     - regex: 'Hyundai ([^;/]+) Build'
       model: '$1'
       device: 'tablet'
@@ -14515,11 +14530,14 @@ Voxtel:
 
 # Vulcan
 Vulcan:
-  regex: 'VP5004A'
+  regex: 'VP5004A|HT0704W08'
   device: 'smartphone'
   models:
     - regex: 'VP5004A'
       model: 'VP5004A'
+    - regex: 'HT0704W08' # Hyundai
+      model: 'Koral 7W4'
+      device: 'tablet'
 
 # Walton
 Walton:
@@ -18331,13 +18349,15 @@ eSTAR:
 
 # Hometech
 Hometech:
-  regex: 'Ideal (?:10S|Tab [79])(?:[);/ ]|$)'
+  regex: '(?:Ideal (?:10S|Tab [79])|HT[ _](?:7RT|8MZ))(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: '(Ideal (?:10S|Tab 9))'
       model: '$1'
     - regex: 'Ideal Tab 7 Ips( 3G)?'
       model: 'Ideal Tab 7 IPS$1'
+    - regex: 'HT[ _](7RT|8MZ)(?:[);/ ]|$)'
+      model: 'HT $1'
 
 # ExMobile
 ExMobile:
@@ -18418,6 +18438,26 @@ MobiWire:
       model: 'Kwanita'
     - regex: '(Kiona|Kicka[_ ][45][ _]Plus|Kohana|Kosumi|Lonan|Halona|Hotah|Kicka 5|Kiona)(?:[);/ ]|$)'
       model: '$1'
+
+# Hezire
+Hezire:
+  regex: '(HTB801)(?:[);/ ]|$)'
+  device: 'tablet'
+  model: '$1'
+
+# Hurricane (hurricanemobile.com)
+Hurricane:
+  regex: 'Hurricane[ _]'
+  device: 'smartphone'
+  models:
+    - regex: 'Hurricane[ _]IGNITE'
+      model: 'Ignite'
+    - regex: 'Hurricane[ _]Bolt'
+      model: 'Bolt'
+    - regex: 'Hurricane[ _]VORTEX'
+      model: 'Vortex'
+    - regex: 'Hurricane[ _]GIGA'
+      model: 'Giga'
 
 # ELARI (elari.net)
 ELARI:
