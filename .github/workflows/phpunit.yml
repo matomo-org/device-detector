@@ -1,0 +1,29 @@
+name: PHPUnit
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  build:
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [ubuntu-latest, windows-latest, macOS-latest]
+        php-versions: ['7.2', '7.3', '7.4', '8.0']
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          tools: composer:v2
+      - name: "Composer install"
+        run: |
+          composer install --ignore-platform-reqs
+          composer require doctrine/cache ~1.2 --ignore-platform-reqs
+      - name: PHPUnit / PHP ${{ matrix.php-versions }}
+        run: |
+          php -v
+          ./vendor/bin/phpunit
