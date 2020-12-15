@@ -256,6 +256,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'L0' => 'Element',
         'EG' => 'Elenberg',
         'EP' => 'Easypix',
+        '8E' => 'Epik One',
         'EK' => 'EKO',
         'E1' => 'Energy Sistem',
         '3E' => 'Enot',
