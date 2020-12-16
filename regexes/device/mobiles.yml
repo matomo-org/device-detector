@@ -1982,7 +1982,7 @@ Garmin-Asus:
 
 # Asus
 Asus:
-  regex: 'Asus|Transformer|ZenFone Max|TF300T|Slider SL101|PadFone|ME302(?:C|KL)|ME301T|ME371MG|ME17(?:1|2V|3X)|(?:K0[01][0-9a-z]|P(?:00[18ACIL]|01[MTVWYZ]|01MA|01T_1|02[13478])(?: Build|\))|X015D|X018D|X003|X00[7ABT]D|Z00D|Z00[MTY]D|Z01[7FGHKMR]D)(?:[);/ ]|$)|G55[023]KL|ZB(631|602|633|55[135]|50[01])KL|ZC(55[134]|520|600)KL|ZA550KL|ZE(520|620|55[2345])KL|ZD55[23]KL|ZS661KS|ZS(6[0236]0|55[10])KL|ZB(500KG|601KL)|MeMo Pad FHD 10 LTE|Z00[SV]D'
+  regex: 'Asus|Transformer|ZenFone Max|TF300T|Slider SL101|PadFone|ME302(?:C|KL)|ME301T|ME371MG|ME17(?:1|2V|3X)|(?:K0[01][0-9a-z]|P(?:00[18ACIL]|01[MTVWYZ]|01MA|01T_1|02[13478])(?: Build|\))|X015D|X018D|X003|X00[7ABT]D|Z00D|Z00[MTY]D|Z01[7FGHKMR]D)(?:[);/ ]|$)|G55[023]KL|ZB(631|602|633|55[135]|50[01])KL|ZC(55[134]|520|600)KL|ZA550KL|ZE(5[02]0|620|55[2345])KL|ZD55[23]KL|ZS661KS|ZS(6[0236]0|55[10])KL|ZB(500KG|601KL)|MeMo Pad FHD 10 LTE|Z00[SV]D'
   device: 'smartphone'
   models:
     # explicit tablet models
@@ -2129,7 +2129,7 @@ Asus:
       model: 'ZenFone Lite L1'
     - regex: '(?:ASUS_)Z00YD'
       model: 'Live'
-    - regex: '(?:ASUS_)?(?:Z00[ERLMT]D|Z011D)'
+    - regex: '(?:ASUS_)?(?:Z00[ERLMTW]D|Z011D|ZE500KL)'
       model: 'ZenFone 2 Laser'
     - regex: '(?:ASUS_)?(?:T00[IQ1]|Z01KD)'
       model: 'ZenFone 4'
@@ -3494,7 +3494,7 @@ Artel:
 
 # ComTrade Tesla
 ComTrade Tesla:
-  regex: 'Tesla|Impulse 7.85 3G|Smartphone_6.1|SP(?:6.2|6.2_Lite)|TTL(?:713G|8)'
+  regex: 'Tesla|Impulse 7.85 3G|Impulse 10.1 OCTA|Smartphone_6.1|SP(?:6.2|6.2_Lite)|TTL(?:713G|8)'
   device: 'smartphone'
   models:
     - regex: 'TeslaEvo5.0'
@@ -3504,6 +3504,9 @@ ComTrade Tesla:
       device: 'tablet'
     - regex: '(Impulse 7.85 3G)'
       model: '$1'
+      device: 'tablet'
+    - regex: 'Impulse 10.1 OCTA'
+      model: 'Impulse 10.1" OCTA'
       device: 'tablet'
     - regex: 'Tesla_SP([^/;]+)L Build'
       model: 'Smartphone $1 Lite'
@@ -5156,7 +5159,7 @@ Evolveo:
 
 # Explay
 Explay:
-  regex: 'Explay|[\w]+-EXPLAY-FIN|ActiveD[ _]|Atlant |Informer[ _][0-9]+|CinemaTV 3G|Surfer[ _][0-9\.]|sQuad[ _][0-9\.]|Onliner[1-3]|RioPlay|Leader|Infinityll|Imperium[78]'
+  regex: 'Explay|[\w]+-EXPLAY-FIN|ActiveD[ _]|Atlant |Informer[ _][0-9]+|CinemaTV 3G|Surfer[ _][0-9\.]|sQuad[ _][0-9\.]|Onliner[1-3]|RioPlay|Leader|Infinityll|Imperium[78]|Indigo'
   device: 'tablet'
   models:
     - regex: 'ActiveD[ _]7.4[ _]3G'
@@ -5180,6 +5183,9 @@ Explay:
     - regex: 'Atlant(?:[);/ ]|$)'
       device: 'smartphone'
       model: 'Atlant'
+    - regex: 'Indigo(?:[);/ ]|$)'
+      device: 'smartphone'
+      model: 'Indigo'
 
     - regex: '[\w]+-EXPLAY-FIN'
       device: 'feature phone'
@@ -17351,14 +17357,17 @@ Mito:
       device: 'tablet'
       model: '$1'
 
-# TWM
+# TWM or TaiwanMobile
 TWM:
-  regex: 'Amazing[ _](X[35]s|X[2356]|A5S|A[48]|A4S)(?:[);/ ]|$)'
+  regex: 'Amazing[ _](X[35]s|X[123567]|A5S|A3[025]|A[468]|A4S|A5[07]|P6)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Amazing[ _](X[35])s(?:[);/ ]|$)'
       model: 'Amazing $1S'
-    - regex: 'Amazing[ _](A5S|X[2356]|A[48]|A4S)(?:[);/ ]|$)'
+    - regex: 'Amazing[ _](A5S|X[123567]|A[468]|A4S|A5[07]|A3[025])(?:[);/ ]|$)'
+      model: 'Amazing $1'
+    - regex: 'Amazing[ _](P6)(?:[);/ ]|$)'
+      device: 'tablet'
       model: 'Amazing $1'
 
 # Onix
@@ -18513,13 +18522,16 @@ Reach:
   device: 'smartphone'
   model: '$1'
 
-# Inco
+# Inco (incomobile.com)
 Inco:
-  regex: 'Inco Aurora II|(Horizon_S|Horizon \+)(?:[);/ ]|$)'
+  regex: '(?:Inco[ _](Aurora II|Sphere|Plain[_ ]2)|(Horizon_S|Horizon \+))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: '(Horizon_S|Horizon \+|Aurora II)(?:[);/ ]|$)'
+    - regex: '(?:Inco[ _])?(Plain[_ ]2|Horizon_S|Horizon \+|Aurora II)(?:[);/ ]|$)'
       model: '$1'
+    - regex: 'Inco Sphere(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'Sphere'
 
 # MobiWire
 MobiWire:
@@ -18627,6 +18639,12 @@ ELARI:
     - regex: 'T700'
       model: 'Palette'
       device: 'tablet'
+
+# Altice
+Altice:
+   regex: 'Altice[ _](S62|S31|S43)(?:[);/ ]|$)'
+   device: 'smartphone'
+   model: '$1'
 
 # Leff
 Leff:

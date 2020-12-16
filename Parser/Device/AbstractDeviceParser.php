@@ -106,6 +106,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'A7' => 'Allwinner',
         'A1' => 'Altech UEC',
         'A5' => 'altron',
+        '66' => 'Altice',
         '3L' => 'Alfawise',
         'AN' => 'Arnova',
         '7A' => 'Anry',
