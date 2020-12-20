@@ -271,7 +271,7 @@ class OperatingSystem extends AbstractParser
      */
     protected function parsePlatform(): string
     {
-        if ($this->matchUserAgent('arm|aarch64|watchOS')) {
+        if ($this->matchUserAgent('arm|aarch64|watchOS|Watch OS|Watch1,1|Watch1,2')) {
             return 'ARM';
         }
 
