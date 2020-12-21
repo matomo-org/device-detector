@@ -269,7 +269,7 @@ class OperatingSystem extends AbstractParser
      */
     protected function parsePlatform(): string
     {
-        if ($this->matchUserAgent('arm|aarch64') || $this->matchUserAgent('Apple TV|AppleTV')) {
+        if ($this->matchUserAgent('arm|aarch64|Apple ?TV')) {
             return 'ARM';
         }
 
