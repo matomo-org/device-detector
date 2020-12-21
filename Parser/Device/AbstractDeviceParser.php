@@ -868,6 +868,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ZN' => 'Zen',
         'ZY' => 'Zync',
         'ZQ' => 'ZYQ',
+        'PZ' => 'Zebra',
         'XS' => 'Xshitou',
         'XT' => 'X-TIGI',
         '4X' => 'Xtouch',
