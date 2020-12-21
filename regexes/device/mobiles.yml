@@ -1072,15 +1072,15 @@ Airness:
 
 # Aiwa
 Aiwa:
-  regex: '(?:AW790|M300|AWM533|AW500)(?:[);/ ]|$)'
+  regex: '(?:AW790|M300|AWM(?:533|50[19]|561)|AW500)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'AW790(?:[);/ ]|$)'
       model: 'AW790'
     - regex: 'AW500(?:[);/ ]|$)'
       model: 'AW500'
-    - regex: 'AWM533(?:[);/ ]|$)'
-      model: 'AWM533'
+    - regex: 'AWM(533|50[19]|561)(?:[);/ ]|$)'
+      model: 'AWM$1'
     - regex: 'M300(?:[);/ ]|$)'
       model: 'M300'
       device: 'phablet'
@@ -6727,10 +6727,10 @@ Hyundai:
 
 # iBall
 iBall:
-  regex: 'iBall[ _]([^;/)]+)[ _]Build|(?:Snap_4G2|6351-Q400i|iT-KSA0003|iT-KSA0012|iT-KSA0066)(?:[);/ ]|$)'
+  regex: 'iBall[ _]([^;/)]+)[ _]Build|(?:Snap_4G2|6351-Q400i|iT-KSA0003|iT-KSA0012|iT-KSA0066|Avid)(?:[);/ ]|$)'
   device: 'tablet'
   models:
-    - regex: '(Snap_4G2)(?:[);/ ]|$)'
+    - regex: '(Snap_4G2|Avid)(?:[);/ ]|$)'
       model: '$1'
     - regex: '6351-Q400i(?:[);/ ]|$)'
       model: 'Slide'
@@ -18147,17 +18147,21 @@ Aoson:
 
 # FireFly Mobile
 FireFly Mobile:
-  regex: '(AURII[ _](?:Passion|Virtuoso|Secret Lite|FORCE|FUSION|F8[_ ]Premium|XCITE)|INTENSE[ _](?:POWER|METAL_2|XT))(?:[);/ ]|$)'
+  regex: '(?:AURII[ _](?:Passion|Virtuoso|ULTRA|Secret Lite|AMUSE[_ ]3G|FORCE|FUSION|F8[_ ]Premium|XCITE)|INTENSE[ _](?:POWER|METAL_2|XT))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'AURII[ _]FORCE(?:[);/ ]|$)'
-      model: 'AURII Force'
+      model: 'Aurii Force'
+    - regex: 'AURII[ _]ULTRA(?:[);/ ]|$)'
+      model: 'Aurii Ultra'
+    - regex: 'AURII[ _]AMUSE[_ ]3G(?:[);/ ]|$)'
+      model: 'Aurii Amuse 3G'
     - regex: 'AURII[ _]FUSION(?:[);/ ]|$)'
-      model: 'AURII Fusion'
+      model: 'Aurii Fusion'
     - regex: 'AURII[ _]XCITE(?:[);/ ]|$)'
-      model: 'AURII xCite'
-    - regex: '(AURII[ _](?:Passion|Virtuoso|Secret Lite|F8[_ ]Premium))(?:[);/ ]|$)'
-      model: '$1'
+      model: 'Aurii xCite'
+    - regex: 'AURII[ _]((?:Passion|Virtuoso|Secret Lite|F8[_ ]Premium))(?:[);/ ]|$)'
+      model: 'Aurii $1'
     - regex: 'INTENSE POWER(?:[);/ ]|$)'
       model: 'Intense Power'
     - regex: 'INTENSE_XT(?:[);/ ]|$)'
