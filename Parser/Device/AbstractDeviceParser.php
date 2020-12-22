@@ -504,6 +504,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MK' => 'MediaTek',
         'MO' => 'Mio',
         'M7' => 'Miray',
+        'OM' => 'Mintt',
         'MM' => 'Mpman',
         'LS' => 'MLS',
         'M4' => 'Modecom',
