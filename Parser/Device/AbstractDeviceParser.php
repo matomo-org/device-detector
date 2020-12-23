@@ -731,6 +731,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '9N' => 'Tanix',
         '4T' => 'Tronsmart',
         '5R' => 'Transpeed',
+        'TJ' => 'Trifone',
         'T5' => 'TB Touch',
         'TC' => 'TCL',
         'T7' => 'Teclast',
