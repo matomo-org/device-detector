@@ -109,6 +109,7 @@ class OperatingSystem extends AbstractParser
         'TOS' => 'TmaxOS',
         'TVS' => 'tvOS',
         'UBT' => 'Ubuntu',
+        'WAS' => 'watchOS',
         'WTV' => 'WebTV',
         'WIN' => 'Windows',
         'WCE' => 'Windows CE',
@@ -140,7 +141,7 @@ class OperatingSystem extends AbstractParser
         'Gaming Console'        => ['WII', 'PS3'],
         'Google TV'             => ['GTV'],
         'IBM'                   => ['OS2'],
-        'iOS'                   => ['IOS', 'TVS'],
+        'iOS'                   => ['IOS', 'TVS', 'WAS'],
         'RISC OS'               => ['ROS'],
         'GNU/Linux'             => [
             'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
@@ -269,7 +270,7 @@ class OperatingSystem extends AbstractParser
      */
     protected function parsePlatform(): string
     {
-        if ($this->matchUserAgent('arm|aarch64|Apple ?TV')) {
+        if ($this->matchUserAgent('arm|aarch64|Apple ?TV|Watch ?OS|Watch1,[12]')) {
             return 'ARM';
         }
 
