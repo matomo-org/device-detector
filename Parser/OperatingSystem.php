@@ -39,6 +39,7 @@ class OperatingSystem extends AbstractParser
         'AIX' => 'AIX',
         'AND' => 'Android',
         'AMG' => 'AmigaOS',
+        'ATV' => 'Apple TV',
         'ARL' => 'Arch Linux',
         'BTR' => 'BackTrack',
         'SBA' => 'Bada',
