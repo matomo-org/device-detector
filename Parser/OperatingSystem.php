@@ -142,7 +142,7 @@ class OperatingSystem extends AbstractParser
         'Gaming Console'        => ['WII', 'PS3'],
         'Google TV'             => ['GTV'],
         'IBM'                   => ['OS2'],
-        'iOS'                   => ['IOS', 'TVS', 'WAS'],
+        'iOS'                   => ['IOS', 'ATV', 'TVS', 'WAS'],
         'RISC OS'               => ['ROS'],
         'GNU/Linux'             => [
             'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
