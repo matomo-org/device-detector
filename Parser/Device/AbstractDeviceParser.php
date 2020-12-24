@@ -621,6 +621,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'P2' => 'Pomp',
         'P3' => 'PPTV',
         'PS' => 'Positivo',
+        'P0' => 'Poppox',
         'FP' => 'Premio',
         'PR' => 'Prestigio',
         '6P' => 'Primux',

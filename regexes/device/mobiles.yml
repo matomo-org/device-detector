@@ -4058,12 +4058,12 @@ Danew:
       device: 'tablet'
       model: 'Geodroid A5'
 
-# Denver Electronics
+# Denver Electronics (denver-electronics.com)
 Denver:
   regex: '(?:TA[CDQ]-[0-9]+)|P(?:.+)TAQ-(?:[0-9]+)'
   device: 'tablet'
   models:
-    - regex: 'P(?:.+)TAQ-(10172MK3|10242MK2|70242MK2|[0-9]+)(?:[);/ ]|$)'
+    - regex: 'P(?:.+)TAQ-(10213GMK2|10172MK3|10242MK2|70242MK2|[0-9]+)(?:[);/ ]|$)'
       model: 'TAQ-$1'
     - regex: '(TA[CDQ]-[0-9]+)'
       model: '$1'
@@ -13621,11 +13621,15 @@ Star:
     - regex: 'N(9[5678]00|8800|9977)(?:[);/ ]|$)'
       model: 'N$1'
 
-# Starmobile
+# Starmobile (starmobile.ph)
 Starmobile:
-  regex: 'Starmobile (Play (?:Neo|Spark))(?:[);/ ]|$)'
+  regex: '(?:Starmobile (?:Play (?:Neo|Spark))|UP[_ ](?:Groove|Prime|Selfie|Xtreme|XL))(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'Starmobile (Play (?:Neo|Spark))(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'UP[_ ](Groove|Prime|Selfie|Xtreme|XL)(?:[);/ ]|$)'
+      model: 'UP $1'
 
 # Kindle
 Amazon:
@@ -15631,7 +15635,7 @@ Toshiba:
 
 # Vivax (www.vivax.com)
 Vivax:
-  regex: 'VIVAX|(?:Fly5[_ ]Lite|Fun[_ ]S500|Point_X2|PRO3|32LE77SM|40LE77SM)(?:[);/ ]|$)'
+  regex: 'VIVAX|(?:Fly5[_ ]Lite|Fun[_ ]S500|Point_(?:X2|X501)|PRO3|32LE77SM|40LE77SM)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Fly5[_ ]Lite(?:[);/ ]|$)'
@@ -15644,7 +15648,7 @@ Vivax:
       model: 'Fly 3'
     - regex: 'VIVAX[ _]Fly[ _]V1(?:[);/ ]|$)'
       model: 'Fly V1'
-    - regex: 'VIVAX (Point X551)(?:[);/ ]|$)'
+    - regex: '(?:VIVAX )?(Point[ _](?:X551|X501))(?:[);/ ]|$)'
       model: '$1'
     - regex: 'SMART Point X5010(?:[);/ ]|$)'
       model: 'Smart Point X5010'
@@ -19029,6 +19033,12 @@ Bluewave:
     - regex: 'WV8R[_-]N'
       model: 'Wave 8 Red Nougat'
 
+# Poppox
+Poppox:
+  regex: 'Poppox P3'
+  device: 'smartphone'
+  model: 'P3'
+
 # Leff
 Leff:
   regex: 'Leff Shell (?:HV320WHB-N55|LC390TA2A)(?:[);/ ]|$)'
@@ -19055,9 +19065,9 @@ Shtrikh-M:
 
 # BBK (bbk.ru)
 BBK:
-  regex: '([65]5)LEX_(81(?:27|39|45|58))_UTS2C(?:[);/ ]|$)'
+  regex: '([65]5|4[03]|3[29]|28)LEX[-_](81(?:27|39|45|58|61)|71(?:[23]7|4[345]|5[45]|6[368]|[57]8))[_/]([FU]?TS2C)(?:[);/ ]|$)'
   device: 'tv'
-  model: '$1LEX-$2/UTS2C'
+  model: '$1LEX-$2/$3'
 
 # 4ife
 4ife:
