@@ -2148,6 +2148,9 @@ Asus:
     - regex: 'ASUS Tablet P1801-T'
       model: 'Transformer AiO P1801 18.4"'
       device: 'tablet'
+    - regex: 'ASUS TAB A8'
+      model: 'TAB A8'
+      device: 'tablet'
 
     # explicit phablet models
     - regex: 'ME371MG(?:[);/ ]|$)'
@@ -2169,6 +2172,10 @@ Asus:
     # explicit smartphone models
     - regex: '(?:ASUS_)?T00N'
       model: 'PadFone S'
+    - regex: '(?:ASUS_)?T00E'
+      model: 'PadFone Mini'
+    - regex: '(?:ASUS[-_])?T00T'
+      model: 'PadFone X Mini'
     - regex: '(?:ASUS_)?A002(A)?'
       model: 'ZenFone AR'
     - regex: '(?:ASUS_)?A006'
@@ -3783,6 +3790,10 @@ Condor:
       model: 'Plume L2'
     - regex: 'Plume L3 Plus'
       model: 'Plume L3 Plus'
+    - regex: 'Plume L3 Smart'
+      model: 'Plume L3 Smart'
+    - regex: 'Plume L3'
+      model: 'Plume L3'
     - regex: 'Plume P8 Pro'
       model: 'Plume P8 Pro'
 
@@ -7127,7 +7138,7 @@ iNew:
 
 # iPro
 iPro:
-  regex: '(?:Kylin[ _]5.[05]S?|Jade7s|Amber[67]S?|Amber5S_Pro)(?:[);/ ]|$)'
+  regex: '(?:Kylin[ _]5.[05]S?|Jade7s|Amber[67]S?|Amber5S_Pro|Phonenix50S)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Kylin_5.0S'
@@ -7142,7 +7153,8 @@ iPro:
       model: 'Amber 5S Pro'
     - regex: 'Amber6'
       model: 'Amber 6'
-
+    - regex: 'Phonenix50S'
+      model: 'Phonenix 50S'
 
 # Infinix
 Infinix:
@@ -12764,13 +12776,20 @@ Senwa:
     - regex: 'Senwa[ _-]*([^ ;/)]+)(?:[);/ ]|$)'
       model: '$1'
 
-# Sky
+# Sky or Sky Devices (skydevices.com)
 Sky:
-  regex: '(SKY|Elite|Fuego)[_ ][3-7]\.[05]([A-Z]{1,2})?|Elite_5_5_Octa|Platinum_(5.0M|M5)'
+  regex: '(?:SKY|Elite|Fuego)[_ ][3-7]\.[05](?:[A-Z]{1,2})?|Elite_5_5_Octa|Platinum[_ ](?:5.0M|M5|[ABC]4|[CG]55|[BDEFG]5|P9|X|UNO|VIEW2)'
   device: 'smartphone'
   models:
-    - regex: 'Platinum_(5.0M|M5)'
+    - regex: 'Platinum_(?:5.0M|M5)'
       model: 'Platinum 5.0M'
+    - regex: 'Platinum[_ ](P9) Pro(?:[);/ ]|$)'
+      model: 'Platinum $1 Pro'
+    - regex: 'Platinum[_ ]([ABC]4|[CG]55|[BDEFG]5|P9|X|UNO)(?:[);/ ]|$)'
+      model: 'Platinum $1'
+    - regex: 'Platinum[_ ]VIEW2(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'Platinum View2'
     - regex: 'Elite_5_5_Octa'
       model: 'Elite 5.5 Octa'
     - regex: 'Elite[_ ]([3-7]\.[05](?:[A-Z]{1,2})?\+?)'
@@ -14718,7 +14737,7 @@ Vodafone:
 
 # Vonino
 Vonino:
-  regex: 'Vonino|Epic (?:E8|P7)|Gyga[ _](?:X|S|QS|XS)|Jax[ _](?:QS|[SXQN]|Mini)|Magnet[ _]M[19]|Navo_QS|Onyx_(QS|Z)|Orin_QS|Pluri[ _](?:[BCMQ]7|[CQ]8)|Sirius_QS|Volt[ _][XS]|Xavy_(T7|L8)|Xylo[ _][XSPQ]|Zun[ _]X[OS]?|JAX_N'
+  regex: 'Vonino|Epic (?:E8|P7)|Gyga[ _](?:X|S|QS|XS)|Jax[ _](?:QS|[SXQN]|Mini)|Magnet[ _]M[19]|Navo_QS|Onyx_(QS|Z)|Orin_QS|Pluri[ _](?:[BCMQ]7|[CQM]8)|Sirius_QS|Volt[ _][XS]|Xavy_(T7|L8)|Xylo[ _][XSPQ]|Zun[ _]X[OS]?|JAX_N'
   device: 'smartphone'
   models:
     - regex: 'Zun[ _]XO'
@@ -14755,7 +14774,7 @@ Vonino:
     - regex: 'Pluri[ _](B|C|M|Q)7'
       model: 'Pluri $17'
       device: 'tablet'
-    - regex: 'Pluri[ _](C|Q)8'
+    - regex: 'Pluri[ _]([CQM])8'
       model: 'Pluri $18'
       device: 'tablet'
     - regex: 'Magnet[ _]M([19])'
@@ -16723,7 +16742,7 @@ MYFON:
 
 # X-TIGI
 X-TIGI:
-  regex: 'X[-_]TIGI|Hope7[_ ]Mate'
+  regex: 'X[-_]TIGI|Hope7[_ ]Mate|Photo_P15_Lite'
   device: 'smartphone'
   models:
     - regex: 'X-TIGI_JOY10_PRO'
@@ -16741,6 +16760,8 @@ X-TIGI:
       model: 'V19'
     - regex: 'X-TIGI[_ ]Photo[_ ]P11'
       model: 'Photo P11'
+    - regex: 'Photo_P15_Lite'
+      model: 'Photo P15 Lite'
     - regex: 'X[-_]TIGI[ _-]([^/;)]+) Build'
       model: '$1'
 
@@ -16797,7 +16818,7 @@ NEXBOX:
 
 # True
 'True':
-  regex: 'SMART[ _](MAX 4.0 PLUS|4G GEN C [45].[05]|4G Speedy 5.0 Plus|4G[_ ]Speedy[_ ]5inch)'
+  regex: 'SMART[ _](MAX 4.0 PLUS|4G[ _](?:GEN C [45].[05]|Champion|Speedy 5.0 Plus|[_ ]Speedy[_ ]5inch|P1))'
   device: 'smartphone'
   models:
     - regex: 'SMART MAX 4.0 PLUS'
@@ -16808,6 +16829,12 @@ NEXBOX:
       model: 'Smart 4G Speedy 5.0 Plus'
     - regex: 'SMART[ _]4G[_ ]Speedy[_ ]5inch'
       model: 'Smart 4G Speedy 5'
+    - regex: 'SMART[ _]4G[_ ]Champion'
+      model: 'Smart 4G Champion'
+    - regex: 'SMART[ _]4G[_ ]P1 Prime'
+      model: 'Smart 4G P1 Prime'
+    - regex: 'SMART[ _]4G[_ ]P1'
+      model: 'Smart 4G P1'
 
 Yandex:
   regex: '(YNDX-?000SB)(?:[);/ ]|$)'
@@ -17069,6 +17096,12 @@ Vinga:
       model: '045'
     - regex: 'VMP-011-81'
       model: '011'
+
+# Viumee (viumee.com)
+Viumee:
+  regex: 'SMART[_ ](EV[56])(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: 'Smart $1'
 
 # Nuvo
 Nuvo:
@@ -18384,7 +18417,7 @@ Nos:
 
 # Accent (DBM Maroc) (accent.ma)
 Accent:
-  regex: '(?:ACCENT[_ ]NEON|PEARL[_ ]A[257]|CAMELEON[_ ]C[56](?:[_ ]PLUS)?)(?:[);/ ]|$)'
+  regex: '(?:ACCENT[_ ]NEON|PEARL[_ ]A[24567]|CAMELEON[_ ]C[56](?:[_ ]PLUS)?)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'ACCENT[_ ]NEON(?:[);/ ]|$)'
@@ -18393,7 +18426,9 @@ Accent:
       model: 'Cameleon C6 Plus'
     - regex: 'CAMELEON[_ ]C([56])(?:[);/ ]|$)'
       model: 'Cameleon C$1'
-    - regex: 'PEARL[_ ]A([257])(?:[);/ ]|$)'
+    - regex: 'PEARL A4 Lite(?:[);/ ]|$)'
+      model: 'Pearl A4 Lite'
+    - regex: 'PEARL[_ ]A([2567])(?:[);/ ]|$)'
       model: 'Pearl A$1'
 
 # Avenzo (www.avenzo.es)

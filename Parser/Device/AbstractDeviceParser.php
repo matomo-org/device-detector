@@ -803,6 +803,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '0V' => 'Vipro',
         'VI' => 'Vitelcom',
         'V7' => 'Vinga',
+        '8V' => 'Viumee',
         'VK' => 'VK Mobile',
         'VS' => 'ViewSonic',
         'VH' => 'Vsmart',
