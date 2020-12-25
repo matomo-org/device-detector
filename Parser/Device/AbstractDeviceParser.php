@@ -796,6 +796,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'UT' => 'UTStarcom',
         'UZ' => 'Unihertz',
         'VA' => 'Vastking',
+        '5V' => 'VAIO',
         'VD' => 'Videocon',
         'VE' => 'Vertu',
         'VN' => 'Venso',
