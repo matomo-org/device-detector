@@ -2915,9 +2915,9 @@ BenQ:
     - regex: 'BENQ(?:[ \-])?([a-z0-9]+)'
       model: '$1'
 
-# Blaupunkt
+# Blaupunkt (blaupunkt.com)
 Blaupunkt:
-  regex: 'Blaupunkt|Atlantis[_ ](?:1001A|1010A|A10\.G40[23])|SLplus02|Discovery[_ ](?:A10_302|111C|1000C|1001A?)|Endeavour[_ ](?:785|101[GLM]|1000|1001|101[03]|1100)|Polaris[_ ]803'
+  regex: 'Blaupunkt|Soundphone S2|Atlantis[_ ](?:1001A|1010A|A10\.G40[23])|SLplus02|Discovery[_ ](?:A10_302|111C|1000C|1001A?)|Endeavour[_ ](?:785|101[GLM]|1000|1001|101[03]|1100)|Polaris[_ ]803'
   device: 'tablet'
   models:
     - regex: 'Discovery[_ ]111C'
@@ -2930,6 +2930,8 @@ Blaupunkt:
       model: 'Discovery 1001A'
     - regex: 'Discovery[_ ]1001'
       model: 'Discovery 1001'
+    - regex: 'Soundphone S2'
+      model: 'Soundphone S2'
     - regex: 'Endeavour[_ ](101[GLM]|785|100[01]|101[03]|1100)'
       model: 'Endeavour $1'
     - regex: 'Polaris[_ ](803)'
@@ -3493,7 +3495,7 @@ Changhong:
 
 # Cherry Mobile
 'Cherry Mobile':
-  regex: 'Cherry|Flare([ _])?(2X|4|A[123]|J[123568]|P[13]|S[4-8]|X2|Y[367]|S Play|HD|LITE|XL|X_V2|Y3s|Tab)(?:[ _](?:Pro|Plus|Max|LTE))?|Fusion Bolt|OMEGA HD 4'
+  regex: 'Cherry|Flare([ _])?(2X|4|A[123]|J[123568]|P[13]|S[4-8]|X2|Y[367]|S Play|HD|LITE|XL|X_V2|Y3s|Tab)(?:[ _](?:Pro|Plus|Max|LTE))?|Fusion Bolt|OMEGA HD 4|Spin Max 2'
   device: 'smartphone'
   models:
     - regex: 'Cherry(?: ?Mobile)?[ _]?([^/;]+) Build'
@@ -3542,6 +3544,8 @@ Changhong:
       model: 'Flare $1'
     - regex: 'OMEGA HD 4'
       model: 'Omega HD 4'
+    - regex: 'Spin Max 2'
+      model: 'Spin Max 2'
     - regex: '(Fusion Bolt|Flare Tab Pro|Flare Tab)'
       model: '$1'
       device: 'tablet'
@@ -9221,11 +9225,11 @@ Maxwest:
 
 # Maze
 Maze:
-  regex: '(?:SSB-500|Alpha[_ ]X|Maze Alpha|SSB504R)(?:[);/ ]|$)'
+  regex: '(?:SSB-(?:500|508E)|Alpha[_ ]X|Maze Alpha|SSB504R)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'SSB-500(?:[);/ ]|$)'
-      model: 'SSB-500'
+    - regex: 'SSB-(500|508E)(?:[);/ ]|$)'
+      model: 'SSB-$1'
     - regex: 'SSB504R(?:[);/ ]|$)'
       model: 'Speed'
     - regex: 'Alpha[_ ]X(?:[);/ ]|$)'
@@ -12886,7 +12890,7 @@ Smartisan:
 
 # STF Mobile
 STF Mobile:
-  regex: 'Fractal|AERIAL PLUS|Origins Pro'
+  regex: '(?:Fractal|AERIAL PLUS|Origins Pro|BLOCK GO|BLOCK 3)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Fractal'
@@ -12895,6 +12899,10 @@ STF Mobile:
       model: 'Origins Pro'
     - regex: 'AERIAL PLUS'
       model: 'Aerial Plus'
+    - regex: 'BLOCK 3'
+      model: 'Block 3'
+    - regex: 'BLOCK GO'
+      model: 'Block Go'
 
 # STK
 STK:
@@ -13274,7 +13282,7 @@ Sanyo:
     - regex: 'MobilePhone ([a-z0-9\-]+)'
       model: '$1'
 
-# Qilive (Auchan)
+# Qilive
 Qilive:
   regex: 'Qilive [0-9][^;/]*|Q(7S5[5]?IN4G|7T10INP|8T10IN|8S55IN4G2|8S[56]IN4G|10S5[37]IN4G|10S[56]IN4G|10S[56]IN4GR|9S5IN4G|6T7IN)'
   device: 'smartphone'
@@ -13654,9 +13662,11 @@ Star:
 
 # Starmobile (starmobile.ph)
 Starmobile:
-  regex: '(?:Starmobile (?:Play (?:Neo|Spark))|UP[_ ](?:Groove|Prime|Selfie|Xtreme|XL))(?:[);/ ]|$)'
+  regex: '(?:Starmobile (?:Play (?:Neo|Spark|GO))|UP[_ ](?:Groove|Prime|Selfie|Xtreme|XL))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
+    - regex: 'Starmobile PLAY GO(?:[);/ ]|$)'
+      model: 'Play Go'
     - regex: 'Starmobile (Play (?:Neo|Spark))(?:[);/ ]|$)'
       model: '$1'
     - regex: 'UP[_ ](Groove|Prime|Selfie|Xtreme|XL)(?:[);/ ]|$)'
@@ -17541,16 +17551,15 @@ Kuliao:
 
 # Sugar
 Sugar:
-  regex: 'SUGAR (?:C[12]1|C12|S11|C11s|[YF]11|[YFS]9|C6|[FY]7|Y8|Y1[25])(?:[);/ ]|$)'
+  regex: 'SUGAR (?:C[12]1|C1[23]|S11|C11s|[YF]11|[SF]20|S20s|Y12s|[YFS]9|C6|[FY]7|Y8|Y1[256]|P1)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'SUGAR Y([78]) MAX(?:[);/ ]|$)'
       model: 'Y$1 Max'
     - regex: 'SUGAR F7 Mini(?:[);/ ]|$)'
       model: 'F7 Mini'
-    - regex: 'SUGAR (C[12]1|C12|S11|C11s|[YF]11|[YFS]9|C6|Y7|Y1[25])(?:[);/ ]|$)'
+    - regex: 'SUGAR (C[12]1|C1[23]|S11|C11s|[SF]20s?|[YF]11|[YFS]9|C6|Y7|Y12s|Y1[256]|P1)(?:[);/ ]|$)'
       model: '$1'
-
 
 # Xshitou
 Xshitou:
@@ -19091,6 +19100,12 @@ Bluewave:
       model: 'Wave 8 Red Marshmallow'
     - regex: 'WV8R[_-]N'
       model: 'Wave 8 Red Nougat'
+
+# Siragon (siragon.com)
+Siragon:
+  regex: '(SP-5250)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
 
 # Poppox
 Poppox:
