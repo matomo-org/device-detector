@@ -298,6 +298,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FT' => 'Freetel',
         'F7' => 'Fero',
         'FR' => 'Forstar',
+        'RF' => 'Fortis',
         'FO' => 'Foxconn',
         'F2' => 'FORME',
         'FN' => 'FNB',
