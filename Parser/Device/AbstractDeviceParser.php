@@ -156,6 +156,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'BP' => 'Blaupunkt',
         'B3' => 'Bluboo',
         'BF' => 'Black Fox',
+        '5B' => 'Black Bear',
         'B6' => 'BDF',
         'BM' => 'Bmobile',
         'BN' => 'Barnes & Noble',
