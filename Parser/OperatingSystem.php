@@ -111,6 +111,7 @@ class OperatingSystem extends AbstractParser
         'UBT' => 'Ubuntu',
         'WAS' => 'watchOS',
         'WTV' => 'WebTV',
+        'WHS' => 'Whale OS',
         'WIN' => 'Windows',
         'WCE' => 'Windows CE',
         'WIO' => 'Windows IoT',
@@ -147,7 +148,7 @@ class OperatingSystem extends AbstractParser
         'GNU/Linux'             => [
             'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
             'RHT', 'VLN', 'MDR', 'GNT', 'SAB', 'SLW', 'SSE', 'CES', 'BTR', 'SAF',
-            'ORD', 'TOS', 'RSO', 'DEE', 'FRE',
+            'ORD', 'TOS', 'RSO', 'DEE', 'FRE', 'WHS'
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
