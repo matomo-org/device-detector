@@ -36,6 +36,7 @@ class AliasDeviceTest extends TestCase
         if ('' === $model) {
             $this->assertNull($result);
             $this->assertEmpty($model);
+
             return;
         }
 
