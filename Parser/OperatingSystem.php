@@ -56,6 +56,7 @@ class OperatingSystem extends AbstractParser
         'FED' => 'Fedora',
         'FOS' => 'Firefox OS',
         'FIR' => 'Fire OS',
+        'FRE' => 'Freebox',
         'BSD' => 'FreeBSD',
         'GNT' => 'Gentoo',
         'GTV' => 'Google TV',
@@ -108,6 +109,7 @@ class OperatingSystem extends AbstractParser
         'TIZ' => 'Tizen',
         'TOS' => 'TmaxOS',
         'UBT' => 'Ubuntu',
+        'WAS' => 'watchOS',
         'WTV' => 'WebTV',
         'WIN' => 'Windows',
         'WCE' => 'Windows CE',
@@ -140,12 +142,12 @@ class OperatingSystem extends AbstractParser
         'Gaming Console'        => ['WII', 'PS3'],
         'Google TV'             => ['GTV'],
         'IBM'                   => ['OS2'],
-        'iOS'                   => ['IOS'],
+        'iOS'                   => ['IOS', 'WAS'],
         'RISC OS'               => ['ROS'],
         'GNU/Linux'             => [
             'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
             'RHT', 'VLN', 'MDR', 'GNT', 'SAB', 'SLW', 'SSE', 'CES', 'BTR', 'SAF',
-            'ORD', 'TOS', 'RSO', 'DEE',
+            'ORD', 'TOS', 'RSO', 'DEE', 'FRE',
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
@@ -269,7 +271,7 @@ class OperatingSystem extends AbstractParser
      */
     protected function parsePlatform(): string
     {
-        if ($this->matchUserAgent('arm')) {
+        if ($this->matchUserAgent('arm|aarch64|Watch ?OS|Watch1,[12]')) {
             return 'ARM';
         }
 

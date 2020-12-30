@@ -1,6 +1,9 @@
 name: PHPCS check
 
-on: pull_request
+on:
+  pull_request:
+  push:
+    branches: [ master ]
 
 jobs:
   phpcs:
@@ -9,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
-        run: composer install --dev --prefer-dist --no-progress --no-suggest
+        run: composer install --dev --prefer-dist --no-progress --no-suggest --ignore-platform-reqs
       - name: PHPCS check
         uses: chekalsky/phpcs-action@v1
         with:
