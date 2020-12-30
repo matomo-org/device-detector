@@ -31,14 +31,15 @@ class AliasDeviceTest extends TestCase
         $parser->setUserAgent($useragent);
         $result = $parser->parse();
 
-        if (\is_array($result)) {
-            $this->assertArrayHasKey('name', $result);
-            $this->assertEquals($alias, $result);
+        $model = $alias['name'] ?? '';
 
+        if ('' === $model) {
+            $this->assertNull($result);
+            $this->assertEmpty($model);
             return;
         }
 
-        $this->assertNull($result);
+        $this->assertEquals($alias, $result);
     }
 
     public function getFixtures(): array
