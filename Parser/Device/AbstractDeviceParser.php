@@ -557,6 +557,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'NM' => 'Nomi',
         '2N' => 'Nomu',
         'N0' => 'Nuvo',
+        'NJ' => 'NuAns',
         'NL' => 'NUU Mobile',
         'NY' => 'NYX Mobile',
         'NN' => 'Nikon',

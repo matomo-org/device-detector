@@ -3369,7 +3369,7 @@ bq:
       device: 'tablet'
     - regex: '(?:bq )?(Aquaris[^/;]*) Build'
       model: '$1'
-    - regex: 'Aquaris (E(4.5|[56])|M(5|10)|U2 Lite|U2|U (Lite|Plus)|V Plus|X5 Plus|X5|X Pro|[CMUVX])'
+    - regex: 'Aquaris (E(4.5|[56])|M(5|10)|U2 Lite|U2|U (Lite|Plus)|V Plus|X5 Plus|X2? Pro|X[25]|[CMUVX])'
       model: 'Aquaris $1'
     - regex: 'bq ([^/;]+) Build'
       model: '$1'
@@ -3508,8 +3508,7 @@ Changhong:
   regex: 'Cherry|Flare([ _])?(2X|4|A[123]|J[123568]|P[13]|S[4-8]|X2|Y[367]|S Play|HD|LITE|XL|X_V2|Y3s|Tab)(?:[ _](?:Pro|Plus|Max|LTE))?|Fusion Bolt|OMEGA HD 4|Spin Max 2'
   device: 'smartphone'
   models:
-    - regex: 'Cherry(?: ?Mobile)?[ _]?([^/;]+) Build'
-      model: '$1'
+
     - regex: '(Flare2X)'
       model: '$1'
     - regex: 'Flare_HD_([45])'
@@ -3559,6 +3558,9 @@ Changhong:
     - regex: '(Fusion Bolt|Flare Tab Pro|Flare Tab)'
       model: '$1'
       device: 'tablet'
+
+    - regex: 'Cherry(?:[ _]?Mobile)?[ _]?([^/;]+)(?: Build|[);])'
+      model: '$1'
 
 # China Mobile
 'China Mobile':
@@ -9963,7 +9965,7 @@ Motorola:
     - regex: 'Moto ?([CGEXZ])( Plus| Play)?'
       model: 'Moto $1$2'
 
-    - regex: 'Motorola[ _\-]([a-z0-9]+)'
+    - regex: 'Motorola[ _\-]([^/;]+)(?: Build|[);])'
       model: '$1'
     - regex: 'MOTORAZR[ _\-]([a-z0-9]+)'
       model: 'RAZR $1'
@@ -14402,10 +14404,12 @@ Ulefone:
       model: 'Armor X$1'
     - regex: 'Armor[ _]6S(?:[);/ ]|$)'
       model: 'Armor 6S'
-    - regex: 'Armor[ _]6E(?:[);/ ]|$)'
-      model: 'Armor 6E'
-    - regex: 'Armor[ _]X5(?:[);/ ]|$)'
-      model: 'Armor X5'
+    - regex: 'Armor[ _]([679])E(?:[);/ ]|$)'
+      model: 'Armor $1E'
+    - regex: 'Armor[ _]X([57]) Pro(?:[);/ ]|$)'
+      model: 'Armor X$1 Pro'
+    - regex: 'Armor[ _]X([578])(?:[);/ ]|$)'
+      model: 'Armor X$1'
     - regex: 'Armor[ _]([25])S(?:[);/ ]|$)'
       model: 'Armor $1S'
     - regex: 'Armor[ _]X(?:[);/ ]|$)'
@@ -14414,7 +14418,7 @@ Ulefone:
       model: 'Armor 3W'
     - regex: 'Armor[ _]3WT(?:[);/ ]|$)'
       model: 'Armor 3WT'
-    - regex: 'Armor[ _]([2367])(?:[);/ ]|$)'
+    - regex: 'Armor[ _]([236789])(?:[);/ ]|$)'
       model: 'Armor $1'
     - regex: 'Armor(?:[);/ ]|$)'
       model: 'Armor'
@@ -16285,7 +16289,7 @@ ZTE:
     - regex: 'N9810(?:[);/ ]|$)'
       model: 'Vital'
     - regex: 'NX40[X2](?:[);/ ]|$)'
-      model: 'Nubia Z5 mini'
+      model: 'Nubia Z5 Mini'
     - regex: 'NX(403[AE]|406E|404H)(?:[);/ ]|$)'
       model: 'Nubia Z5S Mini'
     - regex: 'NX503A(?:[);/ ]|$)'
@@ -16293,31 +16297,31 @@ ZTE:
     - regex: 'NX506J(?:[);/ ]|$)'
       model: 'Nubia Z7'
     - regex: 'NX507J(?:[);/ ]|$)'
-      model: 'Nubia Z7 mini'
+      model: 'Nubia Z7 Mini'
     - regex: 'NX505J(?:[);/ ]|$)'
-      model: 'Nubia Z7 max'
+      model: 'Nubia Z7 Max'
     - regex: 'NX508J(?:[);/ ]|$)'
       model: 'Nubia Z9'
     - regex: '(NX5[12]1J|Nubia Z9 mini)(?:[);/ ]|$)'
-      model: 'Nubia Z9 mini'
+      model: 'Nubia Z9 Mini'
     - regex: '(NX510J|Nubia Z9 Max)(?:[);/ ]|$)'
-      model: 'Nubia Z9 max'
+      model: 'Nubia Z9 Max'
     - regex: 'NX512J(?:[);/ ]|$)'
-      model: 'Nubia Z9 max dual'
+      model: 'Nubia Z9 Max Dual'
     - regex: 'NX531J(?:[);/ ]|$)'
       model: 'Nubia Z11'
     - regex: 'NX523J_V1'
       model: 'Nubia Z11 Max'
-    - regex: 'NX529J(?:[);/ ]|$)'
-      model: 'Nubia Z11 mini'
+    - regex: '(?:NX529J|Nubia Z11 mini)(?:[);/ ]|$)'
+      model: 'Nubia Z11 Mini'
     - regex: '(?:NX549J|Nubia Z11 mini S)(?:[);/ ]|$)'
-      model: 'Nubia Z11 mini S'
+      model: 'Nubia Z11 Mini S'
     - regex: 'NX606J(?:[);/ ]|$)'
       model: 'Nubia Z18'
     - regex: 'NX616J(?:[);/ ]|$)'
       model: 'Nubia Z18S'
     - regex: 'NX611J(?:[);/ ]|$)'
-      model: 'Nubia Z18 mini'
+      model: 'Nubia Z18 Mini'
     - regex: 'NX551J(?:[);/ ]|$)'
       model: 'Nubia M2'
     - regex: 'NX563J(?:[);/ ]|$)'
@@ -18084,13 +18088,15 @@ Neomi:
 
 # Eltex (eltex-co.ru)
 Eltex:
-  regex: '(?:NV501WAC|NV501)(?:[);/ ]|$)'
+  regex: '(?:NV5(?:01|10)WAC|NV501|NV510WB)(?:[);/ ]|$)'
   device: 'tv'
   models:
-    - regex: 'NV501WAC(?:[);/ ]|$)'
-      model: 'NV-501-Wac'
+    - regex: 'NV5(01|10)WAC(?:[);/ ]|$)'
+      model: 'NV-5$1-Wac'
     - regex: 'NV501(?:[);/ ]|$)'
       model: 'NV-501'
+    - regex: 'NV510WB(?:[);/ ]|$)'
+      model: 'NV-510-WB'
 
 # Senkatel
 Senkatel:
@@ -18324,7 +18330,7 @@ Cloudfone:
 
 # Vsmart
 Vsmart:
-  regex: '(?:Joy 1\+|Active 1\+|Bee 3)(?:[);/ ]|$)'
+  regex: '(?:Joy 1\+|Active 1\+|Bee 3|Active 3)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Joy 1\+(?:[);/ ]|$)'
@@ -18333,6 +18339,8 @@ Vsmart:
       model: 'Active 1 Plus'
     - regex: 'Bee 3(?:[);/ ]|$)'
       model: 'Bee 3'
+    - regex: 'Active 3(?:[);/ ]|$)'
+      model: 'Active 3'
 
 # MiXzo
 MiXzo:
@@ -19204,6 +19212,12 @@ OpelMobile:
   regex: ' OpelMobile_(SmartJX)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
+
+# NuAns
+NuAns:
+  regex: 'NEO \[Reloaded\](?:[);/ ]|$)'
+  device: 'smartphone'
+  model: 'NEO Reloaded'
 
 # Leff
 Leff:
