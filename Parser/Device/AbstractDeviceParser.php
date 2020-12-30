@@ -828,6 +828,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VW' => 'Videoweb',
         'VU' => 'Vulcan',
         'WA' => 'Walton',
+        'WT' => 'Westpoint',
         'WF' => 'Wileyfox',
         'WN' => 'Wink',
         'WM' => 'Weimei',
