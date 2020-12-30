@@ -660,6 +660,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'RG' => 'RugGear',
         'RU' => 'Runbo',
         'RY' => 'Ryte',
+        '4L' => 'Salora',
         'SQ' => 'Santin',
         'SA' => 'Samsung',
         'S0' => 'Sanei',
