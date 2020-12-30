@@ -839,7 +839,7 @@ class DeviceDetector
         /**
          * Assume all devices running iOS / Mac OS are from Apple
          */
-        if (empty($this->brand) && \in_array($osName, ['Apple TV', 'iOS', 'Mac'])) {
+        if (empty($this->brand) && \in_array($osName, ['Apple TV', 'watchOS', 'iOS', 'Mac'])) {
             $this->brand = 'Apple';
         }
 
