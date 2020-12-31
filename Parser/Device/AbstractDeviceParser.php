@@ -462,6 +462,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'LP' => 'Le Pan',
         'LG' => 'LG',
         'LI' => 'Lingwin',
+        '5L' => 'Linsar',
         'LO' => 'Loewe',
         'LM' => 'Logicom',
         '1L' => 'Logic',
