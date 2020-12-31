@@ -734,6 +734,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '5R' => 'Transpeed',
         'T5' => 'TB Touch',
         'TC' => 'TCL',
+        '9E' => 'Techwood',
         'T7' => 'Teclast',
         'TE' => 'Telit',
         '9T' => 'Tetratab',
