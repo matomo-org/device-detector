@@ -335,6 +335,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'HL' => 'Hi-Level',
         'H2' => 'Highscreen',
         '1H' => 'Hipstreet',
+        'HC' => 'Hitachi',
         'H1' => 'Hoffmann',
         'HM' => 'Homtom',
         'H0' => 'Hometech',
