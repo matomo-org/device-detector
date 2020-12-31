@@ -85,6 +85,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '4G' => '4Good',
         '41' => 'A1',
         'AE' => 'Ace',
+        '6L' => 'ALDI SÜD',
         'AA' => 'AllCall',
         '3A' => 'AllDocube',
         'AC' => 'Acer',
