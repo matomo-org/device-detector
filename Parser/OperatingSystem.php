@@ -274,7 +274,7 @@ class OperatingSystem extends AbstractParser
         if ($this->matchUserAgent('arm|aarch64|Watch ?OS|Watch1,[12]')) {
             return 'ARM';
         }
-        
+
         if ($this->matchUserAgent('sh4')) {
             return 'SuperH';
         }
