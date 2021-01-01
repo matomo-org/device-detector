@@ -279,6 +279,10 @@ class OperatingSystem extends AbstractParser
             return 'MIPS';
         }
 
+        if ($this->matchUserAgent('sh4')) {
+            return 'SuperH';
+        }
+
         if ($this->matchUserAgent('WOW64|x64|win64|amd64|x86_64')) {
             return 'x64';
         }
