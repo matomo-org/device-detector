@@ -275,6 +275,10 @@ class OperatingSystem extends AbstractParser
             return 'ARM';
         }
 
+        if ($this->matchUserAgent('mips')) {
+            return 'MIPS';
+        }
+
         if ($this->matchUserAgent('sh4')) {
             return 'SuperH';
         }
