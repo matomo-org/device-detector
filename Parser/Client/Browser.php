@@ -287,6 +287,7 @@ class Browser extends AbstractClientParser
         'ST' => 'Streamy',
         'SX' => 'Swiftfox',
         'SZ' => 'Seznam Browser',
+        'TR' => 'T-Browser',
         'TO' => 't-online.de Browser',
         'TA' => 'Tao Browser',
         'TF' => 'TenFourFox',
@@ -347,7 +348,7 @@ class Browser extends AbstractClientParser
             'S4', 'EE', 'AE', 'VM', 'O0', 'TG', 'GB', 'SY', 'HH',
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'SS',
-            'O2', 'SV',
+            'O2', 'SV', 'TR',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
