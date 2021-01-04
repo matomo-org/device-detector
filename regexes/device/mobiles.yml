@@ -6047,7 +6047,7 @@ Homtom:
   regex: 'Homtom|(?:HT[0-9]{1,2})(?: ?Pro)?(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: '(?:Homtom[_ ])?HT([0-9]{1,2}(?: ?Pro)?)(?:[);/ ]|$)'
+    - regex: '(?:Homtom[_ ])?HT ?([0-9]{1,2}(?: ?Pro)?)(?:[);/ ]|$)'
       model: 'HT$1'
     - regex: 'Homtom ([^;/]+) Build'
       model: '$1'
@@ -6224,6 +6224,8 @@ Huawei:
       model: 'Honor 4A'
     - regex: '(?:Honor_|HW-)?CHM-U01(?:_TD)?(?:[);/ ]|$)'
       model: 'Honor 4C'
+    - regex: 'Honor 4c Pro(?:[);/ ]|$)'
+      model: 'Honor 4C Pro'
     - regex: 'AQM-AL10(?:[);/ ]|$)'
       model: 'Honor 4T Pro'
     - regex: '(CHE2?-[UT]L00[HM]?|CHE1-CL[12]0|CHE2-L(?:1[12]|23)|Che1-L04|CHE-TL00)(?:[);/ ]|$)'
@@ -9757,7 +9759,7 @@ Mobistel:
 
 # Mecool
 Mecool:
-  regex: '(?:KM9PRO|BB2 PRO|KII PRO|KM9_TV_BOX|M8SPROW|M8S (?:PLUS|PRO) (?:DVB|[LW]|PLUS)|M8S (?:MAX|PRO))(?:[);/ ]|$)'
+  regex: '(?:KM9PRO|BB2 PRO|K[I]{1,3} PRO|KI PLUS|KM9_TV_BOX|M8SPROW|M8S (?:PLUS|PRO) (?:DVB|[LW]|PLUS)|M8S (?:MAX|PRO))(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: 'KM9PRO(?:[);/ ]|$)'
@@ -9766,8 +9768,10 @@ Mecool:
       model: 'KM9 TV Box'
     - regex: 'BB2 PRO(?:[);/ ]|$)'
       model: 'BB2 Pro'
-    - regex: 'KII PRO(?:[);/ ]|$)'
-      model: 'KII Pro'
+    - regex: '(K[I]{1,3}) PRO(?:[);/ ]|$)'
+      model: '$1 Pro'
+    - regex: 'KI PLUS(?:[);/ ]|$)'
+      model: 'KI Plus'
     - regex: 'M8SPROW(?:[);/ ]|$)'
       model: 'M8S Pro W'
     - regex: 'M8S PLUS DVB(?:[);/ ]|$)'
@@ -17487,9 +17491,13 @@ Gome:
 
 # Voyo
 Voyo:
-  regex: 'VOYO[_ ](A15)(?:[);/ ]|$)'
+  regex: '(?:VOYO[_ ](A15)|i8-Max)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: 'i8-Max(?:[);/ ]|$)'
+      model: 'i8 Max'
+    - regex: 'VOYO[_ ](A15)(?:[);/ ]|$)'
+      model: '$1'
 
 # Ryte (Ryte Mobile)
 Ryte:
@@ -18468,9 +18476,13 @@ Dolamee:
 
 # INVIN
 Invin:
-  regex: 'INVIN[ _-](X[24]|KM[67])(?:[);/ ]|$)'
+  regex: 'INVIN[ _-]|KM5PRO(?:[);/ ]|$)'
   device: 'tv'
-  model: '$1'
+  models:
+    - regex: 'INVIN[ _-](X[24]|KM[678])'
+      model: '$1'
+    - regex: 'KM5PRO'
+      model: 'KM5 Pro'
 
 # Doopro
 Doopro:
@@ -19223,6 +19235,12 @@ NuAns:
   device: 'smartphone'
   model: 'NEO Reloaded'
 
+# Koolnee (sub brand from Koobee)
+Koolnee:
+  regex: '(K1 Trio)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
+
 # Leff
 Leff:
   regex: 'Leff Shell (?:HV320WHB-N55|LC390TA2A)(?:[);/ ]|$)'
@@ -19258,3 +19276,9 @@ BBK:
   regex: '4ife (4K Smart TV Box)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
+
+# Yoka TV
+'Yoka TV':
+  regex: 'KB2 PRO(?:[);/ ]|$)'
+  device: 'tv'
+  model: 'KB2 Pro'
