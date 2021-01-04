@@ -58,6 +58,7 @@ class OperatingSystem extends AbstractParser
         'FIR' => 'Fire OS',
         'FRE' => 'Freebox',
         'BSD' => 'FreeBSD',
+        'FYD' => 'FydeOS',
         'GNT' => 'Gentoo',
         'GTV' => 'Google TV',
         'HPX' => 'HP-UX',
@@ -111,6 +112,7 @@ class OperatingSystem extends AbstractParser
         'UBT' => 'Ubuntu',
         'WAS' => 'watchOS',
         'WTV' => 'WebTV',
+        'WHS' => 'Whale OS',
         'WIN' => 'Windows',
         'WCE' => 'Windows CE',
         'WIO' => 'Windows IoT',
@@ -137,7 +139,7 @@ class OperatingSystem extends AbstractParser
         'BlackBerry'            => ['BLB', 'QNX'],
         'Brew'                  => ['BMP'],
         'BeOS'                  => ['BEO', 'HAI'],
-        'Chrome OS'             => ['COS'],
+        'Chrome OS'             => ['COS', 'FYD'],
         'Firefox OS'            => ['FOS', 'KOS'],
         'Gaming Console'        => ['WII', 'PS3'],
         'Google TV'             => ['GTV'],
@@ -158,6 +160,7 @@ class OperatingSystem extends AbstractParser
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
         'Windows Mobile'        => ['WPH', 'WMO', 'WCE', 'WRT', 'WIO'],
+        'Other Smart TV'        => ['WHS'],
     ];
 
     /**
