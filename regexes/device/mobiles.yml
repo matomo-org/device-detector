@@ -9423,7 +9423,7 @@ MEEG:
 
 # Meizu
 Meizu:
-  regex: 'Meizu|MZ-[a-z]|(M04[05]|MZ-16th(?: Plus)?|MZ-16[st]|M7[12]1C|M35[1356]|M612C|M578CA|M181[36]|M1822|M681C|M6T|MX[ -]?[2345](?: Pro)?|(?:MZ-)?m[1-6] note|M621C|M1852|M57[18]C|M3[ESX]|M031|m1 metal|M1 E|M2|M2 E|M5s Build|PRO 6|PRO 7-H| 15 Lite|MZ-15 (?:Lite|Plus)|MZ-16 X)(?:[);/ ]|$)'
+  regex: 'Meizu|MZ-[a-z]|(M04[05]|MZ-16th(?: Plus)?|MZ-16[st]|M7[12]1C|M35[1356]|M612C|M578CA|M181[36]|M1822|M681C|M6T|MX[ -]?[2345](?: Pro)?|(?:MZ-)?m[1-6] note|M621C|M1852|M57[18]C|M3[ESX]|M031|m1 metal|M1 E|M2|M2 E|M5s Build|PRO 6|PRO 7-H| 15 Lite| 16th|MZ-15 (?:Lite|Plus)|MZ-16 X)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(?:MZ-)?M571C'
@@ -9487,13 +9487,13 @@ Meizu:
       model: 'Note 8'
     - regex: 'MZ-16T(?:[);/ ]|$)'
       model: '16T'
-    - regex: 'MZ-16th Plus(?:[);/ ]|$)'
+    - regex: '(?:MZ-)?16th Plus(?:[);/ ]|$)'
       model: '16th Plus'
     - regex: 'MZ-15 Plus(?:[);/ ]|$)'
       model: '15 Plus'
     - regex: '(?:MZ-15 Lite| 15 Lite)(?:[);/ ]|$)'
       model: '15 Lite'
-    - regex: 'MZ-16th(?:[);/ ]|$)'
+    - regex: 'MZ-16th| 16th(?:[);/ ]|$)'
       model: '16th'
     - regex: 'MZ-16 X(?:[);/ ]|$)'
       model: '16X'
@@ -9970,6 +9970,8 @@ Motorola:
       model: 'Moto $1$2$3'
     - regex: 'Moto ?([CGEXZ])( Plus| Play)?'
       model: 'Moto $1$2'
+    - regex: 'MotoroiX'
+      model: 'MotoroiX'
 
     - regex: 'Motorola[ _\-]([^/;]+)(?: Build|[);])'
       model: '$1'
@@ -14165,13 +14167,13 @@ Telego:
 
 # Telenor
 Telenor:
-  regex: '(?<!FBCR/)Telenor'
+  regex: '(?<!FBCR/)Telenor|Infinity E5'
   device: 'smartphone'
   models:
-    - regex: 'Telenor[ _]([^;/]+) Build'
+    - regex: 'Telenor[ _]([^;/]+)(?: Build|[;)])'
       model: '$1'
-    - regex: 'Telenor[ _]([^a-z0-9_]+)\)'
-      model: '$1'
+    - regex: 'Infinity E5'
+      model: 'Infinity E5'
 
 # Telit
 Telit:
@@ -16318,10 +16320,10 @@ ZTE:
       model: 'Nubia Z11'
     - regex: 'NX523J_V1'
       model: 'Nubia Z11 Max'
-    - regex: '(?:NX529J|Nubia Z11 mini)(?:[);/ ]|$)'
-      model: 'Nubia Z11 Mini'
     - regex: '(?:NX549J|Nubia Z11 mini S)(?:[);/ ]|$)'
       model: 'Nubia Z11 Mini S'
+    - regex: '(?:NX529J|Nubia Z11 mini)(?:[);/ ]|$)'
+      model: 'Nubia Z11 Mini'
     - regex: 'NX606J(?:[);/ ]|$)'
       model: 'Nubia Z18'
     - regex: 'NX616J(?:[);/ ]|$)'
@@ -17345,13 +17347,15 @@ National:
 
 # Vsun
 Vsun:
-  regex: '(?:VSUN (?:ILLUSION|RACE|V9)|MARS TOUCH)(?:[);/ ]|$)'
+  regex: '(?:VSUN (?:ILLUSION|RACE|V9)|MARS TOUCH|SATURN SELFIE)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'ILLUSION(?:[);/ ]|$)'
       model: 'Illusion'
     - regex: 'MARS TOUCH(?:[);/ ]|$)'
       model: 'Mars Touch'
+    - regex: 'SATURN SELFIE(?:[);/ ]|$)'
+      model: 'Saturn Selfie'
     - regex: 'RACE(?:[);/ ]|$)'
       model: 'Race'
     - regex: '(V9)(?:[);/ ]|$)'
@@ -19238,6 +19242,31 @@ NuAns:
 # Koolnee (sub brand from Koobee)
 Koolnee:
   regex: '(K1 Trio)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
+
+# Sansui (sansui-global.com)
+Sansui:
+  regex: 'Sansui[_ ]'
+  device: 'smartphone'
+  models:
+    - regex: 'Sansui[_ ](Switch|Play|Fun|SA4[01]|U4[56]|U3[02]|Nova)(?:[);/ ]|$)'
+      model: '$1'
+
+# Sico (sico.com.eg)
+Sico:
+  regex: 'SICO[_ ](?:PLUS|e1002)'
+  device: 'smartphone'
+  models:
+    - regex: 'SICO[_ ]PLUS'
+      model: 'Plus'
+    - regex: 'SICO[_ ]e1002'
+      device: 'tablet'
+      model: 'E1002'
+
+# Smadl (smadlethiopia.com)
+Smadl:
+  regex: 'Android.+(Safari)(?!/[\d.]+)(?: Build|\) AppleWebKit)'
   device: 'smartphone'
   model: '$1'
 
