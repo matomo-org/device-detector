@@ -112,6 +112,7 @@ class OperatingSystem extends AbstractParser
         'UBT' => 'Ubuntu',
         'WAS' => 'watchOS',
         'WTV' => 'WebTV',
+        'WHS' => 'Whale OS',
         'WIN' => 'Windows',
         'WCE' => 'Windows CE',
         'WIO' => 'Windows IoT',
@@ -159,6 +160,7 @@ class OperatingSystem extends AbstractParser
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
         'Windows Mobile'        => ['WPH', 'WMO', 'WCE', 'WRT', 'WIO'],
+        'Other Smart TV'        => ['WHS'],
     ];
 
     /**
