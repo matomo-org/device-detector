@@ -2486,10 +2486,12 @@ Blu:
       model: 'Studio 7.0" II'
       device: 'tablet'
 
+    - regex: 'DASH (L[45] LTE|5.0|L[45]X|L3|X2|[LMX])(?:[);/ ]|$)'
+      model: 'Dash $1'
+
     - regex: 'DASH[ _]([^/;]+) Build'
       model: 'Dash $1'
-    - regex: 'DASH (5.0|L3|L|M|X2|X)'
-      model: 'Dash $1'
+
     - regex: 'blu[ _]([^/;]+)( Build|[);])'
       model: '$1'
 
@@ -6837,10 +6839,10 @@ Hyundai:
 
 # iBall
 iBall:
-  regex: 'iBall[ _]([^;/)]+)[ _]Build|(?:Snap_4G2|6351-Q400i|iT-KSA0003|iT-KSA0012|iT-KSA0066|Avid)(?:[);/ ]|$)'
+  regex: 'iBall[ _]([^;/)]+)[ _]Build|(?:Snap_4G2|6351-Q400i|iT-KSA0003|iT-KSA0012|iT-KSA0066|Avid|Twinkle_i5)(?:[);/ ]|$)'
   device: 'tablet'
   models:
-    - regex: '(Snap_4G2|Avid)(?:[);/ ]|$)'
+    - regex: '(Snap_4G2|Avid|Twinkle_i5)(?:[);/ ]|$)'
       model: '$1'
     - regex: '6351-Q400i(?:[);/ ]|$)'
       model: 'Slide'
@@ -9090,7 +9092,7 @@ Konrow:
 
 # Karbonn (karbonnmobiles.com)
 Karbonn:
-  regex: '(?:Browser-)?Karbonn|K9 Kavach 4G|K9[_ ]Viraat[_ ]Plus|K9 Music 4G|K9 Smart|K9 VIRAAT 4G|Aura Sleek Plus|Aura Note Play|Titanium[ _](?:3D-Plex|Octane Plus|Vista 4G|Jumbo|S360|S1[059]|S35|S20[13]|S22|S1|S200 HD)|K-lite F3'
+  regex: '(?:Browser-)?Karbonn|K9 Kavach 4G|K9[_ ]Viraat[_ ]Plus|K9 Music 4G|K9 Smart|K9 VIRAAT 4G|Aura Sleek Plus|Aura Note Play|Titanium[ _](?:3D-Plex|Octane Plus|Vista 4G|Jumbo|S360|S1[059]|S35|S20[13]|S22|S1|S200 HD|Frames S7)|K-lite F3'
   device: 'smartphone'
   models:
     - regex: 'K9 Kavach 4G'
@@ -9125,6 +9127,8 @@ Karbonn:
       model: 'Titanium Jumbo 2'
     - regex: 'Titanium Jumbo'
       model: 'Titanium Jumbo'
+    - regex: 'Titanium Frames S7'
+      model: 'Titanium Frames S7'
     - regex: 'Titanium Octane Plus'
       model: 'Titanium Octane Plus'
     - regex: 'Titanium[ _]3D-Plex'
@@ -9651,7 +9655,7 @@ Mobiola:
 
 # Mobicel
 Mobicel:
-  regex: 'Mobicel_(R1)|(?:HYPE|Matrix|TRENDY PLUS|BLINK|BERRY[_ ]?(?:[12]|PLUS))(?:[);/ ]|$)'
+  regex: 'Mobicel_(R1)|(?:HYPE|DANDY|(?<!SMADL )Matrix|TRENDY PLUS|BLINK|BERRY[_ ]?(?:[12]|PLUS))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Matrix'
@@ -9668,6 +9672,8 @@ Mobicel:
       model: 'Trendy Plus'
     - regex: 'HYPE'
       model: 'Hype'
+    - regex: 'DANDY'
+      model: 'Dandy'
     - regex: 'Mobicel_(R1)'
       model: '$1'
 
@@ -11230,9 +11236,10 @@ Oysters:
       model: 'T74MAi 3G'
     - regex: 'Oysters ([^/;]+)( Build|\))'
       model: '$1'
-# öwn (own)
+
+# öwn (own mobile)
 öwn:
-  regex: 'OWN|S4035[ _][34]G'
+  regex: 'OWN[ _]|(?:S4035[ _][34]G|Smart8)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'FUN ([67])'
@@ -11247,6 +11254,8 @@ Oysters:
       model: 'One'
     - regex: 'SMART 9'
       model: 'Smart 9'
+    - regex: 'Smart8(?:[);/ ]|$)'
+      model: 'Smart 8'
 
 # Panacom
 Panacom:
@@ -13076,7 +13085,7 @@ SWISSMOBILITY:
 
 # Thomson
 Thomson:
-  regex: '(?:Primo(7|8)|QM73[45]-8G|QM734-2|QM736-8G\(HD\)|(?<!\.)8950|MID1002|5014G|TEO7RK)(?:[);/ ]|$)|(?:Tlink|Every)[0-9]+'
+  regex: '(?:Primo(7|8)|QM73[45]-8G|QM734-2|QM736-8G\(HD\)|(?<!\.)8950|MID1002|5014G|TEO7RK|Delight TH201)(?:[);/ ]|$)|(?:Tlink|Every)[0-9]+'
   device: 'tablet'
   models:
     # already detected as manta device
@@ -13106,6 +13115,9 @@ Thomson:
     - regex: 'Every([0-9]+)'
       device: 'smartphone'
       model: 'Every$1'
+    - regex: 'Delight TH201'
+      device: 'smartphone'
+      model: 'Delight TH201'
 
 # Tanix
 Tanix:
@@ -14922,11 +14934,15 @@ Voxtel:
 
 # Vulcan
 Vulcan:
-  regex: 'VP5004A|HT0704W08'
+  regex: '(?:VP5004A|HT0704W08|VS5513|VS4011|VR6031)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'VP5004A'
-      model: 'VP5004A'
+    - regex: '(VP5004A|VR6031)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'VS5513(?:[);/ ]|$)'
+      model: 'Tempo S13'
+    - regex: 'VS4011(?:[);/ ]|$)'
+      model: 'Tempo S11'
     - regex: 'HT0704W08' # Hyundai
       model: 'Koral 7W4'
       device: 'tablet'
@@ -18321,9 +18337,13 @@ Primux:
 
 # iMars
 iMars:
-  regex: 'IMARS VEGA X7(?:[);/ ]|$)'
+  regex: '(?:IMARS VEGA X7|VIVI_8)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: 'Vega X7'
+  models:
+    - regex: 'IMARS VEGA X7'
+      model: 'Vega X7'
+    - regex: 'VIVI_8'
+      model: 'VIVI 8'
 
 # Logic
 Logic:
@@ -18727,15 +18747,19 @@ Pixelphone:
 
 # Iris
 Iris:
-  regex: '(?:Vox[_ ](?:5S|Alpha|POP))(?:[);/ ]|$)'
+  regex: '(?:Vox[_ ](?:[45]S|Alpha|POP|STEEL Plus|Energy))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'Vox_5S'
-      model: 'Vox 5S'
+    - regex: 'Vox[_ ]([45])S'
+      model: 'Vox $1S'
     - regex: 'VOX Alpha Plus'
       model: 'Vox Alpha Plus'
+    - regex: 'VOX STEEL Plus'
+      model: 'Vox Steel Plus'
     - regex: 'VOX Alpha'
       model: 'Vox Alpha'
+    - regex: 'VOX Energy'
+      model: 'Vox Energy'
     - regex: 'VOX POP plus'
       model: 'Vox Pop Plus'
     - regex: 'VOX POP Pro'
@@ -19283,8 +19307,42 @@ Sico:
 
 # Smadl (smadlethiopia.com)
 Smadl:
-  regex: 'Android.+(Safari)(?!/[\d.]+)(?: Build|\) AppleWebKit)'
+  regex: 'Android.+(?:Safari)(?!/[\d.]+)(?: Build|\) AppleWebKit)|SMADL[ _]'
   device: 'smartphone'
+  models:
+    - regex: 'Android.+(?:Safari)(?!/[\d.]+)(?: Build|\) AppleWebKit)'
+      model: 'Safari'
+    - regex: 'SMADL[ _]Matri([2X])'
+      model: 'Matri $1'
+
+# Tymes
+Tymes:
+  regex: 'Tymes[ _](V5)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
+
+# Solone
+Solone:
+  regex: '(?:E1457|W145[02])(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'E1457'
+      model: 'Earth Iron E1457'
+    - regex: 'W1450'
+      model: 'Wind Breeze W1450'
+    - regex: 'W1452'
+      model: 'Wind Air W1452'
+
+# Far Eas Tone (Fareastone)
+FarEasTone:
+  regex: 'Smart ?(601|550|50[59])(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: 'Smart $1'
+
+# Smailo
+Smailo:
+  regex: 'Smailo_(2GO)(?:[);/ ]|$)'
+  device: 'tablet'
   model: '$1'
 
 # Leff
@@ -19336,3 +19394,4 @@ Westpoint:
   regex: 'KB2 PRO(?:[);/ ]|$)'
   device: 'tv'
   model: 'KB2 Pro'
+
