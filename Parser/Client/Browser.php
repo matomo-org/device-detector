@@ -92,7 +92,7 @@ class Browser extends AbstractClientParser
         'CN' => 'CoolNovo',
         'CO' => 'CometBird',
         'CB' => 'COS Browser',
-        'C3' => 'Chim Lạc',
+        'C3' => 'Chim Lac',
         'CP' => 'ChromePlus',
         'CR' => 'Chromium',
         'CY' => 'Cyberfox',
