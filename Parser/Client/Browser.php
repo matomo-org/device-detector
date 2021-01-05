@@ -212,6 +212,7 @@ class Browser extends AbstractClientParser
         'OC' => 'Oculus Browser',
         'O1' => 'Opera Mini iOS',
         'OB' => 'Obigo',
+        'O2' => 'Odin',
         'OD' => 'Odyssey Web Browser',
         'OF' => 'Off By One',
         'HH' => 'OhHai Browser',
@@ -348,7 +349,7 @@ class Browser extends AbstractClientParser
             'S4', 'EE', 'AE', 'VM', 'O0', 'TG', 'GB', 'SY', 'HH',
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
-            'SS', 'SV', 'TR',
+            'SS', 'O2', 'SV', 'TR',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
