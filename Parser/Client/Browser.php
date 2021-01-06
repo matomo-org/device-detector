@@ -242,6 +242,7 @@ class Browser extends AbstractClientParser
         'PA' => 'Palmscape',
         'PX' => 'Phoenix',
         'PB' => 'Phoenix Browser',
+        'PF' => 'PlayFree Browser',
         'PO' => 'Polaris',
         'PT' => 'Polarity',
         'PI' => 'PrivacyWall',
