@@ -50,7 +50,7 @@ class Engine extends AbstractClientParser
         'NetSurf',
         'Servo',
         'Goanna',
-        'Flow',
+        'EkiohFlow',
     ];
 
     /**
