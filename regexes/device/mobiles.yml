@@ -7851,9 +7851,15 @@ K-Touch:
     - regex: 'K-?Touch[ _]([a-z0-9]+)'
       model: '$1'
 
+# Diva
+Diva:
+  regex: '(QC-(?:703GN|704GA|803GN|1013G|7BHD))(?:[);/ ]|$)'
+  device: 'tablet'
+  model: '$1'
+
 # kyocera (kyocera.co.jp, kyocera.com)
 Kyocera:
-  regex: 'Kyocera|KWC-|(?:NP501KC|302KC|503KC|602KC|705KC|901KC|C51[27]0|C5155|C5215|C67[35]0|C6522N?|C6530N|C6740N?|C6743|E6[89]10|KYL2[13]|KYV3[13-9]|KYT3[123]|KYF3[123579]|KYX31|KYY2[1-4]|S2151|KC-S701|S4-KC|KYV40U?|KYV4[1-8]|KYV4[47]|KC-S301AE|X3-KC|S6-KC|E6560[CT]|E6782[L]?|E6790(?:TM)?|[47]04KC|A001KC)(?:[-_]u2?)?(?:[);/ ]|$)'
+  regex: 'Kyocera|KWC-|QC-[0-9]{4}|(?:QC6035|NP501KC|302KC|503KC|602KC|705KC|901KC|C51[27]0|C5155|C5215|C67[35]0|C6522N?|C6530N|C6740N?|C6743|E6[89]10|KYL2[13]|KYV3[13-9]|KYT3[123]|KYF3[123579]|KYX31|KYY2[1-4]|S2151|KC-S701|S4-KC|KYV40U?|KYV4[1-8]|KYV4[47]|KC-S301AE|X3-KC|S6-KC|E6560[CT]|E6782[L]?|E6790(?:TM)?|[47]04KC|A001KC)(?:[-_]u2?)?(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -7990,8 +7996,8 @@ Kyocera:
       model: 'KZ $1'
     - regex: 'Kyocera(?:[\-/])?([a-z0-9]+)'
       model: '$1'
-    - regex: '(?:KWC|QC)-([a-z0-9]+)'
-      model: '$1'
+    - regex: '(KWC|QC)-?([a-z0-9]+)'
+      model: '$1-$2'
 
 # Krüger&Matz (Kruger&Matz)
 Krüger&Matz:
@@ -19254,12 +19260,6 @@ Zentality:
 'Black Bear':
   regex: '(B6 Master|B6 Note X)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
-
-# Diva
-Diva:
-  regex: '(QC-(?:703GN|704GA|803GN|1013G|7BHD))(?:[);/ ]|$)'
-  device: 'tablet'
   model: '$1'
 
 # Fortis
