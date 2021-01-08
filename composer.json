@@ -1,5 +1,5 @@
 {
-    "name": "piwik/device-detector",
+    "name": "matomo/device-detector",
     "type": "library",
     "description": "The Universal Device Detection library, that parses User Agents and detects devices (desktop, tablet, mobile, tv, cars, console, etc.), clients (browsers, media players, mobile apps, feed readers, libraries, etc), operating systems, devices, brands and models.",
     "keywords": ["useragent","parser","devicedetection"],
@@ -19,24 +19,33 @@
         "source": "https://github.com/matomo-org/piwik"
     },
     "autoload": {
-        "psr-4": { "DeviceDetector\\": "" }
+        "psr-4": { "DeviceDetector\\": "" },
+        "exclude-from-classmap": ["Tests/"]
     },
     "require": {
-        "php": ">=5.5",
+        "php": ">=7.2",
         "mustangostang/spyc": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "^4.8.36",
-        "fabpot/php-cs-fixer": "~1.7",
-        "psr/cache": "^1.0",
-        "psr/simple-cache": "^1.0",
-        "matthiasmullie/scrapbook": "@stable"
+        "phpunit/phpunit": "^8.5.8",
+        "psr/cache": "^1.0.1",
+        "psr/simple-cache": "^1.0.1",
+        "matthiasmullie/scrapbook": "^1.4.7",
+        "phpstan/phpstan": "^0.12.52",
+        "mayflower/mo4-coding-standard" : "dev-master#275cb9d",
+        "symfony/yaml": "^5.1.7"
     },
     "suggest": {
         "doctrine/cache": "Can directly be used for caching purpose",
         "ext-yaml": "Necessary for using the Pecl YAML parser"
     },
+    "scripts": {
+      "php-cs-fixed": "php vendor/bin/phpcbf"
+    },
     "archive": {
         "exclude": ["/autoload.php"]
+    },
+    "replace": {
+        "piwik/device-detector":"self.version"
     }
 }

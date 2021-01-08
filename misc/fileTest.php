@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * This parser parses the text file
  *
@@ -23,17 +24,33 @@
  * `php file-test.php /tmp/source-useragent.txt "not" "yml" > /tmp/useragent-not-detected.txt`
  * `php file-test.php /tmp/source-useragent.txt "not" "useragent" > /tmp/useragent-not-detected.txt`
  */
+use DeviceDetector\DeviceDetector;
+use DeviceDetector\Parser\Device\AbstractDeviceParser;
+
 require __DIR__ . '/../vendor/autoload.php';
 
-use DeviceDetector\DeviceDetector;
-use DeviceDetector\Parser\Device\DeviceParserAbstract;
-
-if (php_sapi_name() !== 'cli') {
-    echo "web not supported";
+if ('cli' !== php_sapi_name()) {
+    echo 'web not supported';
     exit;
 }
 
 if (count($argv) < 2) {
+    printHelpAndExit();
+}
+
+define('DETECT_MODE_TYPE_DETECT', 'detect');
+define('DETECT_MODE_TYPE_ALL', 'all');
+define('DETECT_MODE_TYPE_NOT', 'not');
+
+define('REPORT_TYPE_YML', 'yml');
+define('REPORT_TYPE_USERAGENT', 'useragent');
+
+$file       = $argv[1] ?? '';
+$showMode   = $argv[2] ?? 'not';
+$reportMode = $argv[3] ?? 'yml';
+
+function printHelpAndExit(): void
+{
     echo "Usage command:\n";
     echo "php file-test.php <patch to file> <detect mode> <report mode> > report.txt\n\n";
 
@@ -46,63 +63,69 @@ if (count($argv) < 2) {
     exit;
 }
 
-define('DETECT_MODE_TYPE_DETECT', 'detect');
-define('DETECT_MODE_TYPE_ALL', 'all');
-define('DETECT_MODE_TYPE_NOT', 'not');
-
-define('REPORT_TYPE_YML', 'yml');
-define('REPORT_TYPE_USERAGENT', 'useragent');
-
-if (isset($argv[1])) {
-    $file = $argv[1];
-}
-
-$showMode = 'not';
-if (isset($argv[2])) {
-    $showMode = $argv[2];
-}
-
-$reportMode = 'yml';
-if (isset($argv[3])) {
-    $reportMode = $argv[3];
+if (!is_file($file)) {
+    echo sprintf("Error: file `%s` not fount\n\n", $file);
+    printHelpAndExit();
 }
 
 /**
- * @param $result
- * @param $format
+ * @param array $result
+ * @param string $format
  */
-function printReport($result, $format)
+function printReport(array $result, string $format): void
 {
-    if ($format === REPORT_TYPE_YML) {
+    if (REPORT_TYPE_YML === $format) {
         echo Spyc::YAMLDump($result, 2, 0);
+
         return;
     }
-    if ($format === REPORT_TYPE_USERAGENT) {
+
+    if (REPORT_TYPE_USERAGENT === $format) {
         echo "{$result['user_agent']}\n";
+
         return;
     }
 }
 
-$fn = fopen($file, "r");
+AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
+$deviceDetector = new DeviceDetector();
+
+$fn = fopen($file, 'r');
+
 while (!feof($fn)) {
     $userAgent = fgets($fn);
+
+    if (false === $userAgent) {
+        break;
+    }
+
     $userAgent = trim($userAgent);
-    DeviceParserAbstract::setVersionTruncation(DeviceParserAbstract::VERSION_TRUNCATION_NONE);
-    $result = DeviceDetector::getInfoFromUserAgent($userAgent);
+
+    if (empty($userAgent)) {
+        continue;
+    }
+
+    $deviceDetector->setUserAgent($userAgent);
+    $deviceDetector->parse();
+
+    $result = $deviceDetector->isBot() ? [
+        'user_agent' => $deviceDetector->getUserAgent(),
+        'bot'        => $deviceDetector->getBot(),
+    ] : DeviceDetector::getInfoFromUserAgent($userAgent);
 
     if (!isset($result['device']['model'])) {
         continue;
     }
 
-    if ($showMode === DETECT_MODE_TYPE_NOT) {
-        if ($result['device']['model'] === '') {
+    if (DETECT_MODE_TYPE_NOT === $showMode) {
+        if ('' === $result['device']['model']) {
             printReport($result, $reportMode);
         }
-    } else if ($showMode === DETECT_MODE_TYPE_DETECT) {
-        if ($result['device']['model'] !== '') {
+    } elseif (DETECT_MODE_TYPE_DETECT === $showMode) {
+        if ('' !== $result['device']['model']) {
             printReport($result, $reportMode);
         }
-    } else if ($showMode === DETECT_MODE_TYPE_ALL) {
+    } elseif (DETECT_MODE_TYPE_ALL === $showMode) {
         printReport($result, $reportMode);
     }
 }

@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<ruleset name="device-detector">
+    <description>Device Detector Coding Standard</description>
+
+    <file>.</file>
+
+    <exclude-pattern>vendor/</exclude-pattern>
+
+    <!-- use MO4 coding standard as base -->
+    <rule ref="MO4">
+       <exclude name="SlevomatCodingStandard.Commenting.UselessInheritDocComment"/>
+    </rule>
+
+    <rule ref="Symfony.Commenting">
+        <exclude-pattern>misc/</exclude-pattern>
+        <exclude-pattern>Tests/</exclude-pattern>
+    </rule>
+
+    <rule ref="Squiz.Functions.GlobalFunction.Found">
+        <exclude-pattern>misc/</exclude-pattern>
+        <exclude-pattern>autoload.php</exclude-pattern>
+    </rule>
+
+    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+        <exclude-pattern>misc/</exclude-pattern>
+        <exclude-pattern>autoload.php</exclude-pattern>
+    </rule>
+
+    <!-- Disallow more than 120 chars per line -->
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="120" />
+            <property name="absoluteLineLimit" value="120" />
+        </properties>
+        <exclude-pattern>misc/</exclude-pattern>
+        <exclude-pattern>Tests/</exclude-pattern>
+    </rule>
+
+    <!-- Require spaces around string concatenating -->
+    <rule ref="Squiz.Strings.ConcatenationSpacing">
+        <properties>
+            <property name="spacing" value="1" />
+        </properties>
+    </rule>
+
+    <!-- Disallow is_null function -->
+    <rule ref="Generic.PHP.ForbiddenFunctions">
+        <properties>
+            <property name="forbiddenFunctions" type="array" value="is_null=>null"/>
+        </properties>
+    </rule>
+
+    <!-- Require empty lines around control structures -->
+    <rule ref="SlevomatCodingStandard.ControlStructures.BlockControlStructureSpacing"/>
+
+    <!-- Require strict types -->
+    <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
+        <properties>
+            <property name="newlinesCountBetweenOpenTagAndDeclare" value="0" />
+            <property name="spacesCountAroundEqualsSign" value="0" />
+            <property name="newlinesCountAfterDeclare" value="2" />
+        </properties>
+    </rule>
+
+    <!-- Require Yoda-Conditions -->
+    <rule ref="SlevomatCodingStandard.ControlStructures.RequireYodaComparison"/>
+
+    <!-- Disallow useless semicolons -->
+    <rule ref="SlevomatCodingStandard.PHP.UselessSemicolon" />
+
+    <!-- Disallow old type hints in comments (e.g. "int[]" should be "array<int>") -->
+    <rule ref="SlevomatCodingStandard.TypeHints.DisallowArrayTypeHintSyntax"/>
+
+    <!-- Disallow spaces after splat operator -->
+    <rule ref="SlevomatCodingStandard.Operators.SpreadOperatorSpacing"/>
+
+    <!-- Disallow empty lines around class braces -->
+    <rule ref="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces">
+        <properties>
+            <property name="linesCountAfterOpeningBrace" value="0" />
+            <property name="linesCountBeforeClosingBrace" value="0" />
+        </properties>
+    </rule>
+
+    <!-- Require empty lines around namespace definition -->
+    <rule ref="SlevomatCodingStandard.Namespaces.NamespaceSpacing">
+        <properties>
+            <property name="linesCountBeforeNamespace" value="1" />
+            <property name="linesCountAfterNamespace" value="1" />
+        </properties>
+    </rule>
+
+    <!-- Require empty lines around use statements -->
+    <rule ref="SlevomatCodingStandard.Namespaces.UseSpacing">
+        <properties>
+            <property name="linesCountBeforeFirstUse" value="1" />
+            <property name="linesCountBetweenUseTypes" value="0" />
+            <property name="linesCountAfterLastUse" value="1" />
+        </properties>
+    </rule>
+</ruleset>
