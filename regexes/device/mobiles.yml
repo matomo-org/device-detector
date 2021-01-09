@@ -4574,11 +4574,6 @@ Elenberg:
   device: 'tablet'
   model: '$1'
 
-# Energy Sistem
-'Energy Sistem':
-  regex: 'ENERGY[ _-]?([^;/]+) Build'
-  device: 'tablet'
-  model: '$1'
 
 # Ericy
 Ericy:
@@ -5219,7 +5214,7 @@ Ericsson:
 
 # Energizer
 Energizer:
-  regex: 'PowerMax|ENERGY[_ ]?(?:[45]00|400S|S[56]00|E520)(?:[_ ]LTE)?'
+  regex: 'PowerMax|ENERGY[_ ]?(?:[45]00|400S|S[56]00|E5[02]0S?)(?:[_ ](?:LTE|EU))?'
   device: 'smartphone'
   models:
     - regex: 'PowerMax(P[0-9]+S?)'
@@ -5232,6 +5227,14 @@ Energizer:
       model: 'Energy 400'
     - regex: 'ENERGY[_ ]S([56]00)'
       model: 'Energy S$1'
+    - regex: 'ENERGY[_ ]?(E500S|E500)'
+      model: 'Energy $1'
+
+# Energy Sistem
+'Energy Sistem':
+  regex: 'ENERGY[ _-]?([^;/]+) Build'
+  device: 'tablet'
+  model: '$1'
 
 # eTouch
 eTouch:
@@ -6769,7 +6772,7 @@ Huawei:
 
 # Hyundai
 Hyundai:
-  regex: 'Hyundai|Ultra (?:Active|Air|Charm|Dream|Energy|Latitude|Link|Live|Shadow|Shine|Storm|Style|Sync|Trend|Vision|Wave)|G(24027|2552[34])K|W25042L|HP554O|Seoul S8|L503F Plus|HT0701L16|HT0704K08|HT1004L16|Koral_8W2'
+  regex: 'Hyundai|Ultra (?:Active|Air|Charm|Dream|Energy|Latitude|Link|Live|Shadow|Shine|Storm|Style|Sync|Trend|Vision|Wave)|G(24027|2552[34])K|W25042L|HP554O|Seoul S8|L503F Plus|HT0701L16|HT0704K08|HT1004L16|Koral_8W2|Eternity[_ ]G25'
   device: 'smartphone'
   models:
     - regex: 'Ultra (Active|Air|Charm|Dream|Energy Lite|Energy Plus|Energy|Latitude|Link|Live II|Live|Shadow|Shine|Storm|Style|Sync|Trend|Vision|Wave)'
@@ -6778,6 +6781,8 @@ Hyundai:
       model: 'Seoul S8'
     - regex: 'G25523K'
       model: 'Eternity G23'
+    - regex: 'Eternity[_ ]G25'
+      model: 'Eternity G25'
     - regex: 'G25524K'
       model: 'Eternity G24'
     - regex: 'G24027K'
@@ -12905,7 +12910,7 @@ Senwa:
 
 # Sky or Sky Devices (skydevices.com)
 Sky:
-  regex: '(?:SKY|Elite|Fuego)[_ ][3-7]\.[05](?:[A-Z]{1,2})?|Elite_5_5_Octa|Elite (?:M45|GO|M5Plus|T4)|Platinum[_ ](?:5.0M|M5|[ABC]4|[CG]55|[BDEFG]5|P9|X|UNO|VIEW2)|SKY[ _](?:55M|Pro_III)'
+  regex: '(?:SKY|Elite|Fuego)[_ ][3-7]\.[05](?:[A-Z]{1,2})?|Elite_5_5_Octa|Elite[ _](?:M45|GO|M5Plus|T55|T4|B5)|Platinum[_ ](?:5.0M|M5|[ABC]4|[CG]55|[BDEFG]5|P9|X|UNO|VIEW2)|SKY[ _](?:55M|Pro_III)'
   device: 'smartphone'
   models:
     - regex: 'Platinum_(?:5.0M|M5)'
@@ -12921,7 +12926,7 @@ Sky:
       model: 'Elite 5.5 Octa'
     - regex: 'Elite M5Plus'
       model: 'Elite M5 Plus'
-    - regex: 'Elite (M45|Go|T4)'
+    - regex: 'Elite[ _](M45|Go|T4|T55|B5)(?:[);/ ]|$)'
       model: 'Elite $1'
     - regex: 'Elite[_ ]([3-7]\.[05](?:[A-Z]{1,2})?\+?)'
       model: 'Elite $1'
@@ -14252,7 +14257,7 @@ TIANYU:
 
 # Timovi
 Timovi:
-  regex: 'Tmovi[ _]|(?:Infinit_Lite_2|Vision_PRO|VISION ULTRA)(?:[);/ ]|$)'
+  regex: 'Tmovi[ _]|(?:Infinit_Lite_2|Vision_PRO|VISION ULTRA|Epix)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Tmovi[ _]Prime'
@@ -14269,6 +14274,8 @@ Timovi:
       model: 'Vision Pro'
     - regex: 'VISION ULTRA'
       model: 'Vision Ultra'
+    - regex: 'Epix'
+      model: 'Epix'
 
 # Tooky
 Tooky:
@@ -15512,11 +15519,15 @@ Xion:
 
 # Xolo
 Xolo:
-  regex: 'Xolo|(?:Q600|Q700s?|Q800|Q1000s|Q1000[ _]Opus|Q1010i|Q2000|Omega[ _]5.[05])(?:[);/ ]|$)|BLACK-1XM'
+  regex: 'Xolo|(?:Q600|Q700s?|Q800|Q1000s|Q1000[ _]Opus|Q1010i|Q2000|Omega[ _]5.[05]|Era5X|Era_4X(?:_2GB)?)(?:[);/ ]|$)|BLACK-1XM'
   device: 'smartphone'
   models:
     - regex: 'BLACK-1XM'
       model: 'Black 1X'
+    - regex: 'Era_?([45])X(?:[);/ ]|$)'
+      model: 'Era $1X'
+    - regex: 'Era_4X_2GB(?:[);/ ]|$)'
+      model: 'Era 4X 2GB'
     - regex: '(Q600 Club|Q600|Q700s?|Q800|Q1000s Plus|Q1000s|Q1000[ _]Opus|Q1010i|Q2000|Omega[ _]5.[05])(?:[);/ ]|$)'
       model: '$1'
     - regex: 'Xolo[ _]?([^;/]+) Build'
@@ -19374,6 +19385,23 @@ Smailo:
 Colors:
   regex: 'Colors[ _](S(?:[19]|11)|P70|P[46]5|P50 Plus)(?:[);/ ]|$)'
   device: 'smartphone'
+  model: '$1'
+
+# Honeywell
+Honeywell:
+  regex: '(EDA50K?|EDA70|EDA51)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: 'ScanPal $1'
+
+# Electroneum (electroneum.com)
+Electroneum:
+  regex: 'electroneum(M1)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
+
+'High Q':
+  regex: '(ELT070[46]H|ELT0802H)(?:[);/ ]|$)'
+  device: 'tablet'
   model: '$1'
 
 # Leff
