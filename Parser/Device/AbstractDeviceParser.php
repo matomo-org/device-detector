@@ -182,6 +182,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'B1' => 'Bush',
         'C9' => 'CAGI',
         'CT' => 'Capitel',
+        'G3' => 'CG Mobile',
         'CP' => 'Captiva',
         'CF' => 'Carrefour',
         'CS' => 'Casio',
@@ -605,6 +606,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'O5' => 'Orbic',
         'OS' => 'Ordissimo',
         'OK' => 'Ouki',
+        'QK' => 'OKWU',
         'OE' => 'Oukitel',
         'OU' => 'OUYA',
         'OV' => 'Overmax',
@@ -926,6 +928,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ZU' => 'Zuum',
         'ZY' => 'Zync',
         'ZQ' => 'ZYQ',
+        'Z4' => 'ZH&K',
         'OW' => 'öwn',
         // legacy brands, might be removed in future versions
         'WB' => 'Web TV',
