@@ -8253,10 +8253,10 @@ Leagoo:
       model: 'Elite $1'
     - regex: 'Venture 1(?:[);/ ]|$)'
       model: 'Venture 1'
-    - regex: '(Z10-E)(?:[);/ ]|$)'
+    - regex: '(?:LEAGOO[- _])?(Z10-E|M6)(?:[);/ ]|$)'
       model: '$1'
 
-    - regex: '(Leapad[ _]7s)'
+    - regex: '(Leapad[ _](?:7s|10))'
       model: '$1'
       device: 'tablet'
 
@@ -9008,7 +9008,7 @@ Lingwin:
 
 # Logicom
 Logicom:
-  regex: 'LOGICOM[_ ]|(TAB950|TAB1062|E731|E812|E912|E1031|POWER BOT|La[ _]Tab[ _](?:7[24]|10[57]|114)|(?:B|C|M|ID|VR)[ _]?BOT[ _]?(?:TAB[ _])?([0-9]+\+?)(?:PLUS)?|KT712A_4\.4|L-?IXIR[0-9]*|L-ITE|L-EGANTONE-R|L-?EMENT|L-EMENT551|Le[ _]?(?:Hop|Lift|Hola|Moov[2]?|Must 2|Fit FR|Spark|Prime|Smooth(?: FR)?))[_);/ ]'
+  regex: 'LOGICOM[_ ]|(TAB950|TAB1062|E731|E812|E912|E1031|POWER BOT|La[ _]Tab[ _](?:7[24]|10[57]|114)|(?:B|C|M|ID|VR)[ _]?BOT[ _]?(?:TAB[ _])?([0-9]+\+?)(?:PLUS)?|KT712A_4\.4|L-?IXIR[0-9]*|L-ITE|L-EGANTONE-R|L-?EMENT|L-EMENT551|Le[ _]?(?:Hop|Hello|Lift|Hola|Moov[2]?|Must(?: 2)?|Starter L|Fit FR|Spark|Prime|Smooth(?: FR)?))[_);/ ]'
   device: 'tablet'
   models:
     - regex: 'La[ _]Tab[ _](7[24]|10[57]|114)(?:[);/ ]|$)'
@@ -9054,6 +9054,8 @@ Logicom:
       device: 'smartphone'
     - regex: 'Le Hop(?:[);/ ]|$)'
       model: 'Le Hop'
+    - regex: 'Le[ _]Hello(?:[);/ ]|$)'
+      model: 'Le Hello'
       device: 'smartphone'
     - regex: 'Le Smooth FR(?:[);/ ]|$)'
       model: 'Le Smooth FR'
@@ -9063,6 +9065,11 @@ Logicom:
       device: 'smartphone'
     - regex: 'Le Must 2(?:[);/ ]|$)'
       model: 'Le Must 2'
+    - regex: 'Le Must(?:[);/ ]|$)'
+      model: 'Le Must'
+      device: 'smartphone'
+    - regex: 'Le Starter L(?:[);/ ]|$)'
+      model: 'Le Starter L'
       device: 'smartphone'
     - regex: 'Le[ _]Spark(?:[);/ ]|$)'
       model: 'Le Spark'
@@ -12904,28 +12911,36 @@ Sencor:
     - regex: 'Sencor[ _]([^;/]+) Build'
       model: '$1'
 
-# Senwa
+# Senwa (senwamobile.com)
 Senwa:
-  regex: 'Senwa|(?:S\-?(?:471|7[12]5|6[01]5|915|905TL|1000|5018)|V705B)[ /;\)]'
+  regex: 'Senwa|(?:S\-?(?:471|7[12]5|6[01]5|915|905TL|1000|5018)|V705B|LS50F| LS50?|LS5518H|LS5718)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'S\-?471[ /;\)]'
+    - regex: 'S-?471(?:[);/ ]|$)'
       model: 'Jazz'
-    - regex: 'S\-?605[ /;\)]'
+    - regex: 'S-?605(?:[);/ ]|$)'
       model: 'City'
-    - regex: 'S\-?905TL[ /;\)]'
+    - regex: 'S-?905TL(?:[);/ ]|$)'
       model: 'Odin'
-    - regex: 'S\-?1000[ /;\)]'
+    - regex: 'S-?1000(?:[);/ ]|$)'
       model: 'Odin'
-    - regex: 'S\-?5018[ /;\)]'
+    - regex: 'S-?5018(?:[);/ ]|$)'
       model: 'Inizio'
-    - regex: 'S\-?(615|7[12]5|915)[ /;\)]'
+    - regex: 'S-?(615|7[12]5|915)(?:[);/ ]|$)'
       model: 'S$1'
-    - regex: 'V705B[ /;\)]'
+    - regex: 'V705B(?:[);/ ]|$)'
       model: 'V705B'
-    - regex: 'Senwa[ _-]*([^;/]+) Build'
-      model: '$1'
-    - regex: 'Senwa[ _-]*([^ ;/)]+)(?:[);/ ]|$)'
+    - regex: 'LS50F(?:[);/ ]|$)'
+      model: 'Evolution'
+    - regex: ' LS50(?:[);/ ]|$)'
+      model: 'Pegasus'
+    - regex: ' LS5(?:[);/ ]|$)'
+      model: 'Thor'
+    - regex: 'LS5518H(?:[);/ ]|$)'
+      model: 'Sparkly'
+    - regex: 'LS5718(?:[);/ ]|$)'
+      model: 'Diamond'
+    - regex: 'Senwa[ _-]*([^;/]+)(?: Build|[;)])'
       model: '$1'
 
 # Sky or Sky Devices (skydevices.com)
@@ -13489,7 +13504,7 @@ Qilive:
 
 # QMobile
 QMobile:
-  regex: 'QMobile|QTab|Q-Smart|Noir X1S|LUNA PRO|NICE S|JazzX JS(?:[27]|10)(?: PRO)?'
+  regex: 'QMobile|QTab|Q-Smart|Noir X1S|LUNA PRO|NICE S|JazzX JS(?:[27]|10)(?: PRO)?|LT500 PRO'
   device: 'smartphone'
   models:
     - regex: 'JazzX JS7 PRO'
@@ -13508,6 +13523,8 @@ QMobile:
       model: '$1'
     - regex: 'Noir X1S'
       model: 'Noir X1S'
+    - regex: 'LT500 PRO'
+      model: 'Noir LT500 Pro'
     - regex: 'LUNA PRO'
       model: 'Luna Pro'
     - regex: 'NICE S'
@@ -19494,6 +19511,12 @@ Pluzz:
       model: 'Odyssey O2'
     - regex: 'ODYSSEY RANGE'
       model: 'Odyssey Range'
+
+# Ordissimo (ordissimo.fr)
+Ordissimo:
+  regex: '(LeNumero1)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
 
 # Leff
 Leff:
