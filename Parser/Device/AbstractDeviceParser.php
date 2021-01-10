@@ -831,6 +831,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'UU' => 'Unonu',
         'UN' => 'Unowhy',
         'UK' => 'UTOK',
+        '3U' => 'IUNI',
         'UT' => 'UTStarcom',
         '5V' => 'VAIO',
         'VA' => 'Vastking',

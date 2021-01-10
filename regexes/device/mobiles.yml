@@ -5315,7 +5315,7 @@ Evolveo:
 
 # Explay
 Explay:
-  regex: 'Explay|[\w]+-EXPLAY-FIN|ActiveD[ _]|Atlant |Informer[ _][0-9]+|CinemaTV 3G|Surfer[ _][0-9\.]|sQuad[ _][0-9\.]|Onliner[1-3]|RioPlay|Leader|Infinityll|Imperium[78]|Indigo'
+  regex: 'Explay|[\w]+-EXPLAY-FIN|ActiveD[ _]|Atlant |Informer[ _][0-9]+|CinemaTV 3G|Surfer[ _][0-9\.]|sQuad[ _][0-9\.]|Onliner[1-3]|RioPlay|Leader|Infinityll|Imperium[78]|Indigo|Lagoon'
   device: 'tablet'
   models:
     - regex: 'ActiveD[ _]7.4[ _]3G'
@@ -5347,12 +5347,11 @@ Explay:
       device: 'feature phone'
       model: 'Fin'
 
-
-    - regex: 'Explay[ _-]([^;/]+) Build'
+    - regex: 'Lagoon(?:[);/ ]|$)'
+      model: 'Lagoon'
+    - regex: 'Explay[ _-]([^;/]+)(?: Build|[;)])'
       model: '$1'
-    - regex: 'Explay[ _-]([^;/]+)(?:[;/)]|$)'
-      model: '$1'
-    - regex: '(RioPlay)(?:[);/ ]|$)'
+    - regex: 'RioPlay(?:[);/ ]|$)'
       device: 'smartphone'
       model: 'Rio Play'
     - regex: 'Leader'
@@ -8071,7 +8070,7 @@ LAIQ:
   regex: 'LAIQ'
   device: 'smartphone'
   models:
-    - regex: '(Glam|New York)'
+    - regex: '(Glam|New York|Dubai)(?:[);/ ]|$)'
       model: '$1'
 
 # AIS
@@ -8165,7 +8164,7 @@ Lanix:
       device: 'tablet'
     - regex: 'X120C'
       model: 'Ilium X120C'
-    - regex: 'Ilium[ _](Alpha [15]s|Alpha [379]|L(?:200|6[12]0|9[125]0|1[0124]00|1050|1120)|LT5[012]0|M[13579]|S(?:106|520|6[27]0)|X(?:1[12]0|2[0126]0|5[12]0|500B|710))(?:[);/ ]|$)'
+    - regex: 'Ilium[ _](Alpha [15]s|Alpha [379]|L(?:200|6[12]0|9[0125]0|1[0124]00|1050|1120)|LT5[012]0|M[13579]|S(?:106|520|6[27]0)|X(?:1[12]0|2[0126]0|5[12]0|500B|710))(?:[);/ ]|$)'
       model: 'Ilium $1'
     - regex: 'ILIUM[ _]([^;/]+) Build'
       model: 'Ilium $1'
@@ -8195,7 +8194,7 @@ Lark:
       model: 'FreeMe X4 9'
     - regex: '(?:Lark[ _-])?Evolution[ _](X2 7 3G-GPS|X4[_ ]10\.1|10|X4[_ ]7[ _]IPS)'
       model: 'Evolution $1'
-    - regex: 'Ultimate (X4 10\.1 3G IPS|X4 8s 3G|7i)'
+    - regex: 'Ul[ti]{2}mate (X4 10\.1 3G IPS|X4 8s 3G|7i)'
       model: 'Ultimate $1'
     - regex: 'PHABLET 7'
       model: 'Phablet 7'
@@ -9006,27 +9005,32 @@ Lingwin:
     - regex: 'Lingwin[ _\-]?([^);/ ]+)'
       model: '$1'
 
-# Logicom
+# Logicom (logicom-europe.com)
 Logicom:
-  regex: 'LOGICOM[_ ]|(TAB950|TAB1062|E731|E812|E912|E1031|POWER BOT|La[ _]Tab[ _](?:7[24]|10[57]|114)|(?:B|C|M|ID|VR)[ _]?BOT[ _]?(?:TAB[ _])?([0-9]+\+?)(?:PLUS)?|KT712A_4\.4|L-?IXIR[0-9]*|L-ITE|L-EGANTONE-R|L-?EMENT|L-EMENT551|Le[ _]?(?:Hop|Hello|Lift|Hola|Moov[2]?|Must(?: 2)?|Starter L|Fit FR|Spark|Prime|Smooth(?: FR)?))[_);/ ]'
+  regex: 'LOGICOM[_ ]|(TAB950|TAB1062|E731|E812|E912|E1031|POWER BOT|La[ _]Tab[ _](?:7[24]|10[57]|114)|(?:B|C|M|ID|VR)[ _]?BOT[ _]?(?:TAB[ _])?([0-9]+\+?)(?:PLUS)?|KT712A_4\.4|L-?IXIR[0-9]*|L-ITE|L-EGANTONE(?:-R)?|L-?EMENT.+|Le[ _]?(?:Hop|Hello|Lift|Hola|Moov[2]?|Must(?: 2)?|Starter L|Fit FR|Spark|Prime|Smooth(?: FR)?))[_);/ ]'
   device: 'tablet'
   models:
     - regex: 'La[ _]Tab[ _](7[24]|10[57]|114)(?:[);/ ]|$)'
       model: 'La Tab $1'
     - regex: 'LOGICOM_LA_TAB_LINK_71'
       model: 'La Tab Link 71'
-    - regex: 'KT712A_4.4'
-      model: 'L-ixir Tab 701'
+    - regex: 'KT712A_4.4|L-IXIR TAB 701 3G'
+      model: 'L-ixir Tab 701 3G'
     - regex: 'LIXIR1041'
       model: 'L-ixir Tab 1041'
-    - regex: 'L-?IXIR TAB ([^;/]+) Build'
+    - regex: 'L-?IXIR[ _]TAB[ _]([^);/]+)( Build|[);])'
       model: 'L-ixir Tab $1'
+    - regex: 'L-ITE[ _](400M|452|50[46] HD|506R HD|552 HD)(?:[);/ ]|$)'
+      device: 'smartphone'
+      model: 'L-ite $1'
     - regex: 'L-ITE[ _]([^;/]+) Build'
       model: 'L-ite Tab $1'
-    - regex: 'L-EMENT[ _]?(40[03]|55[13]|505)(?:[);/ ]|$)'
+    - regex: 'L-?EMENT[ _]?(350|451|40[103]|55[013]|50[15]|500L?)(?:[);/ ]|$)'
       model: 'L-ement $1'
       device: 'smartphone'
-    - regex: 'L-?EMENT[ _](?:TAB)?([^;/]+) Build'
+    - regex: 'L-?EMENT[ _](?:TAB)[ )]?([^);/]+)(?: Build|[);])'
+      model: 'L-ement Tab $1'
+    - regex: 'L-?EMENT[ _]?(74[01])(?:[);/ ]|$)'
       model: 'L-ement Tab $1'
     - regex: '(TAB950|TAB1062|E731|E812|E912|E1031)(?:[);/ ]|$)'
       model: '$1'
@@ -9054,6 +9058,7 @@ Logicom:
       device: 'smartphone'
     - regex: 'Le Hop(?:[);/ ]|$)'
       model: 'Le Hop'
+      device: 'smartphone'
     - regex: 'Le[ _]Hello(?:[);/ ]|$)'
       model: 'Le Hello'
       device: 'smartphone'
@@ -9064,6 +9069,7 @@ Logicom:
       model: 'Le Smooth'
       device: 'smartphone'
     - regex: 'Le Must 2(?:[);/ ]|$)'
+      device: 'smartphone'
       model: 'Le Must 2'
     - regex: 'Le Must(?:[);/ ]|$)'
       model: 'Le Must'
@@ -9079,6 +9085,9 @@ Logicom:
       device: 'smartphone'
     - regex: 'L-EGANTONE-R'
       model: 'L-Egant One R'
+      device: 'smartphone'
+    - regex: 'L-EGANTONE'
+      model: 'L-Egant One'
       device: 'smartphone'
 
 # Konka
@@ -10249,7 +10258,7 @@ Nobby:
 
 # nec
 NEC:
-  regex: 'NEC[ _\-]|KGT/2\.0|PC-TE508(?:S1|[BH]AW)|PC-TE510(?:HAW|BAL)|PC-TS708T1W|PC-TS507N1S|PC-TE507JAW|portalmmm/1\.0 (?:DB|N)|(?:portalmmm|o2imode)/2.0[ ,]N|(?:N-06C|N-02E|LAVIE Tab E (?:10|8)FHD1)(?:[);/ ]|$)'
+  regex: 'NEC[ _\-]|KGT/2\.0|PC-TE508(?:S1|[BH]AW)|PC-TE510(?:HAW|BAL|S1)|PC-TS708T1W|PC-TS507N1S|PC-TE507JAW|portalmmm/1\.0 (?:DB|N)|(?:portalmmm|o2imode)/2.0[ ,]N|(?:N-06C|N-02E|LAVIE Tab E (?:10|8)FHD1)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'N-06C(?:[);/ ]|$)'
@@ -10265,7 +10274,7 @@ NEC:
     - regex: 'PC-TE508[BH]AW(?:[);/ ]|$)'
       device: 'tablet'
       model: 'LAVIE Tab E TE508'
-    - regex: 'PC-TE510(?:BAL|HAW)(?:[);/ ]|$)'
+    - regex: 'PC-TE510(?:BAL|HAW|S1)(?:[);/ ]|$)'
       device: 'tablet'
       model: 'LAVIE Tab E TE510'
     - regex: 'PC-TS507N1S(?:[);/ ]|$)'
@@ -11446,9 +11455,11 @@ TCL:
 
 # JVC
 JVC:
-  regex: 'JVC[;,]'
+  regex: 'JVC[;,]|JVC Shell'
   device: 'tv'
   models:
+    - regex: 'JVC Shell [0-9A-Z]+'
+      model: ''
     - regex: 'JVC[;,](32D1290)'
       model: '$1'
 
@@ -19501,6 +19512,14 @@ Pluzz:
   regex: 'Omega ([38])(?:[);/ ]|$)'
   device: 'smartphone'
   model: 'Omega $1'
+
+# IUNI
+IUNI:
+  regex : 'IUNI[ _]'
+  device: 'smartphone'
+  models:
+    - regex: 'IUNI[ _](U3|i1)'
+      model: '$1'
 
 # (zhnkmobile.com)
 'ZH&K':
