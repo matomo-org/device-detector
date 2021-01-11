@@ -7175,7 +7175,7 @@ IMO Mobile:
       model: 'Tab X9'
       device: 'tablet'
 
-# iLA
+# iLA or ILA Mobile
 iLA:
   regex: 'iLA[-_ ](Silk|X)(?:[);/ ]|$)'
   device: 'smartphone'
@@ -10099,7 +10099,7 @@ MyTab:
 
 # myphone (myphone.com.ph)
 MyPhone:
-  regex: '(?:MyPhone|MyPad|MyTab)[ _][^;/)]+( Build|\))|Cube_LTE|myTab10II|HAMMER[ _](Blade2_PRO|IRON_3|Explorer|ENERGY|Titan 2|AXE[_ ](?:M[_ ]LTE|Pro)|Iron 2|Active[2]?(_LTE)?)|C-Smart_pix|myPhone_Fun_8|Prime_4_Lite|myA17|myX12|Pocket_2|myT6 DTV|myXI1 (?:Plus|Pro)|myXI3'
+  regex: '(?:MyPhone|MyPad|MyTab)[ _][^;/)]+( Build|\))|Cube_LTE|myTab10II|HAMMER[ _](Blade2_PRO|IRON_3|Explorer|ENERGY|Titan 2|AXE[_ ](?:M[_ ]LTE|Pro)|Iron 2|Active[2]?(_LTE)?)|C-Smart_pix|myPhone_Fun_8|Prime_4_Lite|myA17|myX12|Pocket_2|myT6 DTV|myXI1 (?:Plus|Pro)|myXI3|Q_Smart_BE'
   device: 'smartphone'
   models:
     # explicit table models
@@ -10160,6 +10160,8 @@ MyPhone:
       model: 'myXI1 Pro'
     - regex: 'myXI3(?:[);/ ]|$)'
       model: 'myXI3'
+    - regex: 'Q_Smart_BE(?:[);/ ]|$)'
+      model: 'Q-Smart BE'
 
     # general detections
     - regex: 'MyPhone[ _]([^;/)]+)( Build|\))'
@@ -13498,7 +13500,7 @@ Sanyo:
 
 # Qilive
 Qilive:
-  regex: 'Qilive [0-9][^;/]*|Q(7S5[5]?IN4G|7T10INP|8T10IN|8S55IN4G2|8S[56]IN4G|9S55IN4G|10S5[37]IN4G|10S[56]IN4G|10S[56]IN4GR|9S5IN4G|6T7IN)'
+  regex: 'Qilive [0-9][^;/]*|Q(7S5[5]?IN4G|7T10INP|8T10IN|8S55IN4G2|8S[56]IN4G|9T(?:7|10)IN4G|9S55IN4G|10S5[37]IN4G|10S[56]IN4G|10S[56]IN4GR|9S5IN4G|6T7IN)'
   device: 'smartphone'
   models:
     - regex: 'Q7S5IN4G'
@@ -13532,6 +13534,12 @@ Qilive:
     - regex: 'Q8T10IN'
       model: 'Q8 10.1"'
       device: 'tablet'
+    - regex: 'Q9T7IN4G'
+      model: 'Q9 7.0" 4G'
+      device: 'tablet'
+    - regex: 'Q9T10IN4G'
+      model: 'Q9 10.1" 4G'
+      device: 'tablet'
     - regex: 'Qilive ([0-5][^;/]*) Build'
       model: '$1'
     - regex: 'Qilive ([0-5][^;/]*)/'
@@ -13545,7 +13553,7 @@ Qilive:
 
 # QMobile
 QMobile:
-  regex: 'QMobile|QTab|Q-Smart|Noir X1S|LUNA PRO|NICE S|JazzX JS(?:[27]|10)(?: PRO)?|LT500 PRO'
+  regex: 'QMobile|QTab(?!10EW)|Q-Smart|Noir X1S|LUNA PRO|NICE S|JazzX JS(?:[27]|10)(?: PRO)?|LT500 PRO'
   device: 'smartphone'
   models:
     - regex: 'JazzX JS7 PRO'
@@ -13972,15 +13980,13 @@ Amazon:
 
 # Symphony
 Symphony:
-  regex: 'SYMPHONY[ \_]([a-z0-9]+)|(?:roar (?:V20|E80))|ZVIII(?:[);/ ]|$)'
+  regex: 'SYMPHONY[ \_]([a-z0-9]+)|(?:roar[ _](?:V20|V78|E80|V150))|roarV95|ZVIII(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'ZVIII'
       model: 'ZVIII'
-    - regex: 'roar V20'
-      model: 'Roar V20'
-    - regex: 'roar E80'
-      model: 'Roar E80'
+    - regex: 'roar[ _]?(V20|E80|V78|V95|V150)(?:[);/ ]|$)'
+      model: 'Roar $1'
     - regex: 'SYMPHONY[ \_]([a-z0-9]+)'
       model: '$1'
 
@@ -17714,9 +17720,14 @@ EXO:
 
 # Q.Bell (qbell.it)
 'Q.Bell':
-  regex: '(QPHONE[_ ](?:10.1|9.[12]|7.1|5.[46]))(?:[);/ ]|$)'
+  regex: '(QPHONE[_ ](?:10.1|9.[12]|7.1|5.[46])|QTAB10EW)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: '(QPHONE[_ ](?:10.1|9.[12]|7.1|5.[46]))(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'QTAB10EW'
+      device: 'tablet'
+      model: 'QTAB10EW'
 
 # Datawind
 Datawind:
@@ -18837,15 +18848,27 @@ Ovvi:
 
 # Fero
 Fero:
-  regex: 'Fero[_ ]|Royale_X2'
+  regex: 'Fero[_ ]|Royale[_ ](?:[YX]2|A1)'
   device: 'smartphone'
   models:
     - regex: 'Fero_Y1'
       model: 'Y1'
-    - regex: 'Royale_X2'
-      model: 'Royale X2'
+    - regex: 'Royale Y2 Lite'
+      model: 'Royale Y2 Lite'
+    - regex: 'Royale[_ ]([YX]2|A1)'
+      model: 'Royale $1'
     - regex: 'Fero (A4001|A4502|L100)'
       model: '$1'
+
+# Ruio
+Ruio:
+  regex: 'Ruio[ _]'
+  device: 'smartphone'
+  models:
+    - regex: 'Ruio[ _](S4)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'Ruio[ _](S5)Plus(?:[);/ ]|$)'
+      model: '$1 Plus'
 
 # Transpeed
 Transpeed:
