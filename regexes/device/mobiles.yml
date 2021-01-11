@@ -1732,16 +1732,21 @@ Allview:
 
 # Allwinner
 Allwinner:
-  regex: '(?:QUAD-CORE A64 p3|ZY-07B|UltraOcta-T8)(?:[);/ ]|$)'
+  regex: '(?:QUAD-CORE (?:A64 p3|A33 y3|T3 K2001M)|ZY-07B|UltraOcta-T8)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'QUAD-CORE A64 p3'
       model: 'A64 QUAD-CORE p3'
+    - regex: 'QUAD-CORE A33 y3'
+      model: 'A33 QUAD-CORE y3'
     - regex: 'ZY-07B'
       model: 'ZY-07B'
     - regex: 'UltraOcta-T8'
       device: 'car browser'
       model: 'Ultra Octa T8'
+    - regex: 'QUAD-CORE T3 K2001M'
+      device: 'car browser'
+      model: 'QUAD-CORE T3 K2001M'
 
 # altron
 altron:
@@ -10202,7 +10207,7 @@ M.T.T.:
 
 # Navon
 Navon:
-  regex: 'Navon[_ ]|(?:Vision_Tab_(?:7|10)|Superme_Max|Supreme[_ ](?:Fine|Chief|Pure|Pro)(?:[_ ](?:Mini|Plus))?)(?:[);/ ]|$)'
+  regex: 'Navon[_ ]|(?:Vision_Tab_(?:7|10)|Superme_Max|Platinum[_ ]10[_ ]3G(?:_V2)?|Supreme[_ ](?:Fine|Chief|Pure|Pro)(?:[_ ](?:Mini|Plus))?)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Superme_Max(?:[);/ ]|$)'
@@ -10223,8 +10228,9 @@ Navon:
       model: 'Supreme Pro'
     - regex: 'Navon[_ ]Infinity(?:[);/ ]|$)'
       model: 'Infinity'
-    - regex: 'Navon[_ ]Platinum 10 3G(?:[);/ ]|$)'
-      model: 'Platinum 10.1" 3G'
+    - regex: '(?:Navon[_ ])?Platinum[ _]10[ _]3G(_V2)?(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'Platinum 10.1" 3G$1'
 
     - regex: 'Vision_Tab_(7|10)(?:[);/ ]|$)'
       device: 'tablet'
@@ -10734,7 +10740,7 @@ Onda:
   device: 'smartphone'
   models:
     # explicit tablet models
-    - regex: 'ONDA MID'
+    - regex: 'ONDA[ _]MID'
       model: 'MID'
       device: 'tablet'
     - regex: 'V820w[ _-]DualOS'
@@ -11247,7 +11253,7 @@ Ouki:
 
 # Overmax
 Overmax:
-  regex: 'OV-[a-z]+(?:[^;(/]*)[();/ ]|Qualcore 1010|Vertis 5021 Aim|OV1027[34]G'
+  regex: 'OV-[a-z]+(?:[^;(/]*)[();/ ]|Qualcore 10(?:10|27)|Vertis 5021 Aim|OV1027[34]G'
   device: 'tablet'
   models:
     - regex: 'OV-V10'
@@ -11262,6 +11268,9 @@ Overmax:
 
     - regex: 'Qualcore 1010'
       model: 'Qualcore 1010'
+      device: 'tablet'
+    - regex: 'Qualcore 1027 4G'
+      model: 'Qualcore 1027 4G'
       device: 'tablet'
     - regex: 'OV1027([34])G'
       model: 'Qualcore 1027 $1G'
@@ -12971,18 +12980,22 @@ Senwa:
 
 # Sky or Sky Devices (skydevices.com)
 Sky:
-  regex: '(?:SKY|Elite|Fuego)[_ ][3-7]\.[05](?:[A-Z]{1,2})?|Elite_5_5_Octa|Elite[ _](?:M45|GO|M5Plus|T55|T4|B5)|Platinum[_ ](?:5.0M|M5|[ABC]4|[CG]55|[BDEFG]5|P9|X|UNO|VIEW2|O)|SKY[ _](?:55M|Pro_III)'
+  regex: '(?:SKY|Elite|Fuego)[_ ][3-7]\.[05](?:[A-Z]{1,2})?|Elite_5_5_Octa|Elite[ _](?:M45|GO|M5Plus|T55|T4|B5)|Platinum[_ ](?:5.0M|5\.5C|M5|[ABCM]4|[ACG]55|[ABDEFG]5|A57|P9|X|UNO|VIEW2|O|4_0Plus)|PLATINUMVIEW|SKY[ _](?:55M|Pro_III)'
   device: 'smartphone'
   models:
-    - regex: 'Platinum_(?:5.0M|M5)'
+    - regex: 'Platinum[_ ](?:5\.0M|M5)'
       model: 'Platinum 5.0M'
+    - regex: 'Platinum[_ ]5\.5C'
+      model: 'Platinum 5.5C'
+    - regex: 'Platinum_4_0Plus'
+      model: 'Platinum 4.0 Plus'
     - regex: 'Platinum[_ ](P9) Pro(?:[);/ ]|$)'
       model: 'Platinum $1 Pro'
-    - regex: 'Platinum[_ ]([ABC]4|[CG]55|[BDEFG]5|P9|X|UNO|O)(?:[);/ ]|$)'
+    - regex: 'Platinum[_ ]([ABCM]4|[ACG]55|[ABDEFG]5|A57|P9|X|UNO|O)(?:[);/ ]|$)'
       model: 'Platinum $1'
-    - regex: 'Platinum[_ ]VIEW2(?:[);/ ]|$)'
+    - regex: 'Platinum[_ ]?VIEW(2)?(?:[);/ ]|$)'
       device: 'tablet'
-      model: 'Platinum View2'
+      model: 'Platinum View$1'
     - regex: 'Elite_5_5_Octa'
       model: 'Elite 5.5 Octa'
     - regex: 'Elite M5Plus'
@@ -13485,7 +13498,7 @@ Sanyo:
 
 # Qilive
 Qilive:
-  regex: 'Qilive [0-9][^;/]*|Q(7S5[5]?IN4G|7T10INP|8T10IN|8S55IN4G2|8S[56]IN4G|10S5[37]IN4G|10S[56]IN4G|10S[56]IN4GR|9S5IN4G|6T7IN)'
+  regex: 'Qilive [0-9][^;/]*|Q(7S5[5]?IN4G|7T10INP|8T10IN|8S55IN4G2|8S[56]IN4G|9S55IN4G|10S5[37]IN4G|10S[56]IN4G|10S[56]IN4GR|9S5IN4G|6T7IN)'
   device: 'smartphone'
   models:
     - regex: 'Q7S5IN4G'
@@ -13500,6 +13513,8 @@ Qilive:
       model: 'Q8 5.1" 4G'
     - regex: 'Q9S5IN4G'
       model: 'Q9 5.0" 4G'
+    - regex: 'Q9S55IN4G'
+      model: 'Q9 5.5" 4G'
     - regex: 'Q10S53IN4G'
       model: 'Q10 5.3" 4G'
     - regex: 'Q10S57IN4G'
@@ -13987,9 +14002,9 @@ Qtek:
   device: 'smartphone'
   model: '$1'
 
-# Q-Touch
+# Q-Touch or Q.Touch or QTouch
 Q-Touch:
-  regex: '(Q09) Build'
+  regex: '( Q09|QS701)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
 
@@ -17697,9 +17712,9 @@ EXO:
   device: 'tablet'
   model: '$1'
 
-# Q.Bell
+# Q.Bell (qbell.it)
 'Q.Bell':
-  regex: '(QPHONE[_ ](?:10.1|9.1|5.4))(?:[);/ ]|$)'
+  regex: '(QPHONE[_ ](?:10.1|9.[12]|7.1|5.[46]))(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
 
