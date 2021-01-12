@@ -5661,7 +5661,7 @@ Ghia:
 
 # Gigabyte
 Gigabyte:
-  regex: 'GSmart[ _][a-z0-9 ]+(?: Build|\))|Gigabyte-[a-z0-9]+|Simba SX1|GSmart_Classic_Lite|Classic[_ ](?:Joy|Pro)'
+  regex: 'GSmart[ _][a-z0-9 ]+(?: Build|\))|Gigabyte-[a-z0-9]+|Simba SX1|GSmart_Classic_Lite|(?<!Eagle )Classic[_ ](?:Joy|Pro)'
   device: 'smartphone'
   models:
     - regex: '(GSmart[ _][a-z0-9 ]+)(?: Build|[);])'
@@ -17107,7 +17107,7 @@ BDF:
 
 # Highscreen
 Highscreen:
-  regex: 'HIGHSCREEN|(Easy[- ]Power(?:[- ]Pro)?|Pure[_ ](?:Power|F)|Power Ice(?: Max)?|Easy[_ ]([SFL]|XL)(?:_Pro)?|Razar_Pro|Power Rage(?: Evo)?|Zera-S-Power|Zera[ _][UFS]|Power[ _]?Five[ matrixstyle _]?(?:Pro|Evo|Max|Max(?:Lite|2))|PowerFour|BOOST II(?:se)?|FestXL|Fest-Pro|Tasty|Boost3|Boost 3(?: Pro)? SE|Expanse|Hercules)(?:[);/ ]|$)'
+  regex: 'HIGHSCREEN|(Easy[- ]Power(?:[- ]Pro)?|Pure[_ ](?:Power|F)|Power Ice(?: Max)?|Easy[_ ]([SFL]|XL)(?:_Pro)?|Razar_Pro|Power Rage(?: Evo)?|Zera-S-Power|Zera[ _][UFS]|Power[ _]?Five[ matrixstyle _]?(?:Pro|Evo|Max|Max(?:Lite|2))|PowerFour|BOOST II(?:se)?|Fest(?:XL)?(?:-Pro)?|Tasty|Boost3|Boost 3(?: Pro)? SE|Expanse|Hercules)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(Power Ice(?:[ ](?:Max|Evo))?|Power Rage(?: Evo)?|Zera[ _][UFS])(?:[);/ ]|$)'
@@ -17122,10 +17122,14 @@ Highscreen:
       model: 'Power Five Evo'
     - regex: 'Power Five Max(?:[);/ ]|$)'
       model: 'Power Five Max'
+    - regex: 'FestXL-Pro(?:[);/ ]|$)'
+      model: 'Fest XL Pro'
     - regex: 'FestXL(?:[);/ ]|$)'
       model: 'Fest XL'
     - regex: 'Fest-Pro(?:[);/ ]|$)'
       model: 'Fest Pro'
+    - regex: 'Fest(?:[);/ ]|$)'
+      model: 'Fest'
     - regex: 'PowerFour(?:[);/ ]|$)'
       model: 'Power Four'
     - regex: 'Pure[_ ]Power(?:[);/ ]|$)'
@@ -19596,6 +19600,18 @@ Ordissimo:
 Necnot:
  regex: '(M002[DGQK]-2|M002N|M002N-3T|M002W-2T|6M-3T)(?:[);/ ]|$)'
  device: 'tablet'
+ model: '$1'
+
+# Eagle (eagleuhd.com)
+Eagle:
+  regex: 'Eagle[ _](Classic Pro|Elite|Gold)(?:[);/ ]|$)'
+  device: 'tv'
+  model: '$1'
+
+# Invens
+Invens:
+ regex: '(Fighter|Eager)(?: Build|[;)])'
+ device: 'smartphone'
  model: '$1'
 
 # Leff
