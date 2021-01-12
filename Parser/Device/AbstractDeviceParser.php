@@ -189,6 +189,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CS' => 'Casio',
         'R4' => 'Casper',
         'CA' => 'Cat',
+        '02' => 'Cell-C',
         '7C' => 'Celcus',
         'CE' => 'Celkon',
         'C2' => 'Changhong',

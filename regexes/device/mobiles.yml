@@ -3450,8 +3450,8 @@ Casper:
     - regex: 'CASPER_L10_4.5G'
       model: 'L10 4.5G'
       device: 'tablet'
-    - regex: 'CASPER_S38'
-      model: 'S38'
+    - regex: 'CASPER_(S[23]8)(?:[);/ ]|$)'
+      model: '$1'
       device: 'tablet'
     - regex: 'VIA[- _](T7|T8D)-3G'
       model: 'VIA $1 3G'
@@ -3513,9 +3513,16 @@ Celkon:
 # Changhong
 Changhong:
   regex: 'Changhong'
-  device: 'tv'
+  device: 'smartphone'
   models:
-    - regex: 'Changhong-([^);/]+)'
+    - regex: 'Changhong[ ]?(X1-K|X6|R8|Z9S?|Z1S|S18)(?:[);/ ]|$)'
+      model: '$1'
+
+    - regex: 'ChangHong Android TV'
+      device: 'tv'
+      model: ''
+    - regex: '(?:Opera TV|).+Changhong-([^);/]+)'
+      device: 'tv'
       model: '$1'
 
 # Cherry Mobile
@@ -4254,7 +4261,7 @@ Digiland:
 
 # Digma
 Digma:
-  regex: 'Digma[_ ]([^;/]+) Build|HIT HT707[10]MG|CITI ATL 4G|CITI Kids|CITI Octa [178]0|CITI 1902 3G|CITI Z530 3G|(CITI[_ ](?:[A-Z0-9]+)[_ ][34]G)[ _][TC][ST](606[32]ML|1114ML|11[459]4MG|1207MG|1210MG|1195MG|1196ML|3001ML|4024PG|500[67]PG|720[48]MG|7113PL|7193MG|820[69]MG|8139ML|8143MG|8152ML|1050PL|8205PG|7203MG|1062ML)|HIT 4G|HT7074ML|IDX5|(iDx10|iDx7)|MVM900H(?:WZ|C)|MVM908HCZ|(iDxD8 3G|iDxD10 3G|iDrQ10 3G|iDxD[45]|iDxQ5|iD[nx]D7(?:[_ ]3G)?)|PS604M|PT452E|LINX B510 3G LT5037MG|LINX A452 3G LT4030PG|LINX A453 3G LT4038PG|LINX A420 3G LS4019PG|LINX A450 3G LT4028PG|Linx A400 3G LT4001PG|Linx C500 3G LT5001PG|Linx PS474S|LS504[01]PL|LT40(47|54)MG|PS1043MG|LS405[01]MG|LS5053ML|LT5048MG|HT7071MG|LT5052ML|HT5035PG|HT4039PG|LT4049PG|NS6902QL|NS9797MG|TS7854M|TS1012E 3G|TT1004PG|TT702[045]MG|TT7026MW|((?:Optima|Platina|Plane)[ _](?:[EM])?(?:[0-9\.ST]+|Prime)(?:[ _][43]G)?)|(VOX[ _](?:[0-9\.A-Z]+)[_ ][43]G)'
+  regex: 'Digma[_ ]([^;/]+) Build|HIT HT707[10]MG|CITI ATL 4G|CITI Kids|CITI Octa [178]0|CITI 1902 3G|CITI Z530 3G|(CITI[_ ](?:[A-Z0-9]+)[_ ][34]G)[ _][TC][ST](606[32]ML|1114ML|11[459]4MG|1207MG|1210MG|1195MG|1196ML|3001ML|4024PG|5026PL|500[67]PG|720[48]MG|7140ML|7141MG|7113PL|7193MG|820[69]MG|7153MG|8139ML|8143MG|8152ML|1050PL|8205PG|7203MG|1062ML)|HIT 4G|HT7074ML|IDX5|(iDx10|iDx7)|MVM900H(?:WZ|C)|MVM908HCZ|(iDxD8 3G|iDxD10 3G|iDrQ10 3G|iDxD[45]|iDxQ5|iD[nx]D7(?:[_ ]3G)?)|PS604M|PT452E|LINX B510 3G LT5037MG|LINX A452 3G LT4030PG|LINX A453 3G LT4038PG|LINX A420 3G LS4019PG|LINX A450 3G LT4028PG|Linx A400 3G LT4001PG|Linx C500 3G LT5001PG|Linx PS474S|LS504[01]PL|LT40(47|54)MG|PS1043MG|LS405[01]MG|LS5053ML|LT5048MG|HT7071MG|LT5052ML|HT5035PG|HT4039PG|LT4049PG|NS6902QL|NS9797MG|TS7854M|TS1012E 3G|TT1004PG|TT702[045]MG|TT7026MW|((?:Optima|Platina|Plane)[ _](?:[EM])?(?:[0-9\.ST]+|Prime)(?:[ _][43]G)?)|(VOX[ _](?:[0-9\.A-Z]+)[_ ][43]G)'
   device: 'smartphone'
   models:
     - regex: 'HIT(?: 3G)? HT707[10]MG'
@@ -4300,7 +4307,7 @@ Digma:
       model: 'CITI ATL 4G'
     - regex: '(CITI Z530 3G)'
       model: '$1'
-    - regex: '(CITI [A-Z0-9]+ [34]G) C[ST](?:606[32]ML|4024PG)'
+    - regex: '(CITI [A-Z0-9]+ [34]G) C[ST](?:606[32]ML|4024PG|5026PL)'
       model: '$1'
 
     - regex: 'TS7854M'
@@ -4331,7 +4338,7 @@ Digma:
     - regex: '(CITI 1902 3G|CITI Kids|CITI_8527_4G|CITI Octa [178]0)'
       model: '$1'
       device: 'tablet'
-    - regex: '(CITI[ _](?:[A-Z0-9]+)[ _][34]G)[ _][TC][ST](?:1062ML|1114ML|1207MG|1210MG|3001ML|500[67]PG|720[48]MG|820[69]MG|11[459]4MG|1195MG|1196ML|3001ML|8152ML|1050PL|7113PL|7193MG|7216MG|8205PG|7203MG|8143MG)'
+    - regex: '(CITI[ _](?:[A-Z0-9]+)[ _][34]G)[ _][TC][ST](?:1062ML|1114ML|1207MG|1210MG|3001ML|500[67]PG|720[48]MG|820[69]MG|11[459]4MG|1195MG|1196ML|3001ML|8152ML|1050PL|7113PL|7193MG|7216MG|8205PG|7203MG|8143MG|7153MG|7141MG|7140ML)'
       model: '$1'
       device: 'tablet'
     - regex: 'iDxD8 3G'
@@ -5456,7 +5463,7 @@ Famoco:
 
 # FiGO
 FiGO:
-  regex: 'ATRIUM II F55L2|TRIO F40LT|EPIC F50G|Gravity X55L|Orion M50L|ULTRA M50G|M405B|VIRTUE3|F55L Build'
+  regex: 'ATRIUM II F55L2|TRIO F40LT|CENTRIC S50G|EPIC F50G|Gravity X55L|Orion M50L|ULTRA M50G|M405B|VIRTUE3|F55L Build'
   device: 'smartphone'
   models:
     - regex: 'ATRIUM II F55L2'
@@ -5477,6 +5484,8 @@ FiGO:
       model: 'Virtue II'
     - regex: 'VIRTUE3'
       model: 'Virtue III'
+    - regex: 'CENTRIC S50G'
+      model: 'Centric S50G'
 
 # FNB
 FNB:
@@ -19576,9 +19585,13 @@ Pluzz:
 
 # CG Mobile
 'CG Mobile':
-  regex: 'Omega ([38])(?:[);/ ]|$)'
+  regex: '(?:CG_OMEGA6|Omega (?:[38]))(?:[);/ ]|$)'
   device: 'smartphone'
-  model: 'Omega $1'
+  models:
+    - regex: 'Omega ([38])(?:[);/ ]|$)'
+      model: 'Omega $1'
+    - regex: 'CG_OMEGA6(?:[);/ ]|$)'
+      model: 'Omega 6'
 
 # IUNI
 IUNI:
@@ -19664,6 +19677,11 @@ Clementoni:
       device: 'smartphone'
       model: 'Clemphone $1'
 
+# Cell-C
+'Cell-C':
+  regex: 'Cell_C_(Summit_Plus|Fame)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
 
 # Eagle (eagleuhd.com)
 Eagle:
