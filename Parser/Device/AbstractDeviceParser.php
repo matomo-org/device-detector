@@ -215,6 +215,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '9C' => 'Colors',
         'CO' => 'Coolpad',
         'CW' => 'Cowon',
+        '33' => 'Clementoni',
         'CR' => 'CreNova',
         'CX' => 'Crescent',
         'CK' => 'Cricket',
