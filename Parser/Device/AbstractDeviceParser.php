@@ -211,6 +211,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '4C' => 'Conquest',
         '3C' => 'Contixo',
         '8C' => 'Connex',
+        '53' => 'Connectce',
         '9C' => 'Colors',
         'CO' => 'Coolpad',
         'CW' => 'Cowon',
