@@ -303,6 +303,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'EH' => 'EXO',
         'EX' => 'Explay',
         'E5' => 'Extrem',
+        'EF' => 'EXCEED',
         'EI' => 'Ezio',
         'EZ' => 'Ezze',
         'FA' => 'Fairphone',
