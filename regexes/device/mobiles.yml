@@ -9732,7 +9732,7 @@ Mobiola:
 
 # Mobicel or Mobicell
 Mobicel:
-  regex: 'Mobicel_(R1)|(?:HYPE|DANDY(?:_ZAM)?|(?<!SMADL )Matrix|TRENDY PLUS|TANGO_LITE|BLINK|BERRY[_ ]?(?:[12]|PLUS))(?:[);/ ]|$)'
+  regex: 'Mobicel_(R1)|(?:HYPE|DANDY(?:_ZAM)?|(?<!SMADL )Matrix|TRENDY PLUS|FENDY_DS|TANGO_LITE|BLINK|BERRY[_ ]?(?:[12]|PLUS))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Matrix'
@@ -9755,6 +9755,8 @@ Mobicel:
       model: 'Dandy'
     - regex: 'TANGO_LITE'
       model: 'Tango Lite'
+    - regex: 'FENDY_DS'
+      model: 'Fendy DS'
     - regex: 'Mobicel_(R1)'
       model: '$1'
 
@@ -17672,7 +17674,7 @@ Huadoo:
 
 # Gome
 Gome:
-  regex: 'GOME[_ ](2018X38A|2017X05A|2016G68A|2017M27A|2016M25A|C7_Note_Plus|U9|S[17])(?:[);/ ]|$)'
+  regex: '(?:GOME[_ ](?:2018X38A|2017X05A|2016G68A|2017M27A|2016M25A|C7_Note_Plus|U9|S[17])|Fenmmy_Note)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'GOME[_ ](?:2018X38A)(?:[);/ ]|$)'
@@ -17686,6 +17688,9 @@ Gome:
     - regex: 'GOME[_ ](?:2017M27A)(?:[);/ ]|$)'
       model: 'U7'
     - regex: 'GOME[_ ](C7_Note_Plus|U9|S[17])(?:[);/ ]|$)'
+      model: '$1'
+    - regex: '(?:GOME[_ ])?(Fenmmy_Note)(?:[);/ ]|$)'
+      device: 'phablet'
       model: '$1'
 
 # Voyo
@@ -18762,7 +18767,7 @@ Nos:
 
 # Accent (DBM Maroc) (accent.ma)
 Accent:
-  regex: '(?:ACCENT[_ ]NEON|PEARL[_ ]A[24567]|TANK_P55|CAMELEON[_ ](?:C[56]|A1)(?:[_ ]PLUS)?)(?:[);/ ]|$)'
+  regex: '(?:ACCENT[_ ]NEON|FAST73G|PEARL[_ ]A[24567]|TANK_P55|CAMELEON[_ ](?:C[56]|A1)(?:[_ ]PLUS)?)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'ACCENT[_ ]NEON(?:[);/ ]|$)'
@@ -18777,6 +18782,9 @@ Accent:
       model: 'Pearl A$1'
     - regex: 'TANK_P55(?:[);/ ]|$)'
       model: 'Tank P55'
+    - regex: 'FAST73G(?:[);/ ]|$)'
+      device: 'phablet'
+      model: 'FAST7 3G'
 
 # Avenzo (www.avenzo.es)
 Avenzo:
@@ -18889,7 +18897,9 @@ Fero:
       model: 'Royale Y2 Lite'
     - regex: 'Royale[_ ]([YX]2|A1)'
       model: 'Royale $1'
-    - regex: 'Fero (A4001|A4502|L100)'
+    - regex: 'FERO PACE'
+      model: 'Pace'
+    - regex: 'Fero[ _](A4001|A450[23]|A5001|L100|Iris|Power|Mega LTE|Vibe)'
       model: '$1'
 
 # Ruio
@@ -19779,7 +19789,17 @@ Claresta:
 
 # MIVO (mivo.com.my)
 MIVO:
-  regex: '(Caryota [1245789])'
+  regex: '(Caryota [1245789]|Jazz J[13] 2018)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: '(Caryota [1245789])(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'Jazz (J[13]) 2018'
+      model: 'Jazz $1 (2018)'
+
+# Jesy (en.jesy.com)
+Jesy:
+  regex: 'Jesy_(J7)'
   device: 'smartphone'
   model: '$1'
 
