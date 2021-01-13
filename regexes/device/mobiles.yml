@@ -3521,7 +3521,7 @@ Changhong:
     - regex: 'ChangHong Android TV'
       device: 'tv'
       model: ''
-    - regex: '(?:Opera TV|).+Changhong-([^);/]+)'
+    - regex: '(?:Opera TV.+)Changhong-([^);/]+)'
       device: 'tv'
       model: '$1'
 
@@ -11854,7 +11854,7 @@ Soundmax:
 
 # Samsung
 Samsung:
-  regex: 'SAMSUNG(?! ?Browser)|Maple |SC-(?:02[CHMKJG]|03[JLK]|04[ELJ]|05G|52A|01[HFGLKM])|N[57]100|N5110|N9100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|SMART-TV|GT-|(?<!GOG|GOG )Galaxy|(?:portalmmm|o2imode)/2\.0 [SZ]|sam[rua]|vollo Vi86(?:[);/ ]|$)|(?:OTV-)?SMT-E5015|ISW11SC|SCV4[0-8]|SCV3[1-9]|40[34]SC|SCL2[234]|SCG0[123567]|SCT21'
+  regex: 'SAMSUNG(?! ?Browser)|Maple (?!III)|SC-(?:02[CHMKJG]|03[JLK]|04[ELJ]|05G|52A|01[HFGLKM])|N[57]100|N5110|N9100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|SMART-TV|GT-|(?<!GOG|GOG )Galaxy|(?:portalmmm|o2imode)/2\.0 [SZ]|sam[rua]|vollo Vi86(?:[);/ ]|$)|(?:OTV-)?SMT-E5015|ISW11SC|SCV4[0-8]|SCV3[1-9]|40[34]SC|SCL2[234]|SCG0[123567]|SCT21'
   device: 'smartphone'
   models:
     # explicit tv models
@@ -19678,10 +19678,28 @@ Clementoni:
       model: 'Clemphone $1'
 
 # Cell-C
-'Cell-C':
-  regex: 'Cell_C_(Summit_Plus|Fame)(?:[);/ ]|$)'
+Cell-C:
+  regex: 'Cell_?C_'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'Cell_C_(Summit_Plus|Fame|Evolve)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'CELLC_Evolve'
+      device: 'tablet'
+      model: 'Evolve'
+
+# VC
+VC:
+  regex: '(?:Camellia_II|Cactus II|Maple III|Maple-II|Cactus-Pro|LavenderII|Jasmine-II)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: '(Camellia_II|Cactus II|Maple III)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'Cactus-Pro'
+      model: 'Cactus Pro'
+    - regex: '(Maple|Jasmine|Lavender)-?II(?:[);/ ]|$)'
+      model: '$1 II'
+
 
 # Eagle (eagleuhd.com)
 Eagle:
