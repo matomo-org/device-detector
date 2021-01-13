@@ -3712,9 +3712,11 @@ ComTrade Tesla:
 
 # ConCorde
 ConCorde:
-  regex: 'ConCorde ([^/;]+) Build'
+  regex: 'ConCorde ([^/;]+) Build|Concorde_Raptor_Z55(?:[);/ ]|$)'
   device: 'smartphone'
   models:
+    - regex: 'Concorde_(Raptor_Z55)(?:[);/ ]|$)'
+      model: '$1'
     - regex: 'ConCorde Tab ?([^/;]+) Build'
       model: 'Tab $1'
       device: 'tablet'
@@ -3902,7 +3904,7 @@ Clarmin:
   regex: 'Clarmin'
   device: 'smartphone'
   models:
-    - regex: 'Clarmin[_ ](B6|C1)'
+    - regex: 'Clarmin[_ ](B[65]|C1)'
       model: '$1'
 
 # Cricket
@@ -19556,12 +19558,12 @@ Smailo:
 
 # Colors or Colors Mobile (www.colors-mobile.com)
 Colors:
-  regex: '(?:Colors[ _](S(?:[19]|11)|P70|P[46]5|E15|P50 Plus)|Pride_1A)(?:[);/ ]|$)'
+  regex: '(?:Colors[ _](S(?:[19]|11)|P70|P[456]5|P32|E15|P50 Plus)|Pride_1A)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Pride_1A(?:[);/ ]|$)'
       model: 'Pride 1A'
-    - regex: 'Colors[ _](S(?:[19]|11)|P70|E15|P[46]5|P50 Plus)(?:[);/ ]|$)'
+    - regex: 'Colors[ _](S(?:[19]|11)|P70|E15|P[456]5|P32|P50 Plus)(?:[);/ ]|$)'
       model: '$1'
 
 # Honeywell
@@ -19762,6 +19764,19 @@ Chico Mobile:
     - regex: 'FUEGO MAX'
       device: 'tablet'
       model: 'Fuego Max'
+
+# Claresta
+Claresta:
+  regex: 'Claresta[ _]|(?:AirPhoneS[56]|AirPhone K6)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'AirPhone ?(S[56]|K6)'
+      model: 'AirPhone $1'
+    - regex: 'Claresta (F3) PRO'
+      model: '$1 Pro'
+    - regex: 'Claresta[ _](F4)'
+      model: '$1'
+
 
 # Leff
 Leff:
