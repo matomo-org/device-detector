@@ -537,6 +537,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '8M' => 'Mito',
         'MT' => 'Mitsubishi',
         'M5' => 'MIXC',
+        '2D' => 'MIVO',
         '1Z' => 'MiXzo',
         'ML' => 'MLLED',
         'LS' => 'MLS',
