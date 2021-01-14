@@ -7100,13 +7100,18 @@ LYF:
 
 # Lumus
 Lumus:
-  regex: '(?:NEO(SR620|SC600)|Lumus[_ ]Ion)(?:[);/ ]|$)'
+  regex: 'LUMUS Shell|(?:NEO(SR620|SC600)|Lumus[_ ]Ion)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
+    # explicit smartphone models
     - regex: 'NEO(SR620|SC600)(?:[);/ ]|$)'
       model: 'Neo $1'
     - regex: 'Lumus[_ ]Ion(?:[);/ ]|$)'
       model: 'Ion'
+    # shell m-board
+    - regex: 'LUMUS Shell [0-9A-Z]+'
+      device: 'tv'
+      model: ''
 
 # M4tel
 M4tel:
@@ -11525,8 +11530,10 @@ JVC:
   regex: 'JVC[;,]|JVC Shell'
   device: 'tv'
   models:
+    # shell m-board
     - regex: 'JVC Shell [0-9A-Z]+'
       model: ''
+
     - regex: 'JVC[;,](32D1290)'
       model: '$1'
 
