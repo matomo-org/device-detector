@@ -1105,17 +1105,22 @@ Advan:
     - regex: '(S45E|50[46]1|5059|S50H|I7D|S7D|S4Z|S5J\+|S4\+)(?:[);/ ]|$)'
       model: '$1'
 
-# Advance
+# Advance (advanceperu.com)
 Advance:
-  regex: 'Hollogram|HL6246|IntroTr3544|Tr3845'
+  regex: 'Hollogram|(?:HL6246|IntroTr3544|Pr(?:61(?:4[56]|50)|60[27]0|5[69]50)|Tr3845)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
+    # explicit table models
     - regex: 'IntroTr3544|Tr3845'
       model: 'Intro'
       device: 'tablet'
+    - regex: 'Pr(61(?:4[56]|50)|60[27]0|5[69]50)'
+      model: 'Prime PR$1'
+      device: 'tablet'
+    # explicit smartphone models
     - regex: 'HL6246'
       model: 'Hollogram HL6246'
-    - regex: 'Hollogram ([^;\)]+) Build'
+    - regex: 'Hollogram ([^;\)]+)(?: Build|[;)])'
       model: 'Hollogram $1'
 
 # AGM
@@ -9237,9 +9242,9 @@ Coby Kyros:
   device: 'tablet'
   model: '$1'
 
-# Mpman
+# Mpman (mpmaneurope.com)
 Mpman:
-  regex: '(?:MPQC|MPDC)[0-9]+|PH(?:150|340|350|360|451|500|520)|(?:MID(?:7C|74C|82C|84C|801|811|701|711|170|77C|43C|102C|103C|104C|114C)|MP100i OCTA|MP(?:843|717|718|1010|7007|7008|843|888|959|969)|MGP7)(?:[);/ ]|$)'
+  regex: '(?:MPQC|MPDC)[0-9]+|PH(?:150|340|350|360|451|500|520|544|604)|(?:MID(?:7C|74C|82C|84C|801|811|701|711|170|77C|43C|102C|103C|104C|114C)|MP100i OCTA|MP(?:843|717|718|1010|7007|7008|843|888|959|969)|MGP7)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: '((?:MPQC|MPDC)[0-9]+[^/;)]+)(?: Build|\))'
@@ -9248,7 +9253,7 @@ Mpman:
       model: 'MP100i OCTA'
     - regex: '(MID(?:7C|74C|82C|84C|801|811|701|711|170|77C|43C|102C|103C|104C|114C)|MP(?:843|717|718|1010|7007|7008|843|888|959|969)|MGP7)(?:[);/ ]|$)'
       model: '$1'
-    - regex: '(PH(?:150|340|350|360|451|500|520))'
+    - regex: '(PH(?:150|340|350|360|451|500|520|544|604))'
       model: '$1'
       device: 'smartphone'
 
@@ -10125,7 +10130,7 @@ MyTab:
 
 # myphone (myphone.com.ph)
 MyPhone:
-  regex: '(?:MyPhone|MyPad|MyTab)[ _][^;/)]+( Build|\))|Cube_LTE|myTab10II|HAMMER[ _](Blade2_PRO|IRON_3|Explorer|ENERGY|Titan 2|AXE[_ ](?:M[_ ]LTE|Pro)|Iron 2|Active[2]?(_LTE)?)|C-Smart_pix|myPhone_Fun_8|Prime_4_Lite|myA17|myX12|Pocket_2|Prime_18x9|myT6 DTV|myXI1 (?:Plus|Pro)|myXI3|Q_Smart_BE'
+  regex: '(?:MyPhone|MyPad|MyTab)[ _][^;/)]+( Build|\))|Cube_LTE|myTab10II|HAMMER[ _](Blade2_PRO|IRON_3|Explorer|ENERGY|Titan 2|AXE[_ ](?:M[_ ]LTE|Pro)|Iron 2|Active[2]?(_LTE)?)|C-Smart_pix|myPhone_Fun_8|Prime_4_Lite|myA17|myX12|Pocket_2|Prime_18x9|Prime3Lite|myT6 DTV|myXI1 (?:Plus|Pro)|myXI3|Q_Smart_BE'
   device: 'smartphone'
   models:
     # explicit table models
@@ -10188,8 +10193,10 @@ MyPhone:
       model: 'myXI3'
     - regex: 'Q_Smart_BE(?:[);/ ]|$)'
       model: 'Q-Smart BE'
-    - regex: 'Prime_18x9(?:[);/ ]|$)'
-      model: 'Prime 18x9'
+    - regex: 'Prime_18x9(_LTE)?(?:[);/ ]|$)'
+      model: 'Prime 18x9$1'
+    - regex: 'Prime3Lite(?:[);/ ]|$)'
+      model: 'Prime 3 Lite'
 
     # general detections
     - regex: 'MyPhone[ _]([^;/)]+)( Build|\))'
@@ -10243,7 +10250,7 @@ M.T.T.:
 
 # Navon
 Navon:
-  regex: 'Navon[_ ]|(?:Vision_Tab_(?:7|10)|Superme_Max|Predator 3G|Platinum[_ ]10[_ ]3G(?:_V2)?|Supreme[_ ](?:Fine|Chief|Pure|Pro)(?:[_ ](?:Mini|Plus))?)(?:[);/ ]|$)'
+  regex: 'Navon[_ ]|(?:Vision_Tab_(?:7|10)|Superme_Max|Predator (?:10|3G)|Platinum[_ ]10[_ ]3G(?:_V2)?|Supreme[_ ](?:Fine|Chief|Pure|Pro)(?:[_ ](?:Mini|Plus))?)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Superme_Max(?:[);/ ]|$)'
@@ -10267,9 +10274,9 @@ Navon:
     - regex: '(?:Navon[_ ])?Platinum[ _]10[ _]3G(_V2)?(?:[);/ ]|$)'
       device: 'tablet'
       model: 'Platinum 10.1" 3G$1'
-    - regex: 'Predator 3G(?:[);/ ]|$)'
+    - regex: 'Predator (3G|10)(?:[);/ ]|$)'
       device: 'tablet'
-      model: 'Predator 3G'
+      model: 'Predator $1'
 
     - regex: 'Vision_Tab_(7|10)(?:[);/ ]|$)'
       device: 'tablet'
@@ -13202,11 +13209,13 @@ SunVan:
 
 # SWISSMOBILITY
 SWISSMOBILITY:
-  regex: 'SCHR9GR|ZUR(?:722M|70016W?|700[RW]|805A)'
+  regex: '(?:SCHR9GR|PRA(?:U8|100)|ZUR(?:722M|70016W?|700[RW]|805A))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'SCHR9GR'
       model: 'SCHON R9'
+    - regex: 'PRA(U8|100)'
+      model: 'PRA$1'
     - regex: 'ZUR722M'
       device: 'phablet'
       model: 'Z72 go'
@@ -15101,9 +15110,9 @@ Vulcan:
       model: 'Koral 7W4'
       device: 'tablet'
 
-# Walton
+# Walton (waltonbd.com)
 Walton:
-  regex: 'Walton|Walpad|Primo[ _](C[1234]?|D[1-68]|E[1-58]|EF[23]?|EM|F[1-7]i?|G[1-7]|GF[234]?|GH[23]?|GM|H[2346]|HM|N|N1|NF|NX2?|R[12346]|RH2?|RM2?|RX[23]?|S[123456]|V1|X[1234]|Z|ZX)'
+  regex: 'Walton|Walpad|Primo[ _](C[1234]?|D[1-689]|E[1-589]|F8s|S7|EF[23]?|EM|F[1-79]i?|G[1-9]|GF[234]?|GH[23]?|GM|H[2-689M]|H7s|N[F1]?|NX2?|R[1-46]|R[HM]2?|RX[23]?|S[1-6]|V1|X[1-4]|Z|ZX)'
   device: 'smartphone'
   models:
     - regex: 'Walpad ([^;/]+) Build'
@@ -15111,14 +15120,15 @@ Walton:
       model: 'Primo Walpad $1'
     - regex: 'Primo S6 infinity'
       model: 'Primo S6 Infinity'
-    - regex: 'Walton[ _]([^;/]+) Build'
-      model: '$1'
-    - regex: 'Walton[ _]([^;/]+)\)'
-      model: '$1'
-    - regex: 'Primo[ _]([^;/]+) Build'
+    - regex: 'Primo H8 Pro(?:[);/ ]|$)'
+      model: 'Primo H8 Pro'
+    - regex: 'Primo H8(?:[);/ ]|$)'
+      model: 'Primo H8 Turbo'
+    # general detections
+    - regex: 'Primo[ _]([^;/)]+)(?: Build|[;)])'
       model: 'Primo $1'
-    - regex: 'Primo[ _]([0-9a-z]+)'
-      model: 'Primo $1'
+    - regex: 'Walton[ _]([^;/)]+)(?: Build|[;)])'
+      model: '$1'
 
 # Wellcom
 WellcoM:
@@ -15128,7 +15138,7 @@ WellcoM:
 
 # Wexler
 Wexler:
-  regex: 'Wexler|(?:ULTIMA 7 TWIST PLUS|TAB10iQ3G|TAB[ _]10Q)(?:[);/ ]|$)|ZEN[ _](?:4\.5|4\.7|5)'
+  regex: 'Wexler|(?:ULTIMA 7 TWIST PLUS|TAB10iQ3G|TAB[ _]10Q)(?:[);/ ]|$)|ZEN[ _](?:4\.[57]|5)'
   device: 'tablet'
   models:
     - regex: '(?:Wexler[ _\-\.])?ZEN[ _]4\.5(?:[);/ ]|$)'
@@ -17224,7 +17234,7 @@ Globex:
     - regex: '(GU1011C|GU7013C|GU730C)(?:[);/ ]|$)'
       model: '$1'
 
-# Atom ()
+# Atom
 Atom:
   regex: 'ATOM-(108AM|216RK|216AM)(?:[);/ ]|$)'
   device: 'tv'
@@ -19241,9 +19251,15 @@ iSWAG:
 
 # Reeder (reeder.com.tr)
 Reeder:
-  regex: 'reeder[_ ](3G_Tablet|A7iC|A[78]i[_ ]Quad|A8i Q2|M8 Plus|[TM]8|M10 Plus|P11SE)(?:[);/ ]|$)'
+  regex: '(?:reeder[_ ](?:3G_Tablet|A7iC|A[78]i[_ ]Quad|A8i Q2|M8 Plus|[TM]8|M10 Plus|P11SE)|P12Curve)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: 'reeder[_ ](3G_Tablet|A7iC|A[78]i[_ ]Quad|A8i Q2|M8 Plus|[TM]8|M10 Plus|P11SE)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'P12Curve'
+      device: 'smartphone'
+      model: 'P12 Curve'
+
 
 # ELARI (elari.net)
 ELARI:
