@@ -805,6 +805,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'TA' => 'Tesla',
         '9T' => 'Tetratab',
         'TZ' => 'teXet',
+        '29' => 'Teknosa',
         'T4' => 'ThL',
         'TN' => 'Thomson',
         'O0' => 'Thuraya',
