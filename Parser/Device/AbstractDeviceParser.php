@@ -738,6 +738,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '01' => 'Senkatel',
         'S6' => 'Senseit',
         'EW' => 'Senwa',
+        '24' => 'Seeken',
         'SX' => 'SFR',
         'SH' => 'Sharp',
         '7S' => 'Shift Phones',

@@ -2371,15 +2371,17 @@ Avvio:
     - regex: 'Avvio[ _]?([a-z0-9\-]+)'
       model: '$1'
 
-# Azumi Mobile
+# Azumi Mobile (azumi-mobile.com)
 "Azumi Mobile":
-  regex: 'Azumi[_ ]'
+  regex: 'Azumi[_ ]|(?:SPEED55)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Azumi[_ ]([^/;]+) Build'
       model: '$1'
     - regex: 'Azumi[_ ]([a-z0-9_]+)'
       model: '$1'
+    - regex: 'SPEED55'
+      model: 'Speed 5.5"'
 
 #Barnes & Noble
 'Barnes & Noble':
@@ -4135,13 +4137,16 @@ Danew:
 
 # Denver Electronics (denver-electronics.com)
 Denver:
-  regex: '(?:TA[CDQ]-[0-9]+)|P(?:.+)TAQ-(?:[0-9]+)'
+  regex: '(?:TA[CDQ]-[0-9]+)|P(?:.+)TAQ-(?:[0-9]+)|SDQ[_-](?:550[24]4L|52001G|50002G|57004L)'
   device: 'tablet'
   models:
     - regex: 'P(?:.+)TAQ-(10213GMK2|10172MK3|10242MK2|70242MK2|[0-9]+)(?:[);/ ]|$)'
       model: 'TAQ-$1'
     - regex: '(TA[CDQ]-[0-9]+)'
       model: '$1'
+    - regex: 'SDQ[_-](550[24]4L|52001G|50002G|57004L)'
+      device: 'smartphone'
+      model: 'SDQ-$1'
 
 # Dell
 Dell:
@@ -5416,11 +5421,13 @@ EKO:
 
 # Extrem
 Extrem:
-  regex: 'Rock X9+'
+  regex: 'Rock X9+|ROCK_X11'
   device: 'smartphone'
   models:
     - regex: 'Rock X9+'
       model: 'Rock X9+'
+    - regex: 'ROCK_X11'
+      model: 'Rock X11'
 
 # Ezze
 Ezze:
@@ -9169,7 +9176,7 @@ Konrow:
 
 # Karbonn (karbonnmobiles.com)
 Karbonn:
-  regex: '(?:Browser-)?Karbonn|K9 Kavach 4G|K9[_ ]Viraat[_ ]Plus|K9 Music 4G|K9 Smart|K9 VIRAAT 4G|Aura Sleek Plus|Aura Note Play|Titanium[ _](?:3D-Plex|Octane Plus|Vista 4G|Jumbo|S360|S1[059]|S35|S20[13]|S22|S1|S200 HD|Frames S7)|K-lite F3'
+  regex: '(?:Browser-)?Karbonn|K9 Kavach 4G|K9[_ ]Viraat[_ ]Plus|K9 Music 4G|K9 Smart|K9 VIRAAT 4G|Aura Sleek Plus|Aura Note Play|Titanium[ _](?:3D-Plex|Octane Plus|Vista 4G|Jumbo|S360|S1[059]|S35|S20[13]|S22|S1|S200 HD|Frames S7)|K-lite F3|Sparkle V'
   device: 'smartphone'
   models:
     - regex: 'K9 Kavach 4G'
@@ -9212,6 +9219,8 @@ Karbonn:
       model: 'Titanium 3D Plex'
     - regex: 'K-lite F3'
       model: 'K-Lite F3'
+    - regex: 'Sparkle V'
+      model: 'Sparkle V'
     - regex: 'Karbonn ([a-z0-9]+) WAP-Browser'
       model: '$1'
       device: 'feature phone'
@@ -13431,6 +13440,8 @@ Polytron:
       model: 'Rocket S2'
     - regex: 'POLYTRON[ _-]R2501'
       model: 'Rocket T1'
+    - regex: 'POLYTRON[ _-]R2507'
+      model: 'Rocket T3'
     - regex: 'POLYTRON[ _-]R2509SE'
       model: 'Rocket T6 SE'
     - regex: 'POLYTRON[ _-]R2509'
@@ -18691,7 +18702,7 @@ Aoson:
 
 # FireFly Mobile
 FireFly Mobile:
-  regex: '(?:AURII[ _](?:Passion|Virtuoso|ULTRA|Secret Lite|AMUSE[_ ]3G|FORCE|FUSION|F8[_ ]Premium|XCITE)|INTENSE[ _](?:POWER|METAL_2|XT))(?:[);/ ]|$)'
+  regex: '(?:AURII[ _](?:Passion|Virtuoso|ULTRA|Secret Lite|AMUSE[_ ]3G|FORCE|FUSION|F8[_ ]Premium|XCITE)|SECRET_XR|INTENSE[ _](?:POWER|METAL_2|XT))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'AURII[ _]FORCE(?:[);/ ]|$)'
@@ -18704,6 +18715,8 @@ FireFly Mobile:
       model: 'Aurii Fusion'
     - regex: 'AURII[ _]XCITE(?:[);/ ]|$)'
       model: 'Aurii xCite'
+    - regex: 'SECRET_XR(?:[);/ ]|$)'
+      model: 'Aurii Secret XR'
     - regex: 'AURII[ _]((?:Passion|Virtuoso|Secret Lite|F8[_ ]Premium))(?:[);/ ]|$)'
       model: 'Aurii $1'
     - regex: 'INTENSE POWER(?:[);/ ]|$)'
@@ -19969,6 +19982,17 @@ GLX:
     - regex: 'GLX (Aria|Taban|Shine|Spark)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'GLX (Dorna)(?:[);/ ]|$)'
+      device: 'tablet'
+      model: '$1'
+
+# Seeken (seekenmobile.com)
+Seeken:
+  regex: 'Seeken[ _-]'
+  device: 'smartphone'
+  models:
+    - regex: 'Seeken[_ -](SG1|SJ1)'
+      model: '$1'
+    - regex: 'Seeken[_ -](ST-101)'
       device: 'tablet'
       model: '$1'
 
