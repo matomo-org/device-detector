@@ -346,6 +346,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'G4' => 'Globex',
         'GC' => 'GOCLEVER',
         'GL' => 'Goly',
+        'GX' => 'GLX',
         'G5' => 'Gome',
         'G1' => 'GoMobile',
         'GO' => 'Google',
