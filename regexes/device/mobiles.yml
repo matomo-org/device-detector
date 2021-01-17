@@ -158,7 +158,7 @@ HTC:
       model: '$1'
     - regex: 'HTC;(?: )?([a-z0-9 ]+)'
       model: '$1'
-    - regex: '(Desire|Sensation|Evo ?3D|IncredibleS|Wildfire|Butterfly)[ _]?([^;/)]+)(?: Build|\))'
+    - regex: '(Desire|Sensation|Evo ?3D|IncredibleS|Wildfire|Butterfly)[ _]?([^;/)]+)(?: Build|[;)])'
       model: '$1 $2'
     - regex: '(Amaze[ _]4G|One ?[XELSV\+]*) Build'
       model: '$1'
@@ -1115,12 +1115,12 @@ Advance:
       device: 'tablet'
     - regex: 'HL6246'
       model: 'Hollogram HL6246'
-    - regex: 'Hollogram ([^;\)]+) Build'
+    - regex: 'Hollogram ([^;/)]+)(?: Build|[;)])'
       model: 'Hollogram $1'
 
 # AGM
 AGM:
-  regex: 'AGM ([^/;\)]+)(?: Build|\))'
+  regex: 'AGM ([^/;)]+)(?: Build|[;)])'
   device: 'smartphone'
   model: '$1'
 
@@ -1163,9 +1163,7 @@ Akai:
       model: 'Glory $1'
     - regex: 'Eco[ _]E2'
       model: 'Eco E2'
-    - regex: 'Akai[ _-]([^;/]+) Build'
-      model: '$1'
-    - regex: 'Akai[ _-]([^;/]+)(?:[;/)]|$)'
+    - regex: 'Akai[ _-]([^;/)]+)(?: Build|[;)])'
       model: '$1'
 
 # Arian
@@ -1725,9 +1723,7 @@ Allview:
       device: 'tablet'
       model: 'TX1 Quasar'
 
-    - regex: 'Allview[ _-]([^;/]+) Build'
-      model: '$1'
-    - regex: 'Allview[ _-]([^;/]+)(?:[;/)]|$)'
+    - regex: 'Allview[ _-]([^;/)]+)(?: Build|[;)])'
       model: '$1'
 
 # Allwinner
@@ -2029,7 +2025,7 @@ Ark:
   regex: '(ARK[_ -])?Benefit[_ -]([^/;]*)(?: Build|\))|EDGE A5HD|Elf_S8|ICON (R40\+|R45)|Impulse[ _](P[12])|Wizard_[12](?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: '(?:ARK[_ -])?Benefit[_ -]([^/;]*)(?: Build|\))'
+    - regex: '(?:ARK[_ -])?Benefit[_ -]([^/);]*)(?: Build|[;)])'
       model: 'Benefit $1'
     - regex: 'Impulse[ _]P1\+'
       model: 'Impulse P1 Plus'
@@ -2493,10 +2489,10 @@ Blu:
     - regex: 'DASH (L[45] LTE|5.0|L[45]X|L3|X2|[LMX])(?:[);/ ]|$)'
       model: 'Dash $1'
 
-    - regex: 'DASH[ _]([^/;]+) Build'
+    - regex: 'DASH[ _]([^/;)]+)(?: Build|[);])'
       model: 'Dash $1'
 
-    - regex: 'blu[ _]([^/;]+)( Build|[);])'
+    - regex: 'blu[ _]([^/;)]+)(?: Build|[);])'
       model: '$1'
 
 # Bluegood
@@ -11552,9 +11548,7 @@ PULID:
   models:
     - regex: 'F(1[01357]\+?) Build'
       model: 'F$1'
-    - regex: 'PULID[ _]([^;/]+) Build'
-      model: '$1'
-    - regex: 'PULID[ _]([a-z0-9_]+)\)'
+    - regex: 'PULID[ _]([^;/)]+)(?: Build|[;)])'
       model: '$1'
 
 # Point of View
@@ -11659,7 +11653,7 @@ Readboy:
   models:
     - regex: 'Readboy[ _-]([^;/]+) Build'
       model: '$1'
-    - regex: 'Readboy[ _-]([^;/]+)(?:[;/)]|$)'
+    - regex: 'Readboy[ _-]([^;/)]+)(?:[;/)]|$)'
       model: '$1'
 
 # Roku
@@ -12892,22 +12886,22 @@ Sencor:
 
 # Senwa
 Senwa:
-  regex: 'Senwa|(?:S\-?(?:471|7[12]5|6[01]5|915|905TL|1000|5018)|V705B)[ /;\)]'
+  regex: 'Senwa|(?:S\-?(?:471|7[12]5|6[01]5|915|905TL|1000|5018)|V705B)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'S\-?471[ /;\)]'
+    - regex: 'S\-?471(?:[);/ ]|$)'
       model: 'Jazz'
-    - regex: 'S\-?605[ /;\)]'
+    - regex: 'S\-?605(?:[);/ ]|$)'
       model: 'City'
-    - regex: 'S\-?905TL[ /;\)]'
+    - regex: 'S\-?905TL(?:[);/ ]|$)'
       model: 'Odin'
-    - regex: 'S\-?1000[ /;\)]'
+    - regex: 'S\-?1000(?:[);/ ]|$)'
       model: 'Odin'
-    - regex: 'S\-?5018[ /;\)]'
+    - regex: 'S\-?5018(?:[);/ ]|$)'
       model: 'Inizio'
-    - regex: 'S\-?(615|7[12]5|915)[ /;\)]'
+    - regex: 'S\-?(615|7[12]5|915)(?:[);/ ]|$)'
       model: 'S$1'
-    - regex: 'V705B[ /;\)]'
+    - regex: 'V705B(?:[);/ ]|$)'
       model: 'V705B'
     - regex: 'Senwa[ _-]*([^;/]+) Build'
       model: '$1'
@@ -12950,7 +12944,7 @@ Skyworth:
   regex: 'Sky_?worth'
   device: 'tv'
   models:
-    - regex: 'Sky_?worth ([^;/]+) Build'
+    - regex: 'Sky_?worth ([^;/)]+)(?: Build|[;)])'
       model: '$1'
 
 # Smartfren
@@ -12989,13 +12983,13 @@ Smartfren:
       model: 'Andromax $1'
     - regex: 'Smartfren[ _\-]([^/;\)]+)(?: Build|[/;\)])'
       model: '$1'
-    - regex: '(Androtab[^/;]+) Build'
+    - regex: '(Androtab[^/;)]+) Build'
       model: '$1'
       device: 'tablet'
 
 # Smartisan
 Smartisan:
-  regex: '(SM(?:70[15]|[89]01|919)|OD10[35]|YQ60[1357]|DE106|DT1901A|O[CE]106|OS103|O[CS]105)[ /;\)]'
+  regex: '(SM(?:70[15]|[89]01|919)|OD10[35]|YQ60[1357]|DE106|DT1901A|O[CE]106|OS103|O[CS]105)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'SM70[15]'
@@ -13010,17 +13004,17 @@ Smartisan:
       model: 'U1'
     - regex: 'OD10[35]'
       model: 'Pro'
-    - regex: 'OS105[ /;\)]'
+    - regex: 'OS105(?:[);/ ]|$)'
       model: 'Pro 2'
-    - regex: 'DE106[ /;\)]'
+    - regex: 'DE106(?:[);/ ]|$)'
       model: 'R1'
-    - regex: 'OE106[ /;\)]'
+    - regex: 'OE106(?:[);/ ]|$)'
       model: 'Nut Pro 2s'
-    - regex: 'OC10[56][ /;\)]'
+    - regex: 'OC10[56](?:[);/ ]|$)'
       model: 'Nut 3'
-    - regex: 'DT1901A[ /;\)]'
+    - regex: 'DT1901A(?:[);/ ]|$)'
       model: 'Nut Pro 3'
-    - regex: 'OS103[ /;\)]'
+    - regex: 'OS103(?:[);/ ]|$)'
       model: 'JianGuo Pro 2'
 
 # STF Mobile
@@ -13070,7 +13064,7 @@ Supra:
   regex: 'SUPRA|NVTAB 7.0 3G'
   device: 'smartphone'
   models:
-    - regex: 'SUPRA[ _]([^;/]+)(?: Build|\))'
+    - regex: 'SUPRA[ _]([^;/)]+)(?: Build|[;)])'
       device: 'tablet'
       model: '$1'
     - regex: '(NVTAB 7.0 3G)'
@@ -13079,7 +13073,7 @@ Supra:
 
 # Sumvision
 Sumvision:
-  regex: '(Cyclone [^/;]+) Build'
+  regex: '(Cyclone [^/;)]+)(?: Build|[;)])'
   device: 'tablet'
   model: '$1'
 
@@ -13088,9 +13082,7 @@ SunVan:
   regex: 'SUNVAN[ _\-]'
   device: 'smartphone'
   models:
-    - regex: 'SUNVAN[ _\-]?([^/;]+) Build'
-      model: '$1'
-    - regex: 'SUNVAN[ _\-]?([^);/ ]+)'
+    - regex: 'SUNVAN[ _\-]?([^/;)]+)(?: Build|[;)])'
       model: '$1'
 
 # SWISSMOBILITY
@@ -14060,10 +14052,10 @@ TechPad:
 
 # Tesco
 Tesco:
-  regex: 'Hudl (?:[^/;]+)(?: Build|[;)])|W032i-C3(?:[);/ ]|$)'
+  regex: 'Hudl (?:[^/;)]+)(?: Build|[;)])|W032i-C3(?:[);/ ]|$)'
   device: 'tablet'
   models:
-    - regex: 'Hudl ([^/;]+)(?: Build|[;)])'
+    - regex: 'Hudl ([^/;)]+)(?: Build|[;)])'
       model: 'Hudl $1'
     - regex: 'W032i-C3(?:[);/ ]|$)'
       model: 'Op3n Dott'
