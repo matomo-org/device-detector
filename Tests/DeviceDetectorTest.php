@@ -170,6 +170,19 @@ class DeviceDetectorTest extends TestCase
         }
 
         $this->assertEquals($fixtureData, $uaInfo, "UserAgent: {$ua}");
+        $this->assertMutationUa($fixtureData, $uaInfo);
+    }
+
+    /**
+     * remove BUILD/.+ from UserAgent and check result matches $fixtureData
+     *
+     * @param array $fixtureData
+     *
+     * @param array $uaInfo
+     */
+    protected function assertMutationUa(array $fixtureData, array $uaInfo): void
+    {
+        $ua = $fixtureData['user_agent'];
 
         if (false === \strpos($ua, ' Build/')) {
             return;
