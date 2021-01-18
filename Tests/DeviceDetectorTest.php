@@ -157,7 +157,6 @@ class DeviceDetectorTest extends TestCase
     public function testParse(array $fixtureData): void
     {
         $ua = $fixtureData['user_agent'];
-
         AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
 
         try {
@@ -171,6 +170,15 @@ class DeviceDetectorTest extends TestCase
         }
 
         $this->assertEquals($fixtureData, $uaInfo, "UserAgent: {$ua}");
+
+        if (false === \strpos($ua, ' Build/')) {
+            return;
+        }
+
+        $mutationUa       = \preg_replace('~((?: ?wv;)? Build\/[^)]+)\)~im', ')', $ua, 1);
+        $mutationUaInfo   = DeviceDetector::getInfoFromUserAgent($mutationUa);
+        $uaInfo['device'] = $mutationUaInfo['device'];
+        $this->assertEquals($fixtureData, $uaInfo, "Mutation UserAgent: {$mutationUa}\nOriginal UserAgent: {$ua}");
     }
 
     public function getFixtures(): array
