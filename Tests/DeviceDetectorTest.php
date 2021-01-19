@@ -464,7 +464,7 @@ class DeviceDetectorTest extends TestCase
         }
 
         // exclude tests
-        if (\preg_match('~ [\w]{2} Build/Smartfren~im', $ua)) {
+        if (\preg_match('~ (?:[\w]{2} Build/Smartfren|R1 Build/|Build/ICS.polypad)~im', $ua)) {
             return;
         }
 
