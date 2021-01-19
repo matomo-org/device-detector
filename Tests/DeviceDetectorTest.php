@@ -188,7 +188,12 @@ class DeviceDetectorTest extends TestCase
             return;
         }
 
-        $mutationUa       = \preg_replace('~((?: ?wv;)? Build\/[^)]+)\)~im', ')', $ua, 1);
+        // exclude tests
+        if (\preg_match('~ [\w]{2} Build/Smartfren~im', $ua)) {
+            return;
+        }
+
+        $mutationUa       = \preg_replace('~( Build\/[^)]+)\)~im', ')', $ua, 1);
         $mutationUaInfo   = DeviceDetector::getInfoFromUserAgent($mutationUa);
         $uaInfo['device'] = $mutationUaInfo['device'];
         $this->assertEquals($fixtureData, $uaInfo, "Mutation UserAgent: {$mutationUa}\nOriginal UserAgent: {$ua}");
