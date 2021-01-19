@@ -173,32 +173,6 @@ class DeviceDetectorTest extends TestCase
         $this->assertMutationUa($fixtureData, $uaInfo);
     }
 
-    /**
-     * remove BUILD/.+ from UserAgent and check result matches $fixtureData
-     *
-     * @param array $fixtureData
-     *
-     * @param array $uaInfo
-     */
-    protected function assertMutationUa(array $fixtureData, array $uaInfo): void
-    {
-        $ua = $fixtureData['user_agent'];
-
-        if (false === \strpos($ua, ' Build/')) {
-            return;
-        }
-
-        // exclude tests
-        if (\preg_match('~ [\w]{2} Build/Smartfren~im', $ua)) {
-            return;
-        }
-
-        $mutationUa       = \preg_replace('~( Build\/[^)]+)\)~im', ')', $ua, 1);
-        $mutationUaInfo   = DeviceDetector::getInfoFromUserAgent($mutationUa);
-        $uaInfo['device'] = $mutationUaInfo['device'];
-        $this->assertEquals($fixtureData, $uaInfo, "Mutation UserAgent: {$mutationUa}\nOriginal UserAgent: {$ua}");
-    }
-
     public function getFixtures(): array
     {
         $fixtures     = [];
@@ -472,6 +446,32 @@ class DeviceDetectorTest extends TestCase
         $dd->setUserAgent('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36');
         $dd->parse();
         $this->assertTrue($dd->isMobile());
+    }
+
+    /**
+     * remove BUILD/.+ from UserAgent and check result matches $fixtureData
+     *
+     * @param array $fixtureData
+     *
+     * @param array $uaInfo
+     */
+    protected function assertMutationUa(array $fixtureData, array $uaInfo): void
+    {
+        $ua = $fixtureData['user_agent'];
+
+        if (false === \strpos($ua, ' Build/')) {
+            return;
+        }
+
+        // exclude tests
+        if (\preg_match('~ [\w]{2} Build/Smartfren~im', $ua)) {
+            return;
+        }
+
+        $mutationUa       = \preg_replace('~( Build/[^)]+)\)~im', ')', $ua, 1);
+        $mutationUaInfo   = DeviceDetector::getInfoFromUserAgent($mutationUa);
+        $uaInfo['device'] = $mutationUaInfo['device'];
+        $this->assertEquals($fixtureData, $uaInfo, "Mutation UserAgent: {$mutationUa}\nOriginal UserAgent: {$ua}");
     }
 
     /**
