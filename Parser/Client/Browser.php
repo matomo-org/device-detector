@@ -241,6 +241,7 @@ class Browser extends AbstractClientParser
         'PU' => 'Puffin',
         'PW' => 'Palm WebPro',
         'PA' => 'Palmscape',
+        'PH' => 'Phantom Browser',
         'PX' => 'Phoenix',
         'PB' => 'Phoenix Browser',
         'PF' => 'PlayFree Browser',
