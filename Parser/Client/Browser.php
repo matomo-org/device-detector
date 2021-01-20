@@ -324,6 +324,7 @@ class Browser extends AbstractClientParser
         'YB' => 'Yolo Browser',
         'XI' => 'Xiino',
         'XV' => 'Xvast',
+        'ZE' => 'Zetakey',
         'ZV' => 'Zvu',
 
         // detected browsers in older versions
