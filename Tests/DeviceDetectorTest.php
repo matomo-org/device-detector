@@ -464,13 +464,14 @@ class DeviceDetectorTest extends TestCase
         }
 
         // exclude tests
-        $excludePattern = sprintf('~Build/TECNO|R1 Build/|Build/HONOR|Build/ThinkPadTablet|Build/(.+)?%s~i', $fixtureData['device']['brand'] ?? '');
+        $excludePattern = \sprintf('~Build/TECNO|R1 Build/|Build/HONOR|Build/ThinkPadTablet|Build/(.+)?%s~i', $fixtureData['device']['brand'] ?? '');
+
         if (\preg_match($excludePattern, $ua)) {
             return;
         }
 
-        $mutationUa       = \preg_replace('~( Build/[^)]+)\)~im', ')', $ua, 1);
-        $mutationUaInfo   = DeviceDetector::getInfoFromUserAgent($mutationUa);
+        $mutationUa     = \preg_replace('~( Build/[^)]+)\)~im', ')', $ua, 1);
+        $mutationUaInfo = DeviceDetector::getInfoFromUserAgent($mutationUa);
 
         $uaInfo['device'] = $mutationUaInfo['device'];
 
