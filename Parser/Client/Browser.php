@@ -231,6 +231,7 @@ class Browser extends AbstractClientParser
         'OY' => 'Origyn Web Browser',
         'OV' => 'Openwave Mobile Browser',
         'OW' => 'OmniWeb',
+        'YX' => 'Onyx',
         'OT' => 'Otter Browser',
         'PL' => 'Palm Blazer',
         'PM' => 'Pale Moon',
