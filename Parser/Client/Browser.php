@@ -228,7 +228,6 @@ class Browser extends AbstractClientParser
         'OO' => 'Opera Touch',
         'OS' => 'Ordissimo',
         'OR' => 'Oregano',
-        'OA' => 'Oregano Browser',
         'O0' => 'Origin In-Game Overlay',
         'OY' => 'Origyn Web Browser',
         'OV' => 'Openwave Mobile Browser',
