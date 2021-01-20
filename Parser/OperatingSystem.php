@@ -287,7 +287,7 @@ class OperatingSystem extends AbstractParser
             return 'SuperH';
         }
 
-        if ($this->matchUserAgent('WOW64|x64|win64|amd64|x86_64')) {
+        if ($this->matchUserAgent('WOW64|x64|win64|amd64|x86_64|x8664')) {
             return 'x64';
         }
 
