@@ -241,6 +241,7 @@ class Browser extends AbstractClientParser
         'PU' => 'Puffin',
         'PW' => 'Palm WebPro',
         'PA' => 'Palmscape',
+        'PE' => 'Perfect Browser',
         'PH' => 'Phantom Browser',
         'PX' => 'Phoenix',
         'PB' => 'Phoenix Browser',
@@ -382,7 +383,7 @@ class Browser extends AbstractClientParser
         'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM',
         'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
         'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH', 'PI', 'SG',
-        'KD',
+        'KD', 'PE',
     ];
 
     /**
