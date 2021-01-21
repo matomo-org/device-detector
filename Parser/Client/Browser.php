@@ -58,6 +58,7 @@ class Browser extends AbstractClientParser
         'AT' => 'Atomic Web Browser',
         'AS' => 'Avast Secure Browser',
         'VG' => 'AVG Secure Browser',
+        'A1' => 'AwoX',
         'BA' => 'Beaker Browser',
         'BM' => 'Beamrise',
         'BB' => 'BlackBerry Browser',
@@ -240,6 +241,7 @@ class Browser extends AbstractClientParser
         'PU' => 'Puffin',
         'PW' => 'Palm WebPro',
         'PA' => 'Palmscape',
+        'PH' => 'Phantom Browser',
         'PX' => 'Phoenix',
         'PB' => 'Phoenix Browser',
         'PF' => 'PlayFree Browser',
@@ -323,6 +325,7 @@ class Browser extends AbstractClientParser
         'YB' => 'Yolo Browser',
         'XI' => 'Xiino',
         'XV' => 'Xvast',
+        'ZE' => 'Zetakey',
         'ZV' => 'Zvu',
 
         // detected browsers in older versions
