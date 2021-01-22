@@ -3738,7 +3738,7 @@ ConCorde:
 
 # Condor
 Condor:
-  regex: 'Allure (?:M[13]|X)|Griffe T[2356789]|TFX712G|TRA-901G|TGW[-]?(710G|709)|(?:PGN\-?[456][012][0-9]|PHS\-601|PHQ519|PHQ52[056]|PKT\-301|Plume (?:H1|L[123]|P8))(?:[);/ ]|$)|CTAB[^/;]+ Build'
+  regex: 'Allure (?:M[13]|X)|Griffe T[2356789]|TFX712G|TRA-901G|TGW[-]?(710G|709)|(?:PGN\-?[456][012][0-9]|PHS\-601|PHQ519|PHQ52[056]|PKT\-301|Plume (?:H1|L[1-468]|P8))(?:[);/ ]|$)|CTAB[^/;]+ Build'
   device: 'smartphone'
   models:
     - regex: 'CTAB([^/;]+) Build'
@@ -3800,6 +3800,8 @@ Condor:
       model: 'Plume P6'
     - regex: 'PGN\-?521'
       model: 'Griffe G4 Plus'
+    - regex: 'Griffe T3 ?pro'
+      model: 'Griffe T3 Pro'
     - regex: 'Griffe T([0-9]) Plus'
       model: 'Griffe T$1 Plus'
     - regex: 'Griffe T([0-9])'
@@ -3832,18 +3834,16 @@ Condor:
       model: 'Allure A55 Plus'
     - regex: 'Plume H1'
       model: 'Plume H1'
-    - regex: 'Plume L1'
-      model: 'Plume L1'
-    - regex: 'Plume L2 Pro'
-      model: 'Plume L2 Pro'
-    - regex: 'Plume L2'
-      model: 'Plume L2'
+    - regex: 'Plume L([468]) Pro'
+      model: 'Plume L$1 Pro'
     - regex: 'Plume L3 Plus'
       model: 'Plume L3 Plus'
     - regex: 'Plume L3 Smart'
       model: 'Plume L3 Smart'
-    - regex: 'Plume L3'
-      model: 'Plume L3'
+    - regex: 'Plume L2 Pro'
+      model: 'Plume L2 Pro'
+    - regex: 'Plume L([1-4])'
+      model: 'Plume L$1'
     - regex: 'Plume P8 Pro'
       model: 'Plume P8 Pro'
 
@@ -6206,7 +6206,7 @@ Huawei:
       model: 'Enjoy 7'
     - regex: 'FIG-(?:[AT]L[10]0)(?:[);/ ]|$)'
       model: 'Enjoy 7S'
-    - regex: 'TRT-AL00[A]?(?:[);/ ]|$)'
+    - regex: '(?:TRT-AL00[A]?|TRT-TL10A)(?:[);/ ]|$)'
       model: 'Enjoy 7 Plus'
     - regex: 'LDN-(?:AL[12]0|TL[02]0)(?:[);/ ]|$)'
       model: 'Enjoy 8'
@@ -7235,7 +7235,7 @@ iNew:
 
 # iPro
 iPro:
-  regex: '(?:Kylin[ _]5.[05]S?|Jade7s|Amber[67]S?|Amber5S_Pro|Phonenix50S)(?:[);/ ]|$)'
+  regex: '(?:Kylin[ _]5.[05]S?|Jade7s|Amber[67]S?|Amber5S_Pro|Phonenix50S|Zafiro)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Kylin_5.0S'
@@ -7252,6 +7252,8 @@ iPro:
       model: 'Amber 6'
     - regex: 'Phonenix50S'
       model: 'Phonenix 50S'
+    - regex: 'Zafiro'
+      model: 'Zafiro'
 
 # Infinix
 Infinix:
@@ -17750,7 +17752,7 @@ Uhans:
 
 # Soyes
 Soyes:
-  regex: 'SOYES[ _]([67]S)(?:[);/ ]|$)'
+  regex: 'SOYES[ _]([67]S|XS)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
 
@@ -20110,6 +20112,12 @@ WE:
   regex: 'WE (A[15]0|B3|F[12]0|E[12]|L[3469]|R[34]|V[34]|S1|X[13]|T1)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
+
+# Trio or triomobiles (http://triomobiles.com/products.html)
+Trio:
+  regex: 'Trio V51 DT(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: 'V51DT'
 
 # Leff
 Leff:

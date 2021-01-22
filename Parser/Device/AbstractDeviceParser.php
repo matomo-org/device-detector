@@ -837,6 +837,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'TJ' => 'Trifone',
         '4T' => 'Tronsmart',
         '11' => 'True',
+        'J1' => 'Trio',
         '5C' => 'TTEC',
         'TU' => 'Tunisie Telecom',
         '1T' => 'Turbo',
