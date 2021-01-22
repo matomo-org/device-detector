@@ -75,6 +75,7 @@ class Browser extends AbstractClientParser
         'BK' => 'BriskBard',
         'BX' => 'BrowseX',
         'BZ' => 'Browzar',
+        'BY' => 'Biyubi',
         'CA' => 'Camino',
         'CL' => 'CCleaner',
         'C0' => 'Centaury',
