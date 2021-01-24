@@ -849,6 +849,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '5T' => 'TurboKids',
         'TV' => 'TVC',
         'TW' => 'TWM',
+        'Z1' => 'TWZ',
         '6T' => 'Twoe',
         '15' => 'Tymes',
         'UC' => 'U.S. Cellular',

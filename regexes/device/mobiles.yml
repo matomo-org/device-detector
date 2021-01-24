@@ -5256,7 +5256,7 @@ Ericsson:
 
 # Energizer
 Energizer:
-  regex: 'PowerMax|ENERGY[_ ]?(?:[45]00|400S|S[56]00|E5[02]0S?)(?:[_ ](?:LTE|EU))?'
+  regex: 'PowerMax|ENERGY[_ ]?(?:[45]00|400S|S[56]00|E12|E5[02]0S?)(?:[_ ](?:LTE|EU))?'
   device: 'smartphone'
   models:
     - regex: 'PowerMax(P[0-9]+S?)'
@@ -5269,7 +5269,7 @@ Energizer:
       model: 'Energy 400'
     - regex: 'ENERGY[_ ]S([56]00)'
       model: 'Energy S$1'
-    - regex: 'ENERGY[_ ]?(E500S|E500)'
+    - regex: 'ENERGY[_ ]?(E500S|E500|E12)'
       model: 'Energy $1'
 
 # Energy Sistem
@@ -5678,6 +5678,8 @@ Geotel:
       model: 'G1'
     - regex: 'GEOTEL[ _]?Note'
       model: 'Note'
+    - regex: 'GEOTEL[ _]AMIGO'
+      model: 'Amigo'
 
 # Ghia
 Ghia:
@@ -6895,7 +6897,7 @@ Hyundai:
 
 # iBall
 iBall:
-  regex: 'iBall[ _]([^;/)]+)[ _]Build|(?:Snap_4G2|6351-Q400i|iT-KSA0003|iT-KSA0012|iT-KSA0066|Avid|Twinkle_i5|Gorgeo_4GL|Blaze_V4|Wondro 10)(?:[);/ ]|$)'
+  regex: 'iBall[ _]([^;/)]+)[ _]Build|iBall_Slide|(?:Snap_4G2|6351-Q400i|iT-KSA0003|iT-KSA0012|iT-KSA0066|Avid|Twinkle_i5|Gorgeo_4GL|Blaze_V4|Wondro 10)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: '(Snap_4G2|Avid|Twinkle_i5|Gorgeo_4GL|Blaze_V4|Wondro 10)(?:[);/ ]|$)'
@@ -6908,7 +6910,7 @@ iBall:
       model: 'iTAB BizniZ Mini'
     - regex: 'iT-KSA0012(?:[);/ ]|$)'
       model: 'iTAB Moviez Pro'
-    - regex: 'iBall[ _]([^;/)]+)[ _]Build'
+    - regex: 'iBall[ _]([^;/)]+)(?:[ _]Build|\))'
       model: '$1'
 
 # iRola
@@ -7503,9 +7505,11 @@ INQ:
 
 # Intex
 Intex:
-  regex: 'Intex|(Aqua|Cloud[ _][XY][0-9]{1}|Cloud (?:Fame|Glory) 4G)'
+  regex: 'Intex|(Aqua|Cloud[ _][XY][0-9]{1}|Cloud (?:Fame|Glory) 4G)|IM0318ND(?:[);/ ]|$)'
   device: 'smartphone'
   models:
+    - regex: 'IM0318ND'
+      model: 'Aqua Lions 3'
     - regex: 'Intex[ _]([^/;]*)[ _]Build'
       model: '$1'
     - regex: '(Cloud (?:Fame|Glory) 4G)'
@@ -7596,7 +7600,7 @@ Impression:
 
 #iLife or i-life (lifedigital.com)
 iLife:
-  regex: '(ITELL[_ ](?:K3300|K3500N))(?:[);/ ]|$)'
+  regex: '(ITELL[_ ](?:K3300|K3500N?|K4700))(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
 
@@ -9062,6 +9066,9 @@ LG:
       device: 'tablet'
     - regex: 'LGT32'
       model: 'Qua Tad PZ'
+      device: 'tablet'
+    - regex: 'LGT31'
+      model: 'Qua Tad PX'
       device: 'tablet'
 
     - regex: 'webOS.TV'
@@ -13132,7 +13139,7 @@ Senwa:
 
 # Sky or Sky Devices (skydevices.com)
 Sky:
-  regex: '(?:SKY|Elite|Fuego)[_ ][3-7]\.[05](?:[A-Z]{1,2})?|Elite[ _](?:M45|GO|M5Plus|T55|T[46]|[AB]5|5_5_Octa)|Platinum[_ ](?:5.0M|5\.5C|M5|[ABCM]4|[ACG]55|[ABDEFG]5|A57|P9|X|UNO|VIEW2|O|4_0Plus)|PLATINUMVIEW|SKY[ _](?:55M|Pro_III)'
+  regex: '(?:SKY|Elite|Fuego)[_ ][3-7]\.[05](?:[A-Z]{1,2})?|Elite[ _](?:5_0T|M45|[45]T|45T|GO|M5Plus|T55|T[46]|[AB]5|5_5_Octa)|Platinum[_ ](?:5.0M|5\.5C|M5|[ABCM]4|[ACG]55|[ABDEFG]5|A57|P9|X|UNO|VIEW2|O|4_0Plus)|PLATINUMVIEW|SKY[ _](?:55M|Pro_III)'
   device: 'smartphone'
   models:
     - regex: 'Platinum[_ ](?:5\.0M|M5)'
@@ -13152,10 +13159,11 @@ Sky:
       model: 'Elite 5.5 Octa'
     - regex: 'Elite M5Plus'
       model: 'Elite M5 Plus'
-    - regex: 'Elite[ _](M45|Go|T[46]|T55|[AB]5)(?:[);/ ]|$)'
+    - regex: 'Elite[ _](M45|Go|[45]T|T[46]|T55|[AB]5|A55|45T)(?:[);/ ]|$)'
       model: 'Elite $1'
-    - regex: 'Elite[_ ]([3-7]\.[05](?:[A-Z]{1,2})?\+?)'
-      model: 'Elite $1'
+
+    - regex: 'Elite[_ ]([3-7])[\._]([05](?:[A-Z]{1,2})?\+?)'
+      model: 'Elite $1.$2'
     - regex: 'Fuego[_ ]([3-7]\.[05](?:[A-Z]{1,2})?\+?)'
       model: 'Fuego $1'
     - regex: 'SKY_Pro_III'
@@ -14046,14 +14054,14 @@ Star:
 
 # Starmobile (starmobile.ph)
 Starmobile:
-  regex: '(?:Starmobile (?:Play (?:Neo|Spark|GO))|UP[_ ](?:Groove|Prime|Selfie|Xtreme|XL))(?:[);/ ]|$)'
+  regex: '(?:Starmobile (?:Play (?:Neo|Spark|GO))|UP[_ ](?:Sense|Rave|Groove|Prime|Selfie|Xtreme|XL))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Starmobile PLAY GO(?:[);/ ]|$)'
       model: 'Play Go'
     - regex: 'Starmobile (Play (?:Neo|Spark))(?:[);/ ]|$)'
       model: '$1'
-    - regex: 'UP[_ ](Groove|Prime|Selfie|Xtreme|XL)(?:[);/ ]|$)'
+    - regex: 'UP[_ ](Sense|Rave|Groove|Prime|Selfie|Xtreme|XL)(?:[);/ ]|$)'
       model: 'UP $1'
 
 # Kindle
@@ -18038,6 +18046,17 @@ TWM:
       device: 'tablet'
       model: 'Amazing $1'
 
+# TWZ (twz.co.th)
+TWZ:
+  regex: 'TWZ[-_ ](?:TabPlay|Y6[08]|Y52|A49|A[59]5|A567|AA8|QQ[12])|TWZQQ1'
+  device: 'smartphone'
+  models:
+    - regex: 'TWZ[_ ]TabPlay[_ ](12[56])'
+      device: 'tablet'
+      model: 'TabPlay $1'
+    - regex: 'TWZ[-_ ]?(Y6[08]|Y52|A49|A[59]5|A567|AA8|QQ[12])'
+      model: '$1'
+
 # Onix
 Onix:
   regex: '(AT101-1116)(?:[);/ ]|$)'
@@ -18268,7 +18287,7 @@ Newman:
 
 # Swipe
 Swipe:
-  regex: '(Elite Sense)(?:[);/ ]|$)'
+  regex: '(Elite Sense|Elite_VR)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
 
