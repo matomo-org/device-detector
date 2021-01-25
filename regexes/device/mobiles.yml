@@ -4403,7 +4403,7 @@ DoCoMo:
 
 # Doogee
 Doogee:
-  regex: 'DOOGEE[ _-]|Valencia2_Y100_?(?:pro|plus)|Y100_Plus|X5max(?:[_ ]PRO)?|Shoot_[12]|x5_doogee|(KISSME|BIGBOY|COLLO[23]?|DAGGER|DISCOVERY2?|FIND|HOTWIND|LATTE|MAX|MINT|MOON|PIXELS|RAINBOX|TURBO|VALENCIA|VOYAGER2?|TITANS2?)[ -_](DG[0-9]+C?)(?:[);/ ]|$)|BL[579]000(?:[);/ ]|$)|BL12000|BL5500[_ ]Lite|X9 Mini|LEO_DG280|Y9Plus|Hitman_DG850|S(?:68|9[05])Pro|S40Lite|(?<!Lenovo )S90C|Ibiza_F2'
+  regex: 'DOOGEE[ _-]|Valencia2_Y100_?(?:pro|plus)|Y100_Plus|X5max(?:[_ ]PRO)?|Shoot_[12]|x5_doogee|(KISSME|BIGBOY|COLLO[23]?|DAGGER|DISCOVERY2?|FIND|HOTWIND|LATTE|MAX|MINT|MOON|PIXELS|RAINBOX|TURBO|VALENCIA|VOYAGER2?|TITANS2?)[ -_](DG[0-9]+C?)(?:[);/ ]|$)|BL[579]000(?:[);/ ]|$)|BL12000|BL5500[_ ]Lite|X9 Mini|LEO_DG280|Y9Plus|Hitman_DG850|S(?:[56]8|9[05])Pro|S40Lite|(?<!Lenovo )S90C|Ibiza_F2'
   device: 'smartphone'
   models:
     - regex: '(?:Valencia2_)?Y100_Plus(?:[);/ ]|$)'
@@ -4420,7 +4420,7 @@ Doogee:
       model: 'BL5500 Lite'
     - regex: 'BL12000'
       model: 'BL12000'
-    - regex: 'S(68|9[05])Pro'
+    - regex: 'S([56]8|9[05])Pro'
       model: 'S$1 Pro'
     - regex: 'S40Lite'
       model: 'S40 Lite'
@@ -7873,17 +7873,15 @@ KDDI:
 
 # Kodak
 Kodak:
-  regex: 'KODAK|IM5|Ektra(?:[);/ ]|$)'
+  regex: 'KODAK|(?:IM5|Ektra|Smartway_T1)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'IM5'
       model: 'IM5'
     - regex: 'Ektra(?:[);/ ]|$)'
       model: 'Ektra'
-    - regex: 'KODAK_SMARTWAY_((M|T)1)'
+    - regex: '(?:KODAK[_ ])?SMARTWAY[_ ]([MTX]1)'
       model: 'Smartway $1'
-    - regex: 'SMARTWAY X1'
-      model: 'Smartway X1'
     - regex: 'Tablet (7|10)'
       device: 'tablet'
       model: 'Tablet $1'
@@ -8144,7 +8142,7 @@ AIS:
 
 # Lava (Lavamobiles.com)
 Lava:
-  regex: 'Lava[ _]|LAVAA1|(?:DISCOVER136|KKT QUADRA)|iris[ _]?([^/;]+)(?:\)| Build)|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|(?:Flair Z1|PixelV1|Pixel V2|Z61_2GB|A97 IPS|L[EH]9920(?:[_ ]P)?|L[EH]9910)(?:[);/ ]|$)'
+  regex: 'Lava[ _]|LAVAA1|(?:DISCOVER136|KKT QUADRA)|iris[ _]?([^/;]+)(?:\)| Build)|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|(?:Flair Z1|PixelV1|Pixel V2|Z61_2GB|A97 IPS|L[EH]9920(?:[_ ]P)?|L[NEH]9910)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Flair Z1(?:[);/ ]|$)'
@@ -8173,6 +8171,8 @@ Lava:
       model: 'Z53'
     - regex: 'LH9910(?:[);/ ]|$)'
       model: 'Z52'
+    - regex: 'LN9910(?:[);/ ]|$)'
+      model: 'Z41'
     - regex: 'LE9910(?:[);/ ]|$)'
       model: 'V8'
     - regex: 'LH9920(?:[);/ ]|$)'
@@ -14949,7 +14949,7 @@ Verykool:
 
 # Vestel (vestel.com)
 Vestel:
-  regex: 'Vestel[ _]|Venus[ _](GO|E[2-5]|V[1-9]|Z[1-9]0)|V_?TAB|VP74|VT97PRO|VSP145M|VSP250[GS]|VSP355[GS]|V3_5580_Dual'
+  regex: 'Vestel[ _]|Venus[ _](GO|E[2-5]|V[1-9]|Z[1-9]0)|(?<!Winnovo )V_?TAB|VP74|VT97PRO|VSP145M|VSP250[GS]|VSP355[GS]|V3_5580_Dual'
   device: 'smartphone'
   models:
     - regex: 'VT97PRO'
@@ -20112,6 +20112,18 @@ Jivi:
       model: 'Xtreme View Pro $1Plus'
     - regex: 'Xtreme[ _]([137]|3x)(?:[);/ ]|$)'
       model: 'Xtreme $1'
+
+# Winnovo
+Winnovo:
+  regex: 'Winnovo[ _]'
+  device: 'tablet'
+  models:
+    - regex: 'Winnovo[ _](M866|M798|VTab|750[PK])(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'Winnovo[ _](K5[46]|K43)[a-z]{2}'
+      device: 'smartphone'
+      model: '$1'
+
 
 # WE or WM Mobile or AAMRA WE
 WE:
