@@ -457,6 +457,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'K6' => 'Kanji',
         'KA' => 'Karbonn',
         'K5' => 'KATV1',
+        'K0' => 'Kata',
         'KZ' => 'Kazam',
         'KD' => 'KDDI',
         'KS' => 'Kempler & Strauss',

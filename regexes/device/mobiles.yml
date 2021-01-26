@@ -1107,7 +1107,7 @@ Advan:
 
 # Advance (advanceperu.com)
 Advance:
-  regex: 'Hollogram|(?:HL6246|IntroTr3544|Pr(?:61(?:4[56]|50)|60[27]0|5[69]50)|Tr3845)(?:[);/ ]|$)'
+  regex: 'Hollogram|(?:HL(?:6246|[56]575|5[67]67)|IntroTr3544|Pr(?:61(?:4[56]|50)|60[27]0|5[69]50)|Tr3845)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit table models
@@ -1118,8 +1118,8 @@ Advance:
       model: 'Prime PR$1'
       device: 'tablet'
     # explicit smartphone models
-    - regex: 'HL6246'
-      model: 'Hollogram HL6246'
+    - regex: 'HL(6246|[56]575|5[67]67)'
+      model: 'Hollogram HL$1'
     - regex: 'Hollogram ([^;/)]+)(?: Build|[;)])'
       model: 'Hollogram $1'
 
@@ -19817,7 +19817,7 @@ Pluzz:
 
 # IKI Mobile (ikimobile.com)
 IKI Mobile:
-  regex: '(?:GO5_55|BLESS_GO55|BLESSPLUS)(?:[);/ ]|$)'
+  regex: '(?:GO5_55|BLESS_GO55|BLESSPLUS|KF4Go|KF5bless)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'GO5_55'
@@ -19826,6 +19826,8 @@ IKI Mobile:
       model: 'Bless Go 5.5"'
     - regex: 'BLESSPLUS'
       model: 'Bless Plus'
+    - regex: '(KF4Go|KF5bless)'
+      model: '$1'
 
 # CG Mobile
 'CG Mobile':
@@ -20188,10 +20190,29 @@ Centric:
 # CHIA
 CHIA:
   regex: 'SVEGLIO[ _][QH]1(?:[);/ ]|$)'
-  model: 'smartphone'
+  device: 'smartphone'
   models:
     - regex: 'SVEGLIO[ _]([QH]1)'
       model: 'Sveglio $1'
+
+# Kata mobile (secure.katadigital.com)
+Kata:
+  regex: 'Kata[ _-]'
+  device: 'smartphone'
+  models:
+    - regex: 'Kata[ _-](C3|L1|M3s|M4|V[56])(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'Kata[ _-]i5-\w'
+      model: 'I5'
+    - regex: 'Kata-(T5)(?:[);/ ]|$)'
+      device: 'tablet'
+      model: '$1'
+    - regex: 'Kata-Tmini4(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'T Mini 4'
+    - regex: 'Kata Box 2(?:[);/ ]|$)'
+      device: 'tv'
+      model: 'Box 2'
 
 # Leff
 Leff:
