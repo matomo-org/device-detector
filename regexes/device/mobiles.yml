@@ -8148,24 +8148,21 @@ AIS:
 
 # Lava (Lavamobiles.com)
 Lava:
-  regex: 'Lava[ _]|LAVAA1|(?:DISCOVER136|KKT QUADRA)|iris[ _]?([^/;]+)(?:\)| Build)|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|(?:Flair Z1|PixelV1|Pixel V2|Z61_2GB|A97 IPS|L[EH]9920(?:[_ ]P)?|L[EH]9910)(?:[);/ ]|$)'
+  regex: 'Lava[ _]|LAVAA1|(?:DISCOVER136|KKT QUADRA)|iris[ _]?([^/;]+)(?:\)| Build)|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|(?:Flair Z1|PixelV1|Pixel V2|Z61_2GB|A97 IPS|L[EH]9920(?:[_ ]P)?|L[EH]9910|Ivory(?:S1)?)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
+    # explicit smartphone models
     - regex: 'Flair Z1(?:[);/ ]|$)'
       model: 'Flair Z1'
     - regex: 'A97 IPS(?:[);/ ]|$)'
       model: 'A97 IPS'
-    - regex: 'A67 Build'
-      model: 'A67'
-    - regex: 'A76 Build'
-      model: 'A76'
     - regex: 'Pixel ?V([12])(?:[);/ ]|$)'
       model: 'Pixel V$1'
-    - regex: 'X1 Selfie Build'
+    - regex: 'X1 Selfie(?:[);/ ]|$)'
       model: 'Iris X1 Selfie'
-    - regex: 'X41 Plus Build'
+    - regex: 'X41 Plus(?:[);/ ]|$)'
       model: 'X41 Plus'
-    - regex: 'LAVA[_ ]?A([13])(?:[);/ ]|$)'
+    - regex: '(?:LAVA[_ ]?)?A([13]|67|76)(?:[);/ ]|$)'
       model: 'A$1'
     - regex: 'LAVA_R1'
       model: 'R1'
@@ -8181,7 +8178,7 @@ Lava:
       model: 'V8'
     - regex: 'LH9920(?:[);/ ]|$)'
       model: 'V+6'
-
+    # explicit feature phone models
     - regex: 'DISCOVER136'
       device: 'feature phone'
       model: 'Discover 136'
@@ -8191,7 +8188,11 @@ Lava:
     - regex: 'KKT40[ ]?Power[P\+]'
       device: 'feature phone'
       model: 'KKT40 Power Plus'
-
+    # explicit tablet models
+    - regex: 'Ivory(S1)?(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'Ivory $1'
+    # explicit general
     - regex: 'iris[ _]?([^/;]+)(?:\)| Build)'
       model: 'Iris $1'
     - regex: 'Lava[ _]?([^/;]+)(?:/| Build)'
@@ -13340,7 +13341,7 @@ SWISSMOBILITY:
 
 # Thomson
 Thomson:
-  regex: '(?:Primo(7|8)|QM73[45]-8G|QM734-2|QM736-8G\(HD\)|(?<!\.)8950|MID1002|5014G|TEO7RK|Delight TH201)(?:[);/ ]|$)|(?:Tlink|Every)[0-9]+'
+  regex: '(?:Primo(7|8)|QM73[45]-8G|QM734-2|QM736-8G\(HD\)|(?<!\.)8950|MID1002|5014G|TEO7RK|Friendly_TH101|Delight TH201)(?:[);/ ]|$)|(?:Tlink|Every)[0-9]+'
   device: 'tablet'
   models:
     # already detected as manta device
@@ -13373,6 +13374,9 @@ Thomson:
     - regex: 'Delight TH201'
       device: 'smartphone'
       model: 'Delight TH201'
+    - regex: 'Friendly_TH101'
+      device: 'smartphone'
+      model: 'Friendly TH101'
 
 # Tanix
 Tanix:
@@ -17257,7 +17261,7 @@ FORME:
   models:
     - regex: 'FORME[ _-]F520(?:[);/ ]|$)'
       model: 'Forever'
-    - regex: 'FORME[ _-](A37|R7S?)(?:[);/ ]|$)'
+    - regex: 'FORME[ _-](A[35]7|R7S?|P6)(?:[);/ ]|$)'
       model: '$1'
 
 # Shuttle
@@ -19128,9 +19132,13 @@ P-UP:
 
 # iVooMi
 iVooMi:
-  regex: 'Innelo_1(?:[);/ ]|$)'
+  regex: '(?:Innelo_1|iV 505)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: 'Innelo 1'
+  models:
+    - regex: 'Innelo_1'
+      model: 'Innelo 1'
+    - regex: 'iV 505'
+      model: 'Me 1'
 
 # Pixelphone
 Pixelphone:
@@ -19140,7 +19148,7 @@ Pixelphone:
 
 # Iris
 Iris:
-  regex: '(?:Vox[_ ](?:[45]S|Alpha|POP|STEEL Plus|Energy))(?:[);/ ]|$)'
+  regex: '(?:Vox[_ ](?:[45]S|Alpha|POP|STEEL Plus|Energy)|IS2_?Plus|IS2S)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Vox[_ ]([45])S'
@@ -19157,6 +19165,10 @@ Iris:
       model: 'Vox Pop Plus'
     - regex: 'VOX POP Pro'
       model: 'Vox Pop Pro'
+    - regex: 'IS2_?Plus'
+      model: 'IS2 Plus'
+    - regex: 'IS2S'
+      model: 'IS2S'
 
 # Fonos
 Fonos:
@@ -20230,3 +20242,11 @@ Westpoint:
   regex: 'KB2 PRO(?:[);/ ]|$)'
   device: 'tv'
   model: 'KB2 Pro'
+
+# Formuler (formuler.tv)
+Formuler:
+  regex: 'Formuler[ _]'
+  device: 'tv'
+  models:
+    - regex: 'Formuler[ _](Z8(?: Pro)?)(?:[);/ ]|$)'
+      model: '$1'
