@@ -325,6 +325,7 @@ class Browser extends AbstractClientParser
         'YL' => 'Yandex Browser Lite',
         'YN' => 'Yaani Browser',
         'YB' => 'Yolo Browser',
+        'XS' => 'xStand',
         'XI' => 'Xiino',
         'XV' => 'Xvast',
         'ZE' => 'Zetakey',
