@@ -923,6 +923,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'WS' => 'Winds',
         'WN' => 'Wink',
         '9W' => 'Winmax',
+        'W5' => 'Winnovo',
         'W0' => 'Wiseasy',
         '2W' => 'Wizz',
         'WL' => 'Wolder',
