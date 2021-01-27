@@ -18295,9 +18295,13 @@ Swipe:
 
 # Owwo
 Owwo:
-  regex: 'OWWO[ _]?([1457]S|Q[78])(?:[);/ ]|$)'
+  regex: '(?:OWWO[ _]?(?:[1457]S|Q[78])|CARNIVAL B5)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'OWWO[ _]?([1457]S|Q[78])(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'CARNIVAL B5(?:[);/ ]|$)'
+      model: 'Carnival B5'
 
 # 360 or names Qihoo 360, +360
 '360':
@@ -18944,14 +18948,14 @@ Nos:
 
 # Accent (DBM Maroc) (accent.ma)
 Accent:
-  regex: '(?:ACCENT[_ ]NEON|FAST73G|PEARL[_ ]A[24567]|TANK_P55|CAMELEON[_ ](?:C[56]|A1)(?:[_ ]PLUS)?)(?:[);/ ]|$)'
+  regex: '(?:ACCENT[_ ]NEON|FAST73G|PEARL[_ ]A[24567]|TANK_P55|CAMELEON[_ ](?:C[456]|A1)(?:[_ ]PLUS)?)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'ACCENT[_ ]NEON(?:[);/ ]|$)'
       model: 'Neon'
     - regex: 'CAMELEON[_ ]C6[_ ]PLUS(?:[);/ ]|$)'
       model: 'Cameleon C6 Plus'
-    - regex: 'CAMELEON[_ ](C[56]|A1)(?:[);/ ]|$)'
+    - regex: 'CAMELEON[_ ](C[456]|A1)(?:[);/ ]|$)'
       model: 'Cameleon $1'
     - regex: 'PEARL A4 Lite(?:[);/ ]|$)'
       model: 'Pearl A4 Lite'
@@ -20184,11 +20188,13 @@ Seuic:
 
 # Centric
 Centric:
-  regex: 'Centric[- ]CM(?:5001|33[23]1)(?:[);/ ]|$)'
+  regex: 'Centric[- ]CM(?:5001|33[23]1|3321Plus)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(?:Centric[- ])?CM5001'
       model: 'A1'
+    - regex: '(?:Centric[- ])?CM3321Plus'
+      model: 'P1 Plus'
     - regex: '(?:Centric[- ])?CM3321'
       model: 'P1'
     - regex: '(?:Centric[- ])?CM3331'
