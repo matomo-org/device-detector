@@ -18854,8 +18854,11 @@ i-Cherry:
   regex: 'iCherry_?'
   device: 'smartphone'
   models:
-    - regex: 'iCherry[ _]C(25[125]|21[16]|110|121|22[079]|23[03])(?:[);/ ]|$)'
-      model: 'C$1'
+    - regex: 'iCherry[ _](C(?:25[1258]|21[16]|110|121|22[0379]|23[03])|X1)(?:[);/ ]|$)'
+      model: '$1'
+    - regex : 'iCherry-C256'
+      device: 'tablet'
+      model: 'C256 Nano 3G'
 
 # NextTab
 NextTab:
@@ -20014,9 +20017,13 @@ Claresta:
 
 # Camfone (camfonemobile.com)
 Camfone:
-  regex: '(Hero[_ ](?:H5\+|SE2|H9|(?:H7|XR)_Plus|SX|1[123]|SE3[ _]Max)|Honey (?:Y1|Y2s))(?:[);/ ]|$)'
+  regex: '(?:Camfone (?:SE)|Hero[_ ](?:H5\+|SE2|H9|(?:H7|XR)_Plus|SX|1[123]|SE3[ _]Max)|Honey (?:Y1|Y2s))(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: '(Hero[_ ](?:H5\+|SE2|H9|(?:H7|XR)_Plus|SX|1[123]|SE3[ _]Max)|Honey (?:Y1|Y2s))(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'Camfone (SE)(?:[);/ ]|$)'
+      model: '$1'
 
 # Bellphone
 Bellphone:
@@ -20090,10 +20097,10 @@ Leader Phone:
 
 # Cavion (cavion.pl)
 Cavion:
-  regex: '(?:Cavion[_ ](?:Solid_4_5|Base[ _](?:7|7_3G_Silver|5\.0|10|7.2 Quad)|10_3GRQ)|Cavion7.1quad)(?:[);/ ]|$)'
+  regex: '(?:Cavion[_ ](?:Solid[_ ]4[\._]5|Base[ _](?:7|7_3G_Silver|5\.0|10|7.2 Quad)|10_3GRQ)|Cavion7.1quad)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'Cavion_Solid_4_5'
+    - regex: 'Cavion[_ ]Solid[_ ]4[\._]5'
       model: 'Solid 4.5"'
     - regex: 'Cavion BASE 5.0'
       model: 'Base 5.0"'
