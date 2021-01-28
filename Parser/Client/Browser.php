@@ -77,6 +77,7 @@ class Browser extends AbstractClientParser
         'BZ' => 'Browzar',
         'BY' => 'Biyubi',
         'B1' => 'BSN Browser',
+        'B2' => 'BSN Browser Lite',
         'CA' => 'Camino',
         'CL' => 'CCleaner',
         'C0' => 'Centaury',
