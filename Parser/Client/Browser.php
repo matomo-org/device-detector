@@ -83,6 +83,7 @@ class Browser extends AbstractClientParser
         'C2' => 'Colibri',
         'CD' => 'Comodo Dragon',
         'C1' => 'Coast',
+        'C4' => 'Covenant Eyes',
         'CX' => 'Charon',
         'CE' => 'CM Browser',
         'CF' => 'Chrome Frame',
