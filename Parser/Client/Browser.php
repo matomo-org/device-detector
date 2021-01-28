@@ -58,6 +58,7 @@ class Browser extends AbstractClientParser
         'AT' => 'Atomic Web Browser',
         'AS' => 'Avast Secure Browser',
         'VG' => 'AVG Secure Browser',
+        'A1' => 'AwoX',
         'BA' => 'Beaker Browser',
         'BM' => 'Beamrise',
         'BB' => 'BlackBerry Browser',
@@ -74,6 +75,7 @@ class Browser extends AbstractClientParser
         'BK' => 'BriskBard',
         'BX' => 'BrowseX',
         'BZ' => 'Browzar',
+        'BY' => 'Biyubi',
         'CA' => 'Camino',
         'CL' => 'CCleaner',
         'C0' => 'Centaury',
@@ -240,6 +242,8 @@ class Browser extends AbstractClientParser
         'PU' => 'Puffin',
         'PW' => 'Palm WebPro',
         'PA' => 'Palmscape',
+        'PE' => 'Perfect Browser',
+        'PH' => 'Phantom Browser',
         'PX' => 'Phoenix',
         'PB' => 'Phoenix Browser',
         'PF' => 'PlayFree Browser',
@@ -321,8 +325,10 @@ class Browser extends AbstractClientParser
         'YL' => 'Yandex Browser Lite',
         'YN' => 'Yaani Browser',
         'YB' => 'Yolo Browser',
+        'XS' => 'xStand',
         'XI' => 'Xiino',
         'XV' => 'Xvast',
+        'ZE' => 'Zetakey',
         'ZV' => 'Zvu',
 
         // detected browsers in older versions
@@ -379,7 +385,7 @@ class Browser extends AbstractClientParser
         'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM',
         'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
         'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH', 'PI', 'SG',
-        'KD',
+        'KD', 'PE',
     ];
 
     /**
