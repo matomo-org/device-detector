@@ -448,6 +448,18 @@ class DeviceDetectorTest extends TestCase
         $this->assertTrue($dd->isMobile());
     }
 
+    public function testCheckRegexRestrictionEndCondition(): void
+    {
+        $this->assertTrue($this->checkRegexRestrictionEndCondition('([^;/)]+)[;/)]'), 'skip condition');
+        $this->assertTrue($this->checkRegexRestrictionEndCondition('([^/;)]+)[;/)]'), 'skip condition');
+        $this->assertFalse($this->checkRegexRestrictionEndCondition('TestValue[;/)]'), 'bad condition');
+        $this->assertFalse($this->checkRegexRestrictionEndCondition('TestValue[/;)]'), 'bad condition');
+        $this->assertTrue($this->checkRegexRestrictionEndCondition('TestValue(?:[);/ ]|$)'), 'pass condition');
+        $this->assertTrue($this->checkRegexRestrictionEndCondition('TestValue(?:[/); ]|$)'), 'pass condition');
+        $this->assertTrue($this->checkRegexRestrictionEndCondition('TestValue(?:[);/]|$)'), 'pass condition');
+        $this->assertTrue($this->checkRegexRestrictionEndCondition('TestValue(?:[;)/]|$)'), 'pass condition');
+    }
+
     /**
      * check the regular expression for the vertical line closing the group
      * @param string $regexString
@@ -478,7 +490,7 @@ class DeviceDetectorTest extends TestCase
         }
 
         // get conditions [);/ ]
-        if (\preg_match_all('~(\[[);\/ ]{3,4}\])~m', $regexString, $matches1)) {
+        if (\preg_match_all('~(?<!(?:\(\[\^[;\/)]{3}\][\+\*]\)))(\[[);\/ ]{3,4}\])~m', $regexString, $matches1)) {
             // get conditions (?:[);/ ]|$)
             if (!\preg_match_all('~(?:(?<=(?:\?:))(\[[);\/ ]{3,4}\])(?=\|\$))~m', $regexString, $matches2)) {
                 return false;

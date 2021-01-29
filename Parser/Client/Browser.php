@@ -251,6 +251,7 @@ class Browser extends AbstractClientParser
         'PT' => 'Polarity',
         'PI' => 'PrivacyWall',
         'PS' => 'Microsoft Edge',
+        'Q2' => 'QQ Browser Lite',
         'Q1' => 'QQ Browser Mini',
         'QQ' => 'QQ Browser',
         'QT' => 'Qutebrowser',
@@ -306,6 +307,7 @@ class Browser extends AbstractClientParser
         'TV' => 'TV Bro',
         'UB' => 'UBrowser',
         'UC' => 'UC Browser',
+        'UH' => 'UC Browser HD',
         'UM' => 'UC Browser Mini',
         'UT' => 'UC Browser Turbo',
         'UR' => 'UR Browser',
@@ -326,6 +328,7 @@ class Browser extends AbstractClientParser
         'YL' => 'Yandex Browser Lite',
         'YN' => 'Yaani Browser',
         'YB' => 'Yolo Browser',
+        'XS' => 'xStand',
         'XI' => 'Xiino',
         'XV' => 'Xvast',
         'ZE' => 'Zetakey',
@@ -385,7 +388,7 @@ class Browser extends AbstractClientParser
         'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM',
         'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
         'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH', 'PI', 'SG',
-        'KD', 'PE', 'S7',
+        'KD', 'PE', 'UH', 'S7',
     ];
 
     /**
