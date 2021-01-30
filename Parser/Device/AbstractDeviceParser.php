@@ -488,6 +488,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'L2' => 'Landvo',
         'LA' => 'Lanix',
         'LK' => 'Lark',
+        'Z3' => 'Laurus',
         'LV' => 'Lava',
         'LC' => 'LCT',
         'L5' => 'Leagoo',
