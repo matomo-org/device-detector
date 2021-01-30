@@ -916,6 +916,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'WA' => 'Walton',
         'WM' => 'Weimei',
         'WE' => 'WellcoM',
+        'W6' => 'WELLINGTON',
         'WT' => 'Westpoint',
         'WY' => 'Wexler',
         '3W' => 'WE',
