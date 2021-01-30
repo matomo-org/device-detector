@@ -330,6 +330,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'RF' => 'Fortis',
         'FO' => 'Foxconn',
         'FT' => 'Freetel',
+        'FG' => 'Fuego',
         'FU' => 'Fujitsu',
         'GT' => 'G-TiDE',
         'GM' => 'Garmin-Asus',
