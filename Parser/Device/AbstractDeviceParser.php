@@ -480,6 +480,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'K2' => 'KRONO',
         'KE' => 'Krüger&Matz',
         'KH' => 'KT-Tech',
+        'Z6' => 'KUBO',
         'K8' => 'Kuliao',
         '8K' => 'Kult',
         'KU' => 'Kumai',
