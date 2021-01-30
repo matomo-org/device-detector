@@ -803,6 +803,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'T5' => 'TB Touch',
         'TC' => 'TCL',
         'T0' => 'TD Systems',
+        'Z5' => 'Technika',
         'TX' => 'TechniSat',
         'TT' => 'TechnoTrend',
         'TP' => 'TechPad',
