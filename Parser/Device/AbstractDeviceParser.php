@@ -721,6 +721,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'RU' => 'Runbo',
         'RL' => 'Ruio',
         'RY' => 'Ryte',
+        'Z1' => 'Saba',
         'X1' => 'Safaricom',
         'SG' => 'Sagem',
         '4L' => 'Salora',
