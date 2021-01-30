@@ -347,6 +347,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '1G' => 'Gini',
         'GI' => 'Gionee',
         'G4' => 'Globex',
+        'G7' => 'GoGEN',
         'GC' => 'GOCLEVER',
         'GL' => 'Goly',
         'GX' => 'GLX',
