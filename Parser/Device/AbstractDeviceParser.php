@@ -744,6 +744,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SQ' => 'Santin',
         'SY' => 'Sanyo',
         'S9' => 'Savio',
+        'Y4' => 'SCBC',
         'CZ' => 'Schneider',
         'G8' => 'SEG',
         'SD' => 'Sega',
