@@ -314,6 +314,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'QE' => 'EWIS',
         'EI' => 'Ezio',
         'EZ' => 'Ezze',
+        'F5' => 'Facebook',
         'FA' => 'Fairphone',
         'FM' => 'Famoco',
         '17' => 'FarEasTone',
