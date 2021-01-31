@@ -743,6 +743,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SY' => 'Sanyo',
         'S9' => 'Savio',
         'CZ' => 'Schneider',
+        'G8' => 'SEG',
         'SD' => 'Sega',
         '9G' => 'Selenga',
         'SV' => 'Selevision',
