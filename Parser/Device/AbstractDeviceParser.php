@@ -840,6 +840,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '2T' => 'Tinai',
         'TF' => 'Tinmo',
         'TH' => 'TiPhone',
+        'Y3' => 'TOKYO',
         'T1' => 'Tolino',
         '0T' => 'Tone',
         'TY' => 'Tooky',
