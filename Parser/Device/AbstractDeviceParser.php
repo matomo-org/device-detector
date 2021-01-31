@@ -577,6 +577,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MV' => 'Movic',
         'MM' => 'Mpman',
         'MZ' => 'MSI',
+        '3R' => 'MStar',
         'M9' => 'MTC',
         'N4' => 'MTN',
         '1R' => 'Multilaser',
