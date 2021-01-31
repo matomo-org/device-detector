@@ -102,6 +102,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '1A' => 'Alba',
         'AL' => 'Alcatel',
         '20' => 'Alcor',
+        '7L' => 'ALDI NORD',
         '6L' => 'ALDI SÜD',
         '3L' => 'Alfawise',
         '4A' => 'Aligator',
