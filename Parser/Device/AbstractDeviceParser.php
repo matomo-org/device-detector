@@ -691,6 +691,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'P9' => 'Primepad',
         '6P' => 'Primux',
         '2P' => 'Prixton',
+        'PF' => 'PROFiLO',
         'P6' => 'Proline',
         'P1' => 'ProScan',
         'P7' => 'Protruly',
