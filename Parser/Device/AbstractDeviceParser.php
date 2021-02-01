@@ -809,6 +809,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '0W' => 'Swipe',
         'SS' => 'SWISSMOBILITY',
         '1W' => 'Swisstone',
+        'W7' => 'SWTV',
         'SM' => 'Symphony',
         '4S' => 'Syrox',
         'TM' => 'T-Mobile',
