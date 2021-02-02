@@ -54,6 +54,7 @@ class OperatingSystem extends AbstractParser
         'DEE' => 'Deepin',
         'DFB' => 'DragonFly',
         'FED' => 'Fedora',
+        'FEN' => 'Fenix',
         'FOS' => 'Firefox OS',
         'FIR' => 'Fire OS',
         'FRE' => 'Freebox',
@@ -73,6 +74,7 @@ class OperatingSystem extends AbstractParser
         'VLN' => 'VectorLinux',
         'MAC' => 'Mac',
         'MAE' => 'Maemo',
+        'MAG' => 'Mageia',
         'MDR' => 'Mandriva',
         'SMG' => 'MeeGo',
         'MCD' => 'MocorDroid',
@@ -149,7 +151,7 @@ class OperatingSystem extends AbstractParser
         'GNU/Linux'             => [
             'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
             'RHT', 'VLN', 'MDR', 'GNT', 'SAB', 'SLW', 'SSE', 'CES', 'BTR', 'SAF',
-            'ORD', 'TOS', 'RSO', 'DEE', 'FRE',
+            'ORD', 'TOS', 'RSO', 'DEE', 'FRE', 'MAG', 'FEN',
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
@@ -286,7 +288,7 @@ class OperatingSystem extends AbstractParser
             return 'SuperH';
         }
 
-        if ($this->matchUserAgent('WOW64|x64|win64|amd64|x86_64')) {
+        if ($this->matchUserAgent('WOW64|x64|win64|amd64|x86_?64')) {
             return 'x64';
         }
 
