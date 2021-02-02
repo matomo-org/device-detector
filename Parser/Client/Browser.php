@@ -58,6 +58,7 @@ class Browser extends AbstractClientParser
         'AT' => 'Atomic Web Browser',
         'AS' => 'Avast Secure Browser',
         'VG' => 'AVG Secure Browser',
+        'A1' => 'AwoX',
         'BG' => 'Beagle Browser',
         'BA' => 'Beaker Browser',
         'BM' => 'Beamrise',
