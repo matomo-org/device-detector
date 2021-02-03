@@ -16889,9 +16889,9 @@ ZTE:
       model: 'Majesty Pro Plus LTE'
     - regex: 'Z828TL'
       model: 'Midnight Pro LTE'
-    - regex: 'Z792'
+    - regex: '(?:ZTE-)?Z792'
       model: 'Fanfare'
-    - regex: 'Z812'
+    - regex: '(?:ZTE-)?Z812'
       model: 'Maven'
     - regex: 'Z815'
       model: 'Fanfare 2'
@@ -16963,7 +16963,7 @@ ZTE:
       model: 'Score'
     - regex: 'X501'
       model: 'Groove'
-    - regex: 'G-X991'
+    - regex: '(?:ZTE-)?G-X991'
       model: 'Rio'
     - regex: 'F-450'
       model: 'Adamant'
@@ -16996,13 +16996,19 @@ ZTE:
       model: '$1'
 
 Zuum:
-  regex: 'Zuum[ _-]|(?:COVET|MAGNO|ONIX S|STEDI|STELLAR Z|GRAVITY Z|AURA X)(?:[);/ ]|$)'
+  regex: 'Zuum[ _-]|(?:COVET|MAGNO|ONIX S|STEDI|STELLAR Z|GRAVITY Z|AURA X|COVET_PRO_LITE)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'COVET'
-      model: 'Covet'
-    - regex: 'MAGNO'
-      model: 'Magno'
+    - regex: 'COVET_PRO_LITE'
+      model: 'Covet Pro Lite'
+    - regex: 'COVET PRO'
+      model: 'Covet Pro'
+    - regex: 'COVET( Z)?'
+      model: 'Covet$1'
+    - regex: 'MAGNO PLUS'
+      model: 'Magno Plus'
+    - regex: 'MAGNO( C)"'
+      model: 'Magno$1'
     - regex: 'ONIX S'
       model: 'Onix S'
     - regex: 'STEDI'
@@ -18085,9 +18091,14 @@ TWZ:
 
 # Onix
 Onix:
-  regex: '(AT101-1116)(?:[);/ ]|$)'
+  regex: '(?:ONIX S405|AT101-1116)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: '(AT101-1116)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: '(S405)(?:[);/ ]|$)'
+      device: 'smartphone'
+      model: '$1'
 
 # Oale
 Oale:
