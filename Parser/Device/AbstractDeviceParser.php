@@ -939,6 +939,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'WM' => 'Weimei',
         'WE' => 'WellcoM',
         'W6' => 'WELLINGTON',
+        'WD' => 'Western Digital',
         'WT' => 'Westpoint',
         'WY' => 'Wexler',
         '3W' => 'WE',
