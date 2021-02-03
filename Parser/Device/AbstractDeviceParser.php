@@ -281,6 +281,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'EK' => 'EKO',
         'EY' => 'Einstein',
         'EM' => 'Eks Mobility',
+        '4K' => 'EKT',
         '7E' => 'ELARI',
         '03' => 'Electroneum',
         'L0' => 'Element',
