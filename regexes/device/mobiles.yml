@@ -4413,6 +4413,8 @@ DoCoMo:
   regex: 'DoCoMo|\;FOMA|KGT/1\.0'
   device: 'feature phone'
   models:
+    - regex: 'DoCoMo/.+MST.+(SH2101V)'
+      model: '$1'
     - regex: 'DoCoMo/[12]\.0[/ ]([a-z0-9]+)'
       model: '$1'
     - regex: '([a-z0-9]+)(?:_W)?\;FOMA'
@@ -11505,7 +11507,7 @@ Panasonic:
       model: 'Eluga P'
     - regex: 'Eluga[ _-]([^;/]+) Build'
       model: 'Eluga $1'
-    - regex: 'Eluga[ _-]([^;/]+)(?:[;/)]|$)'
+    - regex: 'Eluga[ _-]([^);/]+)[;/)]'
       model: 'Eluga $1'
     - regex: '(DMC-CM1)'
       model: 'Lumix $1'
@@ -11584,7 +11586,7 @@ Pentagram:
   models:
     - regex: '(?:PENTAGRAM[_ ])?EON[_ ]PRIX'
       model: 'Eon Prix'
-    - regex: 'Quadra 7( UltraSlim)?'
+    - regex: 'Quadra 7(?: UltraSlim)?'
       model: 'Quadra 7 UltraSlim'
     - regex: 'Monster X5?'
       model: 'Monster X5'
@@ -11978,11 +11980,16 @@ Siemens:
   regex: 'SIEMENS|SIE-|portalmmm/2\.0 SI|S55|SL45i'
   device: 'smartphone'
   models:
+
+    - regex: '(?:SIE-)?(S[56]5|S40|C45|ME45|SLIK)(?:[);/ ]|$)'
+      device: 'feature phone'
+      model: '$1'
+
     - regex: 'SIEMENS[ \-]([a-z0-9]+)'
       model: '$1'
     - regex: 'SIE(?:MENS )?[\-]?([a-z0-9]+)'
       model: '$1'
-    - regex: '(?:SIE-)?(S55|SL45i)'
+    - regex: '(?:SIE-)?(SL45i)'
       model: '$1'
     - regex: 'portalmmm/2.0 (SI[a-z0-9]+)'
       model: '$1'
