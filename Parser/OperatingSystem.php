@@ -47,6 +47,7 @@ class OperatingSystem extends AbstractParser
         'BLB' => 'BlackBerry OS',
         'QNX' => 'BlackBerry Tablet OS',
         'BMP' => 'Brew',
+        'CAI' => 'Caixa Mágica',
         'CES' => 'CentOS',
         'COS' => 'Chrome OS',
         'CYN' => 'CyanogenMod',
@@ -152,7 +153,7 @@ class OperatingSystem extends AbstractParser
         'GNU/Linux'             => [
             'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
             'RHT', 'VLN', 'MDR', 'GNT', 'SAB', 'SLW', 'SSE', 'CES', 'BTR', 'SAF',
-            'ORD', 'TOS', 'RSO', 'DEE', 'FRE', 'MAG', 'FEN',
+            'ORD', 'TOS', 'RSO', 'DEE', 'FRE', 'MAG', 'FEN', 'CAI',
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
