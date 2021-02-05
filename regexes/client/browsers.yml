@@ -5,6 +5,19 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
+
+# Flow (https://www.ekioh.com/)
+- regex: 'Flow/(?:(\d+[\.\d]+))'
+  name: 'Flow'
+  version: '$1'
+  engine:
+    default: 'EkiohFlow'
+- regex: 'Ekioh/(?:(\d+[\.\d]+))'
+  name: 'Flow'
+  version: '$1'
+  engine:
+    default: 'EkiohFlow'
+
 # xStand (https://www.adnx.com/)
 - regex: 'xStand/(\d+[\.\d]+)'
   name: 'xStand'
@@ -988,6 +1001,12 @@
   version: '$1'
   engine:
     default: 'WebKit'
+- regex: 'Opera%20Mini/(\d+[\.\d]+) CFNetwork'
+  name: 'Opera Mini iOS'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+
 - regex: 'Opera.+Edition Next.+Version/(\d+[\.\d]+)'
   name: 'Opera Next'
   version: '$1'
@@ -1401,7 +1420,7 @@
   version: ''
 
 #Sleipnir
-- regex: 'Sleipnir(?:[ /](\d+[\.\d]+))?'
+- regex: 'Sleipnir(?:(?:%20Browser)?[ /](\d+[\.\d]+))?'
   name: 'Sleipnir'
   version: '$1'
   engine:
@@ -1928,7 +1947,7 @@
   version: ''
   engine:
     default: 'WebKit'
-- regex: 'Version/(\d+[\.\d]+).*Safari/|Safari/\d+'
+- regex: 'Version/(\d+[\.\d]+).*Safari/|Safari/?\d+'
   name: 'Safari'
   version: '$1'
   engine:
@@ -1964,7 +1983,7 @@
     default: 'Gecko'
 
 # GOG Galaxy
-- regex: 'GOGGalaxyClient/(?:(\d+[\.\d]+))?'
+- regex: 'GOGGalaxyClient/(\d+[\.\d]+)?'
   name: 'GOG Galaxy'
   version: '$1'
 
@@ -1972,3 +1991,10 @@
 - regex: 'WAP Browser/MAUI|(?:\w+)?Maui Wap Browser|MAUI[- ]Browser'
   name: 'MAUI WAP Browser'
   version: ''
+
+# SP Browser
+- regex: 'SP%20Browser/(\d+[\.\d]+)'
+  name: 'SP Browser'
+  version: '$1'
+  engine:
+    default: 'WebKit'

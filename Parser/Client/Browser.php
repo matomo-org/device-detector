@@ -131,6 +131,7 @@ class Browser extends AbstractClientParser
         'FY' => 'Firefox Reality',
         'FR' => 'Firefox Rocket',
         'FL' => 'Flock',
+        'FO' => 'Flow',
         'FM' => 'Firefox Mobile',
         'FW' => 'Fireweb',
         'FN' => 'Fireweb Navigator',
@@ -278,6 +279,7 @@ class Browser extends AbstractClientParser
         'SS' => 'Seraphic Sraf',
         'SL' => 'Sleipnir',
         'S6' => 'Slimjet',
+        'S7' => 'SP Browser',
         '7S' => '7Star',
         'LE' => 'Smart Lenovo Browser',
         'SN' => 'Snowshoe',
@@ -372,7 +374,7 @@ class Browser extends AbstractClientParser
         'NetSurf'            => ['NE'],
         'Nokia Browser'      => ['NB', 'NO', 'NV', 'DO'],
         'Opera'              => ['OP', 'OM', 'OI', 'ON', 'OO', 'OG', 'OH', 'O1', 'OX'],
-        'Safari'             => ['SF', 'MF', 'SO'],
+        'Safari'             => ['SF', 'MF', 'SO', 'S7'],
         'Sailfish Browser'   => ['SA'],
     ];
 
@@ -387,7 +389,7 @@ class Browser extends AbstractClientParser
         'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM',
         'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
         'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH', 'PI', 'SG',
-        'KD', 'PE', 'UH',
+        'KD', 'PE', 'UH', 'S7',
     ];
 
     /**
