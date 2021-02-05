@@ -271,7 +271,7 @@ class Browser extends AbstractClientParser
         'SF' => 'Safari',
         'S5' => 'Safe Exam Browser',
         'SW' => 'SalamWeb',
-        'S7' => 'Secure Browser',
+        'S9' => 'Secure Browser',
         'SV' => 'SFive',
         'SH' => 'Shiira',
         'S1' => 'SimpleBrowser',
@@ -361,7 +361,7 @@ class Browser extends AbstractClientParser
             'S4', 'EE', 'AE', 'VM', 'O0', 'TG', 'GB', 'SY', 'HH',
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
-            'SS', 'O2', 'SV', 'TR',
+            'SS', 'O2', 'SV', 'TR', 'S9',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
