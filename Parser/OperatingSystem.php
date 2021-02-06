@@ -38,6 +38,7 @@ class OperatingSystem extends AbstractParser
     protected static $operatingSystems = [
         'AIX' => 'AIX',
         'AND' => 'Android',
+        'AGO' => 'Android Go',
         'AMG' => 'AmigaOS',
         'ATV' => 'Apple TV',
         'ARL' => 'Arch Linux',
@@ -137,7 +138,7 @@ class OperatingSystem extends AbstractParser
      * @var array
      */
     protected static $osFamilies = [
-        'Android'               => ['AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS'],
+        'Android'               => ['AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'AGO'],
         'AmigaOS'               => ['AMG', 'MOR'],
         'Apple TV'              => ['ATV'],
         'BlackBerry'            => ['BLB', 'QNX'],
