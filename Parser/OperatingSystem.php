@@ -93,6 +93,7 @@ class OperatingSystem extends AbstractParser
         'ORD' => 'Ordissimo',
         'PSP' => 'PlayStation Portable',
         'PS3' => 'PlayStation',
+        'PUR' => 'PureOS',
         'RHT' => 'Red Hat',
         'ROS' => 'RISC OS',
         'RSO' => 'Rosa',
@@ -153,7 +154,7 @@ class OperatingSystem extends AbstractParser
         'GNU/Linux'             => [
             'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
             'RHT', 'VLN', 'MDR', 'GNT', 'SAB', 'SLW', 'SSE', 'CES', 'BTR', 'SAF',
-            'ORD', 'TOS', 'RSO', 'DEE', 'FRE', 'MAG', 'FEN', 'CAI',
+            'ORD', 'TOS', 'RSO', 'DEE', 'FRE', 'MAG', 'FEN', 'CAI', 'PUR',
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
