@@ -223,6 +223,7 @@ class Browser extends AbstractClientParser
         'OP' => 'Opera',
         'ON' => 'Opera Next',
         'OO' => 'Opera Touch',
+        'OA' => 'Orca',
         'OS' => 'Ordissimo',
         'OR' => 'Oregano',
         'O0' => 'Origin In-Game Overlay',
@@ -353,7 +354,7 @@ class Browser extends AbstractClientParser
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
             'CU', 'TF', 'QM', 'FR', 'I4', 'GZ', 'MO', 'F1', 'BI',
             'MN', 'BH', 'TO', 'OS', 'MY', 'FY', 'AX', 'C0', 'LH',
-            'S5', 'ZV', 'IW', 'PI', 'BN',
+            'S5', 'ZV', 'IW', 'PI', 'BN', 'OA'
         ],
         'Internet Explorer'  => ['IE', 'IM', 'PS', 'CZ', 'BZ'],
         'Konqueror'          => ['KO'],
