@@ -224,6 +224,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '53' => 'Connectce',
         '9C' => 'Colors',
         'CO' => 'Coolpad',
+        '4R' => 'CORN',
         '1O' => 'Cosmote',
         'CW' => 'Cowon',
         '33' => 'Clementoni',
