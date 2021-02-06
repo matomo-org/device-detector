@@ -534,6 +534,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '0D' => 'MAXVI',
         'MW' => 'Maxwest',
         'M0' => 'Maze',
+        '3D' => 'MDC Store',
         '09' => 'meanIT',
         'M3' => 'Mecer',
         '0M' => 'Mecool',
