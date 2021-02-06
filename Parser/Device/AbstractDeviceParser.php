@@ -775,6 +775,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SE' => 'Sony Ericsson',
         'X2' => 'Soundmax',
         '8S' => 'Soyes',
+        'PK' => 'Spark',
         'FS' => 'SPC',
         '6S' => 'Spectrum',
         'SP' => 'Spice',
