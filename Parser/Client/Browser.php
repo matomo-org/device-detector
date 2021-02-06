@@ -251,6 +251,7 @@ class Browser extends AbstractClientParser
         'PO' => 'Polaris',
         'PT' => 'Polarity',
         'PI' => 'PrivacyWall',
+        'P1' => 'PureBrowser',
         'PS' => 'Microsoft Edge',
         'Q2' => 'QQ Browser Lite',
         'Q1' => 'QQ Browser Mini',
