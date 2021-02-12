@@ -95,6 +95,7 @@ class Browser extends AbstractClientParser
         'CN' => 'CoolNovo',
         'CO' => 'CometBird',
         'CB' => 'COS Browser',
+        'CW' => 'Cornowser',
         'C3' => 'Chim Lac',
         'CP' => 'ChromePlus',
         'CR' => 'Chromium',
@@ -362,7 +363,7 @@ class Browser extends AbstractClientParser
             'S4', 'EE', 'AE', 'VM', 'O0', 'TG', 'GB', 'SY', 'HH',
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
-            'SS', 'O2', 'SV', 'TR', 'C4',
+            'SS', 'O2', 'SV', 'TR', 'CW', 'C4',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
@@ -391,7 +392,7 @@ class Browser extends AbstractClientParser
         'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM',
         'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
         'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH', 'PI', 'SG',
-        'KD', 'PE', 'UH', 'S7', 'C4',
+        'KD', 'PE', 'UH', 'S7', 'CW', 'C4',
     ];
 
     /**
