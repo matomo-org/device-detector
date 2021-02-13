@@ -65,6 +65,7 @@ class OperatingSystem extends AbstractParser
         'GTV' => 'Google TV',
         'HPX' => 'HP-UX',
         'HAI' => 'Haiku OS',
+        'HAS' => 'HasCodingOS',
         'IRI' => 'IRIX',
         'INF' => 'Inferno',
         'KOS' => 'KaiOS',
@@ -153,7 +154,7 @@ class OperatingSystem extends AbstractParser
         'GNU/Linux'             => [
             'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
             'RHT', 'VLN', 'MDR', 'GNT', 'SAB', 'SLW', 'SSE', 'CES', 'BTR', 'SAF',
-            'ORD', 'TOS', 'RSO', 'DEE', 'FRE', 'MAG', 'FEN', 'CAI',
+            'ORD', 'TOS', 'RSO', 'DEE', 'FRE', 'MAG', 'FEN', 'CAI', 'HAS',
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
