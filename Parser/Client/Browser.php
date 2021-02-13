@@ -303,6 +303,7 @@ class Browser extends AbstractClientParser
         'TA' => 'Tao Browser',
         'TF' => 'TenFourFox',
         'TB' => 'Tenta Browser',
+        'TH' => 'Thunder',
         'TZ' => 'Tizen Browser',
         'TU' => 'Tungsten',
         'TG' => 'ToGate',
