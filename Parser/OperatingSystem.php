@@ -72,6 +72,7 @@ class OperatingSystem extends AbstractParser
         'KBT' => 'Kubuntu',
         'LIN' => 'GNU/Linux',
         'LBT' => 'Lubuntu',
+        'LOS' => 'Lumin OS',
         'VLN' => 'VectorLinux',
         'MAC' => 'Mac',
         'MAE' => 'Maemo',
@@ -153,7 +154,7 @@ class OperatingSystem extends AbstractParser
         'GNU/Linux'             => [
             'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
             'RHT', 'VLN', 'MDR', 'GNT', 'SAB', 'SLW', 'SSE', 'CES', 'BTR', 'SAF',
-            'ORD', 'TOS', 'RSO', 'DEE', 'FRE', 'MAG', 'FEN', 'CAI',
+            'ORD', 'TOS', 'RSO', 'DEE', 'FRE', 'MAG', 'FEN', 'CAI', 'LOS',
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
