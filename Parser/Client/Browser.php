@@ -79,6 +79,7 @@ class Browser extends AbstractClientParser
         'CA' => 'Camino',
         'CL' => 'CCleaner',
         'C0' => 'Centaury',
+        'CG' => 'CGN Browser',
         'CC' => 'Coc Coc',
         'C2' => 'Colibri',
         'CD' => 'Comodo Dragon',
@@ -362,7 +363,7 @@ class Browser extends AbstractClientParser
             'S4', 'EE', 'AE', 'VM', 'O0', 'TG', 'GB', 'SY', 'HH',
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
-            'SS', 'O2', 'SV', 'TR', 'CW',
+            'SS', 'O2', 'SV', 'TR', 'CW', 'CG',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
