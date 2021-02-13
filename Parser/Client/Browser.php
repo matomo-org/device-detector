@@ -317,6 +317,7 @@ class Browser extends AbstractClientParser
         'UT' => 'UC Browser Turbo',
         'UR' => 'UR Browser',
         'UZ' => 'Uzbl',
+        'VE' => 'Venus Browser',
         'VI' => 'Vivaldi',
         'VV' => 'vivo Browser',
         'VB' => 'Vision Mobile Browser',
@@ -364,7 +365,7 @@ class Browser extends AbstractClientParser
             'S4', 'EE', 'AE', 'VM', 'O0', 'TG', 'GB', 'SY', 'HH',
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
-            'SS', 'O2', 'SV', 'TR', 'CW', 'HE',
+            'SS', 'O2', 'SV', 'TR', 'CW', 'VE', 'HE',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
@@ -393,7 +394,7 @@ class Browser extends AbstractClientParser
         'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM',
         'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
         'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH', 'PI', 'SG',
-        'KD', 'PE', 'UH', 'S7', 'CW', 'OZ',
+        'KD', 'PE', 'UH', 'S7', 'CW', 'OZ', 'VE',
     ];
 
     /**
