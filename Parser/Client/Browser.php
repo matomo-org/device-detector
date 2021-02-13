@@ -284,6 +284,7 @@ class Browser extends AbstractClientParser
         'S7' => 'SP Browser',
         '7S' => '7Star',
         'LE' => 'Smart Lenovo Browser',
+        'OZ' => 'Smooz',
         'SN' => 'Snowshoe',
         'SO' => 'Sogou Mobile Browser',
         'S2' => 'Splash',
@@ -391,7 +392,7 @@ class Browser extends AbstractClientParser
         'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM',
         'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
         'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH', 'PI', 'SG',
-        'KD', 'PE', 'UH', 'S7', 'CW',
+        'KD', 'PE', 'UH', 'S7', 'CW', 'OZ',
     ];
 
     /**
