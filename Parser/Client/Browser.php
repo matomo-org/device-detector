@@ -261,6 +261,7 @@ class Browser extends AbstractClientParser
         'QU' => 'Quark',
         'QZ' => 'QupZilla',
         'QM' => 'Qwant Mobile',
+        'QI' => 'Qwant Mobile iOS',
         'QW' => 'QtWebEngine',
         'RE' => 'Realme Browser',
         'RK' => 'Rekonq',
@@ -368,7 +369,7 @@ class Browser extends AbstractClientParser
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
             'CU', 'TF', 'QM', 'FR', 'I4', 'GZ', 'MO', 'F1', 'BI',
             'MN', 'BH', 'TO', 'OS', 'MY', 'FY', 'AX', 'C0', 'LH',
-            'S5', 'ZV', 'IW', 'PI', 'BN', 'OA',
+            'S5', 'ZV', 'IW', 'PI', 'BN', 'OA', 'QI',
         ],
         'Internet Explorer'  => ['IE', 'IM', 'PS', 'CZ', 'BZ'],
         'Konqueror'          => ['KO'],
@@ -391,7 +392,7 @@ class Browser extends AbstractClientParser
         'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM',
         'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
         'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH', 'PI', 'SG',
-        'KD', 'PE', 'UH', 'S7', 'CW',
+        'KD', 'PE', 'UH', 'S7', 'CW', 'QI',
     ];
 
     /**
