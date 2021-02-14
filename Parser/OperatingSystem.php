@@ -54,6 +54,7 @@ class OperatingSystem extends AbstractParser
         'DEB' => 'Debian',
         'DEE' => 'Deepin',
         'DFB' => 'DragonFly',
+        'DVK' => 'DVKBuntu',
         'FED' => 'Fedora',
         'FEN' => 'Fenix',
         'FOS' => 'Firefox OS',
@@ -153,7 +154,7 @@ class OperatingSystem extends AbstractParser
         'GNU/Linux'             => [
             'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
             'RHT', 'VLN', 'MDR', 'GNT', 'SAB', 'SLW', 'SSE', 'CES', 'BTR', 'SAF',
-            'ORD', 'TOS', 'RSO', 'DEE', 'FRE', 'MAG', 'FEN', 'CAI',
+            'ORD', 'TOS', 'RSO', 'DEE', 'FRE', 'MAG', 'FEN', 'CAI', 'DVK',
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
