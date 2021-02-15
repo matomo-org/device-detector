@@ -12,6 +12,30 @@
   engine:
     default: 'Blink'
 
+# Qutebrowser (https://qutebrowser.org/)
+- regex: 'qutebrowser/(\d+[\.\d]+).+Chrome'
+  name: 'Qutebrowser'
+  version: '$1'
+  engine:
+    default: 'Blink'
+- regex: 'qutebrowser(?:/(\d+[\.\d]+))?'
+  name: 'Qutebrowser'
+  version: '$1'
+
+# Flast (https://github.com/FascodeNet/Flast)
+- regex: 'flast/(\d+[\.\d]+)'
+  name: 'Flast'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# PolyBrowser (https://github.com/PolySuite/PolyBrowser)
+- regex: 'PolyBrowser/(\d+[\.\d]+)'
+  name: 'PolyBrowser'
+  version: '$1'
+  engine:
+    default: 'Gecko'
+
 # BriskBard (https://www.briskbard.com/)
 - regex: Chrome.+BriskBard/(\d+[\.\d]+)
   name: 'BriskBard'
@@ -516,7 +540,7 @@
   version: '$1'
 
 # Jio Browser (https://play.google.com/store/apps/details?id=com.jio.web)
-- regex: 'JioBrowser(?:/(\d+[\.\d]+))?'
+- regex: 'Jio(?:Browser|Pages)(?:/(\d+[\.\d]+))?'
   name: 'Jio Browser'
   version: '$1'
   engine:
@@ -1299,7 +1323,7 @@
 # additional features for Vietnamese users. Its regex has to be placed
 # before generic Chrome regex, or Chrome regex will match first and
 # the browser is mistaken as "Chrome".
-- regex: 'coc_coc_browser(?:/(\d+[\.\d]+))?'
+- regex: '(?:coc_coc_browser|coccocbrowser)(?:/(\d+[\.\d]+))?'
   name: 'Coc Coc'
   version: '$1'
   engine:
@@ -1976,11 +2000,6 @@
 #Coast
 - regex: 'Coast(?:/(\d+[\.\d]+))?'
   name: 'Coast'
-  version: '$1'
-
-#Qutebrowser
-- regex: 'qutebrowser(?:/(\d+[\.\d]+))?'
-  name: 'Qutebrowser'
   version: '$1'
 
 # surf (https://surf.suckless.org/)
