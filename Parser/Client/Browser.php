@@ -58,6 +58,7 @@ class Browser extends AbstractClientParser
         'AT' => 'Atomic Web Browser',
         'AS' => 'Avast Secure Browser',
         'VG' => 'AVG Secure Browser',
+        'AC' => 'Avira Scout',
         'A1' => 'AwoX',
         'BA' => 'Beaker Browser',
         'BM' => 'Beamrise',
@@ -94,6 +95,7 @@ class Browser extends AbstractClientParser
         'CN' => 'CoolNovo',
         'CO' => 'CometBird',
         'CB' => 'COS Browser',
+        'CW' => 'Cornowser',
         'C3' => 'Chim Lac',
         'CP' => 'ChromePlus',
         'CR' => 'Chromium',
@@ -138,6 +140,7 @@ class Browser extends AbstractClientParser
         'FU' => 'FreeU',
         'GA' => 'Galeon',
         'GH' => 'Ghostery Privacy Browser',
+        'GI' => 'GinxDroid Browser',
         'GB' => 'Glass Browser',
         'GE' => 'Google Earth',
         'GO' => 'GOG Galaxy',
@@ -283,6 +286,7 @@ class Browser extends AbstractClientParser
         'S7' => 'SP Browser',
         '7S' => '7Star',
         'LE' => 'Smart Lenovo Browser',
+        'OZ' => 'Smooz',
         'SN' => 'Snowshoe',
         'SO' => 'Sogou Mobile Browser',
         'S2' => 'Splash',
@@ -314,6 +318,7 @@ class Browser extends AbstractClientParser
         'UT' => 'UC Browser Turbo',
         'UR' => 'UR Browser',
         'UZ' => 'Uzbl',
+        'VE' => 'Venus Browser',
         'VI' => 'Vivaldi',
         'VV' => 'vivo Browser',
         'VB' => 'Vision Mobile Browser',
@@ -361,7 +366,7 @@ class Browser extends AbstractClientParser
             'S4', 'EE', 'AE', 'VM', 'O0', 'TG', 'GB', 'SY', 'HH',
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
-            'SS', 'O2', 'SV', 'TR',
+            'SS', 'O2', 'SV', 'TR', 'CW', 'GI', 'VE', 'AC',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
@@ -390,7 +395,7 @@ class Browser extends AbstractClientParser
         'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM',
         'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
         'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH', 'PI', 'SG',
-        'KD', 'PE', 'UH', 'S7',
+        'KD', 'PE', 'UH', 'S7', 'CW', 'OZ', 'GI', 'VE',
     ];
 
     /**

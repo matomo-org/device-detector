@@ -5,6 +5,64 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
+# BriskBard (https://www.briskbard.com/)
+- regex: Chrome.+BriskBard/(\d+[\.\d]+)
+  name: 'BriskBard'
+  version: '$1'
+  engine:
+    default: 'Blink'
+- regex: 'BriskBard(?:/(\d+[\.\d]+))?'
+  name: 'BriskBard'
+  version: '$1'
+
+# GinxDroid Browser (https://play.google.com/store/apps/details?id=ginxdroid.gdm)
+- regex: 'GinxDroidBrowser/(\d+[\.\d]+)'
+  name: 'GinxDroid Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# Avira Scout (http://www.avira.com/en/avira-scout)
+- regex: 'AviraScout/(\d+[\.\d]+)'
+  name: 'Avira Scout'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# Venus Browser (https://play.google.com/store/apps/details?id=com.venus.browser)
+- regex: 'VenusBrowser/(\d+[\.\d]+)'
+  name: 'Venus Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# Otter Browser (https://github.com/OtterBrowser/otter-browser)
+- regex: 'Chrome.+Otter(?:[ /](\d+[\.\d]+))?'
+  name: 'Otter Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
+- regex: 'Otter(?:[ /](\d+[\.\d]+))?'
+  name: 'Otter Browser'
+  version: '$1'
+
+# Smooz (https://smoozapp.com/)
+- regex: 'Chrome.+Smooz/(\d+[\.\d]+)'
+  name: 'Smooz'
+  version: '$1'
+  engine:
+    default: 'Blink'
+- regex: 'Smooz/(\d+[\.\d]+)'
+  name: 'Smooz'
+  version: '$1'
+
+# Cornowser (https://github.com/xdevs23/Cornowser)
+- regex: 'Cornowser/(\d+[\.\d]+)'
+  name: 'Cornowser'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
 # Orca (http://www.orcabrowser.com)
 - regex: 'Orca/(\d+[\.\d]+)'
   name: 'Orca'
@@ -27,7 +85,7 @@
   name: 'xStand'
   version: '$1'
   engine:
-    default: 'Webkit'
+    default: 'WebKit'
 
 # Biyubi (http://www.biyubi.com/)
 - regex: 'Biyubi/(\d+[\.\d]+)'
@@ -39,7 +97,7 @@
   name: 'Perfect Browser'
   version: '$1'
   engine:
-    default: 'Webkit'
+    default: 'WebKit'
 
 # Phantom Browser (https://www.lg.com/)
 - regex: 'Browser/Phantom/V(\d+[\.\d]+)'
@@ -56,7 +114,7 @@
   name: 'Zetakey'
   version: '$1'
   engine:
-    default: 'Webkit'
+    default: 'WebKit'
 
 # PlayFree Browser
 - regex: 'PlayFreeBrowser/(?:(\d+[\.\d]+))?'
@@ -1082,10 +1140,7 @@
       4: '' # multiple (KHTML or WebKit)
 
 #Baidu Browser
-- regex: '(?:baidubrowser|bdbrowser_i18n|bdbrowser)(?:[/ ](\d+[\.\d]*))?'
-  name: 'Baidu Browser'
-  version: '$1'
-- regex: 'FlyFlow(?:[/ ](\d+[\.\d]*))?'
+- regex: '(?:baidubrowser|bdbrowser_i18n|bdbrowser|FlyFlow|BaiduHD)(?:[/ ](\d+[\.\d]*))?'
   name: 'Baidu Browser'
   version: '$1'
 
@@ -1107,7 +1162,7 @@
   engine:
     default: 'Blink'
 # Yandex Browser + voice assistant alisa
-- regex: 'YaSearchBrowser(?:/(\d+[\.\d]*))'
+- regex: 'Ya(?:ndex)?SearchBrowser(?:/(\d+[\.\d]*))'
   name: 'Yandex Browser'
   version: '$1'
   engine:
@@ -1237,7 +1292,7 @@
 # additional features for Vietnamese users. Its regex has to be placed
 # before generic Chrome regex, or Chrome regex will match first and
 # the browser is mistaken as "Chrome".
-- regex: 'coc_coc_browser(?:/(\d+[\.\d]+))?'
+- regex: '(?:coc_coc_browser|coccocbrowser)(?:/(\d+[\.\d]+))?'
   name: 'Coc Coc'
   version: '$1'
   engine:
@@ -1257,7 +1312,10 @@
   version: '$1'
 
 # Super Fast Browser (https://play.google.com/store/apps/details?id=com.browser.tssomas)
-- regex: '(?:SFBrowser|com.browser.tssomas)(?:/(\d+[\.\d]+))?'
+- regex: '(?:SFB(?:rowser)?)/(\d+[\.\d]+)'
+  name: 'Super Fast Browser'
+  version: '$1'
+- regex: 'com.browser.tssomas(?:/(\d+[\.\d]+))?'
   name: 'Super Fast Browser'
   version: '$1'
 
@@ -1302,21 +1360,21 @@
   name: 'Tenta Browser'
   version: '$1'
   engine:
-    default: 'Webkit'
+    default: 'WebKit'
 
 # Firefox Rocket
 - regex: 'Rocket/(\d+[\.\d]+)'
   name: 'Firefox Rocket'
   version: '$1'
   engine:
-    default: 'Webkit'
+    default: 'WebKit'
 
 # Web Explorer
 - regex: 'Web Explorer/(\d+[\.\d]+).*Chrome'
   name: 'Web Explorer'
   version: '$1'
   engine:
-    default: 'Webkit'
+    default: 'WebKit'
 
 # Seznam Browser
 - regex: 'SznProhlizec/(\d+[\.\d]+)'
@@ -1842,11 +1900,6 @@
   name: 'Oregano'
   version: '$1'
 
-#Otter Browser
-- regex: 'Otter(?:[ /](\d+[\.\d]+))?'
-  name: 'Otter Browser'
-  version: '$1'
-
 #Polaris
 - regex: '(?:Polaris|Embider)(?:[/ ](\d+[\.\d]+))?'
   name: 'Polaris'
@@ -1905,11 +1958,6 @@
 - regex: 'BlackBerry|PlayBook|BB10'
   name: 'BlackBerry Browser'
   version: ''
-
-#BriskBard
-- regex: 'BriskBard(?:/(\d+[\.\d]+))?'
-  name: 'BriskBard'
-  version: '$1'
 
 #Android Browser
 - regex: 'Android'
