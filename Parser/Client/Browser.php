@@ -262,7 +262,6 @@ class Browser extends AbstractClientParser
         'QT' => 'Qutebrowser',
         'QU' => 'Quark',
         'QZ' => 'QupZilla',
-        'QB' => 'qutebrowser',
         'QM' => 'Qwant Mobile',
         'QW' => 'QtWebEngine',
         'RE' => 'Realme Browser',
@@ -367,7 +366,7 @@ class Browser extends AbstractClientParser
             'S4', 'EE', 'AE', 'VM', 'O0', 'TG', 'GB', 'SY', 'HH',
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
-            'SS', 'O2', 'SV', 'TR', 'CW', 'GI', 'VE', 'AC', 'QB',
+            'SS', 'O2', 'SV', 'TR', 'CW', 'GI', 'VE', 'AC',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
