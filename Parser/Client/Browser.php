@@ -260,7 +260,7 @@ class Browser extends AbstractClientParser
         'Q2' => 'QQ Browser Lite',
         'Q1' => 'QQ Browser Mini',
         'QQ' => 'QQ Browser',
-        'QT' => 'qutebrowser',
+        'QT' => 'Qutebrowser',
         'QU' => 'Quark',
         'QZ' => 'QupZilla',
         'QM' => 'Qwant Mobile',
