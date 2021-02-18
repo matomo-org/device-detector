@@ -109,6 +109,7 @@ class Browser extends AbstractClientParser
         'DE' => 'Deepnet Explorer',
         'DA' => 'Deledao',
         'DT' => 'Delta Browser',
+        'DS' => 'DeskBrowse',
         'DF' => 'Dolphin',
         'DO' => 'Dorado',
         'DL' => 'Dooble',
