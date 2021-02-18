@@ -99,6 +99,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'AT' => 'Airties',
         '0A' => 'AIS',
         'AW' => 'Aiwa',
+        '85' => 'Aiuto',
         'AK' => 'Akai',
         '1A' => 'Alba',
         'AL' => 'Alcatel',
