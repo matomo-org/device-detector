@@ -103,6 +103,7 @@ class Browser extends AbstractClientParser
         'CY' => 'Cyberfox',
         'CS' => 'Cheshire',
         'CT' => 'Crusta',
+        'CG' => 'Craving Explorer',
         'CZ' => 'Crazy Browser',
         'CU' => 'Cunaguaro',
         'CV' => 'Chrome Webview',
