@@ -102,6 +102,7 @@ class Browser extends AbstractClientParser
         'CY' => 'Cyberfox',
         'CS' => 'Cheshire',
         'CT' => 'Crusta',
+        'CG' => 'Craving Explorer',
         'CZ' => 'Crazy Browser',
         'CU' => 'Cunaguaro',
         'CV' => 'Chrome Webview',
@@ -372,7 +373,7 @@ class Browser extends AbstractClientParser
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
             'SS', 'O2', 'SV', 'TR', 'CW', 'GI', 'VE', 'AC', 'FS',
-            'DA',
+            'CG', 'DA',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
