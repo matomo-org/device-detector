@@ -80,7 +80,6 @@ class Browser extends AbstractClientParser
         'CA' => 'Camino',
         'CL' => 'CCleaner',
         'C0' => 'Centaury',
-        'CG' => 'CGN Browser',
         'CC' => 'Coc Coc',
         'C2' => 'Colibri',
         'CD' => 'Comodo Dragon',
