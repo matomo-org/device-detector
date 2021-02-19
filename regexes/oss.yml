@@ -6,6 +6,13 @@
 ###############
 
 ##########
+# GridOS (https://web.archive.org/web/20111123141630/http://fusiongarage.com/grid-os/about)
+##########
+- regex: 'Grid OS (\d+[\.\d]+)'
+  name: 'GridOS'
+  version: '$1'
+
+##########
 # Caixa Mágica (https://caixamagica.pt/)
 ##########
 - regex: 'CaixaMagica'
@@ -193,6 +200,11 @@
 ##########
 # Linux
 ##########
+# PCLinuxOS (https://www.pclinuxos.com/)
+- regex: 'PCLinuxOS/(\d+[\.\d]+)'
+  name: 'PCLinuxOS'
+  version: '$1'
+
 - regex: '(Ordissimo|webissimo3)'
   name: 'Ordissimo'
   version: ''
@@ -222,7 +234,11 @@
   name: '$1'
   version: '$2'
 
-- regex: '(Debian|Knoppix|Mint(?! Browser)|Ubuntu|Kubuntu|Xubuntu|Lubuntu|Fedora|Red Hat|Mandriva|Gentoo|Sabayon|Slackware|SUSE|CentOS|BackTrack|Deepin|Freebox)(?:(?: Enterprise)? Linux)?(?:[ /\-](\d+[\.\d]+))?'
+- regex: 'Deepin[ /](\d+[\.\d]+)'
+  name: 'Deepin'
+  version: '$1'
+
+- regex: '(Debian|Knoppix|Mint(?! Browser)|Ubuntu|Kubuntu|Xubuntu|Lubuntu|Fedora|Red Hat|Mandriva|Gentoo|Sabayon|Slackware|SUSE|CentOS|BackTrack|Freebox)(?:(?: Enterprise)? Linux)?(?:[ /\-](\d+[\.\d]+))?'
   name: '$1'
   version: '$2'
 
@@ -336,6 +352,10 @@
 ##########
 # iOS
 ##########
+- regex: 'iPad/([89]|1[012]).(\d+[\.\d]*)'
+  name: 'iOS'
+  version: '$1.$2'
+
 - regex: 'Pinterest for iOS/.+; (\d(?:[\d\.]+)?)\)$'
   name: 'iOS'
   version: '$1'
@@ -527,6 +547,10 @@
 - regex: 'CFNetwork/459'
   name: 'iOS'
   version: '3.1'
+
+- regex: 'iPhone/(\d+[\.\d]*) hw/'
+  name: 'iOS'
+  version: '$1'
 
 - regex: '(?:CPU OS|iPh(?:one)?[ _]OS|iOS)[ _/](\d+(?:[_\.]\d+)*)'
   name: 'iOS'
