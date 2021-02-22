@@ -150,6 +150,7 @@ class Browser extends AbstractClientParser
         'GB' => 'Glass Browser',
         'GE' => 'Google Earth',
         'GO' => 'GOG Galaxy',
+        'HS' => 'HasBrowser',
         'HA' => 'Hawk Turbo Browser',
         'HE' => 'Helio',
         'HO' => 'hola! Browser',
@@ -376,7 +377,7 @@ class Browser extends AbstractClientParser
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
             'SS', 'O2', 'SV', 'TR', 'CW', 'GI', 'VE', 'AC', 'FS',
-            'CG', 'DR', 'C4', 'HE',
+            'CG', 'DR', 'C4', 'HS', 'HE',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
