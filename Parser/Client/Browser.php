@@ -113,6 +113,7 @@ class Browser extends AbstractClientParser
         'DS' => 'DeskBrowse',
         'DF' => 'Dolphin',
         'DO' => 'Dorado',
+        'DR' => 'Dot Browser',
         'DL' => 'Dooble',
         'DI' => 'Dillo',
         'DD' => 'DuckDuckGo Privacy Browser',
@@ -373,7 +374,7 @@ class Browser extends AbstractClientParser
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
             'SS', 'O2', 'SV', 'TR', 'CW', 'GI', 'VE', 'AC', 'FS',
-            'CG', 'AI',
+            'CG', 'DR', 'AI',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
