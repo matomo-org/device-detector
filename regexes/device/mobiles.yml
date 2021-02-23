@@ -1354,7 +1354,7 @@ Aiwa:
 
 # Akai
 Akai:
-  regex: 'Akai[ _-]|Eco[ _]E2|Glory[ _](?:G[1235]|L[123]|O[125])|TAB-[79]8[03]0Q?|X6 METAL|AKTB-703MZ'
+  regex: 'AKAI,|Akai[ _-]|Eco[ _]E2|Glory[ _](?:G[1235]|L[123]|O[125])|TAB-[79]8[03]0Q?|X6 METAL|AKTB-703MZ'
   device: 'smartphone'
   models:
     - regex: 'TAB-([79]8[03]0Q?)'
@@ -1372,6 +1372,13 @@ Akai:
       model: 'Eco E2'
     - regex: 'Akai[ _-]([^;/)]+)(?: Build|[;)])'
       model: '$1'
+
+    - regex: 'AKAI,(AK3219NF)'
+      device: 'tv'
+      model: '$1'
+    - regex: 'Si2157LG32'
+      device: 'tv'
+      model: 'Si2157LG32'
 
 # Arian
 Arian Space:
@@ -2190,6 +2197,14 @@ ANS:
   regex: 'UL40 Build'
   device: 'smartphone'
   model: 'UL40'
+
+# AOC (https://www.aoc.com/)
+AOC:
+  regex: 'AOC,'
+  device: 'tv'
+  models:
+    - regex: '(LE(?:32|43)S5970(?:s)?-20|LE55U7970-30|LE43S5977-20|U60856)'
+      model: '$1'
 
 # Assistant
 Assistant:
@@ -4937,6 +4952,12 @@ Essentielb:
       model: 'HEYou $1'
     - regex: 'Wooze[_ ]?((?:I55?|I45|X?L))(?:[);/ ]|$)'
       model: 'Wooze $1'
+
+# Facebook
+Facebook:
+  regex: 'PortalTV'
+  device: 'tv'
+  model: 'Portal TV'
 
 # Rikomagic
 Rikomagic:
@@ -10981,7 +11002,7 @@ Nous:
 
 # Nvidia
 Nvidia:
-  regex: 'SHIELD Tablet K1|SHIELD Android TV|Tegra(Note-P1640| Note 7)'
+  regex: 'NVIDIA|SHIELD Tablet K1|SHIELD Android TV|Tegra(Note-P1640| Note 7)'
   device: 'tablet'
   models:
     - regex: 'TegraNote-P1640'
@@ -10990,6 +11011,12 @@ Nvidia:
       model: '$1'
     - regex: 'SHIELD Android TV'
       model: 'SHIELD Android TV'
+      device: 'tv'
+    - regex: 'NVIDIA_SHIELD_PRO_2019'
+      model: 'SHIELD TV Pro'
+      device: 'tv'
+    - regex: 'NVIDIA Shield'
+      model: 'SHIELD TV'
       device: 'tv'
 
 # O+ (OPlus)
@@ -11811,6 +11838,9 @@ Panasonic:
     - regex: 'PANATV[0-9]+|Viera/'
       device: 'tv'
       model: 'Smart TV'
+    - regex: '(43D1200|(?:32|43)D1270|32D1280)'
+      device: 'tv'
+      model: '$1'
     - regex: 'Panasonic[ _\-]?([a-z0-9]+)'
       model: '$1'
     - regex: 'portalmmm/2.0 (P[a-z0-9]+)'
@@ -11913,7 +11943,7 @@ TCL:
     - regex: '(Percee TV)(?:[);/ ]|$)'
       device: 'tv'
       model: '$1'
-    - regex: 'TCL,(43S62FS)'
+    - regex: '((?:43|55)S62FS|(?:43|50)P65US|U(?:43|60)P60|65P4USM|(?:40|49)S62|L32S6|55P610|50P8S|55S62|(?:43|50)P6US|55DP60)'
       device: 'tv'
       model: '$1'
 
@@ -11927,50 +11957,6 @@ JVC:
       model: ''
 
     - regex: 'JVC[;,](32D1290)'
-      model: '$1'
-
-# philips
-Philips:
-  regex: 'Philips|AND1E(?:[);/ ]|$)|NETTV/|PI3210G|TLE(821L|722G)|TPM1[79]1E|70PUH6774_96|QM16[134]E|Xenium S[25]66|S397|W5510'
-  device: 'smartphone'
-  models:
-    - regex: '(?:Philips[_ ])?Xenium[ _](S[25]66|V787)(?:[);/ ]|$)'
-      model: 'Xenium $1'
-    - regex: '(?:Philips[_ ])?(S397|W5510)(?:[);/ ]|$)'
-      model: '$1'
-    - regex: 'AND1E(?: TV)?(?:[);/ ]|$)'
-      model: 'Android TV'
-      device: 'tv'
-    - regex: '(PI3210G)'
-      model: '$1'
-      device: 'tablet'
-    - regex: '(TPM1[79]1E)' # Smart Tv 2018/2019
-      model: '$1'
-      device: 'tv'
-    - regex: '(QM16[134]E)'
-      model: '$1'
-      device: 'tv'
-    - regex: '(70PUH6774)_96'
-      model: '$1/96 4K UHD'
-      device: 'tv'
-    - regex: '(TLE821L)(?:[);/ ]|$)'
-      model: '$1 4G LTE'
-      device: 'tablet'
-    - regex: '(TLE722G)(?:[);/ ]|$)'
-      model: '$1'
-      device: 'tablet'
-    - regex: 'Philips, BDP([0-9]{4})'
-      model: 'Blu-ray Player (BDP$1)'
-      device: 'tv'
-    - regex: 'Philips, ([a-z0-9-]+)'
-      model: '$1'
-      device: 'tv'
-    - regex: '(NETTV/[0-9\.]{5})'
-      model: 'NetTV Series'
-      device: 'tv'
-    - regex: 'Philips-FISIO ([a-z0-9]+)'
-      model: 'Fisio $1'
-    - regex: 'Philips[ _-]?([a-z0-9\-@]+)'
       model: '$1'
 
 # phoneOne
@@ -13748,7 +13734,7 @@ SWISSMOBILITY:
 
 # Thomson
 Thomson:
-  regex: '(?:Primo(7|8)|QM73[45]-8G|QM734-2|QM736-8G\(HD\)|(?<!\.)8950|MID1002|5014G|TEO7RK|Friendly_TH101|Delight TH201)(?:[);/ ]|$)|(?:Tlink|Every)[0-9]+'
+  regex: '(?:Primo(7|8)|QM73[45]-8G|QM734-2|QM736-8G\(HD\)|(?<!\.)8950|MID1002|5014G|TEO7RK|Friendly_TH101|Delight TH201)(?:[);/ ]|$)|(?:Tlink|Every)[0-9]+|THOMSON,'
   device: 'tablet'
   models:
     # already detected as manta device
@@ -13784,6 +13770,9 @@ Thomson:
     - regex: 'Friendly_TH101'
       device: 'smartphone'
       model: 'Friendly TH101'
+    - regex: '((?:49|55)UC6306|55UC63|32HD55|40FD54|55UD63)'
+      device: 'tv'
+      model: '$1'
 
 # Tanix
 Tanix:
@@ -14244,7 +14233,7 @@ Turbo:
 
 # Sigma
 Sigma:
-  regex: 'Sigma|(X[_-]Style[ _]?Tab[_ ]A([0-9]{2,3})|X[-_ ]?treme[-_ ]?PQ[0-9]{2}|X-Style_S5501)(?:[);/ ]|$)'
+  regex: 'Sigma(?!Designs)|(X[_-]Style[ _]?Tab[_ ]A([0-9]{2,3})|X[-_ ]?treme[-_ ]?PQ[0-9]{2}|X-Style_S5501)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(?:Sigma[ _])?X[-_ ]?treme[-_ ]?PQ([0-9]{2})(?:[);/ ]|$)'
@@ -16918,6 +16907,14 @@ Freetel:
       model: 'Samurai Rei'
     - regex: 'FTJ152E'
       model: 'Katana 1'
+
+# Western Digital
+Western Digital:
+  regex: 'Westerndigital|WDSimpleBrowser'
+  device: 'tv'
+  models:
+    - regex: 'Streamer2010'
+      model: 'Streamer (2010)'
 
 # Zeemi
 Zeemi:
@@ -20785,4 +20782,48 @@ Formuler:
   device: 'tv'
   models:
     - regex: 'Formuler[ _](Z8(?: Pro)?)(?:[);/ ]|$)'
+      model: '$1'
+
+# philips
+Philips:
+  regex: 'Philips|AND1E(?:[);/ ]|$)|NETTV/|PI3210G|TLE(821L|722G)|TPM1[79]1E|70PUH6774_96|QM16[134]E|Xenium S[25]66|S397|W5510'
+  device: 'smartphone'
+  models:
+    - regex: '(?:Philips[_ ])?Xenium[ _](S[25]66|V787)(?:[);/ ]|$)'
+      model: 'Xenium $1'
+    - regex: '(?:Philips[_ ])?(S397|W5510)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'AND1E(?: TV)?(?:[);/ ]|$)'
+      model: 'Android TV'
+      device: 'tv'
+    - regex: '(PI3210G)'
+      model: '$1'
+      device: 'tablet'
+    - regex: '(TPM1[79]1E)' # Smart Tv 2018/2019
+      model: '$1'
+      device: 'tv'
+    - regex: '(QM16[134]E)'
+      model: '$1'
+      device: 'tv'
+    - regex: '(70PUH6774)_96'
+      model: '$1/96 4K UHD'
+      device: 'tv'
+    - regex: '(TLE821L)(?:[);/ ]|$)'
+      model: '$1 4G LTE'
+      device: 'tablet'
+    - regex: '(TLE722G)(?:[);/ ]|$)'
+      model: '$1'
+      device: 'tablet'
+    - regex: 'Philips, BDP([0-9]{4})'
+      model: 'Blu-ray Player (BDP$1)'
+      device: 'tv'
+    - regex: 'Philips, ([a-z0-9-]+)'
+      model: '$1'
+      device: 'tv'
+    - regex: '(NETTV/[0-9\.]{5})'
+      model: 'NetTV Series'
+      device: 'tv'
+    - regex: 'Philips-FISIO ([a-z0-9]+)'
+      model: 'Fisio $1'
+    - regex: 'Philips[ _-]?([a-z0-9\-@]+)'
       model: '$1'
