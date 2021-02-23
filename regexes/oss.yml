@@ -6,6 +6,13 @@
 ###############
 
 ##########
+# GridOS (https://web.archive.org/web/20111123141630/http://fusiongarage.com/grid-os/about)
+##########
+- regex: 'Grid OS (\d+[\.\d]+)'
+  name: 'GridOS'
+  version: '$1'
+
+##########
 # Caixa Mágica (https://caixamagica.pt/)
 ##########
 - regex: 'CaixaMagica'
@@ -50,7 +57,11 @@
 ##########
 # Windows Mobile
 ##########
-- regex: '(?:Windows Phone (?:OS)?|wds)[ ]?(\d+[\.\d]+)'
+- regex: 'Windows Phone;FBSV/(\d+[\.\d]+)'
+  name: 'Windows Phone'
+  version: '$1'
+
+- regex: '(?:Windows Phone (?:OS)?|wds)[ /]?(\d+[\.\d]+)'
   name: 'Windows Phone'
   version: '$1'
 
@@ -122,6 +133,10 @@
 ##########
 # Android
 ##########
+- regex: '(?:Podbean|Podimo)(?:.+)?/Android'
+  name: 'Android'
+  version: ''
+
 - regex: 'Pinterest for Android/.+; (\d(?:[\d\.]+)?)\)$'
   name: 'Android'
   version: '$1'
@@ -134,19 +149,27 @@
   name: 'Android'
   version: '$1'
 
-- regex: '(?:(?:Orca-)?Android|Adr)[ /](?:[a-z]+ )?(\d+[\.\d]*)'
+- regex: '(?:(?:Orca-)?Android|Adr)[ /]?(?:[a-z]+ )?(\d+[\.\d]*)'
   name: 'Android'
   version: '$1'
 
-- regex: 'Android|Silk-Accelerated=[a-z]{4,5}'
+- regex: '(?:Allview_TX1_Quasar|Cosmote_My_mini_Tab) (\d+[\.\d]*)'
+  name: 'Android'
+  version: '$1'
+
+- regex: 'Android ?(?:jelly bean|Kit Kat|S.O. Ginger Bread|The FireCyano|:) (\d+[\.\d]*)'
+  name: 'Android'
+  version: '$1'
+
+- regex: '(?:Orca-Android|FB4A).*FBSV/(\d+[\.\d]*);'
+  name: 'Android'
+  version: '$1'
+
+- regex: ' Adr |Android|Silk-Accelerated=[a-z]{4,5}'
   name: 'Android'
   version: ''
 
 - regex: '(?:TwitterAndroid).*[ /](?:[a-z]+ )?(\d+[\.\d]*)'
-  name: 'Android'
-  version: '$1'
-
-- regex: 'FB4A.*FBSV/(\d+[\.\d]*);'
   name: 'Android'
   version: '$1'
 
@@ -201,6 +224,16 @@
 ##########
 # Linux
 ##########
+# HasCodingOS (https://forum.hascoding.com/HasCodingOS)
+- regex: 'HasCodingOs (\d+[\.\d]+)'
+  name: 'HasCodingOS'
+  version: '$1'
+
+# PCLinuxOS (https://www.pclinuxos.com/)
+- regex: 'PCLinuxOS/(\d+[\.\d]+)'
+  name: 'PCLinuxOS'
+  version: '$1'
+
 - regex: '(Ordissimo|webissimo3)'
   name: 'Ordissimo'
   version: ''
@@ -230,7 +263,11 @@
   name: '$1'
   version: '$2'
 
-- regex: '(Debian|Knoppix|Mint(?! Browser)|Ubuntu|Kubuntu|Xubuntu|Lubuntu|Fedora|Red Hat|Mandriva|Gentoo|Sabayon|Slackware|SUSE|CentOS|BackTrack|Deepin|Freebox)(?:(?: Enterprise)? Linux)?(?:[ /\-](\d+[\.\d]+))?'
+- regex: 'Deepin[ /](\d+[\.\d]+)'
+  name: 'Deepin'
+  version: '$1'
+
+- regex: '(Debian|Knoppix|Mint(?! Browser)|Ubuntu|Kubuntu|Xubuntu|Lubuntu|Fedora|Red Hat|Mandriva|Gentoo|Sabayon|Slackware|SUSE|CentOS|BackTrack|Freebox)(?:(?: Enterprise)? Linux)?(?:[ /\-](\d+[\.\d]+))?'
   name: '$1'
   version: '$2'
 
@@ -267,6 +304,18 @@
 ##########
 # Windows
 ##########
+- regex: 'FBW.+FBSV/(\d+[\.\d]*);'
+  name: 'Windows'
+  version: '$1'
+
+- regex: 'mingw32'
+  name: 'Windows'
+  version: ''
+
+- regex: 'Windows/(\d+\.\d+)'
+  name: 'Windows'
+  version: '$1'
+
 - regex: 'CYGWIN_NT-10.0|Windows NT 10.0|Windows 10'
   name: 'Windows'
   version: '10'
@@ -323,10 +372,6 @@
   name: 'Windows'
   version: '3.1'
 
-- regex: 'FBW.*FBSV/(\d+[\.\d]*);'
-  name: 'Windows'
-  version: '$1'
-
 - regex: 'Windows'
   name: 'Windows'
   version: ''
@@ -348,6 +393,10 @@
 ##########
 # iOS
 ##########
+- regex: 'iPad/([89]|1[012]).(\d+[\.\d]*)'
+  name: 'iOS'
+  version: '$1.$2'
+
 - regex: 'Pinterest for iOS/.+; (\d(?:[\d\.]+)?)\)$'
   name: 'iOS'
   version: '$1'
@@ -540,11 +589,19 @@
   name: 'iOS'
   version: '3.1'
 
+- regex: 'iPhone/(\d+[\.\d]*) hw/'
+  name: 'iOS'
+  version: '$1'
+
+- regex: 'iPhone OS ([0-9]{1})([0-9]{1})([0-9]{1})'
+  name: 'iOS'
+  version: '$1.$2.$3'
+
 - regex: '(?:CPU OS|iPh(?:one)?[ _]OS|iOS)[ _/](\d+(?:[_\.]\d+)*)'
   name: 'iOS'
   version: '$1'
 
-- regex: 'FBSN/iOS.*FBSV/ ?(\d+[\.\d]*);'
+- regex: '(?:FBIOS|Messenger(?:Lite)?ForiOS).*FBSV/ ?(\d+[\.\d]*);'
   name: 'iOS'
   version: '$1'
 
@@ -571,31 +628,31 @@
 ##########
 # Mac
 ##########
-- regex: 'CFNetwork/.+ Darwin/20.2.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/20.2.0.*(x86_64)|(x86_64-apple-)?darwin20.2.0'
   name: 'Mac'
   version: '11.1'
 
-- regex: 'CFNetwork/.+ Darwin/20.[01].0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/20.[01].0.*(x86_64)|(x86_64-apple-)?darwin20.[01].0'
   name: 'Mac'
   version: '11.0'
 
-- regex: 'CFNetwork/.+ Darwin/19.6.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/19.6.0.*(x86_64)|(x86_64-apple-)?darwin19.6.0'
   name: 'Mac'
   version: '10.15.6'
 
-- regex: 'CFNetwork/.+ Darwin/19.5.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/19.5.0.*(x86_64)|(x86_64-apple-)?darwin19.5.0'
   name: 'Mac'
   version: '10.15.5'
 
-- regex: 'CFNetwork/.+ Darwin/19.4.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/19.4.0.*(x86_64)|(x86_64-apple-)?darwin19.4.0'
   name: 'Mac'
   version: '10.15.4'
 
-- regex: 'CFNetwork/.+ Darwin/19.3.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/19.3.0.*(x86_64)|(x86_64-apple-)?darwin19.3.0'
   name: 'Mac'
   version: '10.15.3'
 
-- regex: 'CFNetwork/.+ Darwin/19.2.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/19.2.0.*(x86_64)|(x86_64-apple-)?darwin19.2.0'
   name: 'Mac'
   version: '10.15.2'
 
@@ -603,7 +660,7 @@
   name: 'Mac'
   version: '10.15'
 
-- regex: 'CFNetwork/.+ Darwin/18.2.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/18.2.0.*(x86_64)|(x86_64-apple-)?darwin18.2.0'
   name: 'Mac'
   version: '10.14.1'
 
@@ -611,27 +668,27 @@
   name: 'Mac'
   version: '10.14'
 
-- regex: 'CFNetwork/.+ Darwin/17.7.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/17.7.0.*(x86_64)|(x86_64-apple-)?darwin17.7.0'
   name: 'Mac'
   version: '10.13.6'
 
-- regex: 'CFNetwork/.+ Darwin/17.6.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/17.6.0.*(x86_64)|(x86_64-apple-)?darwin17.6.0'
   name: 'Mac'
   version: '10.13.5'
 
-- regex: 'CFNetwork/.+ Darwin/17.5.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/17.5.0.*(x86_64)|(x86_64-apple-)?darwin17.5.0'
   name: 'Mac'
   version: '10.13.4'
 
-- regex: 'CFNetwork/.+ Darwin/17.4.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/17.4.0.*(x86_64)|(x86_64-apple-)?darwin17.4.0'
   name: 'Mac'
   version: '10.13.3'
 
-- regex: 'CFNetwork/.+ Darwin/17.3.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/17.3.0.*(x86_64)|(x86_64-apple-)?darwin17.3.0'
   name: 'Mac'
   version: '10.13.2'
 
-- regex: 'CFNetwork/.+ Darwin/17.2.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/17.2.0.*(x86_64)|(x86_64-apple-)?darwin17.2.0'
   name: 'Mac'
   version: '10.13.1'
 
@@ -639,27 +696,27 @@
   name: 'Mac'
   version: '10.13'
 
-- regex: 'CFNetwork/.+ Darwin/16.7.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/16.7.0.*(x86_64)|(x86_64-apple-)?darwin16.7.0'
   name: 'Mac'
   version: '10.12.6'
 
-- regex: 'CFNetwork/.+ Darwin/16.6.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/16.6.0.*(x86_64)|(x86_64-apple-)?darwin16.6.0'
   name: 'Mac'
   version: '10.12.5'
 
-- regex: 'CFNetwork/.+ Darwin/16.5.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/16.5.0.*(x86_64)|(x86_64-apple-)?darwin16.5.0'
   name: 'Mac'
   version: '10.12.4'
 
-- regex: 'CFNetwork/.+ Darwin/16.3.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/16.3.0.*(x86_64)|(x86_64-apple-)?darwin16.3.0'
   name: 'Mac'
   version: '10.12.3'
 
-- regex: 'CFNetwork/.+ Darwin/16.2.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/16.2.0.*(x86_64)|(x86_64-apple-)?darwin16.2.0'
   name: 'Mac'
   version: '10.12.2'
 
-- regex: 'CFNetwork/.+ Darwin/16.1.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/16.1.0.*(x86_64)|(x86_64-apple-)?darwin16.1.0'
   name: 'Mac'
   version: '10.12.1'
 
@@ -671,23 +728,23 @@
   name: 'Mac'
   version: '10.12'
 
-- regex: 'CFNetwork/.+ Darwin/15.6.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/15.6.0.*(x86_64)|(x86_64-apple-)?darwin15.6.0'
   name: 'Mac'
   version: '10.11.6'
 
-- regex: 'CFNetwork/.+ Darwin/15.5.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/15.5.0.*(x86_64)|(x86_64-apple-)?darwin15.5.0'
   name: 'Mac'
   version: '10.11.5'
 
-- regex: 'CFNetwork/.+ Darwin/15.4.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/15.4.0.*(x86_64)|(x86_64-apple-)?darwin15.4.0'
   name: 'Mac'
   version: '10.11.4'
 
-- regex: 'CFNetwork/.+ Darwin/15.3.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/15.3.0.*(x86_64)|(x86_64-apple-)?darwin15.3.0'
   name: 'Mac'
   version: '10.11.3'
 
-- regex: 'CFNetwork/.+ Darwin/15.2.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/15.2.0.*(x86_64)|(x86_64-apple-)?darwin15.2.0'
   name: 'Mac'
   version: '10.11.2'
 
@@ -695,19 +752,19 @@
   name: 'Mac'
   version: '10.11'
 
-- regex: 'CFNetwork/.+ Darwin/14.5.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/14.5.0.*(x86_64)|(x86_64-apple-)?darwin14.5.0'
   name: 'Mac'
   version: '10.10.5'
 
-- regex: 'CFNetwork/.+ Darwin/14.4.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/14.4.0.*(x86_64)|(x86_64-apple-)?darwin14.4.0'
   name: 'Mac'
   version: '10.10.4'
 
-- regex: 'CFNetwork/.+ Darwin/14.3.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/14.3.0.*(x86_64)|(x86_64-apple-)?darwin14.3.0'
   name: 'Mac'
   version: '10.10.3'
 
-- regex: 'CFNetwork/.+ Darwin/14.1.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/14.1.0.*(x86_64)|(x86_64-apple-)?darwin14.1.0'
   name: 'Mac'
   version: '10.10.2'
 
@@ -715,19 +772,19 @@
   name: 'Mac'
   version: '10.10'
 
-- regex: 'CFNetwork/.+ Darwin/13.4.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/13.4.0.*(x86_64)|(x86_64-apple-)?darwin13.4.0'
   name: 'Mac'
   version: '10.9.5'
 
-- regex: 'CFNetwork/.+ Darwin/13.3.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/13.3.0.*(x86_64)|(x86_64-apple-)?darwin13.3.0'
   name: 'Mac'
   version: '10.9.4'
 
-- regex: 'CFNetwork/.+ Darwin/13.2.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/13.2.0.*(x86_64)|(x86_64-apple-)?darwin13.2.0'
   name: 'Mac'
   version: '10.9.3'
 
-- regex: 'CFNetwork/.+ Darwin/13.1.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/13.1.0.*(x86_64)|(x86_64-apple-)?darwin13.1.0'
   name: 'Mac'
   version: '10.9.2'
 
@@ -735,23 +792,23 @@
   name: 'Mac'
   version: '10.9'
 
-- regex: 'CFNetwork/.+ Darwin/12.5.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/12.5.0.*(x86_64)|(x86_64-apple-)?darwin12.5.0'
   name: 'Mac'
   version: '10.8.5'
 
-- regex: 'CFNetwork/.+ Darwin/12.4.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/12.4.0.*(x86_64)|(x86_64-apple-)?darwin12.4.0'
   name: 'Mac'
   version: '10.8.4'
 
-- regex: 'CFNetwork/.+ Darwin/12.3.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/12.3.0.*(x86_64)|(x86_64-apple-)?darwin12.3.0'
   name: 'Mac'
   version: '10.8.3'
 
-- regex: 'CFNetwork/.+ Darwin/12.2.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/12.2.0.*(x86_64)|(x86_64-apple-)?darwin12.2.0'
   name: 'Mac'
   version: '10.8.2'
 
-- regex: 'CFNetwork/.+ Darwin/12.1.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/12.1.0.*(x86_64)|(x86_64-apple-)?darwin12.1.0'
   name: 'Mac'
   version: '10.8.1'
 
@@ -759,23 +816,23 @@
   name: 'Mac'
   version: '10.8'
 
-- regex: 'CFNetwork/.+ Darwin/11.5.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/11.5.0.*(x86_64)|(x86_64-apple-)?darwin11.5.0'
   name: 'Mac'
   version: '10.7.5'
 
-- regex: 'CFNetwork/.+ Darwin/11.4.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/11.4.0.*(x86_64)|(x86_64-apple-)?darwin11.4.0'
   name: 'Mac'
   version: '10.7.4'
 
-- regex: 'CFNetwork/.+ Darwin/11.3.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/11.3.0.*(x86_64)|(x86_64-apple-)?darwin11.3.0'
   name: 'Mac'
   version: '10.7.3'
 
-- regex: 'CFNetwork/.+ Darwin/11.2.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/11.2.0.*(x86_64)|(x86_64-apple-)?darwin11.2.0'
   name: 'Mac'
   version: '10.7.2'
 
-- regex: 'CFNetwork/.+ Darwin/11.1.0.*(x86_64)'
+- regex: 'CFNetwork/.+ Darwin/11.1.0.*(x86_64)|(x86_64-apple-)?darwin11.1.0'
   name: 'Mac'
   version: '10.7.1'
 
@@ -808,6 +865,10 @@
   version: '$1'
 
 - regex: 'Mac (?:OS/)?(\d+(?:[_\.]\d+)+)'
+  name: 'Mac'
+  version: '$1'
+
+- regex: 'macOS/(\d+[\.\d]+)'
   name: 'Mac'
   version: '$1'
 
