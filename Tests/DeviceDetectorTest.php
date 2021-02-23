@@ -206,7 +206,7 @@ class DeviceDetectorTest extends TestCase
             'Opera/9.80 (Linux mips; U; HbbTV/1.1.1 (; Vestel; MB95; 1.0; 1.0; ); en) Presto/2.10.287 Version/12.00'                                        => [
                 'device' => [
                     'brand' => 'Vestel',
-                    'model' => 'MB95',
+                    'model' => '',
                 ],
             ],
             'Sraf/3.0 (Linux i686 ; U; HbbTV/1.1.1 (+PVR+DL;NEXUS; TV44; sw1.0) CE-HTML/1.0 Config(L:eng,CC:DEU); en/de)'                                   => [
