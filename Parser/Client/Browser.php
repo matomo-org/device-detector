@@ -407,7 +407,6 @@ class Browser extends AbstractClientParser
         'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
         'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH', 'PI', 'SG',
         'KD', 'PE', 'UH', 'S7', 'CW', 'OZ', 'GI', 'VE', 'C4',
-        'AI',
     ];
 
     /**
