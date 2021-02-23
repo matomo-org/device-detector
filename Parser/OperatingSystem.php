@@ -299,7 +299,7 @@ class OperatingSystem extends AbstractParser
             return 'x64';
         }
 
-        if ($this->matchUserAgent('i[0-9]86|i86pc')) {
+        if ($this->matchUserAgent('(?:i[0-9]|x)86|i86pc')) {
             return 'x86';
         }
 
