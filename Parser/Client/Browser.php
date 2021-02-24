@@ -101,6 +101,7 @@ class Browser extends AbstractClientParser
         'C3' => 'Chim Lac',
         'CP' => 'ChromePlus',
         'CR' => 'Chromium',
+        'C5' => 'Chromium GOST',
         'CY' => 'Cyberfox',
         'CS' => 'Cheshire',
         'CT' => 'Crusta',
@@ -377,7 +378,7 @@ class Browser extends AbstractClientParser
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
             'SS', 'O2', 'SV', 'TR', 'CW', 'GI', 'VE', 'AC', 'FS',
-            'CG', 'DR', 'C4', 'HS', 'DA',
+            'CG', 'DR', 'C4', 'HS', 'DA', 'C5',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
