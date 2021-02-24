@@ -110,6 +110,7 @@ class Browser extends AbstractClientParser
         'CV' => 'Chrome Webview',
         'DB' => 'dbrowser',
         'DE' => 'Deepnet Explorer',
+        'DG' => 'deg-degan',
         'DA' => 'Deledao',
         'DT' => 'Delta Browser',
         'DS' => 'DeskBrowse',
@@ -377,7 +378,7 @@ class Browser extends AbstractClientParser
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
             'SS', 'O2', 'SV', 'TR', 'CW', 'GI', 'VE', 'AC', 'FS',
-            'CG', 'DR', 'C4', 'HS', 'DA',
+            'CG', 'DR', 'C4', 'HS', 'DA', 'DG',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
