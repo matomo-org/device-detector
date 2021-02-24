@@ -195,6 +195,7 @@ class Browser extends AbstractClientParser
         'LS' => 'Lunascape',
         'LN' => 'Lunascape Lite',
         'LX' => 'Lynx',
+        'MA' => 'Mandarin',
         'M1' => 'mCent',
         'MB' => 'MicroB',
         'MC' => 'NCSA Mosaic',
