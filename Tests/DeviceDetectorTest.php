@@ -476,7 +476,7 @@ class DeviceDetectorTest extends TestCase
             $yamlSymfony->parseFile($file);
         }
 
-        $this->markTestIncomplete();
+        $this->expectNotToPerformAssertions();
     }
 
     /**
