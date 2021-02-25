@@ -478,7 +478,7 @@ class DeviceDetectorTest extends TestCase
                     break;
                 }
 
-                if (\preg_match('~^\s+[0-9\.]+:~si', $line)) {
+                if (\preg_match('~^\s+\d+\.(?:[\d\.]+)\:~si', $line)) {
                     $message = \sprintf(
                         "Key is number format, need wrap key in string. Example \"'number': 'value'\"\n" .
                         "File: %s\nLine: %s\nString: %s",
@@ -486,8 +486,7 @@ class DeviceDetectorTest extends TestCase
                         $n,
                         $line
                     );
-
-                    throw new \Exception($message);
+                    $this->assertTrue(false, $message);
                 }
 
                 $n++;
@@ -495,6 +494,8 @@ class DeviceDetectorTest extends TestCase
 
             \fclose($fn);
         }
+
+        $this->assertTrue(true);
     }
 
     /**
