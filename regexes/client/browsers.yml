@@ -12,6 +12,20 @@
   engine:
     default: 'WebKit'
 
+# Chedot (https://landing.chedot.com/)
+- regex: 'Chedot/(\d+[\.\d]+)'
+  name: 'Chedot'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# Chromium GOST (https://github.com/deemru/chromium-gost)
+- regex: 'Chrome/(\d+[\.\d]+) \(Chromium GOST\)'
+  name: 'Chromium GOST'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
 # Deledao (https://www.deledao.com/)
 - regex: '(?:DeledaoPersonal|DeledaoFamily)/(\d+[\.\d]+)'
   name: 'Deledao'
@@ -797,7 +811,7 @@
 
 
 #Avant Browser
-- regex: 'Avant Browser'
+- regex: 'Avant ?Browser'
   name: 'Avant Browser'
   version: ''
   engine:
@@ -1228,12 +1242,12 @@
       4: '' # multiple (KHTML or WebKit)
 
 #Baidu Browser
-- regex: '(?:baidubrowser|bdbrowser_i18n|bdbrowser|FlyFlow|BaiduHD)(?:[/ ](\d+[\.\d]*))?'
+- regex: '(?:baidubrowser|bdbrowser(?:(?:hd)?_i18n)?|FlyFlow|BaiduHD)(?:[/ ](\d+[\.\d]*))?'
   name: 'Baidu Browser'
   version: '$1'
 
 #Baidu Spark
-- regex: '(?:(?:BD)?Spark|BIDUBrowser)[/ ](\d+[\.\d]*)'
+- regex: '(?:(?:BD)?Spark(?:Safe)?|BIDUBrowser)[/ ](\d+[\.\d]*)'
   name: 'Baidu Spark'
   version: '$1'
 
@@ -1283,6 +1297,13 @@
   version: '$1'
 
 #Maxthon
+- regex: 'Chrome.+Maxthon(?:.+\(portable\))?/(\d+[\.\d]+)'
+  name: 'Maxthon'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+    versions:
+      5.2: 'Blink'
 - regex: '(?:Maxthon(?:%20Browser)?|MxBrowser(?:-inhouse|-iPhone)?)[ /](\d+[\.\d]+)'
   name: 'Maxthon'
   version: '$1'
@@ -1380,7 +1401,7 @@
 # additional features for Vietnamese users. Its regex has to be placed
 # before generic Chrome regex, or Chrome regex will match first and
 # the browser is mistaken as "Chrome".
-- regex: '(?:coc_coc_browser|coccocbrowser)(?:/(\d+[\.\d]+))?'
+- regex: '(?:coc_coc_browser|coccocbrowser|CocCoc)(?:/(\d+[\.\d]+))?'
   name: 'Coc Coc'
   version: '$1'
   engine:
