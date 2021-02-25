@@ -505,7 +505,7 @@ class DeviceDetectorTest extends TestCase
     {
         $files       = \array_merge(
             \glob(__DIR__ . '/../regexes/client/*.yml'),
-            \glob(__DIR__ . '/../regexes/client/*.yml'),
+            \glob(__DIR__ . '/../regexes/device/*.yml'),
             \glob(__DIR__ . '/../regexes/*.yml')
         );
         $yamlSymfony = new Symfony();
