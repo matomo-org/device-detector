@@ -460,44 +460,6 @@ class DeviceDetectorTest extends TestCase
         $this->assertTrue($this->checkRegexRestrictionEndCondition('TestValue(?:[;)/]|$)'), 'pass condition');
     }
 
-    public function testCheckYamlExtraLint(): void
-    {
-        $files = \array_merge(
-            \glob(__DIR__ . '/../regexes/client/*.yml'),
-            \glob(__DIR__ . '/../regexes/device/*.yml')
-        );
-
-        foreach ($files as $file) {
-            $fn = \fopen($file, 'r');
-            $n  = 0;
-
-            while (!\feof($fn)) {
-                $line = \fgets($fn);
-
-                if (false === $line) {
-                    break;
-                }
-
-                if (\preg_match('~^\s+\d+\.(?:[\d\.]+)\:~si', $line)) {
-                    $message = \sprintf(
-                        "Key is number format, need wrap key in string. Example \"'number': 'value'\"\n" .
-                        "File: %s\nLine: %s\nString: %s",
-                        $file,
-                        $n,
-                        $line
-                    );
-                    $this->assertTrue(false, $message);
-                }
-
-                $n++;
-            }
-
-            \fclose($fn);
-        }
-
-        $this->assertTrue(true);
-    }
-
     /**
      * check the Symfony parser for fixtures parsing errors
      */
