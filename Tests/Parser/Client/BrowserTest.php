@@ -56,4 +56,18 @@ class BrowserTest extends TestCase
         $available = Browser::getAvailableClients();
         $this->assertGreaterThanOrEqual(\count($available), \count(Browser::getAvailableBrowsers()));
     }
+
+    public function testStructureBrowsersYml(): void
+    {
+        $ymlDataItems = Spyc::YAMLLoad(__DIR__ . '/../../../regexes/client/browsers.yml');
+
+        foreach ($ymlDataItems as $item) {
+            $this->assertTrue(\array_key_exists('regex', $item), 'key "regex" not exist');
+            $this->assertTrue(\array_key_exists('name', $item), 'key "name" not exist');
+            $this->assertTrue(\array_key_exists('version', $item), 'key "version" not exist');
+            $this->assertIsString($item['regex']);
+            $this->assertIsString($item['name']);
+            $this->assertIsString($item['version']);
+        }
+    }
 }
