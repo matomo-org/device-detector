@@ -39,6 +39,7 @@ class Browser extends AbstractClientParser
         '2B' => '2345 Browser',
         '36' => '360 Phone Browser',
         '3B' => '360 Browser',
+        '7B' => '7654 Browser',
         'AA' => 'Avant Browser',
         'AB' => 'ABrowse',
         'AF' => 'ANT Fresco',
@@ -382,7 +383,7 @@ class Browser extends AbstractClientParser
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
             'SS', 'O2', 'SV', 'TR', 'CW', 'GI', 'VE', 'AC', 'FS',
-            'CG', 'DR', 'C4', 'HS', 'DA', 'C5', 'C6', 'DG',
+            'CG', 'DR', 'C4', 'HS', 'DA', 'C5', 'C6', 'DG', 'CG',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
