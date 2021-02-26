@@ -33,4 +33,15 @@ class MobileAppTest extends TestCase
 
         return $fixtureData;
     }
+
+    public function testStructureMobileAppYml(): void
+    {
+        $ymlDataItems = Spyc::YAMLLoad(__DIR__ . '/../../../regexes/client/mobile_apps.yml');
+
+        foreach ($ymlDataItems as $item) {
+            $this->assertTrue(\array_key_exists('regex', $item), 'key "regex" not exist');
+            $this->assertTrue(\array_key_exists('name', $item), 'key "name" not exist');
+            $this->assertTrue(\array_key_exists('version', $item), 'key "version" not exist');
+        }
+    }
 }
