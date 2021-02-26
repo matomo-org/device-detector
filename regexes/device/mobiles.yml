@@ -7918,8 +7918,18 @@ iTel:
       model: 'iNote $1'
     - regex: 'iNote_([a-z0-9\-_]+)'
       model: 'iNote $1'
-    - regex: 'itel-it(1512|1520)(?:[);/ ]|$)'
+    - regex: 'itel-it(1410|1512|1520)(?:[);/ ]|$)'
       model: 'it$1'
+    - regex: 'itel-it1553(?:[);/ ]|$)'
+      model: 'Power Pro'
+
+    - regex: 'itel it1701'
+      device: 'tablet'
+      model: 'iNote Prime'
+    - regex: 'itel it170([23])'
+      device: 'tablet'
+      model: 'iNote Prime $1'
+
     - regex: 'iTel ([^/;]*)Build'
       model: '$1'
     - regex: 'iTel[_ ]([a-z0-9\-_]*)'
@@ -20817,6 +20827,16 @@ Datamini:
   device: 'tablet'
   model: '$1'
 
+# 3GNET (3gnet.com.tw)
+3GNET:
+  regex: '(?<!NetType/)3GNET[ _]'
+  device: 'smartphone'
+  models:
+    - regex: '3GNET[ _](U8|T800|U6s)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: '3GNET[ _]T ?900'
+      model: 'T900'
+
 # Yoka TV
 'Yoka TV':
   regex: 'KB2 PRO(?:[);/ ]|$)'
@@ -20830,6 +20850,33 @@ Formuler:
   models:
     - regex: 'Formuler[ _](Z8(?: Pro)?)(?:[);/ ]|$)'
       model: '$1'
+
+# Malata
+Malata:
+  regex: '(?:Build/)?Malata[ _]?([a-z0-9]+)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
+
+# IT
+IT:
+  regex: 'IT-(?:1101S?|1101-QUAD)(?:[);/ ]|$)'
+  device: 'tablet'
+  models:
+    - regex: 'IT-1101-QUAD'
+      model: '1101 Quad'
+    - regex: 'IT-(1101S?)'
+      model: '$1'
+
+# Jiake or Jake
+Jiake:
+  regex: '(?:JK(?:960|103) 3G|JK-?760)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'JK-?(760)(?:[);/ ]|$)'
+      model: 'JK-$1'
+    - regex: 'JK(960|103) 3G(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'JK-$1 3G'
 
 # philips
 Philips:
