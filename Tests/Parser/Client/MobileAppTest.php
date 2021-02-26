@@ -22,6 +22,7 @@ class MobileAppTest extends TestCase
     public function testParse(string $useragent, array $client): void
     {
         $mobileAppParser = new MobileApp();
+        $mobileAppParser->setVersionTruncation(MobileApp::VERSION_TRUNCATION_NONE);
         $mobileAppParser->setUserAgent($useragent);
         $this->assertEquals($client, $mobileAppParser->parse());
     }
@@ -31,5 +32,16 @@ class MobileAppTest extends TestCase
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/mobile_app.yml');
 
         return $fixtureData;
+    }
+
+    public function testStructureMobileAppYml(): void
+    {
+        $ymlDataItems = Spyc::YAMLLoad(__DIR__ . '/../../../regexes/client/mobile_apps.yml');
+
+        foreach ($ymlDataItems as $item) {
+            $this->assertTrue(\array_key_exists('regex', $item), 'key "regex" not exist');
+            $this->assertTrue(\array_key_exists('name', $item), 'key "name" not exist');
+            $this->assertTrue(\array_key_exists('version', $item), 'key "version" not exist');
+        }
     }
 }
