@@ -461,6 +461,25 @@ class DeviceDetectorTest extends TestCase
     }
 
     /**
+     * check the Symfony parser for fixtures parsing errors
+     */
+    public function testSymfonyParser(): void
+    {
+        $files       = \array_merge(
+            \glob(__DIR__ . '/../regexes/client/*.yml'),
+            \glob(__DIR__ . '/../regexes/device/*.yml'),
+            \glob(__DIR__ . '/../regexes/*.yml')
+        );
+        $yamlSymfony = new Symfony();
+
+        foreach ($files as $file) {
+            $yamlSymfony->parseFile($file);
+        }
+
+        $this->expectNotToPerformAssertions();
+    }
+
+    /**
      * check the regular expression for the vertical line closing the group
      * @param string $regexString
      *
