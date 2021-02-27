@@ -4924,11 +4924,13 @@ E-tel:
 
 # Evercoss
 Evercoss:
-  regex: 'EVERCOSS[ _]|(A75A\*|U50A_PLUS|M50 STAR)(?:[);/ ]|$)'
+  regex: 'EVERCOSS[ _]|(A75A\*|U50A_PLUS|M50 STAR|A75 MAX)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'A75A\*(?:[);/ ]|$)'
       model: 'A75A Star'
+    - regex: 'A75 MAX*(?:[);/ ]|$)'
+      model: 'A75 Max'
     - regex: 'U50A_PLUS(?:[);/ ]|$)'
       model: 'U50A Plus'
     - regex: 'M50 STAR(?:[);/ ]|$)'
@@ -8481,7 +8483,7 @@ AIS:
 
 # Lava (Lavamobiles.com)
 Lava:
-  regex: 'Lava[ _]|LAVAA1|(?:DISCOVER136|KKT QUADRA)|iris[ _]?([^/;]+)(?:\)| Build)|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|(?:Flair Z1|PixelV1|Pixel V2|Z61_2GB|A97 IPS|L[EH]9920(?:[_ ]P)?|L[NEH]9910|Ivory(?:S1)?)(?:[);/ ]|$)'
+  regex: 'Lava[ _]|LAVAA1|(?:DISCOVER136|KKT QUADRA)|iris[ _]?([^/;]+)(?:\)| Build)|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|(?:Flair Z1|PixelV1|Pixel V2|Z61_2GB|A97 IPS|L[EH]9920(?:[_ ]P)?|L[NEH]9910|LH9810|Ivory(?:S1)?|A76Plus)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -8489,6 +8491,8 @@ Lava:
       model: 'Flair Z1'
     - regex: 'A97 IPS(?:[);/ ]|$)'
       model: 'A97 IPS'
+    - regex: 'A76Plus(?:[);/ ]|$)'
+      model: 'A76 Plus'
     - regex: 'Pixel ?V([12])(?:[);/ ]|$)'
       model: 'Pixel V$1'
     - regex: 'X1 Selfie(?:[);/ ]|$)'
@@ -8507,6 +8511,8 @@ Lava:
       model: 'Z53'
     - regex: 'LH9910(?:[);/ ]|$)'
       model: 'Z52'
+    - regex: 'LH9810(?:[);/ ]|$)'
+      model: 'Iris 52'
     - regex: 'LN9910(?:[);/ ]|$)'
       model: 'Z41'
     - regex: 'LE9910(?:[);/ ]|$)'
@@ -8632,7 +8638,7 @@ LCT:
 
 # Leagoo
 Leagoo:
-  regex: 'LEAGOO[ _-]?|(?:M5 EDGE|KIICAA (POWER|MIX)|Leapad[ _]7s|Elite [15]|Venture 1|Z10-E)(?:[);/ ]|$)'
+  regex: 'LEAGOO[ _-]?|(?:M5 EDGE|KIICAA (POWER|MIX)|Leapad[ _](?:X|7s)|Elite [15]|Venture 1|Z10-E)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'LEAGOO[- _]M8[_-]?Pro(?:[);/ ]|$)'
@@ -8654,8 +8660,8 @@ Leagoo:
     - regex: '(?:LEAGOO[- _])?(Z10-E|M6)(?:[);/ ]|$)'
       model: '$1'
 
-    - regex: '(Leapad[ _](?:7s|10))'
-      model: '$1'
+    - regex: '(?:Leapad[ _])(7s|10|X)'
+      model: 'LeaPad $1'
       device: 'tablet'
 
 # Ledstar
@@ -20651,9 +20657,13 @@ EWIS:
 
 # Leader Phone or LP (lp.tn)
 Leader Phone:
-  regex: '(Vyper)(?:[);/ ]|$)'
+  regex: '(Vyper|N-5[07]|N-45)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'N-45 light'
+      model: 'N-45 Light'
+    - regex: '(Vyper|N-5[07]|N-45)(?:[);/ ]|$)'
+      model: '$1'
 
 # Cavion (cavion.pl)
 Cavion:
@@ -20959,6 +20969,12 @@ Navitel:
       model: '$1'
     - regex: 'RE900 Full HD(?:[);/ ]|$)'  # combo device table/navigator and camera
       model: 'RE900 Full HD'
+
+# Linnex (www.linnex.com)
+Linnex:
+  regex: 'LI(22)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: 'Li $1'
 
 # philips
 Philips:

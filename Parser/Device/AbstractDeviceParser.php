@@ -534,6 +534,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'LF' => 'Lifemaxx',
         'LI' => 'Lingwin',
         '5L' => 'Linsar',
+        'LW' => 'Linnex',
         'LO' => 'Loewe',
         '1L' => 'Logic',
         'LM' => 'Logicom',
