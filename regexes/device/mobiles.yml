@@ -1965,11 +1965,13 @@ Allwinner:
 
 # altron
 altron:
-  regex: 'AL-555|GI-626'
+  regex: '(AL-555|GI-626|OB[_-](?:421|728|627))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'AL-555'
       model: 'AL-555'
+    - regex: 'OB[_-](421|728|627)'
+      model: 'OB-$1'
     - regex: 'GI-626'
       device: 'phablet'
       model: 'GI-626'
@@ -3789,9 +3791,9 @@ Changhong:
       device: 'tv'
       model: '$1'
 
-# Cherry Mobile
+# Cherry Mobile (cherrymobile.com)
 'Cherry Mobile':
-  regex: 'Cherry|Superion S1 DTV|Flare([ _])?(2X|4|A[123]|J[123568]|P[13]|S[4-8]|X2|Y[367]|S Play|HD|LITE|XL|X_V2|Y3s|Tab)(?:[ _](?:Pro|Plus|Max|LTE))?|Fusion Bolt|OMEGA HD 4|Spin Max 2|Omega Icon 2|Omega_Lite_3C|Selfie_Two'
+  regex: 'Cherry|Superion S1 DTV|Flare([ _])?(2X|4|A[123]|J[123568]|P[13]|S[4-8]|X2|Y[367]|S Play|HD|LITE|XL|X_V2|Y3s|Tab)(?:[ _](?:Pro|Plus|Max|LTE))?|Fusion Bolt|Omega[_ ](?:Icon 2|Icon Lite 2|lite[_ ][43][Cs]?|HD [45]|HD_Duo)|Spin Max 2|Selfie_Two'
   device: 'smartphone'
   models:
     - regex: '(Flare2X)'
@@ -3836,12 +3838,16 @@ Changhong:
       model: 'Flare S6 Power'
     - regex: 'Flare(?:[ _])?(4|A[123]|J8 LTE|J[13568]|P[13]|S[4-8]|X2|Y3s|Y7_LTE|Y[673])'
       model: 'Flare $1'
-    - regex: 'OMEGA HD 4'
-      model: 'Omega HD 4'
+    - regex: 'OMEGA HD ([45])'
+      model: 'Omega HD $1'
+    - regex: 'Omega_HD_Duo'
+      model: 'Omega HD Duo'
+    - regex: 'Omega Icon Lite 2'
+      model: 'Omega Icon Lite 2'
     - regex: 'Omega Icon 2'
       model: 'Omega Icon 2'
-    - regex: 'Omega_Lite_3C'
-      model: 'Omega Lite 3C'
+    - regex: 'Omega[_ ]Lite[_ ](3[Cs]|4)'
+      model: 'Omega Lite $1'
     - regex: 'Spin Max 2'
       model: 'Spin Max 2'
     - regex: 'Selfie_Two'
@@ -14168,6 +14174,17 @@ QMobile:
     - regex: 'NICE S'
       model: 'Nice S'
 
+# Maximus (maximus-mobile.com)
+Maximus:
+  regex: 'Maximus[ _]|(Noir X)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: '(?:Maximus[ _])?(Noir X|D1)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'Maximus_(T2)'
+      device: 'tablet'
+      model: '$1'
+
 # Quantum
 Quantum:
   regex: 'Quantum (?:Fit|MUV (?:PRO|UP)|Go|Mini|V|You [2E])(?:[);/ ]|$)'
@@ -18932,7 +18949,7 @@ Vipro:
 
 # OzoneHD
 OzoneHD:
-  regex: 'OzoneHD[ _](T2 WiFi|4K(?: TV)?|Fun)(?:[);/ ]|$)'
+  regex: 'Ozone HD|OzoneHD[ _](T2 WiFi|4K(?: TV)?|Fun)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
@@ -20882,6 +20899,14 @@ IT:
     - regex: 'IT-(1101S?)'
       model: '$1'
 
+# Navcity (www.navcity.com.br)
+Navcity:
+  regex: 'NP-752Go(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'NP-752Go'
+      model: 'NP-752 Go'
+
 # Jiake or Jake
 Jiake:
   regex: '(?:JK(?:960|103) 3G|JK-?760)(?:[);/ ]|$)'
@@ -20898,6 +20923,18 @@ Jiake:
   regex: '(IFoo (?:U200|H55))(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
+
+# Mantra (mantratec.com)
+Mantra:
+  regex: '(MFSTAB(?:_74G)?)(?:[);/ ]|$)'
+  device: 'peripheral'
+  model: '$1'
+
+# Datalogic (datalogic.com)
+Datalogic:
+  regex: '(?:MEMOR 10)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: 'Memor 10'
 
 # philips
 Philips:
