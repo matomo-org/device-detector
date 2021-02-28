@@ -614,6 +614,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '6M' => 'Mystery',
         '3T' => 'MyTab',
         'MG' => 'MyWigo',
+        '08' => 'Nabi',
         'N7' => 'National',
         'NC' => 'Navcity',
         '6N' => 'Navitech',
