@@ -837,6 +837,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'S8' => 'STK',
         'S2' => 'Stonex',
         'ST' => 'Storex',
+        '71' => 'StrawBerry',
         '9S' => 'Sugar',
         '06' => 'Subor',
         'SZ' => 'Sumvision',
