@@ -705,6 +705,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '5P' => 'Phonemax',
         'PO' => 'phoneOne',
         'PI' => 'Pioneer',
+        'PJ' => 'PiPO',
         '8P' => 'Pixelphone',
         '9O' => 'Pixela',
         'PX' => 'Pixus',
