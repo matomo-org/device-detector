@@ -206,7 +206,7 @@ class DeviceDetectorTest extends TestCase
             'Opera/9.80 (Linux mips; U; HbbTV/1.1.1 (; Vestel; MB95; 1.0; 1.0; ); en) Presto/2.10.287 Version/12.00'                                        => [
                 'device' => [
                     'brand' => 'Vestel',
-                    'model' => 'MB95',
+                    'model' => '',
                 ],
             ],
             'Sraf/3.0 (Linux i686 ; U; HbbTV/1.1.1 (+PVR+DL;NEXUS; TV44; sw1.0) CE-HTML/1.0 Config(L:eng,CC:DEU); en/de)'                                   => [
@@ -458,6 +458,25 @@ class DeviceDetectorTest extends TestCase
         $this->assertTrue($this->checkRegexRestrictionEndCondition('TestValue(?:[/); ]|$)'), 'pass condition');
         $this->assertTrue($this->checkRegexRestrictionEndCondition('TestValue(?:[);/]|$)'), 'pass condition');
         $this->assertTrue($this->checkRegexRestrictionEndCondition('TestValue(?:[;)/]|$)'), 'pass condition');
+    }
+
+    /**
+     * check the Symfony parser for fixtures parsing errors
+     */
+    public function testSymfonyParser(): void
+    {
+        $files       = \array_merge(
+            \glob(__DIR__ . '/../regexes/client/*.yml'),
+            \glob(__DIR__ . '/../regexes/device/*.yml'),
+            \glob(__DIR__ . '/../regexes/*.yml')
+        );
+        $yamlSymfony = new Symfony();
+
+        foreach ($files as $file) {
+            $yamlSymfony->parseFile($file);
+        }
+
+        $this->expectNotToPerformAssertions();
     }
 
     /**
