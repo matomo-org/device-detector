@@ -698,6 +698,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'PD' => 'PCD Argentina',
         'PE' => 'PEAQ',
         'PG' => 'Pentagram',
+        'PQ' => 'Pendoo',
         '1P' => 'Phicomm',
         '4P' => 'Philco',
         'PH' => 'Philips',
