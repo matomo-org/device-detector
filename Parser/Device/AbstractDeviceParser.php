@@ -377,6 +377,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'GR' => 'Gradiente',
         'GP' => 'Grape',
         'G6' => 'Gree',
+        '82' => 'Gresso',
         'GU' => 'Grundig',
         'HF' => 'Hafury',
         'HA' => 'Haier',
