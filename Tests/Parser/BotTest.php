@@ -1,44 +1,45 @@
-<?php
+<?php declare(strict_types=1);
+
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
- * @link http://piwik.org
+ * @link https://matomo.org
+ *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
 namespace DeviceDetector\Tests\Parser;
 
 use DeviceDetector\Parser\Bot;
-use \Spyc;
+use PHPUnit\Framework\TestCase;
 
-class BotTest extends \PHPUnit_Framework_TestCase
+class BotTest extends TestCase
 {
-    /**
-     * @dataProvider getFixtures
-     */
-    public function testParse($useragent, $bot)
+    public function testGetInfoFromUABot(): void
     {
+        $expected  = [
+            'name'     => 'Googlebot',
+            'category' => 'Search bot',
+            'url'      => 'http://www.google.com/bot.html',
+            'producer' => [
+                'name' => 'Google Inc.',
+                'url'  => 'http://www.google.com',
+            ],
+        ];
         $botParser = new Bot();
-        $botParser->setUserAgent($useragent);
-        $this->assertEquals($bot, $botParser->parse());
+        $botParser->setUserAgent('Googlebot/2.1 (http://www.googlebot.com/bot.html)');
+        $this->assertEquals($expected, $botParser->parse());
     }
 
-    public function getFixtures()
+    public function testParseNoDetails(): void
     {
-        $fixtureData = \Spyc::YAMLLoad(realpath(dirname(__FILE__)) . '/fixtures/bots.yml');
-        return $fixtureData;
-    }
-
-    public function testParseNoDetails()
-    {
-        $fixtures = $this->getFixtures();
-        $fixture  = array_shift($fixtures);
         $botParser = new Bot();
         $botParser->discardDetails();
-        $botParser->setUserAgent($fixture['user_agent']);
-        $this->assertTrue($botParser->parse());
+        $botParser->setUserAgent('Googlebot/2.1 (http://www.googlebot.com/bot.html)');
+        $this->assertEquals([true], $botParser->parse());
     }
 
-    public function testParseNoBot()
+    public function testParseNoBot(): void
     {
         $botParser = new Bot();
         $botParser->setUserAgent('Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1; SV1; SE 2.x)');
