@@ -357,6 +357,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'GA' => 'Gateway',
         'GD' => 'Gemini',
         'GN' => 'General Mobile',
+        '2G' => 'Genesis',
         'G2' => 'GEOFOX',
         'GE' => 'Geotel',
         'GH' => 'Ghia',
