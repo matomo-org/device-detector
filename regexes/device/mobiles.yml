@@ -4753,9 +4753,11 @@ Doro:
 
 # Dune HD
 'Dune HD':
-  regex: 'DuneHD'
+  regex: 'DuneHD|SOLO 4K(?:[);/ ]|$)'
   device: 'tv'
   models:
+    - regex: 'SOLO 4K(?:[);/ ]|$)'
+      model: 'Solo 4k'
     - regex: 'DuneHD/\d.\d \([a-z]+__([a-z0-9_-]+);'
       model: '$1'
     - regex: 'DuneHD/\d.\d \(([a-z0-9_-]+);'
@@ -18846,7 +18848,7 @@ Maxtron:
 
 # Philco (philco.com.br)
 Philco:
-  regex: '(PCS01|PH350B|PTB7R)(?:[);/ ]|$)'
+  regex: 'PHILCO |(PCS01|PH350B|PTB7R)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(PCS01|PH350B)(?:[);/ ]|$)'
@@ -18854,6 +18856,9 @@ Philco:
     - regex: '(PTB7R)(?:[);/ ]|$)'
       device: 'tablet'
       model: '$1'
+    - regex: 'PHILCO Android TV(?:[);/ ]|$)'
+      device: 'tv'
+      model: 'General Android TV'
 
 # SEMP TCL
 SEMP TCL:
@@ -21186,3 +21191,9 @@ PiPO:
     - regex: 'PIPO[_ ](X10|X9S)'  # combo device tv/tablet/pc
       device: 'tv'
       model: '$1'
+
+# Engel or Engel Axil (www.engelaxil.com)
+Engel:
+  regex: '(EN1007Q)plus(?:[);/ ]|$)'
+  device: 'tv'
+  model: '$1 Plus'

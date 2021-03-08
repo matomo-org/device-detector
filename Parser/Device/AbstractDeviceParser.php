@@ -280,6 +280,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'D8' => 'Droxio',
         'DU' => 'Dune HD',
         'EB' => 'E-Boda',
+        'EJ' => 'Engel',
         '2E' => 'E-Ceros',
         'E8' => 'E-tel',
         'EP' => 'Easypix',
