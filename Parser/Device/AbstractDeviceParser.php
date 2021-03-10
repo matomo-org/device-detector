@@ -439,6 +439,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'IF' => 'Infinix',
         'I0' => 'InFocus',
         'II' => 'Inkti',
+        '81' => 'InfoKit',
         'I5' => 'InnJoo',
         '26' => 'Innos',
         'IN' => 'Innostream',
