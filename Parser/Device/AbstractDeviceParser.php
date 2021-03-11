@@ -412,6 +412,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'HU' => 'Huawei',
         'HX' => 'Humax',
         'HR' => 'Hurricane',
+        'H5' => 'Huskee',
         'HY' => 'Hyrican',
         'HN' => 'Hyundai',
         '7H' => 'Hyve',
