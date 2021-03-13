@@ -33,6 +33,10 @@ SFR:
   regex: 'StarShine|StarTrail|STARADDICT|StarText|StarNaute|StarXtrem|StarTab'
   device: 'smartphone'
   models:
+    - regex: 'StarXtrem II(?:[);/ ]|$)'
+      model: 'StarXtrem 2'
+    - regex: 'StarXtrem ?([3-6])(?:[);/ ]|$)'
+      model: 'StarXtrem $1'
     - regex: 'StarXtrem(?:[);/ ]|$)'
       model: 'StarXtrem' # ZTE
     - regex: 'StarTrail III(?:[);/ ]|$)'
@@ -2655,12 +2659,12 @@ Bitel:
 
 # Blu
 Blu:
-  regex: 'BLU[ _]|(?:blu|Dash)[ _]([^/;)]+)(?: Build|[;)])|(?:Studio (5.0K|5.5|View XL|Mega|C 8\+8|[CM] HD|[CGX]|Selfie LTE|Touch|M5 Plus|J[1258]|X8 HD)|Advance (4.0 ?[LM]|5.[02](?: HD)?|A4|L[45])|ENERGY (DIAMOND|XL)|Energy X 2|LIFE XL|B110DL|Dash (?:X[2L]|L3)|PURE XL|Life One X2|G90(?: PRO)?|Grand M3|GRAND (?:5.5 HD|XL LTE)|R1 (?:HD|PLUS)|Tank Xtreme 5.0|Tank Xtreme Pro|STUDIO SELFIE|Touchbook M7 Pro|DASH X PLUS|C[456] 2019|BOLD N1)(?:[);/ ]|$)'
+  regex: 'BLU[ _]|(?:blu|Dash)[ _]([^/;)]+)(?: Build|[;)])|(?:Studio[ _](5.0K|5.5|View XL|Mega|C 8\+8|[CGM][ _]HD|[CGX]|SELFIE|Selfie LTE|Touch|M5 Plus|J[1258]|X8 HD)|Advance (4.0 ?[LM]|5.[02](?: HD)?|A4|L[45])|ENERGY (DIAMOND|XL)|Energy X 2|LIFE XL|B110DL|Dash (?:X[2L]|L3)|PURE XL|Life One X2|G90(?: PRO)?|Grand M3|GRAND (?:5.5 HD|XL LTE)|R1 (?:HD|PLUS)|Tank Xtreme 5.0|Tank Xtreme Pro|Touchbook M7 Pro|DASH X PLUS|C[456] 2019|BOLD N1)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Advance (4.0 ?[LM]|4.0|5.[02](?: HD)?|A4|L[54])'
       model: 'Advance $1'
-    - regex: '(?:BLU[_ ])?Studio[ _](5.0 C|5.5|View XL|Mega|C 8\+8|C HD|C|G|Touch|M HD|M5 Plus|J[1258]|X8 HD|X5|XL|X)(?:[);/ ]|$)'
+    - regex: '(?:BLU[_ ])?Studio[ _](5.0 C|5.5|View XL|Mega|C 8\+8|[CG][ _]HD|C|G|Touch|M HD|M5 Plus|J[1258]|X8 HD|X5|XL|X)(?:[);/ ]|$)'
       model: 'Studio $1'
     - regex: '(?:BLU[_ ])?Studio[ _]5.0 ?K(?:[);/ ]|$)'
       model: 'Studio 5.0 K'
@@ -19462,7 +19466,7 @@ Aoson:
 
 # FireFly Mobile
 FireFly Mobile:
-  regex: '(?:AURII[ _](?:Passion|Virtuoso|ULTRA|Secret Lite|AMUSE[_ ]3G|FORCE|FUSION|F8[_ ]Premium|XCITE|DELIGHT|DREAM[_ ](?:MINI|One))|SECRET_XR|INTENSE[ _](?:POWER|METAL_2|XT))(?:[);/ ]|$)'
+  regex: '(?:AURII[ _](?:Passion|Virtuoso|ULTRA|Secret Lite|AMUSE[_ ]3G|FORCE|FUSION|F8[_ ]Premium|XCITE|DELIGHT|DREAM[_ ](?:MINI|One))|SECRET_XR|INTENSE[ _](?:POWER|METAL_2|XT)|SUPER SWEET|SWEET MINI)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'AURII[ _]FORCE(?:[);/ ]|$)'
@@ -19491,6 +19495,10 @@ FireFly Mobile:
       model: 'Intense XT'
     - regex: 'INTENSE_METAL_2(?:[);/ ]|$)'
       model: 'Intense Metal 2'
+    - regex: 'SUPER SWEET(?:[);/ ]|$)'
+      model: 'Super Sweet'
+    - regex: 'SWEET MINI(?:[);/ ]|$)'
+      model: 'Sweet Mini'
 
 # i-Cherry or iCherry
 i-Cherry:
@@ -20350,9 +20358,11 @@ Bluewave:
 
 # Siragon (siragon.com)
 Siragon:
-  regex: '(SP-(?:5250|5400|5050))(?:[);/ ]|$)'
+  regex: 'Siragon|(?:SP-(?:5250|5400|5050))(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: '(?:Siragon[_ ])?(SP-(?:5[12]50|5400|5050))'
+      model: '$1'
 
 # Poppox
 Poppox:
@@ -21294,3 +21304,13 @@ OINOM:
   regex: 'OINOM[_ ](V9D|V7H|V[679])(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
+
+# Singtech (singtech.asia)
+Singtech:
+  regex: 'Singtech|(?:Sapphire[_ ](?:H50S|H7S?|H90))(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'Sapphire[_ ](H50S|H7S?|H90)(?:[);/ ]|$)'
+      model: 'Sapphire $1'
+    - regex: 'Singtech[ _](Q2|S1)(?:[);/ ]|$)'
+      model: '$1'
