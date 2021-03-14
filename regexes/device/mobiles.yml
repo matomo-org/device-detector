@@ -9802,15 +9802,25 @@ Maxwest:
       device: 'table'
       model: 'Nitro Phablet 9s'
 
-# Maze
+# True Slim (ssbphones.com)
+True Slim:
+  regex: '(SSB-508[ED])(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
+
+# Maze Speed (ssbphones.com)
+Maze Speed:
+ regex: '(SSB-(?:500|508)|SSB408D|SSB504R)(?:[);/ ]|$)'
+ device: 'smartphone'
+ models:
+   - regex: 'SSB-?(500|508|408D|504R)(?:[);/ ]|$)'
+     model: 'SSB-$1'
+
+# Maze (mazephone.com)
 Maze:
-  regex: '(?:SSB-(?:500|508E)|Alpha[_ ]X|Maze Alpha|SSB504R)(?:[);/ ]|$)'
+  regex: '(?:Alpha[_ ]X|Maze Alpha)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'SSB-(500|508E)(?:[);/ ]|$)'
-      model: 'SSB-$1'
-    - regex: 'SSB504R(?:[);/ ]|$)'
-      model: 'Speed'
     - regex: 'Alpha[_ ]X(?:[);/ ]|$)'
       model: 'Alpha X'
     - regex: 'Maze Alpha(?:[);/ ]|$)'
@@ -14564,13 +14574,13 @@ Star:
 
 # Starmobile (starmobile.ph)
 Starmobile:
-  regex: '(?:Starmobile (?:Play (?:Neo|Spark|GO))|UP[_ ](?:Sense|Rave|Groove|Prime|Selfie|Xtreme|XL))(?:[);/ ]|$)'
+  regex: '(?:Starmobile (?:Play (?:Neo|Spark|GO|Click))|UP[_ ](?:Sense|Rave|Groove|Prime|Selfie|Xtreme|XL))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Starmobile PLAY GO(?:[);/ ]|$)'
       model: 'Play Go'
-    - regex: 'Starmobile (Play (?:Neo|Spark))(?:[);/ ]|$)'
-      model: '$1'
+    - regex: 'Starmobile Play (Neo|Spark|Click)(?:[);/ ]|$)'
+      model: 'Play $1'
     - regex: 'UP[_ ](Sense|Rave|Groove|Prime|Selfie|Xtreme|XL)(?:[);/ ]|$)'
       model: 'UP $1'
 
@@ -19715,7 +19725,7 @@ Alcor:
 
 # iBrit
 iBrit:
-  regex: 'IBRIT_'
+  regex: 'IBRIT_|(?:SI5[12])(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'IBRIT_I([57])(?:[);/ ]|$)'
@@ -19724,6 +19734,10 @@ iBrit:
       model: 'Power 6'
     - regex: 'iBRIT_Speed Pro(?:[);/ ]|$)'
       model: 'Speed Pro'
+    - regex: 'SI51(?:[);/ ]|$)'
+      model: 'Speed'
+    - regex: 'SI52(?:[);/ ]|$)'
+      model: 'Speed Plus'
 
 # Ovvi
 Ovvi:
@@ -19895,7 +19909,7 @@ Selenga:
 
 # Starlight
 Starlight:
-  regex: '(?:My_Star_X|RIO STAR|C_Note_Pro|Star_Mix_2)(?:[);/ ]|$)'
+  regex: 'Starlight|(?:My_Star_X|RIO STAR|C_Note_Pro|Star_Mix_2)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'My_Star_X'
@@ -19906,6 +19920,8 @@ Starlight:
       model: 'C Note Pro'
     - regex: 'Star_Mix_2'
       model: 'Star Mix 2'
+    - regex: 'Starlight_ROME_X'
+      model: 'Rome X'
 
 # GEOFOX
 GEOFOX:
@@ -20416,11 +20432,17 @@ Sansui:
 
 # Sico (sico.com.eg)
 Sico:
-  regex: 'SICO[_ ](?:PLUS|e1002)|Express3-Max'
+  regex: 'SICO[_ ](?:PLUS|e1002)|Express3-Max|SSR3-1-51-5M|SSD-1-53-13M'
   device: 'smartphone'
   models:
+    - regex: 'SICO[_ ]PLUS2'
+      model: 'Plus 2'
     - regex: 'SICO[_ ]PLUS'
       model: 'Plus'
+    - regex: 'SSR3-1-51-5M'
+      model: 'Pro 3'
+    - regex: 'SSD-1-53-13M'
+      model: 'Diamond'
     - regex: 'SICO[_ ]e1002'
       device: 'tablet'
       model: 'E1002'
@@ -21314,3 +21336,9 @@ Singtech:
       model: 'Sapphire $1'
     - regex: 'Singtech[ _](Q2|S1)(?:[);/ ]|$)'
       model: '$1'
+
+# Sunny
+Sunny:
+  regex: '(SS4G9 Mira|SS4G7 Sole|SS4G1 Luna|SS4G8 Nora|SS4G6 Lola)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
