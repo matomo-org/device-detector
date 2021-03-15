@@ -429,6 +429,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '1I' => 'iMars',
         'IL' => 'IMO Mobile',
         'I3' => 'Impression',
+        'FC' => 'INCAR',
         '6I' => 'Inco',
         'IW' => 'iNew',
         'IF' => 'Infinix',
