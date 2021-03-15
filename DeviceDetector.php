@@ -925,6 +925,13 @@ class DeviceDetector
         }
 
         /**
+         * All devices running Tizen TV or SmartTV are assumed to be a tv
+         */
+        if (null === $this->device && $this->matchUserAgent('SmartTV|Tizen.+ TV .+$')) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
+        }
+
+        /**
          * Devices running Kylo or Espital TV Browsers are assumed to be a TV
          */
         if (null === $this->device && \in_array($clientName, ['Kylo', 'Espial TV Browser'])) {
