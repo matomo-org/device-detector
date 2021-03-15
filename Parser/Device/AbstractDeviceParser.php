@@ -654,6 +654,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'N5' => 'NOA',
         'N1' => 'Noain',
         'N6' => 'Nobby',
+        'JN' => 'NOBUX',
         'NB' => 'Noblex',
         'NK' => 'Nokia',
         'NM' => 'Nomi',
