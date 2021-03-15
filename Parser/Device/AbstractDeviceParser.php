@@ -974,6 +974,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'V5' => 'Vivax',
         'VV' => 'Vivo',
         'VZ' => 'Vizio',
+        '9V' => 'Vision Touch',
         'VK' => 'VK Mobile',
         'JM' => 'v-mobile',
         'V0' => 'VKworld',
