@@ -265,6 +265,39 @@ class DeviceDetectorTest extends TestCase
         // client and os will always be unknown for bots
         $this->assertEquals($dd->getOs('short_name'), DeviceDetector::UNKNOWN);
         $this->assertEquals($dd->getClient('short_name'), DeviceDetector::UNKNOWN);
+
+        if (!\array_key_exists('category', $botData) || '' === $botData['category']) {
+            return;
+        }
+
+        $categories = [
+            'Benchmark',
+            'Crawler',
+            'Feed Fetcher',
+            'Feed Parser',
+            'Feed Reader',
+            'Network Monitor',
+            'Read-it-later Service',
+            'Search bot',
+            'Search tools',
+            'Security Checker',
+            'Security search bot',
+            'Service Agent',
+            'Service bot',
+            'Site Monitor',
+            'Social Media Agent',
+            'Validator',
+        ];
+
+        $this->assertTrue(
+            \in_array($botData['category'], $categories, true),
+            \sprintf(
+                "Unknown category: \"%s\"\nUseragent: %s\nAvailable categories:\n%s\n",
+                $botData['category'],
+                $ua,
+                \implode(PHP_EOL, $categories)
+            )
+        );
     }
 
     public function getBotFixtures(): array
