@@ -5761,10 +5761,10 @@ Ezio:
 
 # Forstar
 Forstar:
-  regex: 'Amosta 3G5'
+  regex: 'Amosta ?3G5'
   device: 'smartphone'
   models:
-    - regex: 'Amosta 3G5'
+    - regex: 'Amosta ?3G5'
       model: 'Amosta 3G5'
 
 # Foxconn
@@ -7231,11 +7231,17 @@ Hyundai:
     - regex: 'i-Joy ([^;/]+) Build'
       model: '$1'
 
-# iBall
+# iBall (iball.co.in)
 iBall:
-  regex: 'iBall[ _]([^;/)]+)[ _]Build|iBall_Slide|(?:Snap_4G2|6351-Q400i|iT-KSA0003|iT-KSA0012|iT-KSA0066|Avid|Twinkle_i5|Gorgeo_4GL|Blaze_V4|Wondro 10|Q27 4G)(?:[);/ ]|$)'
+  regex: 'iBall[ _]([^;/)]+)[ _]Build|iBall_Slide|(?:Snap_4G2|6351-Q400i|iT-KSA0003|iT-KSA0012|iT-KSA0066|Avid|Twinkle_i5|Gorgeo_4GL|Blaze_V4|Wondro 10|Q27 4G|Andi (?:Wink|5G Blink) 4G)(?:[);/ ]|$)'
   device: 'tablet'
   models:
+    - regex: 'Andi Wink 4G'
+      device: 'smartphone'
+      model: 'Andi Wink 4G'
+    - regex: 'Andi 5G Blink 4G'
+      device: 'smartphone'
+      model: 'Andi 5G Blink 4G'
     - regex: '(Snap_4G2|Avid|Twinkle_i5|Gorgeo_4GL|Blaze_V4|Wondro 10|Q27 4G)(?:[);/ ]|$)'
       model: '$1'
     - regex: '6351-Q400i(?:[);/ ]|$)'
@@ -15582,7 +15588,7 @@ Vestel:
 
 # Videocon
 Videocon:
-  regex: 'Videocon[_ \-]|(?:VT75C|V406018|V50(?:2430|3630|5024|5430|4630|5[98]20))(?:[);/ ]|$)'
+  regex: 'Videocon[_ \-]|(?:VT75C|V406018|V50(?:2430|3630|5024|5430|4630|5[98]20)|Z45_(?:Dazzle|Amaze)|Z45Q Star)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Videocon_V1585'
@@ -15607,6 +15613,10 @@ Videocon:
       model: 'Starr 100'
     - regex: '(V505430|V504630)(?:[);/ ]|$)'
       model: '$1'
+    - regex: 'Z45_(Dazzle|Amaze)(?:[);/ ]|$)'
+      model: 'Infinium Z45 $1'
+    - regex: 'Z45Q Star(?:[);/ ]|$)'
+      model: 'Infinium Z45Q Star'
 
 # Vodafone
 Vodafone:
@@ -15882,6 +15892,17 @@ Inco:
       device: 'tablet'
       model: 'Sphere'
 
+# Wink
+Wink:
+  regex: '(?<!mismart )Wink[_ ]'
+  device: 'smartphone'
+  models:
+    - regex: 'Wink[_ ]((?:Glory|World|Share|City)(?:[_ ](?:SE|S))?)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'Wink[ _](Primo|Highway)(?:[);/ ]|$)'
+      device: 'tablet'
+      model: '$1'
+
 # Wiko (wikomobile.com)
 Wiko:
   regex: '(?:WIKO[_ -])|(?:WIKO-)?CINK_[a-z0-9_]+|(?:WIKO-)?HIGHWAY_[a-z0-9_]+|(?:WIKO-)?(?:Cink([^/;]*)|Highway([^/;]*)|Iggy|Stairway|Rainbow ?(Jam|Lite|Up)?|Darkside|Darkmoon|Darkfull|Darknight|Freddy|FEVER|Jerry[2]?|Sublim|Ozzy|JIMMY|Barry|Birdy|Bloom|Getaway|Goa(?!nna)|Kite|Robby|Lenny[2-9]?|Slide|Sunset[2-9]?|Sunny[2-9]?|Tommy[2-9]?|PULP(?: Fab)?|Wax|HARRY|Ridge(?: Fab)?|U FEEL(?: Prime| Lite)?|U PULSE(?: LITE)?|View2 Go|View XL|View Prime)(?: Plus)?(?: 4G)?(?: Build|$)?|W_(?:C8[06]0|K[346]00|P130|P200|C200SN)|WC300|W-(?:V7[23]0|V8[30]0|P[36]11|K420|K510S?|K130)-(?:TMV|TIM|TVM|EEA|SUN|SWI|OPE|BYT|DU|TH)|WIM Lite|W-K360-TV|W-V600|W-K200|W-U300|U307AS|CINK PEAX 2|HIGHWAY PURE|C210AE|v3913'
@@ -16073,14 +16094,6 @@ Wieppo:
   regex: 'Wieppo (S6 Lite|S[658]|E1)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
-
-# Wink
-Wink:
-  regex: 'Wink_'
-  device: 'smartphone'
-  models:
-    - regex: 'Wink_City_(SE|S)'
-      model: 'City $1'
 
 # Weimei
 Weimei:
@@ -18550,7 +18563,7 @@ ONN:
 
 # EXO S.A
 EXO:
-  regex: '(Wave_i101G|Wave i101H)(?:[);/ ]|$)'
+  regex: '(Wave_i101G|Wave i101[Hb])(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
 
@@ -21440,3 +21453,9 @@ NOBUX:
   regex: 'SMART_VOLT_NX5(?:[);/ ]|$)'
   device: 'smartphone'
   model: 'Smart Volt NX5'
+
+# Hitech or Hitech Mobile (hitech-mobiles.com)
+Hitech:
+  regex: '(Amaze[ _](?:S2_4G|S[56] 4G|S1|S[56](?: Plus)?))(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
