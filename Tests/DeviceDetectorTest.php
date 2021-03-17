@@ -40,6 +40,8 @@ class DeviceDetectorTest extends TestCase
         foreach ($fixtureFiles as $file) {
             $ymlData = \Spyc::YAMLLoad($file);
 
+            $availableDeviceTypeNames = AbstractDeviceParser::getAvailableDeviceTypeNames();
+
             foreach ($ymlData as $brand => $regex) {
                 $this->assertArrayHasKey('regex', $regex);
 
@@ -63,6 +65,17 @@ class DeviceDetectorTest extends TestCase
                     $brand,
                     $regex['regex']
                 ));
+
+                if (\array_key_exists('device', $regex)) {
+                    $this->assertTrue(\in_array($regex['device'], $availableDeviceTypeNames), \sprintf(
+                        "Unknown device type `%s`, file %s, brand %s, common regex %s\n\nAvailable types:\n%s\n",
+                        $regex['device'],
+                        $file,
+                        $brand,
+                        $regex['regex'],
+                        \implode(PHP_EOL, $availableDeviceTypeNames)
+                    ));
+                }
 
                 if (\array_key_exists('models', $regex)) {
                     $this->assertIsArray($regex['models']);
@@ -94,6 +107,19 @@ class DeviceDetectorTest extends TestCase
                             $file,
                             $brand,
                             $model['regex']
+                        ));
+
+                        if (!\array_key_exists('device', $model)) {
+                            continue;
+                        }
+
+                        $this->assertTrue(\in_array($model['device'], $availableDeviceTypeNames), \sprintf(
+                            "Unknown device type `%s`, file %s, brand %s, model regex %s\n\nAvailable types:\n%s\n",
+                            $model['device'],
+                            $file,
+                            $brand,
+                            $model['regex'],
+                            \implode(PHP_EOL, $availableDeviceTypeNames)
                         ));
                     }
                 } else {
