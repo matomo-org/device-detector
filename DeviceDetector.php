@@ -47,7 +47,10 @@ use DeviceDetector\Yaml\Spyc;
  * @method bool isCarBrowser()
  * @method bool isTV()
  * @method bool isSmartDisplay()
+ * @method bool isSmartSpeaker()
  * @method bool isCamera()
+ * @method bool isWearable()
+ * @method bool isPeripheral()
  *
  * Magic Client Type Methods:
  * @method bool isBrowser()

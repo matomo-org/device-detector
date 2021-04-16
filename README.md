@@ -74,6 +74,43 @@ if ($dd->isBot()) {
   $model = $dd->getModel();
 }
 ```
+Methods check device type:
+```php
+$dd->isSmartphone();
+$dd->isFeaturePhone();
+$dd->isTablet();
+$dd->isPhablet();
+$dd->isConsole();
+$dd->isPortableMediaPlayer();
+$dd->isCarBrowser();
+$dd->isTV();
+$dd->isSmartDisplay();
+$dd->isSmartSpeaker();
+$dd->isCamera();
+$dd->isWearable();
+$dd->isPeripheral();
+```
+Methods check client type:
+```php
+$dd->isBrowser();
+$dd->isFeedReader();
+$dd->isMobileApp();
+$dd->isPIM();
+$dd->isLibrary();
+$dd->isMediaPlayer();
+```
+Get OS family:
+```php
+use DeviceDetector\Parser\OperatingSystem;
+
+$osFamily = OperatingSystem::getOsFamily($dd->getOs('name'));
+```
+Get browser family:
+```php
+use DeviceDetector\Parser\Client\Browser;
+
+$browserFamily = Browser::getBrowserFamily($dd->getClient('name'));
+```
 
 Instead of using the full power of DeviceDetector it might in some cases be better to use only specific parsers.
 If you aim to check if a given useragent is a bot and don't require any of the other information, you can directly use the bot parser.
