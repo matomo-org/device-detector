@@ -25,7 +25,7 @@ class OperatingSystemTest extends TestCase
     {
         $osParser = new OperatingSystem();
         $osParser->setUserAgent($useragent);
-        $this->assertEquals($os, $osParser->parse());
+        $this->assertEquals($os, $osParser->parse(), "UserAgent: {$useragent}");
         self::$osTested[] = $os['name'];
     }
 
