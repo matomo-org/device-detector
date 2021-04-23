@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
@@ -50,6 +52,7 @@ class Engine extends AbstractClientParser
         'NetSurf',
         'Servo',
         'Goanna',
+        'EkiohFlow',
     ];
 
     /**
