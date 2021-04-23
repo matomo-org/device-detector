@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
@@ -30,6 +32,8 @@ class AliasDevice extends AbstractParser
      */
     public function parse(): ?array
     {
+        $this->userAgent = \rawurldecode($this->userAgent);
+
         $matches = false;
         $find    = [];
 
@@ -67,10 +71,14 @@ class AliasDevice extends AbstractParser
             $this->brandReplaceRegexp = $this->getCache()->fetch($cacheKey);
 
             if (empty($this->brandReplaceRegexp)) {
+                $replaceBrands = \array_merge([
+                    'HUAWEI HUAWEI',
+                ], \array_values(AbstractDeviceParser::$deviceBrands));
+
                 $escapeeChars = ['+' => '\+', '.' => '\.'];
-                $brands       = \implode('|', \array_values(AbstractDeviceParser::$deviceBrands));
+                $brands       = \implode('|', $replaceBrands);
                 $brands       = \str_replace(\array_keys($escapeeChars), \array_values($escapeeChars), $brands);
-                $pattern      = \sprintf('#(%s)([ _])#i', $brands);
+                $pattern      = \sprintf('#(?:^|[^A-Z0-9-_]|[^A-Z0-9-]_|sprd-)(%s)[ _]#i', $brands);
 
                 $this->brandReplaceRegexp = $pattern;
                 $this->getCache()->save($cacheKey, $this->brandReplaceRegexp);
