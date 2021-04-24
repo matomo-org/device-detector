@@ -1023,7 +1023,7 @@ MicroMax:
 
 # 3Q
 3Q:
-  regex: 'AC0731B|AC1024C|AC7803C|BC9710AM|EL72B|LC0720C|LC0723B|LC0725B|LC0804B|LC0808B|LC0809B|LC0810C|LC0816C|LC0901D|LC1016C|MT0724B|MT0729[BD]|MT0811B|OC1020A|RC0709B|RC0710B|RC0718C|RC0719H|RC0721B|RC0722C|RC0726B|RC0734H|RC0743H|RC0817C|RC1018C|RC1019G|RC1025F|RC1301C|RC7802F|RC9711B|RC9712C|RC9716B|RC9717B|RC9724C|RC9726C|RC9727F|RC9730C|RC9731C|TS0807B|TS1013B|VM0711A|VM1017A|RC0813C|QS9719D|QS9718C|QS9715F|QS1023H|QS0815C|QS0730C|QS0728C|QS0717D|QS0716D|QS0715C|MT7801C|TS9708B|AC0732C|MT0739D|MT0812E|(?:3Q_)?ER71B'
+  regex: 'AC0731B|AC1024C|AC7803C|BC9710AM|EL72B|LC0720C|LC0723B|LC0725B|LC0804B|LC0808B|LC0809B|LC0810C|LC0816C|LC0901D|LC1016C|MT0724B|MT0729[BD]|MT0811B|OC1020A|RC0709B|RC0710B|RC0718C|RC0719H|RC0721B|RC0722C|RC0726B|RC0734H|RC0743H|RC0817C|RC1018C|RC1019G|RC1025F|RC1301C|RC780[24]F|RC9711B|RC9712C|RC9716B|RC9717B|RC9724C|RC9726C|RC9727F|RC9730C|RC9731C|TS0807B|TS1013B|VM0711A|VM1017A|RC0813C|QS9719D|QS9718C|QS9715F|QS1023H|QS0815C|QS0730C|QS0728C|QS0717D|QS0716D|QS0715C|MT7801C|TS9708B|AC0732C|MT0739D|MT0812E|(?:3Q_)?ER71B'
   device: 'tablet'
   models:
     - regex: 'MT0724B|LC0901D|LC0816C|LC0810C|LC0809B|LC0808B|LC0804B|LC0725B|LC0723B'
@@ -1040,6 +1040,8 @@ MicroMax:
       model: 'Qoo! Meta'
     - regex: 'EL72B|(?:3Q_)?ER71B'
       model: 'Qoo! Q-Book'
+    - regex: '(RC7804F)'
+      model: 'Qoo! Glaze'
 
 # 4Good
 4Good:
@@ -3303,7 +3305,7 @@ Bmobile:
 
 # bq
 bq:
-  regex: 'Aquaris|bq [^/;]+ Build|BQS[-_]([0-9]{4})|(BQ(ru)?[_ -][0-9]{3,4})|BQ5059|BQ1008G'
+  regex: 'Aquaris|bq [^/;]+ Build|BQS[-_]([0-9]{4})|(BQ(ru)?[_ -][0-9]{3,4})|BQ5059|BQ1008G|BQru_BQru-'
   device: 'smartphone'
   models:
     - regex: 'BQ(?:ru)?-(?:5209L|5044)(?:[);/ ]|$)'
@@ -3466,7 +3468,7 @@ bq:
       model: 'Choice LTE'
     - regex: 'BQ(?:ru)?-?(?:5059|5514G)(?:[);/ ]|$)'
       model: 'Strike Power'
-    - regex: 'BQ-5058(?:[);/ ]|$)'
+    - regex: '(?:BQru_)?BQ(?:ru)?-5058(?:[);/ ]|$)'
       model: 'Strike Power Easy'
     - regex: 'BQ(?:ru)?-5057(?:[);/ ]|$)'
       model: 'Strike 2'
@@ -11938,6 +11940,8 @@ Oukitel:
       model: '$1'
     - regex: ' (WP[5-7])(?:[);/ ]|$)'
       model: '$1'
+    - regex: 'OUKITEL; ([^;]+);'
+      model: '$1'
 
 # OKWU
 OKWU:
@@ -13955,7 +13959,7 @@ Supra:
   regex: 'SUPRA|NVTAB 7.0 3G'
   device: 'smartphone'
   models:
-    - regex: 'SUPRA[ _]([^;/]+)(?: Build|\))'
+    - regex: 'SUPRA[ _]([^;/)]+)(?: Build|[;)])'
       device: 'tablet'
       model: '$1'
     - regex: '(NVTAB 7.0 3G)'
@@ -17915,10 +17919,10 @@ Inoi:
 
 # Vertex
 Vertex:
-  regex: 'Lion_Dual|V709X|Tab [43]G (?:7-2|8-1|10-1)|Pro_P3[01]0_4G|Lion_DC|Baccara|Eagle[ _]4G|ImpressMAX|Impress[ _]([^;/]+)(?:Build|\))'
+  regex: '(?:Luck|Lion_Dual|V709X|Tab [43]G (?:7-2|8-1|10-1)|Pro_P3[01]0_4G|Lion_DC|Baccara|Eagle[ _]4G|ImpressMAX)(?:[);/ ]|$)|Impress[ _]([^;/]+)(?:Build|\))'
   device: 'smartphone'
   models:
-    - regex: '(Lion_Dual|Lion_DC|Baccara|Eagle[ _]4G)'
+    - regex: '(Lion_Dual|Lion_DC|Baccara|Eagle[ _]4G|Luck)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'ImpressMAX(?:[);/ ]|$)'
       model: 'Impress Max'
@@ -18106,7 +18110,7 @@ BDF:
 
 # Highscreen
 Highscreen:
-  regex: 'HIGHSCREEN|(Easy[- ]Power(?:[- ]Pro)?|Pure[_ ](?:Power|F)|Power Ice(?: Max)?|Easy[_ ]([SFL]|XL)(?:_Pro)?|Razar_Pro|Power Rage(?: Evo)?|Zera-S-Power|Zera[ _][UFS]|Power[ _]?Five[ matrixstyle _]?(?:Pro|Evo|Max|Max(?:Lite|2))|PowerFour|BOOST II(?:se)?|Fest(?:XL)?(?:-Pro)?|Tasty|Boost3|Boost 3(?: Pro)? SE|Expanse|Hercules|Alpha Rage)(?:[);/ ]|$)'
+  regex: 'HIGHSCREEN|(Easy[- ]Power(?:[- ]Pro)?|Pure[_ ](?:Power|F)|Power Ice(?: Max)?|Easy[_ ]([SFL]|XL)(?:_Pro)?|Razar_Pro|Power Rage(?: Evo)?|Zera-S-Power|Zera[ _][UFS]|Power[ _]?Five[ matrixstyle _]?(?:Pro|Evo|Max|Max(?:Lite|2))|PowerFour|BOOST II(?:se)?|Fest(?:XL)?(?:-Pro)?|Tasty|Boost3|Boost 3(?: Pro)? SE|Expanse|Hercules|Alpha Rage|VergeM)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(Power Ice(?:[ ](?:Max|Evo))?|Power Rage(?: Evo)?|Zera[ _][UFS])(?:[);/ ]|$)'
@@ -18159,6 +18163,8 @@ Highscreen:
       model: 'Zera S Power'
     - regex: 'Tasty(?:[);/ ]|$)'
       model: 'Tasty'
+    - regex: 'VergeM(?:[);/ ]|$)'
+      model: 'Verge M'
     - regex: 'WinWin(?:[);/ ]|$)'
       model: 'WinWin'
     - regex: 'Expanse(?:[);/ ]|$)'
