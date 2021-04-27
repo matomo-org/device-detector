@@ -562,6 +562,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MQ' => 'M.T.T.',
         'MN' => 'M4tel',
         'XM' => 'Macoox',
+        '92' => 'MAC AUDIO',
         'MJ' => 'Majestic',
         '23' => 'Magnus',
         'NH' => 'Manhattan',
