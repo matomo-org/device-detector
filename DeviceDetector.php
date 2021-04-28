@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
@@ -47,7 +49,10 @@ use DeviceDetector\Yaml\Spyc;
  * @method bool isCarBrowser()
  * @method bool isTV()
  * @method bool isSmartDisplay()
+ * @method bool isSmartSpeaker()
  * @method bool isCamera()
+ * @method bool isWearable()
+ * @method bool isPeripheral()
  *
  * Magic Client Type Methods:
  * @method bool isBrowser()
