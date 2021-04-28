@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
@@ -157,6 +159,7 @@ class Browser extends AbstractClientParser
         'GO' => 'GOG Galaxy',
         'HS' => 'HasBrowser',
         'HA' => 'Hawk Turbo Browser',
+        'HE' => 'Helio',
         'HO' => 'hola! Browser',
         'HJ' => 'HotJava',
         'HU' => 'Huawei Browser',
@@ -385,7 +388,7 @@ class Browser extends AbstractClientParser
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
             'SS', 'O2', 'SV', 'TR', 'CW', 'GI', 'VE', 'AC', 'FS',
             'CG', 'DR', 'C4', 'HS', 'DA', 'C5', 'C6', 'DG', 'CG',
-            'S9',
+            'HE', 'S9',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
@@ -411,11 +414,11 @@ class Browser extends AbstractClientParser
      */
     protected static $mobileOnlyBrowsers = [
         '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB',
-        'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR',
+        'ST', 'BL', 'IV', 'FM', 'C1', 'C4', 'SA', 'SB', 'FR',
         'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM',
         'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
         'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH', 'PI', 'SG',
-        'KD', 'PE', 'UH', 'S7', 'CW', 'OZ', 'GI', 'VE', 'C4',
+        'KD', 'PE', 'UH', 'S7', 'CW', 'OZ', 'GI', 'VE',
     ];
 
     /**
