@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
@@ -75,6 +77,7 @@ class OperatingSystem extends AbstractParser
         'KBT' => 'Kubuntu',
         'LIN' => 'GNU/Linux',
         'LBT' => 'Lubuntu',
+        'LOS' => 'Lumin OS',
         'VLN' => 'VectorLinux',
         'MAC' => 'Mac',
         'MAE' => 'Maemo',
@@ -158,7 +161,7 @@ class OperatingSystem extends AbstractParser
             'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
             'RHT', 'VLN', 'MDR', 'GNT', 'SAB', 'SLW', 'SSE', 'CES', 'BTR', 'SAF',
             'ORD', 'TOS', 'RSO', 'DEE', 'FRE', 'MAG', 'FEN', 'CAI', 'PCL', 'HAS',
-            'DVK',
+            'LOS', 'DVK',
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
@@ -299,7 +302,7 @@ class OperatingSystem extends AbstractParser
             return 'x64';
         }
 
-        if ($this->matchUserAgent('i[0-9]86|i86pc')) {
+        if ($this->matchUserAgent('(?:i[0-9]|x)86|i86pc')) {
             return 'x86';
         }
 

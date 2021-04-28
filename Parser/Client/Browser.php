@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
@@ -39,6 +41,7 @@ class Browser extends AbstractClientParser
         '2B' => '2345 Browser',
         '36' => '360 Phone Browser',
         '3B' => '360 Browser',
+        '7B' => '7654 Browser',
         'AA' => 'Avant Browser',
         'AB' => 'ABrowse',
         'AF' => 'ANT Fresco',
@@ -80,6 +83,7 @@ class Browser extends AbstractClientParser
         'BF' => 'Byffox',
         'CA' => 'Camino',
         'CL' => 'CCleaner',
+        'C6' => 'Chedot',
         'C0' => 'Centaury',
         'CC' => 'Coc Coc',
         'C4' => 'CoolBrowser',
@@ -101,6 +105,7 @@ class Browser extends AbstractClientParser
         'C3' => 'Chim Lac',
         'CP' => 'ChromePlus',
         'CR' => 'Chromium',
+        'C5' => 'Chromium GOST',
         'CY' => 'Cyberfox',
         'CS' => 'Cheshire',
         'CT' => 'Crusta',
@@ -110,6 +115,8 @@ class Browser extends AbstractClientParser
         'CV' => 'Chrome Webview',
         'DB' => 'dbrowser',
         'DE' => 'Deepnet Explorer',
+        'DG' => 'deg-degan',
+        'DA' => 'Deledao',
         'DT' => 'Delta Browser',
         'DS' => 'DeskBrowse',
         'DF' => 'Dolphin',
@@ -152,6 +159,7 @@ class Browser extends AbstractClientParser
         'GO' => 'GOG Galaxy',
         'HS' => 'HasBrowser',
         'HA' => 'Hawk Turbo Browser',
+        'HE' => 'Helio',
         'HO' => 'hola! Browser',
         'HJ' => 'HotJava',
         'HU' => 'Huawei Browser',
@@ -169,6 +177,7 @@ class Browser extends AbstractClientParser
         'IR' => 'Iron',
         'JB' => 'Japan Browser',
         'JS' => 'Jasmine',
+        'JA' => 'JavaFX',
         'JI' => 'Jig Browser',
         'JP' => 'Jig Browser Plus',
         'JO' => 'Jio Browser',
@@ -265,6 +274,7 @@ class Browser extends AbstractClientParser
         'LY' => 'PolyBrowser',
         'PI' => 'PrivacyWall',
         'PS' => 'Microsoft Edge',
+        'QA' => 'Qazweb',
         'Q2' => 'QQ Browser Lite',
         'Q1' => 'QQ Browser Mini',
         'QQ' => 'QQ Browser',
@@ -376,13 +386,15 @@ class Browser extends AbstractClientParser
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
             'SS', 'O2', 'SV', 'TR', 'CW', 'GI', 'VE', 'AC', 'FS',
-            'CG', 'DR', 'C4', 'HS',
+            'CG', 'DR', 'C4', 'HS', 'DA', 'C5', 'C6', 'DG', 'CG',
+            'HE',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
             'CU', 'TF', 'QM', 'FR', 'I4', 'GZ', 'MO', 'F1', 'BI',
             'MN', 'BH', 'TO', 'OS', 'MY', 'FY', 'AX', 'C0', 'LH',
             'S5', 'ZV', 'IW', 'PI', 'BN', 'OA', 'LY', 'IF', 'BF',
+            'QA',
         ],
         'Internet Explorer'  => ['IE', 'IM', 'PS', 'CZ', 'BZ'],
         'Konqueror'          => ['KO'],
@@ -401,11 +413,11 @@ class Browser extends AbstractClientParser
      */
     protected static $mobileOnlyBrowsers = [
         '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB',
-        'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR',
+        'ST', 'BL', 'IV', 'FM', 'C1', 'C4', 'SA', 'SB', 'FR',
         'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM',
         'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
         'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH', 'PI', 'SG',
-        'KD', 'PE', 'UH', 'S7', 'CW', 'OZ', 'GI', 'VE', 'C4',
+        'KD', 'PE', 'UH', 'S7', 'CW', 'OZ', 'GI', 'VE',
     ];
 
     /**
