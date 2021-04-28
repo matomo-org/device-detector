@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
@@ -329,6 +331,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'QE' => 'EWIS',
         'EI' => 'Ezio',
         'EZ' => 'Ezze',
+        '5F' => 'F150',
         'F6' => 'Facebook',
         'FA' => 'Fairphone',
         'FM' => 'Famoco',
