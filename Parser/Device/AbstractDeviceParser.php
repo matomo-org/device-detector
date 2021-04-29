@@ -525,6 +525,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '8K' => 'Kult',
         'KU' => 'Kumai',
         'KY' => 'Kyocera',
+        'KQ' => 'Kyowon',
         '1K' => 'Kzen',
         'LQ' => 'LAIQ',
         'L6' => 'Land Rover',
