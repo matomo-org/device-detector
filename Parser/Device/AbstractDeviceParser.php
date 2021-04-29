@@ -562,6 +562,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'LR' => 'Luxor',
         'LY' => 'LYF',
         'LL' => 'Leader Phone',
+        'QL' => 'LT Mobile',
         'MQ' => 'M.T.T.',
         'MN' => 'M4tel',
         'XM' => 'Macoox',
