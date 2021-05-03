@@ -360,6 +360,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FU' => 'Fujitsu',
         'GT' => 'G-TiDE',
         'G9' => 'G-Touch',
+        '0G' => 'GFive',
         'GM' => 'Garmin-Asus',
         'GA' => 'Gateway',
         'GD' => 'Gemini',
