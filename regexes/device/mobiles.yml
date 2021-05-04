@@ -4619,12 +4619,12 @@ Desay:
 
 # DEXP
 DEXP:
-  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|Larus_TV1|Ixion(?:ML4.7|ES250)|M150Storm|(?:SENIOR|F4[38]D8000K|VA[12]10|VA170|ML450|MS[56]50|BL[123]50|BS155|BS160|BS[1256]50|AL[12]40|AL[23]50|AS155|AS260|GS15[035]| (?:N280i|P380i|R110|BL160|B450|B340|A1[45]0|A340|AS160|GL355))(?:[);/ ]|$)'
+  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|Larus_TV1|Ixion(?:ML4.7|ES250)|M150Storm|(?:SENIOR|F4[38]D8000K|VA[12]10|VA170|ML450|MS[56]50|BL[123]50|BS155|BS160|BS[1256]50|AL[12]40|AL[23]50|AS155|AS260|GS15[035]| (?:N280i|P380i|R110|BL160|B450|B340|A1[45]0|A340|AS160|GL355|ES750))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Ixion[_ ]([^;/]+)(?: Build|\))'
       model: 'Ixion $1'
-    - regex: '(ML450|MS[56]50)(?:[);/ ]|$)'
+    - regex: '(ML450|MS[56]50|ES750)(?:[);/ ]|$)'
       model: 'Ixion $1'
     - regex: 'IxionES250(?:[);/ ]|$)'
       model: 'Ixion ES250 Rage'
@@ -5748,9 +5748,14 @@ Energizer:
 
 # Energy Sistem
 'Energy Sistem':
-  regex: 'ENERGY[ _-]?([^;/]+) Build'
-  device: 'tablet'
-  model: '$1'
+  regex: 'ENERGY[ _-]?([^;/]+) Build|Energy Phone Pro 3'
+  device: 'smartphone'
+  models:
+    - regex: 'Energy Phone Pro 3'
+      model: 'Energy Phone Pro 3'
+    - regex: 'ENERGY[ _-]?([^;/]+) Build'
+      device: 'tablet'
+      model: '$1'
 
 # eTouch
 eTouch:
@@ -10286,6 +10291,14 @@ MEEG:
       model: '$1'
     - regex: 'MEEG[ _\-]?([^);/ ]+)'
       model: '$1'
+
+# Fourel
+Fourel:
+  regex: '(?:EASYSMARTM3|EasySmart M2)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'EASY ?SMART ?M([32])'
+      model: 'Easy Smart M$1'
 
 # Meizu
 Meizu:
@@ -21994,3 +22007,9 @@ KINGZONE:
   models:
     - regex: 'KINGZONE_(N5)(?:[);/ ]|$)'
       model: '$1'
+
+# MTech
+M-Tech:
+  regex: 'EROS 4G(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: 'Eros 4G'
