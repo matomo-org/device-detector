@@ -188,7 +188,7 @@ HTC:
 
 # microsoft
 Microsoft:
-  regex: 'KIN\.(One|Two)|RM-(?:1010|1031|106[57]|107[23467]|1089|109[02]|1096|1099|1109|111[348]|1127|1141|115[24]|994)|Microsoft; Lumia|Lumia (?:1530|1320|950|850|650|640|550|535|435)'
+  regex: 'KIN\.(One|Two)|RM-(?:1010|1031|106[57]|107[23467]|1089|109[02]|1096|1099|1109|111[348]|1127|1141|115[24]|994)|Microsoft; Lumia|Lumia (?:1530|1320|950|850|650|640|550|535|435)|Corporation/Surface'
   device: 'smartphone'
   models:
     - regex: 'KIN\.(One|Two)'
@@ -245,6 +245,12 @@ Microsoft:
       model: 'Lumia 1320'
     - regex: 'Lumia 1530'
       model: 'Lumia 1530'
+    - regex: 'Surface Book 3'
+      device: 'desktop'
+      model: 'Surface Book 3'
+    - regex: 'Surface Pro( [34])?'
+      device: 'desktop'
+      model: 'Surface Pro$1'
 
     - regex: 'Microsoft; Lumia ([^;/)]+)(?:[;/)]|$)'
       model: 'Lumia $1'
@@ -508,7 +514,7 @@ Palm:
 
 # HP or Hewlett-Packard
 HP:
-  regex: 'Hewlett-Packard|HP EliteBook 820|TouchPad/\d+\.\d+|hp-tablet|HP ?iPAQ|webOS.*P160U|HP (?:Pro )?Slate|HP [78]|HP 10 Plus|Compaq [7|8]|HP; [^;/)]+'
+  regex: 'Hewlett-Packard|HP/HP|HP EliteBook 820|TouchPad/\d+\.\d+|hp-tablet|HP ?iPAQ|webOS.*P160U|HP (?:Pro )?Slate|HP [78]|HP 10 Plus|Compaq [7|8]|HP; [^;/)]+'
   device: 'smartphone'
   models:
     - regex: 'HP Slate 6 Voice Tab'
@@ -551,6 +557,9 @@ HP:
     - regex: 'HP EliteBook 820 G2'
       device: 'desktop'
       model: 'EliteBook 820 G2'
+    - regex: 'Z240 Tower Workstation'
+      device: 'desktop'
+      model: 'Z240 Tower Workstation'
 
 # TiPhone
 TiPhone:
@@ -1349,7 +1358,7 @@ Acer:
     - regex: '(?:Acer )?(Chromebook 14)'
       model: '$1'
       device: 'desktop'
-    - regex: '(Aspire (?:V5-121|XC-704G|V5-573G))'
+    - regex: '(Aspire (?:V5-121|XC-704G|V5-573G|A515-51G))'
       model: '$1'
       device: 'desktop'
     - regex: '(Predator G9-793|Aspire E5-511)'
@@ -2631,6 +2640,10 @@ Asus:
       model: 'ROG Phone 3'
     - regex: '(?:ASUS_)?(?:I005DA)'
       model: 'ROG Phone 5'
+
+    - regex: 'ZN220IC'
+      device: 'desktop'
+      model: 'Zen AiO ZN220IC'
 
     # watch detections
     - regex: '(?:ASUS_)?ZenWatch( 2)?'
@@ -4578,6 +4591,11 @@ Dell:
       model: 'Venue'
     - regex: 'Dell; Venue Pro'
       model: 'Venue Pro'
+
+    - regex: '(OptiPlex (?:3050|7010))'
+      device: 'desktop'
+      model: '$1'
+
     - regex: '(?:Dell )?(Streak|Venue) ?([^/;]*) Build'
       model: '$1 $2'
       device: 'tablet'
