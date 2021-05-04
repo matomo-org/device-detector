@@ -742,6 +742,18 @@ class DeviceDetector
     }
 
     /**
+     * Returns if the parsed UA contains the 'Android; Mobile;' fragment
+     *
+     * @return bool
+     */
+    protected function hasDesktopFragment(): bool
+    {
+        $regex = 'Desktop x(32|64);';
+
+        return !!$this->matchUserAgent($regex);
+    }
+
+    /**
      * Returns if the parsed UA contains usage of a mobile only browser
      *
      * @return bool
@@ -941,6 +953,15 @@ class DeviceDetector
          */
         if (null === $this->device && \in_array($clientName, ['Kylo', 'Espial TV Browser'])) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
+        }
+
+        /**
+         * Set device type desktop if string ua contains desktop
+         */
+        if (AbstractDeviceParser::DEVICE_TYPE_DESKTOP !== $this->device && false !== \strpos($this->userAgent, 'Desktop')) {
+            if ($this->hasDesktopFragment()) {
+                $this->device = AbstractDeviceParser::DEVICE_TYPE_DESKTOP;
+            }
         }
 
         // set device type to desktop for all devices running a desktop os that were not detected as another device type
