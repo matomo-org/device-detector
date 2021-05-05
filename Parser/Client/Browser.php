@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
@@ -157,6 +159,7 @@ class Browser extends AbstractClientParser
         'GO' => 'GOG Galaxy',
         'HS' => 'HasBrowser',
         'HA' => 'Hawk Turbo Browser',
+        'HE' => 'Helio',
         'HO' => 'hola! Browser',
         'HJ' => 'HotJava',
         'HU' => 'Huawei Browser',
@@ -384,6 +387,7 @@ class Browser extends AbstractClientParser
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
             'SS', 'O2', 'SV', 'TR', 'CW', 'GI', 'VE', 'AC', 'FS',
             'CG', 'DR', 'C4', 'HS', 'DA', 'C5', 'C6', 'DG', 'CG',
+            'HE',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',

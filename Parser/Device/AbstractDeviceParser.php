@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
@@ -167,6 +169,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '6B' => 'Bigben',
         'B8' => 'BIHEE',
         '1B' => 'Billion',
+        'BA' => 'BilimLand',
         'BH' => 'BioRugged',
         'BI' => 'Bird',
         'BT' => 'Bitel',

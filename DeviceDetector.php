@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
@@ -740,6 +742,18 @@ class DeviceDetector
     }
 
     /**
+     * Returns if the parsed UA contains the 'Desktop x64;' or 'Desktop x32;' or 'Desktop WOW64' fragment
+     *
+     * @return bool
+     */
+    protected function hasDesktopFragment(): bool
+    {
+        $regex = 'Desktop (x(?:32|64)|WOW64);';
+
+        return !!$this->matchUserAgent($regex);
+    }
+
+    /**
      * Returns if the parsed UA contains usage of a mobile only browser
      *
      * @return bool
@@ -939,6 +953,17 @@ class DeviceDetector
          */
         if (null === $this->device && \in_array($clientName, ['Kylo', 'Espial TV Browser'])) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
+        }
+
+        /**
+         * Set device type desktop if string ua contains desktop
+         */
+        $hasDesktop = AbstractDeviceParser::DEVICE_TYPE_DESKTOP !== $this->device
+            && false !== \strpos($this->userAgent, 'Desktop')
+            && $this->hasDesktopFragment();
+
+        if ($hasDesktop) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_DESKTOP;
         }
 
         // set device type to desktop for all devices running a desktop os that were not detected as another device type

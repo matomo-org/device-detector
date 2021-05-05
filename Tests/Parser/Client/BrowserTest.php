@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
@@ -12,6 +14,7 @@ namespace DeviceDetector\Tests\Parser\Client;
 
 use \Spyc;
 use DeviceDetector\Parser\Client\Browser;
+use DeviceDetector\Parser\Client\Browser\Engine;
 use PHPUnit\Framework\TestCase;
 
 class BrowserTest extends TestCase
@@ -28,7 +31,14 @@ class BrowserTest extends TestCase
         $browserParser->setUserAgent($useragent);
         $browser = $browserParser->parse();
         unset($browser['short_name']);
+
         $this->assertEquals($client, $browser, "UserAgent: {$useragent}");
+        $this->assertTrue($this->checkBrowserEngine($browser['engine']), \sprintf(
+            "UserAgent: %s\nEngine wrong name: `%s`",
+            $useragent,
+            $browser['engine']
+        ));
+
         self::$browsersTested[] = $client['name'];
     }
 
@@ -69,5 +79,18 @@ class BrowserTest extends TestCase
             $this->assertIsString($item['name']);
             $this->assertIsString($item['version']);
         }
+    }
+
+    protected function checkBrowserEngine(string $engine): bool
+    {
+        if ('' === $engine) {
+            return true;
+        }
+
+        $engines         = Engine::getAvailableEngines();
+        $enginePos       = \array_search($engine, $engines, false);
+        $engineReference = $engines[$enginePos] ?? null;
+
+        return $engineReference === $engine;
     }
 }
