@@ -187,6 +187,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'BD' => 'Bluegood',
         'LB' => 'Bluewave',
         '7B' => 'Blloc',
+        'UB' => 'Bleck',
         'BM' => 'Bmobile',
         'B9' => 'Bobarry',
         'B4' => 'bogo',
