@@ -2382,7 +2382,7 @@ Assistant:
 
 # Ark (Ark Electronic Technology)
 Ark:
-  regex: '(ARK[_ -])?Benefit[_ -]([^/;]*)(?: Build|\))|EDGE A5HD|Elf_S8|ICON (R40\+|R45)|Impulse[ _](P[12])|Wizard_[12](?:[);/ ]|$)'
+  regex: '(ARK[_ -])?Benefit[_ -]([^/;]*)(?: Build|\))|(?:EDGE A5HD|Elf_S8|ICON (R40\+|R45)|Impulse[ _]P[12]|Wizard_[12])(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(?:ARK[_ -])?Benefit[_ -]([^/;]*)(?: Build|\))'
@@ -4644,7 +4644,7 @@ Desay:
 
 # DEXP
 DEXP:
-  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|Larus_TV1|Ixion(?:ML4.7|ES250)|M150Storm|(?:SENIOR|F4[38]D8000K|VA[12]10|VA170|ML450|MS[56]50|BL[123]50|BS155|BS160|BS[1256]50|AL[12]40|AL[23]50|AS155|AS260|GS15[035]| (?:N280i|P380i|R110|BL160|B450|B340|B355|T155|A1[45]0|A340|AS160|GL[23]55|ES750|XL150|S280|Z[34]55))(?:[);/ ]|$)'
+  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|Larus_TV1|Ixion(?:ML4.7|ES250)|M150Storm|(?:SENIOR|F4[38]D8000K|VA[12]10|VA170|ML450|MS[56]50|BL[123]50|BS155|BS160|BS[1256]50|AL[12]40|AL[23]50|AS155|AS260|GS15[035]| (?:N280i|P380i|R110|BL160|B450|B340|B35[05]|T155|A1[45]0|A340|AS160|GL[23]55|G250|G15[05]|ES750|XL150|S280|Z[34]55|H170|P510))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Ixion[_ ]([^;/]+)(?: Build|\))'
@@ -4670,11 +4670,11 @@ DEXP:
     - regex: 'Ursus ([^;/)]+)(?: Build|\))'
       model: 'Ursus $1'
       device: 'tablet'
-    - regex: '(VA[21]10|VA170|R110|N280i|P380i|S280)(?:[);/ ]|$)'
+    - regex: '(VA[21]10|VA170|R110|N280i|P380i|P510|S280|H170)(?:[);/ ]|$)'
       model: 'Ursus $1'
       device: 'tablet'
 
-    - regex: ' (B450|B340|B355|BL160|A340|T155|Z[34]55)(?:[);/ ]|$)'
+    - regex: ' (B450|B340|B35[05]|BL160|A340|T155|Z[34]55|G250)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'SENIOR(?:[);/ ]|$)'
       model: 'Senior'
@@ -4686,7 +4686,7 @@ DEXP:
     - regex: 'H135[ _]Build'
       model: 'Atlas'
       device: 'desktop'
-    - regex: '(BL[123]50|BS155|BS160|BS[1256]50|AL[12]40|A1[45]0|GS15[035]|AS160|GL[23]55)(?:[);/ ]|$)'
+    - regex: '(BL[123]50|BS155|BS160|BS[1256]50|AL[12]40|A1[45]0|GS15[035]|AS160|GL[23]55|G15[05])(?:[);/ ]|$)'
       model: '$1'
     - regex: 'DEXP[ _]([^;/]+) Build'
       model: '$1'
@@ -10979,7 +10979,7 @@ MyTab:
 
 # myphone (myphone.com.ph)
 MyPhone:
-  regex: '(?:MyPhone|MyPad|MyTab)[ _][^;/)]+( Build|\))|Cube_LTE|myTab10II|HAMMER[ _](Blade2_PRO|IRON_3|Explorer|ENERGY|Titan 2|AXE[_ ](?:M[_ ]LTE|Pro)|Iron 2|Active[2]?(_LTE)?)|C-Smart_pix|myPhone_Fun_8|FUN_18x9|MyPhoneMY27|Prime_4_Lite|myA17|myX12|Pocket_2|Prime_18x9|Prime3Lite|myT6 DTV|myXI1 (?:Plus|Pro)|myXI3|Q_Smart_BE'
+  regex: '(?:MyPhone|MyPad|MyTab)[ _][^;/)]+( Build|\))|Cube_LTE|myTab10II|HAMMER[ _](Blade2_PRO|IRON_3|Explorer|ENERGY|Titan 2|AXE[_ ](?:M[_ ]LTE|Pro)|Iron 2|Active[2]?(_LTE)?)|C-Smart_pix|myPhone_Fun_8|FUN_18x9|MyPhoneMY27|Prime_4_Lite|myA17|myX12|Pocket_2|Prime_18x9|Prime3Lite|myT6 DTV|myXI1 (?:Plus|Pro)|myXI3|Q_Smart_BE|Brown 1'
   device: 'smartphone'
   models:
     # explicit table models
@@ -11048,6 +11048,8 @@ MyPhone:
       model: 'Prime 18x9$1'
     - regex: 'Prime3Lite(?:[);/ ]|$)'
       model: 'Prime 3 Lite'
+    - regex: 'Brown 1(?:[);/ ]|$)' # ARK Brown 1
+      model: 'Brown 1'
 
     # general detections
     - regex: 'MyPhone[ _]([^;/)]+)( Build|\))'
