@@ -140,6 +140,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '21' => 'Artizlee',
         '8A' => 'Asano',
         '90' => 'Asanzo',
+        '1U' => 'Astro',
         'A4' => 'Ask',
         'A8' => 'Assistant',
         'AU' => 'Asus',
