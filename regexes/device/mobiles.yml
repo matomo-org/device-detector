@@ -16631,13 +16631,20 @@ Woo:
     - regex: 'SP5026i-Scorpio'
       model: 'Scorpio'
 
-# Woxter
+# Woxter (woxter.es)
 Woxter:
-  regex: 'Woxter[ _]([^/;)]+)(?: Build|\))|Nimbus 101Q'
+  regex: 'Woxter[ _]|Nimbus 101Q'
   device: 'tablet'
   models:
-    - regex: 'Nimbus 101Q'
-      model: 'Nimbus 101Q'
+    - regex: 'Nimbus ?(101Q|115)(?:[);/ ]|$)'
+      model: 'Nimbus $1'
+    - regex: 'WOXTER[ _]I-101(?:[);/ ]|$)'
+      model: 'i-101'
+    - regex: 'QX ?(105L?|[0-9]+)(?:[);/ ]|$)'
+      model: 'QX $1'
+    - regex: 'Woxter[_ ](?:Zielo[ _])?(Q27|Z800|Z420)(?:[);/ ]|$)'
+      device: 'smartphone'
+      model: 'Zielo $1'
     - regex: 'Woxter[ _]([^/;)]+)(?: Build|\))'
       model: '$1'
 
