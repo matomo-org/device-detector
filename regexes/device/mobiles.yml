@@ -16640,12 +16640,12 @@ Woxter:
   regex: 'Woxter[ _]|Nimbus 101Q'
   device: 'tablet'
   models:
-    - regex: 'Nimbus ?(101Q|115)(?:[);/ ]|$)'
+    - regex: 'Nimbus ?(101Q|115|1100RX)(?:[);/ ]|$)'
       model: 'Nimbus $1'
     - regex: 'WOXTER[ _]I-101(?:[);/ ]|$)'
       model: 'i-101'
-    - regex: 'QX ?(105L?|[0-9]+)(?:[);/ ]|$)'
-      model: 'QX $1'
+    - regex: 'Woxter[ _]([SQ]X) ?([0-9A-Z]+)(?:[);/ ]|$)'
+      model: '$1 $2'
     - regex: 'Woxter[_ ](?:Zielo[ _])?(Q27|Z800|Z420)(?:[);/ ]|$)'
       device: 'smartphone'
       model: 'Zielo $1'
@@ -22155,3 +22155,49 @@ Astro:
   regex: 'Astro[- ](S451|S501)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
+
+# WIWA (www.wiwa.info.pl)
+WIWA:
+  regex: 'WIWA DREAM PLAYER(?:[);/ ]|$)'
+  device: 'tv'
+  model: 'Dream Player TV'
+
+# FMT OR Future Mobile Technology
+FMT:
+  regex: '(?:16M4HI105024|FMT-NM7058-02|176HS1050(?:232|531)|175WT1050231|175HS1050231|175FT1050241)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: '16M4HI105024'
+      model: 'Netsurfer Storm'
+    - regex: 'FMT-NM7058-02'
+      model: 'Flash'
+    - regex: '176HS1050531'
+      model: 'Falcon'
+    - regex: '176HS1050232'
+      model: 'B52'
+    - regex: '175WT1050231'
+      model: 'Eagle'
+    - regex: '175HS1050231'
+      model: 'Tomcat'
+    - regex: '175FT1050241'
+      model: 'Viper'
+
+# mPhone
+mPhone:
+  regex: 'mPhone ?([68]|7 Plus|7s)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
+
+# Cobalt
+Cobalt:
+  regex: 'Cobalt[ _-](?:SM|T)'
+  device: 'smartphone'
+  models:
+    - regex: 'Cobalt[ _-]SM_(55?|6)'
+      model: 'SM$1'
+    - regex: 'Cobalt[ _-]T((?:7|10))[ _]3G'
+      device: 'tablet'
+      model: 'T$1 3G'
+    - regex: 'Cobalt[ _-]T((?:7|10))[ _]wifi'
+      device: 'tablet'
+      model: 'T$1 WiFi'
