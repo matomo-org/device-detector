@@ -354,6 +354,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FN' => 'FNB',
         'FD' => 'Fondi',
         '0F' => 'Fourel',
+        '44' => 'Four Mobile',
         'F0' => 'Fonos',
         'F2' => 'FORME',
         'F5' => 'Formuler',
