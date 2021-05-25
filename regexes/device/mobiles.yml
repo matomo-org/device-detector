@@ -12306,7 +12306,7 @@ Overmax:
 
 # Oysters
 Oysters:
-  regex: 'Oysters|T84ERI[ _]3G|T72HM(s_)?3G|T102MS_3G|T102ER3G|(T74HMi|T84Bi)[_ ]4G|T74MR4G|T84Ni[_ ][34]G|Pacific[ ]?800i|T104B_[34]G|IndianV|T72HA_3G|T74D_3G|T74N_3G|T74SC_3G|T74Mai_3G|T104MBi_3G|T104SCi_3G|T104ER4G|Atlantic4G|AntarcticE|T7V 3G'
+  regex: 'Oysters|T84ERI[ _]3G|T72HM(s_)?3G|T102MS_3G|T102ER3G|(T74HMi|T84Bi)[_ ]4G|T74MR4G|T84Ni[_ ][34]G|Pacific[ ]?800i|T104B_[34]G|IndianV|T72HA_3G|T74D_3G|T74N_3G|T74SC_3G|T74Mai_3G|T104MBi_3G|T104SCi_3G|T104ER4G|Atlantic4G|AntarcticE|T7V 3G|Pacific(?:VS?|4G)'
   device: 'tablet'
   models:
     - regex: 'Pacific[ ]?800i'
@@ -12321,9 +12321,9 @@ Oysters:
     - regex: 'IndianV'
       device: 'smartphone'
       model: 'Indian V'
-    - regex: 'Oysters[_ ]PacificV'
+    - regex: '(?:Oysters[_ ])?Pacific(VS?|4G)'
       device: 'smartphone'
-      model: 'Pacific V'
+      model: 'Pacific $1'
     - regex: 'Oysters ((?:Arctic|Indian|Atlantic|Pacific)[^/;]+) Build'
       device: 'smartphone'
       model: '$1'
@@ -14110,22 +14110,22 @@ Senwa:
 
 # Sky or Sky Devices (skydevices.com)
 Sky:
-  regex: '(?:SKY|Elite|Fuego)[_ ][3-7]\.[05](?:[A-Z]{1,2})?|Elite[ _](?:5_0T|M45|[45]T|45T|GO|M5Plus|T55|T[46]|[AB]5|5_5_Octa)|Platinum[_ ](?:5.0M|5\.5C|5\.0+|M5|[ABCM]4|[ACG]55|[ABDEFG]5|A57|P9|X|UNO|VIEW2|O|4\.0|4_0Plus)|PLATINUMVIEW|SKY[ _](?:55M|Pro_III)'
+  regex: '(?:SKY|Elite|Fuego)[_ ][3-7]\.[05](?:[A-Z]{1,2})?|Elite[ _](?:5_0T|M45|[45]T|45T|GO|M5Plus|T55|T[46]|[AB]5|5_5_Octa)|Platinum[_ ](?:5.0M|5\.5C|[56]\.[05]\+?|M5|[ABCM]4|[ACG]55|[ABDEFG]5|A57|P9|X|UNO|VIEW2|O|4\.0|4_0Plus)|PLATINUMVIEW|SKY[ _](?:55M|Pro_III)'
   device: 'smartphone'
   models:
     - regex: 'Platinum[_ ](?:5\.0M|M5)'
       model: 'Platinum 5.0M'
     - regex: 'Platinum[_ ]5\.5C'
       model: 'Platinum 5.5C'
-    - regex: 'Platinum[_ ]5\.0\+'
-      model: 'Platinum 5.0 Plus'
+    - regex: 'Platinum[_ ]([56])\.([05])\+'
+      model: 'Platinum $1.$2 Plus'
     - regex: 'Platinum_4_0Plus'
       model: 'Platinum 4.0 Plus'
     - regex: 'Platinum[ _]4\.0'
       model: 'Platinum 4.0'
     - regex: 'Platinum[_ ](P9) Pro(?:[);/ ]|$)'
       model: 'Platinum $1 Pro'
-    - regex: 'Platinum[_ ]([ABCM]4|[ACG]55|[ABDEFG]5|A57|P9|X|UNO|O)(?:[);/ ]|$)'
+    - regex: 'Platinum[_ ]([ABCM]4|[ACG]55|[ABDEFG]5|A57|P9|X|UNO|O|6\.0)(?:[);/ ]|$)'
       model: 'Platinum $1'
     - regex: 'Platinum[_ ]?VIEW(2)?(?:[);/ ]|$)'
       device: 'tablet'
@@ -14302,14 +14302,14 @@ SunVan:
     - regex: 'SUNVAN[ _\-]?([^);/ ]+)'
       model: '$1'
 
-# SWISSMOBILITY
+# SWISSMOBILITY or Swiss Mobility
 SWISSMOBILITY:
-  regex: '(?:SCHR9GR|PRA(?:U8|100)|ZUR(?:722M|70016W?|700[RW]|805A))(?:[);/ ]|$)'
+  regex: '(?:SCHR9GR|PRA(?:U8|100|557|507)|ZUR(?:722M|70016W?|700[RW]|805A))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'SCHR9GR'
       model: 'SCHON R9'
-    - regex: 'PRA(U8|100)'
+    - regex: 'PRA(U8|100|557|507)(?:[);/ ]|$)'
       model: 'PRA$1'
     - regex: 'ZUR722M'
       device: 'phablet'
@@ -17263,7 +17263,7 @@ Toshiba:
 
 # Vivax (www.vivax.com)
 Vivax:
-  regex: 'VIVAX|(?:Fly5[_ ]Lite|Fun[_ ]S500|Point_(?:X[12]|X501)|PRO3|32LE77SM|40LE77SM|FUN S1|FUN_S20)(?:[);/ ]|$)'
+  regex: 'VIVAX|(?:Fly5[_ ]Lite|Fun[_ ]S500|Point[_ ](?:X[12]|X501|X450)|PRO3|32LE77SM|40LE77SM|FUN S1|FUN_S20)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Fly5[_ ]Lite(?:[);/ ]|$)'
@@ -17278,7 +17278,7 @@ Vivax:
       model: 'Fly 3'
     - regex: 'VIVAX[ _]Fly[ _]V1(?:[);/ ]|$)'
       model: 'Fly V1'
-    - regex: '(?:VIVAX )?(Point[ _](?:X551|X501))(?:[);/ ]|$)'
+    - regex: '(?:VIVAX )?(Point[ _](?:X551|X501|X450))(?:[);/ ]|$)'
       model: '$1'
     - regex: 'SMART Point X5010(?:[);/ ]|$)'
       model: 'Smart Point X5010'
@@ -22209,3 +22209,22 @@ Revo:
       model: 'You Plus'
     - regex: 'Revo[ ](You|555)'
       model: '$1'
+
+# Axioo
+Axioo:
+  regex: 'PICOp(?:hone|ad)_'
+  device: 'smartphone'
+  models:
+    - regex: 'PICOphone_(L1|M4N|M4P_M3|M4U_M2_M)'
+      model: 'PicoPhone $1'
+    - regex: 'PICOphone_M2'
+      model: 'PicoPhone M2 M'
+    - regex: 'PICOpad_(7H_7)_3G'
+      device: 'tablet'
+      model: 'PicoPad $1 3G'
+
+# Pico (pico-interactive.com)
+Pico:
+  regex: 'Pico (G2 4K)(?:[);/ ]|$)'
+  device: 'wearable'
+  model: '$1'
