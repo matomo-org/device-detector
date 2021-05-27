@@ -243,7 +243,7 @@ There are already a few ports of this tool to other languages:
 
 The lists below are auto generated and updated from time to time. Some of them might not be complete.
 
-*Last update: 2021/05/12*
+*Last update: 2021/05/16*
 
 ### List of detected operating systems:
 
@@ -267,7 +267,7 @@ Audacious, Banshee, Boxee, Clementine, Deezer, FlyCast, Foobar2000, Google Podca
 
 ### List of detected mobile apps:
 
-1Password, 2tch, Alexa Media Player, AndroidDownloadManager, AntennaPod, Apple News, Baidu Box App, BB2C, BetBull, BeyondPod, BingWebApp, Bitsboard, bPod, CastBox, Castro, Castro 2, CGN, ChMate, Ciisaa, Clovia, Copied, Covenant Eyes, CrosswalkApp, DeviantArt, DingTalk, Discord, DoggCatcher, douban App, Evolve Podcast, Facebook, Facebook Messenger, Facebook Messenger Lite, FeedR, Flipboard App, Google Go, Google Play Newsstand, Google Plus, Google Search App, HeyTapBrowser, HP Smart, iCatcher, Instacast, Instagram App, Instapaper, JaneStyle, KakaoTalk, Keeper Password Manager, Kik, Line, LinkedIn, Microsoft Office $1, Microsoft Office Mobile, Microsoft OneDrive, Microsoft Outlook, Naver, NewsArticle App, NPR One, Opal Travel, Overcast, Pandora, Papers, Pic Collage, Pinterest, Player FM, Pocket Casts, Podbean, Podcast & Radio Addict, Podcaster, Podcast Republic, Podcasts, Podcat, Podcatcher Deluxe, Podimo, Podkicker, Procast, RadioPublic, Roblox, RoboForm, Rocket Chat, RSSRadio, Shopee, ShowMe, Sina Weibo, Siri, Skyeng Teachers, Skype for Business, Slack, Snapchat, SogouSearch App, SPORT1, Swoot, The Wall Street Journal, Thunder, tieba, TikTok, TopBuzz, TuneIn Radio, TuneIn Radio Pro, TVirl, twinkle, Twitter, U-Cursos, UnityPlayer, Viber, Wattpad, WeChat, WeChat Share Extension, WhatsApp, Whisper, WH Questions, Wirtschafts Woche, Yahoo! Japan, Yandex, Yelp Mobile, YouTube, Zalo, Zoho Chat and *mobile apps using [AFNetworking](https://github.com/AFNetworking/AFNetworking)*
+1Password, 2tch, Alexa Media Player, AndroidDownloadManager, AntennaPod, Apple News, Baidu Box App, BB2C, BetBull, BeyondPod, Binance, BingWebApp, Bitsboard, bPod, CastBox, Castro, Castro 2, CGN, ChMate, Ciisaa, Clovia, Copied, Covenant Eyes, CrosswalkApp, DeviantArt, DingTalk, Discord, DoggCatcher, douban App, Evolve Podcast, Facebook, Facebook Messenger, Facebook Messenger Lite, FeedR, Flipboard App, Google Go, Google Play Newsstand, Google Plus, Google Search App, HeyTapBrowser, HP Smart, iCatcher, Instacast, Instagram App, Instapaper, JaneStyle, KakaoTalk, Keeper Password Manager, Kik, Line, LinkedIn, Microsoft Office $1, Microsoft Office Mobile, Microsoft OneDrive, Microsoft Outlook, Naver, NewsArticle App, NPR One, Opal Travel, Overcast, Pandora, Papers, Pic Collage, Pinterest, Player FM, Pocket Casts, Podbean, Podcast & Radio Addict, Podcaster, Podcast Republic, Podcasts, Podcat, Podcatcher Deluxe, Podimo, Podkicker, Procast, RadioPublic, Roblox, RoboForm, Rocket Chat, RSSRadio, Shopee, ShowMe, Sina Weibo, Siri, Skyeng Teachers, Skype for Business, Slack, Snapchat, SogouSearch App, SPORT1, Swoot, The Wall Street Journal, Thunder, tieba, TikTok, TopBuzz, TuneIn Radio, TuneIn Radio Pro, TVirl, twinkle, Twitter, U-Cursos, UnityPlayer, Viber, Wattpad, WeChat, WeChat Share Extension, WhatsApp, Whisper, WH Questions, Wirtschafts Woche, Yahoo! Japan, Yandex, Yelp Mobile, YouTube, Zalo, Zoho Chat and *mobile apps using [AFNetworking](https://github.com/AFNetworking/AFNetworking)*
 
 ### List of detected PIMs (personal information manager):
 
