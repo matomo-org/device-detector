@@ -203,6 +203,7 @@ class Browser extends AbstractClientParser
         'LS' => 'Lunascape',
         'LN' => 'Lunascape Lite',
         'LX' => 'Lynx',
+        'MD' => 'Mandarin',
         'M1' => 'mCent',
         'MB' => 'MicroB',
         'MC' => 'NCSA Mosaic',
@@ -390,7 +391,7 @@ class Browser extends AbstractClientParser
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
             'SS', 'O2', 'SV', 'TR', 'CW', 'GI', 'VE', 'AC', 'FS',
             'CG', 'DR', 'C4', 'HS', 'DA', 'C5', 'C6', 'DG', 'CG',
-            'HE', 'H2', 'MA', 'S9',
+            'HE', 'H2', 'MA', 'MD', 'S9',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
