@@ -216,6 +216,7 @@ class Browser extends AbstractClientParser
         'MN' => 'Minimo',
         'MT' => 'Mint Browser',
         'MX' => 'Maxthon',
+        'MA' => 'Maelstrom',
         'NM' => 'MxNitro',
         'MY' => 'Mypal',
         'MR' => 'Monument Browser',
@@ -389,7 +390,7 @@ class Browser extends AbstractClientParser
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
             'SS', 'O2', 'SV', 'TR', 'CW', 'GI', 'VE', 'AC', 'FS',
             'CG', 'DR', 'C4', 'HS', 'DA', 'C5', 'C6', 'DG', 'CG',
-            'HE', 'H2', 'S9',
+            'HE', 'H2', 'MA', 'S9',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
