@@ -70,6 +70,7 @@ class OperatingSystem extends AbstractParser
         'HPX' => 'HP-UX',
         'HAI' => 'Haiku OS',
         'HAS' => 'HasCodingOS',
+        'HOS' => 'HiOS',
         'IRI' => 'IRIX',
         'INF' => 'Inferno',
         'KOS' => 'KaiOS',
@@ -144,7 +145,7 @@ class OperatingSystem extends AbstractParser
      * @var array
      */
     protected static $osFamilies = [
-        'Android'               => ['AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI'],
+        'Android'               => ['AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HOS'],
         'AmigaOS'               => ['AMG', 'MOR'],
         'Apple TV'              => ['ATV'],
         'BlackBerry'            => ['BLB', 'QNX'],
