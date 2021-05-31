@@ -81,7 +81,7 @@ SFR:
 
 # HTC (htc.com)
 HTC:
-  regex: 'HTC|Sprint (?:APA|ATP)|ADR(?!910L)[a-z0-9]+|NexusHD2|Amaze[ _]4G(?:[);/ ]|$)|(Desire|Sensation|Evo ?3D|IncredibleS|Wildfire|Butterfly)[ _]?([^;/)]+)(?: Build|\))|(Amaze[ _]4G|(?<!BLU LIFE )One ?[XELSV\+]+)(?:[);/ ]|$)|SPV E6[05]0|(One M8|One Mini 2|X525a|PG86100|PC36100|XV6975|PJ83100|2PYB2|2PS64|2PZC5|0PJA10|0PJA2|HTV33|0PM92|0PCV1|601HT|0PAJ5|HTL2[23]|HTV3[12]|2PQ93|X2-HT|EXODUS 1|ISW13HT)(?:[);/ ]|$)'
+  regex: 'HTC|Sprint (?:APA|ATP)|ADR(?!910L)[a-z0-9]+|NexusHD2|Amaze[ _]4G(?:[);/ ]|$)|(Desire|Sensation|Evo ?3D|IncredibleS|Wildfire|Butterfly)[ _]?([^;/)]+)(?: Build|\))|(Amaze[ _]4G|(?<!BLU LIFE |ZOPO )One ?[XELSV\+]+)(?:[);/ ]|$)|SPV E6[05]0|(One M8|One Mini 2|X525a|PG86100|PC36100|XV6975|PJ83100|2PYB2|2PS64|2PZC5|0PJA10|0PJA2|HTV33|0PM92|0PCV1|601HT|0PAJ5|HTL2[23]|HTV3[12]|2PQ93|X2-HT|EXODUS 1|ISW13HT)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -17874,6 +17874,8 @@ Zopo:
       model: 'Flash X2'
     - regex: 'ZP781(?:[);/ ]|$)'
       model: 'Flash G5 Plus'
+    - regex: 'ZOPO[_ ]ONE[_ ]([YXTP])(?:[);/ ]|$)'
+      model: 'One $1'
     - regex: '(?:ZOPO_)?(Flash X3|X1i|ZP[0-9]{2,}[^/;)]+)(?: Build|\))'
       model: '$1'
 
@@ -22452,3 +22454,13 @@ UTime:
   regex: 'UTIME[ _](U6|G7|U100|[TX]1|FX)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
+
+# L-Max or LMAX (lmax-mobile.com)
+L-Max:
+  regex: '(?:Sapphire 8|Sapphire[76]|Mega plus[23])(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'Mega plus([23])'
+      model: 'Mega Plus $1'
+    - regex: 'Sapphire ?([678])'
+      model: 'Sapphire $1'

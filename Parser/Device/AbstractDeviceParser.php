@@ -563,6 +563,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'LX' => 'Lexibook',
         'LG' => 'LG',
         'LF' => 'Lifemaxx',
+        'LJ' => 'L-Max',
         'LI' => 'Lingwin',
         '5L' => 'Linsar',
         'LW' => 'Linnex',
