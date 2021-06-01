@@ -10207,19 +10207,21 @@ Masstel:
 
 # Maxwest
 Maxwest:
-  regex: '(?:Astro[_ ](?:5N_LTE|X4|5_GO_LTE|X55s)|Virtue Z5|Nitro[_ ](?:4S?|55R|5[XR]|[45] GO|4s LTE)|Gravity_55?_GO|Nitro_Phablet_9s)(?:[);/ ]|$)'
+  regex: '(?:Astro[_ ](?:55?N[_ ]LTE|5s|[45]P|X4|5_GO_LTE|X55s?|4\.5|4|X5)|Astro6|Virtue Z5|Nitro[_ ](?:4S?|55R|5[XR]|[45] GO|4s LTE)|Gravity_55?_GO|Nitro_Phablet_9s)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'Astro_5N_LTE'
-      model: 'Astro 5N LTE'
+    - regex: 'Astro[_ ](55?)N[_ ]LTE'
+      model: 'Astro $1N LTE'
+    - regex: 'Astro[_ ]X55[_ ]LTE'
+      model: 'Astro X55 LTE'
     - regex: 'Astro_5_GO_LTE'
       model: 'Astro 5 Go LTE'
+    - regex: 'Astro[_ ](X55s?|5s|4|X[45]|[45]P)(?:[);/ ]|$)'
+      model: 'Astro $1'
+    - regex: 'Astro[_ ](4\.5)'
+      model: 'Astro $1"'
     - regex: 'Virtue Z5'
       model: 'Virtue Z5'
-    - regex: 'Astro X55s'
-      model: 'Astro X55s'
-    - regex: 'Astro[_ ]X4'
-      model: 'Astro X4'
     - regex: 'Nitro ([45]) GO'
       model: 'Nitro $1 GO'
     - regex: 'Nitro 4s LTE'
@@ -10230,6 +10232,10 @@ Maxwest:
       model: 'Nitro $1'
     - regex: 'Gravity_(55?)_GO'
       model: 'Gravity $1 GO'
+
+    - regex: 'Astro6'
+      device: 'phablet'
+      model: 'Astro 6'
 
     - regex: 'Nitro_Phablet_9s'
       device: 'tablet'
@@ -10660,7 +10666,7 @@ Mobiola:
 
 # Mobicel or Mobicell
 Mobicel:
-  regex: 'Mobicel_(R1)|(?:HYPE|DANDY(?:_ZAM)?|(?<!SMADL )Matrix|ASTRO|VENUS_G|TRENDY PLUS|FENDY_DS|TANGO_LITE|BLINK|BERRY[_ ]?(?:[12]|PLUS))(?:[);/ ]|$)'
+  regex: 'Mobicel_(R1)|(?:HYPE|DANDY(?:_ZAM)?|(?<!SMADL )Matrix|VENUS_G|TRENDY PLUS|FENDY_DS|TANGO_LITE|BLINK|BERRY[_ ]?(?:[12]|PLUS))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Matrix'
