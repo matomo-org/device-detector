@@ -7163,10 +7163,8 @@ Huawei:
       model: 'P20 Pro'
     - regex: '(ELE-L(?:04|09|29)|ELE-[AT]L00)(?:[);/ ]|$)'
       model: 'P30'
-    - regex: '(?:MAR-(?:LX(?:1[BM]|2J?|3BM)|TL00)|NIC-LX1A|HWV33)(?:[);/ ]|$)'
+    - regex: '(?:MAR-(?:LX(?:1[BM]|2B|[13]Am?|2J?|3BM)|TL00)|NIC-LX1A|HWV33)(?:[);/ ]|$)'
       model: 'P30 Lite'
-    - regex: 'MAR-LX[13]Am?(?:[);/ ]|$)'
-      model: 'P30 Lite Dual SIM'
     - regex: '(?:VOG-(?:L(?:04|09|29)|TL00|AL10)|HW-02L)(?:[);/ ]|$)'
       model: 'P30 Pro'
     - regex: 'ANA-LX4(?:[);/ ]|$)'
@@ -10666,7 +10664,7 @@ Mobiola:
 
 # Mobicel or Mobicell
 Mobicel:
-  regex: 'Mobicel_(R1)|(?:HYPE|DANDY(?:_ZAM)?|(?<!SMADL )Matrix|VENUS_G|TRENDY PLUS|FENDY_DS|TANGO_LITE|BLINK|BERRY[_ ]?(?:[12]|PLUS))(?:[);/ ]|$)'
+  regex: 'Mobicel_(R1)|ASTRO(?: Build|[;)]|$)|(?:HYPE|DANDY(?:_ZAM)?|(?<!SMADL )Matrix|VENUS_G|TRENDY PLUS|FENDY_DS|TANGO_LITE|BLINK|BERRY[_ ]?(?:[12]|PLUS))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Matrix'
@@ -14901,22 +14899,28 @@ Sendo:
 
 # Turbo-X
 Turbo-X:
-  regex: 'Turbo-X|Hive V 3G|Turbox_S3'
+  regex: 'Turbo-X|Hive V 3G|Turbox_S3|Fire_II_WiFi'
   device: 'smartphone'
   models:
+    # specific smartphone models
     - regex: 'Turbox_S3'
       model: 'S3'
     - regex: 'Turbo-X_A2(?:[);/ ]|$)'
       model: 'A2'
     - regex: 'Turbo-X_e3(?:[);/ ]|$)'
       model: 'E3'
+    # specific tablet models
     - regex: 'Turbo-X Ice(?:[);/ ]|$)'
       device: 'tablet'
       model: 'Ice'
     - regex: 'Hive V 3G(?:[);/ ]|$)'
       device: 'tablet'
       model: 'Hive V 3G'
+    - regex: 'Fire_II_WiFi(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'Fire II WiFi'
 
+    # general detections
     - regex: 'Turbo-X Tablet([^;/]+) Build'
       device: 'tablet'
       model: 'Tablet$1'
@@ -16034,11 +16038,15 @@ UTOK:
   device: 'smartphone'
   model: '$1'
 
-# Vastking
+# Vasting
 Vastking:
-  regex: '(M910A|M783K|M783K-16G|M1072R-3G)(?:[);/ ]|$)'
+  regex: '(M910A|M783K|M783K-16G|M1072R-3G|KingPad_K10(?:Pro)?)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: 'KingPad_(K10)(Pro)?(?:[);/ ]|$)'
+      model: 'KingPad $1 $2'
+    - regex: '(M910A|M783K|M783K-16G|M1072R-3G)(?:[);/ ]|$)'
+      model: '$1'
 
 # ViewSonic
 ViewSonic:
@@ -16358,9 +16366,9 @@ Vodafone:
     - regex: 'Vodafone[ _-]([a-z0-9_-]+)'
       model: '$1'
 
-# Vonino
+# Vonino (vonino.ro)
 Vonino:
-  regex: 'Vonino|Epic (?:E8|P7)|Gyga[ _](?:X|S|QS|XS)|Jax[ _](?:QS|[SXQN]|Mini)|Magnet[ _]M[19]|Navo_QS|Onyx_(QS|Z)|Orin_QS|Pluri[ _](?:[BCMQ]7|[CQM]8)|Sirius_QS|Volt[ _][XS]|Xavy_(T7|L8)|Xylo[ _][XSPQT]|Zun[ _]X[OS]?|JAX_N'
+  regex: 'Vonino|Epic (?:E8|P7)|Gyga[ _](?:X|S|QS|XS)|Jax[ _](?:QS|[SXQN]|Mini)|Magnet[ _](?:M[19]|G50)|Navo_QS|Onyx_(QS|Z)|Orin_QS|Pluri[ _](?:[BCMQ]7|[CQM]8)|Sirius_QS|Volt[ _][XS]|Xavy_(T7|L8)|Xylo[ _][XSPQT]|Zun[ _]X[OS]?|JAX_N'
   device: 'smartphone'
   models:
     - regex: 'Zun[ _]XO'
@@ -16400,8 +16408,8 @@ Vonino:
     - regex: 'Pluri[ _]([CQM])8'
       model: 'Pluri $18'
       device: 'tablet'
-    - regex: 'Magnet[ _]M([19])'
-      model: 'Magnet M$1'
+    - regex: 'Magnet[ _](M[19]|G50)'
+      model: 'Magnet $1'
       device: 'tablet'
     - regex: 'Navo_QS'
       model: 'Navo QS'
@@ -22538,6 +22546,12 @@ Xtratech:
 # XGIMI (www.xgimi.com)
 XGIMI:
   regex: 'XGIMI TV(?:[);/ ]|$)'
+  device: 'peripheral'
+  model: '$1'
+
+# Raspberry (raspberrypi.org)
+Raspberry:
+  regex: 'Raspberry (Pi [0-9]+)(?:[);/ ]|$)'
   device: 'peripheral'
   model: '$1'
 
