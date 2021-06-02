@@ -637,6 +637,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MB' => 'Mobistel',
         '6W' => 'MobiWire',
         '9M' => 'Mobo',
+        '3J' => 'Mode1',
         'M4' => 'Modecom',
         'MF' => 'Mofut',
         'MR' => 'Motorola',
