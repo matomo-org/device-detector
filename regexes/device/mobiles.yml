@@ -10214,7 +10214,7 @@ Masstel:
 
 # Maxwest
 Maxwest:
-  regex: '(?:Astro[_ ](?:Phablet_9|55?N[_ ]LTE|5s|[45]P|X4|5_GO_LTE|X55s?|4\.5|4|X5)|Astro6|Virtue Z5|Nitro[_ ](?:4S?|55R|5[XR]|[45] GO|4s LTE)|Gravity_55?_GO|Nitro_Phablet_9s)(?:[);/ ]|$)'
+  regex: '(?:Astro[_ ](?:Phablet_9|55?N[_ ]LTE|5s|[45]P|X4|5_GO_LTE|X55s?|4\.5|4|X5)|Astro6|Virtue Z5|Nitro[_ ](?:4S?|55R|5[XRP]|[45] GO|4s LTE)|Gravity_55?_GO|Nitro_Phablet_9s)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Astro[_ ](55?)N[_ ]LTE'
@@ -10239,7 +10239,7 @@ Maxwest:
       model: 'Nitro 4s LTE'
     - regex: 'Nitro[ _]4s'
       model: 'Nitro 4s'
-    - regex: 'Nitro_(4|55R|5[XR])'
+    - regex: 'Nitro[_ ](4|55R|5[XRP])'
       model: 'Nitro $1'
     - regex: 'Gravity_(55?)_GO'
       model: 'Gravity $1 GO'
@@ -10714,13 +10714,15 @@ Mobicel:
 
 # Mobiistar
 Mobiistar:
-  regex: 'Mobiistar|Zumbo[ _]S|PRIME X MAX|X1 Notch|E1 Selfie'
+  regex: 'Mobiistar|(?:Zumbo[ _]S|PRIME X MAX|X1 Notch|E1 Selfie|XQ[_ ]Dual)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'X1 Notch(?:[);/ ]|$)'
       model: 'X1 Notch'
     - regex: 'E1 Selfie(?:[);/ ]|$)'
       model: 'E1 Selfie'
+    - regex: 'XQ[_ ]Dual(?:[);/ ]|$)'
+      model: 'XQ Dual'
     - regex: 'mobiistar_LAI_Zumbo(?:[);/ ]|$)'
       model: 'Zumbo'
     - regex: 'Zumbo[_ ]S[_ ]2017[_ ]Lite(?:[);/ ]|$)'
@@ -15491,9 +15493,9 @@ Tecno Mobile:
     - regex: 'Tecno[ _-]?([a-z0-9_\-]+)'
       model: '$1'
 
-# TechPad
+# TechPad (techpad.mx)
 TechPad:
-  regex: 'Tech ?pad|XTAB[ _-]|Dual C1081HD|S813G'
+  regex: 'Tech ?pad|XTAB[ _-]|Dual C1081HD|S813G|NOTE[_ ]4CAM'
   device: 'tablet'
   models:
     - regex: 'S813G'
@@ -15512,6 +15514,9 @@ TechPad:
       model: 'XTAB C1081HD'
     - regex: 'XTAB[ _-]([^/;]+) Build'
       model: 'XTAB $1'
+    - regex: 'NOTE 4CAM'
+      device: 'smartphone'
+      model: 'Note 4 Cam'
     - regex: 'Tech ?pad[ _-]([^/;)]+)(?: Build|[;)])'
       model: '$1'
       device: 'smartphone'
@@ -16489,7 +16494,7 @@ Vulcan:
 
 # Walton (waltonbd.com)
 Walton:
-  regex: 'Walton|Walpad|Primo[ _](C[1234]?|D[1-689]|E[1-589]|F8s|S7|EF[23]?|EM|F[1-79]i?|G[1-9]|GF[234]?|GH[23]?|GM|H[2-689M]|H7s|N[F1]?|NX2?|R[1-46]|R[HM]2?|RX[23]?|S[1-6]|V1|X[1-4]|Z|ZX)'
+  regex: 'Walton|Walpad|RX7 Mini|Primo[ _](C[1234]?|D[1-689]|E[1-589]|F8s|S7|EF[23]?|EM|F[1-79]i?|G[1-9]|GF[234]?|GH[23]?|GM|H[2-689M]|H7s|N[F1]?|NX2?|R[1-46]|R[HM]2?|RX[23]?|S[1-6]|V1|X[1-4]|Z|ZX)'
   device: 'smartphone'
   models:
     - regex: 'Walpad[ _]([^;/)]+)(?: Build|[);])'
@@ -16501,6 +16506,9 @@ Walton:
       model: 'Primo H8 Pro'
     - regex: 'Primo H8(?:[);/ ]|$)'
       model: 'Primo H8 Turbo'
+    - regex: 'RX7 Mini(?:[);/ ]|$)'
+      model: 'RX7 Mini'
+
     # general detections
     - regex: 'Primo[ _]([^;/)]+)(?: Build|[;)])'
       model: 'Primo $1'
@@ -19775,9 +19783,14 @@ Newman:
 
 # Swipe
 Swipe:
-  regex: '(Elite Sense|Elite_VR)(?:[);/ ]|$)'
+  regex: '(?:Elite Sense|Elite_VR|Slate2)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: '(Elite Sense|Elite_VR)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'Slate2(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'Slate 2'
 
 # Owwo
 Owwo:
@@ -22372,7 +22385,7 @@ AURIS:
 
 # YUHO Mobile
 YUHO:
-  regex: 'YUHO_'
+  regex: 'YUHO_|(?:Netra(?:[_ ](?:Plus|Lite))?)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'YUHO_(O2|H2|Y[123])_PRO'
@@ -22385,7 +22398,7 @@ YUHO:
       model: 'Y1 Star'
     - regex: 'YUHO_O1_LITE'
       model: 'O1 Lite'
-    - regex: 'YUHO_(Vast2?|O[12]|Y2)(?:[);/ ]|$)'
+    - regex: '(?:YUHO_)?(Vast2?|O[12]|Y2|Netra(?:[_ ](?:Plus|Lite))?)(?:[);/ ]|$)'
       model: '$1'
 
 # 2F Mobile
