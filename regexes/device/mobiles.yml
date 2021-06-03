@@ -21480,14 +21480,19 @@ Pluzz:
 
 # IKU Mobile (iku-mobile.com)
 'IKU Mobile':
-  regex: '(?:IKU[_ ](?:T[12]|K3)|Powerful_K55i|Curvy C50L)(?:[);/ ]|$)'
+  regex: '(?:IKU[_ ](?:T[123]|K3|i[34]|T[_ ]MAX)|Powerful_K55i|Curvy C50L)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: '(?:IKU[_ ])?(K3|Powerful_K55i|Curvy C50L)(?:[);/ ]|$)'
+    - regex: '(Powerful_K55i|Curvy C50L)(?:[);/ ]|$)'
       model: '$1'
-    - regex: 'IKU (T[12])(?:[);/ ]|$)'
+    - regex: 'IKU[_ ](K3|i[34])(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'IKU[_ ](T[123])(?:[);/ ]|$)'
       device: 'tablet'
       model: '$1'
+    - regex: 'IKU[_ ]T[_ ]Max(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'T Max'
 
 # IKI Mobile (ikimobile.com)
 IKI Mobile:
