@@ -11,13 +11,17 @@ jobs:
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
-        operating-system: [ubuntu-latest, windows-latest, macos-10.14]
+        operating-system: [ubuntu-latest, windows-latest]
         php-version: ['7.2', '8.0']
         include:
           - php-version: 7.3
             operating-system: ubuntu-latest
           - php-version: 7.4
             operating-system: ubuntu-latest
+          - php-version: 8.0
+            operating-system: macos-10.15
+          - php-version: 7.2
+              operating-system: macos-10.15
     steps:
       - uses: actions/checkout@v2
       - name: Install PHP
