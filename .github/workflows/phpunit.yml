@@ -21,12 +21,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install PHP (Ubuntu, Windows)
-          if: runner.os != 'macOS'
-          uses: shivammathur/setup-php@v2
-          with:
-            php-version: ${{ matrix.php-version }}
-            tools: composer:v2
-            extensions: memcached
+        if: runner.os != 'macOS'
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          tools: composer:v2
+          extensions: memcached
       - name: Install PHP (Mac)
         if: runner.os == 'macOS'
         uses: shivammathur/setup-php@v2
