@@ -40,7 +40,6 @@ jobs:
           composer install --ignore-platform-reqs
           composer require doctrine/cache ~1.2 --ignore-platform-reqs
       - name: PHPUnit / PHP ${{ matrix.php-version }}
-        if: runner.os != 'macOS'
         run: |
           php -v
           ./vendor/bin/phpunit
