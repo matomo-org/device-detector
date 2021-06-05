@@ -7,11 +7,11 @@ on:
 
 jobs:
   build:
-    name: PHPUnit
+    name: PHPUnit (Ubuntu, Windows)
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
-        operating-system: [ubuntu-latest, windows-latest, macos-latest]
+        operating-system: [ubuntu-latest, windows-latest]
         php-version: ['7.2', '8.0']
         include:
           - php-version: 7.3
@@ -20,25 +20,37 @@ jobs:
             operating-system: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install PHP (Ubuntu, Windows)
-        if: runner.os != 'macOS'
+      - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
           tools: composer:v2
           extensions: memcached
+      - name: "Composer install"
         run: |
-          echo "ok"
-      - name: Install PHP (Mac)
-        if: runner.os == 'macOS'
+          composer install --ignore-platform-reqs
+          composer require doctrine/cache ~1.2 --ignore-platform-reqs
+      - name: PHPUnit / PHP ${{ matrix.php-version }}
+        run: |
+          php -v
+          ./vendor/bin/phpunit
+
+  build2:
+    name: PHPUnit  (Mac)
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [macos-latest]
+        php-version: [ '7.2', '8.0' ]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
           tools: composer:v2
           extensions: memcached
           ini-values: pcre.jit=0
-        run: |
-            echo "ok"
       - name: "Composer install"
         run: |
           composer install --ignore-platform-reqs
