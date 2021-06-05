@@ -22,7 +22,6 @@ jobs:
             operating-system: macos-latest
           - php-version: 8.0
             operating-system: macos-latest
-            ini-values: pcre.jit=0
     steps:
       - uses: actions/checkout@v2
       - name: Install PHP
@@ -31,6 +30,7 @@ jobs:
           php-version: ${{ matrix.php-version }}
           tools: composer:v2
           extensions: memcached
+          ini-values: pcre.jit=0
       - name: "Composer install"
         run: |
           composer install --ignore-platform-reqs
