@@ -27,6 +27,8 @@ jobs:
           php-version: ${{ matrix.php-version }}
           tools: composer:v2
           extensions: memcached
+        run: |
+          echo "ok"
       - name: Install PHP (Mac)
         if: runner.os == 'macOS'
         uses: shivammathur/setup-php@v2
@@ -35,6 +37,8 @@ jobs:
           tools: composer:v2
           extensions: memcached
           ini-values: pcre.jit=0
+        run: |
+            echo "ok"
       - name: "Composer install"
         run: |
           composer install --ignore-platform-reqs
