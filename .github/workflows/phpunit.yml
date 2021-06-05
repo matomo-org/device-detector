@@ -11,7 +11,7 @@ jobs:
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
-        operating-system: [ubuntu-latest, windows-latest, macOS-latest]
+        operating-system: [ubuntu-latest, windows-latest, macos-10.14]
         php-version: ['7.2', '8.0']
         include:
           - php-version: 7.3
@@ -26,8 +26,6 @@ jobs:
           php-version: ${{ matrix.php-version }}
           tools: composer:v2
           extensions: memcached
-        env:
-          update: true
       - name: "Composer install"
         run: |
           composer install --ignore-platform-reqs
