@@ -30,13 +30,13 @@ jobs:
         run: |
           composer install --ignore-platform-reqs
           composer require doctrine/cache ~1.2 --ignore-platform-reqs
-      - name: PHPUnit / PHP ${{ matrix.php-version }}
-        if: matrix.os == 'macos-latest'
+      - name: PHPUnit / PHP ${{ matrix.php-version }} / OS macOS
+        if: matrix.os == 'macOS'
         run: |
           php -v -d pcre.jit=0
           ./vendor/bin/phpunit
-      - name: PHPUnit / PHP ${{ matrix.php-version }}
-        if: matrix.os != 'macos-latest'
+      - name: PHPUnit / PHP ${{ matrix.php-version }} / OS ${{ matrix.os }}
+        if: matrix.os != 'macOs'
         run: |
           php -v
           ./vendor/bin/phpunit
