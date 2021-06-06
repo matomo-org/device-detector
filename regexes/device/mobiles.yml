@@ -3055,7 +3055,7 @@ Brondi:
 
 # VGO TEL (vgotel.com)
 VGO TEL:
-  regex: '(?:Venture V(?:[278]|12)|VentureV10|Ocean[_ ][689]|Ocean9L)(?:[);/ ]|$)'
+  regex: 'VGOTEL|(?:Venture V(?:[278]|12)|VentureV10|Ocean[_ ][689]|Ocean9L)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Venture ?V([278]|1[02])(?:[);/ ]|$)'
@@ -5145,11 +5145,15 @@ Eks Mobility:
 
 # Elephone
 Elephone:
-  regex: 'Elephone|P6000( ?Pro| ?Plus|\+| ?02| 5.0 01)?'
+  regex: 'Elephone|Vowney(?: Lite)?|P6000( ?Pro| ?Plus|\+| ?02| 5.0 01)?'
   device: 'smartphone'
   models:
     - regex: 'Elephone Trunk(?:[);/ ]|$)'
       model: 'Trunk'
+    - regex: 'Vowney Lite(?:[);/ ]|$)'
+      model: 'Vowney Lite'
+    - regex: 'Vowney(?:[);/ ]|$)'
+      model: 'Vowney'
     - regex: 'P6000(\+| ?Plus)(?:[);/ ]|$)'
       model: 'P6000 Plus'
     - regex: 'P6000 02(?:[);/ ]|$)'
@@ -8963,11 +8967,13 @@ Landvo:
 
 # Land Rover
 Land Rover:
-  regex: 'Land[ ]?Rover[d]?[ _-](?:X1[0-9]|Explore|T878|L15\+|V18|V[168]|X)(?:[);/ ]|$)|Polar3'
+  regex: 'Land[ ]?Rover[d]?[ _-](?:X1[0-9]|Explore|T878|L15\+|V18|V[168]|X)(?:[);/ ]|$)|Polar3|Vphone[- ]X3'
   device: 'smartphone'
   models:
     - regex: 'Land[ ]?Rover[d]?[ _-](X1[0-9]|Explore|T878|L15\+|V18|V[168]|X)(?:[);/ ]|$)'
       model: '$1'
+    - regex: 'Vphone[- ]X3'
+      model: 'Vphone X3'
     - regex: 'Polar3'
       model: 'Ioutdoor Polar 3'
 
@@ -16223,6 +16229,8 @@ Verykool:
   regex: 'verykool'
   device: 'smartphone'
   models:
+    - regex: 'verykool[ _]?SL5009'
+      model: 'Jet'
     - regex: 'verykool[ _]?S5001'
       model: 'Lotus'
     - regex: 'verykool[ _]?S5004'
@@ -16231,6 +16239,8 @@ Verykool:
       model: 'Lotus Plus'
     - regex: 'verykool[ _]?s5015'
       model: 'Spark II'
+    - regex: 'verykool[ _]?SL5011'
+      model: 'Spark LTE'
     - regex: 'verykool[ _]?s5019'
       model: 'Wave'
     - regex: 'verykool[ _]?S5005'
@@ -16241,16 +16251,22 @@ Verykool:
       model: 'Eclipse'
     - regex: 'verykool[ _]?SL5050'
       model: 'Phantom'
+    - regex: 'verykool[ _]?S5030'
+      model: 'Helix II'
     - regex: 'verykool[ _]?s5527'
       model: 'Alpha Pro'
     - regex: 'verykool[ _]?s5526'
       model: 'Alpha'
+    - regex: 'verykool[ _]?S5530'
+      model: 'Maverick II'
     - regex: 'verykool[ _]?S5525'
       model: 'Maverick III'
     - regex: 'verykool[ _]?S5524'
       model: 'Maverick III Jr'
     - regex: 'verykool[ _]?s5516'
       model: 'Maverick Jr'
+    - regex: 'verykool[ _]?SL5550'
+      model: 'Maverick LTE'
     - regex: 'verykool[ _]?s5035'
       model: 'Spear'
     - regex: 'verykool[ _]?s5034'
@@ -16263,14 +16279,32 @@ Verykool:
       model: 'Sol Quatro Jr'
     - regex: 'verykool[ _]?s6005x'
       model: 'Cyprus Pro'
+    - regex: 'verykool[ _]?SL6010'
+      model: 'Cyprus LTE'
     - regex: 'verykool[ _]?S4006[QT]?'
       model: 'Leo 3G'
     - regex: 'verykool[ _]?S4007'
       model: 'Leo IV'
+    - regex: 'verykool[ _]?S4008'
+      model: 'Leo V'
     - regex: 'verykool[ _]?s5017|Dorado s5017'
       model: 'Dorado'
     - regex: 'verykool[ _]?s4510'
       model: 'Luna'
+    - regex: 'verykool[ _]?s5204'
+      model: 'Orion'
+    - regex: 'verykool[ _]?s5205'
+      model: 'Orion Pro'
+    - regex: 'verykool[ _]?s5528Jr'
+      model: 'Cosmo Jr'
+    - regex: 'verykool[ _]?s5528'
+      model: 'Cosmo'
+    - regex: 'verykool[ _]?s5702'
+      model: 'Royale Quattro'
+    - regex: 'verykool[ _]?SL5029'
+      model: 'Bolt Pro'
+    - regex: 'verykool[ _]?SL5565'
+      model: 'Rocket'
 
     - regex: 'verykool[ _]?TL8010'
       device: 'tablet'
@@ -16278,10 +16312,13 @@ Verykool:
     - regex: 'verykool[ _]?T7440'
       device: 'tablet'
       model: 'KolorPad II'
+    - regex: 'verykool[ _]?T7445'
+      device: 'tablet'
+      model: 'KolorPad IV'
 
-    - regex: 'verykool[ _]?(SL?[0-9]{3})(?:[);/ ]|$)'
+    - regex: 'verykool[ _]?([^/;)]+)(?:[ _]SL?[0-9]{4}[QT]?)(?: Build|[);])'
       model: '$1'
-    - regex: 'verykool[ _]?([^/;)]+)(?: SL?[0-9]{4}[QT]?)(?: Build|[);])'
+    - regex: 'verykool[ _]?([^/;)]+)(?: Build|[);])'
       model: '$1'
 
 
@@ -17548,10 +17585,10 @@ Vivax:
       model: 'Fun S500'
     - regex: 'FUN[ _]S(1|20)(?:[);/ ]|$)'
       model: 'Fun S$1'
-    - regex: 'VIVAX[ _]Fly3(?:[);/ ]|$)'
-      model: 'Fly 3'
-    - regex: 'VIVAX[ _]Fly[ _]V1(?:[);/ ]|$)'
-      model: 'Fly V1'
+    - regex: 'VIVAX[ _]Fly ?([32])(?:[);/ ]|$)'
+      model: 'Fly $1'
+    - regex: 'VIVAX[ _]Fly[ _]V(1|550)(?:[);/ ]|$)'
+      model: 'Fly V$1'
     - regex: '(?:VIVAX )?(Point[ _](?:X551|X501|X450))(?:[);/ ]|$)'
       model: '$1'
     - regex: 'SMART Point X5010(?:[);/ ]|$)'
@@ -18962,12 +18999,12 @@ Unihertz:
 
 # Chuwi
 Chuwi:
-  regex: '(?:CW-(Hi8-super|Hi12|V99i?|V17HD3G|VX8-3G|V88-QUAD|V9-DUAL|V88S|Vi[78]|[HV]i10 (?:pro|plus))|Hi10 (?:Pro|plus)|HiPad X|HiBox-hero|HiBook(?: pro)?|Hi[89] ?(?:Air|Pro)|Hi8SE|Vi10(?: ?Pro)?)(?:[);/ ]|$)'
+  regex: '(?:CW-(Hi8-super|Hi12|V99i?|V17HD3G|VX8-3G|V88-QUAD|V9-DUAL|V88S|Vi[78]|[HV]i10 (?:pro|plus))|Hi10 (?:Pro|plus)|HiPad X|HiBox-hero|HiBook(?: pro)?|Hi[89] ?(?:Air|Pro)|Hi8SE|Vi8 plus|Vi10(?: ?Pro)?)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: '(CW-Hi8-super)(?:[);/ ]|$)'
       model: 'Hi8'
-    - regex: '(?:CW-)?(Vi10|Hi10) plus(?:[);/ ]|$)'
+    - regex: '(?:CW-)?(Vi10|Hi10|Vi8) plus(?:[);/ ]|$)'
       model: '$1 Plus'
     - regex: 'CW-(V88)-QUAD(?:[);/ ]|$)'
       model: '$1 Quad'
@@ -20845,11 +20882,15 @@ Pixela:
 
 # Iris
 Iris:
-  regex: '(?:Vox[_ ](?:[45]S|Alpha|POP|STEEL Plus|Energy)|IS2_?Plus|IS2S|Next_P_PRO|IRS002-16)(?:[);/ ]|$)'
+  regex: '(?:Vox[_ ](?:[45]S|Alpha|POP|STEEL Plus|Energy|FORTIS|VERO)|IS2_?Plus|IS2S|Next_P_PRO|IRS002-16)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Vox[_ ]([45])S'
       model: 'Vox $1S'
+    - regex: 'VOX[_ ]FORTIS'
+      model: 'Vox Fortis'
+    - regex: 'VOX[_ ]VERO'
+      model: 'Vox Vero'
     - regex: 'VOX Alpha Plus'
       model: 'Vox Alpha Plus'
     - regex: 'VOX STEEL Plus'
