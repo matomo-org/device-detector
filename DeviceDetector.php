@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
@@ -47,7 +49,10 @@ use DeviceDetector\Yaml\Spyc;
  * @method bool isCarBrowser()
  * @method bool isTV()
  * @method bool isSmartDisplay()
+ * @method bool isSmartSpeaker()
  * @method bool isCamera()
+ * @method bool isWearable()
+ * @method bool isPeripheral()
  *
  * Magic Client Type Methods:
  * @method bool isBrowser()
@@ -62,7 +67,7 @@ class DeviceDetector
     /**
      * Current version number of DeviceDetector
      */
-    public const VERSION = '4.1.0';
+    public const VERSION = '4.2.3';
 
     /**
      * Constant used as value for unknown browser / os
@@ -737,6 +742,18 @@ class DeviceDetector
     }
 
     /**
+     * Returns if the parsed UA contains the 'Desktop x64;' or 'Desktop x32;' or 'Desktop WOW64' fragment
+     *
+     * @return bool
+     */
+    protected function hasDesktopFragment(): bool
+    {
+        $regex = 'Desktop (x(?:32|64)|WOW64);';
+
+        return !!$this->matchUserAgent($regex);
+    }
+
+    /**
      * Returns if the parsed UA contains usage of a mobile only browser
      *
      * @return bool
@@ -925,10 +942,28 @@ class DeviceDetector
         }
 
         /**
+         * All devices running Tizen TV or SmartTV are assumed to be a tv
+         */
+        if (null === $this->device && $this->matchUserAgent('SmartTV|Tizen.+ TV .+$')) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
+        }
+
+        /**
          * Devices running Kylo or Espital TV Browsers are assumed to be a TV
          */
         if (null === $this->device && \in_array($clientName, ['Kylo', 'Espial TV Browser'])) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
+        }
+
+        /**
+         * Set device type desktop if string ua contains desktop
+         */
+        $hasDesktop = AbstractDeviceParser::DEVICE_TYPE_DESKTOP !== $this->device
+            && false !== \strpos($this->userAgent, 'Desktop')
+            && $this->hasDesktopFragment();
+
+        if ($hasDesktop) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_DESKTOP;
         }
 
         // set device type to desktop for all devices running a desktop os that were not detected as another device type
