@@ -1330,6 +1330,30 @@ abstract class AbstractDeviceParser extends AbstractParser
         return compact('deviceType', 'model', 'brand');
     }
 
+    private function getDeviceAlias() {
+        static $aliasDevice;
+        if (!($aliasDevice instanceof AliasDevice)) {
+            $aliasDevice = new AliasDevice();
+            $aliasDevice->brandReplace = false;
+        }
+        return $aliasDevice;
+    }
+
+    private function getDeviceIndexesHash(): array {
+        static $deviceIndexesHash;
+        if(!$deviceIndexesHash) {
+            $deviceIndexesHash = [];
+            $path = $this->getRegexesDirectory()
+                . DIRECTORY_SEPARATOR
+                . 'regexes'
+                . DIRECTORY_SEPARATOR
+                .'device-index-hash.yml';
+            $deviceIndexesHash = $this->getYamlParser()->parseFile($path);
+        }
+        return $deviceIndexesHash;
+    }
+
+
     /**
      * @param bool $resultAll
      * @return array
@@ -1337,38 +1361,32 @@ abstract class AbstractDeviceParser extends AbstractParser
      */
     private function parsers(bool $resultAll = false): array
     {
-        static $aliasDevice;
-        if (!($aliasDevice instanceof AliasDevice)) {
-            $aliasDevice = new AliasDevice();
-            $aliasDevice->brandReplace = false;
-        }
-
-        $regexes           = $this->getRegexes();
-        $output            = [];
-        $deviceIndexesHash = [];
+        $aliasDevice = $this->getDeviceAlias();
+        $regexes     = $this->getRegexes();
+        $output      = [];
 
         // parse for hash device indexes
         $aliasDevice->setUserAgent($this->userAgent);
         $deviceCode = $aliasDevice->parse()['name'] ?? null;
 
         if($deviceCode !== null) {
-            $hashBrands = $deviceIndexesHash[$deviceCode] ?? [];
+            $hashBrands = $this->getDeviceIndexesHash()[$deviceCode] ?? [];
             if (count($hashBrands)) {
                 foreach ($hashBrands as $brand) {
                     $result = $this->parseForBrand((string)$brand);
-
-                    if (!count($output)) {
+                    if (!count($result)) {
                         continue;
                     }
                     $output[] = $result;
                     if (!$resultAll) break;
-
                 }
             }
+
         }
 
         // default
         if (!count($output)) {
+
             foreach ($regexes as $brand => $regex) {
                 $result = $this->parseForBrand((string)$brand);
                 if (!count($result)) {
@@ -1381,7 +1399,6 @@ abstract class AbstractDeviceParser extends AbstractParser
 
         return $output;
     }
-
 
     /**
      * @inheritdoc

@@ -26,19 +26,16 @@ $excludeFilesNames = ['bots.yml', 'alias_devices.yml'];
 
 $output = [];
 
-
-
 foreach ($fixtureFiles as $fixtureFile) {
     $fileName =  pathinfo($fixtureFile, PATHINFO_BASENAME);
     if (in_array($fileName, $excludeFilesNames, false)) {
         continue;
     }
-    $fileFixtures = Spyc::YAMLLoad(file_get_contents($file));
-    foreach ($fixtureFiles as $fixture) {
+    $fixtures = Spyc::YAMLLoad(file_get_contents($fixtureFile));
+    foreach ($fixtures as $fixture) {
         $useragent = $fixture['user_agent'];
 
         $aliasDevice->setUserAgent($useragent);
-        $deviceDetector->setUserAgent($useragent);
 
         $deviceCode = $aliasDevice->parse()['name'] ?? null;
         if (null === $deviceCode) {
@@ -46,8 +43,22 @@ foreach ($fixtureFiles as $fixtureFile) {
         }
 
         foreach ($deviceDetector->getDeviceParsers() as $parser) {
+            $parser->setUserAgent($useragent);
             $results = $parser->parseAllMatch();
+
+            foreach ($results as $result){
+                $brand = $result['brand'] ?? '';
+
+                if (!isset($output[$deviceCode])) {
+                    $output[$deviceCode] = [];
+                }
+
+                if ($brand !== '' && !in_array($brand, $output[$deviceCode]))
+                $output[$deviceCode][] = $brand;
+            }
         }
     }
-
 }
+
+file_put_contents( __DIR__ .  '/../regexes/device-index-hash.yml' , Spyc::YAMLDump($output));
+
