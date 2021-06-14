@@ -28,6 +28,5 @@ class HbbTvTest extends TestCase
         $this->assertEquals($hbbTvParser->isShellTv(), true);
         $hbbTvParser->setUserAgent('Leff Shell');
         $this->assertEquals($hbbTvParser->isShellTv(), false);
-
     }
 }

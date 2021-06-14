@@ -55,6 +55,7 @@ class HbbTv extends AbstractDeviceParser
      * Returns if the parsed UA was identified as Shell Tv device
      *
      * @return bool
+     *
      * @throws \Exception
      */
     public function isShellTv(): bool
@@ -62,7 +63,7 @@ class HbbTv extends AbstractDeviceParser
         $regex = '[a-z]+[ _]Shell[ _]\w{6}';
         $match = $this->matchUserAgent($regex);
 
-        return $match !== null;
+        return null !== $match;
     }
 
     /**
