@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use DeviceDetector\Parser\AliasDevice;
 use DeviceDetector\DeviceDetector;
+use DeviceDetector\Parser\AliasDevice;
 
 if ('cli' !== php_sapi_name()) {
     echo 'web not supported';
@@ -27,17 +27,21 @@ $excludeFilesNames = ['bots.yml', 'alias_devices.yml'];
 $output = [];
 
 foreach ($fixtureFiles as $fixtureFile) {
-    $fileName =  pathinfo($fixtureFile, PATHINFO_BASENAME);
+    $fileName = pathinfo($fixtureFile, PATHINFO_BASENAME);
+
     if (in_array($fileName, $excludeFilesNames, false)) {
         continue;
     }
+
     $fixtures = Spyc::YAMLLoad(file_get_contents($fixtureFile));
+
     foreach ($fixtures as $fixture) {
         $useragent = $fixture['user_agent'];
 
         $aliasDevice->setUserAgent($useragent);
 
         $deviceCode = $aliasDevice->parse()['name'] ?? null;
+
         if (null === $deviceCode) {
             continue;
         }
@@ -46,19 +50,21 @@ foreach ($fixtureFiles as $fixtureFile) {
             $parser->setUserAgent($useragent);
             $results = $parser->parseAllMatch();
 
-            foreach ($results as $result){
+            foreach ($results as $result) {
                 $brand = $result['brand'] ?? '';
 
                 if (!isset($output[$deviceCode])) {
                     $output[$deviceCode] = [];
                 }
 
-                if ($brand !== '' && !in_array($brand, $output[$deviceCode]))
+                if ('' === $brand || in_array($brand, $output[$deviceCode])) {
+                    continue;
+                }
+
                 $output[$deviceCode][] = $brand;
             }
         }
     }
 }
 
-file_put_contents( __DIR__ .  '/../regexes/device-index-hash.yml' , Spyc::YAMLDump($output));
-
+file_put_contents(__DIR__ . '/../regexes/device-index-hash.yml', Spyc::YAMLDump($output));
