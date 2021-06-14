@@ -1339,7 +1339,10 @@ abstract class AbstractDeviceParser extends AbstractParser
         return \compact('deviceType', 'model', 'brand');
     }
 
-    private function getDeviceAlias()
+    /**
+     * @return AliasDevice
+     */
+    private function getDeviceAlias(): AliasDevice
     {
         static $aliasDevice;
 
@@ -1351,6 +1354,9 @@ abstract class AbstractDeviceParser extends AbstractParser
         return $aliasDevice;
     }
 
+    /**
+     * @return array
+     */
     private function getDeviceIndexesHash(): array
     {
         static $deviceIndexesHash;

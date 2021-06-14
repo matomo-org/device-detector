@@ -67,4 +67,4 @@ foreach ($fixtureFiles as $fixtureFile) {
     }
 }
 
-file_put_contents(__DIR__ . '/../regexes/device-index-hash.yml', Spyc::YAMLDump($output));
+file_put_contents(__DIR__ . '/../regexes/device-index-hash.yml', Spyc::YAMLDump($output, 2, 0));
