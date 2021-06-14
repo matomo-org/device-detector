@@ -1251,6 +1251,24 @@ abstract class AbstractDeviceParser extends AbstractParser
     }
 
     /**
+     * @inheritdoc
+     */
+    public function parse(): ?array
+    {
+        $result = $this->parsers(false);
+
+        if (\count($result)) {
+            $this->deviceType = $result[0]['deviceType'] ?? null;
+            $this->model      = $result[0]['model'] ?? '';
+            $this->brand      = $result[0]['brand'] ?? '';
+
+            return $this->getResult();
+        }
+
+        return null;
+    }
+
+    /**
      * This Exception should never be thrown. If so a defined brand name is missing in $deviceBrands
      * @param string $brand
      *
@@ -1431,23 +1449,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         return $output;
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function parse(): ?array
-    {
-        $result = $this->parsers(false);
 
-        if (\count($result)) {
-            $this->deviceType = $result[0]['deviceType'] ?? null;
-            $this->model      = $result[0]['model'] ?? '';
-            $this->brand      = $result[0]['brand'] ?? '';
-
-            return $this->getResult();
-        }
-
-        return null;
-    }
 
     /**
      * @param string $model
