@@ -4146,7 +4146,7 @@ Artel:
 
 # ComTrade Tesla
 ComTrade Tesla:
-  regex: 'Tesla|Impulse 7.85 3G|Impulse 10.1 OCTA|Smartphone_6.1|SP(?:6.2|6.2_Lite)|TTL(?:713G|8)'
+  regex: 'Tesla(?!Group/LUMUS)|Impulse 7.85 3G|Impulse 10.1 OCTA|Smartphone_6.1|SP(?:6.2|6.2_Lite)|TTL(?:713G|8)'
   device: 'smartphone'
   models:
     - regex: 'TeslaEvo5.0'
@@ -4501,7 +4501,7 @@ Cube:
 
 # CUBOT
 CUBOT:
-  regex: 'CUBOT|(?<!QUMO )QUEST(?!(?:[0-9]|\s[0-9]))(?: LITE)?|(?:NOTE 20 PRO|RAINBOW 2|KING_KONG_3|KINGKONG 5 Pro|ZORRO 001|KINGKONG[_ ]MINI2?|KING KONG CS|R15_PRO)(?:[);/ ]|$)'
+  regex: 'CUBOT|(?<!QUMO )QUEST(?!(?:[0-9]|\s[0-9]))(?: LITE)?|(?:NOTE 20 PRO|RAINBOW 2|KING_KONG_3|KINGKONG 5 Pro|ZORRO 001|KINGKONG[_ ]MINI2?|KING KONG CS|R15_PRO|S550 Pro)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'CHEETAH 2'
@@ -4542,8 +4542,8 @@ CUBOT:
       model: 'Note Plus'
     - regex: 'NOTE 20 PRO'
       model: 'Note 20 Pro'
-    - regex: 'R15_PRO'
-      model: 'R15 Pro'
+    - regex: '(R15|S550)[_ ]PRO'
+      model: '$1 Pro'
     - regex: 'CUBOT[_ ]NOTE[_ ]S'
       model: 'Note S'
     - regex: 'CUBOT_NOVA'
@@ -6335,7 +6335,7 @@ Gigaset:
 
 # Ginzzu
 Ginzzu:
-  regex: 'GINZZU[_ ]|((?:RS(?:7[14]|81|9[67])D)|S5002|(?<!Wave Pro )S5021|S5230|S50[45]0|S5120|RS(6[12]|9[45])D|S40[23]0|RS850[12]|RS9602)(?:[);/ ]|$)'
+  regex: 'GINZZU[_ ]|((?:RS(?:7[14]|81|9[67])D)|S5002|(?<!Wave Pro )S5021|S5230|S50[45]0|S51[24]0|RS(6[12]|9[45])D|S40[23]0|RS850[12]|RS9602)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'GINZZU[_ ]?(S40[17]0|S4710|ST60[14]0|ST6120)'
@@ -6345,7 +6345,7 @@ Ginzzu:
       device: 'tablet'
     - regex: '(RS6[12]D) ULTIMATE'
       model: '$1 Ultimate'
-    - regex: '(?:GINZZU[ _])?((?:RS(?:7[14]|81|9[4-7])D)|S50[45]0|S5002|S5021|S5230|S5120|S40[23]0|RS850[12]|RS9602|RS94D)(?:[);/ ]|$)'
+    - regex: '(?:GINZZU[ _])?((?:RS(?:7[14]|81|9[4-7])D)|S50[45]0|S5002|S5021|S5230|S51[24]0|S40[23]0|RS850[12]|RS9602|RS94D)(?:[);/ ]|$)'
       model: '$1'
 
 # Gionee
@@ -9064,7 +9064,7 @@ LCT:
 
 # Leagoo
 Leagoo:
-  regex: '(?:MY)?LEAGOO[ _-]?|(?:M5 EDGE|KIICAA (POWER|MIX)|Leapad[ _](?:X|7s)|Elite [15]|Venture 1|Z10-E)(?:[);/ ]|$)'
+  regex: '(?:MY)?LEAGOO[ _-]?|(?:Shark 5000|M5 EDGE|KIICAA (POWER|MIX)|Leapad[ _](?:X|7s)|Elite [15]|Venture 1|Z10-E)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'LEAGOO[- _]M8[_-]?Pro(?:[);/ ]|$)'
@@ -9081,6 +9081,8 @@ Leagoo:
       model: 'KICCAA Mix'
     - regex: 'Elite ([15])(?:[);/ ]|$)'
       model: 'Elite $1'
+    - regex: 'Shark 5000(?:[);/ ]|$)'
+      model: 'Shark 5000'
     - regex: 'Venture 1(?:[);/ ]|$)'
       model: 'Venture 1'
     - regex: '(?:LEAGOO[- _])?(Z10-E|M6)(?:[);/ ]|$)'
@@ -15994,7 +15996,7 @@ UTStarcom:
 
 # Ulefone
 Ulefone:
-  regex: 'Ulefone|Gemini Pro|Power_[356]|S10_Pro|(?:Note [89]P|Armor(?:[ _](?:[2367]|2S|X[236]|6[SE]|3WT|3W|X))?|U00[78][ _]Pro|Be[ _]X|Be[ _]Touch(?:[ _][23])?|Be[ _](?:One|Pure)(?:[ _]Lite)?)(?:[);/ ]|$)'
+  regex: 'Ulefone|Gemini Pro|Power_[356]|S10_Pro|(?:Note [89]P|Armor(?:[ _](?:[2367]|2S|X[236]|6[SE]|3WT|3W|X))?|U00[78][ _]Pro|Be[ _]X|Be[ _]Touch(?:[ _][23])?|Be[ _](?:One|Pure)(?:[ _]Lite)?|Note 11P)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'S10_Pro'
@@ -16045,9 +16047,9 @@ Ulefone:
       model: 'Power $1'
     - regex: 'Note 8P(?:[);/ ]|$)'
       model: 'Note 8P'
-    - regex: 'Note 9P(?:[);/ ]|$)'
+    - regex: 'Note (9|11)P(?:[);/ ]|$)'
       device: 'phablet'
-      model: 'Note 9P'
+      model: 'Note $1P'
 
     - regex: 'Ulefone[_ ](X|S1[ _]Pro|S[17])(?:[);/ ]|$)'
       model: '$1'
@@ -22873,3 +22875,11 @@ Smotreshka:
   regex: 'Smotreshka Box (115NA|413NA|213a?)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
+
+# Gooweel (gooweel.com)
+Gooweel:
+  regex: 'Gooweel'
+  device: 'smartphone'
+  models:
+    - regex: 'Gooweel; (S7);'
+      model: '$1'
