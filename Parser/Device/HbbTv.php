@@ -38,8 +38,8 @@ class HbbTv extends AbstractDeviceParser
      */
     public function parse(): ?array
     {
-        // only parse user agents containing hbbtv fragment
-        if (null === $this->isHbbTv()) {
+        // only parse user agents containing fragments: hbbtv, shell
+        if (null === $this->isHbbTv() && false === $this->isShellTv()) {
             return null;
         }
 
@@ -49,6 +49,20 @@ class HbbTv extends AbstractDeviceParser
         $this->deviceType = self::DEVICE_TYPE_TV;
 
         return $this->getResult();
+    }
+
+    /**
+     * Returns if the parsed UA was identified as Shell Tv device
+     *
+     * @return bool
+     * @throws \Exception
+     */
+    public function isShellTv(): bool
+    {
+        $regex = '[a-z]+[ _]Shell[ _]\w{6}';
+        $match = $this->matchUserAgent($regex);
+
+        return $match !== null;
     }
 
     /**
