@@ -1222,29 +1222,41 @@ abstract class AbstractDeviceParser extends AbstractParser
         parent::setUserAgent($userAgent);
     }
 
+    /**
+     * @return array|null
+     */
     public function parseAllMatch(): ?array
     {
         return $this->parsers(true);
     }
 
-    private function parseForBrand(string $brand): array
+    /**
+     * @param string $brand
+     * @return bool
+     */
+    public function hasBrand(string $brand): bool
     {
-        $deviceType = null;
-        $model      = '';
-        $regex      = $this->getRegexes()[$brand] ?? null;
+       return \in_array($brand, self::$deviceBrands, false);
+    }
 
-        if (null === $regex) {
-            return [];
-        }
+    /**
+     * @param string $deviceType
+     * @return bool
+     */
+    public function hasDeviceType(string $deviceType): bool
+    {
+        return \array_key_exists($deviceType, self::$deviceTypes);
+    }
 
-        $matches = $this->matchUserAgent($regex['regex']);
-        if (!$matches) {
-            return [];
-        }
-
+    /**
+     * This Exception should never be thrown. If so a defined brand name is missing in $deviceBrands
+     * @param string $brand
+     * @throws \Exception
+     */
+    private function shouldExistBrandOrException(string $brand): void
+    {
         if ('Unknown' !== $brand) {
-            if (!\in_array($brand, self::$deviceBrands, false)) {
-                // This Exception should never be thrown. If so a defined brand name is missing in $deviceBrands
+            if (!$this->hasBrand($brand)) {
                 throw new \Exception(\sprintf(
                     "The brand with name '%s' should be listed in deviceBrands array. Tried to parse user agent: %s",
                     $brand,
@@ -1252,10 +1264,39 @@ abstract class AbstractDeviceParser extends AbstractParser
                 )); // @codeCoverageIgnore
             }
         }
+    }
 
-        if (isset($regex['device']) && \array_key_exists($regex['device'], self::$deviceTypes)) {
+    /**
+     * @param string $brand
+     * @return array
+     * @throws \Exception
+     */
+    private function parseForBrand(string $brand): array
+    {
+        $deviceType = null;
+        $brand      = (string)$brand;
+        $regex      = $this->regexList[$brand] ?? null;
+
+        if (null === $regex) {
+            return [];
+        }
+
+        $matches = $this->matchUserAgent($regex['regex']);
+
+        if (empty($matches)) {
+            return [];
+        }
+
+        $this->shouldExistBrandOrException($brand);
+
+        if('Unknown' === $brand) {
+            $brand = '';
+        }
+
+        if (isset($regex['device']) && $this->hasDeviceType($regex['device'])) {
             $deviceType = self::$deviceTypes[$regex['device']];
         }
+        $model  = '';
 
         if (isset($regex['model'])) {
             $model = $this->buildModel($regex['model'], $matches);
@@ -1265,67 +1306,77 @@ abstract class AbstractDeviceParser extends AbstractParser
             $modelRegex = '';
             foreach ($regex['models'] as $modelRegex) {
                 $modelMatches = $this->matchUserAgent($modelRegex['regex']);
+
                 if ($modelMatches) {
                     break;
                 }
             }
 
-            if (!empty($modelMatches)) {
-                $model = $this->buildModel($modelRegex['model'], $modelMatches);
-                if (isset($modelRegex['brand']) && \in_array($modelRegex['brand'], self::$deviceBrands)) {
-                    $brand = (string) $modelRegex['brand'];
-                }
-                if (isset($modelRegex['device']) && \array_key_exists($modelRegex['device'], self::$deviceTypes)) {
-                    $deviceType = self::$deviceTypes[$modelRegex['device']];
-                }
+            if (empty($modelMatches)) {
+                return compact('deviceType', 'model', 'brand');
+            }
+
+            $model = $this->buildModel($modelRegex['model'], $modelMatches);
+
+            if (isset($modelRegex['brand']) && $this->hasBrand($modelRegex['brand'])) {
+                $brand = (string) $modelRegex['brand'];
+            }
+
+            if (isset($modelRegex['device']) && $this->hasDeviceType($modelRegex['device'])) {
+                $deviceType = self::$deviceTypes[$modelRegex['device']];
             }
         }
 
         return compact('deviceType', 'model', 'brand');
     }
 
-    private function parsers(bool $all = false): array
+    /**
+     * @param bool $resultAll
+     * @return array
+     * @throws \Exception
+     */
+    private function parsers(bool $resultAll = false): array
     {
-        $output = [];
-        $deviceIndexesHash = [];
         static $aliasDevice;
         if (!($aliasDevice instanceof AliasDevice)) {
             $aliasDevice = new AliasDevice();
             $aliasDevice->brandReplace = false;
         }
 
-        try {
-            // parse for hash device indexes
-            $aliasDevice->setUserAgent($this->userAgent);
-            $deviceCode = $aliasDevice->parse();
+        $regexes           = $this->getRegexes();
+        $output            = [];
+        $deviceIndexesHash = [];
+
+        // parse for hash device indexes
+        $aliasDevice->setUserAgent($this->userAgent);
+        $deviceCode = $aliasDevice->parse()['name'] ?? null;
+
+        if($deviceCode !== null) {
             $hashBrands = $deviceIndexesHash[$deviceCode] ?? [];
-            if ($hashBrands !== []) {
+            if (count($hashBrands)) {
                 foreach ($hashBrands as $brand) {
-                    $result = $this->parseForBrand($brand);
-                    if ($result !== []) {
-                        $output[] = $result;
-                        if (!$all) {
-                            break;
-                        }
+                    $result = $this->parseForBrand((string)$brand);
+
+                    if (!count($output)) {
+                        continue;
                     }
+                    $output[] = $result;
+                    if (!$resultAll) break;
+
                 }
             }
+        }
 
-            // default
-            if ($output === []) {
-                foreach ($this->getRegexes() as $brand => $regex) {
-                    $result = $this->parseForBrand($brand);
-                    if ($result !== []) {
-                        $output[] = $result;
-                        if (!$all) {
-                            break;
-                        }
-                    }
+        // default
+        if (!count($output)) {
+            foreach ($regexes as $brand => $regex) {
+                $result = $this->parseForBrand((string)$brand);
+                if (!count($result)) {
+                    continue;
                 }
+                $output[] = $result;
+                if (!$resultAll) break;
             }
-
-        } catch (\Throwable $exception) {
-            $output = [];
         }
 
         return $output;
@@ -1337,15 +1388,17 @@ abstract class AbstractDeviceParser extends AbstractParser
      */
     public function parse(): ?array
     {
-        $results = $this->parsers(false);
-        if ($results !== []) {
-            [$deviceType, $model, $brand] = $results[0];
-            $this->deviceType = $deviceType;
-            $this->model = $model;
-            $this->brand = $brand;
+        $result = $this->parsers(false);
+
+        if (count($result)) {
+            $this->deviceType = $result[0]['deviceType'] ?? null;
+            $this->model = $result[0]['model'] ?? '';
+            $this->brand =  $result[0]['brand'] ?? '';
+
+            return $this->getResult();
         }
 
-        return $this->getResult();
+       return null;
     }
 
     /**
