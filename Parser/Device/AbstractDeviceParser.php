@@ -1224,10 +1224,11 @@ abstract class AbstractDeviceParser extends AbstractParser
 
     /**
      * @return array|null
+     * @throws \Exception
      */
     public function parseAllMatch(): ?array
     {
-        return $this->parsers(true);
+        return $this->parseResult(true);
     }
 
     /**
@@ -1268,13 +1269,57 @@ abstract class AbstractDeviceParser extends AbstractParser
         return null;
     }
 
+
+    /**
+     * @param string $model
+     * @param array  $matches
+     *
+     * @return string
+     */
+    protected function buildModel(string $model, array $matches): string
+    {
+        $model = $this->buildByMatch($model, $matches);
+
+        $model = \str_replace('_', ' ', $model);
+
+        $model = \preg_replace('/ TD$/i', '', $model);
+
+        if ('Build' === $model || empty($model)) {
+            return '';
+        }
+
+        return \trim($model);
+    }
+
+    /**
+     * Resets the stored values
+     */
+    protected function reset(): void
+    {
+        $this->deviceType = null;
+        $this->model      = '';
+        $this->brand      = '';
+    }
+
+    /**
+     * @return array
+     */
+    protected function getResult(): array
+    {
+        return [
+            'deviceType' => $this->deviceType,
+            'model'      => $this->model,
+            'brand'      => $this->brand,
+        ];
+    }
+
     /**
      * This Exception should never be thrown. If so a defined brand name is missing in $deviceBrands
      * @param string $brand
      *
      * @throws \Exception
      */
-    private function shouldExistBrandOrException(string $brand): void
+    protected function shouldExistBrandOrException(string $brand): void
     {
         if ('Unknown' === $brand) {
             return;
@@ -1296,7 +1341,7 @@ abstract class AbstractDeviceParser extends AbstractParser
      *
      * @throws \Exception
      */
-    private function parseForBrand(string $brand): array
+    protected function parseForBrand(string $brand): array
     {
         $deviceType = null;
         $brand      = (string) $brand;
@@ -1360,7 +1405,7 @@ abstract class AbstractDeviceParser extends AbstractParser
     /**
      * @return AliasDevice
      */
-    private function getDeviceAlias(): AliasDevice
+    protected function getDeviceAlias(): AliasDevice
     {
         static $aliasDevice;
 
@@ -1375,7 +1420,7 @@ abstract class AbstractDeviceParser extends AbstractParser
     /**
      * @return array
      */
-    private function getDeviceIndexesHash(): array
+    protected function getDeviceIndexesHash(): array
     {
         static $deviceIndexesHash;
 
@@ -1399,7 +1444,7 @@ abstract class AbstractDeviceParser extends AbstractParser
      *
      * @throws \Exception
      */
-    private function parsers(bool $resultAll = false): array
+    protected function parseResult(bool $resultAll = false): array
     {
         $aliasDevice = $this->getDeviceAlias();
         $regexes     = $this->getRegexes();
@@ -1447,50 +1492,5 @@ abstract class AbstractDeviceParser extends AbstractParser
         }
 
         return $output;
-    }
-
-
-
-    /**
-     * @param string $model
-     * @param array  $matches
-     *
-     * @return string
-     */
-    protected function buildModel(string $model, array $matches): string
-    {
-        $model = $this->buildByMatch($model, $matches);
-
-        $model = \str_replace('_', ' ', $model);
-
-        $model = \preg_replace('/ TD$/i', '', $model);
-
-        if ('Build' === $model || empty($model)) {
-            return '';
-        }
-
-        return \trim($model);
-    }
-
-    /**
-     * Resets the stored values
-     */
-    protected function reset(): void
-    {
-        $this->deviceType = null;
-        $this->model      = '';
-        $this->brand      = '';
-    }
-
-    /**
-     * @return array
-     */
-    protected function getResult(): array
-    {
-        return [
-            'deviceType' => $this->deviceType,
-            'model'      => $this->model,
-            'brand'      => $this->brand,
-        ];
     }
 }
