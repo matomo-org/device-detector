@@ -1224,6 +1224,7 @@ abstract class AbstractDeviceParser extends AbstractParser
 
     /**
      * @return array|null
+     *
      * @throws \Exception
      */
     public function parseAllMatch(): ?array
@@ -1268,7 +1269,6 @@ abstract class AbstractDeviceParser extends AbstractParser
 
         return null;
     }
-
 
     /**
      * @param string $model
