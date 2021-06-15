@@ -15,6 +15,7 @@ namespace DeviceDetector;
 use DeviceDetector\Cache\CacheInterface;
 use DeviceDetector\Cache\StaticCache;
 use DeviceDetector\Parser\AbstractBotParser;
+use DeviceDetector\Parser\AliasDevice;
 use DeviceDetector\Parser\Bot;
 use DeviceDetector\Parser\Client\AbstractClientParser;
 use DeviceDetector\Parser\Client\Browser;
@@ -146,6 +147,16 @@ class DeviceDetector
      * @var bool
      */
     protected $skipBotDetection = false;
+
+    /**
+     * @var bool
+     */
+    protected $discardDeviceIndexes = false;
+
+    /**
+     * @var string|null
+     */
+    protected $fileIndexesDevice;
 
     /**
      * Holds the cache class used for caching the parsed yml-Files
@@ -299,6 +310,54 @@ class DeviceDetector
     }
 
     /**
+     * Parser for getting device code from useragent string as is
+     *
+     * @return AliasDevice
+     */
+    public function getDeviceAliasParser(): AliasDevice
+    {
+        static $aliasDevice;
+
+        if (!($aliasDevice instanceof AliasDevice)) {
+            $aliasDevice               = new AliasDevice();
+            $aliasDevice->brandReplace = false;
+        }
+
+        return $aliasDevice;
+    }
+
+    /**
+     * finds an array of brands by combination device code
+     *
+     * @param string $deviceCode
+     *
+     * @return array
+     */
+    public function getBrandsByDeviceCode(string $deviceCode = ''): array
+    {
+        if ('' === $deviceCode) {
+            return [];
+        }
+
+        static $deviceIndexesHash;
+
+        if (!$deviceIndexesHash) {
+            $deviceIndexesHash = [];
+            $path              = __DIR__ . '/regexes/device-index-hash.yml';
+
+            if (null !== $this->fileIndexesDevice) {
+                $path = $this->fileIndexesDevice;
+            }
+
+            if (\is_file($path)) {
+                $deviceIndexesHash = $this->getYamlParser()->parseFile($path);
+            }
+        }
+
+        return $deviceIndexesHash[$deviceCode] ?? [];
+    }
+
+    /**
      * Sets whether to discard additional bot information
      * If information is discarded it's only possible check whether UA was detected as bot or not.
      * (Discarding information speeds up the detection a bit)
@@ -308,6 +367,15 @@ class DeviceDetector
     public function discardBotInformation(bool $discard = true): void
     {
         $this->discardBotInformation = $discard;
+    }
+
+    /**
+     *
+     * @param bool $discard
+     */
+    public function discardDeviceIndexes(bool $discard = true): void
+    {
+        $this->discardDeviceIndexes = $discard;
     }
 
     /**
@@ -822,12 +890,26 @@ class DeviceDetector
      */
     protected function parseDevice(): void
     {
+        $brandIndexes = [];
+
+        if (!$this->discardDeviceIndexes) {
+            $aliasDevice = $this->getDeviceAliasParser();
+            // parse for hash device indexes
+            $aliasDevice->setUserAgent($this->getUserAgent());
+            $deviceCode = $aliasDevice->parse()['name'] ?? null;
+
+            if (null !== $deviceCode) {
+                $brandIndexes = $this->getBrandsByDeviceCode($deviceCode);
+            }
+        }
+
         $parsers = $this->getDeviceParsers();
 
         foreach ($parsers as $parser) {
             $parser->setYamlParser($this->getYamlParser());
             $parser->setCache($this->getCache());
             $parser->setUserAgent($this->getUserAgent());
+            $parser->setBrandIndexes($brandIndexes);
 
             if ($parser->parse()) {
                 $this->device = $parser->getDeviceType();

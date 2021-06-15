@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace DeviceDetector\Parser\Device;
 
 use DeviceDetector\Parser\AbstractParser;
-use DeviceDetector\Parser\AliasDevice;
 
 /**
  * Class AbstractDeviceParser
@@ -36,6 +35,11 @@ abstract class AbstractDeviceParser extends AbstractParser
      * @var string
      */
     protected $brand = '';
+
+    /**
+     * @var array
+     */
+    protected $brandIndexes = [];
 
     public const DEVICE_TYPE_DESKTOP              = 0;
     public const DEVICE_TYPE_SMARTPHONE           = 1;
@@ -1296,9 +1300,10 @@ abstract class AbstractDeviceParser extends AbstractParser
      */
     protected function reset(): void
     {
-        $this->deviceType = null;
-        $this->model      = '';
-        $this->brand      = '';
+        $this->brandIndexes = [];
+        $this->deviceType   = null;
+        $this->model        = '';
+        $this->brand        = '';
     }
 
     /**
@@ -1344,7 +1349,6 @@ abstract class AbstractDeviceParser extends AbstractParser
     protected function parseForBrand(string $brand): array
     {
         $deviceType = null;
-        $brand      = (string) $brand;
         $regex      = $this->regexList[$brand] ?? null;
 
         if (null === $regex) {
@@ -1403,38 +1407,11 @@ abstract class AbstractDeviceParser extends AbstractParser
     }
 
     /**
-     * @return AliasDevice
+     * @param array $brandIndexes
      */
-    protected function getDeviceAlias(): AliasDevice
+    public function setBrandIndexes(array $brandIndexes): void
     {
-        static $aliasDevice;
-
-        if (!($aliasDevice instanceof AliasDevice)) {
-            $aliasDevice               = new AliasDevice();
-            $aliasDevice->brandReplace = false;
-        }
-
-        return $aliasDevice;
-    }
-
-    /**
-     * @return array
-     */
-    protected function getDeviceIndexesHash(): array
-    {
-        static $deviceIndexesHash;
-
-        if (!$deviceIndexesHash) {
-            $deviceIndexesHash = [];
-            $path              = $this->getRegexesDirectory()
-                . DIRECTORY_SEPARATOR
-                . 'regexes'
-                . DIRECTORY_SEPARATOR
-                . 'device-index-hash.yml';
-            $deviceIndexesHash = $this->getYamlParser()->parseFile($path);
-        }
-
-        return $deviceIndexesHash;
+        $this->brandIndexes = $brandIndexes;
     }
 
     /**
@@ -1446,31 +1423,20 @@ abstract class AbstractDeviceParser extends AbstractParser
      */
     protected function parseResult(bool $resultAll = false): array
     {
-        $aliasDevice = $this->getDeviceAlias();
-        $regexes     = $this->getRegexes();
-        $output      = [];
+        $regexes = $this->getRegexes();
+        $output  = [];
 
-        // parse for hash device indexes
-        $aliasDevice->setUserAgent($this->userAgent);
-        $deviceCode = $aliasDevice->parse()['name'] ?? null;
+        foreach ($this->brandIndexes as $brand) {
+            $result = $this->parseForBrand((string) $brand);
 
-        if (null !== $deviceCode) {
-            $hashBrands = $this->getDeviceIndexesHash()[$deviceCode] ?? [];
+            if (!\count($result)) {
+                continue;
+            }
 
-            if (\count($hashBrands)) {
-                foreach ($hashBrands as $brand) {
-                    $result = $this->parseForBrand((string) $brand);
+            $output[] = $result;
 
-                    if (!\count($result)) {
-                        continue;
-                    }
-
-                    $output[] = $result;
-
-                    if (!$resultAll) {
-                        break;
-                    }
-                }
+            if (!$resultAll) {
+                break;
             }
         }
 
