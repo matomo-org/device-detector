@@ -1227,6 +1227,14 @@ abstract class AbstractDeviceParser extends AbstractParser
     }
 
     /**
+     * @param array $brandIndexes
+     */
+    public function setBrandIndexes(array $brandIndexes): void
+    {
+        $this->brandIndexes = $brandIndexes;
+    }
+
+    /**
      * @return array|null
      *
      * @throws \Exception
@@ -1404,14 +1412,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         }
 
         return \compact('deviceType', 'model', 'brand');
-    }
-
-    /**
-     * @param array $brandIndexes
-     */
-    public function setBrandIndexes(array $brandIndexes): void
-    {
-        $this->brandIndexes = $brandIndexes;
     }
 
     /**
