@@ -1257,7 +1257,7 @@ abstract class AbstractDeviceParser extends AbstractParser
      */
     public function parse(): ?array
     {
-        $result = $this->parsers(false);
+        $result = $this->parseResult(false);
 
         if (\count($result)) {
             $this->deviceType = $result[0]['deviceType'] ?? null;
