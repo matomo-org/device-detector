@@ -46,6 +46,12 @@ foreach ($fixtureFiles as $fixtureFile) {
             continue;
         }
 
+        $deviceCode = (string) $deviceCode;
+
+        if (is_numeric($deviceCode)) {
+            $deviceCode = "'{$deviceCode}'";
+        }
+
         foreach ($deviceDetector->getDeviceParsers() as $parser) {
             $parser->setUserAgent($useragent);
             $results = $parser->parseAllMatch();
