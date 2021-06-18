@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-namespace DeviceDetector\Tests\Parser\Devices;
+namespace DeviceDetector\Tests\Parser\Device;
 
 use DeviceDetector\Parser\Device\HbbTv;
 use PHPUnit\Framework\TestCase;
@@ -22,11 +22,5 @@ class HbbTvTest extends TestCase
         $hbbTvParser = new HbbTv();
         $hbbTvParser->setUserAgent('Opera/9.80 (Linux mips ; U; HbbTV/1.1.1 (; Philips; ; ; ; ) CE-HTML/1.0 NETTV/3.2.1; en) Presto/2.6.33 Version/10.70');
         $this->assertEquals($hbbTvParser->isHbbTv(), '1.1.1');
-
-
-        $hbbTvParser->setUserAgent('Leff Shell LC390TA2A');
-        $this->assertEquals($hbbTvParser->isShellTv(), true);
-        $hbbTvParser->setUserAgent('Leff Shell');
-        $this->assertEquals($hbbTvParser->isShellTv(), false);
     }
 }
