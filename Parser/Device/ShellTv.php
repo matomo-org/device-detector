@@ -14,7 +14,6 @@ namespace DeviceDetector\Parser\Device;
 
 /**
  * Class ShellTv
- * @package DeviceDetector\Parser\Device
  */
 class ShellTv extends AbstractDeviceParser
 {
