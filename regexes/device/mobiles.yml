@@ -948,16 +948,16 @@ Apple:
     - regex: '(?:Apple-|.+_)?iPad6[C,_](?:11|12)'
       model: 'iPad 5 9.7'
       device: 'tablet'
-    - regex: '(?:Apple-|.+_)?iPad7[C,_][12]'
+    - regex: '(?:Apple-|.+_)?iPad7[C,_][12](?:[);/ ]|$)'
       model: 'iPad Pro 2 12.9'
       device: 'tablet'
-    - regex: '(?:Apple-|.+_)?iPad7[C,_][34]'
+    - regex: '(?:Apple-|.+_)?iPad7[C,_][34](?:[);/ ]|$)'
       model: 'iPad Pro 10.5'
       device: 'tablet'
-    - regex: '(?:Apple-|.+_)?iPad7[C,_][56]'
+    - regex: '(?:Apple-|.+_)?iPad7[C,_][56](?:[);/ ]|$)'
       model: 'iPad 6 9.7'
       device: 'tablet'
-    - regex: '(?:Apple-|.+_)?iPad7[C,_](?:11|12)'
+    - regex: '(?:Apple-|.+_)?iPad7[C,_](?:11|12)(?:[);/ ]|$)'
       model: 'iPad 7 10.2'
       device: 'tablet'
     - regex: '(?:Apple-|.+_)?iPad8[C,_](?:9|10)'
@@ -2214,9 +2214,7 @@ Archos:
     - regex: 'Archos ((?:[789]|10)[0-9]?[a-z]* ?(?:G9|G10|Helium|Titanium|Cobalt|Platinum|Xenon|Carbon|Neon|XS|IT)[^/;]*) Build'
       device: 'tablet'
       model: '$1'
-    - regex: '(?:YL-)?Archos ([a-z0-9 ]+) Build'
-      model: '$1'
-    - regex: '(?:YL-)?Archos ([a-z0-9]+)'
+    - regex: '(?:YL-)?Archos ([^/);]+)(?: Build|[;)])'
       model: '$1'
 
 # Axxion
@@ -8954,9 +8952,9 @@ Lava:
       device: 'tablet'
       model: 'Ivory $1'
     # explicit general
-    - regex: 'iris[ _]?([^/;]+)(?:\)| Build)'
+    - regex: 'iris[ _]?([^/;)]+)(?: Build|[);])'
       model: 'Iris $1'
-    - regex: 'Lava[ _]?([^/;]+)(?:/| Build)'
+    - regex: 'Lava[ _]?([^/;)]+)(?: Build|[);])'
       model: '$1'
 
 # SKG (skgmobile.net | skgmobile.com)
