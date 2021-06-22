@@ -496,6 +496,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'I8' => 'iVA',
         'IE' => 'iView',
         '0J' => 'iVooMi',
+        'UI' => 'ivvi',
         'I9' => 'iZotron',
         'JA' => 'JAY-Tech',
         'KJ' => 'Jiake',
