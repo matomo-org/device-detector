@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-namespace DeviceDetector\Tests\Parser\Devices;
+namespace DeviceDetector\Tests\Parser\Device;
 
 use DeviceDetector\Parser\Device\AbstractDeviceParser;
 use PHPUnit\Framework\TestCase;
