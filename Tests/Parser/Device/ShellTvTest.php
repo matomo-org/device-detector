@@ -17,7 +17,7 @@ use PHPUnit\Framework\TestCase;
 
 class ShellTvTest extends TestCase
 {
-    public function testIsHbbTv(): void
+    public function testIsShellTv(): void
     {
         $dd = new ShellTv();
         $dd->setUserAgent('Leff Shell LC390TA2A');
