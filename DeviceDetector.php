@@ -31,6 +31,7 @@ use DeviceDetector\Parser\Device\HbbTv;
 use DeviceDetector\Parser\Device\Mobile;
 use DeviceDetector\Parser\Device\Notebook;
 use DeviceDetector\Parser\Device\PortableMediaPlayer;
+use DeviceDetector\Parser\Device\ShellTv;
 use DeviceDetector\Parser\OperatingSystem;
 use DeviceDetector\Parser\VendorFragment;
 use DeviceDetector\Yaml\ParserInterface as YamlParser;
@@ -67,7 +68,7 @@ class DeviceDetector
     /**
      * Current version number of DeviceDetector
      */
-    public const VERSION = '4.2.2';
+    public const VERSION = '4.2.3';
 
     /**
      * Constant used as value for unknown browser / os
@@ -198,6 +199,7 @@ class DeviceDetector
         $this->addClientParser(new Library());
 
         $this->addDeviceParser(new HbbTv());
+        $this->addDeviceParser(new ShellTv());
         $this->addDeviceParser(new Notebook());
         $this->addDeviceParser(new Console());
         $this->addDeviceParser(new CarBrowser());
