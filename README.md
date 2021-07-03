@@ -237,6 +237,7 @@ There are already a few ports of this tool to other languages:
 - **Crystal** https://github.com/creadone/device_detector
 - **Elixir** https://github.com/elixir-inspector/ua_inspector
 - **Java** https://github.com/mngsk/device-detector
+- **Statamic** https://github.com/travisrobie/statamic-device-detector
 
 
 ## What Device Detector is able to detect
