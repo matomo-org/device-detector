@@ -196,6 +196,29 @@ class OperatingSystem extends AbstractParser
     }
 
     /**
+     * Returns the os name and shot name
+     *
+     * @param string $name
+     *
+     * @return array
+     */
+    public static function getShortOsData(string $name): array
+    {
+        $short = 'UNK';
+
+        foreach (self::$operatingSystems as $osShort => $osName) {
+            if (\strtolower($name) !== \strtolower($osName)) {
+                continue;
+            }
+
+            $name  = $osName;
+            $short = $osShort;
+        }
+
+        return \compact('short', 'name');
+    }
+
+    /**
      * @inheritdoc
      */
     public function parse(): ?array
@@ -214,22 +237,35 @@ class OperatingSystem extends AbstractParser
             return $return;
         }
 
-        $name  = $this->buildByMatch($osRegex['name'], $matches);
-        $short = 'UNK';
+        $name                                = $this->buildByMatch($osRegex['name'], $matches);
+        ['name' => $name, 'short' => $short] = self::getShortOsData($name);
 
-        foreach (self::$operatingSystems as $osShort => $osName) {
-            if (\strtolower($name) !== \strtolower($osName)) {
+        $version = $this->buildVersion((string) $osRegex['version'], $matches);
+        $regexs  = $osRegex['regexs'] ?? [];
+
+        foreach ($regexs as $regex) {
+            $matches = $this->matchUserAgent($regex['regex']);
+
+            if (!$matches) {
                 continue;
             }
 
-            $name  = $osName;
-            $short = $osShort;
+            if (\array_key_exists('name', $regex)) {
+                $name                                = $this->buildByMatch($regex['name'], $matches);
+                ['name' => $name, 'short' => $short] = self::getShortOsData($name);
+            }
+
+            if (\array_key_exists('version', $regex)) {
+                $version = $this->buildVersion((string) $regex['version'], $matches);
+            }
+
+            break;
         }
 
         $return = [
             'name'       => $name,
             'short_name' => $short,
-            'version'    => $this->buildVersion((string) $osRegex['version'], $matches),
+            'version'    => $version,
             'platform'   => $this->parsePlatform(),
         ];
 
@@ -282,6 +318,8 @@ class OperatingSystem extends AbstractParser
     }
 
     /**
+     * Parse current UserAgent string for the operating system platform
+     *
      * @return string
      */
     protected function parsePlatform(): string
