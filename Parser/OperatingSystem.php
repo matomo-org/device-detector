@@ -213,6 +213,8 @@ class OperatingSystem extends AbstractParser
 
             $name  = $osName;
             $short = $osShort;
+
+            break;
         }
 
         return \compact('short', 'name');
