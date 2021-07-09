@@ -1467,11 +1467,15 @@ Advance:
     - regex: 'Hollogram ([^;/)]+)(?: Build|[;)])'
       model: 'Hollogram $1'
 
-# AGM
+# AGM (agm.tel)
 AGM:
   regex: 'AGM ([^/;)]+)(?: Build|[;)])'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'AGM A9(?:[);/ ]|$)'
+      model: 'A9'
+    - regex: 'AGM ([^/;)]+)(?: Build|[;)])'
+      model: '$1'
 
 # Airness
 Airness:
@@ -7866,7 +7870,7 @@ LYF:
 
 # Lumus
 Lumus:
-  regex: '(?:NEO(SR620|SC600)|INNOSR545|Lumus[_ ]Ion)(?:[);/ ]|$)'
+  regex: '(?:NEO(SR620|SC600)|INNOSR545|Lumus[_ ]Ion|AEONSR570)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -7876,6 +7880,8 @@ Lumus:
       model: 'INNO $1'
     - regex: 'Lumus[_ ]Ion(?:[);/ ]|$)'
       model: 'Ion'
+    - regex: 'AEON(SR570)(?:[);/ ]|$)'
+      model: 'AEON $1'
 # M4tel
 M4tel:
   regex: 'M4 SS[0-9]{4}(?:-R)?|M4_B[23]'
@@ -9259,6 +9265,14 @@ Lenco:
   regex: 'Lenco ([^/;]*) Build'
   device: 'tablet'
   model: '$1'
+
+# Aligator
+Aligator:
+  regex: 'ALIGATOR[_ ]'
+  device: 'smartphone'
+  models:
+    - regex: 'ALIGATOR[ _](S4080|S50(?:6[56]|[678]0)|S5540|RX510|S6[05]00|RX710|RX800|S5520)(?:[);/ ]|$)'
+      model: '$1'
 
 # lenovo (lenovo.com)
 Lenovo:
@@ -19677,14 +19691,6 @@ RugGear:
   device: 'smartphone'
   models:
     - regex: '(RG[0-9]+)(?:[);/ ]|$)'
-      model: '$1'
-
-# Aligator
-Aligator:
-  regex: 'ALIGATOR[_ ]'
-  device: 'smartphone'
-  models:
-    - regex: 'ALIGATOR[ _](S4080|S50(?:6[56]|[678]0)|S5540|RX510|S6500|RX710|RX800|S5520)(?:[);/ ]|$)'
       model: '$1'
 
 # Maxcom
