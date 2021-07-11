@@ -126,6 +126,7 @@ class Browser extends AbstractClientParser
         'DI' => 'Dillo',
         'DD' => 'DuckDuckGo Privacy Browser',
         'EC' => 'Ecosia',
+        'EW' => 'Edge WebView',
         'EI' => 'Epic',
         'EL' => 'Elinks',
         'EB' => 'Element Browser',
@@ -390,7 +391,7 @@ class Browser extends AbstractClientParser
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
             'SS', 'O2', 'SV', 'TR', 'CW', 'GI', 'VE', 'AC', 'FS',
             'CG', 'DR', 'C4', 'HS', 'DA', 'C5', 'C6', 'DG', 'HE',
-            'H2', 'MA', 'MD',
+            'H2', 'MA', 'MD', 'EW',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
