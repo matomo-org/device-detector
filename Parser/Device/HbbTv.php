@@ -38,7 +38,7 @@ class HbbTv extends AbstractDeviceParser
      */
     public function parse(): ?array
     {
-        // only parse user agents containing hbbtv fragment
+        // only parse user agents containing fragments: hbbtv
         if (null === $this->isHbbTv()) {
             return null;
         }
