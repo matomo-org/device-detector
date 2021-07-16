@@ -131,6 +131,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '3N' => 'Aoson',
         'O8' => 'AOC',
         'J2' => 'AOYODKG',
+        '55' => 'AOpen',
         'AP' => 'Apple',
         'AR' => 'Archos',
         'AB' => 'Arian Space',
