@@ -258,6 +258,7 @@ class Browser extends AbstractClientParser
         'O0' => 'Origin In-Game Overlay',
         'OY' => 'Origyn Web Browser',
         'OV' => 'Openwave Mobile Browser',
+        'O3' => 'OpenFin',
         'OW' => 'OmniWeb',
         'OT' => 'Otter Browser',
         'PL' => 'Palm Blazer',
@@ -391,7 +392,7 @@ class Browser extends AbstractClientParser
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
             'SS', 'O2', 'SV', 'TR', 'CW', 'GI', 'VE', 'AC', 'FS',
             'CG', 'DR', 'C4', 'HS', 'DA', 'C5', 'C6', 'DG', 'HE',
-            'H2', 'MA', 'MD', 'EW',
+            'H2', 'MA', 'MD', 'O3', 'EW',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
