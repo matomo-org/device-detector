@@ -12,6 +12,20 @@
   engine:
     default: 'Blink'
 
+# Arvin (https://play.google.com/store/apps/details?id=com.browser.arvin.anti.blokir&hl=sv&gl=US)
+- regex: 'Arvin/(\d+[\.\d]+)'
+  name: 'Arvin'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# Edge Webview (https://docs.microsoft.com/en-us/microsoft-edge/webview2/)
+- regex: 'Version/.+Chrome/.+EdgW/(\d+[\.\d]+)'
+  name: 'Edge WebView'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+
 # Mandarin (https://mandarin-browser.com/)
 - regex: 'Mandarin Browser/(\d+[\.\d]+)'
   name: 'Mandarin'
@@ -1708,6 +1722,21 @@
   engine:
     default: 'WebKit'
 
+- regex: 'OpenFin/(?:(\d+[\.\d]+))'
+  name: 'OpenFin'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# SuperBird
+- regex: 'SuperBird(?:/(\d+[\.\d]+))?'
+  name: 'SuperBird'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+    versions:
+      28: 'Blink'
+
 # Chrome Webview
 - regex: 'Version/.* Chrome(?:/(\d+[\.\d]+))?'
   name: 'Chrome Webview'
@@ -1766,6 +1795,13 @@
 - regex: '(?:Tizen|SLP) Browser(?:/(\d+[\.\d]+))?'
   name: 'Tizen Browser'
   version: '$1'
+- regex: 'Tizen (?:\d+[\.\d]+).+ Version/(\d+[\.\d]+) (?:TV|Mobile)'
+  name: 'Tizen Browser'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+    versions:
+      '4': 'Blink'
 
 #Palm Blazer
 - regex: 'Blazer(?:/(\d+[\.\d]+))?'
@@ -2114,11 +2150,6 @@
 #Sunrise
 - regex: 'Sunrise(?:Browser)?(?:/(\d+[\.\d]+))?'
   name: 'Sunrise'
-  version: '$1'
-
-#SuperBird
-- regex: 'SuperBird(?:/(\d+[\.\d]+))?'
-  name: 'SuperBird'
   version: '$1'
 
 #Vision Mobile Browser
