@@ -69,6 +69,7 @@ class OperatingSystem extends AbstractParser
         'GTV' => 'Google TV',
         'HPX' => 'HP-UX',
         'HAI' => 'Haiku OS',
+        'IPA' => 'iPadOS',
         'HAS' => 'HasCodingOS',
         'IRI' => 'IRIX',
         'INF' => 'Inferno',
@@ -154,7 +155,7 @@ class OperatingSystem extends AbstractParser
         'Gaming Console'        => ['WII', 'PS3'],
         'Google TV'             => ['GTV'],
         'IBM'                   => ['OS2'],
-        'iOS'                   => ['IOS', 'ATV', 'WAS'],
+        'iOS'                   => ['IOS', 'ATV', 'WAS', 'IPA'],
         'RISC OS'               => ['ROS'],
         'GNU/Linux'             => [
             'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
