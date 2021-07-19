@@ -92,7 +92,7 @@ class DeviceDetector
      * Holds the useragent that should be parsed
      * @var string
      */
-    protected $userAgent;
+    protected $userAgent = '';
 
     /**
      * Holds the operating system data after parsing the UA
