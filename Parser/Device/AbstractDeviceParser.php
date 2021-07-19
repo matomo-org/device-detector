@@ -98,6 +98,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'AD' => 'Advance',
         'AF' => 'AfriOne',
         'A3' => 'AGM',
+        'J0' => 'AG Mobile',
         'AZ' => 'Ainol',
         'AI' => 'Airness',
         'AT' => 'Airties',
