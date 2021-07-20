@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
@@ -25,7 +27,7 @@ class OperatingSystemTest extends TestCase
     {
         $osParser = new OperatingSystem();
         $osParser->setUserAgent($useragent);
-        $this->assertEquals($os, $osParser->parse());
+        $this->assertEquals($os, $osParser->parse(), "UserAgent: {$useragent}");
         self::$osTested[] = $os['name'];
     }
 

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
@@ -12,6 +14,7 @@ namespace DeviceDetector\Tests\Parser\Client;
 
 use \Spyc;
 use DeviceDetector\Parser\Client\Browser;
+use DeviceDetector\Parser\Client\Browser\Engine;
 use PHPUnit\Framework\TestCase;
 
 class BrowserTest extends TestCase
@@ -28,7 +31,14 @@ class BrowserTest extends TestCase
         $browserParser->setUserAgent($useragent);
         $browser = $browserParser->parse();
         unset($browser['short_name']);
+
         $this->assertEquals($client, $browser, "UserAgent: {$useragent}");
+        $this->assertTrue($this->checkBrowserEngine($browser['engine']), \sprintf(
+            "UserAgent: %s\nEngine wrong name: `%s`",
+            $useragent,
+            $browser['engine']
+        ));
+
         self::$browsersTested[] = $client['name'];
     }
 
@@ -55,5 +65,49 @@ class BrowserTest extends TestCase
     {
         $available = Browser::getAvailableClients();
         $this->assertGreaterThanOrEqual(\count($available), \count(Browser::getAvailableBrowsers()));
+    }
+
+    public function testStructureBrowsersYml(): void
+    {
+        $ymlDataItems = Spyc::YAMLLoad(__DIR__ . '/../../../regexes/client/browsers.yml');
+
+        foreach ($ymlDataItems as $item) {
+            $this->assertTrue(\array_key_exists('regex', $item), 'key "regex" not exist');
+            $this->assertTrue(\array_key_exists('name', $item), 'key "name" not exist');
+            $this->assertTrue(\array_key_exists('version', $item), 'key "version" not exist');
+            $this->assertIsString($item['regex']);
+            $this->assertIsString($item['name']);
+            $this->assertIsString($item['version']);
+        }
+    }
+
+    public function testBrowserFamiliesNoDuplicates(): void
+    {
+        $browsers = Browser::getAvailableBrowserFamilies();
+
+        foreach ($browsers as $browser => $families) {
+            $shortcodes = \array_count_values($families);
+
+            foreach ($shortcodes as $shortcode => $count) {
+                $this->assertEquals(
+                    $count,
+                    1,
+                    "Family {$browser}: contains duplicate of shortcode {$shortcode}"
+                );
+            }
+        }
+    }
+
+    protected function checkBrowserEngine(string $engine): bool
+    {
+        if ('' === $engine) {
+            return true;
+        }
+
+        $engines         = Engine::getAvailableEngines();
+        $enginePos       = \array_search($engine, $engines, false);
+        $engineReference = $engines[$enginePos] ?? null;
+
+        return $engineReference === $engine;
     }
 }

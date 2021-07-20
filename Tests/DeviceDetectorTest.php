@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
@@ -40,6 +42,8 @@ class DeviceDetectorTest extends TestCase
         foreach ($fixtureFiles as $file) {
             $ymlData = \Spyc::YAMLLoad($file);
 
+            $availableDeviceTypeNames = AbstractDeviceParser::getAvailableDeviceTypeNames();
+
             foreach ($ymlData as $brand => $regex) {
                 $this->assertArrayHasKey('regex', $regex);
 
@@ -63,6 +67,17 @@ class DeviceDetectorTest extends TestCase
                     $brand,
                     $regex['regex']
                 ));
+
+                if (\array_key_exists('device', $regex)) {
+                    $this->assertTrue(\in_array($regex['device'], $availableDeviceTypeNames), \sprintf(
+                        "Unknown device type `%s`, file %s, brand %s, common regex %s\n\nAvailable types:\n%s\n",
+                        $regex['device'],
+                        $file,
+                        $brand,
+                        $regex['regex'],
+                        \implode(PHP_EOL, $availableDeviceTypeNames)
+                    ));
+                }
 
                 if (\array_key_exists('models', $regex)) {
                     $this->assertIsArray($regex['models']);
@@ -94,6 +109,19 @@ class DeviceDetectorTest extends TestCase
                             $file,
                             $brand,
                             $model['regex']
+                        ));
+
+                        if (!\array_key_exists('device', $model)) {
+                            continue;
+                        }
+
+                        $this->assertTrue(\in_array($model['device'], $availableDeviceTypeNames), \sprintf(
+                            "Unknown device type `%s`, file %s, brand %s, model regex %s\n\nAvailable types:\n%s\n",
+                            $model['device'],
+                            $file,
+                            $brand,
+                            $model['regex'],
+                            \implode(PHP_EOL, $availableDeviceTypeNames)
                         ));
                     }
                 } else {
@@ -206,7 +234,7 @@ class DeviceDetectorTest extends TestCase
             'Opera/9.80 (Linux mips; U; HbbTV/1.1.1 (; Vestel; MB95; 1.0; 1.0; ); en) Presto/2.10.287 Version/12.00'                                        => [
                 'device' => [
                     'brand' => 'Vestel',
-                    'model' => 'MB95',
+                    'model' => '',
                 ],
             ],
             'Sraf/3.0 (Linux i686 ; U; HbbTV/1.1.1 (+PVR+DL;NEXUS; TV44; sw1.0) CE-HTML/1.0 Config(L:eng,CC:DEU); en/de)'                                   => [
@@ -265,6 +293,39 @@ class DeviceDetectorTest extends TestCase
         // client and os will always be unknown for bots
         $this->assertEquals($dd->getOs('short_name'), DeviceDetector::UNKNOWN);
         $this->assertEquals($dd->getClient('short_name'), DeviceDetector::UNKNOWN);
+
+        if (!\array_key_exists('category', $botData) || '' === $botData['category']) {
+            return;
+        }
+
+        $categories = [
+            'Benchmark',
+            'Crawler',
+            'Feed Fetcher',
+            'Feed Parser',
+            'Feed Reader',
+            'Network Monitor',
+            'Read-it-later Service',
+            'Search bot',
+            'Search tools',
+            'Security Checker',
+            'Security search bot',
+            'Service Agent',
+            'Service bot',
+            'Site Monitor',
+            'Social Media Agent',
+            'Validator',
+        ];
+
+        $this->assertTrue(
+            \in_array($botData['category'], $categories, true),
+            \sprintf(
+                "Unknown category: \"%s\"\nUseragent: %s\nAvailable categories:\n%s\n",
+                $botData['category'],
+                $ua,
+                \implode(PHP_EOL, $categories)
+            )
+        );
     }
 
     public function getBotFixtures(): array
@@ -448,6 +509,37 @@ class DeviceDetectorTest extends TestCase
         $this->assertTrue($dd->isMobile());
     }
 
+    public function testCheckRegexRestrictionEndCondition(): void
+    {
+        $this->assertTrue($this->checkRegexRestrictionEndCondition('([^;/)]+)[;/)]'), 'skip condition');
+        $this->assertTrue($this->checkRegexRestrictionEndCondition('([^/;)]+)[;/)]'), 'skip condition');
+        $this->assertFalse($this->checkRegexRestrictionEndCondition('TestValue[;/)]'), 'bad condition');
+        $this->assertFalse($this->checkRegexRestrictionEndCondition('TestValue[/;)]'), 'bad condition');
+        $this->assertTrue($this->checkRegexRestrictionEndCondition('TestValue(?:[);/ ]|$)'), 'pass condition');
+        $this->assertTrue($this->checkRegexRestrictionEndCondition('TestValue(?:[/); ]|$)'), 'pass condition');
+        $this->assertTrue($this->checkRegexRestrictionEndCondition('TestValue(?:[);/]|$)'), 'pass condition');
+        $this->assertTrue($this->checkRegexRestrictionEndCondition('TestValue(?:[;)/]|$)'), 'pass condition');
+    }
+
+    /**
+     * check the Symfony parser for fixtures parsing errors
+     */
+    public function testSymfonyParser(): void
+    {
+        $files       = \array_merge(
+            \glob(__DIR__ . '/../regexes/client/*.yml'),
+            \glob(__DIR__ . '/../regexes/device/*.yml'),
+            \glob(__DIR__ . '/../regexes/*.yml')
+        );
+        $yamlSymfony = new Symfony();
+
+        foreach ($files as $file) {
+            $yamlSymfony->parseFile($file);
+        }
+
+        $this->expectNotToPerformAssertions();
+    }
+
     /**
      * check the regular expression for the vertical line closing the group
      * @param string $regexString
@@ -478,7 +570,7 @@ class DeviceDetectorTest extends TestCase
         }
 
         // get conditions [);/ ]
-        if (\preg_match_all('~(\[[);\/ ]{3,4}\])~m', $regexString, $matches1)) {
+        if (\preg_match_all('~(?<!(?:\(\[\^[;\/)]{3}\][\+\*]\)))(\[[);\/ ]{3,4}\])~m', $regexString, $matches1)) {
             // get conditions (?:[);/ ]|$)
             if (!\preg_match_all('~(?:(?<=(?:\?:))(\[[);\/ ]{3,4}\])(?=\|\$))~m', $regexString, $matches2)) {
                 return false;

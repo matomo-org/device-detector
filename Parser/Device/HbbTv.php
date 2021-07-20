@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
@@ -36,7 +38,7 @@ class HbbTv extends AbstractDeviceParser
      */
     public function parse(): ?array
     {
-        // only parse user agents containing hbbtv fragment
+        // only parse user agents containing fragments: hbbtv
         if (null === $this->isHbbTv()) {
             return null;
         }
