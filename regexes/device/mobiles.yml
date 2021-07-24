@@ -1134,7 +1134,7 @@ MicroMax:
 
 # 4Good
 4Good:
-  regex: '4Good[ _]|S450m [43]G|S555m 4G|S501m 3G|T700i_3G|People (?:G503|G410|GT300)|Light (?:A103|B100)'
+  regex: '4Good[ _]|S450m [43]G|S555m 4G|S501m 3G|T700i_3G|People (?:G503|G410|GT300)|Light (?:A10[34]|B100)'
   device: 'smartphone'
   models:
     - regex: 'T700i_3G'
@@ -1145,7 +1145,7 @@ MicroMax:
       device: 'tablet'
     - regex: 'S555m[_ ]4G'
       model: 'People'
-    - regex: '(S(?:450m|501m)[_ ][43]G|Light (?:A103|B100)|People (?:G503|G410))'
+    - regex: '(S(?:450m|501m)[_ ][43]G|Light (?:A10[34]|B100)|People (?:G503|G410))'
       model: '$1'
     - regex: '4Good[ _]([^;/]+) Build'
       model: '$1'
@@ -9225,7 +9225,7 @@ LCT:
 
 # Leagoo
 Leagoo:
-  regex: '(?:MY)?LEAGOO[ _-]?|(?:Shark 5000|M5 EDGE|KIICAA (POWER|MIX)|Leapad[ _](?:X|7s)|Elite [15]|Venture 1|Z10-E)(?:[);/ ]|$)'
+  regex: '(?:MY)?LEAGOO[ _-]?|(?:Shark 5000|M5 EDGE|KIICAA (POWER|MIX)|Leapad[ _](?:X|7s)|Elite [15]|Venture 1|Z10-E|Power 2(?: Pro)?)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'LEAGOO[- _]M8[_-]?Pro(?:[);/ ]|$)'
@@ -9244,6 +9244,10 @@ Leagoo:
       model: 'Elite $1'
     - regex: 'Shark 5000(?:[);/ ]|$)'
       model: 'Shark 5000'
+    - regex: 'Power 2 Pro(?:[);/ ]|$)'
+      model: 'Power 2 Pro'
+    - regex: 'Power 2(?:[);/ ]|$)'
+      model: 'Power 2'
     - regex: 'Venture 1(?:[);/ ]|$)'
       model: 'Venture 1'
     - regex: '(?:LEAGOO[- _])?(Z10-E|M6)(?:[);/ ]|$)'
@@ -14880,13 +14884,13 @@ SuperSonic:
 
 # Supra
 Supra:
-  regex: 'SUPRA|NVTAB 7.0 3G'
+  regex: 'SUPRA|NVTAB 7.0 3G|M74C 3G'
   device: 'smartphone'
   models:
     - regex: 'SUPRA[ _]([^;/)]+)(?: Build|[;)])'
       device: 'tablet'
       model: '$1'
-    - regex: '(NVTAB 7.0 3G)'
+    - regex: '(NVTAB 7.0 3G|M74C 3G)'
       device: 'tablet'
       model: '$1'
 
@@ -23694,3 +23698,15 @@ DIGIFORS:
   regex: 'DIGIFORS (400)(?:[);/ ]|$)'
   device: 'tv'
   model: 'Smart $1'
+
+# VIWA
+VIWA:
+  regex: '(?:LIGHT MINI|VIWA A5\+|LIGHT PLUS)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'LIGHT MINI'
+      model: 'Light Mini'
+    - regex: 'LIGHT PLUS'
+      model: 'Light Plus'
+    - regex: 'VIWA A5\+'
+      model: 'Light A5 Plus'
