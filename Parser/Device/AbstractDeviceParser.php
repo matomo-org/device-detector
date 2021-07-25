@@ -299,7 +299,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'DV' => 'Doov',
         'DP' => 'Dopod',
         'DR' => 'Doro',
-        'D8' => '3GO',
+        'D8' => 'Droxio',
         'DJ' => 'Dragon Touch',
         'DU' => 'Dune HD',
         'EB' => 'E-Boda',
