@@ -68,7 +68,7 @@ class DeviceDetector
     /**
      * Current version number of DeviceDetector
      */
-    public const VERSION = '4.2.3';
+    public const VERSION = '4.3.0';
 
     /**
      * Constant used as value for unknown browser / os
@@ -92,7 +92,7 @@ class DeviceDetector
      * Holds the useragent that should be parsed
      * @var string
      */
-    protected $userAgent;
+    protected $userAgent = '';
 
     /**
      * Holds the operating system data after parsing the UA
