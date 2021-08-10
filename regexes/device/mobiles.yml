@@ -4841,7 +4841,7 @@ Desay:
 
 # DEXP
 DEXP:
-  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|Larus_TV1|Ixion(?:ML4.7|ES250)|M150Storm|(?:SENIOR|F4[38]D8000K|VA(?:[12]10|170)|ML450|MS[56]50|BL(?:[123]50|160|155)|BS(?:155|160|[1256]50)|S(?:3[78]0|2[89]0)|AL(?:[12]40|[23]50)|AS(?:155|[123]60)| (?:N280i|P380i|R110|E210|B(?:450|340|35[05])|M445|T155|A(?:1[456]0|340)|GS15[035]|GL[23]55|G25[05]|G15[05]|ES750|XL150|Z[1-4]55|H170|P510|L2[17]0))(?:[);/ ]|$)'
+  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|Larus_TV1|Ixion(?:ML4.7|ES250)|M150Storm|(?:SENIOR|F4[38]D8000K|VA(?:[12]10|170)|ML450|MS[56]50|BL(?:[123]50|160|155)|BS(?:155|160|[1256]50)|(?<!ILIUM )S(?:3[78]0|2[89]0|670)|AL(?:[12]40|[23]50)|AS(?:155|[123]60)| (?:N280i|P380i|R110|E210|B(?:450|340|35[05])|M445|T155|A(?:1[456]0|340)|GS15[035]|GL[23]55|G25[05]|G15[05]|ES750|XL150|Z[1-4]55|H170|P510|L2[17]0))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Ixion[_ ]([^;/]+)(?: Build|\))'
@@ -4872,7 +4872,7 @@ DEXP:
     - regex: 'Ursus[ _]([^;/)]+)(?: Build|[);])'
       model: 'Ursus $1'
       device: 'tablet'
-    - regex: '(VA[21]10|VA170|E210|R110|N280i|P380i|P510|S2[89]0|S3[78]0|H170|L2[17]0)(?:[);/ ]|$)'
+    - regex: '(VA[21]10|VA170|E210|R110|N280i|P380i|P510|S2[89]0|S3[78]0|S670|H170|L2[17]0)(?:[);/ ]|$)'
       model: 'Ursus $1'
       device: 'tablet'
 
@@ -5289,7 +5289,7 @@ Eks Mobility:
 
 # Elephone
 Elephone:
-  regex: 'Elephone|Vowney(?: Lite)?|P6000( ?Pro| ?Plus|\+| ?02| 5.0 01)?'
+  regex: 'Elephone|Vowney(?: Lite)?|P6000(?!_Plus)( ?Pro| ?Plus|\+| ?02| 5.0 01)?'
   device: 'smartphone'
   models:
     - regex: 'Elephone Trunk(?:[);/ ]|$)'
@@ -13542,7 +13542,7 @@ Safaricom:
 
 # Santin
 Santin:
-  regex: '(?:SANTIN|BiTBiZ_V58|ACTOMA ACE|DREAMPLUS03A|Candy U7 Pro)[);/_ ]'
+  regex: 'SANTIN|(?:BiTBiZ_V58|ACTOMA ACE|DREAMPLUS03A|Candy U7 Pro)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'BiTBiZ_V58(?:[);/ ]|$)'
@@ -13565,7 +13565,7 @@ Santin:
       model: 'Galaz'
     - regex: 'NEWDUN(?:[);/ ]|$)'
       model: 'Newdun'
-    - regex: 'SANTIN[ _][#]?(Dante|Candy U7|Armor|YSL-Y7|ANT.W|N[13]|JS|S6|V9|Life Shine)(?:[);/ ]|$)'
+    - regex: 'SANTIN[ _][#]?(Dante|Candy U7|Armor|YSL-Y7|ANT.W|N[13]|JS|S6|V9|Life Shine|ovvi)(?:[);/ ]|$)'
       model: '$1'
 
 # Siemens
@@ -16246,7 +16246,7 @@ T-Mobile:
 
 # Teclast (teclast.com)
 Teclast:
-  regex: 'Teclast|TLA002|TLA016|X98 Air III|M20_4G|X98 Air II\(HG5N\)|Tbook|X80 Power\(B2N4\)|(?:T30|P80[XH]|P20HD|P10[_ ]HD|M40)_(?:ROW|EEA)|T10\(E3C6\)|P10S\(N4H5\)|98\(M1E[45789]\)|98\(M3E3\)|X10 \(M1D3\)'
+  regex: 'Teclast|TLA002|TLA016|X98 Air III|M20_4G|X98 Air II\(HG5N\)|Tbook|X80 Power\(B2N4\)|(?:T30|P80[XH]|P20HD|P10[_ ]HD|M40|P10S)_(?:ROW|EEA)|T10\(E3C6\)|P10S\(N4H5\)|98\(M1E[45789]\)|98\(M3E3\)|X10 \(M1D3\)'
   device: 'tablet'
   models:
     - regex: 'Tbook[_ -]([^;/]+) Build'
@@ -16255,7 +16255,7 @@ Teclast:
       model: 'T10'
     - regex: 'X10 \(M1D3\)'
       model: 'X10'
-    - regex: 'P10S\(N4H5\)'
+    - regex: 'P10S(?:\(N4H5\)|_(?:ROW|EEA))(?:[);/ ]|$)'
       model: 'P10S'
     - regex: 'P20HD_(?:ROW|EEA)'
       model: 'P20HD'
@@ -16798,9 +16798,9 @@ Touchmate:
     - regex: 'Touchmate ([^/;]+) Build'
       model: '$1'
 
-# TrekStor
+# TrekStor (www.trekstor.de)
 TrekStor:
-  regex: '(?:TrekStor|Surftab) ([^/;]+)(?: Build|\))|Surftab[^;\)]*(?:[;\)]|$)|ST10216-2A|ST13416-1|VT10416-[12]|TFMTKAW01232'
+  regex: '(?:TrekStor|Surftab) ([^/;]+)(?: Build|\))|Surftab[^;\)]*(?:[;\)]|$)|ST10216-2A|ST13416-1|VT10416-[12]|TFMTKAW01232|PEAQ PET 100'
   device: 'tablet'
   models:
     - regex: 'ST10216-2A|VT10416-[12]'
@@ -16817,6 +16817,8 @@ TrekStor:
       model: 'SurfTab $1'
     - regex: 'TFMTKAW01232'
       model: 'SurfTab L15'
+    - regex: '(PEAQ PET 100)'
+      model: '$1'
 
 # Trevi
 Trevi:
@@ -16913,7 +16915,7 @@ UTStarcom:
 
 # Ulefone
 Ulefone:
-  regex: 'Ulefone|Gemini Pro|Power_[356]|Power_5S|S(?:10|9)_Pro|(?:Note [89]P|Armor(?:[ _](?:[2367]|2S|X[236]|6[SE]|3WT|3W|X))?|U00[78][ _]Pro|Be[ _]X|Be[ _]Touch(?:[ _][23])?|Be[ _](?:One|Pure)(?:[ _]Lite)?|Note 11P|Paris_X)(?:[);/ ]|$)'
+  regex: 'Ulefone|Gemini Pro|Power_[356]|Power_5S|S(?:10|9)_Pro|(?:Note [89]P|Armor(?:[ _](?:[2367]|2S|X[236]|6[SE]|3WT|3W|X))?|U00[78][ _]Pro|Be[ _]X|Be[ _]Touch(?:[ _][23])?|Be[ _](?:One|Pure)(?:[ _]Lite)?|Note 11P|Paris_X|P6000_Plus)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'S(10|9)_Pro'
@@ -16930,10 +16932,10 @@ Ulefone:
       model: 'Be One'
     - regex: 'Be[ _]X'
       model: 'Be X'
-    - regex: 'U007 Pro'
-      model: 'U007 Pro'
-    - regex: 'U008 Pro'
-      model: 'U008 Pro'
+    - regex: 'U(00[78]) Pro'
+      model: 'U$1 Pro'
+    - regex: 'P6000_Plus'
+      model: 'P6000 Plus'
     - regex: 'Paris_X'
       model: 'Paris X'
     - regex: 'Armor[ _]X([236])(?:[);/ ]|$)'
