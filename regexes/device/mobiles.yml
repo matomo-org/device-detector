@@ -4565,13 +4565,13 @@ Cricket:
 
 # Crosscall
 Crosscall:
-  regex: 'Crosscall|ODYSSEY_Plus|Odyssey S1|Trekker-[MSX][1234]|Action-X3|Core-X3'
+  regex: 'Crosscall|ODYSSEY_Plus|Odyssey S1|Trekker-[MSX][1234]|Action-X3|Core-X[34]'
   device: 'smartphone'
   models:
     - regex: 'Action-X3'
       model: 'Action-X3'
-    - regex: 'Core-X3'
-      model: 'Core-X3'
+    - regex: 'Core-X([34])'
+      model: 'Core-X$1'
     - regex: 'Crosscall ([^;/]+) Build'
       model: '$1'
     - regex: 'ODYSSEY_Plus'
@@ -12493,7 +12493,7 @@ OnePlus:
 
 # Realme (sub brand Oppo)
 Realme:
-  regex: 'Realme[ _]|(?:RMX(?:19(03|4[1235]|19|9[23]|2[157]|[01379]1|73)|20(?:[025-7]1|[037]2|2[57]|63|7[56]|8[156]|[2-5]0)|21(?:0[13]|17|[12]1|4[24]|5[15]|6[13]|7[036]|8[059]|9[35])|220[012]|18(0[13579]|11|3[13]|2[157]|[45]1|45)|32(?:01|42|[346]1)|30(?:[348]1|9[23]|63|85)|31(?:2[12]|91))|(?:OPPO[ _]?)?CPH1861)(?:[);/ ]|$)'
+  regex: 'Realme[ _]|(?:RMX(?:19(03|4[1235]|19|9[23]|2[157]|[01379]1|73)|20(?:[025-7]1|[037]2|2[57]|63|7[56]|8[156]|[2-5]0)|21(?:0[13]|17|[12]1|4[24]|5[15]|6[13]|7[036]|8[059]|9[35])|220[0125]|18(0[13579]|11|3[13]|2[157]|[45]1|45)|32(?:01|42|[346]1)|30(?:[348]1|9[23]|63|85)|31(?:2[12]|15|91)|3350)|(?:OPPO[ _]?)?CPH1861)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(?:OPPO[ _]?)?CPH1861(?:[);/ ]|$)'
@@ -12520,6 +12520,8 @@ Realme:
       model: 'Q2 5G'
     - regex: 'RMX2173'
       model: 'Q2 Pro'
+    - regex: 'RMX2205'
+      model: 'Q3 Pro 5G'
     - regex: 'RMX2176(?:[);/ ]|$)'
       model: 'X7 5G'
     - regex: 'RMX2121(?:[);/ ]|$)'
@@ -12546,6 +12548,8 @@ Realme:
       model: '7I'
     - regex: 'RMX2170'
       model: '7 Pro'
+    - regex: 'RMX3115'
+      model: 'X7 Pro Extreme Edition'
     - regex: 'RMX3081'
       model: '8 Pro'
     - regex: 'RMX3085'
@@ -12582,6 +12586,8 @@ Realme:
       model: 'C11 (2021)'
     - regex: 'RMX3031(?:[);/ ]|$)'
       model: 'GT Neo'
+    - regex: 'RMX3350(?:[);/ ]|$)'
+      model: 'GT Neo Flash'
     - regex: 'RMX216[13](?:[);/ ]|$)'
       model: 'Narzo 20 Pro'
     - regex: 'RMX2193(?:[);/ ]|$)'
@@ -16246,7 +16252,7 @@ T-Mobile:
 
 # Teclast (teclast.com)
 Teclast:
-  regex: 'Teclast|TLA002|TLA016|X98 Air III|M20_4G|X98 Air II\(HG5N\)|Tbook|X80 Power\(B2N4\)|(?:T30|P80[XH]|P20HD|P10[_ ]HD|M40)_(?:ROW|EEA)|T10\(E3C6\)|P10S\(N4H5\)|98\(M1E[45789]\)|98\(M3E3\)|X10 \(M1D3\)'
+  regex: 'Teclast|TLA002|TLA016|X98 Air III|M20_4G|X98 Air II\(HG5N\)|Tbook|X80 Power\(B2N4\)|(?:T30|P80[XH]|P20HD|P10[_ ]HD|M40|M30_Pro)_(?:ROW|EEA)|T10\(E3C6\)|P10S\(N4H5\)|98\(M1E[45789]\)|98\(M3E3\)|X10 \(M1D3\)'
   device: 'tablet'
   models:
     - regex: 'Tbook[_ -]([^;/]+) Build'
@@ -16261,6 +16267,8 @@ Teclast:
       model: 'P20HD'
     - regex: 'P10[_ ]HD_(?:ROW|EEA)'
       model: 'P10HD'
+    - regex: 'M30_Pro[_ ](?:ROW|EEA)'
+      model: 'M30 Pro'
     - regex: 'M20_4G'
       model: 'M20 4G'
     - regex: 'TLA002'
@@ -16467,6 +16475,8 @@ Tecno Mobile:
     - regex: 'TECNO[ _]LE7n?(?:[);/ ]|$)'
       device: 'phablet'
       model: 'Pova 2'
+    - regex: 'Tecno (F2) ?LTE'
+      model: '$1 LTE'
     - regex: 'Tecno ([^;/]+) Build'
       model: '$1'
     - regex: 'Tecno[ _-]?([a-z0-9_\-]+)'
@@ -21899,15 +21909,17 @@ VVETIME:
   device: 'smartphone'
   model: 'V1'
 
-# A1
+# A1 (www.a1.by)
 A1:
-  regex: 'A1 (?:Alpha|Alpha 20\+)(?:[);/ ]|$)'
+  regex: '(?:A1 (?:Alpha|Alpha 20\+)|Alpha 20)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'A1 Alpha 20\+'
-      model: 'Alpha 20 Plus'
+      model: 'Alpha 20 Plus'  # ZTE Blade V2020
     - regex: 'A1 Alpha'
       model: 'Alpha'
+    - regex: 'Alpha 20'
+      model: 'Alpha 20'
 
 # Swisstone
 Swisstone:
