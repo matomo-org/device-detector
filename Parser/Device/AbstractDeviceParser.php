@@ -97,6 +97,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '3K' => 'Acteck',
         'A9' => 'Advan',
         'AD' => 'Advance',
+        '76' => 'Adronix',
         'AF' => 'AfriOne',
         'A3' => 'AGM',
         'J0' => 'AG Mobile',
