@@ -2518,6 +2518,9 @@ Asus:
     - regex: 'ME301T(?:[);/ ]|$)'
       model: 'MeMO Pad Smart 10'
       device: 'tablet'
+    - regex: 'Z101 Prime(?:[);/ ]|$)'
+      model: 'Z101 Prime'
+      device: 'tablet'
     - regex: 'Z101(?:[);/ ]|$)'
       model: 'Z101'
       device: 'tablet'
@@ -11476,6 +11479,8 @@ Motorola:
       model: 'Moto E5 Go'
     - regex: 'Moto E6 Play(?:[);/ ]|$)'
       model: 'Moto E6 Play'
+    - regex: 'moto E\(([0-9])\) plus'
+      model: 'Moto E$1 Plus'
     - regex: 'Moto E\(?([67])\)?(?:[);/ ]|$)'
       model: 'Moto E$1'
     - regex: 'Moto E\(?([67])s\)?(?:[);/ ]|$)'
@@ -21615,10 +21620,17 @@ MiXzo:
 
 # Openbox
 Openbox:
-  regex: 'Openbox (A[34](?: (?:Pro|Lite))?)(?:[);/ ]|$)'
+  regex: '(?:Openbox (?:A[34](?: (?:Pro|Lite))?)|AS_4K_CI(?:_PRO)?)(?:[);/ ]|$)'
   device: 'tv'
-  model: '$1'
+  models:
+    - regex: 'Openbox (?:A[34](?: (?:Pro|Lite))?(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'AS_4K_CI_PRO'
+      model: 'AS 4K CI Pro'
+    - regex: 'AS_4K_CI'
+      model: 'AS 4K CI'
 
+#
 # Ziox
 Ziox:
   regex: 'ZIOX[_ ]|(?:Astra Viva 4G|Astra NXT Pro|Duopix F9)(?:[);/ ]|$)'
