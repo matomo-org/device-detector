@@ -805,6 +805,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'P6' => 'Proline',
         'P1' => 'ProScan',
         'P7' => 'Protruly',
+        'R0' => 'ProVision',
         'PU' => 'PULID',
         'QH' => 'Q-Touch',
         'QB' => 'Q.Bell',
