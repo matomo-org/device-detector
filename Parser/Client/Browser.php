@@ -57,6 +57,7 @@ class Browser extends AbstractClientParser
         'AX' => 'Arctic Fox',
         'AV' => 'Amiga Voyager',
         'AW' => 'Amiga Aweb',
+        'AI' => 'Arvin',
         'A0' => 'Atom',
         'AT' => 'Atomic Web Browser',
         'AS' => 'Avast Secure Browser',
@@ -126,6 +127,7 @@ class Browser extends AbstractClientParser
         'DI' => 'Dillo',
         'DD' => 'DuckDuckGo Privacy Browser',
         'EC' => 'Ecosia',
+        'EW' => 'Edge WebView',
         'EI' => 'Epic',
         'EL' => 'Elinks',
         'EB' => 'Element Browser',
@@ -257,6 +259,7 @@ class Browser extends AbstractClientParser
         'O0' => 'Origin In-Game Overlay',
         'OY' => 'Origyn Web Browser',
         'OV' => 'Openwave Mobile Browser',
+        'O3' => 'OpenFin',
         'OW' => 'OmniWeb',
         'OT' => 'Otter Browser',
         'PL' => 'Palm Blazer',
@@ -297,6 +300,7 @@ class Browser extends AbstractClientParser
         'SF' => 'Safari',
         'S5' => 'Safe Exam Browser',
         'SW' => 'SalamWeb',
+        'S9' => 'Secure Browser',
         'SV' => 'SFive',
         'SH' => 'Shiira',
         'S1' => 'SimpleBrowser',
@@ -389,8 +393,8 @@ class Browser extends AbstractClientParser
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
             'SS', 'O2', 'SV', 'TR', 'CW', 'GI', 'VE', 'AC', 'FS',
-            'CG', 'DR', 'C4', 'HS', 'DA', 'C5', 'C6', 'DG', 'CG',
-            'HE', 'H2', 'MA', 'MD',
+            'CG', 'DR', 'C4', 'HS', 'DA', 'C5', 'C6', 'DG', 'HE',
+            'H2', 'MA', 'MD', 'O3', 'EW', 'AI', 'S9',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
@@ -420,7 +424,7 @@ class Browser extends AbstractClientParser
         'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM',
         'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
         'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH', 'PI', 'SG',
-        'KD', 'PE', 'UH', 'S7', 'CW', 'OZ', 'GI', 'VE',
+        'KD', 'PE', 'UH', 'S7', 'CW', 'OZ', 'GI', 'VE', 'AI',
     ];
 
     /**

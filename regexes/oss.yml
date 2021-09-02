@@ -417,6 +417,25 @@
   version: '$1'
 
 ##########
+# iPadOS (https://www.apple.com/ipados/)
+##########
+- regex: 'FBMD/iPad;.*FBSV/ ?(1[345]).(\d+[\.\d]*);'
+  name: 'iPadOS'
+  version: '$1.$2'
+
+- regex: 'iPad/(1[345]).(\d+[\.\d]*)'
+  name: 'iPadOS'
+  version: '$1.$2'
+
+- regex: 'iPad.+CPU OS ((1[345])+(?:[_\.]\d+)*)'
+  name: 'iPadOS'
+  version: '$1'
+
+- regex: 'iOS/(1[345]).(\d+[\.\d]*).+Apple/iPad'
+  name: 'iPadOS'
+  version: '$1.$2'
+
+##########
 # iOS
 ##########
 - regex: 'iPad/([89]|1[012]).(\d+[\.\d]*)'
@@ -426,6 +445,18 @@
 - regex: 'Pinterest for iOS/.+; (\d(?:[\d\.]+)?)\)$'
   name: 'iOS'
   version: '$1'
+
+- regex: 'CFNetwork/.+ Darwin/21.0.0(?!.*x86_64)'
+  name: 'iOS'
+  version: '15.0'
+
+- regex: 'CFNetwork/.+ Darwin/20.6.0(?!.*x86_64)'
+  name: 'iOS'
+  version: '14.7'
+
+- regex: 'CFNetwork/.+ Darwin/20.5.0(?!.*x86_64)'
+  name: 'iOS'
+  version: '14.6'
 
 - regex: 'CFNetwork/.+ Darwin/20.4.0(?!.*x86_64)'
   name: 'iOS'
@@ -1148,6 +1179,6 @@
 ###########
 # Linux (Generic)
 ###########
-- regex: 'Linux(?:OS)?[^a-z]'
+- regex: 'Linux(?:OS)?[^a-z]|Cinnamon/(?:\d+[\.\d]+)'
   name: 'GNU/Linux'
   version: ''
