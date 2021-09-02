@@ -135,7 +135,7 @@ HTC:
       model: 'One M9 Prime Camera Edition'
     - regex: '(?:HTC[_ ])?(?:M9pw|One M9 ?PLUS)(?:[);/ ]|$)'
       model: 'One M9 Plus'
-    - regex: '(?:0PJA2|0PJA10|HTC One M9|HTC6535LVW)(?:[);/ ]|$)'
+    - regex: '(?:HTC[_ ]M9u|0PJA2|0PJA10|HTC One M9|HTC6535LVW)(?:[);/ ]|$)'
       model: 'One M9'
     - regex: 'One[ _](X9|[EM]8) dual sim(?:[);/ ]|$)'
       model: 'One $1 Dual SIM'
@@ -155,7 +155,7 @@ HTC:
       model: 'One Remix'
     - regex: 'X525a(?:[);/ ]|$)'
       model: 'One X+'
-    - regex: '2PQ9(?:3|10)(?:[);/ ]|$)'
+    - regex: '(?:2PQ9(?:3|10)|HTC[_ ]A9u)(?:[);/ ]|$)'
       model: 'One A9'
     - regex: 'ADR6300'
       model: 'Droid Incredible'
@@ -177,6 +177,8 @@ HTC:
       model: 'Desire 626S'
     - regex: '0PCV1(?:[);/ ]|$)'
       model: 'Desire 510'
+    - regex: 'HTC ?D160LVW(?:[);/ ]|$)'
+      model: 'Desire 530'
     - regex: 'HTC[_ ]D310n(?:[);/ ]|$)'
       model: 'Desire 310'
     - regex: '608t(?:[);/ ]|$)'
@@ -199,6 +201,8 @@ HTC:
       model: 'U19e'
     - regex: 'HTC_D10i(?:[);/ ]|$)'
       model: 'Desire 10 Pro'
+    - regex: 'HTC[ _]10[ _]evo(?:[);/ ]|$)'
+      model: '10 Evo'
     - regex: 'HTC Desire (.+) pro(?:[);/ ]|$)'
       model: 'Desire $1 Pro'
 
@@ -1285,7 +1289,7 @@ Bravis:
 
     - regex: 'Bravis[_ ]([^;\)]+) Build'
       model: '$1'
-    - regex: '(NB(?:106M|10[1-8]|751|7[145]|8[57]1|76)|NP101|NB961)'
+    - regex: '(NB(?:106M|10[1-8]|75[134]|7[145]|8[57]1|76)|NP101|NB961)'
       model: '$1'
       device: 'tablet'
 
@@ -1763,6 +1767,8 @@ Alcatel:
       model: 'A1'
     - regex: 'A503DL'
       model: 'A1X'
+    - regex: '(?:Alcatel_)?5004R'
+      model: 'Axel'
     - regex: '5046[ADIJTUY]'
       model: 'A3'
     - regex: '5011A|5049[EG]'
@@ -2993,7 +2999,7 @@ Bluegood:
 
 # Blackview
 Blackview:
-  regex: 'Blackview|(BV([24-9]000|[46]900|(5[1589]|9[15689])00|6[1368]00)(?:[ _](?:PRO))?|(P10000(?:[ _](?:PRO))?)|omega[ _]pro|Alife[ _][PS]1|Heatwave|DM550|BV9700Pro|(?<!Lenovo[_ ])A[68]0(?:Pro)?\))|(?:A[86]0Plus|BL6000Pro|R6 Lite)(?:[);/ ]|$)'
+  regex: 'Blackview|(BV([24-9]000|[46]900|(5[1589]|9[15689])00|6[1368]00)(?:[ _](?:PRO))?|(P10000(?:[ _](?:PRO))?)|omega[ _]pro|Alife[ _][PS]1|Heatwave|DM550|BV9700Pro|(?<!Lenovo[_ ])A[68]0(?:Pro)?\))|(?:A[86]0Plus|A80S|BL6000Pro|R6 Lite)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'A60Pro\)'
@@ -3002,6 +3008,8 @@ Blackview:
       model: 'A60'
     - regex: 'A80Pro(?:[);/ ]|$)'
       model: 'A80 Pro'
+    - regex: 'A80S(?:[);/ ]|$)'
+      model: 'A80S'
     - regex: '(A[86]0|BV5500)Plus(?:[);/ ]|$)'
       model: '$1 Plus'
     - regex: '(BV6000S)'
@@ -6201,9 +6209,9 @@ Fondi:
     - regex: 'Fondi[- _]([^;/)]+)'
       model: '$1'
 
-# Fairphone
+# Fairphone (fairphone.com)
 Fairphone:
-  regex: '(FP(?:1U?|2))(?:[);/ ]|$)'
+  regex: ' (FP(?:1U?|[23]))(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
 
@@ -6828,7 +6836,7 @@ Hasee:
     - regex: 'Hasee ([^;/)]+)(?:[);/ ]|$)'
       model: '$1'
 
-# Hisense
+# Hisense ()
 Hisense:
   regex: '(?:HS-)?Hisense ([^;/]+) Build|Hisense [^);/]+|HISENSE; |HS-(?:G|U|EG?|I|L|T|X)[0-9]+[a-z0-9\-]*|E270BSA|HWCD100E|HITV300C|M470BS[AE]|EG98|E2281|EG680|I46D1G|HAT4KDTV|HLTE([237]00T|200M|203T|202N|21[023567]T|22[67]T|22[13]E|230E|310[TM]|31[16]T|500T|501N|510[TM]|7[23]0T)'
   device: 'smartphone'
@@ -6940,7 +6948,9 @@ Homtom:
   regex: 'Homtom|(?:HT[0-9]{1,2}(?: ?Pro)?)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: '(?:Homtom[_ ])?HT ?([0-9]{1,2}(?: ?Pro)?)(?:[);/ ]|$)'
+    - regex: '(?:Homtom[_ ])?HT ?([0-9]{1,2}) ?Pro(?:[);/ ]|$)'
+      model: 'HT$1 Pro'
+    - regex: '(?:Homtom[_ ])?HT ?([0-9]{1,2}?)(?:[);/ ]|$)'
       model: 'HT$1'
     - regex: 'Homtom ([^;/]+) Build'
       model: '$1'
@@ -11094,7 +11104,7 @@ Meitu:
   models:
     - regex: 'MP1503(?:[);/ ]|$)'
       model: 'M6'
-    - regex: 'MP1512(?:[);/ ]|$)'
+    - regex: '(?:MP1512|Meizu M6s)(?:[);/ ]|$)'
       model: 'M6s'
     - regex: 'MP1602(?:[);/ ]|$)'
       model: 'T8'
