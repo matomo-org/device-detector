@@ -182,26 +182,23 @@ class DeviceDetectorTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
-    public function testParse($fixturesPath): void
+    public function testParse(array $fixtureData): void
     {
-        $typeFixtures = \Spyc::YAMLLoad($fixturesPath);
+        $ua = $fixtureData['user_agent'];
 
-        foreach ($typeFixtures as $fixtureData) {
-            $ua = $fixtureData['user_agent'];
-            AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
+        AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
 
-            try {
-                $uaInfo = DeviceDetector::getInfoFromUserAgent($ua);
-            } catch (\Exception $exception) {
-                throw new \Exception(
-                    \sprintf('Error: %s from useragent %s', $exception->getMessage(), $ua),
-                    $exception->getCode(),
-                    $exception
-                );
-            }
-
-            $this->assertEquals($fixtureData, $uaInfo, "UserAgent: {$ua}");
+        try {
+            $uaInfo = DeviceDetector::getInfoFromUserAgent($ua);
+        } catch (\Exception $exception) {
+            throw new \Exception(
+                \sprintf('Error: %s from useragent %s', $exception->getMessage(), $ua),
+                $exception->getCode(),
+                $exception
+            );
         }
+
+        $this->assertEquals($fixtureData, $uaInfo, "UserAgent: {$ua}");
     }
 
     public function getFixtures(): array
@@ -210,17 +207,16 @@ class DeviceDetectorTest extends TestCase
         $fixtureFiles = \glob(\realpath(__DIR__) . '/fixtures/*.yml');
 
         foreach ($fixtureFiles as $fixturesPath) {
-            $deviceType = \str_replace('_', ' ', \substr(\basename($fixturesPath), 0, -4));
+            $typeFixtures = \Spyc::YAMLLoad($fixturesPath);
+            $deviceType   = \str_replace('_', ' ', \substr(\basename($fixturesPath), 0, -4));
 
             if ('bots' === $deviceType) {
                 continue;
             }
 
-            $fixtures[] = [$fixturesPath];
-
-// = \array_merge(\array_map(static function ($elem) {
-//                return [$elem];
-//            }, $typeFixtures), $fixtures);
+            $fixtures = \array_merge(\array_map(static function ($elem) {
+                return [$elem];
+            }, $typeFixtures), $fixtures);
         }
 
         return $fixtures;
