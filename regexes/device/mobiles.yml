@@ -1165,9 +1165,7 @@ MicroMax:
       model: 'People'
     - regex: '(S(?:450m|501m)[_ ][43]G|Light (?:A10[34]|B100)|People (?:G503|G410))'
       model: '$1'
-    - regex: '4Good[ _]([^;/]+) Build'
-      model: '$1'
-    - regex: '4Good[ _]([^);/ ]+)'
+    - regex: '4Good[ _]([^);/]+)(?: Build|[);])'
       model: '$1'
 
 # Acteck
@@ -13690,13 +13688,13 @@ Safaricom:
 
 # Santin
 Santin:
-  regex: 'SANTIN|(?:BiTBiZ_V58|ACTOMA ACE|DREAMPLUS03A|Candy U7 Pro|GAAMII)(?:[);/ ]|$)'
+  regex: 'SANTIN|(?:BiTBiZ_V58|ACTOMA ACE|DREAMPLUS03A|Candy U7 Pro|GAAMII|RS635H)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'BiTBiZ_V58(?:[);/ ]|$)'
       model: 'BiTBiZ V58'
     - regex: 'GAAMII G1(?:[);/ ]|$)'
-      model: 'GAAMII $1'
+      model: 'GAAMII G1'
     - regex: 'GAAMII(?:[);/ ]|$)'
       model: 'GAAMII'
     - regex: 'Candy U7 Pro(?:[);/ ]|$)'
@@ -13718,6 +13716,8 @@ Santin:
     - regex: 'NEWDUN(?:[);/ ]|$)'
       model: 'Newdun'
     - regex: 'SANTIN[ _][#]?(Dante|Candy U7|Armor|YSL-Y7|ANT.W|N[13]|JS|S6|V9|Life Shine|ovvi)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: '(RS635H)(?:[);/ ]|$)'
       model: '$1'
 
 # Siemens
@@ -22250,7 +22250,7 @@ Tinmo:
 
 # Matrix
 Matrix:
-  regex: '(7116-A5)(?:[);/ ]|$)'
+  regex: '(7116-A5|818 3G)(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
 
