@@ -1511,7 +1511,7 @@ Airness:
 
 # Aiwa
 Aiwa:
-  regex: '(?:AW790|M300|AWM(?:533|50[19]|561)|AW500)(?:[);/ ]|$)'
+  regex: '(?:AW790|M300(?! 4G)|AWM(?:533|50[19]|561)|AW500)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'AW790(?:[);/ ]|$)'
@@ -13671,11 +13671,12 @@ RT Project:
 
 # S-TELL
 S-TELL:
-  regex: 'S-TELL'
+  regex: 'S-TELL|(?:M630|M558)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: '(?:S-TELL[ _])?M(4(?:61|77|80)|556)'
+    - regex: '(?:S-TELL[ _])?M([0-9]{3})(?:[);/ ]|$)'
       model: 'M$1'
+
 
 # Safaricom
 Safaricom:
@@ -13689,11 +13690,15 @@ Safaricom:
 
 # Santin
 Santin:
-  regex: 'SANTIN|(?:BiTBiZ_V58|ACTOMA ACE|DREAMPLUS03A|Candy U7 Pro)(?:[);/ ]|$)'
+  regex: 'SANTIN|(?:BiTBiZ_V58|ACTOMA ACE|DREAMPLUS03A|Candy U7 Pro|GAAMII)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'BiTBiZ_V58(?:[);/ ]|$)'
       model: 'BiTBiZ V58'
+    - regex: 'GAAMII G1(?:[);/ ]|$)'
+      model: 'GAAMII $1'
+    - regex: 'GAAMII(?:[);/ ]|$)'
+      model: 'GAAMII'
     - regex: 'Candy U7 Pro(?:[);/ ]|$)'
       model: 'Candy U7 Pro'
     - regex: 'DREAMPLUS03A(?:[);/ ]|$)'
@@ -21956,13 +21961,17 @@ MAXVI:
       device: 'feature phone'
       model: '$1'
 
-# MDC Store (http://mdc.store/)
+# MDC Store (http://mdc.store/ or https://www.facebook.com/mdcmobileuzbekistan/)
 MDC Store:
-  regex: 'Prime_S(?:[);/ ]|$)'
+  regex: '(?:Prime_S|M300 4G|MDC M5)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Prime_S(?:[);/ ]|$)'
       model: 'Prime S'
+    - regex: '(M300) 4G(?:[);/ ]|$)'
+      model: '$1 4G'
+    - regex: 'MDC M5(?:[);/ ]|$)'
+      model: 'M5'
 
 # meanIT (meanit.hr)
 meanIT:
@@ -24239,12 +24248,6 @@ Sirin labs:
   regex: '(?:FINNEY U1)(?:[);/ ]|$)'
   device: 'smartphone'
   model: 'Finney U1'
-
-# GAAMII
-GAAMII:
-  regex: 'GAAMII (G1)(?:[);/ ]|$)'
-  device: 'smartphone'
-  model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
