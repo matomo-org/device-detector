@@ -889,6 +889,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '98' => 'Simply',
         '52' => 'Singtech',
         '31' => 'Siragon',
+        '83' => 'Sirin labs',
         'GK' => 'SKG',
         'SW' => 'Sky',
         'SK' => 'Skyworth',
