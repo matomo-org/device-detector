@@ -310,6 +310,7 @@ class Browser extends AbstractClientParser
         'SL' => 'Sleipnir',
         'S6' => 'Slimjet',
         'S7' => 'SP Browser',
+        'T1' => 'Stampy Browser',
         '7S' => '7Star',
         'LE' => 'Smart Lenovo Browser',
         'OZ' => 'Smooz',
@@ -394,7 +395,7 @@ class Browser extends AbstractClientParser
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
             'SS', 'O2', 'SV', 'TR', 'CW', 'GI', 'VE', 'AC', 'FS',
             'CG', 'DR', 'C4', 'HS', 'DA', 'C5', 'C6', 'DG', 'HE',
-            'H2', 'MA', 'MD', 'O3', 'EW', 'AI', 'S9',
+            'H2', 'MA', 'MD', 'O3', 'EW', 'AI', 'S9', 'T1',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
@@ -425,6 +426,7 @@ class Browser extends AbstractClientParser
         'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
         'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH', 'PI', 'SG',
         'KD', 'PE', 'UH', 'S7', 'CW', 'OZ', 'GI', 'VE', 'AI',
+        'T1',
     ];
 
     /**
