@@ -2273,7 +2273,7 @@ Ainol:
 
 # Archos
 Archos:
-  regex: '(?:YL-)?Archos|(?:A50TI|AC101BHE)(?:[);/ ]|$)'
+  regex: '(?:YL-)?Archos|(?:A50TI|AC101BHE|AC50BHE)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Archos (Oxygen (?:63|57|68XL))(?:[);/ ]|$)'
@@ -2286,6 +2286,8 @@ Archos:
     - regex: 'AC101BHE(?:[);/ ]|$)'
       device: 'tablet'
       model: '101B Helium 4G'
+    - regex: 'AC50BHE(?:[);/ ]|$)'
+      model: '50B Helium 4G'
     - regex: '(?:YL-)?Archos ([^/;]*(?:PAD)[^/;]*) Build'
       device: 'tablet'
       model: '$1'
@@ -5297,9 +5299,13 @@ ECS:
 
 # EE
 EE:
-  regex: '(Harrier|Hawk|Rook)[_ ]from[_ ]EE'
+  regex: '(?:Harrier|Hawk|Rook)[_ ]from[_ ]EE'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'Rook[_ ]from[_ ]EE'
+      model: 'Rock'
+    - regex: '(A-Z)[_ ]from[_ ]EE'
+      model: '$1'
 
 # EKT
 EKT:
@@ -18218,6 +18224,57 @@ POCO:
     - regex: 'POCO F2 PRO(?:[);/ ]|$)'
       model: 'F2 Pro'
 
+
+# Zopo
+Zopo:
+  regex: 'ZOPO|(?:ZOPO[_ ])?(Flash X3|ZP[0-9]{2,}[^/;]+)(?:\)| Build)'
+  device: 'smartphone'
+  models:
+    - regex: '(?:ZOPO_C2_MOD|ZP998)(?:[);/ ]|$)'
+      model: 'C2 II'
+    - regex: 'ZOPO 9xxQuad(?:[);/ ]|$)'
+      model: '9XX Quad'
+    - regex: '(?:ZOPO_)?ZP980[+](?:[);/ ]|$)'
+      model: 'ZP980+'
+    - regex: '(?:ZOPO_)?ZP980(?:[);/ ]|$)'
+      model: 'Scorpio'
+    - regex: 'ZP952(?:[);/ ]|$)'
+      model: 'Speed 7 Plus'
+    - regex: 'ZP951(?:[);/ ]|$)'
+      model: 'Speed 7'
+    - regex: 'ZP955(?:[);/ ]|$)'
+      model: 'Speed 8'
+    - regex: 'ZP950[+h]?(?:[);/ ]|$)'
+      model: 'Leader Max'
+    - regex: 'ZP(?:900H?|910)(?:[);/ ]|$)'
+      model: 'Leader'
+    - regex: 'ZP(?:800H|810)(?:[);/ ]|$)'
+      model: 'Libero HD'
+    - regex: 'ZP500[+]?(?:[);/ ]|$)'
+      model: 'Libero'
+    - regex: 'ZP330(?:[);/ ]|$)'
+      model: 'Color C'
+    - regex: 'ZP370(?:[);/ ]|$)'
+      model: 'Color S'
+    - regex: 'ZP5(63|86)(?:[);/ ]|$)'
+      model: 'Color X'
+    - regex: 'ZP567(?:[);/ ]|$)'
+      model: 'Color C5i'
+    - regex: 'ZP300[S+]?(?:[);/ ]|$)'
+      model: 'Field'
+    - regex: 'ZP200[+]?(?:[);/ ]|$)'
+      model: 'Shining'
+    - regex: 'ZP100(?:[);/ ]|$)'
+      model: 'Pilot'
+    - regex: 'ZP1790(?:[);/ ]|$)'
+      model: 'Flash X2'
+    - regex: 'ZP781(?:[);/ ]|$)'
+      model: 'Flash G5 Plus'
+    - regex: 'ZOPO[_ ]ONE[_ ]([YXTP])(?:[);/ ]|$)'
+      model: 'One $1'
+    - regex: '(?:ZOPO_)?(Flash X3|X1i|ZP[0-9]{2,}[^/;)]+)(?: Build|\))'
+      model: '$1'
+
 # Xiaomi
 Xiaomi:
   regex: 'Xiaomi(?!/(?:Miui|Mint[ ])Browser)|Mi9 Pro 5G|(?:MI [a-z0-9]+|Mi-4c|MI-One[ _]?[a-z0-9]+|MIX(?: 2S?)?)(?:[);/ ]|$)|HM (?:[^/;]+) (?:Build|MIUI)|(?:2014501|2014011|201481[12378]|201302[23]|2013061) Build|Redmi|POCOPHONE|(?:SHARK )?(KLE|MBU)-[AH]0|SK[RW]-[AH]0|PRS-H0|POCO F1|DLT-[AH]0|MIBOX[234]([_ ]PRO)?|MiTV4[CSX]?|MiTV-(MSSP[01]|AXSO0|AESP0)|AWM-A0|MI CC 9 Meitu Edition|MiBOX1S|MiTV4A|M2006J10C|M2006C3(?:L[IGC]|LVG|MN?G|MT)|M2007J1(?:7[CGI]|SC)|M2002J9[SEG]|HM2014819|WT88047|M2004J(?:7[AB]|19)C|M2012K11(?:[CG]|AC)|M2011K2[CG]|M2006C3[ML]II|M2003J15SC|M2007J3S[ICYGP]|M2007J22[CG]|M2103K19[GY]|M2101K(?:[79]AG|7AI|7B[GI]|6[GIRP]|7BNY|9[GCR])|M2010J19S[CGYI]|M1908C3JGG|M2102(?:K1[CG]|J2SC)|HM NOTE 1(?:LTE|W)|MI[_ ]PLAY|XIG01|Qin 1s\+|MI_(NOTE_Pro|5X|4i|(?:A2|8)_Lite)|A001XM|lancelot'
@@ -19240,56 +19297,6 @@ Zenek:
       model: 'Pingûino'
     - regex: 'Z5516'
       model: 'Zebra'
-
-# Zopo
-Zopo:
-  regex: 'ZOPO|(?:ZOPO[_ ])?(Flash X3|ZP[0-9]{2,}[^/;]+)(?:\)| Build)'
-  device: 'smartphone'
-  models:
-    - regex: '(?:ZOPO_C2_MOD|ZP998)(?:[);/ ]|$)'
-      model: 'C2 II'
-    - regex: 'ZOPO 9xxQuad(?:[);/ ]|$)'
-      model: '9XX Quad'
-    - regex: '(?:ZOPO_)?ZP980[+](?:[);/ ]|$)'
-      model: 'ZP980+'
-    - regex: '(?:ZOPO_)?ZP980(?:[);/ ]|$)'
-      model: 'Scorpio'
-    - regex: 'ZP952(?:[);/ ]|$)'
-      model: 'Speed 7 Plus'
-    - regex: 'ZP951(?:[);/ ]|$)'
-      model: 'Speed 7'
-    - regex: 'ZP955(?:[);/ ]|$)'
-      model: 'Speed 8'
-    - regex: 'ZP950[+h]?(?:[);/ ]|$)'
-      model: 'Leader Max'
-    - regex: 'ZP(?:900H?|910)(?:[);/ ]|$)'
-      model: 'Leader'
-    - regex: 'ZP(?:800H|810)(?:[);/ ]|$)'
-      model: 'Libero HD'
-    - regex: 'ZP500[+]?(?:[);/ ]|$)'
-      model: 'Libero'
-    - regex: 'ZP330(?:[);/ ]|$)'
-      model: 'Color C'
-    - regex: 'ZP370(?:[);/ ]|$)'
-      model: 'Color S'
-    - regex: 'ZP5(63|86)(?:[);/ ]|$)'
-      model: 'Color X'
-    - regex: 'ZP567(?:[);/ ]|$)'
-      model: 'Color C5i'
-    - regex: 'ZP300[S+]?(?:[);/ ]|$)'
-      model: 'Field'
-    - regex: 'ZP200[+]?(?:[);/ ]|$)'
-      model: 'Shining'
-    - regex: 'ZP100(?:[);/ ]|$)'
-      model: 'Pilot'
-    - regex: 'ZP1790(?:[);/ ]|$)'
-      model: 'Flash X2'
-    - regex: 'ZP781(?:[);/ ]|$)'
-      model: 'Flash G5 Plus'
-    - regex: 'ZOPO[_ ]ONE[_ ]([YXTP])(?:[);/ ]|$)'
-      model: 'One $1'
-    - regex: '(?:ZOPO_)?(Flash X3|X1i|ZP[0-9]{2,}[^/;)]+)(?: Build|\))'
-      model: '$1'
 
 # ZTE
 ZTE:
