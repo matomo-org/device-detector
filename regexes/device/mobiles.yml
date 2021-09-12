@@ -4965,15 +4965,17 @@ Digicel:
     - regex: 'DIGICEL ([^/;]+) Build'
       model: '$1'
 
-# Digiland or DigiLand
+# Digiland
 Digiland:
-  regex: '(?:DL1008M|DL721-RB|DL(?:1023|9002|[78]006))(?:[);/ ]|$)'
+  regex: '(?:DL1008M|DL721-RB|DL(?:1023|9002|[78]006)|Compumax Blue)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'DL1008M'
       model: 'DL1008M'
     - regex: 'DL(1023|9002|[78]006|721-RB)'
       model: 'DL$1'
+    - regex: '(Compumax Blue)'
+      model: '$1'
 
 # Digma
 Digma:
@@ -20260,6 +20262,12 @@ Qumo:
       device: 'smartphone'
       model: 'Quest $1'
 
+# Qubo (qubomobile.com)
+Qubo:
+  regex: '(Cronos)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
+
 # Umax (umax.cz)
 Umax:
   regex: 'VisionBook[ _]|([78]Qa_3G|VB_10Q_Plus|10A_LTE_eea)(?:[);/ ]|$)'
@@ -24068,7 +24076,7 @@ Rivo:
     - regex: 'RHYTHM RX ?([15-9]0|[467]5|[12]80|150|[14]00)(?:[);/ ]|$)'
       model: 'Rhythm RX$1'
 
-# Four Mobile
+# Four Mobile or 4mobile
 Four Mobile:
   regex: 'Four[ _]?(S600|S300I|S185|K500|S61)(?:[);/ ]|$)'
   device: 'smartphone'
@@ -24079,6 +24087,16 @@ Four Mobile:
       model: 'S185 Sky 2'
     - regex: 'Four[ _]?S61'
       model: 'S61 Eco 2'
+
+# Seven Mobile or 7mobile (www.7mobileafrica.com)
+7 Mobile:
+  regex: '(SWEGUE|DRENA)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'Swegue'
+      model: 'Swegue'
+    - regex: 'DRENA'
+      model: 'Drena'
 
 # UZ Mobile or Telecom Device Pro (idevice.uz)
 UZ Mobile:
@@ -24429,6 +24447,19 @@ Sprint:
   regex: 'AQT(100|8[02])(?:[);/ ]|$)'
   device: 'tablet'
   model: 'AQT$1'
+
+# Bundy Mobile (bundy-mobile.fr)
+Bundy:
+  regex: '(?:BTOUCH7_PLUS|SWEET 5\+ 2019|SWEET ?[56]\+)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'SWEET 5\+ 2019'
+      model: 'Sweet 5 Plus (2019)'
+    - regex: 'SWEET ?([65])\+'
+      model: 'Sweet $1 Plus'
+    - regex: 'BTOUCH7_PLUS'
+      device: 'tablet'
+      model: 'B-Touch 7 Plus'
 
 # Devices with undectable brand, but detectable model
 Unknown:
