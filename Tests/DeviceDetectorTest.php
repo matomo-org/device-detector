@@ -187,7 +187,7 @@ class DeviceDetectorTest extends TestCase
         $ua = $fixtureData['user_agent'];
 
         AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
-        
+
         try {
             $uaInfo = DeviceDetector::getInfoFromUserAgent($ua);
         } catch (\Exception $exception) {
