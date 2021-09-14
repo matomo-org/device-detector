@@ -177,6 +177,13 @@ class OperatingSystem extends AbstractParser
     ];
 
     /**
+     * Operating system families that are known as desktop only
+     *
+     * @var array
+     */
+    protected static $desktopOsArray = ['AmigaOS', 'IBM', 'GNU/Linux', 'Mac', 'Unix', 'Windows', 'BeOS', 'Chrome OS'];
+
+    /**
      * Returns all available operating systems
      *
      * @return array
@@ -232,6 +239,7 @@ class OperatingSystem extends AbstractParser
             'short_name' => $short,
             'version'    => $this->buildVersion((string) $osRegex['version'], $matches),
             'platform'   => $this->parsePlatform(),
+            'family'     => self::getOsFamily($short)
         ];
 
         if (\in_array($return['name'], self::$operatingSystems)) {
@@ -261,6 +269,20 @@ class OperatingSystem extends AbstractParser
         }
 
         return null;
+    }
+
+    /**
+     * Returns true if OS is desktop
+     *
+     * @param string $osName OS short name
+     *
+     * @return bool
+     */
+    public static function isDesktopOs(string $osName): bool
+    {
+        $osFamily = self::getOsFamily($osName);
+
+        return \in_array($osFamily, self::$desktopOsArray);
     }
 
     /**
