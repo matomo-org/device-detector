@@ -187,6 +187,7 @@ class DeviceDetectorTest extends TestCase
         $ua = $fixtureData['user_agent'];
 
         AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
+        
         try {
             $uaInfo = DeviceDetector::getInfoFromUserAgent($ua);
         } catch (\Exception $exception) {
@@ -436,7 +437,7 @@ class DeviceDetectorTest extends TestCase
             'short_name' => 'WIN',
             'version'    => '7',
             'platform'   => 'x64',
-            'family'     => 'Windows'
+            'family'     => 'Windows',
         ];
         $this->assertEquals($expected, $dd->getOs());
     }

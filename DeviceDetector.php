@@ -611,9 +611,9 @@ class DeviceDetector
 
         $browserFamily = Browser::getBrowserFamily($deviceDetector->getClientAttribute('name'));
 
-        $os = $deviceDetector->getOs();
+        $os       = $deviceDetector->getOs();
         $osFamily = $os['family'] ?? 'Unknown';
-        
+
         unset($os['short_name']);
         unset($os['family']);
 

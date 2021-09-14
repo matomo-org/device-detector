@@ -239,7 +239,7 @@ class OperatingSystem extends AbstractParser
             'short_name' => $short,
             'version'    => $this->buildVersion((string) $osRegex['version'], $matches),
             'platform'   => $this->parsePlatform(),
-            'family'     => self::getOsFamily($short)
+            'family'     => self::getOsFamily($short),
         ];
 
         if (\in_array($return['name'], self::$operatingSystems)) {
