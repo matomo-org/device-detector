@@ -5462,13 +5462,13 @@ Rinno:
   device: 'smartphone'
   model: '$1'
 
-# Riviera
+# Riviera (www.riviera.com.ec)
 Riviera:
-  regex: 'RIVIERA '
+  regex: 'RIVIERA[ _]'
   device: 'smartphone'
   models:
-    - regex: 'F23'
-      model: 'F23'
+    - regex: 'RIVIERA[ _](F23|U963)'
+      model: '$1'
 
 # Senseit
 Senseit:
@@ -6825,7 +6825,7 @@ Hafury:
 
 # Haier
 Haier:
-  regex: 'Haier|I6_Infinity|Titan[ _]T[135]|(?:HW-)?W(?:71[67]|757|86[07]|970)(?:[);/ ]|$)|S5 Silk|(?:HM-)?(N505|N700|G(?:152|303|353|552|70[01])?-FL|HM-N501-FL|G(?:303)?-W|I(?:557)?-FL)|(?:PAD[ _](?:D71|G781|d85))|A2_Lite_NFC'
+  regex: 'Haier|I6_Infinity|Titan[ _]T[135]|(?:HW-)?W(?:71[67]|757|86[07]|970)(?:[);/ ]|$)|S5 Silk|(?:HM-)?(N505|N700|G(?:152|303|353|552|70[01])?-FL|HM-(?:I559|N501|I560|G553|N701)-FL|G(?:303)?-W|I(?:557)?-FL)|(?:PAD[ _](?:D71|G781|d85))|A2_Lite_NFC|HL810G'
   device: 'smartphone'
   models:
     - regex: 'A2_Lite_NFC'
@@ -6836,8 +6836,16 @@ Haier:
       model: 'S5 Silk'
     - regex: 'HM-N700-FL'
       model: 'L7'
+    - regex: 'HM-N701-FL'
+      model: 'L8'
     - regex: 'HM-N501-FL'
       model: 'L56'
+    - regex: 'HM-I559-FL'
+      model: 'L55s'
+    - regex: 'HM-I560-FL'
+      model: 'G7s'
+    - regex: 'HM-G553-FL'
+      model: 'G51'
     - regex: '(?:HM-)?(G(?:152|353|552|70[01])|G(?:303)|I(?:557))'
       model: '$1'
     - regex: '(Titan[_ ]T[135]|I6_Infinity)'
@@ -6845,6 +6853,9 @@ Haier:
     - regex: '(?:HW-)?W(71[67]|757|86[07]|970)(?:[);/ ]|$)'
       model: 'W$1'
     - regex: 'PAD[ -_](D71|G781|d85)'
+      device: 'tablet'
+      model: '$1'
+    - regex: '(HL810G)'
       device: 'tablet'
       model: '$1'
     - regex: 'Haier[ _\-](H[WT]-[^/;]+) Build'
@@ -11318,7 +11329,7 @@ Mobiola:
 
 # Mobicel or Mobicell
 Mobicel:
-  regex: 'Mobicel_(R1)|ASTRO(?: Build|[;)]|$)|(?:R7_1|HYPE|DANDY(?:_ZAM)?|(?<!SMADL )Matrix|VENUS_G|TRENDY PLUS|FENDY_DS|TANGO_LITE|BLINK|BERRY[_ ]?(?:[12]|PLUS)|R1PLUS_1|ZOOM-H)(?:[);/ ]|$)'
+  regex: 'Mobicel_(R1)|ASTRO(?: Build|[;)]|$)|(?:R7_1|HYPE|DANDY(?:_ZAM)?|(?<!SMADL )Matrix|VENUS_G|TRENDY PLUS|FENDY_DS|TANGO_LITE|BLINK|BERRY[_ ]?(?:[12]|PLUS)|R1PLUS_1|ZOOM-H|REBEL)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Matrix'
@@ -11347,6 +11358,8 @@ Mobicel:
       model: 'Tango Lite'
     - regex: 'FENDY_DS'
       model: 'Fendy DS'
+    - regex: 'REBEL'
+      model: 'Rebel'
     - regex: 'R7_1'
       model: 'R7'
     - regex: 'R1PLUS_1'
@@ -22513,7 +22526,7 @@ Hezire:
 
 # Hurricane (hurricanemobile.com)
 Hurricane:
-  regex: 'Hurricane[ _]|(?:Flame_Plus)(?:[);/ ]|$)'
+  regex: 'Hurricane[ _]|(?:Flame_Plus|Glaze)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Hurricane[ _]IGNITE'
@@ -22524,6 +22537,8 @@ Hurricane:
       model: 'Vortex'
     - regex: 'Hurricane[ _]GIGA'
       model: 'Giga'
+    - regex: 'Glaze'
+      model: 'Glaze'
     - regex: 'Flame_Plus'
       model: 'Flame Plus'
 
@@ -23714,11 +23729,14 @@ StrawBerry:
 
 # Gresso
 Gresso:
-  regex: 'Gresso[ _]'
+  regex: 'Gresso[ _]|(?:REGAL R2)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
+    - regex: 'REGAL R2'
+      model: 'Regal R2'
     - regex: 'Gresso[ _]Regal(?:[);/ ]|$)'
       model: 'Regal'
+
 
 # Pendoo  (pendoo.tv)
 Pendoo:
@@ -24482,11 +24500,29 @@ Covia:
   device: 'smartphone'
   model: '$1'
 
-# Smart (http://smartgsmphone.com)
+# Smart (smartgsmphone.com)
 Smart:
   regex: '(Coral 4)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
+
+# Stylo
+Stylo:
+  regex: 'STYLO|S57_A[ZL]URE'
+  device: 'smartphone'
+  models:
+    - regex: 'STYLO[ _](F1)'
+      model: '$1'
+    - regex: 'STYLO[ _]S9[_ ]TOPAZ'
+      model: 'S9 Topaz'
+    - regex: 'SV61 VECTOR\+'
+      model: 'SV61 Vector Plus'
+    - regex: 'SM61 MAGIC\+'
+      model: 'SM61 Magic Plus'
+    - regex: 'S57_AZURE'
+      model: 'S57 Azure'
+    - regex: 'S57_ALURE'
+      model: 'S57 Alure'
 
 # Devices with undectable brand, but detectable model
 Unknown:
