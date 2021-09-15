@@ -6575,9 +6575,9 @@ Vizio:
       device: 'tablet'
       model: '$1'
 
-# GOCLEVER
+# GOCLEVER (goclever.com)
 GOCLEVER:
-  regex: 'GOCLEVER|QUANTUM_[0-9]{3}|QUANTUM [0-9]{1}|QUANTUM 700N|Quantum2 500|QUANTUM_(1010N|1010M|900)|ARIES|INSIGNIA|ORION_|ELIPSO|LIBRA[ _]97'
+  regex: 'GOCLEVER|QUANTUM_(?:[235]_)?[0-9]{3}|QUANTUM [0-9]{1}|QUANTUM 700N|Quantum2 500|QUANTUM_(1010N|1010M|900)|ARIES|INSIGNIA|ORION_|ELIPSO|LIBRA[ _]97'
   device: 'smartphone'
   models:
     - regex: 'QUANTUM_(1010N|1010M|900)'
@@ -6595,13 +6595,20 @@ GOCLEVER:
     - regex: 'QUANTUM_1010_Lite'
       model: 'Quantum 1010 Lite'
       device: 'tablet'
+    - regex: 'QUANTUM_2_(1010|700|960)_Mobile'
+      model: 'Quantum 2 $1 Mobile'
+      device: 'tablet'
     - regex: 'QUANTUM_1010_Lite'
       model: 'Quantum 1010 Lite'
       device: 'tablet'
-    - regex: 'Quantum2 500'
-      model: 'Quantum 2 500'
+    - regex: 'QUANTUM_([235])_(5[05]0)_RUGGED'
+      model: 'Quantum $1 $2 Rugged'
+    - regex: 'QUANTUM[_ ]([235])_([45]00)[_ ]LITE'
+      model: 'Quantum $1 $2 Lite'
     - regex: 'QUANTUM[_ ]([45]00)[_ ]LITE'
       model: 'Quantum $1 Lite'
+    - regex: 'QUANTUM[ _]?([235])[ _]([^;/]+)(?: Build|[);])'
+      model: 'Quantum $1 $2'
     - regex: '((?:QUANTUM|ARIES|INSIGNIA|ORION|ELIPSO)[ _-]?[^;/]+)(?: Build|\))'
       model: '$1'
     - regex: 'NETBOOK R103'
