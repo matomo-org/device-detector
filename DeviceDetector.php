@@ -609,16 +609,23 @@ class DeviceDetector
             ];
         }
 
-        $browserFamily = Browser::getBrowserFamily($deviceDetector->getClientAttribute('name'));
+        $client        = $deviceDetector->getClient();
+        $browserFamily = 'Unknown';
+
+        if ($deviceDetector->isBrowser()
+            && true === \is_array($client)
+            && true === \array_key_exists('family', $client)
+            && null !== $client['family']
+        ) {
+            $browserFamily = $client['family'];
+        }
+
+        unset($client['short_name'], $client['family']);
 
         $os       = $deviceDetector->getOs();
         $osFamily = $os['family'] ?? 'Unknown';
 
-        unset($os['short_name']);
-        unset($os['family']);
-
-        $client = $deviceDetector->getClient();
-        unset($client['short_name']);
+        unset($os['short_name'], $os['family']);
 
         $processed = [
             'user_agent'     => $deviceDetector->getUserAgent(),
@@ -630,7 +637,7 @@ class DeviceDetector
                 'model' => $deviceDetector->getModel(),
             ],
             'os_family'      => $osFamily,
-            'browser_family' => $browserFamily ?? 'Unknown',
+            'browser_family' => $browserFamily,
         ];
 
         return $processed;

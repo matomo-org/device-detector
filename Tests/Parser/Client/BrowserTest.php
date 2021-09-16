@@ -31,6 +31,7 @@ class BrowserTest extends TestCase
         $browserParser->setUserAgent($useragent);
         $browser = $browserParser->parse();
         unset($browser['short_name']);
+        unset($browser['family']);
 
         $this->assertEquals($client, $browser, "UserAgent: {$useragent}");
         $this->assertTrue($this->checkBrowserEngine($browser['engine']), \sprintf(
