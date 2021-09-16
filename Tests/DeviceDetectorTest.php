@@ -437,6 +437,7 @@ class DeviceDetectorTest extends TestCase
             'short_name' => 'WIN',
             'version'    => '7',
             'platform'   => 'x64',
+            'family'     => 'Windows',
         ];
         $this->assertEquals($expected, $dd->getOs());
     }
@@ -453,6 +454,7 @@ class DeviceDetectorTest extends TestCase
             'version'        => '9.0',
             'engine'         => 'Trident',
             'engine_version' => '5.0',
+            'family'         => 'Internet Explorer',
         ];
         $this->assertEquals($expected, $dd->getClient());
     }
