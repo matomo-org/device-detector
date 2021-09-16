@@ -95,6 +95,11 @@
   name: 'Netflix'
   version: '$1'
 
+# Downcast (www.downcastapp.com | https://apps.apple.com/us/app/downcast/id393858566)
+- regex: 'Downcast/(\d+\.[\d\.]+)?(?:.+(?:!Mac)|$)'
+  name: 'Downcast'
+  version: '$1'
+
 # AFNetworking generic
 - regex: '([^/]+)/(\d+(?:\.\d+)+) \((?:iPhone|iPad); iOS [0-9\.]+; Scale/[0-9\.]+\)'
   name: '$1'
@@ -123,7 +128,6 @@
 - regex: 'Podcat/([\d\.]+)'
   name: 'Podcat'
   version: '$1'
-
 - regex: 'BeyondPod'
   name: 'BeyondPod'
   version:
@@ -139,9 +143,9 @@
 - regex: 'Player FM'
   name: 'Player FM'
   version: ''
-- regex: 'Podkicker(?: Pro)?/([\d\.]+)'
-  name: 'Podkicker'
-  version: '$1'
+- regex: 'Podkicker( (?:Pro|Classic))?/([\d\.]+)'
+  name: 'Podkicker$1'
+  version: '$2'
 - regex: 'PodcastRepublic/([\d\.]+)'
   name: 'Podcast Republic'
   version: '$1'
@@ -214,13 +218,27 @@
 - regex: 'TwitterAndroid[/]?([\d\.]+)?'
   name: 'Twitter'
   version: '$1'
-
+# Pocket Casts (https://pocketcasts.com)
+- regex: '^Pocket Casts'
+  name: 'Pocket Casts'
+  version: ''
+# Gaana (https://gaana.com)
+- regex: '^GaanaAndroid-([\d\.]+)'
+  name: 'Gaana'
+  version: '$1'
 - regex: 'TopBuzz/([\d\.]+)'
   name: 'TopBuzz'
   version: '$1'
 - regex: 'Snapchat/([\d\.]+)'
   name: 'Snapchat'
   version: '$1'
+- regex: 'AhaRadio2/([\d\.]+)'
+  name: 'Aha Radio 2'
+  version: '$1'
+# Unibox (https://apps.apple.com/app/id933879046)
+- regex: 'Unibox/([\d\.]+)'
+  name: 'Unibox'
+  version: ''
 
 # Strimio (https://www.strimio.com/)
 - regex: 'strimio(?:-desktop)/(\d+\.(?:[\.\d]+))?'
@@ -339,7 +357,11 @@
   name: 'Skype for Business'
   version: '$1'
 
+# TikTok (https://apps.apple.com/app/id835599320 | https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically)
 - regex: 'TikTok[/ ](\d+\.(?:[\.\d]+))?'
+  name: 'TikTok'
+  version: '$1'
+- regex: 'AppName/musical_ly app_version/(\d+\.[\.\d]+)?'
   name: 'TikTok'
   version: '$1'
 
@@ -470,6 +492,11 @@
   name: 'Podcaster'
   version: '$1'
 
+# DevCasts (https://apps.apple.com/app/id1481596184)
+- regex: 'devcasts/(\d+[\.\d]+)'
+  name: 'DevCasts'
+  version: '$1'
+
 # Swoot
 - regex: 'Swoot/(\d+[\.\d]+)'
   name: 'Swoot'
@@ -596,3 +623,28 @@
 - regex: '.+/(?:gfibertv|gftv200)-([\d]+)-'
   name: 'Google Fiber TV'
   version: '$1'
+
+# QuickCast (https://play.google.com/store/apps/details?id=com.wukongtv.wkcast.intl)
+- regex: 'QuickCast$'
+  name: 'QuickCast'
+  version: ''
+
+# AliExpress (https://play.google.com/store/apps/details?id=com.alibaba.aliexpresshd)
+- regex: 'Aliexpress(?:Android)?/([\d\.]+)'
+  name: 'AliExpress'
+  version: '$1'
+
+# Blue Proxy (https://play.google.com/store/apps/details?id=com.udicorn.proxy)
+- regex: 'Blue Proxy/([\d\.]+)'
+  name: 'Blue Proxy'
+  version: '$1'
+
+# https://www.n-tv.de/
+- regex: 'ntvmobil/'
+  name: 'NTV Mobil'
+  version: ''
+
+# COAF SMART Citizen (https://apps.apple.com/app/id1478339047)
+- regex: 'COAF%20SMART%20Citizen/'
+  name: 'COAF SMART Citizen'
+  version: ''
