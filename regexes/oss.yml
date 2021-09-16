@@ -404,6 +404,17 @@
   version: ''
 
 ##########
+# tvOS (https://developer.apple.com/tvos/)
+##########
+- regex: 'Apple TV.*CPU (?:iPhone )?OS ((?:9|1[0-5])_\d+(?:[_\.]\d+)*)'
+  name: 'tvOS'
+  version: '$1'
+
+- regex: 'iOS(?:; |/)((?:9|1[0-5]).\d+(?:[_\.]\d+)*) (?:model/)?AppleTV'
+  name: 'tvOS'
+  version: '$1'
+
+##########
 # watchOS (https://developer.apple.com/watchos/)
 ##########
 - regex: '(?:Watch1,[12]/|Watch OS,|watchOS[ /])(\d+[\.\d]*)'
@@ -582,7 +593,7 @@
   name: 'iOS'
   version: ''
 
-- regex: 'iTunes-(iPod|iPad|iPhone)/(?:[\d\.]+)'
+- regex: 'iTunes-(AppleTV|iPod|iPad|iPhone)/(?:[\d\.]+)'
   name: 'iOS'
   version: ''
 
@@ -863,7 +874,6 @@
 - regex: 'WebTV/(\d+[\.\d]+)'
   name: 'WebTV'
   version: '$1'
-
 
 ##########
 # Remix OS

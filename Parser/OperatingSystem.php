@@ -41,7 +41,7 @@ class OperatingSystem extends AbstractParser
         'AIX' => 'AIX',
         'AND' => 'Android',
         'AMG' => 'AmigaOS',
-        'ATV' => 'Apple TV',
+        'ATV' => 'tvOS',
         'ARL' => 'Arch Linux',
         'BTR' => 'BackTrack',
         'SBA' => 'Bada',
@@ -147,7 +147,6 @@ class OperatingSystem extends AbstractParser
     protected static $osFamilies = [
         'Android'               => ['AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI'],
         'AmigaOS'               => ['AMG', 'MOR'],
-        'Apple TV'              => ['ATV'],
         'BlackBerry'            => ['BLB', 'QNX'],
         'Brew'                  => ['BMP'],
         'BeOS'                  => ['BEO', 'HAI'],
@@ -156,7 +155,7 @@ class OperatingSystem extends AbstractParser
         'Gaming Console'        => ['WII', 'PS3'],
         'Google TV'             => ['GTV'],
         'IBM'                   => ['OS2'],
-        'iOS'                   => ['IOS', 'WAS', 'IPA'],
+        'iOS'                   => ['IOS', 'ATV', 'WAS', 'IPA'],
         'RISC OS'               => ['ROS'],
         'GNU/Linux'             => [
             'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
@@ -349,7 +348,7 @@ class OperatingSystem extends AbstractParser
      */
     protected function parsePlatform(): string
     {
-        if ($this->matchUserAgent('arm|aarch64|Watch ?OS|Watch1,[12]')) {
+        if ($this->matchUserAgent('arm|aarch64|Apple ?TV|Watch ?OS|Watch1,[12]')) {
             return 'ARM';
         }
 
