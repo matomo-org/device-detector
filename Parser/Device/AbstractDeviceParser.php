@@ -398,6 +398,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '0G' => 'GFive',
         'GM' => 'Garmin-Asus',
         'GA' => 'Gateway',
+        '99' => 'Galaxy Innovations',
         'GD' => 'Gemini',
         'GN' => 'General Mobile',
         '2G' => 'Genesis',
