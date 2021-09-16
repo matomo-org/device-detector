@@ -82,13 +82,6 @@ class DeviceDetector
     public static $clientTypes = [];
 
     /**
-     * Operating system families that are known as desktop only
-     *
-     * @var array
-     */
-    protected static $desktopOsArray = ['AmigaOS', 'IBM', 'GNU/Linux', 'Mac', 'Unix', 'Windows', 'BeOS', 'Chrome OS'];
-
-    /**
      * Holds the useragent that should be parsed
      * @var string
      */
@@ -398,7 +391,7 @@ class DeviceDetector
      * Returns if the parsed UA was identified as desktop device
      * Desktop devices are all devices with an unknown type that are running a desktop os
      *
-     * @see self::$desktopOsArray
+     * @see OperatingSystem::$desktopOsArray
      *
      * @return bool
      */
@@ -415,9 +408,7 @@ class DeviceDetector
             return false;
         }
 
-        $decodedFamily = OperatingSystem::getOsFamily($osName);
-
-        return \in_array($decodedFamily, self::$desktopOsArray);
+        return OperatingSystem::isDesktopOs($osName);
     }
 
     /**
@@ -618,14 +609,23 @@ class DeviceDetector
             ];
         }
 
-        $osFamily      = OperatingSystem::getOsFamily($deviceDetector->getOsAttribute('name'));
-        $browserFamily = Browser::getBrowserFamily($deviceDetector->getClientAttribute('name'));
+        $client        = $deviceDetector->getClient();
+        $browserFamily = 'Unknown';
 
-        $os = $deviceDetector->getOs();
-        unset($os['short_name']);
+        if ($deviceDetector->isBrowser()
+            && true === \is_array($client)
+            && true === \array_key_exists('family', $client)
+            && null !== $client['family']
+        ) {
+            $browserFamily = $client['family'];
+        }
 
-        $client = $deviceDetector->getClient();
-        unset($client['short_name']);
+        unset($client['short_name'], $client['family']);
+
+        $os       = $deviceDetector->getOs();
+        $osFamily = $os['family'] ?? 'Unknown';
+
+        unset($os['short_name'], $os['family']);
 
         $processed = [
             'user_agent'     => $deviceDetector->getUserAgent(),
@@ -636,8 +636,8 @@ class DeviceDetector
                 'brand' => $deviceDetector->getBrandName(),
                 'model' => $deviceDetector->getModel(),
             ],
-            'os_family'      => $osFamily ?? 'Unknown',
-            'browser_family' => $browserFamily ?? 'Unknown',
+            'os_family'      => $osFamily,
+            'browser_family' => $browserFamily,
         ];
 
         return $processed;
@@ -851,7 +851,7 @@ class DeviceDetector
         }
 
         $osName     = $this->getOsAttribute('name');
-        $osFamily   = OperatingSystem::getOsFamily($osName);
+        $osFamily   = $this->getOsAttribute('family');
         $osVersion  = $this->getOsAttribute('version');
         $clientName = $this->getClientAttribute('name');
 
