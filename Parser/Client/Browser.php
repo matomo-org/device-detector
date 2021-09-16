@@ -384,33 +384,33 @@ class Browser extends AbstractClientParser
         'Baidu'              => ['BD', 'BS'],
         'Amiga'              => ['AV', 'AW'],
         'Chrome'             => [
-            'CH', 'BA', 'BR', 'CC', 'CD', 'CM', 'CI', 'CF', 'CN',
-            'CR', 'CP', 'DD', 'IR', 'RM', 'AO', 'TS', 'VI', 'PT',
-            'AS', 'TB', 'AD', 'SB', 'WP', 'I3', 'CV', 'WH', 'SZ',
-            'QW', 'LF', 'KW', '2B', 'CE', 'EC', 'MT', 'MS', 'HA',
-            'OC', 'MZ', 'BM', 'KN', 'SW', 'M1', 'FA', 'TA', 'AH',
-            'CL', 'SU', 'EU', 'UB', 'LO', 'VG', 'TV', 'A0', '1B',
-            'S4', 'EE', 'AE', 'VM', 'O0', 'TG', 'GB', 'SY', 'HH',
-            'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
-            'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
-            'SS', 'O2', 'SV', 'TR', 'CW', 'GI', 'VE', 'AC', 'FS',
-            'CG', 'DR', 'C4', 'HS', 'DA', 'C5', 'C6', 'DG', 'HE',
-            'H2', 'MA', 'MD', 'O3', 'EW', 'AI', 'S9', 'T1',
+            '1B', '2B', '7S', 'A0', 'AC', 'AD', 'AE', 'AH', 'AI',
+            'AO', 'AS', 'BA', 'BM', 'BR', 'C2', 'C3', 'C5', 'C4',
+            'C6', 'CC', 'CD', 'CE', 'CF', 'CG', 'CH', 'CI', 'CL',
+            'CM', 'CN', 'CP', 'CR', 'CV', 'CW', 'DA', 'DD', 'DG',
+            'DR', 'EC', 'EE', 'EU', 'EW', 'FA', 'FS', 'GB', 'GI',
+            'H2', 'HA', 'HE', 'HH', 'HS', 'I3', 'IR', 'JB', 'KN',
+            'KW', 'LF', 'LL', 'LO', 'M1', 'MA', 'MD', 'MR', 'MS',
+            'MT', 'MZ', 'NM', 'NR', 'O0', 'O2', 'O3', 'OC', 'PB',
+            'PT', 'QU', 'QW', 'RM', 'S4', 'S6', 'S8', 'S9', 'SB',
+            'SG', 'SS', 'SU', 'SV', 'SW', 'SY', 'SZ', 'T1', 'TA',
+            'TB', 'TG', 'TR', 'TS', 'TU', 'TV', 'UB', 'UR', 'VE',
+            'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN',
         ],
         'Firefox'            => [
-            'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
-            'CU', 'TF', 'QM', 'FR', 'I4', 'GZ', 'MO', 'F1', 'BI',
-            'MN', 'BH', 'TO', 'OS', 'MY', 'FY', 'AX', 'C0', 'LH',
-            'S5', 'ZV', 'IW', 'PI', 'BN', 'OA', 'LY', 'IF', 'BF',
-            'QA',
+            'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
+            'FB', 'FE', 'FF', 'FM', 'FR', 'FY', 'GZ', 'I4', 'IF',
+            'IW', 'LH', 'LY', 'MB', 'MN', 'MO', 'MY', 'OA', 'OS',
+            'PI', 'PX', 'QA', 'QM', 'S5', 'SX', 'TF', 'TO', 'WF',
+            'ZV',
         ],
-        'Internet Explorer'  => ['IE', 'IM', 'PS', 'CZ', 'BZ'],
+        'Internet Explorer'  => ['BZ', 'CZ', 'IE', 'IM', 'PS'],
         'Konqueror'          => ['KO'],
         'NetFront'           => ['NF'],
         'NetSurf'            => ['NE'],
-        'Nokia Browser'      => ['NB', 'NO', 'NV', 'DO'],
-        'Opera'              => ['OP', 'OM', 'OI', 'ON', 'OO', 'OG', 'OH', 'O1', 'OX'],
-        'Safari'             => ['SF', 'MF', 'SO', 'S7'],
+        'Nokia Browser'      => ['DO', 'NB', 'NO', 'NV'],
+        'Opera'              => ['O1', 'OG', 'OH', 'OI', 'OM', 'ON', 'OO', 'OP', 'OX'],
+        'Safari'             => ['MF', 'S7', 'SF', 'SO'],
         'Sailfish Browser'   => ['SA'],
     ];
 
@@ -420,13 +420,13 @@ class Browser extends AbstractClientParser
      * @var array
      */
     protected static $mobileOnlyBrowsers = [
-        '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB',
-        'ST', 'BL', 'IV', 'FM', 'C1', 'C4', 'SA', 'SB', 'FR',
-        'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM',
-        'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
-        'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH', 'PI', 'SG',
-        'KD', 'PE', 'UH', 'S7', 'CW', 'OZ', 'GI', 'VE', 'AI',
-        'T1',
+        '36', 'AH', 'AI', 'BL', 'C1', 'C4', 'CB', 'CW', 'DB',
+        'DD', 'DT', 'EU', 'EZ', 'FK', 'FM', 'FR', 'FX', 'GH',
+        'GI', 'HA', 'HU', 'IV', 'JB', 'KD', 'M1', 'MF', 'MN',
+        'MZ', 'NX', 'OC', 'OI', 'OM', 'OZ', 'PU', 'PI', 'PE',
+        'QU', 'RE', 'S0', 'S7', 'SA', 'SB', 'SG', 'SK', 'ST',
+        'SU', 'T1', 'UH', 'UM', 'UT', 'VE', 'VV', 'WI', 'WP',
+        'YN',
     ];
 
     /**
@@ -512,6 +512,7 @@ class Browser extends AbstractClientParser
                     'version'        => $version,
                     'engine'         => $engine,
                     'engine_version' => $engineVersion,
+                    'family'         => self::getBrowserFamily((string) $browserShort),
                 ];
             }
         }
