@@ -82,7 +82,7 @@ abstract class AbstractDeviceParser extends AbstractParser
      */
     public static $deviceBrands = [
         '5E' => '2E',
-        '2F' => '2F Mobile',
+        '2F' => 'F2 Mobile',
         '3Q' => '3Q',
         'J7' => '7 Mobile',
         '2Q' => '3GNET',
@@ -363,7 +363,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'EI' => 'Ezio',
         'EZ' => 'Ezze',
         '5F' => 'F150',
-        '57' => 'F2 Mobile',
         'F6' => 'Facebook',
         'FA' => 'Fairphone',
         'FM' => 'Famoco',
