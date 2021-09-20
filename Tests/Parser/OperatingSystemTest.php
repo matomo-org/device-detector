@@ -103,6 +103,6 @@ class OperatingSystemTest extends TestCase
     {
         $allBrowsers = OperatingSystem::getAvailableOperatingSystems();
         $osNotTested = \array_diff($allBrowsers, self::$osTested);
-        $this->assertEmpty($osNotTested, 'Following browsers are not tested: ' . \implode(', ', $osNotTested));
+        $this->assertEmpty($osNotTested, 'Following oss are not tested: ' . \implode(', ', $osNotTested));
     }
 }
