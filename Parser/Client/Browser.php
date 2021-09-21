@@ -159,6 +159,7 @@ class Browser extends AbstractClientParser
         'GB' => 'Glass Browser',
         'GE' => 'Google Earth',
         'GO' => 'GOG Galaxy',
+        'GR' => 'GoBrowser',
         'HS' => 'HasBrowser',
         'HA' => 'Hawk Turbo Browser',
         'HE' => 'Helio',
@@ -422,11 +423,11 @@ class Browser extends AbstractClientParser
     protected static $mobileOnlyBrowsers = [
         '36', 'AH', 'AI', 'BL', 'C1', 'C4', 'CB', 'CW', 'DB',
         'DD', 'DT', 'EU', 'EZ', 'FK', 'FM', 'FR', 'FX', 'GH',
-        'GI', 'HA', 'HU', 'IV', 'JB', 'KD', 'M1', 'MF', 'MN',
-        'MZ', 'NX', 'OC', 'OI', 'OM', 'OZ', 'PU', 'PI', 'PE',
-        'QU', 'RE', 'S0', 'S7', 'SA', 'SB', 'SG', 'SK', 'ST',
-        'SU', 'T1', 'UH', 'UM', 'UT', 'VE', 'VV', 'WI', 'WP',
-        'YN',
+        'GI', 'GR', 'HA', 'HU', 'IV', 'JB', 'KD', 'M1', 'MF',
+        'MN', 'MZ', 'NX', 'OC', 'OI', 'OM', 'OZ', 'PU', 'PI',
+        'PE', 'QU', 'RE', 'S0', 'S7', 'SA', 'SB', 'SG', 'SK',
+        'ST', 'SU', 'T1', 'UH', 'UM', 'UT', 'VE', 'VV', 'WI',
+        'WP', 'YN',
     ];
 
     /**
