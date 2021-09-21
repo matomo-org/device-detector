@@ -5238,6 +5238,8 @@ DNS:
   models:
     - regex: '(?:DNS[_ ])?(S4505M|S4004M|SD01M|S4502|S4003|S4003)(?:[);/ ]|$)'
       model: '$1'
+    - regex: 'S-4003(?:[);/ ]|$)'
+      model: 'S4003'
     - regex: 'AirTab[ _\-]([^;/]+)(?: Build|[);])'
       model: 'AirTab $1'
       device: 'tablet'
@@ -20327,7 +20329,7 @@ Qumo:
 
 # Qubo (qubomobile.com)
 Qubo:
-  regex: '(Cronos|MINERVA)(?:[);/ ]|$)'
+  regex: '(Cronos|MINERVA(?:_32GB)?)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
 
@@ -21029,12 +21031,17 @@ VKworld:
 
 # Mito (mitomobile.com)
 Mito:
-  regex: 'MITO[- _](?:[AT]\d+|311|A19_[12]GB|A37[_ ]Z1)(?:[);/ ]|$)'
+  regex: 'MITO[- _]'
   device: 'smartphone'
   models:
-    - regex: 'MITO[- _](A(?:1[0678]|19_[12]GB|21|3[589]|55|180|2[36]0|33|322|313|3[136]0|[35]50|6[89]|7[235]|82|[356]0|810|950|80)|311|A37[_ ]Z1)(?:[);/ ]|$)'
+    - regex: 'MITO[- _]3255(?:[);/ ]|$)'
+      device: 'tv'
+      model: '3255'
+    - regex: 'MITO[- _]A37[_ ]Z1plus'
+      model: 'A37 Z1 Plus'
+    - regex: 'MITO[- _](A(?:19[_ ][12]GB|37[_ ]Z1|36[_ ]W1|[0-9]+)|311)(?:[);/ ]|$)'
       model: '$1'
-    - regex: 'MITO[ _](T(?:8|10|[136]5|3[03]0|510|71|89|888))(?:[);/ ]|$)'
+    - regex: 'MITO[- _](T(?:[0-9]+))(?:[);/ ]|$)'
       device: 'tablet'
       model: '$1'
 
