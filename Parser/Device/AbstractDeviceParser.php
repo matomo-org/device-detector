@@ -1060,6 +1060,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VL' => 'Verykool',
         'V8' => 'Vesta',
         'VT' => 'Vestel',
+        '48' => 'Vexia',
         'V6' => 'VGO TEL',
         'VD' => 'Videocon',
         'VW' => 'Videoweb',
