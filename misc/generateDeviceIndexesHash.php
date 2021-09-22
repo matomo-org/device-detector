@@ -59,6 +59,10 @@ foreach ($fixtureFiles as $fixtureFile) {
             foreach ($results as $result) {
                 $brand = $result['brand'] ?? '';
 
+                if ('' === $deviceCode) {
+                    continue;
+                }
+
                 if (!isset($output[$deviceCode])) {
                     $output[$deviceCode] = [];
                 }

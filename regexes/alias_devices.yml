@@ -1,63 +1,59 @@
 # Dalvik
-- regex: '^Dalvik/[\d\.]+ \(Linux; U;\s?Android\s?(?:[\d\.]+;)\s?(.+) (?:Build|MIUI)/(?:.+)\)'
+- regex: '^Dalvik/[\d\.]+ \(Linux; U; ?Android ?(?:[\d\.]+;) ?(.+)(?: Build|MIUI)/'
   name: '$1'
 
 # MQQBrowser
-- regex: '^MQQBrowser/[\d\.]+/Adr \(Linux; U; (?:[\d\.]+;)\s?(?:[a-z]{2}(?:-[a-z]{2})?;)(.+) Build/(?:.+)\)'
+- regex: '^MQQBrowser/[\d\.]+/Adr \(Linux; U; (?:[\d\.]+;) ?(?:[a-z]{2}(?:-[a-z]{2})?;)(.+) Build/'
   name: '$1'
 
 # UCWEB
-- regex: 'Adr [\d\.]+;\s+(?:[a-z]{2}(?:[_-][a-z]{2})?;)\s(.+)\)\s+U2/(?:[\d\.]+) UCBrowser'
+- regex: 'Adr [\d\.]+; +(?:[a-z]{2}(?:[_-][a-z]{2})?;)\s(.+)\) +U2/(?:[\d\.]+) UCBrowser'
   name: '$1'
-- regex: '^JUC\s?\(Linux;\s?U;\s?(?:[\d\.]+;)\s?(?:[a-z]{2}(?:[_-][a-z]{2});)\s?([^;]+);\s?\d+\*\d+;?\)\s?UCWEB'
+- regex: '^JUC ?\(Linux; ?U; ?(?:[\d\.]+;) ?(?:[a-z]{2}(?:[_-][a-z]{2});) ?([^;]+); ?\d+\*\d+;?\) ?UCWEB'
   name: '$1'
 
 # WhatsApp
-- regex: 'WhatsApp/.+ Device/(?:[^-]+)-(.+)$'
-  name: '$1'
-- regex: 'WhatsApp/.+ Device/(.+)$'
+- regex: 'WhatsApp/.+ Device/(?:(?:[^-]+)-)?(.+)$'
   name: '$1'
 
-# Facebook apple
-- regex: 'like Mac.+FBDV/([^;]+);'
-  name: '$1'
 # Facebook
-- regex: 'FBMD/([^;]+);'
+- regex: '(?:like Mac.+FBDV|FBMD)/([^;]+);'
   name: '$1'
 
 # Instagram
-- regex: 'Instagram (?:[\d.]+)\s+\(([^;]+);'
+- regex: 'Instagram (?:[\d.]+) +\(([^;]+);'
   name: '$1'
 
 # CFNetwork apple
-- regex: 'CFNetwork/.+Darwin/.+(?:\(x86_64\))?\s+\(([^)]+)\)$'
+- regex: 'CFNetwork/.+Darwin/.+(?:\(x86_64\))? +\(([^)]+)\)$'
   name: '$1'
 
 - regex: 'IEMobile/[0-9].+;(?:[^;]+); ?([^;]+);'
   name: '$1'
-- regex: 'IEMobile/[0-9].+;(?:[^;]+); ?([^)]+)\) like'
+- regex: 'IEMobile/[0-9].+;(?:[^;]+); ?([^)]+)[)] like'
+  name: '$1'
+- regex: 'IEMobile/[0-9].+; ?([^)]+)[)]'
   name: '$1'
 
+# Windows
+- regex: 'Windows (?:Mobile|Phone) (?:[\d\.]+;{1,2}) Android (?:[\d\.]+;{1,2})(?: WebView/[0-9].0;)?(?:[^;]+); ([^;]+)\) AppleWebKit'
+  name: '$1'
 # Android AppleWebKit
-- regex: 'Android\s+(?:[^;]+);\s+(?:[a-z]{2}(?:[_-][a-z]{2})?;)\s+([^;]+); Android/'
+- regex: 'Android +(?:[\d\.]+;{1,2})(?: +)?(?:[a-z]{2}(?:[_-][a-z]{2})?;)?(?: +)?([^;]+); Android/.+Release/'
   name: '$1'
-- regex: 'Android (?:[\d\.]+;)\s?(?:[^;]+;)?\s?(.+) Release/.+AppleWebKit.+Build/'
+- regex: 'Android +(?:[\d\.]+;{1,2})(?: +)?(?:[^;]+;)?(?: +)?([^/;]+)(?:/(?:[\d.]+) Android/|(?:/.+)?[)] Linux/| Release/.+AppleWebKit.+Build/)'
   name: '$1'
-- regex: 'Android (?:[\d\.]+;)\s?(?:[^;]+;)?\s?(.+) Build/.+AppleWebKit'
+- regex: 'Android +(?:[\d\.]+;{1,2})(?: +)?(?:[^;]+;)?(?: +)?([^/;]+)(Release/.+Build ?/| Build ?/.+AppleWebKit|; HMSCore|; wv\) AppleWebKit|/.+CTC/)'
   name: '$1'
-- regex: 'Android (?:[\d\.]+;)\s?(?:[a-z]{2}(?:[_-][a-z]{2})?;)?\s?([^;]+);? Build/'
-  name: '$1'
-- regex: 'Android (?:[\d.]+;)\s?(?:[^;]+;)?\s?(.+)\) (?:AppleWebKit|ShieldExperience)'
-  name: '$1'
-- regex: 'Android (?:[\d.]+;)\s?(?:[^;]+;)?\s?(.+) AppleWebKit'
+- regex: 'Android +(?:[\d\.]+;{1,2})(?: +)?(?:arm(?:_.+)?;|[a-z]{2}(?:[_-][a-z]{2})?;)?(?: +)?(.*?)(?:(?:; smart-tv)?[)] ?ShieldExperience|;? Build ?/|\)? ?AppleWebKit)'
   name: '$1'
 
 # BlackBerry
-- regex: 'BlackBerry;\s+U;\s+([^;]+);\s+(?:[a-z]{2}(?:[_-][a-z]{2})?;)?'
+- regex: 'BlackBerry; +U; +([^;]+); +(?:[a-z]{2}(?:[_-][a-z]{2})?;)?'
   name: '$1'
 
 # UnityPlayer
-- regex: 'Android OS.+;\s+([^;]+);?\) AppleWebKit/.+UnityPlayer'
+- regex: 'Android OS.+; +([^;]+);?\) AppleWebKit/.+UnityPlayer'
   name: '$1'
 
 # Obigo Browser
@@ -66,4 +62,8 @@
 
 # InetTvBrowser
 - regex: 'InettvBrowser/(?:[\d\.]+).+\(.+\) ?(.+); CC/'
+  name: '$1'
+
+# MS Office Apple
+- regex: '(?:Non)?AppStore; Apple/(.*?)\)'
   name: '$1'
