@@ -40,12 +40,6 @@
   name: 'Tizen'
   version: '$1'
 
-##########
-## Sailfish OS
-###########
-- regex: 'Sailfish|Jolla'
-  name: 'Sailfish OS'
-  version: ''
 
 ##########
 # YunOS (Android based)
@@ -102,6 +96,10 @@
 ##########
 # Custom Android Roms
 ##########
+- regex: 'HarmonyOS(?:[/ ](\d+[\.\d]+))?'
+  name: 'HarmonyOS'
+  version: '$1'
+
 - regex: 'RazoDroiD(?: v(\d+[\.\d]*))?'
   name: 'RazoDroiD'
   version: '$1'
@@ -185,6 +183,13 @@
 - regex: 'Linux; diordnA[; ](\d+[\.\d]*)'
   name: 'Android'
   version: '$1'
+
+##########
+## Sailfish OS
+###########
+- regex: 'Sailfish|Jolla'
+  name: 'Sailfish OS'
+  version: ''
 
 ##########
 # AmigaOS
@@ -410,11 +415,41 @@
   version: ''
 
 ##########
+# tvOS (https://developer.apple.com/tvos/)
+##########
+- regex: 'Apple TV.*CPU (?:iPhone )?OS ((?:9|1[0-5])_\d+(?:[_\.]\d+)*)'
+  name: 'tvOS'
+  version: '$1'
+
+- regex: 'iOS(?:; |/)((?:9|1[0-5]).\d+(?:[_\.]\d+)*) (?:model/)?AppleTV'
+  name: 'tvOS'
+  version: '$1'
+
+##########
 # watchOS (https://developer.apple.com/watchos/)
 ##########
 - regex: '(?:Watch1,[12]/|Watch OS,|watchOS[ /])(\d+[\.\d]*)'
   name: 'watchOS'
   version: '$1'
+
+##########
+# iPadOS (https://www.apple.com/ipados/)
+##########
+- regex: 'FBMD/iPad;.*FBSV/ ?(1[345]).(\d+[\.\d]*);'
+  name: 'iPadOS'
+  version: '$1.$2'
+
+- regex: 'iPad/(1[345]).(\d+[\.\d]*)'
+  name: 'iPadOS'
+  version: '$1.$2'
+
+- regex: 'iPad.+CPU OS ((1[345])+(?:[_\.]\d+)*)'
+  name: 'iPadOS'
+  version: '$1'
+
+- regex: 'iOS/(1[345]).(\d+[\.\d]*).+Apple/iPad'
+  name: 'iPadOS'
+  version: '$1.$2'
 
 ##########
 # iOS
@@ -667,7 +702,7 @@
   name: 'iOS'
   version: ''
 
-- regex: 'iTunes-(iPod|iPad|iPhone)/(?:[\d\.]+)'
+- regex: 'iTunes-(AppleTV|iPod|iPad|iPhone)/(?:[\d\.]+)'
   name: 'iOS'
   version: ''
 
@@ -1063,7 +1098,6 @@
   name: 'WebTV'
   version: '$1'
 
-
 ##########
 # Remix OS
 ##########
@@ -1160,6 +1194,6 @@
 ###########
 # Linux (Generic)
 ###########
-- regex: 'Linux(?:OS)?[^a-z]'
+- regex: 'Linux(?:OS)?[^a-z]|Cinnamon/(?:\d+[\.\d]+)'
   name: 'GNU/Linux'
   version: ''

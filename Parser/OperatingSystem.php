@@ -41,7 +41,7 @@ class OperatingSystem extends AbstractParser
         'AIX' => 'AIX',
         'AND' => 'Android',
         'AMG' => 'AmigaOS',
-        'ATV' => 'Apple TV',
+        'ATV' => 'tvOS',
         'ARL' => 'Arch Linux',
         'BTR' => 'BackTrack',
         'SBA' => 'Bada',
@@ -69,6 +69,8 @@ class OperatingSystem extends AbstractParser
         'GTV' => 'Google TV',
         'HPX' => 'HP-UX',
         'HAI' => 'Haiku OS',
+        'IPA' => 'iPadOS',
+        'HAR' => 'HarmonyOS',
         'HAS' => 'HasCodingOS',
         'IRI' => 'IRIX',
         'INF' => 'Inferno',
@@ -144,9 +146,8 @@ class OperatingSystem extends AbstractParser
      * @var array
      */
     protected static $osFamilies = [
-        'Android'               => ['AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI'],
+        'Android'               => ['AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR'],
         'AmigaOS'               => ['AMG', 'MOR'],
-        'Apple TV'              => ['ATV'],
         'BlackBerry'            => ['BLB', 'QNX'],
         'Brew'                  => ['BMP'],
         'BeOS'                  => ['BEO', 'HAI'],
@@ -155,7 +156,7 @@ class OperatingSystem extends AbstractParser
         'Gaming Console'        => ['WII', 'PS3'],
         'Google TV'             => ['GTV'],
         'IBM'                   => ['OS2'],
-        'iOS'                   => ['IOS', 'WAS'],
+        'iOS'                   => ['IOS', 'ATV', 'WAS', 'IPA'],
         'RISC OS'               => ['ROS'],
         'GNU/Linux'             => [
             'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
@@ -174,6 +175,13 @@ class OperatingSystem extends AbstractParser
         'Windows Mobile'        => ['WPH', 'WMO', 'WCE', 'WRT', 'WIO'],
         'Other Smart TV'        => ['WHS'],
     ];
+
+    /**
+     * Operating system families that are known as desktop only
+     *
+     * @var array
+     */
+    protected static $desktopOsArray = ['AmigaOS', 'IBM', 'GNU/Linux', 'Mac', 'Unix', 'Windows', 'BeOS', 'Chrome OS'];
 
     /**
      * Returns all available operating systems
@@ -231,6 +239,7 @@ class OperatingSystem extends AbstractParser
             'short_name' => $short,
             'version'    => $this->buildVersion((string) $osRegex['version'], $matches),
             'platform'   => $this->parsePlatform(),
+            'family'     => self::getOsFamily($short),
         ];
 
         if (\in_array($return['name'], self::$operatingSystems)) {
@@ -263,6 +272,20 @@ class OperatingSystem extends AbstractParser
     }
 
     /**
+     * Returns true if OS is desktop
+     *
+     * @param string $osName OS short name
+     *
+     * @return bool
+     */
+    public static function isDesktopOs(string $osName): bool
+    {
+        $osFamily = self::getOsFamily($osName);
+
+        return \in_array($osFamily, self::$desktopOsArray);
+    }
+
+    /**
      * Returns the full name for the given short name
      *
      * @param string      $os
@@ -286,7 +309,7 @@ class OperatingSystem extends AbstractParser
      */
     protected function parsePlatform(): string
     {
-        if ($this->matchUserAgent('arm|aarch64|Watch ?OS|Watch1,[12]')) {
+        if ($this->matchUserAgent('arm|aarch64|Apple ?TV|Watch ?OS|Watch1,[12]')) {
             return 'ARM';
         }
 
