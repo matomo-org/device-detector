@@ -5346,7 +5346,7 @@ Eks Mobility:
 
 # Elephone
 Elephone:
-  regex: 'Elephone|Vowney(?: Lite)?|P6000(?!_Plus)( ?Pro| ?Plus|\+| ?02| 5.0 01)?|Soldier'
+  regex: 'Elephone|Vowney(?: Lite)?|P6000(?!_Plus)( ?Pro| ?Plus|\+| ?02| 5.0 01)?|Soldier|(?:P8_3D|P8_Max)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Elephone Trunk(?:[);/ ]|$)'
@@ -5365,6 +5365,8 @@ Elephone:
       model: 'P6000 Pro'
     - regex: 'Soldier(?:[);/ ]|$)'
       model: 'Soldier'
+    - regex: '(P8_3D|P8_Max)(?:[);/ ]|$)'
+      model: '$1'
     - regex: '(?:Elephone[ _])?(P[768]000|S2)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'Elephone[ _\-]([^/;]+)(?: Build|[;)])'
@@ -10877,10 +10879,10 @@ Manta Multimedia:
 
 # Masstel
 Masstel:
-  regex: 'Masstel'
+  regex: 'Masstel|Juno[ _]Q[567]'
   device: 'smartphone'
   models:
-    - regex: 'Masstel[_ ](Juno[_ ]Q3|X9|N4[56]0|N5[2458]0|N536|M05|M1[29]0|M1[125]|M250|M25)(?:[);/ ]|$)'
+    - regex: '(?:Masstel[_ ])?(Juno[_ ]Q[3567]|X9|N4[56]0|N5[2458]0|N536|M05|M1[29]0|M1[125]|M250|M25)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'Masstel[_ ]\((M18)\)'
       model: '$1'
@@ -12459,7 +12461,7 @@ O2:
 
 # Odys (odys.de)
 Odys:
-  regex: 'ODYS[ _-]|IEOS[_ ]([^/;]+)|NOON(?:_PRO)? Build|SPACE10_(?:PLUS|PRO)_3G|THOR_?10|TAO_X10|RAPID_?(?:10|7)_?LTE|MAVEN_?10_|CONNECT[78]|ELEMENT10_PLUS_3G|XELIO[_0-9P]|ADM816HC|ADM8000KP|NEO6_LTE|EOS10|AEON|FALCON_10_PLUS_3G|FUSION|THANOS_10|MAVEN_X10_HD(?:_LTE)?|JUNIOR_8_PRO|JuniorT8Pro|(?:NOVA|PYRO)_X?7_PLUS_3G|UNO_X8|MAVEN_G10|SLADE_X55|XELIO_PRO_10_LTE|NOTOSplus3G'
+  regex: 'ODYS[ _-]|IEOS[_ ]([^/;]+)|NOON(?:_PRO)? Build|SPACE10_(?:PLUS|PRO)_3G|THOR_?10|TAO_X10|RAPID_?(?:10|7)_?LTE|MAVEN_?10_|CONNECT[78]|ELEMENT10_PLUS_3G|XELIO[_0-9P]|ADM816HC|ADM8000KP|NEO6_LTE|EOS10|AEON|FALCON_10_PLUS_3G|FUSION|THANOS_10|MAVEN_X10_HD(?:_LTE)?|JUNIOR_8_PRO|JuniorT8Pro|(?:NOVA|PYRO)_X?7_PLUS_3G|UNO_X8|MAVEN_G10|SLADE_X55|XELIO_PRO_10_LTE|NOTOSplus3G|PACE ?10|PACE_10_LTE'
   device: 'tablet'
   models:
     - regex: 'XELIO[_ ]A10'
@@ -12520,6 +12522,10 @@ Odys:
       model: 'Neo X'
     - regex: 'EOS10'
       model: 'EOS 10'
+    - regex: 'PACE_10_LTE_V2'
+      model: 'Pace 10 LTE V2'
+    - regex: 'PACE ?10'
+      model: 'Pace 10'
     - regex: 'AEON'
       model: 'Aeon'
     - regex: 'FALCON_10_PLUS_3G'
@@ -24634,6 +24640,12 @@ HiMax:
       model: 'Polymer$1'
     - regex: 'HIMAX[_ ]PURE[_ ]3S'
       model: 'Pure 3S'
+
+# Packard Bell (sub brand Acer www.packardbell.com)
+Packard Bell:
+  regex: '(PB1009|M10[45]00|M7500|M7600-D)(?:[);/ ]|$)'
+  device: 'tablet'
+  model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:

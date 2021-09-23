@@ -777,6 +777,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'PN' => 'Panacom',
         'PA' => 'Panasonic',
         'PT' => 'Pantech',
+        '94' => 'Packard Bell',
         'PB' => 'PCBOX',
         'PC' => 'PCD',
         'PD' => 'PCD Argentina',
