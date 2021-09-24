@@ -5238,6 +5238,8 @@ DNS:
   models:
     - regex: '(?:DNS[_ ])?(S4505M|S4004M|SD01M|S4502|S4003|S4003)(?:[);/ ]|$)'
       model: '$1'
+    - regex: 'S-4003(?:[);/ ]|$)'
+      model: 'S4003'
     - regex: 'AirTab[ _\-]([^;/]+)(?: Build|[);])'
       model: 'AirTab $1'
       device: 'tablet'
@@ -5344,7 +5346,7 @@ Eks Mobility:
 
 # Elephone
 Elephone:
-  regex: 'Elephone|Vowney(?: Lite)?|P6000(?!_Plus)( ?Pro| ?Plus|\+| ?02| 5.0 01)?|Soldier'
+  regex: 'Elephone|Vowney(?: Lite)?|P6000(?!_Plus)( ?Pro| ?Plus|\+| ?02| 5.0 01)?|Soldier|(?:P8_3D|P8_Max)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Elephone Trunk(?:[);/ ]|$)'
@@ -5363,6 +5365,8 @@ Elephone:
       model: 'P6000 Pro'
     - regex: 'Soldier(?:[);/ ]|$)'
       model: 'Soldier'
+    - regex: '(P8_3D|P8_Max)(?:[);/ ]|$)'
+      model: '$1'
     - regex: '(?:Elephone[ _])?(P[768]000|S2)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'Elephone[ _\-]([^/;]+)(?: Build|[;)])'
@@ -5888,7 +5892,7 @@ Sony:
       model: 'Xperia X Performance Dual'
 
     # SONY: explicit tablet models
-    - regex: '(?:SGP(?:311|312|321)|(Sony)?SO-03E)(?:[);/ ]|$)'
+    - regex: '(?:SGP(?:311|312|321)|(Sony)?SO-03E|Tablet Z LTE)(?:[);/ ]|$)'
       model: 'Xperia Tablet Z'
       device: 'tablet'
     - regex: 'SGP712(?:[);/ ]|$)'
@@ -7775,7 +7779,7 @@ Huawei:
 
 # Hyundai
 Hyundai:
-  regex: 'Hyundai|Ultra (?:Active|Air|Charm|Dream|Energy|Latitude|Link|Live|Shadow|Shine|Storm|Style|Sync|Trend|Vision|Wave)|Ultra_Vision_Plus|G(24027|2552[34])K|W25042L|HP554O|Seoul S8|L503F Plus|HT0701L16|HT0704K08|HT1004L16|HT1004LI16|Koral_8W2|Eternity[_ ]G25'
+  regex: 'Hyundai|Ultra (?:Active|Air|Charm|Dream|Energy|Latitude|Link|Live|Shadow|Shine|Storm|Style|Sync|Trend|Vision|Wave)|Ultra_Vision_Plus|G(24027|2552[34])K|W25042L|HP554O|Seoul S8|L503F Plus|HT0701L16|HT0704K08|HT1004L16|HT1004LI16|Koral_8W2|Eternity[_ ]G25|HYMI 5S Plus'
   device: 'smartphone'
   models:
     - regex: 'Ultra[_ ]Vision[_ ]Plus'
@@ -7798,8 +7802,8 @@ Hyundai:
       model: 'HP554O'
     - regex: 'L503F Plus'
       model: 'L503F Plus'
-    - regex: 'L503F Plus'
-      model: 'L503F Plus'
+    - regex: 'HYMI 5S Plus'
+      model: 'Hymi 5S Plus'
     - regex: '(?:Hyundai_)?(Eternity_(?:G57L?|G60))'
       model: '$1'
 
@@ -9191,6 +9195,12 @@ Kyocera:
     - regex: '(KWC|QC)-?([a-z0-9]+)'
       model: '$1-$2'
 
+# Mymaga (support.mymaga.eu)
+Mymaga:
+  regex: '(MOVE_S201)(?:[);/ ]|$)'
+  device: 'tablet'
+  model: '$1'
+
 # Krüger&Matz (Kruger&Matz)
 Krüger&Matz:
   regex: 'Kruger[ _&]Matz|KrugerMatz[ _]|FLOW ?5PLUS|FLOW_5|FLOW7|FLOW6(?:S|Lite)|DRIVE9|DRIVE[_ ]6S?|MOVE8mini|MOVE_|LIVE_6plus|LIVE 5 PLUS|LIVE4_KM043[89]|LIVE 7S|Flow 7S|KM(?:106[67]|1065G|0701_1|0702|0805_1|1070)'
@@ -9264,7 +9274,7 @@ AIS:
 
 # Lava (Lavamobiles.com)
 Lava:
-  regex: 'Lava[ _]|LAVAA1|(?:DISCOVER136|KKT QUADRA)|iris[ _]?([^/;]+)(?:\)| Build)|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|(?:Flair Z1|PixelV1|Pixel V2\+?|Z60s|Z61_2GB|A97 IPS|A97 2GB PLUS|L[EH]9920(?:[_ ]P)?|L[NEH]9910|LH9810|Ivory(?:S1|S4G)?|A76Plus|Grand2c)(?:[);/ ]|$)'
+  regex: 'Lava[ _]|LAVA(?:A1|X10)|(?:DISCOVER136|KKT QUADRA)|iris[ _]?([^/;]+)(?:\)| Build)|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|(?:Flair Z1|PixelV1|Pixel V2\+?|Z60s|Z61_2GB|A97 IPS|A97 2GB PLUS|L[EH]9920(?:[_ ]P)?|L[NEH]9910|LH9810|Ivory(?:S1|S4G)?|A76Plus|Grand2c)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -9415,10 +9425,12 @@ Lark:
       model: 'FreeMe X4 7HD 3G'
     - regex: 'FreeMe[ _]X2[ _]([7-9])'
       model: 'FreeMe X2 $1'
-    - regex: 'FreeMe X4[ _]7[_ ]HD'
+    - regex: 'FreeMe X4[ _]7[_ ]?HD'
       model: 'FreeMe X4 7HD'
     - regex: 'FreeMe X4[ _]9'
       model: 'FreeMe X4 9'
+    - regex: 'FreeMe X4 7'
+      model: 'FreeMe X4 7'
     - regex: 'FreeBird 5WiFi'
       model: 'FreeBird 5 WiFi'
     - regex: '(?:Lark[ _-])?Evolution[ _](X2 7 3G-GPS|X4[_ ]10\.1|10|X4[_ ]7[ _]IPS)'
@@ -10865,10 +10877,10 @@ Manta Multimedia:
 
 # Masstel
 Masstel:
-  regex: 'Masstel'
+  regex: 'Masstel|Juno[ _]Q[567]'
   device: 'smartphone'
   models:
-    - regex: 'Masstel[_ ](Juno[_ ]Q3|X9|N4[56]0|N5[2458]0|N536|M05|M1[29]0|M1[125]|M250|M25)(?:[);/ ]|$)'
+    - regex: '(?:Masstel[_ ])?(Juno[_ ]Q[3567]|X9|N4[56]0|N5[2458]0|N536|M05|M1[29]0|M1[125]|M250|M25)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'Masstel[_ ]\((M18)\)'
       model: '$1'
@@ -11816,7 +11828,7 @@ MyTab:
 
 # myphone (myphone.com.ph)
 MyPhone:
-  regex: '(?:MyPhone|MyPad|MyTab)[ _][^;/)]+( Build|\))|Cube_LTE|myTab10II|HAMMER[ _](FORCE|Blade2_PRO|IRON_[23]|Explorer|ENERGY|Titan 2|AXE[_ ](?:M[_ ]LTE|Pro)|Iron 2|Active[2]?(_LTE)?)|IRON_2|C-Smart_pix|myPhone_Fun_8|FUN_18x9|MyPhoneMY27|Prime_4_Lite|myA17|myX12|Pocket_2|Prime_18x9|Prime3Lite|myT6 DTV|myXI1 (?:Plus|Pro)|myXI3|Q_Smart_BE|Brown 1|Q-Smart_III_Plus'
+  regex: '(?:MyPhone|MyPad|MyTab)[ _][^;/)]+( Build|\))|Cube_LTE|myTab10II|LUNA_II|HAMMER[ _](FORCE|Blade2_PRO|IRON_[23]|Explorer|ENERGY|Titan 2|AXE[_ ](?:M[_ ]LTE|Pro)|Iron 2|Active[2]?(_LTE)?)|IRON_2|C-Smart_pix|myPhone_Fun_8|FUN_18x9|MyPhoneMY27|Prime_4_Lite|myA17|myX12|Pocket_2|Prime_18x9|Prime3Lite|myT6 DTV|myXI1 (?:Plus|Pro)|myXI3|Q_Smart_BE|Brown 1|Q-Smart_III_Plus'
   device: 'smartphone'
   models:
     # explicit table models
@@ -11898,6 +11910,8 @@ MyPhone:
       model: 'Pocket Pro'
     - regex: 'Q-Smart_III_Plus'
       model: 'Q-Smart III Plus'
+    - regex: 'LUNA_II'
+      model: 'Luna II'
 
     # general detections
     - regex: 'MyPhone[ _]([^;/)]+)( Build|\))'
@@ -12042,9 +12056,9 @@ Nobby:
   device: 'smartphone'
   model: '$1'
 
-# nec
+# nec or nec lavie (www.nec-lavie.jp)
 NEC:
-  regex: 'NEC[ _\-]|KGT/2\.0|PC-TE508(?:S1|[BH]AW)|PC-TE510(?:HAW|BAL|S1)|PC-TS708T1W|PC-TS507N1S|PC-TE507JAW|portalmmm/1\.0 (?:DB|N)|(?:portalmmm|o2imode)/2.0[ ,]N|(?:N-06C|N-02E|LAVIE Tab E (?:10|8)FHD1)(?:[);/ ]|$)'
+  regex: 'NEC[ _\-]|KGT/2\.0|PC-TE508(?:S1|[BH]AW)|PC-TE510(?:HAW|BAL|S1)|PC-TS708T1W|PC-TS507N1S|PC-TE507JAW|portalmmm/1\.0 (?:DB|N)|(?:portalmmm|o2imode)/2.0[ ,]N|(?:N-06C|N-02E|LAVIE Tab E (?:10|8)FHD1|7SD1)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'N-06C(?:[);/ ]|$)'
@@ -12075,9 +12089,9 @@ NEC:
     - regex: 'PC-TE508S1(?:[);/ ]|$)'
       device: 'tablet'
       model: 'LAVIE Tab E TE508'
-    - regex: '(LAVIE Tab E (?:10|8)FHD1)(?:[);/ ]|$)'
+    - regex: 'LAVIE (Tab E (?:(?:10|8)FHD1|7SD1))(?:[);/ ]|$)'
       device: 'tablet'
-      model: '$1'
+      model: 'LAVIE $1'
 
 # Neffos (sub brand TP-Link) (neffos.com)
 Neffos:
@@ -12447,7 +12461,7 @@ O2:
 
 # Odys (odys.de)
 Odys:
-  regex: 'ODYS[ _-]|IEOS[_ ]([^/;]+)|NOON(?:_PRO)? Build|SPACE10_(?:PLUS|PRO)_3G|THOR_?10|TAO_X10|RAPID_?(?:10|7)_?LTE|MAVEN_?10_|CONNECT[78]|ELEMENT10_PLUS_3G|XELIO[_0-9P]|ADM816HC|ADM8000KP|NEO6_LTE|EOS10|AEON|FALCON_10_PLUS_3G|FUSION|THANOS_10|MAVEN_X10_HD(?:_LTE)?|JUNIOR_8_PRO|JuniorT8Pro|(?:NOVA|PYRO)_X?7_PLUS_3G|UNO_X8|SLADE_X55|XELIO_PRO_10_LTE|NOTOSplus3G'
+  regex: 'ODYS[ _-]|IEOS[_ ]([^/;]+)|NOON(?:_PRO)? Build|SPACE10_(?:PLUS|PRO)_3G|THOR_?10|TAO_X10|RAPID_?(?:10|7)_?LTE|MAVEN_?10_|CONNECT[78]|ELEMENT10_PLUS_3G|XELIO[_0-9P]|ADM816HC|ADM8000KP|NEO6_LTE|EOS10|AEON|FALCON_10_PLUS_3G|FUSION|THANOS_10|MAVEN_X10_HD(?:_LTE)?|JUNIOR_8_PRO|JuniorT8Pro|(?:NOVA|PYRO)_X?7_PLUS_3G|UNO_X8|MAVEN_G10|SLADE_X55|XELIO_PRO_10_LTE|NOTOSplus3G|PACE ?10|PACE_10_LTE'
   device: 'tablet'
   models:
     - regex: 'XELIO[_ ]A10'
@@ -12508,6 +12522,10 @@ Odys:
       model: 'Neo X'
     - regex: 'EOS10'
       model: 'EOS 10'
+    - regex: 'PACE_10_LTE_V2'
+      model: 'Pace 10 LTE V2'
+    - regex: 'PACE ?10'
+      model: 'Pace 10'
     - regex: 'AEON'
       model: 'Aeon'
     - regex: 'FALCON_10_PLUS_3G'
@@ -12528,6 +12546,8 @@ Odys:
       model: 'Thor 10 Plus 3G'
     - regex: 'NOTOSplus3G'
       model: 'Notos Plus 3G'
+    - regex: 'MAVEN_G10'
+      model: 'Maven G10'
 
     # explicit smartphones models
     - regex: 'NEO6[_ ]LTE'
@@ -16364,7 +16384,7 @@ Anker:
 
 # Kindle
 Amazon:
-  regex: '(?:AFT[ABMNRST]|AFTSSS?|SD4930UR|AEO(BC|KN)|KF(?:OT|ONWI|TT|JWI|JWA|[DFS]OWI|A[PRSU]WI|T[BH]WI|SAW[IA]|GIWI|KAWI|MAWI|MEWI|MUWI|SUWI))(?:[);/ ]|$)|Kindle|AlexaMediaPlayer|Amazon (?:Tate|Jem)|Silk/\d+\.\d+|Echo/1'
+  regex: '(?:AFT[ABMNRST]|AFTSSS?|SD4930UR|AEO(BC|KN)|KF(?:OT|ONWI|TT|JWI|JWA|[DFS]OWI|A[PRSU]WI|T[BH]WI|TRP?WI|SAW[IA]|GIWI|KAWI|MAWI|MEWI|MUWI|SUWI))(?:[);/ ]|$)|Kindle|AlexaMediaPlayer|Amazon (?:Tate|Jem)|Silk/\d+\.\d+|Echo/1'
   device: 'tablet'
   models:
     - regex: 'AFTA'
@@ -16941,13 +16961,19 @@ teXet:
 
 # Telefunken
 Telefunken:
-  regex: 'TELEFUNKEN|Foxtrot|TEL-1013GIQA|TF-SP(?:500[12]|4002)|(TF-MID(?:[78]02G|70[78]G|80[46]G|9705RG|9707G|7805G|100[57]G|1010G))|(TF-LED(?:65S75T2SU|32S39T2S|32S5[289]T2S|32S70T2S|40S63T2S))'
+  regex: 'TELEFUNKEN|Foxtrot|TEL-1013GIQA|TF-SP(?:500[12]|4002)|(TF-MID(?:[78]02G|70[78]G|80[46]G|9705RG|9707G|7805G|100[57]G|1010G))|(TF-LED(?:65S75T2SU|32S39T2S|32S5[289]T2S|32S70T2S|40S63T2S))|LTE_LIMA|LTE Mike'
   device: 'tablet'
   models:
     - regex: 'TEL-1013GIQA'
       model: 'Giqa 10.1 3G'
     - regex: 'Foxtrot2'
       model: 'Foxtrot 2'
+      device: 'smartphone'
+    - regex: 'LTE_LIMA'
+      model: 'Lima LTE'
+      device: 'smartphone'
+    - regex: 'LTE Mike'
+      model: 'Mike LTE'
       device: 'smartphone'
     - regex: '(?:TELEFUNKEN)?(TF-SP(?:500[12]|4002)|Outdoor LTE|Foxtrot)'
       model: '$1'
@@ -17018,7 +17044,7 @@ TIANYU:
 
 # Timovi
 Timovi:
-  regex: 'Tmovi[ _]|(?:Infinit[ _](?:Lite[_ ]2|X[_ ]CAM)|Infinit MX(?: Pro)?|Vision_PRO|VISION ULTRA|Epix)(?:[);/ ]|$)'
+  regex: 'Tmovi[ _]|(?:Infinit[ _](?:Lite[_ ]2|X[_ ]CAM)|Infinit MX(?: Pro)?|Vision_PRO|VISION ULTRA|Epix|Yeah_Go)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Tmovi[ _]Prime'
@@ -17041,6 +17067,8 @@ Timovi:
       model: 'Vision Ultra'
     - regex: 'Epix'
       model: 'Epix'
+    - regex: 'Yeah_Go'
+      model: 'Yeah Go'
 
 # Tooky
 Tooky:
@@ -17953,13 +17981,15 @@ Wexler:
 
 # Inco (incomobile.com)
 Inco:
-  regex: '(?:Inco[ _](Aurora II|Colors|Sphere|Plain[_ ]2S?|Plain2 S|Flex(?: 2S)?|S4|Bloom(?: 2)?)|(Horizon_S|Horizon \+))(?:[);/ ]|$)'
+  regex: '(?:Inco[ _](Aurora II|Colors|Sphere|Plain[_ ]2S?|Plain2 S|Flex(?: 2S)?|S4|Bloom(?: 2)?)|(Horizon_S|Horizon \+|MATTER))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(?:Inco[ _])?(Plain[_ ]2S?|Colors|Horizon_S|Horizon \+|Aurora II|Flex(?: 2S)?|S4|Bloom(?: 2)?)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'Plain2 S'
       model: 'Plain 2S'
+    - regex: 'MATTER'
+      model: 'Matter'
     - regex: 'Inco Sphere( 3)?(?:[);/ ]|$)'
       device: 'tablet'
       model: 'Sphere$1'
@@ -20323,7 +20353,7 @@ Qumo:
 
 # Qubo (qubomobile.com)
 Qubo:
-  regex: '(Cronos)(?:[);/ ]|$)'
+  regex: '(Cronos|MINERVA(?:_32GB)?)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
 
@@ -20715,10 +20745,10 @@ Maxcom:
 
 # Luna
 Luna:
-  regex: '(?:LUNA[ _](?:V55|G[56]0)|TG-L800S)(?:[);/ ]|$)'
+  regex: '(?:LUNA[ _](?:[VG]55|G[56]0)|TG-L800S)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'LUNA[ _](V55|G[56]0)(?:[);/ ]|$)'
+    - regex: 'LUNA[ _]([VG]55|G[56]0)(?:[);/ ]|$)'
       model: '$1'
     - regex: '(TG-L800S)(?:[);/ ]|$)'
       model: '$1'
@@ -21025,12 +21055,17 @@ VKworld:
 
 # Mito (mitomobile.com)
 Mito:
-  regex: 'MITO[- _](?:[AT]\d+|311|A19_[12]GB|A37[_ ]Z1)(?:[);/ ]|$)'
+  regex: 'MITO[- _]'
   device: 'smartphone'
   models:
-    - regex: 'MITO[- _](A(?:1[0678]|19_[12]GB|21|3[589]|55|180|2[36]0|33|322|313|3[136]0|[35]50|6[89]|7[235]|82|[356]0|810|950|80)|311|A37[_ ]Z1)(?:[);/ ]|$)'
+    - regex: 'MITO[- _]3255(?:[);/ ]|$)'
+      device: 'tv'
+      model: '3255'
+    - regex: 'MITO[- _]A37[_ ]Z1plus'
+      model: 'A37 Z1 Plus'
+    - regex: 'MITO[- _](A(?:19[_ ][12]GB|37[_ ]Z1|36[_ ]W1|[0-9]+)|311)(?:[);/ ]|$)'
       model: '$1'
-    - regex: 'MITO[ _](T(?:8|10|[136]5|3[03]0|510|71|89|888))(?:[);/ ]|$)'
+    - regex: 'MITO[- _](T(?:[0-9]+))(?:[);/ ]|$)'
       device: 'tablet'
       model: '$1'
 
@@ -21792,13 +21827,15 @@ Primux:
 
 # iMars
 iMars:
-  regex: '(?:IMARS VEGA X7|VIVI_8)(?:[);/ ]|$)'
+  regex: '(?:IMARS VEGA X7|VIVI_8|MILKY_WAY_M2)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'IMARS VEGA X7'
       model: 'Vega X7'
     - regex: 'VIVI_8'
       model: 'VIVI 8'
+    - regex: 'MILKY_WAY_M2'
+      model: 'Milky Way M2'
 
 # Logic (logicmobility.com)
 Logic:
@@ -23348,7 +23385,7 @@ EWIS:
 
 # Leader Phone or LP (lp.tn)
 Leader Phone:
-  regex: '(Vyper|N-5[07]|N-45|LP DAISY)(?:[);/ ]|$)'
+  regex: '(Vyper|N-5[07]|N-45|LP DAISY|LP_VEYRON|LP_PRADO)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'N-45 light'
@@ -23357,6 +23394,10 @@ Leader Phone:
       model: 'Vyper Pro'
     - regex: 'LP DAISY'
       model: 'Daisy'
+    - regex: 'LP_VEYRON'
+      model: 'Veyron'
+    - regex: 'LP_PRADO'
+      model: 'Prado'
     - regex: '(Vyper|N-5[07]|N-45)(?:[);/ ]|$)'
       model: '$1'
 
@@ -24004,6 +24045,13 @@ ONYX BOOX:
   device: 'tablet'
   model: 'Kon Tiki'
 
+# AIRON (airon.ua)
+AIRON:
+  regex: 'AIRBOOK PRO 8S(?:[);/ ]|$)'
+  device: 'tablet'
+  model: 'AirBook Pro 8S'
+
+
 # GFive or G'Five (www.gfivepakistan.com)
 GFive:
   regex: '(?:PRESIDENT_GOLD_(9|10)|President Gpower 1)(?:[);/ ]|$)'
@@ -24586,6 +24634,46 @@ Benzo:
   regex: '(Class S300 LTE)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
+
+# Vexia (www.vexia.eu)
+Vexia:
+  regex: '(Zippers Tab 10i 3G)'
+  device: 'tablet'
+  model: '$1'
+
+# HiMax (himaxmobilebd.com)
+HiMax:
+  regex: ' HIMAX[_ ]'
+  device: 'smartphone'
+  models:
+    - regex: 'POLYMER( X)?'
+      model: 'Polymer$1'
+    - regex: 'HIMAX[_ ]PURE[_ ]3S'
+      model: 'Pure 3S'
+
+# Packard Bell (sub brand Acer www.packardbell.com)
+Packard Bell:
+  regex: '(PB1009|M10[45]00|M7500|M7600-D)(?:[);/ ]|$)'
+  device: 'tablet'
+  model: '$1'
+
+# Qnet Mobile (qnetmobile.com)
+Qnet Mobile:
+  regex: ' Passion[ _]P|Hynex plus|Stark K1|Hynex H[356]|Levin V[12]'
+  device: 'smartphone'
+  models:
+    - regex: 'Passion[ _](P[0-9]+)'
+      model: 'Passion $1'
+    - regex: 'Hynex plus( 2)?'
+      model: 'Hynex Plus$1'
+    - regex: 'Stark K1'
+      model: 'Stark K1'
+    - regex: 'Hynex (H[356])\+'
+      model: 'Hynex $1 Plus'
+    - regex: 'Hynex (H[35])'
+      model: 'Hynex $1'
+    - regex: 'Levin (V[12])'
+      model: 'Levin $1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
