@@ -9274,7 +9274,7 @@ AIS:
 
 # Lava (Lavamobiles.com)
 Lava:
-  regex: 'Lava[ _]|LAVAA1|(?:DISCOVER136|KKT QUADRA)|iris[ _]?([^/;]+)(?:\)| Build)|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|(?:Flair Z1|PixelV1|Pixel V2\+?|Z60s|Z61_2GB|A97 IPS|A97 2GB PLUS|L[EH]9920(?:[_ ]P)?|L[NEH]9910|LH9810|Ivory(?:S1|S4G)?|A76Plus|Grand2c)(?:[);/ ]|$)'
+  regex: 'Lava[ _]|LAVA(?:A1|X10)|(?:DISCOVER136|KKT QUADRA)|iris[ _]?([^/;]+)(?:\)| Build)|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|(?:Flair Z1|PixelV1|Pixel V2\+?|Z60s|Z61_2GB|A97 IPS|A97 2GB PLUS|L[EH]9920(?:[_ ]P)?|L[NEH]9910|LH9810|Ivory(?:S1|S4G)?|A76Plus|Grand2c)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -16963,7 +16963,7 @@ teXet:
 
 # Telefunken
 Telefunken:
-  regex: 'TELEFUNKEN|Foxtrot|TEL-1013GIQA|TF-SP(?:500[12]|4002)|(TF-MID(?:[78]02G|70[78]G|80[46]G|9705RG|9707G|7805G|100[57]G|1010G))|(TF-LED(?:65S75T2SU|32S39T2S|32S5[289]T2S|32S70T2S|40S63T2S))|LTE_LIMA'
+  regex: 'TELEFUNKEN|Foxtrot|TEL-1013GIQA|TF-SP(?:500[12]|4002)|(TF-MID(?:[78]02G|70[78]G|80[46]G|9705RG|9707G|7805G|100[57]G|1010G))|(TF-LED(?:65S75T2SU|32S39T2S|32S5[289]T2S|32S70T2S|40S63T2S))|LTE_LIMA|LTE Mike'
   device: 'tablet'
   models:
     - regex: 'TEL-1013GIQA'
@@ -16973,6 +16973,9 @@ Telefunken:
       device: 'smartphone'
     - regex: 'LTE_LIMA'
       model: 'Lima LTE'
+      device: 'smartphone'
+    - regex: 'LTE Mike'
+      model: 'Mike LTE'
       device: 'smartphone'
     - regex: '(?:TELEFUNKEN)?(TF-SP(?:500[12]|4002)|Outdoor LTE|Foxtrot)'
       model: '$1'
@@ -24655,6 +24658,24 @@ Packard Bell:
   regex: '(PB1009|M10[45]00|M7500|M7600-D)(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
+
+# Qnet Mobile (qnetmobile.com)
+Qnet Mobile:
+  regex: ' Passion[ _]P|Hynex plus|Stark K1|Hynex H[356]|Levin V[12]'
+  device: 'smartphone'
+  models:
+    - regex: 'Passion[ _](P[0-9]+)'
+      model: 'Passion $1'
+    - regex: 'Hynex plus( 2)?'
+      model: 'Hynex Plus$1'
+    - regex: 'Stark K1'
+      model: 'Stark K1'
+    - regex: 'Hynex (H[356])\+'
+      model: 'Hynex $1 Plus'
+    - regex: 'Hynex (H[35])'
+      model: 'Hynex $1'
+    - regex: 'Levin (V[12])'
+      model: 'Levin $1'
 
 # Devices with undectable brand, but detectable model
 Unknown:

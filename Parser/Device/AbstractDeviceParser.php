@@ -831,6 +831,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'QU' => 'Quechua',
         'QO' => 'Qumo',
         'UQ' => 'Qubo',
+        'QY' => 'Qnet Mobile',
         'R2' => 'R-TV',
         'RA' => 'Ramos',
         '0R' => 'Raspberry',
