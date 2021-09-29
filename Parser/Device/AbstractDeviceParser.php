@@ -205,6 +205,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'UB' => 'Bleck',
         'Q2' => 'Blow',
         'BM' => 'Bmobile',
+        'Y5' => 'BMAX',
         'B9' => 'Bobarry',
         'B4' => 'bogo',
         'BW' => 'Boway',
