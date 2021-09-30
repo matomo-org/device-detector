@@ -408,6 +408,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '2G' => 'Genesis',
         'G2' => 'GEOFOX',
         'GE' => 'Geotel',
+        'Q4' => 'Geotex',
         'GH' => 'Ghia',
         '2C' => 'Ghong',
         'GG' => 'Gigabyte',
