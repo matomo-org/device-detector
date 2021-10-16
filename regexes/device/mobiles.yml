@@ -3198,7 +3198,7 @@ VGO TEL:
 
 # Vivo (vivo.com.cn, vivo.com)
 Vivo:
-  regex: '((?:VIV-|BBG-)?(?<!FBCR/|NOA )vivo(?!(?:Browser)))|(?:V1730(D[AT]|GA)|V18(18CA|01A0|13B[AT]|18T|09[AT]|1[346][AT]|[13]8[AT]|14A|24[B]?A|2[19][AT]|3[12][AT]|36[AT])|V1731CA|V1732[AT]|V1818CT|V19[01]1[AT]|V1932[AT]|V191[3469][AT]|V192[1348]A|V193[04]A|V194[15]A|V1938CT|V1955A|V1938T|V1730EA|V19[26]2A|V196[35]A|V198[16]A|V1936A[L]?|V19[59]0A|V200[125]A|V2006|1819|V201[12]A|V2085A|V202[0345]C?A|V202[235-9]|V205[479]A|V203[0235-8]|V2031[E]?A?|V203[46]A|V204[013]|V204[6789]A|V20(6[158]|99|5[56]|66[B]?|7[23]|80)A|V2046|X50 Pro\+|I1927|I2012|V206[156]|V205[08]|V2043_21|V213[346]A|V214[13]A|I1928|V2069|V21[12]1A|V2106A|V2123A)(?:[);/ ]|$)'
+  regex: '((?:VIV-|BBG-)?(?<!FBCR/|NOA )vivo(?!(?:Browser)| 4G_r))|(?:V1730(D[AT]|GA)|V18(18CA|01A0|13B[AT]|18T|09[AT]|1[346][AT]|[13]8[AT]|14A|24[B]?A|2[19][AT]|3[12][AT]|36[AT])|V1731CA|V1732[AT]|V1818CT|V19[01]1[AT]|V1932[AT]|V191[3469][AT]|V192[1348]A|V193[04]A|V194[15]A|V1938CT|V1955A|V1938T|V1730EA|V19[26]2A|V196[35]A|V198[16]A|V1936A[L]?|V19[59]0A|V200[125]A|V2006|1819|V201[12]A|V2085A|V202[0345]C?A|V202[235-9]|V205[479]A|V203[0235-8]|V2031[E]?A?|V203[46]A|V204[013]|V204[6789]A|V20(6[158]|99|5[56]|66[B]?|7[23]|80)A|V2046|X50 Pro\+|I1927|I2012|V206[156]|V205[08]|V2043_21|V213[346]A|V214[13]A|I1928|V2069|V21[12]1A|V2106A|V2123A)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'V1824[B]?A(?:[);/ ]|$)'
@@ -3475,7 +3475,7 @@ Vivo:
       model: 'Y55s'
     - regex: 'vivo 1719(?:[);/ ]|$)'
       model: 'Y65'
-    - regex: 'vivo 1714(?:[);/ ]|$)'
+    - regex: 'vivo (?:1714|Y69A?)(?:[);/ ]|$)'
       model: 'Y69'
     - regex: 'V2002A(?:[);/ ]|$)'
       model: 'Y70s'
@@ -3503,7 +3503,7 @@ Vivo:
       model: 'Y83 Pro'
     - regex: 'V1730EA(?:[);/ ]|$)'
       model: 'Y89'
-    - regex: 'vivo 1823(?:[);/ ]|$)'
+    - regex: 'vivo (?:1823|1908)(?:_19)?(?:[);/ ]|$)'
       model: 'Y90'
     - regex: 'vivo 181[17](?:[);/ ]|$)'
       model: 'Y91'
@@ -3547,19 +3547,20 @@ Vivo:
       model: 'Z6'
     - regex: 'vivo Y75s(?:[);/ ]|$)'
       model: 'Y75s'
-    - regex: 'vivo Y75A?(?:[);/ ]|$)'
-      model: 'Y75'
-    - regex: 'vivo Y85A?(?:[);/ ]|$)'
-      model: 'Y85'
-    - regex: 'vivo X([56]|20)[AL]?(?:[);/ ]|$)'
+    - regex: 'vivo X710L?(?:[);/ ]|$)'
+      model: 'X Shot'
+    - regex: 'vivo X([569]|20)[AL]?(?:[);/ ]|$)'
       model: 'X$1'
     - regex: 'vivo X5Pro(?: L)?(?:[);/ ]|$)'
       model: 'X5 Pro'
     - regex: 'vivo Y66i(?: A)?(?:[);/ ]|$)'
       model: 'Y66i'
-    - regex: 'vivo Y79A?(?:[);/ ]|$)'
-      model: 'Y79'
-
+    - regex: 'vivo Y(\d{2})[AL]?(?:[);/ ]|$)'
+      model: 'Y$1'
+    - regex: 'vivo Xplay(\d)S(?:[);/ ]|$)'
+      model: 'X Play $1S'
+    - regex: 'vivo Xplay(\d)[AL]?(?:[);/ ]|$)'
+      model: 'X Play $1'
     - regex: '(?:VIV-|BBG-)?vivo[ _]([^/;]+) Build'
       model: '$1'
     - regex: '(?:VIV-|BBG-)?vivo[ _]([^);/]+)(?:[);/]|$)'
@@ -12247,7 +12248,7 @@ Navon:
 
 # NOA or NOA Mobile (noa-mobile.eu)
 NOA:
-  regex: '(?:NOA-)?NOA[ _]|Hummer(?:_2019_R|LE)|NextSE'
+  regex: '(?:NOA-)?NOA[ _]|Hummer(?:_2019_R|LE)|NextSE|Vivo 4G_r'
   device: 'smartphone'
   models:
     - regex: 'NOA[_ ]CORE[_ ]FORTE'
@@ -12278,6 +12279,8 @@ NOA:
       model: 'H44SE'
     - regex: 'NOA[_ ]H10LE'
       model: 'H10LE'
+    - regex: '(?:NOA[_ ])?Vivo 4G_r'
+      model: 'Vivo 4G'
     - regex: 'NOA[_ ]([^;)/ ]+)'
       model: '$1'
 
