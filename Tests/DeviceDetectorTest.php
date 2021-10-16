@@ -412,6 +412,8 @@ class DeviceDetectorTest extends TestCase
     public function getUserAgents(): array
     {
         return [
+            ['Mozilla/5.0 (Linux; U; Android 5.1.1; zh-CN; TEST-XXXXX Build/LMY47V) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.108 Quark/5.3.3.191 Mobile Safari/537.36', false, true, false],
+            ['Mozilla/5.0 (Linux; Android 10; HarmonyOS; TEST-XXXXX ; HMSCore 6.1.0.314) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.5.310 Mobile Safari/537.36', false, true, false],
             ['Googlebot/2.1 (http://www.googlebot.com/bot.html)', true, false, false],
             ['Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.136 Mobile Safari/537.36', false, true, false],
             ['Mozilla/5.0 (Linux; Android 4.4.3; Build/KTU84L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.117 Mobile Safari/537.36', false, true, false],
