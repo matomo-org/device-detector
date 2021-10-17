@@ -872,9 +872,9 @@ class DeviceDetector
         if (null === $this->device && 'Android' === $osFamily
             && $this->matchUserAgent('Chrome/[\.0-9]*')
         ) {
-            if ($this->matchUserAgent('Chrome/[\.0-9]* (?:Mobile|eliboM)')) {
+            if ($this->matchUserAgent('(?:Mobile|eliboM) Safari/')) {
                 $this->device = AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE;
-            } elseif ($this->matchUserAgent('Chrome/[\.0-9]* (?!Mobile)')) {
+            } elseif ($this->matchUserAgent('(?!Mobile )Safari/')) {
                 $this->device = AbstractDeviceParser::DEVICE_TYPE_TABLET;
             }
         }
