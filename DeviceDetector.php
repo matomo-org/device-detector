@@ -923,7 +923,7 @@ class DeviceDetector
         /**
          * All unknown devices under running Java ME are more likely a features phones
          */
-        if ('Java ME' === $osName && null == $this->device) {
+        if ('Java ME' === $osName && null === $this->device) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_FEATURE_PHONE;
         }
 
