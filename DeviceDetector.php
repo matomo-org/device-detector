@@ -916,7 +916,9 @@ class DeviceDetector
         /**
          * All detected feature phones running android are more likely a smartphone
          */
-        if ((AbstractDeviceParser::DEVICE_TYPE_FEATURE_PHONE === $this->device || (null === $this->device && $this->usesMobileBrowser())) && 'Android' === $osFamily) {
+        if ((AbstractDeviceParser::DEVICE_TYPE_FEATURE_PHONE === $this->device || (null === $this->device
+            && $this->usesMobileBrowser())) && 'Android' === $osFamily
+        ) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE;
         }
 
