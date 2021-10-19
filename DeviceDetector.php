@@ -916,14 +916,12 @@ class DeviceDetector
         /**
          * All detected feature phones running android are more likely a smartphone
          */
-        if ((AbstractDeviceParser::DEVICE_TYPE_FEATURE_PHONE === $this->device || (null === $this->device
-            && $this->usesMobileBrowser())) && 'Android' === $osFamily
-        ) {
+        if (AbstractDeviceParser::DEVICE_TYPE_FEATURE_PHONE === $this->device && 'Android' === $osFamily) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE;
         }
 
         /**
-         * All detected feature phones running Java* are more likely a feature phone
+         * All unknown devices under running Java ME are more likely a features phones
          */
         if ('Java ME' === $osName && null == $this->device) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_FEATURE_PHONE;
