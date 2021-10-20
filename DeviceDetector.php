@@ -921,6 +921,13 @@ class DeviceDetector
         }
 
         /**
+         * All unknown devices under running Java ME are more likely a features phones
+         */
+        if ('Java ME' === $osName && null === $this->device) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_FEATURE_PHONE;
+        }
+
+        /**
          * According to http://msdn.microsoft.com/en-us/library/ie/hh920767(v=vs.85).aspx
          * Internet Explorer 10 introduces the "Touch" UA string token. If this token is present at the end of the
          * UA string, the computer has touch capability, and is running Windows 8 (or later).
