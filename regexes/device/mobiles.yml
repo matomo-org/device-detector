@@ -13501,7 +13501,7 @@ OPPO:
 
 # orange
 Orange:
-  regex: 'SPV[ \-]?([a-z0-9]+)|(?<!FBCR/)Orange[ _-](?!Tahiti-LS\))([^/;]+)( Build|\))(?<!Tahiti-LS\))|SC/IHD92|Nura 2|FunTab ([^/;]+) Build|Orange Mahpee'
+  regex: 'SPV[ \-]?([a-z0-9]+)|(?<!FBCR/)Orange[ _-](?!Tahiti-LS\))([^/;]+)( Build|\))(?<!Tahiti-LS\))|SC/IHD92|Nura 2|FunTab ([^/;]+) Build|Orange Mahpee|Dive 50'
   device: 'smartphone'
   models:
     - regex: 'SC/IHD92'
@@ -13517,9 +13517,11 @@ Orange:
       device: 'tablet'
     - regex: 'Orange[ _-](Rise)(3[12]|5[12])(?:[);/ ]|$)'
       model: '$1 $2'
-    - regex: 'Orange[ _-](Dive)72(?:[);/ ]|$)'
-      model: '$1 72'
-    - regex: 'Orange[ _-](Daytona|Dive (30|7[13])|Dublin|Fova|Gova|Hi 4G|Hiro|Kivo|Monte Carlo|Neva 80|Neva play|Nura|Reyo|Rise[_ ](3[034]|40|5[345])|Rono|Roya|San Francisco|Tactile internet 2|Tado|Yomi|Yumo|Zali|Mahpee)(?:[);/ ]|$)'
+    - regex: '(?:Orange[ _-])?Dive ?(\d+) Dual(?:[);/ ]|$)'
+      model: 'Dive $1 Dual'
+    - regex: '(?:Orange[ _-])?Dive ?(\d+)(?:[);/ ]|$)'
+      model: 'Dive $1'
+    - regex: 'Orange[ _-](Daytona|Dublin|Fova|Gova|Hi 4G|Hiro|Kivo|Monte Carlo|Neva 80|Neva play|Nura|Reyo|Rise[_ ](3[034]|40|5[345])|Rono|Roya|San Francisco|Tactile internet 2|Tado|Yomi|Yumo|Zali|Mahpee)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'SPV[ \-]?([a-z0-9]+)'
       model: 'SPV $1'
@@ -18204,7 +18206,7 @@ Vodafone:
 
 # Vonino (vonino.ro)
 Vonino:
-  regex: 'Vonino|Epic (?:E8|P7)|Gyga[ _](?:X|S|QS|XS)|Jax[ _](?:QS|[SXQN]|Mini)|Magnet[ _](?:M[19]|G[35]0)|Navo_QS|Onyx_(QS|Z)|Orin_QS|Pluri[ _](?:[BCMQ]7|[CQM]8)|Sirius_QS|Volt[ _][XS]|Xavy_(T7|L8)|Xylo[ _][XSPQT]|Zun[ _]X[OS]?|JAX_N'
+  regex: 'Vonino|Epic (?:E8|P7)|Gyga[ _](?:X|S|QS|XS)|Jax[ _](?:QS|[SXQN]|Mini)|Magnet[ _](?:M[19]|G[35]0)|Navo_QS|Onyx_(QS|Z)|Orin_QS|Pluri[ _](?:[BCMQ]7|[CQM]8)|Sirius_QS|Volt[ _][XS]|Xavy_(T7|L8)|Xylo[ _][XSPQT]|Zun[ _]X[OS]?|JAX_N|Druid_L10'
   device: 'smartphone'
   models:
     - regex: 'Zun[ _]XO'
@@ -18243,6 +18245,9 @@ Vonino:
       device: 'tablet'
     - regex: 'Pluri[ _]([CQM])8'
       model: 'Pluri $18'
+      device: 'tablet'
+    - regex: 'Druid[_ ](L10)'
+      model: 'Druid $1'
       device: 'tablet'
     - regex: 'Magnet[ _](M[19]|G[35]0)'
       model: 'Magnet $1'
