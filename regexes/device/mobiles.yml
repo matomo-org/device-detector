@@ -1310,7 +1310,7 @@ Bravis:
 
 # Acer (acer.com)
 Acer:
-  regex: 'acer|(?<!Satellite |ZTE BLADE |ImSmart |ERGO |X-Style Tab )a(?:101|110|2[10]0|211|50[10]|51[10]|70[10])(?:[);/ ]|$)|Android.*V3[67]0(?:[);/ ]|$)|Android.*Z1[23456]0 Build|Android.*Z5\d{2} Build|Android.*T0[234678] Build|Android.*S55(?:[);/ ]|$)|(?:A1-(713(HD)?|7[23]4|830|841|840(?:FHD)?|81[01])|A3-A[1234][01]|B1-(7[1235-8][01](HD)?|7[23]3|7A0|8[1235]0|A71|860A)|TPA60W|B3-(A[125]0|A3[02]|A40FHD)|E39)(?:[);/ ]|$)|S5[12]0 Build|(DA[0-9]+HQ?L|Aspire (?:V5-121|XC-704G|V5-573G|4349)|Chromebook 14 \(CB3-431\)|Predator G9-793|GT-810|B1-870|B3-A4[02]|B3-A50FHD|ET-108-11A)(?:[);/ ]|$)'
+  regex: 'acer|(?<!Satellite |ZTE BLADE |ImSmart |ERGO |X-Style Tab )a(?:101|110|2[10]0|211|50[10]|51[10]|70[10])(?:[);/ ]|$)|Android.*V3[67]0(?:[);/ ]|$)|Android.*Z1[23456]0 Build|Android.*Z5\d{2} Build|Android.*T0[234678] Build|Android.*S55(?! Nova)(?:[);/ ]|$)|(?:A1-(713(HD)?|7[23]4|830|841|840(?:FHD)?|81[01])|A3-A[1234][01]|B1-(7[1235-8][01](HD)?|7[23]3|7A0|8[1235]0|A71|860A)|TPA60W|B3-(A[125]0|A3[02]|A40FHD)|E39)(?:[);/ ]|$)|S5[12]0 Build|(DA[0-9]+HQ?L|Aspire (?:V5-121|XC-704G|V5-573G|4349)|Chromebook 14 \(CB3-431\)|Predator G9-793|GT-810|B1-870|B3-A4[02]|B3-A50FHD|ET-108-11A)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # smart displays
@@ -8293,7 +8293,7 @@ Lumus:
       model: 'AEON $1'
 # M4tel
 M4tel:
-  regex: 'M4 SS[0-9]{4}(?:-R)?|M4_B[23]'
+  regex: '(?:M4 SS[0-9]{4}(?:-R)?|M4_B[23]|M4_R2)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'SS1050'
@@ -8340,6 +8340,8 @@ M4tel:
       model: 'Attitude'
     - regex: 'M4_B([23])'
       model: 'B$1'
+    - regex: 'M4_R(2)'
+      model: 'R$1'
 
 # IMO Mobile or In My Opinion Mobile
 IMO Mobile:
@@ -9037,9 +9039,9 @@ Keneksi:
     - regex: 'KENEKSI[ _-](Moon|Libra_Dual|Glass|Amber|Chance|Amulet|Choice|Crystal|Dream|Delta[_ ]Dual|Norma 2|Norma|Sky|Fire 2|Fire|Flame|Flora|Rock|Solo|Soul|Step|Smart|Star|Storm|Wind)'
       model: '$1'
 
-# Kempler & Strauss
+# Kempler & Strauss (www.kemplerusa.com)
 'Kempler & Strauss':
-  regex: 'Alumini_?3_?Plus|Alumini ?[23]|KEMPLER_(?:P1|TV|X|8_PLUS)'
+  regex: 'Alumini_?3_?Plus|Alumini ?[23]|KEMPLER_(?:P1|TV|[X9]|8_PLUS)'
   device: 'smartphone'
   models:
     - regex: 'Alumini ?2'
@@ -9056,6 +9058,8 @@ Keneksi:
       model: 'X'
     - regex: 'KEMPLER_8_PLUS'
       model: '8 Plus'
+    - regex: 'KEMPLER_9'
+      model: '9'
 
 # Kiano
 Kiano:
@@ -14034,13 +14038,17 @@ Roku:
   device: 'tv'
   model: 'Digital Video Player'
 
-# Rokit
+# Rokit (rokitphones.com)
 Rokit:
-  regex: 'IO Pro'
+  regex: 'IO (?:Pro|3D|Light)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'IO Pro'
       model: 'IO Pro'
+    - regex: 'IO Light'
+      model: 'IO Light'
+    - regex: 'IO 3D'
+      model: 'IO 3D'
 
 # Rombica
 Rombica:
@@ -14146,7 +14154,7 @@ Santin:
 
 # Siemens
 Siemens:
-  regex: 'SIEMENS|SIE-|portalmmm/2\.0 SI|(?:S55|SL45i)(?:[);/ ]|$)'
+  regex: 'SIEMENS|SIE-|portalmmm/2\.0 SI|(?:S55(?! Nova)|SL45i)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(?:SIE-)?(S[56]5|S40|C45|ME45|SLIK)(?:[);/ ]|$)'
@@ -21078,6 +21086,10 @@ Runbo:
     - regex: 'F1-TT'
       model: 'F1-TT'
 
+    - regex: 'RunboP2'
+      device: 'tablet'
+      model: 'P2'
+
 # NewsMy
 NewsMy:
   regex: '(CarPad-(?:II|III)-P)(?:[);/ ]|$)'
@@ -25101,7 +25113,7 @@ Smart:
 
 # Stylo
 Stylo:
-  regex: 'STYLO|(?:S57_A[ZL]URE|Ithemba|S56 MIST|S53_STARK|S40_LIFE|LIFE_2)(?:[);/ ]|$)'
+  regex: 'STYLO|(?:S57_A[ZL]URE|Ithemba|S56 MIST|S55 Nova|S53_STARK|S40_LIFE|LIFE_2|S49[_ ](?:MONO|POISE|ECO))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'STYLO[ _](F1)'
@@ -25118,6 +25130,8 @@ Stylo:
       model: 'S57 Alure'
     - regex: 'S56 MIST'
       model: 'S56 Mist'
+    - regex: 'S55 Nova'
+      model: 'S55 Nova'
     - regex: 'Ithemba'
       model: 'Ithemba'
     - regex: 'S53_STARK'
@@ -25126,6 +25140,12 @@ Stylo:
       model: 'S40 Life'
     - regex: 'LIFE_2'
       model: 'Life 2'
+    - regex: 'S49[_ ]POISE'
+      model: 'S49 Poise'
+    - regex: 'S49[_ ]MONO'
+      model: 'S49 Mono'
+    - regex: 'S49[_ ]ECO'
+      model: 'S49 Eco'
 
 # galaxy innovations or GI  (www.galaxy-innovations.ru)
 Galaxy Innovations:
