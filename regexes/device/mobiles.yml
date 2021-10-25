@@ -7063,7 +7063,7 @@ Hasee:
 
 # Hisense ()
 Hisense:
-  regex: '(?:HS-)?Hisense ([^;/]+) Build|Hisense [^);/]+|HISENSE; |HS-(?:G|U|EG?|I|L|T|X)[0-9]+[a-z0-9\-]*|HNR55[01]T|E270BSA|HWCD100E|HITV300C|M470BS[AE]|EG98|E2281|EG680|I46D1G|HAT4KDTV|HLTE([237]00T|200M|203T|202N|21[023567][TM]|22[67]T|22[13]E|230E|310[TM]|31[16]T|500T|501N|510[TM]|7[23]0T)'
+  regex: '(?:HS-)?Hisense ([^;/]+) Build|Hisense [^);/]+|HISENSE; |HS-(?:G|U|EG?|I|L|T|X)[0-9]+[a-z0-9\-]*|HNR55[01]T|E270BSA|HWCD100E|HITV300C|M470BS[AE]|EG98|E2281|EG680|I46D1G|HAT4KDTV|HLTE([237]00T|200M|203T|202N|21[023567][TM]|22[67]T|22[13]E|230E|103E|310[TM]|31[16]T|500T|501N|510[TM]|7[23]0T)'
   device: 'smartphone'
   models:
     # explicit tablet models
@@ -7124,6 +7124,8 @@ Hisense:
       model: 'H18'
     - regex: 'HLTE510[TM](?:[);/ ]|$)'
       model: 'H20'
+    - regex: 'HLTE103E'
+      model: 'E20'
     - regex: 'HLTE500T(?:[);/ ]|$)'
       model: 'H11'
     - regex: '(?:HLTE230E|Infinity H40 Lite)(?:[);/ ]|$)'
@@ -7139,6 +7141,8 @@ Hisense:
       model: 'E9'
     - regex: 'E260T\+(?:[);/ ]|$)'
       model: 'Nana'
+    - regex: 'Infinity H50 ZOOM(?:[);/ ]|$)'
+      model: 'Infinity H50 Zoom'
     - regex: '(HS-(?:G|U|EG?|I|L|T|X)[0-9]+[a-z0-9\-]*)'
       model: '$1'
 
@@ -7146,6 +7150,8 @@ Hisense:
       device: 'tv'
       model: '$1'
 
+    - regex: '(?:HS-)?Hisense (U3) 2021(?: Build|[);])'
+      model: 'U3 (2021)'
     - regex: '(?:HS-)?Hisense ([^;/)]+) Pro(?: Build|[);])'
       model: '$1 Pro'
     - regex: '(?:HS-)?Hisense ([^;/)]+) Plus(?: Build|[);])'
@@ -9427,7 +9433,7 @@ Mymaga:
 
 # Krüger&Matz or Kruger&Matz (www.krugermatz.com)
 Krüger&Matz:
-  regex: 'Kruger[ _&]Matz|KrugerMatz[ _]|FLOW ?5PLUS|Flow 9|FLOW_5|FLOW7|FLOW6(?:S|Lite)|DRIVE9|DRIVE[_ ]6S?|MOVE8mini|MOVE9|MOVE_|LIVE_6plus|LIVE 5 PLUS|Live 9|LIVE4_KM043[89]|LIVE 7S|Flow 7S|KM(?:106[679]|1065G|0701_1|0702|0805_1|1070)'
+  regex: 'Kruger[ _&]Matz|KrugerMatz[ _]|FLOW ?5PLUS|Flow 9|FLOW_5|FLOW7|FLOW6(?:S|Lite)|DRIVE9|DRIVE[_ ]6S?|MOVE8mini|MOVE9|MOVE_|LIVE_6plus|LIVE 5 PLUS|Live [89]|LIVE4_KM043[89]|LIVE 7S|Flow 7S|KM(?:106[679]|1065G|0701_1|0702|0805_1|1070)'
   device: 'smartphone'
   models:
     - regex: 'MOVE8mini'
@@ -9458,8 +9464,8 @@ Krüger&Matz:
       model: 'LIVE 6 Plus' # KM0454
     - regex: 'LIVE 7S(?:[);/ ]|$)'
       model: 'LIVE 7S'
-    - regex: 'Live 9(?:[);/ ]|$)'
-      model: 'LIVE 9'
+    - regex: 'Live ([89])(?:[);/ ]|$)'
+      model: 'LIVE $1'
     - regex: 'MOVE9(?:[);/ ]|$)'
       model: 'MOVE 9'
 
@@ -11930,7 +11936,9 @@ Motorola:
       model: 'Moto E$1 Play'
     - regex: 'Moto E5 go(?:[);/ ]|$)'
       model: 'Moto E5 Go'
-    - regex: 'Moto E\(?([567])\)?(?:[);/ ]|$)'
+    - regex: 'Moto E\(?(\di?)\)? Power(?:[);/ ]|$)'
+      model: 'Moto E$1 Power'
+    - regex: 'Moto E\(?([567]i?)\)?(?:[);/ ]|$)'
       model: 'Moto E$1'
     - regex: 'Moto E\(?([567])s\)?(?:[);/ ]|$)'
       model: 'Moto E$1s'
@@ -20394,7 +20402,7 @@ ZTE:
       model: '$1'
 
 Zuum:
-  regex: 'Zuum[ _-]|Android 6.+ UNIQ(?: Build|[);])|(?:ROCKET II|Akus Z|COVET|MAGNO|ONIX S|STEDI|STELLAR(?:[ _](?:Z|PRO|[MP]1))?|GRAVITY Z|AURA X|COVET_PRO_LITE|RONI)(?:[);/ ]|$)'
+  regex: 'Zuum[ _-]|Android 6.+ UNIQ(?: Build|[);])|(?:ROCKET II|Akus Z|COVET|MAGNO|ONIX S|STEDI|STELLAR(?:[ _](?:Z|PRO|[MP]1))?|GRAVITY [ZM]|AURA X|COVET_PRO_LITE|RONI)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Akus Z'
@@ -20425,8 +20433,8 @@ Zuum:
       model: 'Stellar Mini'
     - regex: 'STELLAR'
       model: 'Stellar'
-    - regex: 'GRAVITY Z'
-      model: 'Gravity Z'
+    - regex: 'GRAVITY ([MZ])'
+      model: 'Gravity $1'
     - regex: 'AURA X'
       model: 'Aura X'
     - regex: 'RONI'
