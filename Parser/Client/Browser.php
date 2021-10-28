@@ -318,6 +318,7 @@ class Browser extends AbstractClientParser
         'OZ' => 'Smooz',
         'SN' => 'Snowshoe',
         'SO' => 'Sogou Mobile Browser',
+        'B1' => 'Spectre Browser',
         'S2' => 'Splash',
         'SI' => 'Sputnik Browser',
         'SR' => 'Sunrise',
@@ -399,7 +400,7 @@ class Browser extends AbstractClientParser
             'SG', 'SS', 'SU', 'SV', 'SW', 'SY', 'SZ', 'T1', 'TA',
             'TB', 'TG', 'TR', 'TS', 'TU', 'TV', 'UB', 'UR', 'VE',
             'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'Y8',
-            'FH',
+            'FH', 'B1',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
