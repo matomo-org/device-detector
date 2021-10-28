@@ -366,6 +366,7 @@ class Browser extends AbstractClientParser
         'XS' => 'xStand',
         'XI' => 'Xiino',
         'XV' => 'Xvast',
+        'Y8' => 'Y8 Browser',
         'ZE' => 'Zetakey',
         'ZV' => 'Zvu',
 
@@ -396,7 +397,7 @@ class Browser extends AbstractClientParser
             'PT', 'QU', 'QW', 'RM', 'S4', 'S6', 'S8', 'S9', 'SB',
             'SG', 'SS', 'SU', 'SV', 'SW', 'SY', 'SZ', 'T1', 'TA',
             'TB', 'TG', 'TR', 'TS', 'TU', 'TV', 'UB', 'UR', 'VE',
-            'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN',
+            'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'Y8',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
