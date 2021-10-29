@@ -75,6 +75,7 @@ class Browser extends AbstractClientParser
         'BJ' => 'Bunjalloo',
         'BL' => 'B-Line',
         'BU' => 'Blue Browser',
+        'BO' => 'Bonsai',
         'BN' => 'Borealis Navigator',
         'BR' => 'Brave',
         'BK' => 'BriskBard',
@@ -401,7 +402,7 @@ class Browser extends AbstractClientParser
             'SG', 'SS', 'SU', 'SV', 'SW', 'SY', 'SZ', 'T1', 'TA',
             'TB', 'TG', 'TR', 'TS', 'TU', 'TV', 'UB', 'UR', 'VE',
             'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'Y8',
-            'FH', 'B1', 'NU',
+            'FH', 'B1', 'NU', 'BO',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
