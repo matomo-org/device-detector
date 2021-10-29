@@ -206,6 +206,7 @@ class Browser extends AbstractClientParser
         'LI' => 'Links',
         'IF' => 'Lolifox',
         'LO' => 'Lovense Browser',
+        'LT' => 'LT Browser',
         'LU' => 'LuaKit',
         'LL' => 'Lulumi',
         'LS' => 'Lunascape',
@@ -406,7 +407,7 @@ class Browser extends AbstractClientParser
             'SG', 'SS', 'SU', 'SV', 'SW', 'SY', 'SZ', 'T1', 'TA',
             'TB', 'TG', 'TR', 'TS', 'TU', 'TV', 'UB', 'UR', 'VE',
             'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'Y8',
-            'FH', 'B1', 'NU', 'BO', 'HB', 'PC', 'LA', 'LD',
+            'FH', 'B1', 'NU', 'BO', 'HB', 'PC', 'LA', 'LD', 'LT',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
