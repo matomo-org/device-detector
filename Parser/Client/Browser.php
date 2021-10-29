@@ -332,6 +332,7 @@ class Browser extends AbstractClientParser
         'SR' => 'Sunrise',
         'SP' => 'SuperBird',
         'SU' => 'Super Fast Browser',
+        'HR' => 'Sushi Browser',
         'S3' => 'surf',
         'SG' => 'Stargon',
         'S0' => 'START Internet Browser',
@@ -409,7 +410,7 @@ class Browser extends AbstractClientParser
             'TB', 'TG', 'TR', 'TS', 'TU', 'TV', 'UB', 'UR', 'VE',
             'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'Y8',
             'FH', 'B1', 'NU', 'BO', 'HB', 'PC', 'LA', 'LD', 'LT',
-            'PD',
+            'PD', 'HR',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
