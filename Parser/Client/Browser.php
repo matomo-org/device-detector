@@ -116,6 +116,7 @@ class Browser extends AbstractClientParser
         'CU' => 'Cunaguaro',
         'CV' => 'Chrome Webview',
         'DB' => 'dbrowser',
+        'PD' => 'Peeps dBrowser',
         'DE' => 'Deepnet Explorer',
         'DG' => 'deg-degan',
         'DA' => 'Deledao',
@@ -408,6 +409,7 @@ class Browser extends AbstractClientParser
             'TB', 'TG', 'TR', 'TS', 'TU', 'TV', 'UB', 'UR', 'VE',
             'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'Y8',
             'FH', 'B1', 'NU', 'BO', 'HB', 'PC', 'LA', 'LD', 'LT',
+            'PD',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
