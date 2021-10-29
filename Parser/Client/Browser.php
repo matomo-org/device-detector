@@ -284,6 +284,7 @@ class Browser extends AbstractClientParser
         'PT' => 'Polarity',
         'LY' => 'PolyBrowser',
         'PI' => 'PrivacyWall',
+        'PC' => 'PSI Secure Browser',
         'PS' => 'Microsoft Edge',
         'QA' => 'Qazweb',
         'Q2' => 'QQ Browser Lite',
@@ -403,7 +404,7 @@ class Browser extends AbstractClientParser
             'SG', 'SS', 'SU', 'SV', 'SW', 'SY', 'SZ', 'T1', 'TA',
             'TB', 'TG', 'TR', 'TS', 'TU', 'TV', 'UB', 'UR', 'VE',
             'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'Y8',
-            'FH', 'B1', 'NU', 'BO', 'HB',
+            'FH', 'B1', 'NU', 'BO', 'HB', 'PC',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
