@@ -199,6 +199,7 @@ class Browser extends AbstractClientParser
         'KZ' => 'Kazehakase',
         'LB' => 'Cheetah Browser',
         'LA' => 'Lagatos Browser',
+        'LD' => 'Landis+Gyr AIM Browser',
         'LF' => 'LieBaoFast',
         'LG' => 'LG Browser',
         'LH' => 'Light',
@@ -405,7 +406,7 @@ class Browser extends AbstractClientParser
             'SG', 'SS', 'SU', 'SV', 'SW', 'SY', 'SZ', 'T1', 'TA',
             'TB', 'TG', 'TR', 'TS', 'TU', 'TV', 'UB', 'UR', 'VE',
             'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'Y8',
-            'FH', 'B1', 'NU', 'BO', 'HB', 'PC', 'LA',
+            'FH', 'B1', 'NU', 'BO', 'HB', 'PC', 'LA', 'LD',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
