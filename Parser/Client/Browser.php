@@ -244,7 +244,6 @@ class Browser extends AbstractClientParser
         'NP' => 'NetPositive',
         'NS' => 'Netscape',
         'NT' => 'NTENT Browser',
-        'NU' => 'NuMuKi Browser',
         'OC' => 'Oculus Browser',
         'O1' => 'Opera Mini iOS',
         'OB' => 'Obigo',
@@ -409,8 +408,8 @@ class Browser extends AbstractClientParser
             'SG', 'SS', 'SU', 'SV', 'SW', 'SY', 'SZ', 'T1', 'TA',
             'TB', 'TG', 'TR', 'TS', 'TU', 'TV', 'UB', 'UR', 'VE',
             'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'Y8',
-            'FH', 'B1', 'NU', 'BO', 'HB', 'PC', 'LA', 'LD', 'LT',
-            'PD', 'HR',
+            'FH', 'B1', 'BO', 'HB', 'PC', 'LA', 'LD', 'LT', 'PD',
+            'HR',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
