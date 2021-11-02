@@ -252,10 +252,11 @@ class OperatingSystem extends AbstractParser
         $name                                = $this->buildByMatch($osRegex['name'], $matches);
         ['name' => $name, 'short' => $short] = self::getShortOsData($name);
 
-        $version = $this->buildVersion((string) $osRegex['version'], $matches);
-        $regexs  = $osRegex['regexs'] ?? [];
+        $version = \array_key_exists('version', $osRegex)
+            ? $this->buildVersion((string) $osRegex['version'], $matches)
+            : '';
 
-        foreach ($regexs as $regex) {
+        foreach ($osRegex['versions'] ?? [] as $regex) {
             $matches = $this->matchUserAgent($regex['regex']);
 
             if (!$matches) {
