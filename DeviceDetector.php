@@ -68,7 +68,7 @@ class DeviceDetector
     /**
      * Current version number of DeviceDetector
      */
-    public const VERSION = '4.3.0';
+    public const VERSION = '4.3.1';
 
     /**
      * Constant used as value for unknown browser / os
@@ -872,9 +872,9 @@ class DeviceDetector
         if (null === $this->device && 'Android' === $osFamily
             && $this->matchUserAgent('Chrome/[\.0-9]*')
         ) {
-            if ($this->matchUserAgent('Chrome/[\.0-9]* (?:Mobile|eliboM)')) {
+            if ($this->matchUserAgent('(?:Mobile|eliboM) Safari/')) {
                 $this->device = AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE;
-            } elseif ($this->matchUserAgent('Chrome/[\.0-9]* (?!Mobile)')) {
+            } elseif ($this->matchUserAgent('(?!Mobile )Safari/')) {
                 $this->device = AbstractDeviceParser::DEVICE_TYPE_TABLET;
             }
         }
@@ -918,6 +918,13 @@ class DeviceDetector
          */
         if (AbstractDeviceParser::DEVICE_TYPE_FEATURE_PHONE === $this->device && 'Android' === $osFamily) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE;
+        }
+
+        /**
+         * All unknown devices under running Java ME are more likely a features phones
+         */
+        if ('Java ME' === $osName && null === $this->device) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_FEATURE_PHONE;
         }
 
         /**
