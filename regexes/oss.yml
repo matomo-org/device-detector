@@ -350,7 +350,7 @@
   name: 'Windows'
   version: ''
 
-- regex: 'Windows/(\d+\.\d+)'
+- regex: '(?:Windows(?:-Update-Agent)?|Microsoft-(?:CryptoAPI|Delivery-Optimization))/(\d+\.\d+)'
   name: 'Windows'
   version: '$1'
 
@@ -410,7 +410,7 @@
   name: 'Windows'
   version: '3.1'
 
-- regex: 'Windows'
+- regex: 'Windows|Win64|MSDW|HandBrake Win Upd'
   name: 'Windows'
   version: ''
 
@@ -466,6 +466,10 @@
   version: '$1.$2'
 
 - regex: 'Pinterest for iOS/.+; (\d(?:[\d\.]+)?)\)$'
+  name: 'iOS'
+  version: '$1'
+
+- regex: 'iOS/(\d+[\.\d]+)'
   name: 'iOS'
   version: '$1'
 
@@ -577,8 +581,7 @@
     - regex: 'CFNetwork/459'
       version: '3.1'
 
-
-- regex: 'iPhone/(\d+[\.\d]*) hw/'
+- regex: '(?:iPhone|iPod_touch)/(\d+[\.\d]*) hw/'
   name: 'iOS'
   version: '$1'
 
