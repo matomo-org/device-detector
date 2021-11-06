@@ -963,6 +963,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'S3' => 'SunVan',
         '5S' => 'Sunvell',
         '5Y' => 'Sunny',
+        'W8' => 'SUNWIND',
         'SU' => 'SuperSonic',
         '79' => 'SuperTab',
         'S5' => 'Supra',
