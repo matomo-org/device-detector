@@ -184,6 +184,10 @@
   name: 'Android'
   version: '$1'
 
+- regex: '^A/(\d+[\.\d]*)/'
+  name: 'Android'
+  version: '$1'
+
 ##########
 ## Sailfish OS
 ###########
@@ -450,11 +454,15 @@
   name: 'iPadOS'
   version: '$1.$2'
 
-- regex: 'iPad.+CPU OS ((1[345])+(?:[_\.]\d+)*)'
+- regex: 'iPad(?:; iOS|.+CPU OS) ((1[345])+(?:[_\.]\d+)*)'
   name: 'iPadOS'
   version: '$1'
 
 - regex: 'iOS/(1[345]).(\d+[\.\d]*).+Apple/iPad'
+  name: 'iPadOS'
+  version: '$1.$2'
+
+- regex: 'iPhone OS,(1[345]).(\d+[\.\d]*).+iPad'
   name: 'iPadOS'
   version: '$1.$2'
 
@@ -476,6 +484,10 @@
 - regex: 'CFNetwork/.+ Darwin/(\d+[\.\d]+)(?!.*(?:x86_64|i386))'
   name: 'iOS'
   versions:
+    - regex: 'Darwin/21.2.0'
+      version: '15.2'
+    - regex: 'Darwin/21.1.0'
+      version: '15.1'
     - regex: 'Darwin/21.0.0'
       version: '15.0'
     - regex: 'Darwin/20.6.0'
@@ -605,6 +617,10 @@
   name: 'iOS'
   version: '$1'
 
+- regex: 'iPhone OS,([\d\.]+).+iPhone'
+  name: 'iOS'
+  version: '$1'
+
 - regex: '(?:Apple-)?(?:iPhone|iPad|iPod)(?:.*Mac OS X.*Version/(\d+\.\d+)|; Opera)?'
   name: 'iOS'
   version: '$1'
@@ -632,6 +648,20 @@
 - regex: 'CFNetwork/.+ Darwin/(?:[\d\.]+).+(?:x86_64|i386)|(?:x86_64-apple-)?darwin(?:[\d\.]+)'
   name: 'Mac'
   versions:
+    - regex: '(?:x86_64-apple-)?Darwin/?21.2.0'
+      version: '12.1'
+    - regex: '(?:x86_64-apple-)?Darwin/?21.1.0'
+      version: '12.0.1'
+    - regex: '(?:x86_64-apple-)?Darwin/?21.0.0'
+      version: '12.0'
+    - regex: '(?:x86_64-apple-)?Darwin/?20.6.0'
+      version: '11.5'
+    - regex: '(?:x86_64-apple-)?Darwin/?20.5.0'
+      version: '11.4'
+    - regex: '(?:x86_64-apple-)?Darwin/?20.4.0'
+      version: '11.3'
+    - regex: '(?:x86_64-apple-)?Darwin/?20.3.0'
+      version: '11.2'
     - regex: '(?:x86_64-apple-)?Darwin/?20.2.0.*'
       version: '11.1'
     - regex: '(?:x86_64-apple-)?Darwin/?20.[01].0'
@@ -745,7 +775,7 @@
     - regex: '(?:x86_64-apple-)?Darwin/?9.5.[05]'
       version: '10.5.5'
 
-- regex: 'Mac[ +]OS[ +]?X(?:[ /](?:Version )?(\d+(?:[_\.]\d+)+))?'
+- regex: 'Mac[ +]OS[ +]?X(?:[ /,](?:Version )?(\d+(?:[_\.]\d+)+))?'
   name: 'Mac'
   version: '$1'
 
