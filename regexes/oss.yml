@@ -135,6 +135,10 @@
   name: 'Android'
   version: ''
 
+- regex: 'Android OS/(\d+[\.\d]*)'
+  name: 'Android'
+  version: '$1'
+
 - regex: 'Pinterest for Android/.+; (\d(?:[\d\.]+)?)\)$'
   name: 'Android'
   version: '$1'
@@ -350,11 +354,19 @@
   name: 'Windows'
   version: '$1'
 
-- regex: 'mingw32'
+- regex: 'Windows.+OS: (\d+[\.\d]*)'
+  name: 'Windows'
+  version: '$1'
+
+- regex: 'Windows;(\d+[\.\d]*);'
+  name: 'Windows'
+  version: '$1'
+
+- regex: 'mingw32|winhttp'
   name: 'Windows'
   version: ''
 
-- regex: '(?:Windows(?:-Update-Agent)?|Microsoft-(?:CryptoAPI|Delivery-Optimization))/(\d+\.\d+)'
+- regex: '(?:Windows(?:-Update-Agent)?|Microsoft-(?:CryptoAPI|Delivery-Optimization|WebDAV-MiniRedir|WNS))/(\d+\.\d+)'
   name: 'Windows'
   version: '$1'
 
@@ -414,7 +426,7 @@
   name: 'Windows'
   version: '3.1'
 
-- regex: 'Windows|Win64|MSDW|HandBrake Win Upd'
+- regex: 'Windows|Win64|MSDW|HandBrake Win Upd|Microsoft BITS'
   name: 'Windows'
   version: ''
 
@@ -454,6 +466,10 @@
   name: 'iPadOS'
   version: '$1.$2'
 
+- regex: '^iPad(?:\d+[\,\d]*)/(1[345]).(\d+[\.\d]*)'
+  name: 'iPadOS'
+  version: '$1.$2'
+
 - regex: 'iPad(?:; iOS|.+CPU OS) ((1[345])+(?:[_\.]\d+)*)'
   name: 'iPadOS'
   version: '$1'
@@ -472,6 +488,10 @@
 - regex: 'iPad/([89]|1[012]).(\d+[\.\d]*)'
   name: 'iOS'
   version: '$1.$2'
+
+- regex: '^(?:iPad|iPhone)(?:\d+[\,\d]*)/(\d+[\.\d]+)'
+  name: 'iOS'
+  version: '$1'
 
 - regex: 'Pinterest for iOS/.+; (\d(?:[\d\.]+)?)\)$'
   name: 'iOS'
@@ -617,7 +637,7 @@
   name: 'iOS'
   version: '$1'
 
-- regex: 'iPhone OS,([\d\.]+).+iPhone'
+- regex: 'iPhone OS,([\d\.]+).+(?:iPhone|iPod)'
   name: 'iOS'
   version: '$1'
 
@@ -638,6 +658,10 @@
   version: '$1'
 
 - regex: 'Sonos/.+\(ICRU_'
+  name: 'iOS'
+  version: ''
+
+- regex: 'CaptiveNetworkSupport'
   name: 'iOS'
   version: ''
 
@@ -783,11 +807,11 @@
   name: 'Mac'
   version: '$1'
 
-- regex: 'macOS/(\d+[\.\d]+)'
+- regex: '(?:macOS[/,]|Mac-)(\d+[\.\d]+)'
   name: 'Mac'
   version: '$1'
 
-- regex: 'Darwin|Macintosh|Mac_PowerPC|PPC|Mac PowerPC|iMac|MacBook|macOS|Sonos/.+\(MDCR_'
+- regex: 'Darwin|Macintosh|Mac_PowerPC|PPC|Mac PowerPC|iMac|MacBook|macOS|AppleExchangeWebServices|com.apple.trustd|Sonos/.+\(MDCR_'
   name: 'Mac'
   version: ''
 

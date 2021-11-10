@@ -638,7 +638,7 @@ TiPhone:
 
 # Apple
 Apple:
-  regex: '(?:iTunes-)?Apple[ _]?TV|Apple/|(?:Apple-|iTunes-)?(?<!like )(?:iPad|iPhone)|iPh[0-9],[0-9]|CFNetwork|HomePod|Watch ?OS|Watch1,[12]|MDCR_Mac|ICRU_iP(?:ad|hone)|Mac OS X,'
+  regex: '(?:iTunes-)?Apple[ _]?TV|Apple/|(?:Apple-|iTunes-)?(?<!like )(?:iPad|iPhone)|iPh[0-9],[0-9]|CFNetwork|HomePod|Watch ?OS|Watch1,[12]|MDCR_Mac|ICRU_iP(?:ad|hone)|Mac OS X,|macOS,'
   models:
     - regex: 'HomePod'
       device: 'smart speaker'
@@ -6171,6 +6171,9 @@ Sony:
     - regex: 'Sony ?Ericsson ?([a-z0-9\-]+)'
       model: '$1'
       brand: 'Sony Ericsson'
+    - regex: 'Sony Corporation/([^/;]*)\)'
+      model: '$1'
+      device: 'desktop'
 
     - regex: 'Sony (Tablet[^/;]*) Build'
       model: '$1'
@@ -12132,8 +12135,12 @@ Motorola:
       model: 'One 5G Ace'
     - regex: 'motorola one vision'
       model: 'One Vision'
+    - regex: 'moto g stylus \(2021\)'
+      model: 'Moto G Stylus (2021)'
     - regex: 'moto g stylus'
       model: 'Moto G Stylus'
+    - regex: 'moto g play \(2021\)'
+      model: 'Moto G Play (2021)'
     - regex: 'moto g power'
       model: 'Moto G Power'
     - regex: 'moto g pro'
@@ -15562,6 +15569,11 @@ Samsung:
       model: 'E2152'
       device: 'feature phone'
 
+    # explicit notebooks
+    - regex: 'Chromebook 3'
+      model: 'Chromebook 3'
+      device: 'desktop'
+
     # general detections
     - regex: '(?:SAMSUNG-)?(GT-(P|N8|N5)[0-9]+[a-z]?)'
       device: 'tablet'
@@ -17594,6 +17606,14 @@ Telit:
       model: '$1'
     - regex: 'Telit[\-_]?([a-z0-9]+)'
       model: '$1'
+
+# Telpo ((https://www.telpo.com.cn/))
+Telpo:
+  regex: 'TPS320'
+  device: 'peripheral'
+  models:
+    - regex: 'TPS320'
+      model: 'TPS320'
 
 # ThL
 ThL:
