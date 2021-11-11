@@ -2392,10 +2392,13 @@ Archos:
       model: '101B Helium 4G'
     - regex: 'AC50BHE(?:[);/ ]|$)'
       model: '50B Helium 4G'
+    - regex: 'Archos 80 Oxygen(?:[);/ ]|$)'
+      device: 'tablet'
+      model: '80 Oxygen'
     - regex: '(?:YL-)?Archos ([^/;]*(?:PAD)[^/;]*) Build'
       device: 'tablet'
       model: '$1'
-    - regex: 'Archos ((?:[789]|10)[0-9]?[a-z]* ?(?:G9|G10|Helium|Titanium|Cobalt|Platinum|Xenon|Carbon|Neon|XS|IT)[^/;]*) Build'
+    - regex: 'Archos ((?:[789]|10)[0-9]?[a-z]* ?(?:G9|G10|Helium|Titanium|Cobalt|Platinum|Xenon|Carbon|Neon|XS|IT)[^/);]*)(?: Build|[;)])'
       device: 'tablet'
       model: '$1'
     - regex: '(?:YL-)?Archos ([^/);]+)(?: Build|[;)])'
@@ -6814,7 +6817,7 @@ Vizio:
 
 # GOCLEVER (goclever.com)
 GOCLEVER:
-  regex: 'GOCLEVER|QUANTUM_(?:[235]_)?[0-9]{3}|QUANTUM [0-9]{1}|QUANTUM 700N|Quantum2 500|QUANTUM_(1010N|1010M|900)|ARIES|INSIGNIA|ORION_|ELIPSO|LIBRA[ _]97'
+  regex: 'GOCLEVER|QUANTUM_(?:[235]_)?[0-9]{3}|QUANTUM [0-9]{1}|QUANTUM 700N|Quantum2 500|QUANTUM_(1010N|1010M|900|II_500_N)|ARIES|INSIGNIA|ORION_|ELIPSO|LIBRA[ _]97'
   device: 'smartphone'
   models:
     - regex: 'QUANTUM_(1010N|1010M|900)'
@@ -6840,8 +6843,12 @@ GOCLEVER:
       device: 'tablet'
     - regex: 'QUANTUM_([235])_(5[05]0)_RUGGED'
       model: 'Quantum $1 $2 Rugged'
+    - regex: 'QUANTUM_(\d+)_RUGGED_PRO'
+      model: 'Quantum $1 Rugged Pro'
     - regex: 'QUANTUM[_ ]([235])_([45]00)[_ ]LITE'
       model: 'Quantum $1 $2 Lite'
+    - regex: 'QUANTUM_II_500_N'
+      model: 'Quantum 2 500 N'
     - regex: 'QUANTUM[_ ]([45]00)[_ ]LITE'
       model: 'Quantum $1 Lite'
     - regex: 'QUANTUM[ _]?([235])[ _]([^;/]+)(?: Build|[);])'
@@ -12429,7 +12436,7 @@ Navon:
 
 # NOA or NOA Mobile (noa-mobile.eu)
 NOA:
-  regex: '(?:NOA-)?NOA[ _]|Hummer(?:_2019_R|LE)|NextSE|Vivo 4G_r'
+  regex: '(?:NOA-)?NOA[ _]|Hummer(?:_2019_R|LE)|NextSE|Vivo 4G_r|SPRINT4G'
   device: 'smartphone'
   models:
     - regex: 'NOA[_ ]CORE[_ ]FORTE'
@@ -12460,6 +12467,8 @@ NOA:
       model: 'H44SE'
     - regex: 'NOA[_ ]H10LE'
       model: 'H10LE'
+    - regex: 'SPRINT4G'
+      model: 'Sprint 4G'
     - regex: '(?:NOA[_ ])?Vivo 4G_r'
       model: 'Vivo 4G'
     - regex: 'NOA[_ ]([^;)/ ]+)'
@@ -23354,7 +23363,7 @@ Hezire:
 
 # Hurricane (hurricanemobile.com)
 Hurricane:
-  regex: 'Hurricane[ _]|(?:Flame_Plus|Glaze|Cobra|Ridge Plus|Rush Plus|DZIRE|Android 7.+ Beam)(?:[);/ ]|$)'
+  regex: 'Hurricane[ _]|(?:Flame_Plus|Glaze|Cobra|Ridge Plus|Rush Plus|DZIRE|Android 7.+ Beam|Vulcan)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Hurricane[ _]IGNITE'
@@ -23373,6 +23382,8 @@ Hurricane:
       model: 'Dzire'
     - regex: 'Beam'
       model: 'Beam'
+    - regex: 'Vulcan'
+      model: 'Vulcan'
     - regex: 'Flame_Plus'
       model: 'Flame Plus'
     - regex: 'Ridge Plus'
@@ -25528,6 +25539,12 @@ Glofiish:
   regex: '(?:Gpad_U)(?:[);/ ]|$)'
   device: 'smartphone'
   model: 'G Pad U'
+
+# Polar (polar.ru)
+Polar:
+  regex: 'Polar[_ ](P24L51T2CSM)(?:[);/ ]|$)'
+  device: 'tv'
+  model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:

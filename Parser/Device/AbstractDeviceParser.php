@@ -812,6 +812,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '0P' => 'POCO',
         'PV' => 'Point of View',
         'PL' => 'Polaroid',
+        'Q6' => 'Polar',
         'PP' => 'PolyPad',
         'P5' => 'Polytron',
         'P2' => 'Pomp',
