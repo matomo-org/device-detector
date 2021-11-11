@@ -754,6 +754,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'O7' => 'Oale',
         'OC' => 'OASYS',
         'OB' => 'Obi',
+        'OQ' => 'Oculus',
         'O1' => 'Odys',
         'O9' => 'Ok',
         'OA' => 'Okapia',
