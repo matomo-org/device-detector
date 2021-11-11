@@ -232,6 +232,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '34' => 'CellAllure',
         '7C' => 'Celcus',
         'CE' => 'Celkon',
+        'CG' => 'Cellution',
         '62' => 'Centric',
         'C2' => 'Changhong',
         'CH' => 'Cherry Mobile',
