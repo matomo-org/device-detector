@@ -366,11 +366,11 @@ class OperatingSystem extends AbstractParser
             return 'SuperH';
         }
 
-        if ($this->matchUserAgent('64bit|WOW64|(?:Intel)?x64|win64|amd64|x86_?64')) {
+        if ($this->matchUserAgent('64-?bit|WOW64|(?:Intel)?x64|win64|amd64|x86_?64')) {
             return 'x64';
         }
 
-        if ($this->matchUserAgent('(?:i[0-9]|x)86|i86pc')) {
+        if ($this->matchUserAgent('.+32bit|.+win32|(?:i[0-9]|x)86|i86pc')) {
             return 'x86';
         }
 
