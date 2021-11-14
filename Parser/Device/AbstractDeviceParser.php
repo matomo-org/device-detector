@@ -378,6 +378,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FE' => 'Fengxiang',
         'F7' => 'Fero',
         'FI' => 'FiGO',
+        'F9' => 'FiiO',
         'F1' => 'FinePower',
         'FX' => 'Finlux',
         'F3' => 'FireFly Mobile',
