@@ -788,6 +788,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'O6' => 'Oyyu',
         'OZ' => 'OzoneHD',
         '7P' => 'P-UP',
+        'YP' => 'Paladin',
         'PM' => 'Palm',
         'PN' => 'Panacom',
         'PA' => 'Panasonic',
