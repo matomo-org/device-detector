@@ -283,6 +283,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '7D' => 'Datamini',
         '6D' => 'Datalogic',
         'D1' => 'Datsun',
+        'DZ' => 'Dazen',
         'DB' => 'Dbtel',
         'DL' => 'Dell',
         'DE' => 'Denver',
