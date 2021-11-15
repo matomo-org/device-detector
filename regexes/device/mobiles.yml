@@ -7124,7 +7124,7 @@ Hafury:
     - regex: '(MIX|UMAX)'
       model: '$1'
 
-# Haier
+# Haier (www.haier.com)
 Haier:
   regex: 'Haier|I6_Infinity|Titan[ _]T[135]|(?:HW-)?W(?:71[67]|757|86[07]|970)(?:[);/ ]|$)|S5 Silk|(?:HM-)?(N505|N700|G(?:152|303|353|552|70[01])?-FL|HM-(?:I559|N501|I560|G553|N701)-FL|G(?:303)?-W|I(?:557)?-FL)|(?:PAD[ _](?:D71|G781|d85))|A2_Lite_NFC|HL810G'
   device: 'smartphone'
@@ -7159,6 +7159,9 @@ Haier:
     - regex: '(HL810G)'
       device: 'tablet'
       model: '$1'
+    - regex: 'haierATVnippori'
+      device: 'tv'
+      model: '2K Android TV'
     - regex: 'Haier[ _\-](H[WT]-[^/;]+) Build'
       model: '$1'
     - regex: 'Haier[ _\-](H[WT]-[a-z0-9_\-]+)'
@@ -13472,6 +13475,8 @@ OPPO:
       model: 'A54 5G'
     - regex: 'CPH2239(?:[);/ ]|$)'
       model: 'A54'
+    - regex: 'CPH2273(?:[);/ ]|$)'
+      model: 'A54s'
     - regex: 'PEM[MT][02]0(?:[);/ ]|$)'
       model: 'A55 5G'
     - regex: '(?:OPPO[ _]?)?CPH170[15](?:[);/ ]|$)'
@@ -15194,11 +15199,11 @@ Samsung:
       model: 'Galaxy A01'
     - regex: '(?:SAMSUNG-)?SM-A013[FGM]'
       model: 'Galaxy A01 Core'
-    - regex: '(?:SAMSUNG-)?SM-A025[FGM]'
+    - regex: '(?:SAMSUNG-)?SM-A025[AFGM]?'
       model: 'Galaxy A02s'
     - regex: '(?:SAMSUNG-)?SM-A037[F]?'
       model: 'Galaxy A03s'
-    - regex: '(?:SAMSUNG-)?SM-A022[GM]'
+    - regex: '(?:SAMSUNG-)?SM-A022[GMF]?'
       model: 'Galaxy A02'
     - regex: '(?:SAMSUNG-)?SM-A260[FG]'
       model: 'Galaxy A2 Core'
@@ -17681,13 +17686,15 @@ teXet:
 
 # Telefunken
 Telefunken:
-  regex: 'TELEFUNKEN|Foxtrot|TEL-1013GIQA|TEL-1014GIQ|TF-SP(?:500[12]|4002)|(TF-MID(?:[78]02G|70[78]G|80[46]G|9705RG|9707G|7805G|100[57]G|1010G))|(TF-LED(?:65S75T2SU|32S39T2S|32S5[289]T2S|32S70T2S|40S63T2S))|LTE_LIMA|LTE Mike'
+  regex: 'TELEFUNKEN|Foxtrot|TEL-1013GIQA|TEL-1014GIQ|TEL-73GIQA|TF-SP(?:500[12]|4002)|(TF-MID(?:[78]02G|70[78]G|80[46]G|9705RG|9707G|7805G|100[57]G|1010G))|(TF-LED(?:65S75T2SU|32S39T2S|32S5[289]T2S|32S70T2S|40S63T2S))|LTE_LIMA|LTE Mike'
   device: 'tablet'
   models:
     - regex: 'TEL-1013GIQA'
       model: 'Giqa 10.1 3G'
     - regex: 'TEL-1014GIQ'
       model: 'TEL-1014GIQ'
+    - regex: 'TEL-73GIQA'
+      model: 'TEL-73GIQA'
     - regex: 'Foxtrot2'
       model: 'Foxtrot 2'
       device: 'smartphone'
@@ -20483,16 +20490,12 @@ ZTE:
       model: 'Blade L4 Pro'
     - regex: '(?:Blade L5 Plus|BLADE L0510)(?:[);/ ]|$)'
       model: 'Blade L5 Plus'
-    - regex: 'Blade L5(?:[);/ ]|$)'
-      model: 'Blade L5'
     - regex: 'Blade L6(?:[);/ ]|$)'
       model: 'Blade L6'
     - regex: 'Blade L7A(?:[);/ ]|$)'
       model: 'Blade L7A'
-    - regex: 'Blade L7(?:[);/ ]|$)'
-      model: 'Blade L7'
-    - regex: 'Blade L8(?:RU)?(?:[);/ ]|$)'
-      model: 'Blade L8'
+    - regex: 'Blade L(\d+)(?:RU)?'
+      model: 'Blade L$1'
     - regex: 'Blade A([357]) (20(?:19|20))'
       model: 'Blade A$1 ($2)'
     - regex: 'ZTE BV0720(?:[);/ ]|$)'
@@ -21528,11 +21531,13 @@ Divisat:
 
 # DIXON (https://www.dixoninfo.com/)
 DIXON:
-  regex: 'DIXON_|(?:ACK1010|KT5512)(?:[);/ ]|$)'
+  regex: 'DIXON_|(?:ACK1010|KT5512|HK7-3502)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(ACK1010|KT5512)'
       model: '$1'
+    - regex: 'HK7-3502'
+      model: 'Solis'
     - regex: 'DIXON_XK1_3G(?:[);/ ]|$)'
       device: 'feature phone'
       model: 'XK1 3G'
@@ -21642,9 +21647,13 @@ Uhans:
 
 # Soyes
 Soyes:
-  regex: 'SOYES[ _]([67]S|XS)(?:[);/ ]|$)'
+  regex: '(?:SOYES[ _](?:[67]S|XS)|S10-H)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'SOYES[ _]([67]S|XS)'
+      model: '$1'
+    - regex: 'S10-H'
+      model: 'S10-H'
 
 # Zidoo
 Zidoo:
