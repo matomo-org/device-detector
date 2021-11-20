@@ -539,14 +539,16 @@ RIM:
       model: 'Torch $1'
     - regex: 'BlackBerry'
       model: 'BlackBerry'
-
+  GHIA_L1
 # CHIA (www.ghia.com.mx)
 CHIA:
-  regex: '(SVEGLIO[ _][QH]1|TREO_TAB8G|GTA7WF|GTKIDS7[BVR]|VENUS7)(?:[);/ ]|$)'
+  regex: 'Ghia_|(SVEGLIO[ _][QH]1|TREO_TAB8G|GTA7WF|GTKIDS7[BVR]|VENUS7)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'SVEGLIO[ _]([QH]1)'
       model: 'Sveglio $1'
+    - regex: 'GHIA[ _](L1)'
+      model: '$1'
     - regex: 'TREO_TAB8G'
       device: 'tablet'
       model: 'TREO TAB8G'
@@ -10688,7 +10690,7 @@ LG:
       model: 'Stylus 2 Plus'
     - regex: 'LM-Q[67]10\.FG(?:[);/ ]|$)'
       model: 'Q7'
-    - regex: 'LM-(Q725[KL]|Q610.FGN)(?:[);/ ]|$)'
+    - regex: 'LM-(Q72[57][KLS]|Q610.FGN)(?:[);/ ]|$)'
       model: 'Q7+'
     - regex: 'LM-Q815[KSL](?:[);/ ]|$)'
       model: 'Q8+'
@@ -11863,7 +11865,7 @@ Mobiola:
 
 # Mobicel or Mobicell
 Mobicel:
-  regex: 'Mobicel_(R1)|ASTRO(?: Build|[;)]|$)|(?:Android 8.+ BEAM|FAME(?:_DS)?|CLIK|R7_1|HYPE|DANDY(?:_ZAM)?|(?<!SMADL )Matrix|VENUS_G|TRENDY PLUS|FENDY_DS|TANGO_LITE|BLINK|BERRY[_ ]?(?:[12]|PLUS)|R1PLUS_1|ZOOM-H|REBEL|LEGEND MAX|HERO_DS|Switch[ _]GO|PULSE_1|TRENDY 2|FEVER_PLUS_[HJ]|RIO_SS|Clik plus|PURE PLUS|Neo[ _]LTE|Titan_1|ZOOM_1)(?:[);/ ]|$)'
+  regex: 'Mobicel_(R1)|ASTRO(?: Build|[;)]|$)|(?:Android 8.+ BEAM|FAME(?:_DS)?|CLIK|R7_1|HYPE|DANDY(?:_ZAM)?|(?<!SMADL )Matrix|VENUS_G|TRENDY PLUS|FENDY_DS|TANGO_LITE|BLINK|BERRY[_ ]?(?:[12]|PLUS)|R1PLUS_1|ZOOM-H|REBEL|LEGEND MAX|HERO_DS|Switch[ _]GO|PULSE_1|TRENDY 2|TRENDY_LITE|FEVER_PLUS_[HJ]|RIO_SS|Clik plus|PURE PLUS|Neo[ _]LTE|Titan_1|ZOOM_1)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Matrix'
@@ -11882,6 +11884,8 @@ Mobicel:
       model: 'Berry Plus'
     - regex: 'TRENDY PLUS'
       model: 'Trendy Plus'
+    - regex: 'TRENDY_LITE'
+      model: 'Trendy Lite'
     - regex: 'HYPE'
       model: 'Hype'
     - regex: 'DANDY_ZAM'
@@ -17269,9 +17273,11 @@ Qtek:
 
 # Q-Touch or Q.Touch or QTouch
 Q-Touch:
-  regex: '( Q09|QS701|Q05A)(?:[);/ ]|$)'
+  regex: 'Qtouch_|[ ](Q09|QS701|Q05A)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: '(?:Qtouch[_ ])?[ ]?(Q09|QS701|Q05A|Q85)(?:[);/ ]|$)'
+      model: '$1'
 
 # G-Touch or GTouch
 G-Touch:
@@ -25643,7 +25649,7 @@ Smart:
 
 # Stylo
 Stylo:
-  regex: 'STYLO|(?:Luna|CPE91|S57_A[ZL]URE|Ithemba|S56 MIST|S55 Nova|S40_VISTA|S50_JADE|S64_ALPHA|S53_STARK|S40_LIFE|LIFE_2|S49[_ ](?:MONO|POISE|ECO))(?:[);/ ]|$)'
+  regex: 'STYLO|(?:TARISTAB[234]|Luna|CPE91|S57_A[ZL]URE|Ithemba|S56 MIST|S55 Nova|S40_VISTA|S50_JADE|S64_ALPHA|S53_STARK|S40_LIFE|LIFE_2|S49[_ ](?:MONO|POISE|ECO))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'STYLO[ _](F1)'
@@ -25686,6 +25692,9 @@ Stylo:
       model: 'S64 Alpha'
     - regex: 'Luna'
       model: 'Luna'
+    - regex: 'TARISTAB([2-4])'
+      device: 'tablet'
+      model: 'Taris Tab $1'
 
 # galaxy innovations or GI  (www.galaxy-innovations.ru)
 Galaxy Innovations:
