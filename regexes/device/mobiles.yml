@@ -2993,7 +2993,7 @@ Bitel:
 
 # Blu
 Blu:
-  regex: 'BLU[ _]|(?:blu|Dash)[ _]([^/;)]+)(?: Build|[;)])|(?:Studio[ _](5.0K|5.5|View XL|Mega|C 8\+8|[CGM][ _]HD|[CGX]|SELFIE|Selfie LTE|Touch|M5 Plus|J[1258]|X8 HD|X10)|Advance (4.0 ?[LM]|5.[02](?: HD)?|A4|L[45])|M6 2021|ENERGY (DIAMOND|XL)|Energy X 2|LIFE XL|B110DL|Dash (?:X[2L]|L3)|PURE (?:X[LR]|MINI|View)|Life One X2|G50 (?:Mega|Plus)|G90(?: PRO)?|GRAND (?:M3|Max|5.5 HD|XL LTE|Mini)|R1 (?:HD|PLUS)|R2 (?:LTE|Plus)|Tank Xtreme [45].0|Tank Xtreme Pro|Touchbook M7 Pro|DASH X PLUS|C[456] 2019|BOLD N1|B130DL|Vivo (?:5 Mini|One Plus|5R|XL[234]| Plus|8L|XI[+]?|GO)|C5L 2020|C6 2020|G9 PRO)(?:[);/ ]|$)'
+  regex: 'BLU[ _]|(?:blu|Dash)[ _]([^/;)]+)(?: Build|[;)])|(?:Studio[ _](5.0K|5.5|View XL|Mega|C 8\+8|[CGM][ _]HD|[CGX]|SELFIE|Selfie LTE|Touch|M5 Plus|J[1258]|X8 HD|X10)|Advance (4.0 ?[LM]|5.[02](?: HD)?|A4|L[45])|M6 2021|ENERGY (DIAMOND|XL)|Energy X 2|LIFE XL|B110DL|Dash (?:X[2L]|L3)|PURE (?:X[LR]|MINI|View)|Life One X2|G50 (?:Mega|Plus)|G90(?: PRO)?|GRAND (?:M3|Max|5.5 HD|XL LTE|Mini)|R1 (?:HD|PLUS)|R2 (?:LTE|Plus)|Tank Xtreme [45].0|Tank Xtreme Pro|Touchbook M7 Pro|DASH X PLUS|C[456] 2019|BOLD N1|B130DL|Vivo (?:5 Mini|One Plus|5R|XL[234]| Plus|8L|XI[+]?|GO)|C5L 2020|C6 2020|G9 PRO|D701)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Advance (4.0 ?[LM]|4.0|5.[02](?: HD)?|A4|L[54])'
@@ -3058,8 +3058,8 @@ Blu:
       model: 'G50 Plus'
     - regex: 'G(90?) PRO'
       model: 'G$1 Pro'
-    - regex: 'G90'
-      model: 'G90'
+    - regex: '(G90|D701)(?:[);/ ]|$)'
+      model: '$1'
     - regex: 'GRAND 5.5 HD'
       model: 'Grand 5.5 HD'
     - regex: 'Grand X LTE'
@@ -10900,7 +10900,7 @@ LG:
       model: 'Q61'
     - regex: '(?:LG-)?M700(?:N|A|DSK|AN)?|LGM-X600[SLK]|LG-M703|LG-US700'
       model: 'Q6'
-    - regex: 'LM-X440IM'
+    - regex: 'LM-X440'
       model: 'W30'
     - regex: 'LGV36(?:[);/ ]|$)'
       model: 'it'
@@ -17408,6 +17408,8 @@ Tecno Mobile:
       model: 'Camon 11 Pro'
     - regex: 'Tecno[ _]CC7S?(?:[);/ ]|$)'
       model: 'Camon 12'
+    - regex: 'Tecno[ _]CC9(?:[);/ ]|$)'
+      model: 'Camon 12 Pro'
     - regex: 'Tecno[ _](?:CC6|KC3)(?:[);/ ]|$)'
       model: 'Camon 12 Air'
     - regex: 'Tecno[ _-]CD7(?:[);/ ]|$)'
@@ -17488,7 +17490,7 @@ Tecno Mobile:
       model: 'Spark 3 Pro'
     - regex: 'Tecno[ _](?:KC8S?|KC2j?)(?:[);/ ]|$)'
       model: 'Spark 4'
-    - regex: 'Tecno[ _]KC6S?(?:[);/ ]|$)'
+    - regex: 'Tecno[ _](?:KC6S?|KC1j)(?:[);/ ]|$)'
       model: 'Spark 4 Air'
     - regex: 'Tecno[ _]BB4k(?:[);/ ]|$)'
       model: 'Spark 4 Lite'
@@ -21600,13 +21602,15 @@ Divisat:
 
 # DIXON (https://www.dixoninfo.com/)
 DIXON:
-  regex: 'DIXON_|(?:ACK1010|KT5512|HK7-3502)(?:[);/ ]|$)'
+  regex: 'DIXON_|(?:ACK1010|KT5512|HK7-3502|DN6015)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(ACK1010|KT5512)'
       model: '$1'
     - regex: 'HK7-3502'
       model: 'Solis'
+    - regex: 'DN6015'
+      model: 'Astrum'
     - regex: 'DIXON_XK1_3G(?:[);/ ]|$)'
       device: 'feature phone'
       model: 'XK1 3G'
@@ -25801,6 +25805,12 @@ MyGica:
       model: 'Quad Core Enjoy TV Box'
     - regex: 'ATV(19[60]0|495 Pro 16G)'
       model: 'ATV$1'
+
+# Mitsui (www.diamond-electronics.com)
+Mitsui:
+  regex: '(MC32020)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
