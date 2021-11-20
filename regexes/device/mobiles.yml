@@ -2240,7 +2240,7 @@ Allview:
 
 # Allwinner
 Allwinner:
-  regex: '(?:QUAD-CORE (?:A64 p3|A33 y3|T3 K2001M|T3 k2001o)|ZY-07B|UltraOcta-T8|OCTA-CORE T8|OCTOPUS-CORE T8|QuadCore-R16)(?:[);/ ]|$)'
+  regex: '(?:QUAD-CORE (?:A64 p3|A33 y3|T3 K2001M|T3 k2001o|T3 k2001-nwd)|ZY-07B|UltraOcta-T8|OCTA-CORE T8|OCTOPUS-CORE T8|QuadCore-R16)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'QUAD-CORE A64 p3'
@@ -2252,12 +2252,12 @@ Allwinner:
     - regex: 'UltraOcta-T8'
       device: 'car browser'
       model: 'Ultra Octa T8'
-    - regex: 'QUAD-CORE T3 K2001M'
-      device: 'car browser'
-      model: 'QUAD-CORE T3 K2001M'
     - regex: 'QUAD-CORE T3 K2001o'
       device: 'car browser'
       model: 'QUAD-CORE T3 K2001O'
+    - regex: 'QUAD-CORE T3 K(2001M?)'
+      device: 'car browser'
+      model: 'QUAD-CORE T3 K$1'
     - regex: 'OCTA-CORE T8'
       device: 'car browser'
       model: 'OCTA-CORE T8'
@@ -16472,16 +16472,16 @@ Prestigio:
     - regex: 'PSP5522DUO'
       device: 'smartphone'
       model: 'Muze G5 LTE'
-    - regex: 'PSP7550DUO(?:[);/ ]|$)'
+    - regex: 'PSP7550DUO'
       device: 'smartphone'
       model: 'Muze G7 LTE'
-    - regex: 'PSP7510DUO(?:[);/ ]|$)'
+    - regex: 'PSP7510DUO'
       device: 'smartphone'
       model: 'Muze C7 LTE'
     - regex: '(?:Muze C3|PSP3504DUO)(?:[);/ ]|$)'
       device: 'smartphone'
       model: 'Muze C3'
-    - regex: 'PSP3512DUO(?:[);/ ]|$)'
+    - regex: 'PSP3512DUO'
       device: 'smartphone'
       model: 'Muze B3'
     - regex: 'PSP3532DUO'
@@ -16535,7 +16535,7 @@ Prestigio:
       model: 'Geo Vision Tour 3'
     - regex: 'PGPS7797(?:[);/ ]|$)'
       model: 'Geo Vision Tour 2'
-    - regex: 'PMT(3118|3[12]01|3[12]57|7788|5791|577[18])[_ ]([34])G'
+    - regex: 'PMT(3118|3[12]01|3[12]57|7788|5588|5791|577[18])[_ ]([34])G'
       model: 'Grace $1 $2G'
     - regex: 'PMT3287_3G'
       model: 'MultiPad Ranger 8.0 3G'
@@ -20810,7 +20810,7 @@ ZTE:
       model: '$1'
 
 Zuum:
-  regex: 'Zuum[ _-]|Android 6.+ UNIQ(?: Build|[);])|(?:ROCKET II|Akus Z|COVET|MAGNO|ONIX S|STEDI|STELLAR(?:[ _](?:Z|PRO|[MP]1))?|GRAVITY [ZM]|AURA X|COVET_PRO_LITE|RONI)(?:[);/ ]|$)'
+  regex: 'Zuum[ _-]|Android 6.+ UNIQ(?: Build|[);])|(?:ROCKET II|Akus Z|COVET|MAGNO(?:-S)?|ONIX S|STEDI|STELLAR(?:[ _](?:Z|PRO|[MP]1))?|GRAVITY [ZM]|AURA X|COVET_PRO_LITE|RONI)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Akus Z'
@@ -20823,6 +20823,8 @@ Zuum:
       model: 'Covet$1'
     - regex: 'MAGNO PLUS'
       model: 'Magno Plus'
+    - regex: 'MAGNO-S'
+      model: 'Magno S'
     - regex: 'MAGNO( C1?)?'
       model: 'Magno$1'
     - regex: 'ONIX S'
@@ -25813,6 +25815,12 @@ MyGica:
       model: 'Quad Core Enjoy TV Box'
     - regex: 'ATV(19[60]0|495 Pro 16G)'
       model: 'ATV$1'
+
+# Epson (epson.com)
+Epson:
+  regex: 'Projector(?:[);/ ]|$)'
+  device: 'peripheral'
+  model: 'HA14A LCD Projector' # sti6200-d101
 
 # Devices with undectable brand, but detectable model
 Unknown:

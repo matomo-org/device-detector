@@ -343,6 +343,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'E1' => 'Energy Sistem',
         '3E' => 'Enot',
         '8E' => 'Epik One',
+        'XP' => 'Epson',
         'E7' => 'Ergo',
         'EC' => 'Ericsson',
         '05' => 'Erisson',
