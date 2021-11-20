@@ -1602,16 +1602,16 @@ Airness:
   device: 'feature phone'
   model: '$1'
 
-# Aiwa
+# Aiwa (aiwa.mx)
 Aiwa:
-  regex: '(?:AW790|M300(?! 4G)|AWM(?:533|50[19]|561)|AW500)(?:[);/ ]|$)'
+  regex: '(?:AW790|M300(?! 4G)|AWM(?:53[39]|50[19]|561)|AW500)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'AW790(?:[);/ ]|$)'
       model: 'AW790'
     - regex: 'AW500(?:[);/ ]|$)'
       model: 'AW500'
-    - regex: 'AWM(533|50[19]|561)(?:[);/ ]|$)'
+    - regex: 'AWM(53[39]|50[19]|561)(?:[);/ ]|$)'
       model: 'AWM$1'
     - regex: 'M300(?:[);/ ]|$)'
       model: 'M300'
@@ -4525,13 +4525,15 @@ Compal:
   device: 'feature phone'
   model: '$1'
 
-# Artel
+# Artel (artelgroup.org)
 Artel:
-  regex: 'Artel[_ ]|\w+_ARTEL_\w+|GAP YOQ(?:[);/ ]|$)'
+  regex: 'Artel[_ ]|\w+_ARTEL_\w+|(?:GAP YOQ| ALO)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'GAP YOQ(?:[);/ ]|$)'
       model: 'Gap Yo Q'
+    - regex: ' ALO(?:[);/ ]|$)'
+      model: 'Allo'
     - regex: 'Artel[_ ](Quadro(?: Pro)?|Tesla|Air|Tomchi|Premium|U3_4G|Z5|Sentinel (?:X 8G|X D5|X)|T10)'
       model: '$1'
     - regex: 'Artel[_ ]Komi3'
@@ -7148,11 +7150,13 @@ Hafury:
 
 # Haier (www.haier.com)
 Haier:
-  regex: 'Haier|I6_Infinity|Titan[ _]T[135]|(?:HW-)?W(?:71[67]|757|86[07]|970)(?:[);/ ]|$)|S5 Silk|(?:HM-)?(N505|N700|G(?:152|303|353|552|70[01])?-FL|HM-(?:I559|N501|I560|G553|N701)-FL|G(?:303)?-W|I(?:557)?-FL)|(?:PAD[ _](?:D71|G781|d85))|A2_Lite_NFC|HL810G'
+  regex: 'Haier|(?:I6_Infinity|Titan[ _]T[135]|(?:HW-)?W(?:71[67]|757|86[07]|970)|S5 Silk|(?:HM-)?(N505|N700|G(?:152|303|353|552|70[01])?-FL|HM-(?:I559|N50[15]|I560|G553|N70[01])-FL|G(?:303)?-W|I(?:557)?-FL)|(?:PAD[ _](?:D71|G781|d85))|A2_Lite_NFC|A4_Lite|HL810G)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'A2_Lite_NFC'
       model: 'Alpha A2 Lite NFC'
+    - regex: 'A4_Lite'
+      model: 'Alpha A4 Lite'
     - regex: 'HM-N505-FL'
       model: 'I8'
     - regex: 'S5 Silk'
@@ -17749,15 +17753,13 @@ teXet:
 
 # Telefunken
 Telefunken:
-  regex: 'TELEFUNKEN|Foxtrot|TEL-1013GIQA|TEL-1014GIQ|TEL-73GIQA|TF-SP(?:500[12]|4002)|(TF-MID(?:[78]02G|70[78]G|80[46]G|9705RG|9707G|7805G|100[57]G|1010G))|(TF-LED(?:65S75T2SU|32S39T2S|32S5[289]T2S|32S70T2S|40S63T2S))|LTE_LIMA|LTE Mike'
+  regex: 'TELEFUNKEN|Foxtrot|TEL-1013GIQA|TEL-1014GIQ|TEL-73GIQA|TEL-74GIQ|TF-SP(?:500[12]|4002)|(TF-MID(?:[78]02G|70[78]G|80[46]G|9705RG|9707G|7805G|100[57]G|1010G))|(TF-LED(?:65S75T2SU|32S39T2S|32S5[289]T2S|32S70T2S|40S63T2S))|LTE_LIMA|LTE Mike'
   device: 'tablet'
   models:
     - regex: 'TEL-1013GIQA'
       model: 'Giqa 10.1 3G'
-    - regex: 'TEL-1014GIQ'
-      model: 'TEL-1014GIQ'
-    - regex: 'TEL-73GIQA'
-      model: 'TEL-73GIQA'
+    - regex: 'TEL-(1014GIQ|74GIQ|73GIQA)'
+      model: 'TEL-$1'
     - regex: 'Foxtrot2'
       model: 'Foxtrot 2'
       device: 'smartphone'
@@ -20817,6 +20819,8 @@ Zuum:
       model: 'Covet Pro Lite'
     - regex: 'COVET PRO'
       model: 'Covet Pro'
+    - regex: 'COVET Mini'
+      model: 'Covet Mini'
     - regex: 'COVET( Z)?'
       model: 'Covet$1'
     - regex: 'MAGNO PLUS'
@@ -25639,7 +25643,7 @@ Smart:
 
 # Stylo
 Stylo:
-  regex: 'STYLO|(?:CPE91|S57_A[ZL]URE|Ithemba|S56 MIST|S55 Nova|S40_VISTA|S64_ALPHA|S53_STARK|S40_LIFE|LIFE_2|S49[_ ](?:MONO|POISE|ECO))(?:[);/ ]|$)'
+  regex: 'STYLO|(?:Luna|CPE91|S57_A[ZL]URE|Ithemba|S56 MIST|S55 Nova|S40_VISTA|S50_JADE|S64_ALPHA|S53_STARK|S40_LIFE|LIFE_2|S49[_ ](?:MONO|POISE|ECO))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'STYLO[ _](F1)'
@@ -25662,6 +25666,8 @@ Stylo:
       model: 'S55 Nova'
     - regex: 'S40_VISTA'
       model: 'S40 Vista'
+    - regex: 'S50_JADE'
+      model: 'S50 Jade'
     - regex: 'Ithemba'
       model: 'Ithemba'
     - regex: 'S53_STARK'
@@ -25678,6 +25684,8 @@ Stylo:
       model: 'S49 Eco'
     - regex: 'S64_ALPHA'
       model: 'S64 Alpha'
+    - regex: 'Luna'
+      model: 'Luna'
 
 # galaxy innovations or GI  (www.galaxy-innovations.ru)
 Galaxy Innovations:
@@ -25836,6 +25844,18 @@ Urovo:
     - regex: '(DT40)'
       device: 'peripheral'
       model: '$1'
+
+# Neon IQ or NeonIQ
+Neon IQ:
+  regex: '(?:NQT-(?:101|7)[34]GIQ|NQT-7W)(?:[);/ ]|$)'
+  device: 'tablet'
+  models:
+    - regex: 'NQT-101([34])GIQ'
+      model: 'Tab 10.1" $1G'
+    - regex: 'NQT-7([34])GIQ'
+      model: 'Tab 7" $1G'
+    - regex: 'NQT-7W'
+      model: 'Tab 7" WiFi'
 
 # Devices with undectable brand, but detectable model
 Unknown:
