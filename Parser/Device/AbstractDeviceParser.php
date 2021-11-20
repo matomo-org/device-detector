@@ -238,7 +238,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CH' => 'Cherry Mobile',
         'C3' => 'China Mobile',
         'CI' => 'Chico Mobile',
-        'HG' => 'CHIA',
         '1C' => 'Chuwi',
         'L8' => 'Clarmin',
         '25' => 'Claresta',
