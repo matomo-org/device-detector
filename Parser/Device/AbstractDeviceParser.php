@@ -165,6 +165,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'AY' => 'Axxion',
         'XA' => 'Axioo',
         'AM' => 'Azumi Mobile',
+        'WW' => 'Awow',
         'BO' => 'BangOlufsen',
         'BN' => 'Barnes & Noble',
         'BB' => 'BBK',
