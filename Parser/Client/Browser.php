@@ -172,6 +172,7 @@ class Browser extends AbstractClientParser
         'HU' => 'Huawei Browser',
         'HP' => 'Huawei Browser for PC',
         'IO' => 'iBrowser',
+        'IS' => 'iBrowser Mini',
         'IB' => 'IBrowse',
         'IC' => 'iCab',
         'I2' => 'iCab Mobile',
@@ -440,7 +441,7 @@ class Browser extends AbstractClientParser
         'MN', 'MZ', 'NX', 'OC', 'OI', 'OM', 'OZ', 'PU', 'PI',
         'PE', 'QU', 'RE', 'S0', 'S7', 'SA', 'SB', 'SG', 'SK',
         'ST', 'SU', 'T1', 'UH', 'UM', 'UT', 'VE', 'VV', 'WI',
-        'WP', 'YN', 'IO',
+        'WP', 'YN', 'IO', 'IS',
     ];
 
     /**
