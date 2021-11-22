@@ -171,6 +171,7 @@ class Browser extends AbstractClientParser
         'HJ' => 'HotJava',
         'HU' => 'Huawei Browser',
         'HP' => 'Huawei Browser for PC',
+        'IO' => 'iBrowser',
         'IB' => 'IBrowse',
         'IC' => 'iCab',
         'I2' => 'iCab Mobile',
@@ -408,7 +409,7 @@ class Browser extends AbstractClientParser
             'TB', 'TG', 'TR', 'TS', 'TU', 'TV', 'UB', 'UR', 'VE',
             'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'FH',
             'B1', 'BO', 'HB', 'PC', 'LA', 'LT', 'PD', 'HR', 'HU',
-            'HP',
+            'HP', 'IO',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -439,7 +440,7 @@ class Browser extends AbstractClientParser
         'MN', 'MZ', 'NX', 'OC', 'OI', 'OM', 'OZ', 'PU', 'PI',
         'PE', 'QU', 'RE', 'S0', 'S7', 'SA', 'SB', 'SG', 'SK',
         'ST', 'SU', 'T1', 'UH', 'UM', 'UT', 'VE', 'VV', 'WI',
-        'WP', 'YN',
+        'WP', 'YN', 'IO',
     ];
 
     /**
