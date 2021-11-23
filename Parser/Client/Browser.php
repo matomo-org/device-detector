@@ -169,7 +169,7 @@ class Browser extends AbstractClientParser
         'HE' => 'Helio',
         'HO' => 'hola! Browser',
         'HJ' => 'HotJava',
-        'HU' => 'Huawei Browser',
+        'HU' => 'Huawei Browser Mobile',
         'HP' => 'Huawei Browser',
         'IO' => 'iBrowser',
         'IS' => 'iBrowser Mini',
