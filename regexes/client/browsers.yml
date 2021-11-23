@@ -512,9 +512,21 @@
   version: '$1'
 
 # Lunascape Lite (https://www.lunascape.tv/)
-- regex: 'iLunascapeLite/(?:(\d+[\.\d]+))?'
+- regex: 'iLunascapeLite/(?:(\d+\.[.\d]+))?'
   name: 'Lunascape Lite'
   version: '$1'
+
+# Lunascape
+- regex: 'Chrome/.+ i?Lunascape(?:[/ ](\d+\.[.\d]+))?'
+  name: 'Lunascape'
+  version: '$1'
+  engine:
+    default: 'Blink'
+- regex: 'i?Lunascape(?:[/ ](\d+\.[.\d]+))?'
+  name: 'Lunascape'
+  version: '$1'
+  engine:
+    default: '' # multi engine
 
 # Polypane (https://polypane.app/)
 - regex: 'Polypane/(?:(\d+[\.\d]+))?'
@@ -2099,13 +2111,6 @@
     default: 'iCab'
     versions:
       4: 'WebKit'
-
-#Lunascape
-- regex: 'i?Lunascape(?:[/ ](\d+[\.\d]+))?'
-  name: 'Lunascape'
-  version: '$1'
-  engine:
-    default: '' # multi engine
 
 # Crazy Browser
 - regex: 'Crazy Browser (\d+[\.\d]+)'
