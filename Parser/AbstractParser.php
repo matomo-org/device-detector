@@ -55,6 +55,12 @@ abstract class AbstractParser
     protected $regexList;
 
     /**
+     * Holds the concatenated regex for all items in regex list
+     * @var string
+     */
+    protected $overAllMatch;
+
+    /**
      * Indicates how deep versioning will be detected
      * if $maxMinorParts is 0 only the major version will be returned
      * @var int
@@ -318,7 +324,7 @@ abstract class AbstractParser
     /**
      * Tests the useragent against a combination of all regexes
      *
-     * All regexes returned by getRegexes() will be reversed and concated with '|'
+     * All regexes returned by getRegexes() will be reversed and concatenated with '|'
      * Afterwards the big regex will be tested against the user agent
      *
      * Method can be used to speed up detections by making a big check before doing checks for every single regex
@@ -329,23 +335,21 @@ abstract class AbstractParser
     {
         $regexes = $this->getRegexes();
 
-        static $overAllMatch;
-
         $cacheKey = $this->parserName . DeviceDetector::VERSION . '-all';
         $cacheKey = (string) \preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
 
-        if (empty($overAllMatch)) {
-            $overAllMatch = $this->getCache()->fetch($cacheKey);
+        if (empty($this->overAllMatch)) {
+            $this->overAllMatch = $this->getCache()->fetch($cacheKey);
         }
 
-        if (empty($overAllMatch)) {
+        if (empty($this->overAllMatch)) {
             // reverse all regexes, so we have the generic one first, which already matches most patterns
-            $overAllMatch = \array_reduce(\array_reverse($regexes), static function ($val1, $val2) {
+            $this->overAllMatch = \array_reduce(\array_reverse($regexes), static function ($val1, $val2) {
                 return !empty($val1) ? $val1 . '|' . $val2['regex'] : $val2['regex'];
             });
-            $this->getCache()->save($cacheKey, $overAllMatch);
+            $this->getCache()->save($cacheKey, $this->overAllMatch);
         }
 
-        return $this->matchUserAgent($overAllMatch);
+        return $this->matchUserAgent($this->overAllMatch);
     }
 }
