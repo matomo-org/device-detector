@@ -243,6 +243,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '1C' => 'Chuwi',
         'L8' => 'Clarmin',
         '25' => 'Claresta',
+        '1J' => 'Cloud',
         'CD' => 'Cloudfone',
         '6C' => 'Cloudpad',
         'C0' => 'Clout',
