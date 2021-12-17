@@ -951,6 +951,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '80' => 'SMARTEC',
         'SC' => 'Smartfren',
         'S7' => 'Smartisan',
+        'HH' => 'Smooth Mobile',
         '1Q' => 'Smotreshka',
         'SF' => 'Softbank',
         '9L' => 'SOLE',
