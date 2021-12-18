@@ -930,6 +930,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SX' => 'SFR',
         'SH' => 'Sharp',
         '7S' => 'Shift Phones',
+        '78' => 'Shivaki',
         'RS' => 'Shtrikh-M',
         '3S' => 'Shuttle',
         '13' => 'Sico',

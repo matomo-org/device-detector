@@ -5878,13 +5878,16 @@ Senseit:
 
 # SunWind (sunwind.ru.com)
 SUNWIND:
-  regex: 'SUNWIND[_ ]|SKY 9 A102 3G SS9236PG(?:[);/ ]|$)'
+  regex: 'SUNWIND[_ ]|SUN[-_]LED\d+|(?:SKY 9 A102 3G SS9236PG)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'SKY 9 A102 3G SS9236PG'
       model: 'Sky 9 A102 3G'
     - regex: 'SKY 7 E200 3G ST7230MG'
       model: 'Sky 7 E200 3G'
+    - regex: 'SUN[-_]LED(\d+\w\d+)'
+      device: 'tv'
+      model: 'SUN-LED$1'
 
 # Sony & Sony Ericsson (combined as they are mixed up)
 Sony:
@@ -19070,7 +19073,7 @@ Wink:
 
 # Wiko (wikomobile.com)
 Wiko:
-  regex: '(?:WIKO[_ -])|(?:WIKO-)?CINK_[a-z0-9_]+|(?:WIKO-)?HIGHWAY_[a-z0-9_]+|(?:WIKO-)?(?:Cink([^/;]*)|Highway([^/;]*)|Iggy|Stairway|Rainbow ?(Jam|Lite|Up)?|Darkside|Darkmoon|Darkfull|Darknight|Freddy|FEVER|Jerry[2]?|Sublim|Ozzy|JIMMY|Barry|Birdy|Bloom|Getaway|Goa(?!nna|lPlus)|Kite|Robby|Lenny[2-9]?|Slide|Sunset[2-9]?|Sunny[2-9]?|Tommy[2-9]?|PULP(?: Fab)?|Wax|HARRY|Ridge(?! Plus)(?: Fab)?|U FEEL(?: Prime| Lite)?|U PULSE(?: LITE)?|View2 (?:Go|Plus)|View XL|View Prime)(?: Plus)?(?: 4G)?(?: Build|$)?|W_(?:C8[06]0|K[346]00|P130|P200|C200SN)|WC300|W-(?:V7[23]0|V745|V755|V8[035]0|P[36]11|K130|K211|K3[68]0|K420|K510S?|K560|K610)-(?:BYT|EEA|FRA|OPE|SUN|SWI|TIM|TMV|TVM|DU|T[HV])|WIM Lite|W-V851|W-V6[08]0|W-V750BN|W-K200|W-U300|U307AS|CINK PEAX 2|HIGHWAY PURE|C210AE|v3913|U614AS'
+  regex: '(?:WIKO[_ -])|(?:WIKO-)?CINK_[a-z0-9_]+|(?:WIKO-)?HIGHWAY_[a-z0-9_]+|(?:WIKO-)?(?:Cink([^/;]*)|Highway([^/;]*)|Iggy|Stairway|Rainbow ?(Jam|Lite|Up)?|Darkside|Darkmoon|Darkfull|Darknight|Freddy|FEVER|Jerry[2]?|Sublim|Ozzy|JIMMY|Barry|Birdy|Bloom|Getaway|Goa(?!nna|lPlus)|Kite|Robby|Lenny[2-9]?|Slide|Sunset[2-9]?|Sunny[2-9]?|Tommy[2-9]?|PULP(?: Fab)?|Wax|HARRY|Ridge(?! Plus)(?: Fab)?|U FEEL(?: Prime| Lite)?|U PULSE(?: LITE)?|View2 (?:Go|Plus)|View XL|View Prime)(?: Plus)?(?: 4G)?(?: Build|$)?|W_(?:C8[06]0|K[346]00|P130|P200|C200SN)|WC300|W-(?:V7[23]0|V745|V755|V8[035]0|P[36]11|K130|K211|K3[68]0|K420|K510S?|K560|K610)-(?:BYT|EEA|FRA|OPE|SUN|SWI|TIM|TMV|TVM|DU|T[HV])|WIM Lite|W-V851|W-V6[08]0|W-V750BN|W-K200|W-U300|U307AS|CINK PEAX 2|HIGHWAY PURE|C210AE|v3913|U614AS|V3991AN'
   device: 'smartphone'
   models:
     - regex: '(?:WIKO-)?W-V745'
@@ -19221,6 +19224,8 @@ Wiko:
       model: 'U Feel Prime'
     - regex: '(?:WIKO-)?U FEEL'
       model: 'U Feel'
+    - regex: 'V3991AN'
+      model: 'U Feel Fab'
     - regex: '(?:WIKO-)?View2 Go'
       model: 'View 2 Go'
     - regex: '(?:WIKO-)?View2 Plus'
@@ -20821,7 +20826,7 @@ ZTE:
       model: 'Optus X Start'
     - regex: 'BA520(?:[);/ ]|$)'
       model: 'Blade A520'
-    - regex: 'Blade[_ ](A(0620|3[13]0|321|452|460|462|465|475|510|512|52[012]C?|530|531|60[12]|612|[69]10C?)|L[12]10|L130|V0730|V0800|V580|V1000|E01)(?:[);/ ]|$)'
+    - regex: 'Blade[_ ](A(0620|210|3[13]0|321|452|46[02]|4[67]5|51[02]|52[012]C?|53[01]|60[12]|612|[69]10C?)|L[12]10|L130|V0730|V0800|V580|V1000|E01)(?:[);/ ]|$)'
       model: 'Blade $1'
     - regex: 'Blade L2 Plus(?:[);/ ]|$)'
       model: 'Blade L2 Plus'
@@ -26313,6 +26318,12 @@ Soho Style:
   regex: '(SS5214G)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
+
+# Shivaki
+Shivaki:
+  regex: 'STV[-_](40LED25S|40LED42S|32LED42S)(?:[);/ ]|$)'
+  device: 'tv'
+  model: 'STV-$1'
 
 # Meizu
 Meizu:
