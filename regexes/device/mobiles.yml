@@ -8679,7 +8679,7 @@ Lumus:
       model: 'AEON $1'
 # M4tel
 M4tel:
-  regex: '(?:M4 SS[0-9]{4}(?:-R)?|M4_B[23]|M4_R2)(?:[);/ ]|$)'
+  regex: '(?:M4 SS[0-9]{4}(?:-R)?|M4_B[23]|M4_R2|R2_Plus)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'SS1050'
@@ -8712,6 +8712,8 @@ M4tel:
       model: 'Dream'
     - regex: 'SS4453-R'
       model: 'R1 Feel'
+    - regex: 'R2_Plus'
+      model: 'R2 Plus'
     - regex: 'SS4453'
       model: 'Inspiration'
     - regex: 'SS4455'
@@ -11345,7 +11347,7 @@ Logicom:
 
 # Konka
 Konka:
-  regex: 'KONKA[_ ]([a-z0-9]+)'
+  regex: 'KONKA[_ ]([a-z0-9]+)|(?: RE1)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # Explicit smartphone models
@@ -11357,6 +11359,8 @@ Konka:
       model: 'Expose $1'
     - regex: 'W990'
       model: 'Tuxedo 990'
+    - regex: '( RE1)(?:[);/ ]|$)'
+      model: '$1'
 
     - regex: 'KONKA[_ ]([a-z0-9]+)'
       device: 'feature phone'
@@ -11962,7 +11966,7 @@ Mobiola:
 
 # Mobicel or Mobicell
 Mobicel:
-  regex: 'Mobicel_(R1)|ASTRO(?: Build|[;)]|$)|(?:Android 8.+ BEAM|FAME(?:_DS)?|CLIK|R7_1|HYPE|DANDY(?:_ZAM)?|(?<!SMADL )Matrix|VENUS_G|TRENDY PLUS|FENDY_DS|TANGO_LITE|BLINK|BERRY[_ ]?(?:[12]|PLUS)|R1PLUS_1|ZOOM-H|REBEL|LEGEND MAX|HERO_DS|Switch[ _]GO|SWITCH1|PULSE_1|TRENDY 2|TRENDY_LITE|FEVER_PLUS_[HJ]|RIO_SS|Clik plus|PURE PLUS|Neo[ _]LTE|Titan_1|ZOOM_1)(?:[);/ ]|$)'
+  regex: 'Mobicel_(R1)|ASTRO(?: Build|[;)]|$)|(?:Android 8.+ BEAM|FAME(?:_DS)?|CLIK|R7_1|HYPE|DANDY(?:_ZAM)?|(?<!SMADL )Matrix|VENUS_G|TRENDY PLUS|FENDY_DS|TANGO_LITE|BLINK|BERRY[_ ]?(?:[12]|PLUS)|R1PLUS_1|ZOOM-H|REBEL|LEGEND MAX|HERO_DS|Switch[ _]GO|SWITCH1|PULSE_1|TRENDY 2|TRENDY_LITE|FEVER_PLUS_[HJ]|RIO_(?:SS|ZAM)|Clik plus|PURE PLUS|Neo[ _]LTE|Titan_1|ZOOM_1|R4 LTE)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Matrix'
@@ -11983,6 +11987,8 @@ Mobicel:
       model: 'Trendy Plus'
     - regex: 'TRENDY_LITE'
       model: 'Trendy Lite'
+    - regex: 'R4 LTE'
+      model: 'R4 LTE'
     - regex: 'HYPE'
       model: 'Hype'
     - regex: 'DANDY_ZAM'
@@ -12015,8 +12021,8 @@ Mobicel:
       model: 'Beam'
     - regex: 'Neo[ _]LTE'
       model: 'Neo LTE'
-    - regex: 'RIO_SS'
-      model: 'Rio SS'
+    - regex: 'RIO_(SS|ZAM)'
+      model: 'Rio $1'
     - regex: 'Switch[ _]GO'
       model: 'Switch Go'
     - regex: 'Switch1'
