@@ -158,6 +158,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '6A' => 'AT&T',
         '2A' => 'Atom',
         'Z2' => 'Atvio',
+        '0U' => 'Auchan',
         'AX' => 'Audiovox',
         'AJ' => 'AURIS',
         'ZA' => 'Avenzo',
