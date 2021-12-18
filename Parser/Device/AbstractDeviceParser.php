@@ -966,6 +966,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'X2' => 'Soundmax',
         '8S' => 'Soyes',
         '77' => 'SONOS',
+        '68' => 'Soho Style',
         'PK' => 'Spark',
         'FS' => 'SPC',
         '6S' => 'Spectrum',
