@@ -5,9 +5,16 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
-# T+ Browser (https://t.chanjet.com/tplus/view/login/downloadBrowser.html)
-- regex: '(?:ChanjetCloud|T\+Browser)/(\d+[\.\d]+)'
-  name: 'T+ Browser'
+# T+Browser (https://t.chanjet.com/tplus/view/login/downloadBrowser.html | https://dad.chanapp.chanjet.com/tplusapp/TPlusBrowser.exe)
+- regex: 'T\+Browser/(\d+[\.\d]+)'
+  name: 'T+Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# ChanjetCloud (https://dad.chanapp.chanjet.com/tplusapp/HsySetup.exe)
+- regex: 'ChanjetCloud/(\d+[\.\d]+)'
+  name: 'ChanjetCloud'
   version: '$1'
   engine:
     default: 'Blink'
