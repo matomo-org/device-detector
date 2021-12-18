@@ -1072,6 +1072,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '5X' => 'TurboPad',
         '5T' => 'TurboKids',
         'UR' => 'Turkcell',
+        '2U' => 'Türk Telekom',
         'TV' => 'TVC',
         'TW' => 'TWM',
         'Z1' => 'TWZ',
