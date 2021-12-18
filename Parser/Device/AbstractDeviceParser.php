@@ -521,6 +521,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'IQ' => 'INQ',
         'QN' => 'iQ&T',
         'IS' => 'Insignia',
+        'YI' => 'INSYS',
         'IT' => 'Intek',
         'IX' => 'Intex',
         'IV' => 'Inverto',
