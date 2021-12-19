@@ -882,6 +882,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'R8' => 'RED',
         'RD' => 'Reeder',
         'Z9' => 'REGAL',
+        'RH' => 'Remdun',
         'RP' => 'Revo',
         'RI' => 'Rikomagic',
         'RM' => 'RIM',
