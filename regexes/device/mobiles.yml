@@ -1572,7 +1572,7 @@ Acer:
 
 # Advan
 Advan:
-  regex: '(?:ADVAN (?:M4|S40)|i7U|S45E|S50H|I7D|i55[KD]|i4U|S7D|S4Z|i5[KE]|S5E[ _]NXT|S5J\+|S4\+)(?:[);/ ]|$)|[ ](?:50(?:[46]1|59)|600[24])(?: Build|\) AppleWebKit)|(?:E1C_3G)(?:[);/ ]|$)'
+  regex: '(?:ADVAN (?:M4|S40)|i7U|S45E|S50H|I7D|i55[KD]|i4U|S7D|S4Z|i5[KE]|S5E[ _]NXT|S5J\+|S4\+)(?:[);/ ]|$)|[ ](?:50(?:[46]1|5[89]|62)|600[24])(?: Build|\) AppleWebKit)|(?:E1C_3G)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'ADVAN M4'
@@ -1591,7 +1591,7 @@ Advan:
       model: 'G2 Pro'
     - regex: ' 6002(?: Build|\) AppleWebKit)'
       model: 'G3 Pro'
-    - regex: '(S45E|50[46]1|5059|S50H|I7D|S7D|S4Z|S5J\+|S4\+)(?:[);/ ]|$)'
+    - regex: '(S45E|50[46]1|505[89]|5062|S50H|I7D|S7D|S4Z|S5J\+|S4\+)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'E1C_3G'
       device: 'tablet'
@@ -6530,7 +6530,7 @@ Storex:
 
 # Evertek
 Evertek:
-  regex: '(Ever(?:Glory|Shine|Miracle|Mellow|Classic|Trendy|Fancy|Vivid|Slim|Glow|Magic|Smart|Star)[^/;]*) Build|E70[25]0HD|E805[01]HD|E9054HD|E8050HG|E7914HG|V5_Nano'
+  regex: '(Ever(?:Glory|Shine|Miracle|Mellow|Classic|Trendy|Fancy|Vivid|Slim|Glow|Magic|Smart|Star)[^/;]*) Build|E70[25]0HD|E805[01]HD|E9054HD|E8050HG|E7914HG|V5_Nano|EverMiracle Plus'
   device: 'smartphone'
   models:
     - regex: '(E70[25]0HD|E805[01]HD|E9054HD|E8050HG|E7914HG)'
@@ -6538,6 +6538,8 @@ Evertek:
       model: 'Everpad $1'
     - regex: 'V5_Nano'
       model: 'V5 Nano'
+    - regex: 'EverMiracle Plus'
+      model: 'EverMiracle Plus'
     - regex: '(Ever(?:Glory|Shine|Miracle|Mellow|Classic|Trendy|Fancy|Vivid|Slim|Glow|Magic|Smart|Star)[^/;]*) Build'
       model: '$1'
 
@@ -11566,7 +11568,7 @@ Mpman:
 
 # Majestic
 Majestic:
-  regex: 'MAJESTIC[ _-]|CRONO ?[0-9]+|(?:TAB (?:647|411) 3G|URANO 77LTE|PLUTO__?26N?)(?:[);/ ]|$)'
+  regex: 'MAJESTIC[ _-]|CRONO ?[0-9]+|(?:TAB (?:647|411) 3G|TAB 711 4G|URANO 77LTE|PLUTO__?26N?)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'URANO 77LTE(?:[);/ ]|$)'
@@ -11575,6 +11577,9 @@ Majestic:
       model: 'Pluto $1'
     - regex: 'TAB (647|411) 3G'
       model: 'Tab $1 3G'
+      device: 'tablet'
+    - regex: 'TAB 711 4G'
+      model: 'Tab 711 4G'
       device: 'tablet'
     - regex: 'MAJESTIC[ _]Tab([^;/]+)Build'
       model: 'Tab$1'
@@ -12969,6 +12974,15 @@ Noblex:
       model: '$1'
     - regex: '(?:Noblex|NBX)[ _-]([^;/)]+)(?:[;/)]|$)'
       model: '$1'
+
+# NOGA (https://noganet.ar/)
+NOGA:
+  regex: 'NOGAPAD7G(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'NOGAPAD7G(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'NOGAPAD 7G'
 
 # Nomu
 Nomu:
@@ -14749,7 +14763,6 @@ Soundmax:
 
 # Samsung
 Samsung:
-
   regex: 'SAMSUNG(?! ?Browser)|lineage_j5y17lte|Maple (?!III)|SC-(?:01[FGHKLM]|02[CGHJKLM]|03[JKLE]|04[EFJL]|05[GL]|(?:4[12]|5[1-4])A|5[1-5]B)|N[57]100|N5110|N9100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|SMART-TV|GT-|(?<!GOG|GOG )Galaxy|(?:portalmmm|o2imode)/2\.0 [SZ]|sam[rua]|vollo Vi86(?:[);/ ]|$)|(?:OTV-)?SMT-E5015|ISW11SC|40[34]SC|SC(?:V3[1-9]|V4[0-9]|51Aa|T21|G0[1-9]|G1[012]|L2[234])(?:-[uj])?(?:[);/ ]|$)'
   device: 'smartphone'
   models:
@@ -15584,7 +15597,7 @@ Samsung:
       model: 'Galaxy A12'
     - regex: '(?:SAMSUNG-)?SM-(?:A205(?:U1|YN|[FGSWU])|S205DL)|SC-02M|SCV46'
       model: 'Galaxy A20'
-    - regex: '(?:SAMSUNG-)?(?:SM-A215(?:DL|U1|[UW])|SC-42A|SCV49)(?:[);/ ]|$)'
+    - regex: '(?:SAMSUNG-)?(?:SM-A215(?:DL|U1|[UW])|SM-S215DL|SC-42A|SCV49)(?:[);/ ]|$)'
       model: 'Galaxy A21'
     - regex: '(?:SAMSUNG-)?SM-A217[FMN](?:[);/ ]|$)'
       model: 'Galaxy A21s'
@@ -15632,6 +15645,8 @@ Samsung:
       model: 'Galaxy A90 5G'
     - regex: '(?:SAMSUNG-)?SM-F127G(?:[);/ ]|$)'
       model: 'Galaxy F12'
+    - regex: '(?:SAMSUNG-)?SM-E225F(?:[);/ ]|$)'
+      model: 'Galaxy F22'
     - regex: '(?:SAMSUNG-)?SM-F415F(?:[);/ ]|$)'
       model: 'Galaxy F41'
     - regex: '(?:SAMSUNG-)?SM-E625'
@@ -16255,7 +16270,7 @@ Smartisan:
 
 # STF Mobile
 STF Mobile:
-  regex: '(?:Fractal|AERIAL PLUS|Origins Pro|BLOCK_MINI|BLOCK GO|BLOCK 3|SLAY II)(?:[);/ ]|$)'
+  regex: '(?:AERIAL PLUS|BLOCK_MINI|BLOCK GO|BLOCK 3|Fractal|Joy Pro|Origins Pro|SLAY II)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Fractal'
@@ -16274,6 +16289,8 @@ STF Mobile:
       model: 'Block Go'
     - regex: 'SLAY II'
       model: 'Slay II'
+    - regex: 'Joy Pro'
+      model: 'Joy Pro'
 
 # STK
 STK:
@@ -17519,6 +17536,14 @@ Helio:
   device: 'smartphone'
   model: '$1'
 
+# HERO (https://www.only4hero.com/)
+HERO:
+  regex: 'SP-001(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'SP-001(?:[);/ ]|$)'
+      model: 'SP-001'
+
 # Syrox
 Syrox:
   regex: '(SYX-(?:T70[04]|T10[12]))(?:[);/ ]|$)'
@@ -17864,7 +17889,7 @@ Tecno Mobile:
 
 # TechPad (techpad.mx)
 TechPad:
-  regex: 'Tech[ _]?pad|XTAB[ _-]|(?:3G_16|Dual C1081HD|S813G|NOTE[_ ]4CAM|M5Go)(?:[);/ ]|$)'
+  regex: 'Tech[ _]?pad|XTAB[ _-]|(?:3G_16|Dual C1081HD|S813G|NOTE[_ ]4CAM|M5(?:Go|Plus))(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'S813G'
@@ -17886,9 +17911,9 @@ TechPad:
     - regex: 'XTAB[ _-]([^/;]+) Build'
       model: 'XTAB $1'
     # explicit smartphone models
-    - regex: 'M5Go'
+    - regex: 'M5(Go|Plus)'
       device: 'smartphone'
-      model: 'M5 Go'
+      model: 'M5 $1'
     - regex: 'NOTE 4CAM'
       device: 'smartphone'
       model: 'Note 4 Cam'
@@ -22770,7 +22795,7 @@ Tone:
 
 # AT&T
 AT&T:
-  regex: '(?:EA21100[12]|U(?:304|202|705|318)AA|QS5509A|V350U)(?:[);/ ]|$)'
+  regex: '(?:EA21100[12]|U(?:304|202|705|318)AA|QS5509A|V340U|V350U)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'U304AA(?:[);/ ]|$)'
@@ -22789,6 +22814,8 @@ AT&T:
       model: 'Maestro'
     - regex: 'EA211002(?:[);/ ]|$)'
       model: 'Motivate 2'
+    - regex: 'V340U(?:[);/ ]|$)'
+      model: 'Fusion Z' # Vsmart
 
 # BIHEE
 BIHEE:
@@ -23282,7 +23309,7 @@ Cloudfone:
 
 # Vsmart
 Vsmart:
-  regex: '(?:Joy [123]\+|Joy [34]|Active 1\+|Bee 3|Active 3)(?:[);/ ]|$)'
+  regex: '(?:Joy [123]\+|Joy [34]|Active 1\+|Bee 3|Active 3|V341U)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Joy ([123])\+(?:[);/ ]|$)'
@@ -23295,6 +23322,8 @@ Vsmart:
       model: 'Bee 3'
     - regex: 'Active 3(?:[);/ ]|$)'
       model: 'Active 3'
+    - regex: 'V341U(?:[);/ ]|$)'
+      model: 'Hobson'
 
 # MiXzo
 MiXzo:
@@ -23713,10 +23742,12 @@ A1:
   models:
     - regex: 'A1 Alpha 20\+'
       model: 'Alpha 20 Plus'  # ZTE Blade V2020
-    - regex: 'A1 Alpha'
-      model: 'Alpha'
     - regex: 'Alpha 20'
       model: 'Alpha 20'
+    - regex: 'Alpha 21'
+      model: 'Alpha 21'
+    - regex: 'A1 Alpha'
+      model: 'Alpha'
 
 # Swisstone
 Swisstone:
@@ -24383,6 +24414,14 @@ Poppox:
   device: 'smartphone'
   model: 'P3'
 
+# POPTEL (https://www.poptelmobile.com/)
+POPTEL:
+  regex: 'P9000_MAX(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'P9000_MAX(?:[);/ ]|$)'
+      model: 'P9000 Max'
+
 # Zentality (zentalityinfo.com)
 Zentality:
   regex: 'C-723ULTRA(?:[);/ ]|$)'
@@ -24705,10 +24744,10 @@ VC:
 
 # CellAllure (cellallure.com)
 CellAllure:
-  regex: '(?:Cool_Extreme_2|Earn|Fashion2Plus|Fashion[ _]C|Cool Duo|CHIC_X1|Miracle XS)(?:[);/ ]|$)'
+  regex: '(?:Cool_Extreme_2|Earn|Fashion2Plus|Fashion[ _]C|Cool Duo|CHIC_X1|Miracle XS|Miracle 6.0 S)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: '(Cool_Extreme_2|Earn|Fashion[ _]C|Cool Duo|Miracle XS)(?:[);/ ]|$)'
+    - regex: '(Cool_Extreme_2|Earn|Fashion[ _]C|Cool Duo|Miracle XS|Miracle 6.0 S)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'Fashion2Plus'
       model: 'Fashion 2 Plus'
@@ -25660,6 +25699,14 @@ RoyQueen:
       device: 'tablet'
       model: '$1'
 
+# Remdun (https://www.remdun.com/)
+Remdun:
+  regex: 'RD86E(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'RD86E(?:[);/ ]|$)'
+      model: 'RD86E'
+
 # Revo or RevoPhone or RevoPad (revophone.com)
 Revo:
   regex: 'Revo[_ ](?:Youplus|555)|RevoYou'
@@ -25980,6 +26027,14 @@ Dragon Touch:
   regex: '(Notepad[_ ](?:K10|102))(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
+
+# Dreamgate
+Dreamgate:
+  regex: 'Sens 5(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'Sens 5(?:[);/ ]|$)'
+      model: 'Sens 5'
 
 # AOpen
 AOpen:
