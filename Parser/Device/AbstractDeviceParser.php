@@ -848,6 +848,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'P5' => 'Polytron',
         'P2' => 'Pomp',
         'P0' => 'Poppox',
+        '0X' => 'POPTEL',
         'PS' => 'Positivo',
         '3P' => 'Positivo BGH',
         'P3' => 'PPTV',
