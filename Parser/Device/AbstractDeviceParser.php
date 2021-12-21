@@ -669,6 +669,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'YM' => 'Maze Speed',
         '87' => 'Malata',
         '3D' => 'MDC Store',
+        '1Y' => 'MDTV',
         '09' => 'meanIT',
         'M3' => 'Mecer',
         '0M' => 'Mecool',
