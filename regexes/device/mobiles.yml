@@ -1232,6 +1232,8 @@ MicroMax:
       model: 'Bharat $1'
     - regex: 'IN_Note1(?:[);/ ]|$)'
       model: 'IN Note 1'
+    - regex: 'E7533(?:[);/ ]|$)'
+      model: 'IN 1b'
 
     - regex: 'MicroMax(?:[ \-\_])?(X291|X246|X252|X458|X312)'
       model: '$1'
@@ -3344,7 +3346,7 @@ VGO TEL:
 
 # Vivo (vivo.com.cn, vivo.com)
 Vivo:
-  regex: '((?:VIV-|BBG-)?(?<!FBCR/|NOA )vivo(?!(?:Browser)| 4G_r))|(?:V1730(D[AT]|GA)|V18(01A0|13B[AT])|1819|I(?:192[78]|2012)|V(?:2006|202[2-9]|203[0-35-9]|204[0-3568]|205[02-5789]|206[015689]|2070|210[12459]|211[01]|212[049])|V(?:2026|2031|2036|2043)_21|V1936AL|V(?:1732|1809|181[3468]|182[149]|183[1268]|1901|191[13469]|192[1-48]|193[0246]|194[15]|195[05]|196[235]|198[16]|1990|200[125]|201[12]|202[03-5]|203[146]|204[6789]|205[45679]|2066B|206[1568]|207[23]|208[05]|2099|2106|211[18]|212[13]|213[346]|214[1358])A|V1824BA|V(?:1731|1818|2020)CA|V(?:1818|1938)CT|V(?:1730|2031)EA|V(?:1732|1809|181[3468]|182[19]|183[1268]|1901|1913|1938)T|I2011|X50 Pro\+)(?:[);/ ]|$)'
+  regex: '((?:VIV-|BBG-)?(?<!FBCR/|NOA )vivo(?!(?:Browser)| 4G_r))|(?:V1730(D[AT]|GA)|V18(01A0|13B[AT])|1819|V1937|I(?:192[78]|2012)|V(?:2006|202[2-9]|203[0-35-9]|204[0-3568]|205[02-5789]|206[015689]|2070|210[12459]|211[01]|212[049])|V(?:2026|2031|2036|2043)_21|V1936AL|V(?:1732|1809|181[3468]|182[149]|183[1268]|1901|191[13469]|192[1-48]|193[0246]|194[15]|195[05]|196[235]|198[16]|1990|200[125]|201[12]|202[03-5]|203[146]|204[6789]|205[45679]|2066B|206[1568]|207[23]|208[05]|2099|2106|211[18]|212[13]|213[346]|214[1358])A|V1824BA|V(?:1731|1818|2020)CA|V(?:1818|1938)CT|V(?:1730|2031)EA|V(?:1732|1809|181[3468]|182[19]|183[1268]|1901|1913|1938)T|V2029_PK|I2011|X50 Pro\+)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'V1824[B]?A(?:[);/ ]|$)'
@@ -3531,7 +3533,7 @@ Vivo:
       model: 'X50'
     - regex: 'vivo 2005(?:[);/ ]|$)'
       model: 'X50 5G'
-    - regex: 'vivo 1937(?:[);/ ]|$)'
+    - regex: '(?:vivo 1937|V1937)(?:[);/ ]|$)'
       model: 'X50 Lite'
     - regex: '(?:V2005A|vivo 2006)(?:[);/ ]|$)'
       model: 'X50 Pro'
@@ -3575,7 +3577,7 @@ Vivo:
       model: 'Y15s'
     - regex: 'vivo 1915(?:[);/ ]|$)'
       model: 'Y19'
-    - regex: 'V202[79](?:[);/ ]|$)'
+    - regex: 'V202[79](?:_PK)?(?:[);/ ]|$)'
       model: 'Y20'
     - regex: 'vivo 1613(?:[);/ ]|$)'
       model: 'Y25'
@@ -8410,7 +8412,7 @@ Huawei:
 
 # Hyundai
 Hyundai:
-  regex: 'Hyundai|Ultra (?:Active|Air|Charm|Dream|Energy|Latitude|Link|Live|Shadow|Shine|Storm|Style|Sync|Trend|Vision|Wave)|Ultra_Vision_Plus|E603|G(24027|2552[34])K|W25042L|HP554O|Seoul S8|L503F Plus|HT0701L16|HT0704K08|HT1004L16|HT1004LI16|Koral_8W2|Eternity[_ ]G25|HYMI 5S Plus|(?:Android 9.+ E553)(?:[);/ ]|$)'
+  regex: 'Hyundai|Ultra (?:Active|Air|Charm|Dream|Energy|Latitude|Link|Live|Shadow|Shine|Storm|Style|Sync|Trend|Vision|Wave)|Ultra_Vision_Plus|E603|G(?:24027|2552[34])K|W25042L|HP554O|Seoul S8|L503F Plus|HT0701L16|HT0704K08|HT1004L16|HT1004LI16|Koral_8W2|Eternity[_ ]G25|HYMI 5S Plus|7GB1|7WD1|(?:Android 9.+ E553)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Ultra[_ ]Vision[_ ]Plus'
@@ -8455,6 +8457,12 @@ Hyundai:
       device: 'tablet'
     - regex: 'HT0704K08'
       model: 'Koral 7M4'
+      device: 'tablet'
+    - regex: '7GB1(?:[);/ ]|$)'
+      model: 'HyTab 7GB1'
+      device: 'tablet'
+    - regex: '7WD1(?:[);/ ]|$)'
+      model: 'HyTab Lite 7WD1'
       device: 'tablet'
     - regex: 'Hyundai ([^;/]+) Build'
       model: '$1'
@@ -8544,7 +8552,7 @@ iRulu:
 
 # Irbis
 Irbis:
-  regex: 'IRBIS|TZ(1(?:0[04]|42|5[01]|84|65|7[01345-89]|8[356]|9[12578])|200|49|55|72|22|7(?:0[127]|1[1-4679]|2[021567]|3[025-8]|4[257]|5[23457]|6[12]|72|7[137]|8[1]|9[147])|8(?:[34]1|5[3-8]|6[2-5]|7[12478]|8[1-5]|9[0127])|96[0-9])|TZ85|TZ13|TZ(?:one|art|HIT|81L)|(SP(?:0[56]|2[01]|4[1-36]|40[12]|45[345]|49[34]|50|51[0147]|531|54[12]|55[0124]|571))(?:[);/ ]|$)'
+  regex: 'IRBIS|TZ(1(?:0[04]|42|5[01]|84|65|7[01345-89]|8[356]|9[12578])|200|49|55|72|22|7(?:0[127]|1[1-46789]|2[021567]|3[025-8]|4[257]|5[23457]|6[12]|72|7[137]|8[1]|9[147])|8(?:[34]1|32|5[3-8]|6[2-5]|7[12478]|8[1-5]|9[0127])|96[0-9])|TZ85|TZ13|TZ(?:one|art|HIT|81L)|(SP(?:0[56]|2[01]|4[1-36]|40[12]|45[345]|49[34]|50|51[0147]|531|54[12]|55[0124]|571))(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: '(TZ(?:[0-9]+)|TZ(?:one|art|HIT|81L))(?:[);/ ]|$)'
@@ -13560,7 +13568,7 @@ OnePlus:
       model: '6'
     - regex: 'A601[03](?:[);/ ]|$)'
       model: '6T'
-    - regex: '(?:du_)?ONEPLUS ?([^;/]+) Build'
+    - regex: '(?:du_)?ONEPLUS[ _]?([^;/)]+)(?: Build|[;)])'
       model: '$1'
 
 # Realme (sub brand Oppo)
@@ -17754,6 +17762,8 @@ Tecno Mobile:
     - regex: 'TECNO[ _]P904(?:[);/ ]|$)'
       model: 'DroidPad 10D 4G'
       device: 'tablet'
+    - regex: 'Tecno[ _]RC6(?:[);/ ]|$)'
+      model: 'RC7+'
     - regex: 'Tecno[ _]CB7[j]?'
       model: 'Camon i4'
     - regex: 'Tecno[- _]C9(?:[);/ ]|$)'
@@ -17842,7 +17852,7 @@ Tecno Mobile:
       model: 'Pop 4 Air'
     - regex: 'TECNO[ _]BC1s(?:[);/ ]|$)'
       model: 'Pop 4 LTE'
-    - regex: 'TECNO[ _]BD2p(?:[);/ ]|$)'
+    - regex: 'TECNO[ _]BD2[dp]?(?:[);/ ]|$)'
       model: 'Pop 5'
     - regex: 'TECNO[ _]BD3(?:[);/ ]|$)'
       model: 'Pop 5P'
@@ -21220,6 +21230,8 @@ ZTE:
       model: 'V5 Pro'
     - regex: 'ZTE 9000'
       model: 'Blade V2020'
+    - regex: 'ZTE 8000'
+      model: 'Blade V2020 Vita'
     - regex: 'KIS C341'
       model: 'Kis C341'
 
