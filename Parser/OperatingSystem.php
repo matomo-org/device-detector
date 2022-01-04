@@ -138,7 +138,7 @@ class OperatingSystem extends AbstractParser
         'WRT' => 'Windows RT',
         'XBX' => 'Xbox',
         'XBT' => 'Xubuntu',
-        'YNS' => 'YunOs',
+        'YNS' => 'YunOS',
         'IOS' => 'iOS',
         'POS' => 'palmOS',
         'WOS' => 'webOS',
