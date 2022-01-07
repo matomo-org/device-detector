@@ -1015,7 +1015,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '79' => 'SuperTab',
         'S5' => 'Supra',
         'ZS' => 'Suzuki',
-        'J2' => 'Sunmi',
+        '2J' => 'Sunmi',
         '0W' => 'Swipe',
         'SS' => 'SWISSMOBILITY',
         '1W' => 'Swisstone',
