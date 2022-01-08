@@ -12254,7 +12254,7 @@ MobiIoT:
 
 # Mecool
 Mecool:
-  regex: '(?:KM9PRO|BB2 PRO|K[I]{1,3} PRO|KI PLUS|KM9_TV_BOX|M8SPROW|M8S (?:PLUS|PRO) (?:DVB|[LW]|PLUS)|M8S (?:MAX|PRO))(?:[);/ ]|$)'
+  regex: 'Mecool[ _-]|(?:KM9PRO|BB2 PRO|K[I]{1,3} PRO|KI PLUS|KM9_TV_BOX|M8SPROW|M8S (?:PLUS|PRO) (?:DVB|[LW]|PLUS)|M8S (?:MAX|PRO))(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: 'KM9PRO(?:[);/ ]|$)'
@@ -12281,6 +12281,8 @@ Mecool:
       model: 'M8S Pro'
     - regex: 'M8S MAX(?:[);/ ]|$)'
       model: 'M8S Max'
+    - regex: 'Mecool[ _-]([^/);]+)(?: Build|[;)])'
+      model: '$1'
 
 # Modecom
 Modecom:
@@ -18158,7 +18160,7 @@ teXet:
 
 # Telefunken
 Telefunken:
-  regex: 'TELEFUNKEN|Foxtrot|TEL-1013GIQA|TEL-1014GIQ|TEL-73GIQA|TEL-74GIQ|TF-SP(?:500[12]|4002)|(TF-MID(?:[78]02G|70[78]G|80[46]G|9705RG|9707G|7805G|100[57]G|1010G))|(TF-LED(?:65S75T2SU|32S39T2S|32S5[289]T2S|32S70T2S|40S63T2S|40S19T2S))|LTE_LIMA|LTE Mike'
+  regex: 'TELEFUNKEN|Foxtrot|TEL-1013GIQA|TEL-1014GIQ|TEL-73GIQA|TEL-74GIQ|TF-SP(?:500[12]|4002)|(TF-MID(?:[78]02G|70[78]G|80[46]G|9705RG|9707G|7805G|100[57]G|1010G))|(TF-LED(?:65S75T2SU|32S39T2S|32S5[289]T2S|32S7[05]T2S|40S63T2S|40S19T2S))|LTE_LIMA|LTE Mike'
   device: 'tablet'
   models:
     - regex: 'TEL-1013GIQA'
@@ -18179,7 +18181,7 @@ Telefunken:
       device: 'smartphone'
     - regex: '(TF-MID(?:[78]02G|70[78]G|80[46]G|9705RG|9707G|7805G|100[57]G|1010G))'
       model: '$1'
-    - regex: '(TF-LED(?:65S75T2SU|32S39T2S|32S5[289]T2S|32S70T2S|40S63T2S|40S19T2S))'
+    - regex: '(TF-LED(?:65S75T2SU|32S39T2S|32S5[289]T2S|32S7[05]T2S|40S63T2S|40S19T2S))'
       model: '$1'
       device: 'tv'
 
@@ -23602,7 +23604,7 @@ Hotwav:
     - regex: 'Symbol R60'
       device: 'phablet'
       model: 'Symbol R60'
-    - regex: '(Cosmos[ _](?:V19_Plus|V2[0-3]|U2|V1[359]|V[45689])|Pearl K2|Magic Q8|Magic 5 Plus|Magic (?:[89]|1[13])|Symbol (?:X|Max))(?:-2)?(?:[);/ ]|$)'
+    - regex: '(Cosmos[ _](?:V19_Plus|V2[0-3]|U2|V1[359]|V[45689])|Pearl K2(?: Prime)?|Magic Q8|Magic 5 Plus|Magic (?:[89]|1[13])|Symbol (?:X|Max))(?:-2)?(?:[);/ ]|$)'
       model: '$1'
 
 # Tetratab
@@ -26599,7 +26601,7 @@ Soho Style:
 
 # Shivaki
 Shivaki:
-  regex: 'STV[-_](40LED25S|40LED42S|32LED42S)(?:[);/ ]|$)'
+  regex: 'STV[-_](40LED25S|40LED42S|32LED42S|32LED30C)(?:[);/ ]|$)'
   device: 'tv'
   model: 'STV-$1'
 
@@ -26717,9 +26719,15 @@ Starwind:
   device: 'tv'
   model: ''
 
+# QTECH (https://www.qtech.ru/en/)
+QTECH:
+  regex: '(QMP_K8)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
+
 # Prology (www.prology.ru)
 Prology:
-  regex: '(MPC-70)(?:[);/ ]|$)'
+  regex: '(MPC-(?:[57]0|65)|MPC-110DSP)(?:[);/ ]|$)'
   device: 'car browser'
   model: '$1'
 
