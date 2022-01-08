@@ -5893,13 +5893,11 @@ Senseit:
 
 # SunWind (sunwind.ru.com)
 SUNWIND:
-  regex: 'SUNWIND[_ ]|SUN[-_]LED\d+|(?:SKY 9 A102 3G SS9236PG)(?:[);/ ]|$)'
+  regex: 'SUNWIND[_ ]|SUN[-_]LED\d+|(?:SKY 9 [EA]\d+ 3G)(?:[);/ ]|$)'
   device: 'tablet'
   models:
-    - regex: 'SKY 9 A102 3G SS9236PG'
-      model: 'Sky 9 A102 3G'
-    - regex: 'SKY 7 E200 3G ST7230MG'
-      model: 'Sky 7 E200 3G'
+    - regex: 'SKY ([79]) ([EA]\d+) 3G'
+      model: 'Sky $1 $2 3G'
     - regex: 'SUN[-_]LED(\d+\w\d+)'
       device: 'tv'
       model: 'SUN-LED$1'
@@ -10703,7 +10701,6 @@ Lenovo:
       device: 'desktop'
       model: 'Flex 14API 81SS'
 
-
     - regex: 'Lenovo TAB ?([^/;]*) Build'
       model: 'TAB $1'
       device: 'tablet'
@@ -10712,10 +10709,9 @@ Lenovo:
     - regex: '(?:LNV-|Lenovo-)?Lenovo[ \-_]?([a-z0-9_+\-]+)'
       model: '$1'
 
-
-# Lexand
+# Lexand or LEXAND (lexand.ru)
 Lexand:
-  regex: '(?:SC7 PRO HD|S5A[1-4]|S4A[1-5]|S6A1|A811|A802)(?:[);/ ]|$)|Lexand ([^;/]+) Build'
+  regex: 'Lexand[ _]|(?:SC7 PRO HD|S5A[1-4]|S4A[1-5]|S6A1|A811|A802|LPH7_Smarty)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'A(811|802)'
@@ -10744,8 +10740,9 @@ Lexand:
       model: 'Antares'
     - regex: 'SC7 PRO HD'
       model: 'SC7 PRO HD'
-
-    - regex: 'Lexand ([^;/]+) Build'
+    - regex: 'LPH7_Smarty'
+      model: 'LPH7 Smarty'
+    - regex: 'Lexand[ _]([^;/)]+)(?: Build|[;)])'
       model: '$1'
 
 # lexibook
@@ -11033,6 +11030,8 @@ LG:
       model: 'K31'
     - regex: 'LGL423DL'
       model: 'Solo LTE'
+    - regex: 'LG-F820L'
+      model: 'U'
     - regex: 'LM-X210K'
       model: 'X2'
     - regex: 'LG-(?:K580|F690[LS])'
@@ -13171,6 +13170,9 @@ Nomi:
       device: 'tablet'
     - regex: '(?:Nomi_)?C07008'
       model: 'Sigma'
+      device: 'tablet'
+    - regex: '(?:Nomi_)?C10105'
+      model: 'Stella Plus'
       device: 'tablet'
     - regex: '(?:Nomi[ _])?(C0(?:700(?:[0235]|2HD)|7850|9600)|C1010[0-3])(?:[);/ ]|$)'
       model: '$1'
@@ -26736,6 +26738,32 @@ Polestar:
   regex: 'Polestar(?:[);/ ]|$)'
   device: 'car browser'
   model: ''
+
+# NavRoad (navroad.com)
+NavRoad:
+  regex: '(?:NEXO (?:Smarty|handy|SMART DUO)|MOVIO 2)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'Nexo Smarty'
+      model: 'Nexo Smarty'
+    - regex: 'Nexo handy'
+      model: 'Nexo Handy'
+    - regex: 'NEXO SMART DUO'
+      device: 'tablet'
+      model: 'Nexo Smart Duo'
+    - regex: 'MOVIO 2'
+      device: 'tablet'
+      model: 'Movio 2'
+
+# Smarty (smarty.by)
+Smarty:
+  regex: 'Smarty[_ ]'
+  device: 'tablet'
+  models:
+    - regex: 'Mini ?(7L?)'
+      model: 'Mini $1'
+    - regex: 'Maxi 10L'
+      model: 'Maxi 10L'
 
 # Devices with undectable brand, but detectable model
 Unknown:
