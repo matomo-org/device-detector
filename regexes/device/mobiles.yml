@@ -7389,9 +7389,9 @@ Hasee:
     - regex: 'Hasee ([^;/)]+)(?:[);/ ]|$)'
       model: '$1'
 
-# Hisense ()
+# Hisense (www.hisense-usa.com)
 Hisense:
-  regex: '(?:HS-)?Hisense ([^;/]+) Build|Hisense [^);/]+|HISENSE; |HS-(?:G|U|EG?|I|L|T|X)[0-9]+[a-z0-9\-]*|HNR55[01]T|E270BSA|HWCD100E|HITV300C|M470BS[AE]|EG98|E2281|EG680|I46D1G|HAT4KDTV|HLTE([237]00T|200M|203T|202N|21[023567][TM]|22[67]T|22[13]E|230E|103E|310[TM]|31[16]T|500T|501N|510[TM]|7[23]0T)|KS(?:907|964)|U601S Pro|HNR320T'
+  regex: '(?:HS-)?Hisense ([^;/]+) Build|Hisense [^);/]+|HISENSE; |HS-(?:G|U|EG?|I|L|T|X)[0-9]+[a-z0-9\-]*|HNR55[01]T|E270BSA|HWCD100E|HITV300C|M470BS[AE]|EG98|E2281|EG680|I46D1G|HAT4KDTV|HLTE([237]00T|200M|203T|202N|21[023567][TM]|22[67]T|22[13]E|230E|103E|310[TM]|31[16]T|500T|501N|510[TM]|7[23]0T)|KS(?:907|964)|U601S Pro|HNR320T|HiSmart 4K ATV4'
   device: 'smartphone'
   models:
     # explicit tablet models
@@ -7482,7 +7482,7 @@ Hisense:
     - regex: '(HS-(?:G|U|EG?|I|L|T|X)[0-9]+[a-z0-9\-]*)'
       model: '$1'
 
-    - regex: '(HAT4KDTV)(?:[);/ ]|$)'
+    - regex: '(HAT4KDTV|HiSmart 4K ATV4)(?:[);/ ]|$)'
       device: 'tv'
       model: '$1'
 
@@ -13206,7 +13206,7 @@ NUU Mobile:
 
 # NYX Mobile
 NYX Mobile:
-  regex: 'NYX[ _]|(?:GLAM)(?:[);/ ]|$)'
+  regex: 'NYX[ _]|(?:GLAM|ARGON)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'NYX_A1'
@@ -13249,6 +13249,8 @@ NYX Mobile:
       model: 'Zeus HD'
     - regex: 'GLAM'
       model: 'Glam'
+    - regex: 'ARGON'
+      model: 'Argon'
 
 # Nous
 Nous:
@@ -21671,11 +21673,13 @@ BDF:
 
 # Hi (https://www.hi-online.co.za/)
 Hi:
-  regex: 'Boost Ultra(?:[);/ ]|$)'
+  regex: '(?:Boost Ultra|HMR5012)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Boost Ultra(?:[);/ ]|$)'
       model: 'Boost Ultra'
+    - regex: 'HMR5012(?:[);/ ]|$)'
+      model: 'Boost Go'
 
 # Highscreen
 Highscreen:
@@ -21964,9 +21968,13 @@ Vinga:
 
 # Viumee (viumee.com)
 Viumee:
-  regex: 'SMART[_ ](EV[56])(?:[);/ ]|$)'
+  regex: '(?:SMART[_ ]EV[56]|EV7_Pro)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: 'Smart $1'
+  models:
+    - regex: '(EV7)_Pro'
+      model: '$1 Pro'
+    - regex: 'SMART[_ ](EV[56])'
+      model: 'Smart $1'
 
 # Nuvo
 Nuvo:
@@ -26694,10 +26702,36 @@ Atvio:
   device: 'tablet'
   model: '$1'
 
+# Alps
+Alps:
+  regex: '(?:FF-5000)(?:[);/ ]|$)'
+  device: 'tablet'
+  models:
+    - regex: '(FF-5000)' # for Ford Mustang (FFKJ)
+      device: 'car browser'
+      model: '$1'
+
+# Starwind (starwind.com.ru)
+Starwind:
+  regex: 'Smart_Starwind'
+  device: 'tv'
+  model: ''
+
+# Prology (www.prology.ru)
+Prology:
+  regex: '(MPC-70)(?:[);/ ]|$)'
+  device: 'car browser'
+  model: '$1'
+
+# Polestar (polestar.com)
+Polestar:
+  regex: 'Polestar(?:[);/ ]|$)'
+  device: 'car browser'
+  model: ''
 
 # Devices with undectable brand, but detectable model
 Unknown:
-  regex: 'WebTV/(\d+\.\d+)|(?:M10 Ultra|FO-R15|TVBOX|Smart TV|M8S\+ 4K|PCBox|rk3368-box)(?:[);/ ]|$)'
+  regex: 'WebTV/(\d+\.\d+)|(?:M10 Ultra|FO-R15|TVBOX|Smart TV|M8S\+ 4K|PCBox|rk3368-box|H10 PLAY)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'WebTV/(\d+\.\d+)'
@@ -26715,3 +26749,6 @@ Unknown:
     - regex: 'M8S\+ 4K(?:[);/ ]|$)'
       device: 'tv'
       model: 'M8S+ 4K'
+    - regex: 'H10 PLAY(?:[);/ ]|$)'
+      device: 'tv'
+      model: 'H10 Play'
