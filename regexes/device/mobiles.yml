@@ -1621,9 +1621,14 @@ Advance:
 
 # AGM (agm.tel)
 AGM:
-  regex: 'AGM ([^/;)]+)(?: Build|[;)])'
+  regex: 'AGM ([^/;)]+)(?: Build|[;)])|AG[_ ]Go[_-]Tab|(?:Flair(?! \w\d)|(?<!STX )Ultra 2|Freedom Access)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
+    - regex: 'AG[_ ]Go[_-]Tab[_ ]Access(_2)?(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'Go Tab Access$1'
+    - regex: '(Flair|Ultra 2|Freedom Access)(?:[);/ ]|$)'
+      model: '$1'
     - regex: 'AGM A9(?:[);/ ]|$)'
       model: 'A9'
     - regex: 'AGM ([^/;)]+)(?: Build|[;)])'
@@ -6719,7 +6724,7 @@ Famoco:
 
 # FiGO (figoglobal.com)
 FiGO:
-  regex: 'ATRIUM II F55L2|TRIO F40LT|CENTRIC S50G|EPIC F50G|Gravity X55L|Orion M50L|ULTRA M50G|UltraJ8|M405B|VIRTUE3|F55L Build'
+  regex: 'ATRIUM II F55L2|TRIO F40LT|CENTRIC S50G|EPIC F50G|Gravity X55L|Orion M50L|ULTRA M50G|UltraJ8|M405B|VIRTUE3|F55L Build|Orbit_ll'
   device: 'smartphone'
   models:
     - regex: 'ATRIUM II F55L2'
@@ -6744,6 +6749,8 @@ FiGO:
       model: 'Centric S50G'
     - regex: 'UltraJ8'
       model: 'Ultra J8'
+    - regex: 'Orbit_ll'
+      model: 'Orbit II'
 
 # FNB
 FNB:
@@ -10031,12 +10038,12 @@ AIS:
 
 # Lava (Lavamobiles.com)
 Lava:
-  regex: 'Lava[ _]|LAVA(?:A1|X10)|(?:DISCOVER136|KKT QUADRA)|iris(?! Plus 2021)[ _]?([^/;)]+)(?<!Plus 2021)(?: Build|[;)])|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|(?:Flair Z1|PixelV1|Pixel V2\+?|Z60s|Z61_2GB|A97 IPS|A97 2GB PLUS|L[EH]9920(?:[_ ]P)?|L[NEH]9910|LH9810|Ivory(?:S1|S4G)?|A76Plus|Grand2c|AH9910)(?:[);/ ]|$)'
+  regex: 'Lava[ _]|LAVA(?:A1|X10)|(?:DISCOVER136|KKT QUADRA)|iris(?! Plus 2021)[ _]?([^/;)]+)(?<!Plus 2021)(?: Build|[;)])|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|(?:Flair (?:[ZS]1|P8)|PixelV1|Pixel V2\+?|Z60s|Z61_2GB|A97 IPS|A97 2GB PLUS|L[EH]9920(?:[_ ]P)?|L[NEH]9910|LH9810|Ivory(?:S1|S4G)?|A76Plus|Grand2c|AH9910)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit smartphone models
-    - regex: 'Flair Z1(?:[);/ ]|$)'
-      model: 'Flair Z1'
+    - regex: 'Flair ([ZS]1|P8)(?:[);/ ]|$)'
+      model: 'Flair $1'
     - regex: 'AH9910(?:[);/ ]|$)'
       model: 'Benco Y40'
     - regex: 'A97 IPS(?:[);/ ]|$)'
@@ -16196,6 +16203,8 @@ Selfix:
       model: 'Slash 6'
     - regex: 'VOYAGER-V45'
       model: 'Voyager V45'
+    - regex: 'SELFIX_Q5_URBAN'
+      model: 'Q5 Urban'
 
 # Sencor (sencor.cz or sencor.com)
 Sencor:
@@ -22998,7 +23007,7 @@ Tone:
 
 # AT&T
 AT&T:
-  regex: '(?:EA21100[12]|U(?:304|202|705|318)AA|QS5509A|V340U|V350U)(?:[);/ ]|$)'
+  regex: '(?:EA21100[12]|U(?:304|202|705|31[89])AA|QS5509A|V340U|V350U)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'U304AA(?:[);/ ]|$)'
@@ -23011,6 +23020,8 @@ AT&T:
       model: 'Axia'
     - regex: 'U318AA(?:[);/ ]|$)'
       model: 'Calypso'
+    - regex: 'U319AA(?:[);/ ]|$)'
+      model: 'Calypso 2'
     - regex: 'V350U(?:[);/ ]|$)'
       model: 'Maestro Plus'
     - regex: 'U202AA(?:[);/ ]|$)'
@@ -26149,10 +26160,10 @@ Tambo:
 
 # Smooth Mobile (https://www.smoothmobile.us/)
 Smooth Mobile:
-  regex: 'Smooth ?(?:5.[05]|626|6.26 Lite|6.5)(?:[);/ ]|$)'
+  regex: 'Smooth ?(?:5.[05]|626|6.26 Lite|6.[15])(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'Smooth (5.[05]|6.5)(?:[);/ ]|$)'
+    - regex: 'Smooth (5.[05]|6.[15])(?:[);/ ]|$)'
       model: 'Smooth $1'
     - regex: 'Smooth626(?:[);/ ]|$)'
       model: 'Smooth 6.26'
@@ -26919,6 +26930,14 @@ Ematic:
   regex: '(EGQ101)(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
+
+# TAG Tech or TAG-Tech or Talal Abu-Ghazaleh Global (www.tagtech.global)
+TAG Tech:
+  regex: 'TAG[ -]TAB[ -]III?(?:[);/ ]|$)'
+  device: 'tablet'
+  models:
+    - regex: 'TAG[ -]TAB[ -](III?)'
+      model: 'Tab $1'
 
 # Devices with undectable brand, but detectable model
 Unknown:

@@ -1038,6 +1038,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '73' => 'Tambo',
         '9N' => 'Tanix',
         'U5' => 'Taiga System',
+        '7G' => 'TAG Tech',
         'T5' => 'TB Touch',
         'TC' => 'TCL',
         'T0' => 'TD Systems',
