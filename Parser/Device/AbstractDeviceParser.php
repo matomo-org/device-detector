@@ -165,7 +165,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ZA' => 'Avenzo',
         'AH' => 'AVH',
         'AV' => 'Avvio',
-        'Y6' => 'ATVIO',
         'AY' => 'Axxion',
         'XA' => 'Axioo',
         'AM' => 'Azumi Mobile',
