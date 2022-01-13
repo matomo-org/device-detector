@@ -526,6 +526,21 @@ class DeviceDetectorTest extends TestCase
     }
 
     /**
+     * Checks the AbstractDeviceParser::$deviceBrands for duplicate brands
+     */
+    public function testDuplicateBrands(): void
+    {
+        $brands     = \array_map('strtolower', AbstractDeviceParser::$deviceBrands);
+        $unique     = \array_unique($brands);
+        $duplicates = \array_diff_assoc($brands, $unique);
+
+        $this->assertCount(0, $duplicates, \sprintf(
+            'Duplicate brands exists: %s',
+            \print_r($duplicates, true)
+        ));
+    }
+
+    /**
      * check the Symfony parser for fixtures parsing errors
      */
     public function testSymfonyParser(): void
