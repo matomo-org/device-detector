@@ -2325,9 +2325,9 @@ altron:
       device: 'phablet'
       model: 'GI-626'
 
-# AMGOO
+# AMGOO (amgoo.com)
 AMGOO:
-  regex: 'AM(350|355|40[257]|41[025]|450|50[89]|52[037]|51[58]|53[05])(?:[);/ ]|$)'
+  regex: 'AM(350|355|40[257]|41[025]|450|50[689]|52[037]|51[58]|53[05])(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'AM350'
@@ -17044,14 +17044,12 @@ Qilive:
     - regex: '(QT19101HV)'
       model: '$1'
       device: 'tablet'
-    - regex: 'Qilive ([0-5][^;/]*) Build'
+    - regex: 'Qilive ([0-5][^;/)]*)(?: Build|[;)])'
       model: '$1'
-    - regex: 'Qilive ([0-5][^;/]*)/'
-      model: '$1'
-    - regex: 'Qilive ([6-9][^;/]*) Build'
-      model: '$1'
+    - regex: '97R-2'
+      model: '97R2'
       device: 'tablet'
-    - regex: 'Qilive ([6-9][^;/]*)/'
+    - regex: 'Qilive ([6-9][^;/)]*)(?: Build|[;)])'
       model: '$1'
       device: 'tablet'
 
@@ -21561,7 +21559,7 @@ Inoi:
 
 # Vertex (vertex-digital.ru)
 Vertex:
-  regex: '(?:Luck|Luck_L1[02]0_[34]G|Lion_Dual|V709X|TAB X8|Tab [43]G (?:7-2|8-1|10-1)|Pro_P3[01]0_4G|Lion_DC|Baccara|Eagle[ _]4G|ImpressMAX)(?:[);/ ]|$)|Impress[ _]([^;/]+)(?:Build|\))'
+  regex: '(?:Luck|Luck_L1[02]0_[34]G|Lion_Dual|V709X|TAB X8|TAB X10|Tab [43]G (?:7-2|8-1|10-1)|Pro_P3[01]0_4G|Lion_DC|Baccara|Eagle[ _]4G|ImpressMAX)(?:[);/ ]|$)|Impress[ _]([^;/]+)(?:Build|\))'
   device: 'smartphone'
   models:
     - regex: '(Lion_Dual|Lion_DC|Baccara|Eagle[ _]4G|Luck_L1[02]0_[34]G|Luck)(?:[);/ ]|$)'
@@ -21581,9 +21579,9 @@ Vertex:
     - regex: '(V709X)'
       device: 'tablet'
       model: '$1'
-    - regex: 'TAB X8(?:[);/ ]|$)'
+    - regex: 'TAB X(8|10)(?:[);/ ]|$)'
       device: 'tablet'
-      model: 'Tab X8'
+      model: 'Tab X$1'
     - regex: 'Tab ([43])G ([78]|10)-([21])'
       device: 'tablet'
       model: 'Tab $1G $2.$3"'
@@ -24106,11 +24104,13 @@ Zatec:
 
 # Selecline (https://www.auchan.lu/)
 Selecline:
-  regex: 'S4T7IN(?:[);/ ]|$)'
+  regex: 'Selecline[ _]|S4T7IN(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'S4T7IN(?:[);/ ]|$)'
       model: 'S4T7IN'
+    - regex: 'Selecline 10(?:[);/ ]|$)'
+      model: '10'
 
 # Selenga
 Selenga:
@@ -26952,6 +26952,25 @@ TAG Tech:
   models:
     - regex: 'TAG[ -]TAB[ -](III?)'
       model: 'Tab $1'
+
+# DUNNS Mobile or DUNNS
+DUNNS Mobile:
+  regex: 'DUNNS[ _]'
+  device: 'smartphone'
+  models:
+    - regex: 'DUNNS[ _](?:MOBILE[ _])?(703GDC|AT1001)(?:[);/ ]|$)'
+      device: 'tablet'
+      model: '$1'
+
+# Amino or Aminocom (www.amino.tv)
+Amino:
+  regex: '(?:Amigo7x?(?:YUF|SCB)?)(?:[);/ ]|$)'
+  device: 'tv'
+  models:
+    - regex: 'Amigo7x'
+      model: 'Amigo 7x'
+    - regex: 'Amigo7'
+      model: 'Amigo 7'
 
 # Devices with undectable brand, but detectable model
 Unknown:
