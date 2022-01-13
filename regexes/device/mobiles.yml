@@ -4978,7 +4978,7 @@ Crosscall:
 
 # AllDocube (alldocube.com)
 AllDocube:
-  regex: '(?:T1001XS?|T1006S?|iPlay_[234]0|U1006H?|U63PLUS|iPlay8|iPlay_8T|iPlay30|iPlay_40H|iPlay20S|kPad)(?:[);/ ]|$)'
+  regex: '(?:T1001XS?|T1006S?|T1001|iPlay_[234]0|U1006H?|U63PLUS|iPlay8|iPlay_8T|iPlay30|iPlay_40H|iPlay20S|kPad)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'T1001XS(?:[);/ ]|$)'
@@ -4991,6 +4991,8 @@ AllDocube:
       model: 'M5'
     - regex: 'T1001X(?:[);/ ]|$)'
       model: 'M5X'
+    - regex: 'T1001(?:[);/ ]|$)'
+      model: 'Power M3'
     - regex: 'U63PLUS(?:[);/ ]|$)'
       model: 'U63 Plus'
     - regex: 'U1006H?(?:[);/ ]|$)'
@@ -23204,9 +23206,13 @@ Eltex:
 
 # Senkatel
 Senkatel:
-  regex: 'Senkatel[ _](T1009|T8002|T701[12]|T9702)(?:[);/ ]|$)'
+  regex: 'Senkatel[ _]|(?:MaximusT1001)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: 'MaximusT1001'
+      model: 'Maximus T1001'
+    - regex: 'Senkatel[ _](T1009|T8002|T701[12]|T9702)'
+      model: '$1'
 
 # Bobarry
 Bobarry:
