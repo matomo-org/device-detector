@@ -83,9 +83,13 @@ SFR:
 
 # Adronix
 Adronix:
-  regex: 'Adronix[ _](MT[0-9]+)(?:[);/ ]|$)'
+  regex: 'Adronix[ _]?(?:MT[0-9]+|X1001|Mini ?Tab ?7 ?3G)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: 'Adronix ?Mini ?Tab ?7 ?3G'
+      model: 'Mini Tab 7 3G'
+    - regex: 'Adronix[ _]?(MT[0-9]+|X1001)(?:[);/ ]|$)'
+      model: '$1'
 
 # HTC (htc.com)
 HTC:
@@ -12110,6 +12114,19 @@ Mobiola:
     - regex: 'Wave5'
       model: 'Wave 5'
 
+# Matrix
+Matrix:
+  regex: '(?:7116-A5|818 3G|MATRIX GRAVITY|Matrix7116)(?:[);/ ]|$)'
+  device: 'tablet'
+  models:
+    - regex: 'MATRIX GRAVITY'
+      device: 'smartphone'
+      model: 'Gravity'
+    - regex: '(7116-A5|818 3G)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'Matrix7116(?:[);/ ]|$)'
+      model: '7116 A5'
+
 # Mobicel or Mobicell
 Mobicel:
   regex: 'Mobicel_(R1)|ASTRO(?: Build|[;)]|$)|(?:Android 8.+ BEAM|FAME(?:_DS)?|CLIK|R7_1|HYPE|DANDY(?:_ZAM)?|(?<!SMADL )Matrix|VENUS_G|TRENDY PLUS|FENDY_DS|TANGO_LITE|BLINK|BERRY[_ ]?(?:[12]|PLUS)|R1PLUS_1|ZOOM-H|REBEL|LEGEND MAX|HERO_DS|Switch[ _]GO|SWITCH1|PULSE_1|TRENDY 2|TRENDY_LITE|FEVER_PLUS_[HJ]|RIO_(?:SS|ZAM)|Clik plus|PURE PLUS|Neo[ _]LTE|Titan_1|ZOOM_1|R4 LTE|NEO_1)(?:[);/ ]|$)'
@@ -21289,7 +21306,7 @@ ZTE:
       model: 'Avail 2'
     - regex: '(?:Z999|Z-01K)(?:[);/ ]|$)'
       model: 'Axon M'
-    - regex: 'B2016|Axon mini'
+    - regex: 'B201[56]|Axon mini'
       model: 'Axon Mini'
     - regex: 'A2015'
       model: 'Axon Tianji'
@@ -21368,7 +21385,7 @@ ZTE:
       model: '$1'
 
 Zuum:
-  regex: 'Zuum[ _-]|Android 6.+ UNIQ(?: Build|[);])|(?:ROCKET III?|Akus (?:PRO|Z1?)|COVET|MAGNO(?:-S)?|ONIX S|STEDI|STELLAR(?:[ _](?:Z|PRO|[MP]1|M2))?|GRAVITY [ZM]|AURA X|COVET_PRO_LITE|RONI)(?:[);/ ]|$)'
+  regex: 'Zuum[ _-]|Android 6.+ UNIQ(?: Build|[);])|(?:ROCKET III?|Akus (?:PRO|Z1?)|COVET|MAGNO(?:-S)?|ONIX(?: S)?|STEDI|STELLAR(?:[ _](?:Z|PRO|[MP]1|M2))?|GRAVITY [ZM]|AURA X|COVET_PRO_LITE|RONI|Android.+; LIMIT)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'AKUS PRO'
@@ -21393,6 +21410,8 @@ Zuum:
       model: 'Magno$1'
     - regex: 'ONIX S'
       model: 'Onix S'
+    - regex: 'ONIX'
+      model: 'Onix'
     - regex: 'STEDI'
       model: 'Stedi'
     - regex: 'STELLAR PRO'
@@ -21417,8 +21436,10 @@ Zuum:
       model: 'Roni'
     - regex: 'ROCKET (III?)'
       model: 'Rocket $1'
-    - regex: 'Android 6.+ UNIQ(?: Build|[);])'
+    - regex: 'Android 6.+; UNIQ(?: Build|[);])'
       model: 'Uniq'
+    - regex: 'Android.+; LIMIT(?: Build|[);])'
+      model: 'Limit'
     - regex: 'Zuum[ _-]([^;/]+) Build'
       model: '$1'
     - regex: 'Zuum[ _-]?([^;/)]+)(?:[);/ ]|$)'
@@ -22663,11 +22684,13 @@ TWZ:
 
 # Onix
 Onix:
-  regex: '(?:ONIX S405|AT101-1116)(?:[);/ ]|$)'
+  regex: '(?:ONIX S405|AT101-1116|ONIX_8_3G_01)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: '(AT101-1116)(?:[);/ ]|$)'
       model: '$1'
+    - regex: 'ONIX_8_3G_01(?:[);/ ]|$)'
+      model: '8" Tablet 3G'
     - regex: '(S405)(?:[);/ ]|$)'
       device: 'smartphone'
       model: '$1'
@@ -24121,12 +24144,6 @@ GEOFOX:
 Tinmo:
   regex: 'TiNMO[- _](A11|K3)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
-
-# Matrix
-Matrix:
-  regex: '(7116-A5|818 3G)(?:[);/ ]|$)'
-  device: 'tablet'
   model: '$1'
 
 # Verico
@@ -26919,6 +26936,12 @@ Ematic:
   regex: '(EGQ101)(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
+
+# GLONYX
+GLONYX:
+  regex: 'Quartz(T10-3)(?:[);/ ]|$)'
+  device: 'tablet'
+  model: 'Quartz $1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
