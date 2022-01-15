@@ -806,6 +806,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'OO' => 'Opsson',
         'OR' => 'Orange',
         'O5' => 'Orbic',
+        'Y6' => 'Orbita',
         'OS' => 'Ordissimo',
         'OK' => 'Ouki',
         '0O' => 'OINOM',
