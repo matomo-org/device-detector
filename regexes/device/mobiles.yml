@@ -22224,13 +22224,15 @@ Spectrum:
 
 # Kivi
 Kivi:
-  regex: '(?:24H600G[RU]|24FR50WU|24HK30B|32HR55GU|32H700GU|4[39]UP50GU|40UR50G[RU]|40U600G[RU]|55U600G[RU]|65UP50GU|55U[PC]50G[RU]|50U600G[RU]|50UX10S|55UR50G[RU]|40FK30G|40FR5[02]BR|43UK35G|43U800BR|50FK30G|50UK35G|32HR50GR|55UC30G|32HK30G|40FK30G|32HR50GU|43UK30G|32FR50(?:WR|BU)|32FK3[02]G)(?:_-Ver0[0-9])?(?:[);/ ]|$)'
+  regex: 'KIVI [24]K|(?:24H600G[RU]|24FR50WU|24HK30B|32HR55GU|32H700GU|4[39]UP50GU|40UR50G[RU]|40U600G[RU]|55U600G[RU]|65UP50GU|55U[PC]50G[RU]|50U600G[RU]|50UX10S|55UR50G[RU]|40FK30G|40FR5[02]BR|43UK35G|43U800BR|50FK30G|50UK35G|32HR50GR|55UC30G|32HK30G|40FK30G|32HR50GU|43UK30G|32FR50(?:WR|BU)|32FK3[02]G)(?:_-Ver0[0-9])?(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: '(24H600G[RU]|24FR50WU|24HK30B|32HR55GU|32H700GU|4[39]UP50GU|40UR50G[RU]|40U600G[RU]|55U600G[RU]|65UP50GU|55U[PC]50G[RU]|50UX10S|50U600G[RU]|55UR50G[RU]|40FK30G|40FR5[02]BR|43UK35G|43U800BR|50FK30G|50UK35G|32HR50GR|32FR50(?:WR|BU)|32FK3[02]G)(?:[);/ ]|$)'
       model: '$1'
     - regex: '(55UC30G|40FK30G|43UK30G|32HR50G[RU]|32HK30G|32FK32G)_-Ver0([0-9])(?:[);/ ]|$)'
       model: '$1 v$2'
+    - regex: 'KIVI ([24]K Android TV)'
+      model: '$1'
 
 # Divisat (divisat.ru)
 Divisat:
@@ -24076,11 +24078,17 @@ Fonos:
   device: 'smartphone'
   model: '$1'
 
-# Xtouch
+# Xtouch (www.xtouchtechnologies.com)
 Xtouch:
-  regex: 'Xtouch[ _](X10|A5)(?:[);/ ]|$)'
+  regex: '(?:Xtouch[ _](?:X10|A5|X)|XBot[_ ](?:Senior|Junior)|X9_16GB)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'Xtouch[ _](X10|A5|X)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'X9_16GB(?:[);/ ]|$)'
+      model: 'X9'
+    - regex: 'XBot[_ ](Senior|Junior)'
+      model: 'XBot $1'
 
 # Conquest
 Conquest:
@@ -26946,6 +26954,12 @@ GLONYX:
   regex: 'Quartz(T10-3)(?:[);/ ]|$)'
   device: 'tablet'
   model: 'Quartz $1'
+
+# Zyrex
+Zyrex:
+  regex: 'ZT216'
+  device: 'tablet'
+  model: 'ZT216'
 
 # Devices with undectable brand, but detectable model
 Unknown:
