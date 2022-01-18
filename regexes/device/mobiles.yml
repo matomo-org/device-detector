@@ -17325,12 +17325,24 @@ Sigma:
 
 # Spice
 Spice:
-  regex: '(?<![\d];)Spice'
+  regex: '(?<![\d];)Spice|(?:Xlife[-_ ](?:\d+Q?|Victor5|M5q\+|M5 Pro|Proton5|Electro55HD))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'Spice[ _\-]?([^/;]+)(?:[\)]| Build)'
+    - regex: '(?:Spice_)?Xlife[-_ ](\d+Q?|M5\+)(?:[);/ ]|$)'
+      model: 'Xlife $1'
+    - regex: 'Xlife-M5q\+'
+      model: 'Xlife M5Q+'
+    - regex: 'Xlife-M5 Pro'
+      model: 'Xlife M5 Pro'
+    - regex: 'Xlife-Victor5'
+      model: 'Xlife Victor 5'
+    - regex: 'Xlife-Proton5 Pro'
+      model: 'Xlife Proton 5 Pro'
+    - regex: 'Xlife-Electro55HD'
+      model: 'Xlife Electro 55 HD'
+    - regex: 'Spice[-_ ]?([^/;]+)(?: Build|[;)])'
       model: '$1'
-    - regex: 'Spice[ _\-]?([^/;]+)(?:/|$)'
+    - regex: 'Spice[-_ ]?([^/;]+)(?:/|$)'
       model: '$1'
 
 # Sharp (jp.sharp)
@@ -25932,7 +25944,7 @@ KINGZONE:
 
 # MTech
 M-Tech:
-  regex: '(?:EROS 4G|MTECH ACE9|Mtech TEZ 4G)(?:[);/ ]|$)'
+  regex: '(?:EROS 4G|MTECH (?:ACE9|TURBO L[79]|TEZ 4G))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'EROS 4G'
@@ -25941,6 +25953,8 @@ M-Tech:
       model: 'Ace 9'
     - regex: 'TEZ 4G'
       model: 'TEZ 4G'
+    - regex: 'TURBO L([79])'
+      model: 'Turbo L$1'
 
 # Fantec Boogy
 Fantec:
