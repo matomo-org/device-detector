@@ -700,6 +700,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '1X' => 'Minix',
         'OM' => 'Mintt',
         'MO' => 'Mio',
+        'X7' => 'Mione',
         'M7' => 'Miray',
         '8M' => 'Mito',
         'MT' => 'Mitsubishi',
