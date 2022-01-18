@@ -931,6 +931,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'X5' => 'Saba',
         '8L' => 'S-TELL',
         '89' => 'Seatel',
+        'Y7' => 'Saiet',
         'X1' => 'Safaricom',
         'SG' => 'Sagem',
         '4L' => 'Salora',
