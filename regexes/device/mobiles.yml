@@ -13601,11 +13601,14 @@ Okapia:
     - regex: 'Signature (L|Pro|Touch)'
       model: 'Signature $1'
 
-# onda
+# onda (ondatlc.com)
 Onda:
-  regex: 'Onda|(?:(?:V820w|V891[w]?|V919(?: 3G)? Air)[ _-]DualOS|(?:V919 4G Air|V989 Air|V972) Core[48]|T2101L2B1C| V10 4G|OBOOK (?:20 SE|20 PLUS DUALOS)|OBOOK10 SE|V919 Air CH DualOS)(?:[);/ ]|$)'
+  regex: 'Onda|(?:(?:V820w|V891[w]?|V919(?: 3G)? Air)[ _-]DualOS|(?:V919 4G Air|V989 Air|V972) Core[48]|T2101L2B1C| V10 4G|OBOOK (?:20 SE|20 PLUS DUALOS)|OBOOK10 SE|V919 Air CH DualOS| T9S)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
+    - regex: '(?: T9S)(?:[);/ ]|$)'
+      model: 'T9 S'
+
     # explicit tablet models
     - regex: 'ONDA[ _]MID'
       model: 'MID'
@@ -16881,15 +16884,18 @@ Polytron:
       model: 'Rocket Pad'
       device: 'tablet'
 
-# Positivo
+# Positivo (www.positivoempresas.com.br)
 Positivo:
-  regex: 'YPY_S450|Twist 4 Pro'
+  regex: '(?:YPY_S450|Twist 4 Pro|T1085)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'YPY_S450'
       model: 'YPY S450'
     - regex: 'Twist 4 Pro'
       model: 'Twist 4 Pro'
+    - regex: 'T1085'
+      device: 'tablet'
+      model: 'T1085'
 
 # Prestigio (prestigio.ru)
 Prestigio:
@@ -26454,7 +26460,7 @@ Dreamgate:
     - regex: 'Sens 5(?:[);/ ]|$)'
       model: 'Sens 5'
 
-# AOpen
+# AOpen (www.aopen.com)
 AOpen:
   regex: '(WT(?:22|19)M-FI)(?:[);/ ]|$)'
   device: 'smart display'
@@ -27102,9 +27108,14 @@ FEONAL:
 
 # Sunmi (www.sunmi.com)
 Sunmi:
-  regex: '(V1s)-G(?:[);/ ]|$)'
+  regex: '(?:V1s-G|T2s_LITE)(?:[);/ ]|$)'
   device: 'peripheral'
-  model: '$1'
+  models: '$1'
+    - regex: 'T2s_LITE(?:[);/ ]|$)' # monoblock and terminal
+      device: 'smart display'
+      model: 'T2s Lite'
+    - regex: '(V1s)-G'
+      model: '$1'
 
 # Ematic (ematic.us)
 Ematic:
