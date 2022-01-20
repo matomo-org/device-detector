@@ -2,9 +2,13 @@
 
 declare(strict_types=1);
 
+use DeviceDetector\DeviceDetector;
+use DeviceDetector\Parser\AbstractParser;
+use DeviceDetector\Parser\Device\AbstractDeviceParser;
+
 include __DIR__ . '/../vendor/autoload.php';
 
-\DeviceDetector\Parser\AbstractParser::setVersionTruncation(\DeviceDetector\Parser\AbstractParser::VERSION_TRUNCATION_NONE);
+AbstractParser::setVersionTruncation(AbstractParser::VERSION_TRUNCATION_NONE);
 
 $fixtureFiles = glob(__DIR__ . '/../Tests/fixtures/*.yml');
 
@@ -12,7 +16,7 @@ $overwrite = !empty($argv[1]) && '--f' === $argv[1];
 $data      = [];
 
 foreach ($fixtureFiles as $file) {
-    if ('unknown' !== basename($file, '.yml') && !in_array(preg_replace('/-[0-9]+$/', '', str_replace('_', ' ', basename($file, '.yml'))), array_keys(\DeviceDetector\Parser\Device\AbstractDeviceParser::getAvailableDeviceTypes()))) {
+    if ('unknown' !== basename($file, '.yml') && !in_array(preg_replace('/-[0-9]+$/', '', str_replace('_', ' ', basename($file, '.yml'))), array_keys(AbstractDeviceParser::getAvailableDeviceTypes()))) {
         continue;
     }
 
@@ -20,7 +24,7 @@ foreach ($fixtureFiles as $file) {
 
     foreach ($fileFixtures as $fixture) {
         if ($overwrite) {
-            $fixture = \DeviceDetector\DeviceDetector::getInfoFromUserAgent($fixture['user_agent']);
+            $fixture = DeviceDetector::getInfoFromUserAgent($fixture['user_agent']);
         }
 
         $data[$fixture['device']['type']][] = $fixture;
@@ -102,7 +106,7 @@ foreach ($botFixtures as &$fixture) {
         continue;
     }
 
-    $fixture = \DeviceDetector\DeviceDetector::getInfoFromUserAgent($fixture['user_agent']);
+    $fixture = DeviceDetector::getInfoFromUserAgent($fixture['user_agent']);
 }
 
 usort($botFixtures, static function ($a, $b) {

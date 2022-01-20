@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
@@ -10,9 +8,21 @@ declare(strict_types=1);
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
+declare(strict_types=1);
+
+use DeviceDetector\Parser\Client\Browser;
+use DeviceDetector\Parser\Client\Browser\Engine;
+use DeviceDetector\Parser\Client\FeedReader;
+use DeviceDetector\Parser\Client\Library;
+use DeviceDetector\Parser\Client\MediaPlayer;
+use DeviceDetector\Parser\Client\MobileApp;
+use DeviceDetector\Parser\Client\PIM;
+use DeviceDetector\Parser\Device\AbstractDeviceParser;
+use DeviceDetector\Parser\OperatingSystem;
+
 include __DIR__ . '/../vendor/autoload.php';
 
-$brands = \DeviceDetector\Parser\Device\AbstractDeviceParser::$deviceBrands;
+$brands = AbstractDeviceParser::$deviceBrands;
 natcasesort($brands);
 
 $bots      = [];
@@ -34,36 +44,36 @@ The lists below are auto generated and updated from time to time. Some of them m
 
 ### List of detected operating systems:
 
-' . implode(', ', \DeviceDetector\Parser\OperatingSystem::getAvailableOperatingSystems()) . '
+' . implode(', ', OperatingSystem::getAvailableOperatingSystems()) . '
 
 ### List of detected browsers:
 
-' . implode(', ', \DeviceDetector\Parser\Client\Browser::getAvailableBrowsers()) . '
+' . implode(', ', Browser::getAvailableBrowsers()) . '
 
 ### List of detected browser engines:
 
-' . implode(', ', \DeviceDetector\Parser\Client\Browser\Engine::getAvailableEngines()) . '
+' . implode(', ', Engine::getAvailableEngines()) . '
 
 ### List of detected libraries:
 
-' . implode(', ', \DeviceDetector\Parser\Client\Library::getAvailableClients()) . '
+' . implode(', ', Library::getAvailableClients()) . '
 
 ### List of detected media players:
 
-' . implode(', ', \DeviceDetector\Parser\Client\MediaPlayer::getAvailableClients()) . '
+' . implode(', ', MediaPlayer::getAvailableClients()) . '
 
 ### List of detected mobile apps:
 
-' . implode(', ', \DeviceDetector\Parser\Client\MobileApp::getAvailableClients()) .
+' . implode(', ', MobileApp::getAvailableClients()) .
 ' and *mobile apps using [AFNetworking](https://github.com/AFNetworking/AFNetworking)*
 
 ### List of detected PIMs (personal information manager):
 
-' . implode(', ', \DeviceDetector\Parser\Client\PIM::getAvailableClients()) . '
+' . implode(', ', PIM::getAvailableClients()) . '
 
 ### List of detected feed readers:
 
-' . implode(', ', \DeviceDetector\Parser\Client\FeedReader::getAvailableClients()) . '
+' . implode(', ', FeedReader::getAvailableClients()) . '
 
 ### List of brands with detected devices:
 
