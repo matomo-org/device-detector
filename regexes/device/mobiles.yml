@@ -21107,7 +21107,7 @@ Rakuten:
 
 # ZTE
 ZTE:
-  regex: 'ZTE|AxonPhone|([a-z0-9]+)_USA_Cricket|(?:Blade[ _](?:E01|V0820|L110|L[2357]|L7A|S6|V[6789]|V8Q|V8 SE|V9 VITA|X7|A(310|320|460|465|475|510|520|530|602|51|30|3)|V580|V Ultra|Q Lux)|N9[15]8St|N818S|N951[0579]|N91[38]0|N9101|N913[267]|N952[01]|N9560|N9810|N799D|[UV]9180|[UV]9815|Z(?:5151V|610DL|6400C|6410S|233V|331|5031O|559DL|6621O|667T|768G|792|81[25]|818L|82[08]|83[12359]|85[125]|851M|992|(557|71[67]|798|836|861|916)BL|986DL|(232|718|828)TL|(?:233|353|558|717|799|837|862|899|917|963)VL|955A|95[678]|965|97[018]|98[1237]|986U|999|936L)|V769M|Apex2|G (LTE|Lux)|Vec|Z959|V865M|Z3001S|902ZT|KIS II Max|Kis 3|K3DX-V5G|Z930L|Optus X|Blade[ _](A[357] 2019-T|A[35] 2020-T|A7S 2020-T|A6 MAX|A0622|X9)|Z3153V|Z836F|Ctyon-A9|602ZT|MO-01[JK]|Z963U|402ZT|P545|P609|dandelion|901ZT|A00[13]ZT|Z-01K|UZTE (?:GRAND V7|V808)|ZTG01|K8[37]CA|VERGATARIO ?5(?:PLUS)?|Axon mini|KIS C341|A103ZT)(?:[);/ ]|$)'
+  regex: 'ZTE|AxonPhone|([a-z0-9]+)_USA_Cricket|(?:Blade[ _](?:E01|V0820|L110|L[2357]|L7A|S6|V[6789]|V8Q|V8 SE|V9 VITA|X7|A(310|320|460|465|475|510|520|530|602|51|30|3)|V580|V Ultra|Q Lux)|N9[15]8St|N818S|N951[0579]|N91[38]0|N9101|N913[267]|N952[01]|N9560|N9810|N799D|[UV]9180|[UV]9815|Z(?:5151V|610DL|6400C|6410S|233V|331|5031O|559DL|6621O|667T|768G|792|81[25]|818L|82[08]|83[12359]|85[125]|851M|992|(557|71[67]|798|836|861|916)BL|986DL|(232|718|828)TL|(?:233|353|558|717|799|837|862|899|917|963)VL|955A|95[678]|965|97[018]|98[1237]|986U|999|936L)|V769M|Apex2|G (LTE|Lux)|Vec|Z959|V865M|Z3001S|902ZT|KIS II Max|Kis 3|K3DX-V5G|Z930L|Optus X|Blade[ _](A[357] 2019-T|A[35] 2020-T|A7S 2020-T|A6 MAX|A0622|X9)|Z3153V|Z836F|Ctyon-A9|602ZT|MO-01[JK]|Z963U|402ZT|P545|P609|dandelion|901ZT|A00[13]ZT|Z-01K|UZTE (?:GRAND V7|V808)|ZTG01|K8[37]CA|VERGATARIO ?5(?:PLUS)?|Axon mini|KIS C341|A103ZT|Z3351S)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -21143,7 +21143,7 @@ ZTE:
       model: 'Axon 7'
     - regex: 'A2019G? Pro(?:[);/ ]|$)'
       model: 'Axon 9 Pro'
-    - regex: '902ZT(?:[);/ ]|$)'
+    - regex: '(?:902ZT|A2020N3 Pro)(?:[);/ ]|$)'
       model: 'Axon 10 Pro 5G'
     - regex: 'A2021L?(?:[);/ ]|$)'
       model: 'Axon 11 5G'
@@ -21161,6 +21161,8 @@ ZTE:
       model: 'Allstar'
     - regex: 'Z3001S(?:[);/ ]|$)'
       model: 'Quest Plus'
+    - regex: 'Z3351S(?:[);/ ]|$)'
+      model: 'Quest 5'
     - regex: 'Ctyon-A9(?:[);/ ]|$)'
       model: 'Ctyon A9'
     - regex: 'K3DX-V5G(?:[);/ ]|$)'
@@ -23706,7 +23708,7 @@ Cloudfone:
 
 # Vsmart
 Vsmart:
-  regex: '(?:Joy [123]\+|Joy [34]|Active 1\+|Bee 3|Active 3|V341U)(?:[);/ ]|$)'
+  regex: '(?:Joy [123]\+|Joy [34]|Active 1\+|Bee 3|Active 3|V341U|Bee Lite)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Joy ([123])\+(?:[);/ ]|$)'
@@ -23721,6 +23723,8 @@ Vsmart:
       model: 'Active 3'
     - regex: 'V341U(?:[);/ ]|$)'
       model: 'Hobson'
+    - regex: 'Bee Lite(?:[);/ ]|$)'
+      model: 'Bee Lite'
 
 # MiXzo
 MiXzo:
@@ -25001,11 +25005,18 @@ Colors:
     - regex: 'Colors[ _](S(?:[19]|11)|P70|E15|P[456]5|P32|P50 Plus)(?:[);/ ]|$)'
       model: '$1'
 
-# Honeywell
+# Honeywell (honeywell.com)
 Honeywell:
-  regex: '(EDA50K?|EDA70|EDA51)(?:[);/ ]|$)'
+  regex: '(?:EDA50K?|EDA70|EDA51|CK65|CT60)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: 'ScanPal $1'
+  models:
+    # smartphone + scan
+    - regex: '(EDA50K?|EDA70|EDA51)(?:[);/ ]|$)'
+      model: 'ScanPal $1'
+    # mobile terminal
+    - regex: '(CK65|CT60)(?:[);/ ]|$)'
+      device: 'peripheral'
+      model: 'Dolphin $1'
 
 # Electroneum (electroneum.com)
 Electroneum:
