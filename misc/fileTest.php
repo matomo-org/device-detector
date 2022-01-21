@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This parser parses the text file
  *
@@ -26,6 +24,9 @@ declare(strict_types=1);
  * `php file-test.php /tmp/source-useragent.txt "not" "yml" > /tmp/useragent-not-detected.txt`
  * `php file-test.php /tmp/source-useragent.txt "not" "useragent" > /tmp/useragent-not-detected.txt`
  */
+
+declare(strict_types=1);
+
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\Device\AbstractDeviceParser;
 
