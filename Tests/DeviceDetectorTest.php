@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
@@ -10,6 +8,8 @@ declare(strict_types=1);
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
+declare(strict_types=1);
+
 namespace DeviceDetector\Tests;
 
 use DeviceDetector\Cache\DoctrineBridge;
@@ -17,6 +17,7 @@ use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\AbstractParser;
 use DeviceDetector\Parser\Device\AbstractDeviceParser;
 use DeviceDetector\Yaml\Symfony;
+use Doctrine\Common\Cache\MemcachedCache;
 use PHPUnit\Framework\TestCase;
 
 class DeviceDetectorTest extends TestCase
@@ -148,7 +149,7 @@ class DeviceDetectorTest extends TestCase
 
         $dd            = new DeviceDetector();
         $memcached     = new \Memcached();
-        $doctrineCache = new \Doctrine\Common\Cache\MemcachedCache();
+        $doctrineCache = new MemcachedCache();
         $doctrineCache->setMemcached($memcached);
         $dd->setCache(new DoctrineBridge($doctrineCache));
         $this->assertInstanceOf(DoctrineBridge::class, $dd->getCache());

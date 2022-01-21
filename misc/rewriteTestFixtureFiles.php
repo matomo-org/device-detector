@@ -2,9 +2,12 @@
 
 declare(strict_types=1);
 
+use DeviceDetector\DeviceDetector;
+use DeviceDetector\Parser\AbstractParser;
+
 include __DIR__ . '/../vendor/autoload.php';
 
-\DeviceDetector\Parser\AbstractParser::setVersionTruncation(\DeviceDetector\Parser\AbstractParser::VERSION_TRUNCATION_NONE);
+AbstractParser::setVersionTruncation(AbstractParser::VERSION_TRUNCATION_NONE);
 
 $fixtureFiles = array_merge(
     glob(__DIR__ . '/../Tests/fixtures/*.yml'),
@@ -22,7 +25,7 @@ foreach ($fixtureFiles as $file) {
         $keys = array_flip(array_keys($fixture));
 
         if ($overwrite) {
-            $fixture = \DeviceDetector\DeviceDetector::getInfoFromUserAgent($fixture['user_agent']);
+            $fixture = DeviceDetector::getInfoFromUserAgent($fixture['user_agent']);
         }
 
         $data[$i] = array_intersect_key($fixture, $keys);

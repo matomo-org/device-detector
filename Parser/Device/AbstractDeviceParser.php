@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
@@ -9,6 +7,8 @@ declare(strict_types=1);
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
+declare(strict_types=1);
 
 namespace DeviceDetector\Parser\Device;
 
@@ -415,6 +415,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '1F' => 'FMT',
         'FG' => 'Fuego',
         'FU' => 'Fujitsu',
+        '5J' => 'Fusion5',
         'FW' => 'FNF',
         'GT' => 'G-TiDE',
         'G9' => 'G-Touch',
@@ -661,6 +662,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '92' => 'MAC AUDIO',
         'MJ' => 'Majestic',
         'FQ' => 'Mafe',
+        '6Y' => 'Magicsee',
         '23' => 'Magnus',
         'NH' => 'Manhattan',
         '5M' => 'Mann',
@@ -805,6 +807,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'O4' => 'ONN',
         '2O' => 'OpelMobile',
         'OH' => 'Openbox',
+        '7Y' => 'Obabox',
         'OP' => 'OPPO',
         'OO' => 'Opsson',
         'OR' => 'Orange',
@@ -908,6 +911,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'Z9' => 'REGAL',
         'RH' => 'Remdun',
         'RP' => 'Revo',
+        '8R' => 'Retroid Pocket',
         'RI' => 'Rikomagic',
         'RM' => 'RIM',
         'RN' => 'Rinno',
