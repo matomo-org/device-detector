@@ -4596,6 +4596,10 @@ Changhong:
     - regex: 'Superion S1 Plus DTV'
       model: 'Superion S1 Plus DTV'
       device: 'tablet'
+    - regex: 'Flare Tab Pro V(\d)'
+      device: 'tablet'
+      model: 'Flare Tab Pro V$1'
+
     - regex: '(Fusion Bolt|Flare Tab Pro|Flare Tab|Superion[_ ](?:S2|Radar Deluxe|S1 DTV))'
       model: '$1'
       device: 'tablet'
@@ -6997,7 +7001,7 @@ Gigabyte:
 
 # Gigaset
 Gigaset:
-  regex: 'Gigaset|(?: GX290|GS80|GS1[0189]0|GS1[89]5|GS2[89]0|GS5[357]-6|GS[23]70(?:_Plus)?)(?:[);/ ]|$)'
+  regex: 'Gigaset|(?: GX290|GS80|GS1[0189]0|GS1[89]5|GS2[89]0|GS5[357]-6|GS[23]70(?:_Plus)?|E940-2795-00)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Gigaset QV(1030|830)'
@@ -7014,6 +7018,8 @@ Gigaset:
       model: 'ME Pro'
     - regex: 'GS55-6'
       model: 'ME'
+    - regex: 'E940-2795-00'
+      model: 'GS4'
     - regex: 'GS53-6'
       model: 'ME Pure'
 
@@ -9856,7 +9862,7 @@ Diva:
 
 # kyocera (kyocera.co.jp, kyocera.com)
 Kyocera:
-  regex: 'Kyocera|KWC-|QC-[0-9]{4}|(?:QC6035|NP501KC|302KC|503KC|602KC|705KC|901KC|C51[27]0|C5155|C5215|C67[35]0|C6522N?|C6530N|C6740N?|C6743|E6[89]10|KYL2[13]|KYV3[1-9]|KYT3[123]|KYF3[123579]|KYF40|KYX31|KYG01|KYY2[1-4]|S2151|KC-S701|S[468]-KC|KYV40U?|KYV4[1-8]|KYV4[47]|KC-S301AE|X3-KC|E6560[CT]|E6782[L]?|E6790(?:TM)?|SZJ-JS201|KCP01K|[47]04KC|A001KC|WX10K|URBANO PROGRESSO|E7110)(?:[-_]u2?)?(?:[);/ ]|$)'
+  regex: 'Kyocera|KWC-|QC-[0-9]{4}|(?:QC6035|NP501KC|302KC|503KC|602KC|705KC|901KC|C51[27]0|C5155|C5215|C67[35]0|C6522N?|C6530N|C6740N?|C6743|E6[89]10|KYL2[13]|KYV3[1-9]|KYT3[123]|KYF3[123579]|KYF40|KYX31|KYG01|KYY2[1-4]|S2151|KC-S701|S[468]-KC|KYV40U?|KYV4[1-8]|KYV4[47]|KC-S301AE|X3-KC|E6560[CT]|E6782[L]?|E6790(?:TM)?|SZJ-JS201|KCP01K|[47]04KC|A001KC|WX10K|URBANO PROGRESSO|E7110|E6921)(?:[-_]u2?)?(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -9912,7 +9918,7 @@ Kyocera:
       model: 'DuraForce'
     - regex: '(?:KYOCERA-)?E68[12]0'
       model: 'DuraForce Pro'
-    - regex: '(?:KYOCERA-)?E69[12]0'
+    - regex: '(?:KYOCERA-)?(?:E69[12]0|E6921)'
       model: 'DuraForce Pro 2'
     - regex: 'E7110'
       model: 'DuraForce Ultra 5G'
@@ -19325,9 +19331,9 @@ Vodafone:
     - regex: 'Vodafone[ _-]([a-z0-9_-]+)'
       model: '$1'
 
-# Vonino (vonino.ro)
+# Vonino (vonino.ro, vonino.it)
 Vonino:
-  regex: 'Vonino|Epic (?:E8|P7)|Gyga[ _](?:X|S|QS|XS)|Jax[ _](?:QS|[SXQN]|Mini)|Magnet[ _](?:M[19]|G[35]0)|Navo_QS|Onyx_(QS|Z)|Orin_QS|Pluri[ _](?:[BCMQ]7|[CQM]8)|Sirius_QS|Volt[ _][XS]|Xavy_(T7|L8)|Xylo[ _][XSPQT]|Zun[ _]X[OS]?|JAX_N|Druid_L10'
+  regex: 'Vonino|Epic (?:E8|P7)|Gyga[ _](?:X|S|QS|XS)|Jax[ _](?:QS|[SXQN]|Mini)|Magnet[ _](?:M[19]|G[35]0)|Navo_QS|Onyx_(QS|Z)|Orin_QS|Pluri[ _](?:[BCMQ]7|[CQM]8)|Sirius_QS|Volt[ _][XS]|Xavy_(T7|L8)|Xylo[ _][XSPQT]|Zun[ _]X[OS]?|JAX_N|Druid_L10|iMart_Pro'
   device: 'smartphone'
   models:
     - regex: 'Zun[ _]XO'
@@ -19358,6 +19364,10 @@ Vonino:
       model: 'Jax $1'
     - regex: 'Jax[ _]Mini'
       model: 'Jax Mini'
+
+    - regex: 'iMart_Pro'
+      device: 'tablet'
+      model: 'IMart Pro'
     - regex: 'Epic (E8|P7)'
       model: 'Epic $1'
       device: 'tablet'
@@ -24769,9 +24779,14 @@ Winmax:
 
 # Zebra (zebra.com)
 Zebra:
-  regex: ' (TC5[16]|TC2[056]|TC75|TC7[05]x|TC5[27]|TC700H)(?:[);/ ]|$)'
+  regex: ' (TC5[16]|TC2[056]|TC75|TC7[05]x|TC5[27]|TC700H|ET51)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: '(TC5[16]|TC2[056]|TC75|TC7[05]x|TC5[27]|TC700H)'
+      model: '$1'
+    - regex: '(ET51)'
+      device: 'tablet'
+      model: '$1'
 
 # Thuraya (thuraya.com)
 Thuraya:
@@ -27291,6 +27306,26 @@ IRA:
   regex: 'IRA_DUO(?:[);/ ]|$)'
   device: 'tablet'
   model: 'Duo Tablet'
+
+# Microtech (microtech.store)
+Microtech:
+  regex: '(?:ETL101AL)(?:[);/ ]|$)'
+  device: 'tablet'
+  model: 'E-Tab LTE'
+
+# Gplus (gpluselectronics.com)
+Gplus:
+  regex: 'Gplus ([ZX]10|N809)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
+
+# Eurocase (eurocase.com)
+Eurocase:
+  regex: '(EUTB_758G?)'
+  device: 'tablet'
+  models:
+    - regex: 'EUTB_758G_TABI_Argos_KIDS'
+      model: 'TABI Argos Kids 758G'
 
 # Devices with undectable brand, but detectable model
 Unknown:
