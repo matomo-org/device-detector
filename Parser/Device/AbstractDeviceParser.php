@@ -1153,6 +1153,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VN' => 'Venso',
         'UV' => 'Venturer',
         'VQ' => 'Vega',
+        'WC' => 'VEON',
         '4V' => 'Verico',
         'V4' => 'Verizon',
         'VR' => 'Vernee',
