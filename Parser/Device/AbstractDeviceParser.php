@@ -181,6 +181,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'B5' => 'Beeline',
         'B0' => 'Beelink',
         'BL' => 'Beetel',
+        '2X' => 'Benco',
         'BQ' => 'BenQ',
         'BS' => 'BenQ-Siemens',
         '4Y' => 'Benzo',
