@@ -312,6 +312,7 @@ class Browser extends AbstractClientParser
         'SC' => 'SEMC-Browser',
         'SE' => 'Sogou Explorer',
         'SF' => 'Safari',
+        'PV' => 'Safari Technology Preview',
         'S5' => 'Safe Exam Browser',
         'SW' => 'SalamWeb',
         'S9' => 'Secure Browser',
@@ -429,7 +430,7 @@ class Browser extends AbstractClientParser
         'NetSurf'            => ['NE'],
         'Nokia Browser'      => ['DO', 'NB', 'NO', 'NV'],
         'Opera'              => ['O1', 'OG', 'OH', 'OI', 'OM', 'ON', 'OO', 'OP', 'OX'],
-        'Safari'             => ['MF', 'S7', 'SF', 'SO'],
+        'Safari'             => ['MF', 'S7', 'SF', 'SO', 'PV'],
         'Sailfish Browser'   => ['SA'],
     ];
 
