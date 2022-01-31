@@ -1897,6 +1897,18 @@
     versions:
       28: 'Blink'
 
+# LG Browser
+- regex: 'LG Browser(?:/(\d+[\.\d]+))'
+  name: 'LG Browser'
+  version: '$1'
+
+# QtWebEngine should be placed after LG Browser
+- regex: 'QtWebEngine/(\d+[\.\d]+)'
+  name: 'QtWebEngine'
+  version: '$1'
+  engine:
+    default: '' # multi engine -- WebKit or Blink
+
 # Chrome Webview
 - regex: 'Version/.* Chrome(?:/(\d+[\.\d]+))?'
   name: 'Chrome Webview'
@@ -2225,18 +2237,6 @@
   version: '$1'
   engine:
     default: 'Text-based'
-
-# LG Browser
-- regex: 'LG Browser(?:/(\d+[\.\d]+))'
-  name: 'LG Browser'
-  version: '$1'
-
-# QtWebEngine should be placed after LG Browser
-- regex: 'QtWebEngine/(\d+[\.\d]+)'
-  name: 'QtWebEngine'
-  version: '$1'
-  engine:
-    default: '' # multi engine -- WebKit or Blink
 
 # LuaKit
 - regex: 'LuaKit(?:/(\d+[\.\d]+))?'
