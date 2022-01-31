@@ -825,6 +825,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'O5' => 'Orbic',
         'Y6' => 'Orbita',
         'OS' => 'Ordissimo',
+        '4O' => 'Orion',
         'OK' => 'Ouki',
         '0O' => 'OINOM',
         'QK' => 'OKWU',
