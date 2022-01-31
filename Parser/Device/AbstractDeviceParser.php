@@ -281,6 +281,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CM' => 'Crius Mea',
         '0C' => 'Crony',
         'C1' => 'Crosscall',
+        '4W' => 'Crown',
         'CU' => 'Cube',
         'CB' => 'CUBOT',
         'CV' => 'CVTE',
