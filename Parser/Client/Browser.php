@@ -293,6 +293,7 @@ class Browser extends AbstractClientParser
         'LY' => 'PolyBrowser',
         'PI' => 'PrivacyWall',
         'PC' => 'PSI Secure Browser',
+        'RW' => 'Reqwireless WebViewer',
         'PS' => 'Microsoft Edge',
         'QA' => 'Qazweb',
         'Q2' => 'QQ Browser Lite',
@@ -446,7 +447,7 @@ class Browser extends AbstractClientParser
         'MN', 'MZ', 'NX', 'OC', 'OI', 'OM', 'OZ', 'PU', 'PI',
         'PE', 'QU', 'RE', 'S0', 'S7', 'SA', 'SB', 'SG', 'SK',
         'ST', 'SU', 'T1', 'UH', 'UM', 'UT', 'VE', 'VV', 'WI',
-        'WP', 'YN', 'IO', 'IS', 'HQ',
+        'WP', 'YN', 'IO', 'IS', 'HQ', 'RW',
     ];
 
     /**
