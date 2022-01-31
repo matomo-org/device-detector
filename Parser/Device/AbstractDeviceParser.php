@@ -483,6 +483,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'HC' => 'Hitachi',
         'H8' => 'Hitech',
         'W3' => 'HiMax',
+        '2Y' => 'HKPro',
         'H1' => 'Hoffmann',
         'H0' => 'Hometech',
         'HM' => 'Homtom',
