@@ -764,6 +764,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'NE' => 'NEC',
         '8N' => 'Necnot',
         'NF' => 'Neffos',
+        '4H' => 'Neo',
         '1N' => 'Neomi',
         '7Q' => 'Neon IQ',
         'NA' => 'Netgear',
