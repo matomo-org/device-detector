@@ -681,6 +681,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'Z0' => 'Mantra',
         'J4' => 'Mara',
         '2M' => 'Masstel',
+        '3X' => 'Mastertech',
         '50' => 'Matrix',
         '7M' => 'Maxcom',
         'ZM' => 'Maximus',
