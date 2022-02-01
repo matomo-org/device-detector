@@ -77,6 +77,7 @@ class OperatingSystem extends AbstractParser
         'JME' => 'Java ME',
         'KOS' => 'KaiOS',
         'KNO' => 'Knoppix',
+        'KTV' => 'KreaTV',
         'KBT' => 'Kubuntu',
         'LIN' => 'GNU/Linux',
         'LBT' => 'Lubuntu',
@@ -167,7 +168,7 @@ class OperatingSystem extends AbstractParser
             'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
             'RHT', 'VLN', 'MDR', 'GNT', 'SAB', 'SLW', 'SSE', 'CES', 'BTR', 'SAF',
             'ORD', 'TOS', 'RSO', 'DEE', 'FRE', 'MAG', 'FEN', 'CAI', 'PCL', 'HAS',
-            'LOS', 'DVK', 'ROK', 'OWR', 'OTV',
+            'LOS', 'DVK', 'ROK', 'OWR', 'OTV', 'KTV'
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
