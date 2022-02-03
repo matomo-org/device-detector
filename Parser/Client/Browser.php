@@ -324,6 +324,7 @@ class Browser extends AbstractClientParser
         'SK' => 'Skyfire',
         'SS' => 'Seraphic Sraf',
         'SL' => 'Sleipnir',
+        'SJ' => 'SlimerJS',
         'S6' => 'Slimjet',
         'S7' => 'SP Browser',
         'T1' => 'Stampy Browser',
