@@ -323,6 +323,7 @@ class Browser extends AbstractClientParser
         'SY' => 'Sizzy',
         'SK' => 'Skyfire',
         'SS' => 'Seraphic Sraf',
+        'KK' => 'SiteKiosk',
         'SL' => 'Sleipnir',
         'SJ' => 'SlimerJS',
         'S6' => 'Slimjet',
