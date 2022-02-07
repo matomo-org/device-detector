@@ -1110,9 +1110,13 @@
   name: 'Nintendo'
   version: '$1'
 
-- regex: 'PlayStation ?([2345])'
+- regex: 'PlayStation.+; Linux (\d+[\.\d]+)'
   name: 'PlayStation'
   version: '$1'
+
+- regex: 'PlayStation ?(\d)(?:[/ ](?:Pro )?(\d+[\.\d]+))?'
+  name: 'PlayStation'
+  version: '$1.$2'
 
 - regex: 'Xbox|KIN\.(?:One|Two)'
   name: 'Xbox'
