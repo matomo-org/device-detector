@@ -47,7 +47,7 @@ abstract class AbstractParser
      * Holds the user agent the should be parsed
      * @var ClientHints
      */
-    protected $clientHits;
+    protected $clientHints;
 
     /**
      * Holds an array with method that should be available global
@@ -169,7 +169,7 @@ abstract class AbstractParser
      */
     public function setClientHints(?ClientHints $clientHints): void
     {
-        $this->clientHits = $clientHints;
+        $this->clientHints = $clientHints;
     }
 
     /**
