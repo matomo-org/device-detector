@@ -254,8 +254,8 @@ class OperatingSystem extends AbstractParser
         $return = $osRegex = $matches = [];
         $name   = $version = $short = '';
 
-        if ($this->clientHits && $this->clientHits->getOperatingSystem()) {
-            $hintName = $this->clientHits->getOperatingSystem();
+        if ($this->clientHints && $this->clientHints->getOperatingSystem()) {
+            $hintName = $this->clientHints->getOperatingSystem();
 
             foreach (self::$operatingSystems as $osShort => $osName) {
                 if ($this->fuzzyCompare($hintName, $osName)) {
@@ -266,7 +266,7 @@ class OperatingSystem extends AbstractParser
                 }
             }
 
-            $version = $this->clientHits->getOperatingSystemVersion();
+            $version = $this->clientHints->getOperatingSystemVersion();
         }
 
         // parse the useragent if os wasn't provided in client hints
@@ -388,8 +388,8 @@ class OperatingSystem extends AbstractParser
     protected function parsePlatform(): string
     {
         // Use architecture from client hints if available
-        if ($this->clientHits && $this->clientHits->getArchitecture()) {
-            return $this->clientHits->getArchitecture();
+        if ($this->clientHints && $this->clientHints->getArchitecture()) {
+            return $this->clientHints->getArchitecture();
         }
 
         if ($this->matchUserAgent('arm|aarch64|Apple ?TV|Watch ?OS|Watch1,[12]')) {
