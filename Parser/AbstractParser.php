@@ -14,6 +14,7 @@ namespace DeviceDetector\Parser;
 
 use DeviceDetector\Cache\CacheInterface;
 use DeviceDetector\Cache\StaticCache;
+use DeviceDetector\ClientHints;
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Yaml\ParserInterface as YamlParser;
 use DeviceDetector\Yaml\Spyc;
@@ -41,6 +42,12 @@ abstract class AbstractParser
      * @var string
      */
     protected $userAgent;
+
+    /**
+     * Holds the user agent the should be parsed
+     * @var ClientHints
+     */
+    protected $clientHits;
 
     /**
      * Holds an array with method that should be available global
@@ -116,11 +123,13 @@ abstract class AbstractParser
     /**
      * AbstractParser constructor.
      *
-     * @param string $ua
+     * @param string       $ua
+     * @param ?ClientHints $clientHints
      */
-    public function __construct(string $ua = '')
+    public function __construct(string $ua = '', ?ClientHints $clientHints = null)
     {
         $this->setUserAgent($ua);
+        $this->setClientHints($clientHints);
     }
 
     /**
@@ -151,6 +160,16 @@ abstract class AbstractParser
     public function setUserAgent(string $ua): void
     {
         $this->userAgent = $ua;
+    }
+
+    /**
+     * Sets the client hints to parse
+     *
+     * @param ?ClientHints $clientHints client hints
+     */
+    public function setClientHints(?ClientHints $clientHints): void
+    {
+        $this->clientHits = $clientHints;
     }
 
     /**

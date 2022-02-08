@@ -252,43 +252,62 @@ class OperatingSystem extends AbstractParser
     public function parse(): ?array
     {
         $return = $osRegex = $matches = [];
+        $name   = $version = $short = '';
 
-        foreach ($this->getRegexes() as $osRegex) {
-            $matches = $this->matchUserAgent($osRegex['regex']);
+        if ($this->clientHits && $this->clientHits->getOperatingSystem()) {
+            $hintName = $this->clientHits->getOperatingSystem();
 
-            if ($matches) {
+            foreach (self::$operatingSystems as $osShort => $osName) {
+                if ($this->fuzzyCompare($hintName, $osName)) {
+                    $name  = $osName;
+                    $short = $osShort;
+
+                    break;
+                }
+            }
+
+            $version = $this->clientHits->getOperatingSystemVersion();
+        }
+
+        // parse the useragent if os wasn't provided in client hints
+        if (empty($name)) {
+            foreach ($this->getRegexes() as $osRegex) {
+                $matches = $this->matchUserAgent($osRegex['regex']);
+
+                if ($matches) {
+                    break;
+                }
+            }
+
+            if (empty($matches)) {
+                return $return;
+            }
+
+            $name                                = $this->buildByMatch($osRegex['name'], $matches);
+            ['name' => $name, 'short' => $short] = self::getShortOsData($name);
+
+            $version = \array_key_exists('version', $osRegex)
+                ? $this->buildVersion((string) $osRegex['version'], $matches)
+                : '';
+
+            foreach ($osRegex['versions'] ?? [] as $regex) {
+                $matches = $this->matchUserAgent($regex['regex']);
+
+                if (!$matches) {
+                    continue;
+                }
+
+                if (\array_key_exists('name', $regex)) {
+                    $name                                = $this->buildByMatch($regex['name'], $matches);
+                    ['name' => $name, 'short' => $short] = self::getShortOsData($name);
+                }
+
+                if (\array_key_exists('version', $regex)) {
+                    $version = $this->buildVersion((string) $regex['version'], $matches);
+                }
+
                 break;
             }
-        }
-
-        if (empty($matches)) {
-            return $return;
-        }
-
-        $name                                = $this->buildByMatch($osRegex['name'], $matches);
-        ['name' => $name, 'short' => $short] = self::getShortOsData($name);
-
-        $version = \array_key_exists('version', $osRegex)
-            ? $this->buildVersion((string) $osRegex['version'], $matches)
-            : '';
-
-        foreach ($osRegex['versions'] ?? [] as $regex) {
-            $matches = $this->matchUserAgent($regex['regex']);
-
-            if (!$matches) {
-                continue;
-            }
-
-            if (\array_key_exists('name', $regex)) {
-                $name                                = $this->buildByMatch($regex['name'], $matches);
-                ['name' => $name, 'short' => $short] = self::getShortOsData($name);
-            }
-
-            if (\array_key_exists('version', $regex)) {
-                $version = $this->buildVersion((string) $regex['version'], $matches);
-            }
-
-            break;
         }
 
         $return = [
@@ -368,6 +387,11 @@ class OperatingSystem extends AbstractParser
      */
     protected function parsePlatform(): string
     {
+        // Use architecture from client hints if available
+        if ($this->clientHits && $this->clientHits->getArchitecture()) {
+            return $this->clientHits->getArchitecture();
+        }
+
         if ($this->matchUserAgent('arm|aarch64|Apple ?TV|Watch ?OS|Watch1,[12]')) {
             return 'ARM';
         }
@@ -389,5 +413,19 @@ class OperatingSystem extends AbstractParser
         }
 
         return '';
+    }
+
+    /**
+     * Compares if two strings equals after lowering their case and removing spaces
+     *
+     * @param string $value1
+     * @param string $value2
+     *
+     * @return bool
+     */
+    protected function fuzzyCompare(string $value1, string $value2): bool
+    {
+        return \str_replace(' ', '', \strtolower($value1)) ===
+            \str_replace(' ', '', \strtolower($value2));
     }
 }

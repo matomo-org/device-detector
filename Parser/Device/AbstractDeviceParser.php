@@ -1438,6 +1438,14 @@ abstract class AbstractDeviceParser extends AbstractParser
         }
 
         if (empty($matches)) {
+            if ($this->clientHits && $this->clientHits->getModel()) {
+                return [
+                    'deviceType' => null,
+                    'model'      => $this->clientHits->getModel(),
+                    'brand'      => '',
+                ];
+            }
+
             return null;
         }
 
