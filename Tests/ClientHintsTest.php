@@ -10,6 +10,8 @@
 
 declare(strict_types=1);
 
+namespace DeviceDetector\Tests;
+
 use DeviceDetector\ClientHints;
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\Device\AbstractDeviceParser;
@@ -17,7 +19,7 @@ use PHPUnit\Framework\TestCase;
 
 class ClientHintsTest extends TestCase
 {
-    public function getOsFixtures()
+    public function getOsFixtures(): array
     {
         return [
             [
