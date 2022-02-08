@@ -267,10 +267,21 @@ class OperatingSystem extends AbstractParser
             }
 
             $version = $this->clientHints->getOperatingSystemVersion();
+
+            if ('Windows' === $name && '' !== $version) {
+                $majorVersion = (int) (\explode('.', $version)[0] ?? '0');
+                $version      = '7';
+
+                if ($majorVersion > 0 && $majorVersion < 11) {
+                    $version = '10';
+                } elseif ($majorVersion > 10) {
+                    $version = '11';
+                }
+            }
         }
 
         // parse the useragent if os wasn't provided in client hints
-        if (empty($name)) {
+        if (empty($name) || empty($version)) {
             foreach ($this->getRegexes() as $osRegex) {
                 $matches = $this->matchUserAgent($osRegex['regex']);
 
