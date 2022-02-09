@@ -270,6 +270,7 @@ class OperatingSystem extends AbstractParser
 
             if ('Windows' === $name && '' !== $version) {
                 $majorVersion = (int) (\explode('.', $version)[0] ?? '0');
+
                 if (0 === $majorVersion) {
                     $name = $version = '';
                 } elseif ($majorVersion > 0 && $majorVersion < 11) {
