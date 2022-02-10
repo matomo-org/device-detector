@@ -162,11 +162,13 @@ class Browser extends AbstractClientParser
         'GI' => 'GinxDroid Browser',
         'GB' => 'Glass Browser',
         'GE' => 'Google Earth',
+        'GP' => 'Google Earth Pro',
         'GO' => 'GOG Galaxy',
         'GR' => 'GoBrowser',
         'HB' => 'Harman Browser',
         'HS' => 'HasBrowser',
         'HA' => 'Hawk Turbo Browser',
+        'HQ' => 'Hawk Quick Browser',
         'HE' => 'Helio',
         'HO' => 'hola! Browser',
         'HJ' => 'HotJava',
@@ -412,7 +414,7 @@ class Browser extends AbstractClientParser
             'TB', 'TG', 'TR', 'TS', 'TU', 'TV', 'UB', 'UR', 'VE',
             'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'FH',
             'B1', 'BO', 'HB', 'PC', 'LA', 'LT', 'PD', 'HR', 'HU',
-            'HP', 'IO', 'TP', 'CJ',
+            'HP', 'IO', 'TP', 'CJ', 'HQ',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -443,7 +445,7 @@ class Browser extends AbstractClientParser
         'MN', 'MZ', 'NX', 'OC', 'OI', 'OM', 'OZ', 'PU', 'PI',
         'PE', 'QU', 'RE', 'S0', 'S7', 'SA', 'SB', 'SG', 'SK',
         'ST', 'SU', 'T1', 'UH', 'UM', 'UT', 'VE', 'VV', 'WI',
-        'WP', 'YN', 'IO', 'IS',
+        'WP', 'YN', 'IO', 'IS', 'HQ',
     ];
 
     /**

@@ -79,7 +79,7 @@ class DeviceDetector
      * Holds all registered client types
      * @var array
      */
-    public static $clientTypes = [];
+    protected $clientTypes = [];
 
     /**
      * Holds the useragent that should be parsed
@@ -217,7 +217,7 @@ class DeviceDetector
             }
         }
 
-        foreach (self::$clientTypes as $client) {
+        foreach ($this->clientTypes as $client) {
             if (\strtolower($methodName) === 'is' . \strtolower(\str_replace(' ', '', $client))) {
                 return $this->getClient('type') === $client;
             }
@@ -248,7 +248,7 @@ class DeviceDetector
     public function addClientParser(AbstractClientParser $parser): void
     {
         $this->clientParsers[] = $parser;
-        self::$clientTypes[]   = $parser->getName();
+        $this->clientTypes[]   = $parser->getName();
     }
 
     /**
