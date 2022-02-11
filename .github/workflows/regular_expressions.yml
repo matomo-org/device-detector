@@ -27,33 +27,33 @@ jobs:
           module Warning
           	extend self
           	def warn(message)
-          		raise RegexSyntaxError, message.gsub(/\A.+\.rb:\d+: warning: /, '').gsub(/\n$/, "")
+          	  raise RegexSyntaxError, message.gsub(/\A.+\.rb:\d+: warning: /, '').gsub(/\n$/, "")
           	end
           end
 
           class Report
 
             def initialize()
-               @regexes = 0
-               @success = true
+              @regexes = 0
+              @success = true
             end
 
             def color(color = 34)
-            	printf "\033[#{color}m";
-            	yield
-            	printf "\033[0m"
+              printf "\033[#{color}m"
+              yield
+              printf "\033[0m"
             end
 
             def checker(regex, file)
-            	begin
-            	    @regexes += 1
-            		Regexp.new(regex, Regexp::IGNORECASE)
-            	rescue RegexSyntaxError => e
-            		@success = false;
-            		color(31) {
-            			puts "#{file} - '#{regex}', warning: #{e.message}"
-            		}
-            	end
+              begin
+            	@regexes += 1
+            	Regexp.new(regex, Regexp::IGNORECASE)
+              rescue RegexSyntaxError => e
+            	@success = false
+            	color(31) {
+            	  puts "#{file} - '#{regex}', warning: #{e.message}"
+            	}
+              end
             end
 
             def regexes(n)
