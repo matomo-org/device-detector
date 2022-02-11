@@ -32,33 +32,33 @@ jobs:
             	end
             end
 
-            $regexes = 0
-            $success = true
-            $red = 31
-            $green = 32
-            $blue = 34
-            def color(color = $blue)
+            $$regexes = 0
+            $$success = true
+            $$red = 31
+            $$green = 32
+            $$blue = 34
+            def color(color = $$blue)
             	printf "\033[#{color}m";
             	yield
             	printf "\033[0m"
             end
             def checker(regex, file)
             	begin
-            	    $regexes+=1
+            	    $$regexes+=1
             		Regexp.new(regex, Regexp::IGNORECASE)
             	rescue RegexSyntaxError => e
-            		$success = false;
-            		color($red) {
+            		$$success = false;
+            		color($$red) {
             			puts "#{file} - '#{regex}', warning: #{e.message}"
             		}
             	end
             end
             Dir["regexes/**/*.yml"].each do |file |
             	data = YAML.load_file(file)
-            	color($blue) {
+            	color($$blue) {
             		puts "file --- #{file}... \n"
             	}
-            	$regexes = 0
+            	$$regexes = 0
             	case data
             	    when Array
             	        data.each do | meta |
@@ -83,10 +83,10 @@ jobs:
                             end
                         end
                     end
-                puts "regexes pass #{$regexes}\n"
+                puts "regexes pass #{$$regexes}\n"
             end
 
-            $status || exit(1)
+            $$status || exit(1)
 
           EOF
 
