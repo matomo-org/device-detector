@@ -22,72 +22,70 @@ jobs:
       - name: Validate regular expressions
         run: |
           cat <<- EOF > validate-regular-expressions.rb
+          require "yaml"
+          RegexSyntaxError = Class.new(StandardError)
+          module Warning
+          	extend self
+          	def warn(message)
+          		raise RegexSyntaxError, message.gsub(/\A.+\.rb:\d+: warning: /, '').gsub(/\n$/, "")
+          	end
+          end
 
-            require "yaml"
-            RegexSyntaxError = Class.new(StandardError)
-            module Warning
-            	extend self
-            	def warn(message)
-            		raise RegexSyntaxError, message.gsub(/\A.+\.rb:\d+: warning: /, '').gsub(/\n$/, "")
-            	end
-            end
+          $__regexes = 0
+          $__success = true
+          $__red = 31
+          $__green = 32
+          $__blue = 34
+          def color(color = $__blue)
+          	printf "\033[#{color}m";
+          	yield
+          	printf "\033[0m"
+          end
+          def checker(regex, file)
+          	begin
+          	    $__regexes+=1
+          		Regexp.new(regex, Regexp::IGNORECASE)
+          	rescue RegexSyntaxError => e
+          		$__success = false;
+          		color($__red) {
+          			puts "#{file} - '#{regex}', warning: #{e.message}"
+          		}
+          	end
+          end
+          Dir["regexes/**/*.yml"].each do |file |
+          	data = YAML.load_file(file)
+          	color($__blue) {
+          		puts "file --- #{file}... \n"
+          	}
+          	$__regexes = 0
+          	case data
+          	    when Array
+          	        data.each do | meta |
+          	            if meta.class == Hash and meta['regex']
+          	               checker(meta['regex'], file)
+          	            end
+          	        end
+                  when Hash
+                      data.each_value do | meta |
+                          if meta.class == Hash and meta['regex']
+                              checker(meta['regex'], file)
+                          end
+                          if meta.class == Hash and meta['models']
+                              meta['models'].map do |model |
+                                  checker(model['regex'], file)
+                              end
+                          end
+                          if meta.class == Hash and meta['versions']
+                              meta['versions'].map do |version |
+                                  checker(version['regex'], file)
+                              end
+                          end
+                      end
+                  end
+              puts "regexes pass #{$__regexes}\n"
+          end
 
-            $$regexes = 0
-            $$success = true
-            $$red = 31
-            $$green = 32
-            $$blue = 34
-            def color(color = $$blue)
-            	printf "\033[#{color}m";
-            	yield
-            	printf "\033[0m"
-            end
-            def checker(regex, file)
-            	begin
-            	    $$regexes+=1
-            		Regexp.new(regex, Regexp::IGNORECASE)
-            	rescue RegexSyntaxError => e
-            		$$success = false;
-            		color($$red) {
-            			puts "#{file} - '#{regex}', warning: #{e.message}"
-            		}
-            	end
-            end
-            Dir["regexes/**/*.yml"].each do |file |
-            	data = YAML.load_file(file)
-            	color($$blue) {
-            		puts "file --- #{file}... \n"
-            	}
-            	$$regexes = 0
-            	case data
-            	    when Array
-            	        data.each do | meta |
-            	            if meta.class == Hash and meta['regex']
-            	               checker(meta['regex'], file)
-            	            end
-            	        end
-                    when Hash
-                        data.each_value do | meta |
-                            if meta.class == Hash and meta['regex']
-                                checker(meta['regex'], file)
-                            end
-                            if meta.class == Hash and meta['models']
-                                meta['models'].map do |model |
-                                    checker(model['regex'], file)
-                                end
-                            end
-                            if meta.class == Hash and meta['versions']
-                                meta['versions'].map do |version |
-                                    checker(version['regex'], file)
-                                end
-                            end
-                        end
-                    end
-                puts "regexes pass #{$$regexes}\n"
-            end
-
-            $$status || exit(1)
-
+          $__status || exit(1)
           EOF
 
           ruby validate-regular-expressions.rb
