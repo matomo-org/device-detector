@@ -65,7 +65,7 @@ jobs:
             end
 
             def info()
-               puts "regexes pass #{@regexes}\n"
+              puts "regexes pass #{@regexes}\n"
             end
           end
 
@@ -74,35 +74,35 @@ jobs:
           Dir["regexes/**/*.yml"].each do |file |
           	data = YAML.load_file(file)
           	report.color(34) {
-          		puts "file --- #{file}... \n"
+          	  puts "file --- #{file}... \n"
           	}
-              report.regexes(0)
+            report.regexes(0)
 
           	case data
-          	    when Array
-          	        data.each do | meta |
-          	            if meta.class == Hash and meta['regex']
-          	               report.checker(meta['regex'], file)
-          	            end
-          	        end
-                  when Hash
-                      data.each_value do | meta |
-                          if meta.class == Hash and meta['regex']
-                              report.checker(meta['regex'], file)
-                          end
-                          if meta.class == Hash and meta['models']
-                              meta['models'].map do |model |
-                                  report.checker(model['regex'], file)
-                              end
-                          end
-                          if meta.class == Hash and meta['versions']
-                              meta['versions'].map do |version |
-                                  report.checker(version['regex'], file)
-                              end
-                          end
-                      end
+              when Array
+                data.each do | meta |
+                  if meta.class == Hash and meta['regex']
+                    report.checker(meta['regex'], file)
                   end
-              report.info()
+                end
+              when Hash
+                data.each_value do | meta |
+                  if meta.class == Hash and meta['regex']
+                    report.checker(meta['regex'], file)
+                  end
+                  if meta.class == Hash and meta['models']
+                    meta['models'].map do |model |
+                      report.checker(model['regex'], file)
+                    end
+                  end
+                  if meta.class == Hash and meta['versions']
+                    meta['versions'].map do |version |
+                      report.checker(version['regex'], file)
+                    end
+                  end
+                end
+              end
+            report.info()
           end
 
           report.is_success || exit(1)
