@@ -48,6 +48,14 @@ class DeviceDetectorTest extends TestCase
             foreach ($ymlData as $brand => $regex) {
                 $this->assertArrayHasKey('regex', $regex);
 
+                $this->assertTrue(null === ($error = $this->checkRegexLintOniguruma($regex['regex'])), \sprintf(
+                    "Lint Oniguruma `%s`\nfile %s, brand %s, common regex %s",
+                    $error,
+                    $file,
+                    $brand,
+                    $regex['regex']
+                ));
+
                 $this->assertTrue(false === \strpos($regex['regex'], '||'), \sprintf(
                     'Detect `||` in regex, file %s, brand %s, common regex %s',
                     $file,
@@ -573,6 +581,19 @@ class DeviceDetectorTest extends TestCase
         }
 
         return true;
+    }
+
+    protected function checkRegexLintOniguruma(string $regexString): ?string
+    {
+        try {
+            if (\preg_match('~\][+]~is', $regexString)) {
+                return 'replace ]+ to ]*';
+            }
+        } catch (\Exception $exception) {
+            return $exception->getMessage();
+        }
+
+        return null;
     }
 
     /**
