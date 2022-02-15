@@ -22,91 +22,65 @@ jobs:
       - name: Validate regular expressions
         run: |
           cat <<- EOF > validate-regular-expressions.rb
-          require "yaml"
-          RegexSyntaxError = Class.new(StandardError)
-          module Warning
-          	extend self
-          	def warn(message)
-          	  raise RegexSyntaxError, message.gsub(/\A.+\.rb:\d+: warning: /, '').gsub(/\n$/, "")
-          	end
-          end
+            require "yaml"
 
-          class Report
+            RegexSyntaxError = Class.new(StandardError)
 
-            def initialize()
-              @regexes = 0
-              @success = true
+            module Warning
+              extend self
+
+              def warn(message)
+                raise RegexSyntaxError, message.gsub(/\A.+\.rb:\d+: warning: /, '').gsub(/\n$/, "")
+              end
             end
 
-            def color(color = 34)
-              printf "\033[#{color}m"
-              yield
-              printf "\033[0m"
+            def find_regexes(object)
+              result = []
+              object.each { |key, value|
+                if key == "regex"
+                  result.push(value)
+                else
+                  if key.is_a?(Hash) || key.is_a?(Array)
+                    result.push(*find_regexes(key))
+                  end
+                  if value.is_a?(Hash) || value.is_a?(Array)
+                    result.push(*find_regexes(value))
+                 end
+                end
+              }
+              return result
             end
 
-            def checker(regex, file)
-              begin
-            	@regexes += 1
-            	Regexp.new(regex, Regexp::IGNORECASE)
+            success = true
+
+            Dir["regexes/**/*.yml"].each do |file|
+              data = YAML.load_file(file)
+
+              print "Checking file #{file}... "
+
+              warnings = []
+              regexes = 0
+
+              find_regexes(data).each do |regex_string|
+                regexes += 1
+                Regexp.new(regex_string, Regexp::IGNORECASE)
               rescue RegexSyntaxError => e
-            	@success = false
-            	color(31) {
-            	  puts "#{file} - '#{regex}', warning: #{e.message}"
-            	}
+                success = false
+                warnings << "'#{regex_string}', warning: #{e.message}"
               end
-            end
 
-            def regexes(n)
-              @regexes = n
-            end
-
-            def is_success()
-              return @success
-            end
-
-            def info()
-              puts "regexes pass #{@regexes}\n"
-            end
-          end
-
-          report = Report.new
-
-          Dir["regexes/**/*.yml"].each do |file |
-          	data = YAML.load_file(file)
-          	report.color(34) {
-          	  puts "file --- #{file}... \n"
-          	}
-            report.regexes(0)
-
-          	case data
-              when Array
-                data.each do | meta |
-                  if meta.class == Hash and meta['regex']
-                    report.checker(meta['regex'], file)
-                  end
-                end
-              when Hash
-                data.each_value do | meta |
-                  if meta.class == Hash and meta['regex']
-                    report.checker(meta['regex'], file)
-                  end
-                  if meta.class == Hash and meta['models']
-                    meta['models'].map do |model |
-                      report.checker(model['regex'], file)
-                    end
-                  end
-                  if meta.class == Hash and meta['versions']
-                    meta['versions'].map do |version |
-                      report.checker(version['regex'], file)
-                    end
-                  end
-                end
+              if warnings.any?
+                print "err\n\n"
+                warnings.each { puts "  " + _1 }
+                puts "\n"
+              else
+                print "found #{regexes} regular expressions, all ok\n"
               end
-            report.info()
-          end
+            rescue
+              print "could not find regular expressions\n"
+            end
 
-          report.is_success || exit(1)
-
+            success || exit(1)
           EOF
 
           ruby validate-regular-expressions.rb
