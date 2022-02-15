@@ -35,12 +35,20 @@ jobs:
             end
 
             def find_regexes(object)
-              case object
-              when Hash
-                object["regex"] || object.each_value.filter_map { find_regexes(_1) }
-              when Array
-                object.filter_map { find_regexes(_1 ) }
-              end
+              result = []
+              object.each { |key, value|
+                if key == "regex"
+                  result.push(value)
+                else
+                  if key.is_a?(Hash) || key.is_a?(Array)
+                    result.push(*find_regexes(key))
+                  end
+                  if value.is_a?(Hash) || value.is_a?(Array)
+                    result.push(*find_regexes(value))
+                 end
+                end
+              }
+              return result
             end
 
             success = true
