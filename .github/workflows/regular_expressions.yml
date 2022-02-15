@@ -1,0 +1,86 @@
+name: Validate regular Expressions
+
+on:
+  pull_request:
+  push:
+    branches: [ master ]
+
+permissions:
+  contents: read
+
+jobs:
+  regex:
+    name: Validate regular expressions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1.97.0
+        with:
+          ruby-version: '3.1'
+          bundler-cache: true
+      - name: Validate regular expressions
+        run: |
+          cat <<- EOF > validate-regular-expressions.rb
+            require "yaml"
+
+            RegexSyntaxError = Class.new(StandardError)
+
+            module Warning
+              extend self
+
+              def warn(message)
+                raise RegexSyntaxError, message.gsub(/\A.+\.rb:\d+: warning: /, '').gsub(/\n$/, "")
+              end
+            end
+
+            def find_regexes(object)
+              result = []
+              object.each { |key, value|
+                if key == "regex"
+                  result.push(value)
+                else
+                  if key.is_a?(Hash) || key.is_a?(Array)
+                    result.push(*find_regexes(key))
+                  end
+                  if value.is_a?(Hash) || value.is_a?(Array)
+                    result.push(*find_regexes(value))
+                 end
+                end
+              }
+              return result
+            end
+
+            success = true
+
+            Dir["regexes/**/*.yml"].each do |file|
+              data = YAML.load_file(file)
+
+              print "Checking file #{file}... "
+
+              warnings = []
+              regexes = 0
+
+              find_regexes(data).each do |regex_string|
+                regexes += 1
+                Regexp.new(regex_string, Regexp::IGNORECASE)
+              rescue RegexSyntaxError => e
+                success = false
+                warnings << "'#{regex_string}', warning: #{e.message}"
+              end
+
+              if warnings.any?
+                print "err\n\n"
+                warnings.each { puts "  " + _1 }
+                puts "\n"
+              else
+                print "found #{regexes} regular expressions, all ok\n"
+              end
+            rescue
+              print "could not find regular expressions\n"
+            end
+
+            success || exit(1)
+          EOF
+
+          ruby validate-regular-expressions.rb
