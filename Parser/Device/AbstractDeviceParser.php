@@ -1106,6 +1106,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '42' => 'Topway',
         'TO' => 'Toplux',
         '7T' => 'Torex',
+        '6O' => 'TOSCIDO',
         'TS' => 'Toshiba',
         'T8' => 'Touchmate',
         '5R' => 'Transpeed',
