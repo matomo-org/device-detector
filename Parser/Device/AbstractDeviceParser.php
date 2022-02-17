@@ -813,6 +813,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'O1' => 'Odys',
         'O9' => 'Ok',
         'OA' => 'Okapia',
+        'OJ' => 'Ookee',
         'OD' => 'Onda',
         'ON' => 'OnePlus',
         'OX' => 'Onix',
