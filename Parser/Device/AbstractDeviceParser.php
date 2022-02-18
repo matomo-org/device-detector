@@ -577,6 +577,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'I9' => 'iZotron',
         'JA' => 'JAY-Tech',
         'KJ' => 'Jiake',
+        'JD' => 'Jedi',
         'J6' => 'Jeka',
         'JF' => 'JFone',
         'JI' => 'Jiayu',
