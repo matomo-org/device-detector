@@ -26,7 +26,9 @@ Airties:
 'ALDI SÜD':
   regex: 'ALDISUED[;,]'
   device: 'tv'
-  model: ''
+  models:
+    - regex: 'ALDISUED, ([a-z0-9_ \-]+), (?:wired|wireless)'
+      model: ''
 
 # Altech UEC
 'Altech UEC':
@@ -152,7 +154,9 @@ GoGEN:
 Grundig:
   regex: '(OWB|Grundig|Arcelik)'
   device: 'tv'
-  model: ''
+  models:
+    - regex: 'G7'
+      model: 'G7'
 
 # Haier
 Haier:
@@ -212,13 +216,21 @@ Hotel:
 
 # Humax
 Humax:
-  regex: 'Humax'
+  regex: 'Humax|hdr1000s'
   device: 'tv'
   models:
     - regex: '(HD-FOX C|HD (FOX\+|NANO)|iCord (HD\+|MINI|Cable)|(CX|IR)HD-5100(C|S)|HM9503HD)'
       model: '$1'
     - regex: 'HMS1000S'
       model: 'HMS-1000S'
+    - regex: 'FVP4000T'
+      model: 'FVP-4000T'
+    - regex: 'HGS1000S'
+      model: 'HGS-1000S'
+    - regex: 'HDR1000S'
+      model: 'HDR-1000S'
+    - regex: 'HDR4000T'
+      model: 'HDR-4000T'
     - regex: 'Humax; ([^);/]+)'
       model: '$1'
 
@@ -364,7 +376,9 @@ MediaTek:
 Medion:
   regex: 'Medion'
   device: 'tv'
-  model: ''
+  models:
+    - regex: 'MEDION, ([a-z0-9_ \-]+), (?:wired|wireless)'
+      model: ''
 
 # Miray
 Miray:
@@ -517,6 +531,8 @@ Sharp:
   regex: '(?:UMC-)?Sharp'
   device: 'tv'
   models:
+    - regex: 'SHARP, ([a-z0-9_ \-]+), (?:wired|wireless)'
+      model: ''
     - regex: 'Sharp[,;] ?((?! |HbbTV)[^),;/]+)'
       model: '$1'
     - regex: '(LE[0-9]{3}[A-Z]{0,3})'
@@ -697,5 +713,11 @@ X.Vision:
 # Vestel
 Vestel:
   regex: '(?:Vestel.+VESTEL|VESTEL;)'
+  device: 'tv'
+  model: ''
+
+# Unknown
+Unknown:
+  regex: 'OEM, ([a-z0-9_ \-]+), (?:wired|wireless)'
   device: 'tv'
   model: ''

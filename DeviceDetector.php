@@ -948,7 +948,7 @@ class DeviceDetector
         /**
          * All devices running Opera TV Store are assumed to be a tv
          */
-        if ($this->matchUserAgent('Opera TV Store')) {
+        if ($this->matchUserAgent('Opera TV Store| OMI/')) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
         }
 

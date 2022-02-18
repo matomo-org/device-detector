@@ -6,6 +6,24 @@
 ###############
 
 ##########
+# KreaTV
+##########
+- regex: 'KreaTV/0.0.0.0'
+  name: 'KreaTV'
+  version: ''
+
+- regex: 'KreaTV/(\d+[\.\d]+)'
+  name: 'KreaTV'
+  version: '$1'
+
+##########
+# Opera TV (https://blogs.opera.com/news/2016/01/ces-2016-meet-opera-tv/)
+##########
+- regex: 'Linux (?:[^;]+); Opera TV(?: Store)?/|^Opera/\d+\.\d+ \(Linux mips'
+  name: 'Opera TV'
+  version: ''
+
+##########
 # GridOS (https://web.archive.org/web/20111123141630/http://fusiongarage.com/grid-os/about)
 ##########
 - regex: 'Grid OS (\d+[\.\d]+)'
@@ -324,8 +342,6 @@
   name: 'Rosa'
   version: ''
 
-# generic linux match -> end of file
-
 ##########
 # webOS
 ##########
@@ -335,12 +351,16 @@
   versions:
     - regex: 'WEBOS(\d+[\.\d]+)'
       version: '$1'
-    - regex: 'Web0S; Linux/SmartTV.+Chrome/68'
+    - regex: 'Web0S; Linux/SmartTV.+Chr[o0]me/79'
+      version: '6'
+    - regex: 'Web0S; Linux/SmartTV.+Chr[o0]me/68'
       version: '5'
-    - regex: 'Web0S; Linux/SmartTV.+Chrome/53'
+    - regex: 'Web0S; Linux/SmartTV.+Chr[o0]me/53'
       version: '4'
-    - regex: 'Web0S; Linux/SmartTV.+Chrome/38'
+    - regex: 'Web0S; Linux/SmartTV.+Chr[o0]me/38'
       version: '3'
+    - regex: 'WEBOS1'
+      version: '1'
     - regex: 'Web0S; Linux/SmartTV.+Safari/538'
       version: '2'
     - regex: 'Web0S; Linux/SmartTV.+Safari/537'
@@ -357,7 +377,6 @@
 - regex: 'MorphOS(?:[ /](\d+[\.\d]+))?'
   name: 'MorphOS'
   version: '$1'
-
 
 ##########
 # Windows
@@ -513,9 +532,13 @@
   name: 'iOS'
   version: '$1'
 
-- regex: 'CFNetwork/.+ Darwin/(\d+[\.\d]+)(?!.*(?:x86_64|i386|PowerMac))'
+- regex: '^(?!com.apple.Safari.SearchHelper).*CFNetwork/.+ Darwin/(\d+[\.\d]+)(?!.*(?:x86_64|i386|PowerMac|Power%20Macintosh))'
   name: 'iOS'
   versions:
+    - regex: 'Darwin/21.4.0'
+      version: '15.4'
+    - regex: 'Darwin/21.3.0'
+      version: '15.3'
     - regex: 'Darwin/21.2.0'
       version: '15.2'
     - regex: 'Darwin/21.1.0'
@@ -708,9 +731,13 @@
 ##########
 # Mac
 ##########
-- regex: 'CFNetwork/.+ Darwin/(?:[\d\.]+).+(?:x86_64|i386)|(?:x86_64-apple-)?darwin(?:[\d\.]+)|PowerMac'
+- regex: 'CFNetwork/.+ Darwin/(?:[\d\.]+).+(?:x86_64|i386|Power%20Macintosh)|(?:x86_64-apple-)?darwin(?:[\d\.]+)|PowerMac|com.apple.Safari.SearchHelper'
   name: 'Mac'
   versions:
+    - regex: '(?:x86_64-apple-)?Darwin/?21.4.0'
+      version: '12.3'
+    - regex: '(?:x86_64-apple-)?Darwin/?21.3.0'
+      version: '12.2'
     - regex: '(?:x86_64-apple-)?Darwin/?21.2.0'
       version: '12.1'
     - regex: '(?:x86_64-apple-)?Darwin/?21.1.0'
@@ -1083,9 +1110,13 @@
   name: 'Nintendo'
   version: '$1'
 
-- regex: 'PlayStation ?([34])'
+- regex: 'PlayStation.+; Linux (\d+[\.\d]+)'
   name: 'PlayStation'
   version: '$1'
+
+- regex: 'PlayStation ?(\d)(?:[/ ](?:Pro )?(\d+[\.\d]+))?'
+  name: 'PlayStation'
+  version: '$1.$2'
 
 - regex: 'Xbox|KIN\.(?:One|Two)'
   name: 'Xbox'

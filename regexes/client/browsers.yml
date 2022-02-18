@@ -5,6 +5,21 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
+# SiteKiosk (https://www.sitekiosk.com/)
+- regex: 'Chrome/.+ SiteKiosk (\d+[\.\d]+)'
+  name: 'SiteKiosk'
+  version: '$1'
+  engine:
+    default: 'Blink'
+- regex: 'SiteKiosk (\d+[\.\d]+)'
+  name: 'SiteKiosk'
+  version: '$1'
+
+# Reqwireless WebViewer
+- regex: 'ReqwirelessWeb/(\d+[\.\d]+)'
+  name: 'Reqwireless WebViewer'
+  version: '$1'
+
 # T+Browser (https://t.chanjet.com/tplus/view/login/downloadBrowser.html | https://dad.chanapp.chanjet.com/tplusapp/TPlusBrowser.exe)
 - regex: 'T\+Browser/(\d+[\.\d]+)'
   name: 'T+Browser'
@@ -965,6 +980,9 @@
 - regex: 'AlohaBrowser(?:/(\d+[\.\d]+))?'
   name: 'Aloha Browser'
   version: '$1'
+- regex: 'Aloha/'
+  name: 'Aloha Browser'
+  version: ''
 
 # Avast Secure Browser | Avast SafeZone Browser (https://www.avast.com/)
 - regex: '(?:Avast(?:SecureBrowser)?|ASW|Safer)(?:/(\d+[\.\d]+))?'
@@ -1403,6 +1421,11 @@
       '3.5': 'Elektra'
       '7': 'Presto'
       '15': 'Blink'
+- regex: 'Opera/.+CFNetwork'
+  name: 'Opera'
+  version: ''
+  engine:
+    default: 'WebKit'
 
 #Rekonq
 - regex: 'rekonq(?:/(\d+[\.\d]+))?'
@@ -1518,7 +1541,7 @@
     default: 'WebKit'
     versions:
       '5.2': 'Blink'
-- regex: '(?:Maxthon(?:%20Browser)?|MxBrowser(?:-inhouse|-iPhone)?|MXiOS)[ /](\d+[\.\d]+)'
+- regex: '(?:Maxthon(?:%20Browser)?|MxBrowser(?:-inhouse|-iPhone)?|MXiOS)[ /](\d+[\.\d]+)?'
   name: 'Maxthon'
   version: '$1'
   engine:
@@ -1768,13 +1791,6 @@
   engine:
     default: '' # multi engine -- WebKit or Blink
 
-# QtWebEngine
-- regex: 'QtWebEngine/(\d+[\.\d]+)'
-  name: 'QtWebEngine'
-  version: '$1'
-  engine:
-    default: '' # multi engine -- WebKit or Blink
-
 #Mobile Silk
 - regex: 'Silk/(\d+[\.\d]+) like Chrome'
   name: 'Mobile Silk'
@@ -1898,6 +1914,18 @@
     default: 'WebKit'
     versions:
       28: 'Blink'
+
+# LG Browser
+- regex: 'LG Browser(?:/(\d+[\.\d]+))'
+  name: 'LG Browser'
+  version: '$1'
+
+# QtWebEngine should be placed after LG Browser
+- regex: 'QtWebEngine/(\d+[\.\d]+)'
+  name: 'QtWebEngine'
+  version: '$1'
+  engine:
+    default: '' # multi engine -- WebKit or Blink
 
 # Chrome Webview
 - regex: 'Version/.* Chrome(?:/(\d+[\.\d]+))?'
@@ -2121,7 +2149,7 @@
     default: 'Gecko'
 
 # Google Earth Pro (https://www.google.se/intl/en/earth/versions/)
-- regex: 'Google Earth Pro(?:/(\d+[\.\d]+))?'
+- regex: '(?:Google Earth Pro|Google%20Earth%20Pro)(?:/(\d+[\.\d]+))?'
   name: 'Google Earth Pro'
   version: '$1'
   engine:
@@ -2227,11 +2255,6 @@
   version: '$1'
   engine:
     default: 'Text-based'
-
-# LG Browser
-- regex: 'LG Browser(?:/(\d+[\.\d]+))'
-  name: 'LG Browser'
-  version: '$1'
 
 # LuaKit
 - regex: 'LuaKit(?:/(\d+[\.\d]+))?'
@@ -2363,6 +2386,13 @@
   engine:
     default: 'WebKit'
 
+# Safari Technology Preview (https://developer.apple.com/safari/technology-preview/)
+- regex: 'Safari%20Technology%20Preview/(\d+[\.\d]+)'
+  name: 'Safari Technology Preview'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+
 #Safari
 - regex: '(?:(?:iPod|iPad|iPhone).+Version|MobileSafari)/(\d+[\.\d]+)'
   name: 'Mobile Safari'
@@ -2379,7 +2409,7 @@
   version: ''
   engine:
     default: 'WebKit'
-- regex: 'Version/(\d+[\.\d]+).*Safari/|Safari/?\d+'
+- regex: 'Version/(\d+[\.\d]+).*Safari/|(?:Safari|Safari(?:%20)?%E6%B5%8F%E8%A7%88%E5%99%A8)/?\d+'
   name: 'Safari'
   version: '$1'
   engine:
