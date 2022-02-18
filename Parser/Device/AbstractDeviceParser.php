@@ -790,6 +790,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'HB' => 'New Balance',
         'XB' => 'NEXBOX',
         'NX' => 'Nexian',
+        '7X' => 'Nexa',
         'N8' => 'NEXON',
         'N2' => 'Nextbit',
         'NT' => 'NextBook',
