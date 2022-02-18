@@ -559,6 +559,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '4I' => 'Invin',
         'I1' => 'iOcean',
         'IP' => 'iPro',
+        'X9' => 'iPEGTOP',
         '8Q' => 'IQM',
         'Q8' => 'IRA',
         'I6' => 'Irbis',
