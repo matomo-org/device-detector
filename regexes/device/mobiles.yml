@@ -6621,6 +6621,8 @@ Sony:
     - regex: 'Xperia ([^/;]*Tablet[^/;]*) Build'
       model: 'Xperia $1'
       device: 'tablet'
+    - regex: 'Xperia ([^;/]+) \(AOSP\) Build'
+      model: 'Xperia $1'
     - regex: 'Xperia ([^;/]+) Build'
       model: 'Xperia $1'
     - regex: '(XQ-[A-Z]{2}[0-9]{2})'
@@ -7427,13 +7429,15 @@ Goly:
 
 # Google
 Google:
-  regex: 'Nexus(?! 6P)|GoogleTV|Google Fiber|Google Pixel|Glass(?<!Browser)|CrKey[^a-z0-9]|(?:Pixel|sailfish|taimen|blueline|Chromecast)(?: Build|[)])|Pixel (?:XL|C|[2-6]|[2-4] XL)|Google 2XL|G011A|AOSP on Manta'
+  regex: 'Nexus(?! 6P)|GoogleTV|Google Fiber|Google Pixel|Glass(?<!Browser)|CrKey[^a-z0-9]|(?:Pixel|sailfish|taimen|blueline|Chromecast)(?: Build|[)])|Pixel (?:XL|C|[2-6]|[2-4] XL)|Google 2XL|G011A|AOSP on (?:HammerHead|Manta)'
   device: 'smartphone'
   models:
     - regex: 'Glass'
       model: 'Glass'
     - regex: 'Galaxy Nexus'
       model: 'Galaxy Nexus'
+    - regex: 'AOSP on HammerHead'
+      model: 'Nexus 5'
     - regex: '(Nexus (?:S|4|5X?|One))'
       model: '$1'
     - regex: '(Nexus (?:6P?))'
@@ -13551,6 +13555,12 @@ Nomu:
     - regex: '(V1600S)(?:[);/ ]|$)'
       model: '$1'
 
+# Noontec (http://www.noontec.com.au/)
+Noontec:
+  regex: 'Noontec '
+  device: 'tv'
+  model: ''
+
 # Opsson
 Opsson:
   regex: 'Opsson|IUSAI'
@@ -15439,7 +15449,7 @@ Soundmax:
 
 # Samsung
 Samsung:
-  regex: 'SAMSUNG(?! ?Browser)|lineage_j5y17lte|Maple (?!III)|Gear Live|SC-(?:01[FGHKLM]|02[CGHJKLMF]|03[JKLE]|04[EFJL]|05[GL]|(?:4[12]|5[1-4])A|5[1-5]B)|N[57]100|N5110|N9100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|SMART-TV|GT-|(?<!GOG|GOG )Galaxy|(?:portalmmm|o2imode)/2\.0 [SZ]|sam[rua]|vollo Vi86(?:[);/ ]|$)|(?:OTV-)?SMT-E5015|ISW11SC|40[34]SC|SC(?:V3[1-9]|V4[0-9]|51Aa|-56B|T21|G0[1-9]|G1[012]|L2[234])(?:-[uj])?(?:[);/ ]|$)'
+  regex: 'SAMSUNG(?! ?Browser)|lineage_j5y17lte|FamilyHub|Maple (?!III)|Gear Live|(?:SEC_)?SC-(?:001|01[FGHKLM]|02[CGHJKLMF]|03[EFJKL]|04[EFJL]|05[GL]|(?:4[12]|5[1-4])A|5[1-5]B)|N[57]100|N5110|N9100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|SMART-TV|GT-|(?<!GOG|GOG )Galaxy|(?:portalmmm|o2imode)/2\.0 [SZ]|sam[rua]|vollo Vi86(?:[);/ ]|$)|(?:OTV-)?SMT-E5015|ISW11SC|40[34]SC|SC(?:V3[1-9]|V4[0-9]|51Aa|-56B|T21|G0[1-9]|G1[012]|L2[234])(?:-[uj])?(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit tv models
@@ -15887,7 +15897,7 @@ Samsung:
       model: 'Gear Live'
 
     # smart fridge models
-    - regex: 'Family Hub'
+    - regex: 'Family ?Hub'
       device: 'peripheral'
       model: 'Family Hub'
 
@@ -16744,6 +16754,8 @@ Samsung:
       model: '$1'
     - regex: 'SAMSUNG;[ ]?([a-z0-9 ]+)'
       model: '$1'
+    - regex: 'SEC_SC-([a-z0-9]+)'
+      model: 'SC-$1' # NTT DoCoMo
     - regex: 'SEC-([a-z0-9]+)'
       model: '$1'
     - regex: 'SAM-([a-z0-9]+)'
@@ -23322,9 +23334,19 @@ PocketBook:
   regex: 'PocketBook[ _/]'
   device: 'tablet'
   models:
+    - regex: 'A7(?:[);/ ]|$)'
+      model: 'A7'
+    - regex: 'A10 3G(?:[);/ ]|$)'
+      model: 'A10 3G'
+    - regex: 'A10(?:[);/ ]|$)'
+      model: 'A10'
+    - regex: 'SURFpad2(?:[);/ ]|$)'
+      model: 'SURFpad 2'
     - regex: 'PocketBook SURFpad 3 \(([\d]+).([\d]+)["]?\)(?:[);/ ]|$)'
-      model: 'Surfpad 3 $1.$2"'
-    - regex: 'PocketBook/(62[67]|63[12]|740|840)(?:[);/ ]|$)'
+      model: 'SURFpad 3 $1.$2"'
+    - regex: 'SURFpad 4 ([LMS])(?:[);/ ]|$)'
+      model: 'SURFpad 4 $1'
+    - regex: 'PocketBook/(515|614|62[23467]|63[012]|64[01]|650|740|801|840)(?:[);/ ]|$)'
       model: '$1'
 
 # Bitmore
@@ -28080,7 +28102,7 @@ Onkyo:
 
 # Devices with undectable brand, but detectable model
 Unknown:
-  regex: 'Plasma Mobile|WebTV/(\d+\.\d+)|(?:M10 Ultra|FO-R15|TVBOX|Smart[ _]?TV|SmartATV|M8S\+ 4K|PCBox|rk3368-box|H10 PLAY|Smart AIO TV|TVBOX_L|L-BOX|TVBOX-5G|mips.+(?:Opera TV|wireless|wired))(?:[);/ ]|$)'
+  regex: 'Plasma Mobile|WebTV/(\d+\.\d+)|(?:M10 Ultra|FO-R15|TVBOX|Smart[ _]?TV|SmartATV|M8S\+ 4K|PCBox|rk3368-box|H10 PLAY|Smart AIO TV|TVBOX_L|L-BOX|TVBOX-5G|mips.+(?:Opera TV|wireless|wired)|smartbox)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'WebTV/(\d+\.\d+)'
@@ -28101,6 +28123,6 @@ Unknown:
     - regex: 'H10 PLAY(?:[);/ ]|$)'
       device: 'tv'
       model: 'H10 Play'
-    - regex: '(?:Opera TV|wireless|wired)(?:[);/ ]|$)'
+    - regex: '(?:Opera TV|wireless|wired|smartbox)(?:[);/ ]|$)'
       device: 'tv'
       model: ''
