@@ -955,7 +955,7 @@ class DeviceDetector
         /**
          * All devices that contain Andr0id in string are assumed to be a tv
          */
-        if ($this->matchUserAgent('Andr0id')) {
+        if ($this->matchUserAgent('Andr0id|Android TV')) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
         }
 
