@@ -151,7 +151,7 @@ class OperatingSystem extends AbstractParser
         'XBX' => 'Xbox',
         'XBT' => 'Xubuntu',
         'YNS' => 'YunOS',
-        'ZEN' => 'Zenwalk GNU Linux',
+        'ZEN' => 'Zenwalk',
         'IOS' => 'iOS',
         'POS' => 'palmOS',
         'WOS' => 'webOS',
