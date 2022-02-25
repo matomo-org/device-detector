@@ -371,4 +371,18 @@ abstract class AbstractParser
 
         return $this->matchUserAgent($this->overAllMatch);
     }
+
+    /**
+     * Compares if two strings equals after lowering their case and removing spaces
+     *
+     * @param string $value1
+     * @param string $value2
+     *
+     * @return bool
+     */
+    protected function fuzzyCompare(string $value1, string $value2): bool
+    {
+        return \str_replace(' ', '', \strtolower($value1)) ===
+            \str_replace(' ', '', \strtolower($value2));
+    }
 }

@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace DeviceDetector\Parser\Client;
 
+use DeviceDetector\ClientHints;
 use DeviceDetector\Parser\Client\Browser\Engine;
 
 /**
@@ -507,6 +508,84 @@ class Browser extends AbstractClientParser
      */
     public function parse(): ?array
     {
+        $browserFromClientHints = $this->parseBrowserFromClientHints();
+        $browserFromUserAgent   = $this->parseBrowserFromUserAgent();
+
+        // use client hints in favor of user agent data if possible
+        if (!empty($browserFromClientHints['name']) && !empty($browserFromClientHints['version'])) {
+            $name          = $browserFromClientHints['name'];
+            $version       = $browserFromClientHints['version'];
+            $short         = $browserFromClientHints['short_name'];
+            $engine        = '';
+            $engineVersion = '';
+
+            if ($browserFromClientHints['name'] === $browserFromUserAgent['name']) {
+                $engine        = $browserFromUserAgent['engine'] ?? '';
+                $engineVersion = $browserFromUserAgent['engine_version'] ?? '';
+            }
+        } else {
+            $name          = $browserFromUserAgent['name'];
+            $version       = $browserFromUserAgent['version'];
+            $short         = $browserFromUserAgent['short_name'];
+            $engine        = $browserFromUserAgent['engine'];
+            $engineVersion = $browserFromUserAgent['engine_version'];
+        }
+
+        if (empty($name)) {
+            return [];
+        }
+
+        return [
+            'type'           => 'browser',
+            'name'           => $name,
+            'short_name'     => $short,
+            'version'        => $version,
+            'engine'         => $engine,
+            'engine_version' => $engineVersion,
+            'family'         => self::getBrowserFamily((string) $short),
+        ];
+    }
+
+    /**
+     * Returns the browser that can be safely detected from client hints
+     *
+     * @return array
+     */
+    protected function parseBrowserFromClientHints(): array
+    {
+        $name = $version = $short = '';
+
+        if ($this->clientHints instanceof ClientHints && $this->clientHints->getBrowserName()) {
+            $hintName = $this->clientHints->getBrowserName();
+
+            foreach (self::$availableBrowsers as $browserShort => $browserName) {
+                if ($this->fuzzyCompare($hintName, $browserName)) {
+                    $name  = $browserName;
+                    $short = $browserShort;
+
+                    break;
+                }
+            }
+
+            $version = $this->clientHints->getBrowserVersion();
+        }
+
+        return [
+            'name'       => $name,
+            'short_name' => $short,
+            'version'    => $version,
+        ];
+    }
+
+    /**
+     * Returns the browser that can be detected from useragent
+     *
+     * @return array
+     *
+     * @throws \Exception
+     */
+    protected function parseBrowserFromUserAgent(): array
+    {
         foreach ($this->getRegexes() as $regex) {
             $matches = $this->matchUserAgent($regex['regex']);
 
@@ -516,7 +595,13 @@ class Browser extends AbstractClientParser
         }
 
         if (empty($matches) || empty($regex)) {
-            return null;
+            return [
+                'name'           => '',
+                'short_name'     => '',
+                'version'        => '',
+                'engine'         => '',
+                'engine_version' => '',
+            ];
         }
 
         $name = $this->buildByMatch($regex['name'], $matches);
@@ -528,13 +613,11 @@ class Browser extends AbstractClientParser
                 $engineVersion = $this->buildEngineVersion($engine);
 
                 return [
-                    'type'           => 'browser',
                     'name'           => $browserName,
                     'short_name'     => (string) $browserShort,
                     'version'        => $version,
                     'engine'         => $engine,
                     'engine_version' => $engineVersion,
-                    'family'         => self::getBrowserFamily((string) $browserShort),
                 ];
             }
         }
