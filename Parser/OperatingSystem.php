@@ -254,29 +254,24 @@ class OperatingSystem extends AbstractParser
     public function parse(): ?array
     {
         $osFromClientHints = $this->parseOsFromClientHints();
+        $osFromUserAgent   = $this->parseOsFromUserAgent();
 
-        // If we have a full result from client hints, we will use it
-        if (!empty($osFromClientHints['name']) && !empty($osFromClientHints['version'])) {
+        if (!empty($osFromClientHints['name'])) {
             $name    = $osFromClientHints['name'];
             $version = $osFromClientHints['version'];
-            $short   = $osFromClientHints['short_name'];
-        } else {
-            $osFromUserAgent = $this->parseOsFromUserAgent();
 
-            // if we have an os without version from client hints, we only use the os from useragent if the name matches
-            if (!empty($osFromClientHints['name']) && $osFromClientHints['name'] === $osFromUserAgent['name']) {
-                $name    = $osFromUserAgent['name'];
+            // use version from user agent if non was provided in client hints, but os from useragent matches
+            if (empty($version) && $osFromClientHints['name'] === $osFromUserAgent['name']) {
                 $version = $osFromUserAgent['version'];
-                $short   = $osFromUserAgent['short_name'];
-
-            // if no os was provided in client hints we always use the user agent detection
-            } elseif (empty($osFromClientHints['name']) && !empty($osFromUserAgent['name'])) {
-                $name    = $osFromUserAgent['name'];
-                $version = $osFromUserAgent['version'];
-                $short   = $osFromUserAgent['short_name'];
-            } else {
-                return [];
             }
+
+            $short   = $osFromClientHints['short_name'];
+        } else if (!empty($osFromUserAgent['name'])) {
+            $name    = $osFromUserAgent['name'];
+            $version = $osFromUserAgent['version'];
+            $short   = $osFromUserAgent['short_name'];
+        } else {
+            return [];
         }
 
         $return = [
@@ -457,7 +452,7 @@ class OperatingSystem extends AbstractParser
     protected function parsePlatform(): string
     {
         // Use architecture from client hints if available
-        if ($this->clientHints && $this->clientHints->getArchitecture()) {
+        if ($this->clientHints instanceof ClientHints && $this->clientHints->getArchitecture()) {
             return $this->clientHints->getArchitecture();
         }
 
