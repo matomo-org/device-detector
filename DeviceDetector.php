@@ -376,7 +376,7 @@ class DeviceDetector
     public function isMobile(): bool
     {
         // Client hints indicate a mobile device
-        if ($this->clientHints && $this->clientHints->isMobile()) {
+        if ($this->clientHints instanceof ClientHints && $this->clientHints->isMobile()) {
             return true;
         }
 

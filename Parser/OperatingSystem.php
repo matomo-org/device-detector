@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace DeviceDetector\Parser;
 
+use DeviceDetector\ClientHints;
+
 /**
  * Class OperatingSystem
  *
@@ -251,74 +253,29 @@ class OperatingSystem extends AbstractParser
      */
     public function parse(): ?array
     {
-        $return = $osRegex = $matches = [];
-        $name   = $version = $short = '';
+        $osFromClientHints = $this->parseOsFromClientHints();
 
-        if ($this->clientHints && $this->clientHints->getOperatingSystem()) {
-            $hintName = $this->clientHints->getOperatingSystem();
+        // If we have a full result from client hints, we will use it
+        if (!empty($osFromClientHints['name']) && !empty($osFromClientHints['version'])) {
+            $name    = $osFromClientHints['name'];
+            $version = $osFromClientHints['version'];
+            $short   = $osFromClientHints['short_name'];
+        } else {
+            $osFromUserAgent = $this->parseOsFromUserAgent();
 
-            foreach (self::$operatingSystems as $osShort => $osName) {
-                if ($this->fuzzyCompare($hintName, $osName)) {
-                    $name  = $osName;
-                    $short = $osShort;
+            // if we have an os without version from client hints, we only use the os from useragent if the name matches
+            if (!empty($osFromClientHints['name']) && $osFromClientHints['name'] === $osFromUserAgent['name']) {
+                $name    = $osFromUserAgent['name'];
+                $version = $osFromUserAgent['version'];
+                $short   = $osFromUserAgent['short_name'];
 
-                    break;
-                }
-            }
-
-            $version = $this->clientHints->getOperatingSystemVersion();
-
-            if ('Windows' === $name) {
-                $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
-
-                if (0 === $majorVersion) {
-                    $name = '';
-                } elseif ($majorVersion > 0 && $majorVersion < 11) {
-                    $version = '10';
-                } elseif ($majorVersion > 10) {
-                    $version = '11';
-                }
-            }
-        }
-
-        // parse the useragent if os wasn't provided in client hints
-        if (empty($name)) {
-            foreach ($this->getRegexes() as $osRegex) {
-                $matches = $this->matchUserAgent($osRegex['regex']);
-
-                if ($matches) {
-                    break;
-                }
-            }
-
-            if (empty($matches)) {
-                return $return;
-            }
-
-            $name                                = $this->buildByMatch($osRegex['name'], $matches);
-            ['name' => $name, 'short' => $short] = self::getShortOsData($name);
-
-            $version = \array_key_exists('version', $osRegex)
-                ? $this->buildVersion((string) $osRegex['version'], $matches)
-                : '';
-
-            foreach ($osRegex['versions'] ?? [] as $regex) {
-                $matches = $this->matchUserAgent($regex['regex']);
-
-                if (!$matches) {
-                    continue;
-                }
-
-                if (\array_key_exists('name', $regex)) {
-                    $name                                = $this->buildByMatch($regex['name'], $matches);
-                    ['name' => $name, 'short' => $short] = self::getShortOsData($name);
-                }
-
-                if (\array_key_exists('version', $regex)) {
-                    $version = $this->buildVersion((string) $regex['version'], $matches);
-                }
-
-                break;
+            // if no os was provided in client hints we always use the user agent detection
+            } elseif (empty($osFromClientHints['name']) && !empty($osFromUserAgent['name'])) {
+                $name    = $osFromUserAgent['name'];
+                $version = $osFromUserAgent['version'];
+                $short   = $osFromUserAgent['short_name'];
+            } else {
+                return [];
             }
         }
 
@@ -390,6 +347,106 @@ class OperatingSystem extends AbstractParser
         }
 
         return null;
+    }
+
+    /**
+     * Returns the OS that can be safely detected from client hints
+     *
+     * @return array
+     */
+    protected function parseOsFromClientHints(): array
+    {
+        $name = $version = $short = '';
+
+        if ($this->clientHints instanceof ClientHints && $this->clientHints->getOperatingSystem()) {
+            $hintName = $this->clientHints->getOperatingSystem();
+
+            foreach (self::$operatingSystems as $osShort => $osName) {
+                if ($this->fuzzyCompare($hintName, $osName)) {
+                    $name  = $osName;
+                    $short = $osShort;
+
+                    break;
+                }
+            }
+
+            $version = $this->clientHints->getOperatingSystemVersion();
+
+            if ('Windows' === $name) {
+                $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
+
+                if ($majorVersion > 0 && $majorVersion < 11) {
+                    $version = '10';
+                } elseif ($majorVersion > 10) {
+                    $version = '11';
+                }
+            }
+
+            if (0 === (int) $version) {
+                $version = '';
+            }
+        }
+
+        return [
+            'name'       => $name,
+            'short_name' => $short,
+            'version'    => $version,
+        ];
+    }
+
+    /**
+     * Returns the OS that can be detected from useragent
+     *
+     * @return array
+     *
+     * @throws \Exception
+     */
+    protected function parseOsFromUserAgent(): array
+    {
+        $osRegex = $matches = [];
+        $name    = $version = $short = '';
+
+        foreach ($this->getRegexes() as $osRegex) {
+            $matches = $this->matchUserAgent($osRegex['regex']);
+
+            if ($matches) {
+                break;
+            }
+        }
+
+        if (!empty($matches)) {
+            $name                                = $this->buildByMatch($osRegex['name'], $matches);
+            ['name' => $name, 'short' => $short] = self::getShortOsData($name);
+
+            $version = \array_key_exists('version', $osRegex)
+                ? $this->buildVersion((string) $osRegex['version'], $matches)
+                : '';
+
+            foreach ($osRegex['versions'] ?? [] as $regex) {
+                $matches = $this->matchUserAgent($regex['regex']);
+
+                if (!$matches) {
+                    continue;
+                }
+
+                if (\array_key_exists('name', $regex)) {
+                    $name                                = $this->buildByMatch($regex['name'], $matches);
+                    ['name' => $name, 'short' => $short] = self::getShortOsData($name);
+                }
+
+                if (\array_key_exists('version', $regex)) {
+                    $version = $this->buildVersion((string) $regex['version'], $matches);
+                }
+
+                break;
+            }
+        }
+
+        return [
+            'name'       => $name,
+            'short_name' => $short,
+            'version'    => $version,
+        ];
     }
 
     /**
