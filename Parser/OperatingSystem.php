@@ -265,8 +265,8 @@ class OperatingSystem extends AbstractParser
                 $version = $osFromUserAgent['version'];
             }
 
-            $short   = $osFromClientHints['short_name'];
-        } else if (!empty($osFromUserAgent['name'])) {
+            $short = $osFromClientHints['short_name'];
+        } elseif (!empty($osFromUserAgent['name'])) {
             $name    = $osFromUserAgent['name'];
             $version = $osFromUserAgent['version'];
             $short   = $osFromUserAgent['short_name'];

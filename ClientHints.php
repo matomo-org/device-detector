@@ -259,7 +259,7 @@ class ClientHints
                     break;
                 case 'sec-ch-ua':
                 case 'sec-ch-ua-full-version-list':
-                    $reg  = '/^"([^"]+)"; v="([^"]+)"(?:, )?/';
+                    $reg  = '/^"([^"]+)"; ?v="([^"]+)"(?:, )?/';
                     $list = [];
 
                     while (\preg_match($reg, $value, $matches)) {

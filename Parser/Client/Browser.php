@@ -519,9 +519,22 @@ class Browser extends AbstractClientParser
             $engine        = '';
             $engineVersion = '';
 
-            if ($browserFromClientHints['name'] === $browserFromUserAgent['name']) {
+            // Fix mobile browser names e.g. Chrome => Chrome Mobile
+            if ($name . ' Mobile' === $browserFromUserAgent['name']) {
+                $name  = $browserFromUserAgent['name'];
+                $short = $browserFromUserAgent['short_name'];
+            }
+
+            if ($name === $browserFromUserAgent['name']) {
                 $engine        = $browserFromUserAgent['engine'] ?? '';
                 $engineVersion = $browserFromUserAgent['engine_version'] ?? '';
+
+                // In case the user agent reports a more detailed version, we try to use this instead
+                if (0 === \strpos($browserFromUserAgent['version'], $version)
+                    && \version_compare($version, $browserFromUserAgent['version'], '<')
+                ) {
+                    $version = $browserFromUserAgent['version'];
+                }
             }
         } else {
             $name          = $browserFromUserAgent['name'];
@@ -557,6 +570,10 @@ class Browser extends AbstractClientParser
 
         if ($this->clientHints instanceof ClientHints && $this->clientHints->getBrowserName()) {
             $hintName = $this->clientHints->getBrowserName();
+
+            if ('Google Chrome' === $hintName) {
+                $hintName = 'Chrome';
+            }
 
             foreach (self::$availableBrowsers as $browserShort => $browserName) {
                 if ($this->fuzzyCompare($hintName, $browserName)) {
