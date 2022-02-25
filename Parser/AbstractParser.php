@@ -38,16 +38,16 @@ abstract class AbstractParser
     protected $parserName;
 
     /**
-     * Holds the user agent the should be parsed
+     * Holds the user agent to be parsed
      * @var string
      */
     protected $userAgent;
 
     /**
-     * Holds the user agent the should be parsed
-     * @var ClientHints
+     * Holds the client hints to be parsed
+     * @var ?ClientHints
      */
-    protected $clientHints;
+    protected $clientHints = null;
 
     /**
      * Holds an array with method that should be available global
