@@ -254,9 +254,9 @@ class DeviceDetector
     /**
      * Sets the browser client hints to be parsed
      *
-     * @param ClientHints $clientHints
+     * @param ?ClientHints $clientHints
      */
-    public function setClientHints(ClientHints $clientHints): void
+    public function setClientHints(?ClientHints $clientHints = null): void
     {
         if ($this->clientHints !== $clientHints) {
             $this->reset();
@@ -626,11 +626,12 @@ class DeviceDetector
      *
      * @deprecated
      *
-     * @param string $ua UserAgent to parse
+     * @param string       $ua          UserAgent to parse
+     * @param ?ClientHints $clientHints Client Hints to parse
      *
      * @return array
      */
-    public static function getInfoFromUserAgent(string $ua): array
+    public static function getInfoFromUserAgent(string $ua, ?ClientHints $clientHints = null): array
     {
         static $deviceDetector;
 
@@ -639,6 +640,7 @@ class DeviceDetector
         }
 
         $deviceDetector->setUserAgent($ua);
+        $deviceDetector->setClientHints($clientHints);
 
         $deviceDetector->parse();
 
@@ -669,7 +671,7 @@ class DeviceDetector
 
         unset($os['short_name'], $os['family']);
 
-        $processed = [
+        return [
             'user_agent'     => $deviceDetector->getUserAgent(),
             'os'             => $os,
             'client'         => $client,
@@ -681,8 +683,6 @@ class DeviceDetector
             'os_family'      => $osFamily,
             'browser_family' => $browserFamily,
         ];
-
-        return $processed;
     }
 
     /**
