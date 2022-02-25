@@ -163,6 +163,46 @@ class ClientHints
     }
 
     /**
+     * Returns the Browser name
+     *
+     * @return string
+     */
+    public function getBrowserName(): string
+    {
+        if (\is_array($this->fullVersionList)) {
+            $lastElement = \end($this->fullVersionList);
+
+            if ($lastElement['brand']) {
+                return $lastElement['brand'];
+            }
+        }
+
+        return '';
+    }
+
+    /**
+     * Returns the Browser version
+     *
+     * @return string
+     */
+    public function getBrowserVersion(): string
+    {
+        if (!empty($this->uaFullVersion)) {
+            return $this->uaFullVersion;
+        }
+
+        if (\is_array($this->fullVersionList)) {
+            $lastElement = \end($this->fullVersionList);
+
+            if ($lastElement['version']) {
+                return $lastElement['version'];
+            }
+        }
+
+        return '';
+    }
+
+    /**
      * Factory method to easily instantiate this class using an array containing all available (client hint) headers
      *
      * @param array $headers
@@ -213,12 +253,12 @@ class ClientHints
                     $platformVersion = $value;
 
                     break;
-                case 'sec-ch-ua-full-version-list':
                 case 'brands':
                     $fullVersionList = \is_array($value) ? $value : $fullVersionList;
 
                     break;
                 case 'sec-ch-ua':
+                case 'sec-ch-ua-full-version-list':
                     $reg  = '/^"([^"]+)"; v="([^"]+)"(?:, )?/';
                     $list = [];
 
