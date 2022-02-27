@@ -134,6 +134,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '3J' => 'Amino',
         '54' => 'AMCV',
         '60' => 'Andowl',
+        '6J' => 'Angelcare',
         '7A' => 'Anry',
         'A0' => 'ANS',
         '74' => 'Anker',
