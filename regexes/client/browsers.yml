@@ -626,6 +626,10 @@
 - regex: 'AVG(?:/(\d+[\.\d]+))?'
   name: 'AVG Secure Browser'
   version: '$1'
+  engine:
+    default: 'WebKit'
+    versions:
+      28: 'Blink'
 
 # START Internet Browser (https://play.google.com/store/apps/details?id=fyi.start.web.browser)
 - regex: 'Start/(?:(\d+[\.\d]+))?'
@@ -985,9 +989,16 @@
   version: ''
 
 # Avast Secure Browser | Avast SafeZone Browser (https://www.avast.com/)
+- regex: 'Chrome.+(?:Avast(?:SecureBrowser)?|ASW|Safer)(?:/(\d+[\.\d]+))?'
+  name: 'Avast Secure Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
 - regex: '(?:Avast(?:SecureBrowser)?|ASW|Safer)(?:/(\d+[\.\d]+))?'
   name: 'Avast Secure Browser'
   version: '$1'
+  engine:
+    default: 'WebKit'
 
 #Epic
 - regex: 'Epic(?:/(\d+[\.\d]+))'
