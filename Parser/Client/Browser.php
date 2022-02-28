@@ -520,7 +520,9 @@ class Browser extends AbstractClientParser
             $engineVersion = '';
 
             // If client hints report Chromium, but user agent detects a chromium based browser, we favor this instead
-            if ('Chromium' === $name && 'Chromium' !== $browserFromUserAgent['name']
+            if ('Chromium' === $name
+                && !empty($browserFromUserAgent['name'])
+                && 'Chromium' !== $browserFromUserAgent['name']
                 && 'Chrome' === self::getBrowserFamily($browserFromUserAgent['name'])
             ) {
                 $name    = $browserFromUserAgent['name'];
@@ -539,7 +541,8 @@ class Browser extends AbstractClientParser
                 $engineVersion = $browserFromUserAgent['engine_version'] ?? '';
 
                 // In case the user agent reports a more detailed version, we try to use this instead
-                if (0 === \strpos($browserFromUserAgent['version'], $version)
+                if (!empty($browserFromUserAgent['version'])
+                    && 0 === \strpos($browserFromUserAgent['version'], $version)
                     && \version_compare($version, $browserFromUserAgent['version'], '<')
                 ) {
                     $version = $browserFromUserAgent['version'];
@@ -577,25 +580,34 @@ class Browser extends AbstractClientParser
     {
         $name = $version = $short = '';
 
-        if ($this->clientHints instanceof ClientHints && $this->clientHints->getBrowserName()) {
-            $hintName = $this->clientHints->getBrowserName();
+        if ($this->clientHints instanceof ClientHints && $this->clientHints->getBrandList()) {
+            $brands = $this->clientHints->getBrandList();
 
-            if ('Google Chrome' === $hintName) {
-                $hintName = 'Chrome';
-            } elseif ('CCleaner Browser' === $hintName) {
-                $hintName = 'CCleaner';
-            }
+            foreach ($brands as $brand => $brandVersion) {
+                if ('Google Chrome' === $brand) {
+                    $brand = 'Chrome';
+                }
 
-            foreach (self::$availableBrowsers as $browserShort => $browserName) {
-                if ($this->fuzzyCompare($hintName, $browserName)) {
-                    $name  = $browserName;
-                    $short = $browserShort;
+                foreach (self::$availableBrowsers as $browserShort => $browserName) {
+                    if ($this->fuzzyCompare("{$brand}", $browserName)
+                        || $this->fuzzyCompare($brand . ' Browser', $browserName)
+                        || $this->fuzzyCompare("{$brand}", $browserName . ' Browser')
+                    ) {
+                        $name    = $browserName;
+                        $short   = $browserShort;
+                        $version = $brandVersion;
 
+                        break;
+                    }
+                }
+
+                // If we detected a brand, that is not chromium, we will use it, otherwise we will look further
+                if ('' !== $name && 'Chromium' !== $name) {
                     break;
                 }
             }
 
-            $version = $this->clientHints->getBrowserVersion();
+            $version = $this->clientHints->getBrandVersion() ?: $version;
         }
 
         return [

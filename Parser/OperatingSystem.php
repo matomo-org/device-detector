@@ -453,7 +453,27 @@ class OperatingSystem extends AbstractParser
     {
         // Use architecture from client hints if available
         if ($this->clientHints instanceof ClientHints && $this->clientHints->getArchitecture()) {
-            return $this->clientHints->getArchitecture();
+            $arch = \strtolower($this->clientHints->getArchitecture());
+
+            if (\strpos($arch, 'arm')) {
+                return 'ARM';
+            }
+
+            if (\strpos($arch, 'mips')) {
+                return 'MIPS';
+            }
+
+            if (\strpos($arch, 'sh4')) {
+                return 'SuperH';
+            }
+
+            if (\strpos($arch, 'x64')) {
+                return 'x64';
+            }
+
+            if (\strpos($arch, 'x86')) {
+                return 'x86';
+            }
         }
 
         if ($this->matchUserAgent('arm|aarch64|Apple ?TV|Watch ?OS|Watch1,[12]')) {
