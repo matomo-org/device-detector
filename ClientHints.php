@@ -230,7 +230,7 @@ class ClientHints
                     break;
                 case 'sec-ch-ua-mobile':
                 case 'mobile':
-                    $mobile = true === $value || '1' === $value;
+                    $mobile = true === $value || '1' === $value || '?1' === $value;
 
                     break;
                 case 'sec-ch-ua-model':
