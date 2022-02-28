@@ -165,19 +165,18 @@ class ClientHints
     /**
      * Returns the Browser name
      *
-     * @return string
+     * @return array<string>
      */
-    public function getBrowserName(): string
+    public function getBrandList(): array
     {
-        if (\is_array($this->fullVersionList)) {
-            $lastElement = \end($this->fullVersionList);
-
-            if ($lastElement['brand']) {
-                return $lastElement['brand'];
-            }
+        if (\count($this->fullVersionList)) {
+            return \array_combine(
+                \array_column($this->fullVersionList, 'brand'),
+                \array_column($this->fullVersionList, 'version')
+            ) ?: [];
         }
 
-        return '';
+        return [];
     }
 
     /**
@@ -185,18 +184,10 @@ class ClientHints
      *
      * @return string
      */
-    public function getBrowserVersion(): string
+    public function getBrandVersion(): string
     {
         if (!empty($this->uaFullVersion)) {
             return $this->uaFullVersion;
-        }
-
-        if (\is_array($this->fullVersionList)) {
-            $lastElement = \end($this->fullVersionList);
-
-            if ($lastElement['version']) {
-                return $lastElement['version'];
-            }
         }
 
         return '';
@@ -258,6 +249,10 @@ class ClientHints
 
                     break;
                 case 'sec-ch-ua':
+                    if (!empty($fullVersionList)) {
+                        break;
+                    }
+                    // use this only if no other header already set the list
                 case 'sec-ch-ua-full-version-list':
                     $reg  = '/^"([^"]+)"; ?v="([^"]+)"(?:, )?/';
                     $list = [];

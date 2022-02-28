@@ -89,7 +89,7 @@ class DeviceDetector
 
     /**
      * Holds the client hints that should be parsed
-     * @var ClientHints
+     * @var ?ClientHints
      */
     protected $clientHints = null;
 
@@ -592,8 +592,10 @@ class DeviceDetector
 
         $this->parsed = true;
 
-        // skip parsing for empty useragents or those not containing any letter
-        if (empty($this->userAgent) || !\preg_match('/([a-z])/i', $this->userAgent)) {
+        // skip parsing for empty useragents or those not containing any letter (if no client hints were provided)
+        if ((empty($this->userAgent) || !\preg_match('/([a-z])/i', $this->userAgent))
+            && empty($this->clientHints)
+        ) {
             return;
         }
 
