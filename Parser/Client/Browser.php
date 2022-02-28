@@ -573,6 +573,8 @@ class Browser extends AbstractClientParser
 
             if ('Google Chrome' === $hintName) {
                 $hintName = 'Chrome';
+            } elseif ('CCleaner Browser' === $hintName) {
+                $hintName = 'CCleaner';
             }
 
             foreach (self::$availableBrowsers as $browserShort => $browserName) {
