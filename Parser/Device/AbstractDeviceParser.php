@@ -1229,6 +1229,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '1V' => 'Vontar',
         'VG' => 'Vorago',
         '2V' => 'Vorke',
+        '8U' => 'Vorcom',
         'V1' => 'Voto',
         'Z7' => 'VOX',
         'VO' => 'Voxtel',
