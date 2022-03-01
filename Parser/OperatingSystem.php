@@ -197,6 +197,16 @@ class OperatingSystem extends AbstractParser
     ];
 
     /**
+     * Contains a list of mappings from OS names we use to known client hint values
+     *
+     * @var array
+     */
+    protected static $clientHintMapping = [
+        'GNU/Linux' => ['Linux'],
+        'Mac'       => ['MacOS'],
+    ];
+
+    /**
      * Operating system families that are known as desktop only
      *
      * @var array
@@ -356,10 +366,14 @@ class OperatingSystem extends AbstractParser
         if ($this->clientHints instanceof ClientHints && $this->clientHints->getOperatingSystem()) {
             $hintName = $this->clientHints->getOperatingSystem();
 
-            if ('macOS' === $hintName) {
-                $hintName = 'Mac';
-            } elseif ('Linux' === $hintName) {
-                $hintName = 'GNU/Linux';
+            foreach (self::$clientHintMapping as $osName => $clientHints) {
+                foreach ($clientHints as $clientHint) {
+                    if (\strtolower($hintName) === \strtolower($clientHint)) {
+                        $hintName = $osName;
+
+                        break 2;
+                    }
+                }
             }
 
             foreach (self::$operatingSystems as $osShort => $osName) {
