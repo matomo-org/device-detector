@@ -888,6 +888,13 @@ class DeviceDetector
         }
 
         /**
+         * If no model could be parsed from useragent, we use the one from client hints if available
+         */
+        if ($this->clientHints instanceof ClientHints && empty($this->model)) {
+            $this->model = $this->clientHints->getModel();
+        }
+
+        /**
          * If no brand has been assigned try to match by known vendor fragments
          */
         if (empty($this->brand)) {

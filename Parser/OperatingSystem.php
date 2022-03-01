@@ -197,6 +197,16 @@ class OperatingSystem extends AbstractParser
     ];
 
     /**
+     * Contains a list of mappings from OS names we use to known client hint values
+     *
+     * @var array
+     */
+    protected static $clientHintMapping = [
+        'GNU/Linux' => ['Linux'],
+        'Mac'       => ['MacOS'],
+    ];
+
+    /**
      * Operating system families that are known as desktop only
      *
      * @var array
@@ -356,6 +366,16 @@ class OperatingSystem extends AbstractParser
         if ($this->clientHints instanceof ClientHints && $this->clientHints->getOperatingSystem()) {
             $hintName = $this->clientHints->getOperatingSystem();
 
+            foreach (self::$clientHintMapping as $osName => $clientHints) {
+                foreach ($clientHints as $clientHint) {
+                    if (\strtolower($hintName) === \strtolower($clientHint)) {
+                        $hintName = $osName;
+
+                        break 2;
+                    }
+                }
+            }
+
             foreach (self::$operatingSystems as $osShort => $osName) {
                 if ($this->fuzzyCompare($hintName, $osName)) {
                     $name  = $osName;
@@ -455,23 +475,25 @@ class OperatingSystem extends AbstractParser
         if ($this->clientHints instanceof ClientHints && $this->clientHints->getArchitecture()) {
             $arch = \strtolower($this->clientHints->getArchitecture());
 
-            if (\strpos($arch, 'arm')) {
+            if (false !== \strpos($arch, 'arm')) {
                 return 'ARM';
             }
 
-            if (\strpos($arch, 'mips')) {
+            if (false !== \strpos($arch, 'mips')) {
                 return 'MIPS';
             }
 
-            if (\strpos($arch, 'sh4')) {
+            if (false !== \strpos($arch, 'sh4')) {
                 return 'SuperH';
             }
 
-            if (\strpos($arch, 'x64')) {
+            if (false !== \strpos($arch, 'x64')
+                || (false !== \strpos($arch, 'x86')) && '64' === $this->clientHints->getBitness()
+            ) {
                 return 'x64';
             }
 
-            if (\strpos($arch, 'x86')) {
+            if (false !== \strpos($arch, 'x86')) {
                 return 'x86';
             }
         }
