@@ -356,6 +356,12 @@ class OperatingSystem extends AbstractParser
         if ($this->clientHints instanceof ClientHints && $this->clientHints->getOperatingSystem()) {
             $hintName = $this->clientHints->getOperatingSystem();
 
+            if ('macOS' === $hintName) {
+                $hintName = 'Mac';
+            } elseif ('Linux' === $hintName) {
+                $hintName = 'GNU/Linux';
+            }
+
             foreach (self::$operatingSystems as $osShort => $osName) {
                 if ($this->fuzzyCompare($hintName, $osName)) {
                     $name  = $osName;
@@ -455,23 +461,25 @@ class OperatingSystem extends AbstractParser
         if ($this->clientHints instanceof ClientHints && $this->clientHints->getArchitecture()) {
             $arch = \strtolower($this->clientHints->getArchitecture());
 
-            if (\strpos($arch, 'arm')) {
+            if (false !== \strpos($arch, 'arm')) {
                 return 'ARM';
             }
 
-            if (\strpos($arch, 'mips')) {
+            if (false !== \strpos($arch, 'mips')) {
                 return 'MIPS';
             }
 
-            if (\strpos($arch, 'sh4')) {
+            if (false !== \strpos($arch, 'sh4')) {
                 return 'SuperH';
             }
 
-            if (\strpos($arch, 'x64')) {
+            if (false !== \strpos($arch, 'x64')
+                || (false !== \strpos($arch, 'x86')) && '64' === $this->clientHints->getBitness()
+            ) {
                 return 'x64';
             }
 
-            if (\strpos($arch, 'x86')) {
+            if (false !== \strpos($arch, 'x86')) {
                 return 'x86';
             }
         }

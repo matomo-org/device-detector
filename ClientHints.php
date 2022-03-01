@@ -133,6 +133,16 @@ class ClientHints
     }
 
     /**
+     * Returns the Bitness
+     *
+     * @return string
+     */
+    public function getBitness(): string
+    {
+        return $this->bitness;
+    }
+
+    /**
      * Returns the device model
      *
      * @return string
