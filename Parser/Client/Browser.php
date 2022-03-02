@@ -258,6 +258,7 @@ class Browser extends AbstractClientParser
         'OF' => 'Off By One',
         'HH' => 'OhHai Browser',
         'OE' => 'ONE Browser',
+        'YO' => 'Opera Crypto',
         'OX' => 'Opera GX',
         'OG' => 'Opera Neon',
         'OH' => 'Opera Devices',
@@ -431,7 +432,10 @@ class Browser extends AbstractClientParser
         'NetFront'           => ['NF'],
         'NetSurf'            => ['NE'],
         'Nokia Browser'      => ['DO', 'NB', 'NO', 'NV'],
-        'Opera'              => ['O1', 'OG', 'OH', 'OI', 'OM', 'ON', 'OO', 'OP', 'OX'],
+        'Opera'              => [
+            'O1', 'OG', 'OH', 'OI', 'OM', 'ON', 'OO', 'OP', 'OX',
+            'YO',
+        ],
         'Safari'             => ['MF', 'S7', 'SF', 'SO', 'PV'],
         'Sailfish Browser'   => ['SA'],
     ];
