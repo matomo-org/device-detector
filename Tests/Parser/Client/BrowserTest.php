@@ -58,6 +58,9 @@ class BrowserTest extends TestCase
     {
         $allBrowsers       = \array_values(Browser::getAvailableBrowsers());
         $browsersNotTested = \array_diff($allBrowsers, self::$browsersTested);
+        $browsersNotTested = \array_filter($browsersNotTested, static function ($browser) {
+            return !Browser::isClientHintOnlyBrowser($browser);
+        });
         $this->assertEmpty($browsersNotTested, 'This browsers are not tested: ' . \implode(', ', $browsersNotTested));
     }
 
