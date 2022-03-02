@@ -1213,6 +1213,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'V7' => 'Vinga',
         'V3' => 'Vinsoc',
         'XD' => 'Vinabox',
+        'FV' => 'Vios',
         '0V' => 'Vipro',
         'ZV' => 'Virzo',
         'VI' => 'Vitelcom',
