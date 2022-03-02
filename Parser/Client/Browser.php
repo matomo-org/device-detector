@@ -259,6 +259,7 @@ class Browser extends AbstractClientParser
         'OF' => 'Off By One',
         'HH' => 'OhHai Browser',
         'OE' => 'ONE Browser',
+        'YO' => 'Opera Crypto',
         'OX' => 'Opera GX',
         'OG' => 'Opera Neon',
         'OH' => 'Opera Devices',
@@ -432,7 +433,7 @@ class Browser extends AbstractClientParser
         'NetFront'           => ['NF'],
         'NetSurf'            => ['NE'],
         'Nokia Browser'      => ['DO', 'NB', 'NO', 'NV'],
-        'Opera'              => ['O1', 'OG', 'OH', 'OI', 'OM', 'ON', 'OO', 'OP', 'OX'],
+        'Opera'              => ['O1', 'OG', 'OH', 'OI', 'OM', 'ON', 'OO', 'OP', 'OX', 'YO'],
         'Safari'             => ['MF', 'S7', 'SF', 'SO', 'PV'],
         'Sailfish Browser'   => ['SA'],
     ];
@@ -440,7 +441,7 @@ class Browser extends AbstractClientParser
     /**
      * Browsers that are available for mobile devices only
      *
-     * @var array
+     * @var array<string>
      */
     protected static $mobileOnlyBrowsers = [
         '36', 'AH', 'AI', 'BL', 'C1', 'C4', 'CB', 'CW', 'DB',
@@ -450,6 +451,15 @@ class Browser extends AbstractClientParser
         'PE', 'QU', 'RE', 'S0', 'S7', 'SA', 'SB', 'SG', 'SK',
         'ST', 'SU', 'T1', 'UH', 'UM', 'UT', 'VE', 'VV', 'WI',
         'WP', 'YN', 'IO', 'IS', 'HQ', 'RW',
+    ];
+
+    /**
+     * Browsers that are detectable through client hints only
+     *
+     * @var array<string>
+     */
+    protected static $clientHintsOnlyBrowsers = [
+        'Opera Crypto',
     ];
 
     /**
@@ -510,6 +520,19 @@ class Browser extends AbstractClientParser
     {
         return \in_array($browser, self::$mobileOnlyBrowsers) || (\in_array($browser, self::$availableBrowsers)
                 && \in_array(\array_search($browser, self::$availableBrowsers), self::$mobileOnlyBrowsers));
+    }
+
+    /**
+     * Returns if the given browser is mobile only
+     *
+     * @param string $browser Label or name of browser
+     *
+     * @return bool
+     */
+    public static function isClientHintOnlyBrowser(string $browser): bool
+    {
+        return \in_array($browser, self::$clientHintsOnlyBrowsers) || (\in_array($browser, self::$availableBrowsers)
+                && \in_array(\array_search($browser, self::$availableBrowsers), self::$clientHintsOnlyBrowsers));
     }
 
     /**
