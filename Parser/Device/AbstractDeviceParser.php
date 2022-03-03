@@ -330,6 +330,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'D0' => 'Doopro',
         'DV' => 'Doov',
         'DP' => 'Dopod',
+        'JQ' => 'Doppio',
         'DR' => 'Doro',
         'ZD' => 'DORLAND',
         'D8' => 'Droxio',
