@@ -569,6 +569,14 @@ class Browser extends AbstractClientParser
                 $short = $browserFromUserAgent['short_name'];
             }
 
+            // If useragent detects another browser, but the family matches, we use the detected engine from useragent
+            if ($name !== $browserFromUserAgent['name']
+                && self::getBrowserFamily($name) === self::getBrowserFamily($browserFromUserAgent['name'])
+            ) {
+                $engine        = $browserFromUserAgent['engine'] ?? '';
+                $engineVersion = $browserFromUserAgent['engine_version'] ?? '';
+            }
+
             if ($name === $browserFromUserAgent['name']) {
                 $engine        = $browserFromUserAgent['engine'] ?? '';
                 $engineVersion = $browserFromUserAgent['engine_version'] ?? '';
