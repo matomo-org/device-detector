@@ -88,7 +88,6 @@ class Browser extends AbstractClientParser
         'CJ' => 'ChanjetCloud',
         'C6' => 'Chedot',
         'C0' => 'Centaury',
-        'LR' => 'ClearWEB',
         'CC' => 'Coc Coc',
         'C4' => 'CoolBrowser',
         'C2' => 'Colibri',
@@ -418,7 +417,7 @@ class Browser extends AbstractClientParser
             'TB', 'TG', 'TR', 'TS', 'TU', 'TV', 'UB', 'UR', 'VE',
             'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'FH',
             'B1', 'BO', 'HB', 'PC', 'LA', 'LT', 'PD', 'HR', 'HU',
-            'HP', 'IO', 'TP', 'CJ', 'HQ', 'LR',
+            'HP', 'IO', 'TP', 'CJ', 'HQ',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
