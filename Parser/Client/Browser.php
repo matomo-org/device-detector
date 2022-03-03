@@ -159,6 +159,7 @@ class Browser extends AbstractClientParser
         'FS' => 'Flast',
         'FU' => 'FreeU',
         'GA' => 'Galeon',
+        'G8' => 'Gener8',
         'GH' => 'Ghostery Privacy Browser',
         'GI' => 'GinxDroid Browser',
         'GB' => 'Glass Browser',
@@ -419,7 +420,7 @@ class Browser extends AbstractClientParser
             'TB', 'TG', 'TR', 'TS', 'TU', 'TV', 'UB', 'UR', 'VE',
             'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'FH',
             'B1', 'BO', 'HB', 'PC', 'LA', 'LT', 'PD', 'HR', 'HU',
-            'HP', 'IO', 'TP', 'CJ', 'HQ',
+            'HP', 'IO', 'TP', 'CJ', 'HQ', 'G8',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -459,7 +460,7 @@ class Browser extends AbstractClientParser
      * @var array<string>
      */
     protected static $clientHintsOnlyBrowsers = [
-        'Opera Crypto',
+        'Opera Crypto', 'Gener8',
     ];
 
     /**
