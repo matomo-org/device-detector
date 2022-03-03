@@ -32,7 +32,7 @@ function pettyTable(array $data): string
 {
     $columns = [];
 
-    foreach ($data as $rowKey => $row) {
+    foreach ($data as $row) {
         foreach ($row as $cellKey => $cell) {
             $length = strlen($cell);
 
@@ -46,7 +46,7 @@ function pettyTable(array $data): string
 
     $table = '';
 
-    foreach ($data as $rowKey => $row) {
+    foreach ($data as $row) {
         foreach ($row as $cellKey => $cell) {
             $table .= str_pad($cell, $columns[$cellKey]) . '   ';
         }
