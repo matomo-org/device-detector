@@ -116,6 +116,7 @@ class Browser extends AbstractClientParser
         'CZ' => 'Crazy Browser',
         'CU' => 'Cunaguaro',
         'CV' => 'Chrome Webview',
+        'YC' => 'CyBrowser',
         'DB' => 'dbrowser',
         'PD' => 'Peeps dBrowser',
         'DE' => 'Deepnet Explorer',
