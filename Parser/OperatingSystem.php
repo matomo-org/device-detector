@@ -212,7 +212,9 @@ class OperatingSystem extends AbstractParser
      *
      * @var array
      */
-    protected static $desktopOsArray = ['AmigaOS', 'IBM', 'GNU/Linux', 'Mac', 'Unix', 'Windows', 'BeOS', 'Chrome OS', 'Chromium OS'];
+    protected static $desktopOsArray = [
+        'AmigaOS', 'IBM', 'GNU/Linux', 'Mac', 'Unix', 'Windows', 'BeOS', 'Chrome OS', 'Chromium OS',
+    ];
 
     /**
      * Returns all available operating systems
@@ -277,6 +279,15 @@ class OperatingSystem extends AbstractParser
             }
 
             $short = $osFromClientHints['short_name'];
+
+            // Chrome OS is in some cases reported as Linux in client hints, we fix this only if the version matches
+            if ('GNU/Linux' === $name
+                && 'Chrome OS' === $osFromUserAgent['name']
+                && $osFromClientHints['version'] === $osFromUserAgent['version']
+            ) {
+                $name  = $osFromUserAgent['name'];
+                $short = $osFromUserAgent['short_name'];
+            }
         } elseif (!empty($osFromUserAgent['name'])) {
             $name    = $osFromUserAgent['name'];
             $version = $osFromUserAgent['version'];
