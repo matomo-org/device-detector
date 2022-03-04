@@ -455,15 +455,6 @@ class Browser extends AbstractClientParser
     ];
 
     /**
-     * Browsers that are detectable through client hints only
-     *
-     * @var array<string>
-     */
-    protected static $clientHintsOnlyBrowsers = [
-        'Opera Crypto', 'Gener8',
-    ];
-
-    /**
      * Contains a list of mappings from OS names we use to known client hint values
      *
      * @var array
@@ -521,19 +512,6 @@ class Browser extends AbstractClientParser
     {
         return \in_array($browser, self::$mobileOnlyBrowsers) || (\in_array($browser, self::$availableBrowsers)
                 && \in_array(\array_search($browser, self::$availableBrowsers), self::$mobileOnlyBrowsers));
-    }
-
-    /**
-     * Returns if the given browser is mobile only
-     *
-     * @param string $browser Label or name of browser
-     *
-     * @return bool
-     */
-    public static function isClientHintOnlyBrowser(string $browser): bool
-    {
-        return \in_array($browser, self::$clientHintsOnlyBrowsers) || (\in_array($browser, self::$availableBrowsers)
-                && \in_array(\array_search($browser, self::$availableBrowsers), self::$clientHintsOnlyBrowsers));
     }
 
     /**

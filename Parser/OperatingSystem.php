@@ -55,6 +55,7 @@ class OperatingSystem extends AbstractParser
         'CAI' => 'Caixa Mágica',
         'CES' => 'CentOS',
         'COS' => 'Chrome OS',
+        'CRS' => 'Chromium OS',
         'CYN' => 'CyanogenMod',
         'DEB' => 'Debian',
         'DEE' => 'Deepin',
@@ -170,7 +171,7 @@ class OperatingSystem extends AbstractParser
         'BlackBerry'            => ['BLB', 'QNX'],
         'Brew'                  => ['BMP'],
         'BeOS'                  => ['BEO', 'HAI'],
-        'Chrome OS'             => ['COS', 'FYD', 'SEE'],
+        'Chrome OS'             => ['COS', 'CRS', 'FYD', 'SEE'],
         'Firefox OS'            => ['FOS', 'KOS'],
         'Gaming Console'        => ['WII', 'PS3'],
         'Google TV'             => ['GTV'],
@@ -211,7 +212,7 @@ class OperatingSystem extends AbstractParser
      *
      * @var array
      */
-    protected static $desktopOsArray = ['AmigaOS', 'IBM', 'GNU/Linux', 'Mac', 'Unix', 'Windows', 'BeOS', 'Chrome OS'];
+    protected static $desktopOsArray = ['AmigaOS', 'IBM', 'GNU/Linux', 'Mac', 'Unix', 'Windows', 'BeOS', 'Chrome OS', 'Chromium OS'];
 
     /**
      * Returns all available operating systems

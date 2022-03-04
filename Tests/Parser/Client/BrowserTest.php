@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace DeviceDetector\Tests\Parser\Client;
 
+use DeviceDetector\ClientHints;
 use DeviceDetector\Parser\Client\Browser;
 use DeviceDetector\Parser\Client\Browser\Engine;
 use PHPUnit\Framework\TestCase;
@@ -24,11 +25,16 @@ class BrowserTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
-    public function testParse(string $useragent, array $client): void
+    public function testParse(string $useragent, array $client, ?array $headers = null): void
     {
         $browserParser = new Browser();
         $browserParser->setVersionTruncation(Browser::VERSION_TRUNCATION_NONE);
         $browserParser->setUserAgent($useragent);
+
+        if (null !== $headers) {
+            $browserParser->setClientHints(ClientHints::factory($headers));
+        }
+
         $browser = $browserParser->parse();
         unset($browser['short_name']);
 
@@ -58,9 +64,6 @@ class BrowserTest extends TestCase
     {
         $allBrowsers       = \array_values(Browser::getAvailableBrowsers());
         $browsersNotTested = \array_diff($allBrowsers, self::$browsersTested);
-        $browsersNotTested = \array_filter($browsersNotTested, static function ($browser) {
-            return !Browser::isClientHintOnlyBrowser($browser);
-        });
         $this->assertEmpty($browsersNotTested, 'This browsers are not tested: ' . \implode(', ', $browsersNotTested));
     }
 
