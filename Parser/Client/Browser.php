@@ -44,6 +44,7 @@ class Browser extends AbstractClientParser
         '7B' => '7654 Browser',
         'AA' => 'Avant Browser',
         'AB' => 'ABrowse',
+        'BW' => 'AdBlock Browser',
         'AF' => 'ANT Fresco',
         'AG' => 'ANTGalio',
         'AL' => 'Aloha Browser',
@@ -385,6 +386,7 @@ class Browser extends AbstractClientParser
         'YL' => 'Yandex Browser Lite',
         'YN' => 'Yaani Browser',
         'YB' => 'Yolo Browser',
+        'YO' => 'YouCare',
         'XS' => 'xStand',
         'XI' => 'Xiino',
         'XV' => 'Xvast',
@@ -420,7 +422,7 @@ class Browser extends AbstractClientParser
             'TB', 'TG', 'TR', 'TS', 'TU', 'TV', 'UB', 'UR', 'VE',
             'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'FH',
             'B1', 'BO', 'HB', 'PC', 'LA', 'LT', 'PD', 'HR', 'HU',
-            'HP', 'IO', 'TP', 'CJ', 'HQ', 'HI', 'NA',
+            'HP', 'IO', 'TP', 'CJ', 'HQ', 'HI', 'NA', 'BW', 'YO',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -451,7 +453,8 @@ class Browser extends AbstractClientParser
         'MN', 'MZ', 'NX', 'OC', 'OI', 'OM', 'OZ', 'PU', 'PI',
         'PE', 'QU', 'RE', 'S0', 'S7', 'SA', 'SB', 'SG', 'SK',
         'ST', 'SU', 'T1', 'UH', 'UM', 'UT', 'VE', 'VV', 'WI',
-        'WP', 'YN', 'IO', 'IS', 'HQ', 'RW', 'HI', 'NA',
+        'WP', 'YN', 'IO', 'IS', 'HQ', 'RW', 'HI', 'NA', 'BW',
+        'YO',
     ];
 
     /**
