@@ -54,6 +54,7 @@ class OperatingSystem extends AbstractParser
         'BMP' => 'Brew',
         'CAI' => 'Caixa Mágica',
         'CES' => 'CentOS',
+        'CLR' => 'ClearOS Mobile',
         'COS' => 'Chrome OS',
         'CRS' => 'Chromium OS',
         'CYN' => 'CyanogenMod',
@@ -166,7 +167,10 @@ class OperatingSystem extends AbstractParser
      * @var array
      */
     protected static $osFamilies = [
-        'Android'               => ['AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR', 'ADR'],
+        'Android'               => [
+            'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
+            'ADR', 'CLR',
+        ],
         'AmigaOS'               => ['AMG', 'MOR'],
         'BlackBerry'            => ['BLB', 'QNX'],
         'Brew'                  => ['BMP'],
