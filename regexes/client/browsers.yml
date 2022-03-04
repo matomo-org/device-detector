@@ -220,11 +220,13 @@
     default: 'Blink'
 
 # Chromium GOST (https://github.com/deemru/chromium-gost)
-- regex: 'Chrome/(\d+[\.\d]+) \(Chromium GOST\)'
+- regex: 'Chrome/(\d+[\.\d]+).+\(Chromium GOST\)'
   name: 'Chromium GOST'
   version: '$1'
   engine:
-    default: 'Blink'
+    default: 'WebKit'
+    versions:
+      28: 'Blink'
 
 # Deledao (https://www.deledao.com/)
 - regex: '(?:DeledaoPersonal|DeledaoFamily)/(\d+[\.\d]+)'
