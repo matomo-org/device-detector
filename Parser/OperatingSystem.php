@@ -204,7 +204,7 @@ class OperatingSystem extends AbstractParser
     /**
      * Contains a list of mappings from OS names we use to known client hint values
      *
-     * @var array
+     * @var array<string, array<string>>
      */
     protected static $clientHintMapping = [
         'GNU/Linux' => ['Linux'],
@@ -380,17 +380,7 @@ class OperatingSystem extends AbstractParser
         $name = $version = $short = '';
 
         if ($this->clientHints instanceof ClientHints && $this->clientHints->getOperatingSystem()) {
-            $hintName = $this->clientHints->getOperatingSystem();
-
-            foreach (self::$clientHintMapping as $osName => $clientHints) {
-                foreach ($clientHints as $clientHint) {
-                    if (\strtolower($hintName) === \strtolower($clientHint)) {
-                        $hintName = $osName;
-
-                        break 2;
-                    }
-                }
-            }
+            $hintName = $this->applyClientHintMapping($this->clientHints->getOperatingSystem());
 
             foreach (self::$operatingSystems as $osShort => $osName) {
                 if ($this->fuzzyCompare($hintName, $osName)) {

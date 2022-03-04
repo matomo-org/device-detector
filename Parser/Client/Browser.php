@@ -457,7 +457,7 @@ class Browser extends AbstractClientParser
     /**
      * Contains a list of mappings from OS names we use to known client hint values
      *
-     * @var array
+     * @var array<string, array<string>>
      */
     protected static $clientHintMapping = [
         'Chrome' => ['Google Chrome'],
@@ -603,15 +603,7 @@ class Browser extends AbstractClientParser
             $brands = $this->clientHints->getBrandList();
 
             foreach ($brands as $brand => $brandVersion) {
-                foreach (self::$clientHintMapping as $browserName => $clientHints) {
-                    foreach ($clientHints as $clientHint) {
-                        if (\strtolower($brand) === \strtolower($clientHint)) {
-                            $brand = $browserName;
-
-                            break 2;
-                        }
-                    }
-                }
+                $brand = $this->applyClientHintMapping($brand);
 
                 foreach (self::$availableBrowsers as $browserShort => $browserName) {
                     if ($this->fuzzyCompare("{$brand}", $browserName)

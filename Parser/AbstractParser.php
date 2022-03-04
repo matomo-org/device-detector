@@ -50,6 +50,12 @@ abstract class AbstractParser
     protected $clientHints = null;
 
     /**
+     * Contains a list of mappings from names we use to known client hint values
+     * @var array<string, array<string>>
+     */
+    protected static $clientHintMapping = [];
+
+    /**
      * Holds an array with method that should be available global
      * @var array
      */
@@ -251,6 +257,27 @@ abstract class AbstractParser
         }
 
         return $this->regexList;
+    }
+
+    /**
+     * Returns the provided name after applying client hint mappings.
+     * This is used to map names provided in client hints to the names we use.
+     *
+     * @param string $name
+     *
+     * @return string
+     */
+    protected function applyClientHintMapping(string $name): string
+    {
+        foreach (static::$clientHintMapping as $mappedName => $clientHints) {
+            foreach ($clientHints as $clientHint) {
+                if (\strtolower($name) === \strtolower($clientHint)) {
+                    return $mappedName;
+                }
+            }
+        }
+
+        return $name;
     }
 
     /**
