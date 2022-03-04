@@ -54,7 +54,7 @@ class OperatingSystem extends AbstractParser
         'CES' => 'CentOS',
         'CLR' => 'ClearOS Mobile',
         'COS' => 'Chrome OS',
-        'CHN' => 'COS',
+        'CHN' => 'China OS',
         'CYN' => 'CyanogenMod',
         'DEB' => 'Debian',
         'DEE' => 'Deepin',
