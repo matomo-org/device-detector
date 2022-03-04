@@ -116,6 +116,7 @@ class Browser extends AbstractClientParser
         'CZ' => 'Crazy Browser',
         'CU' => 'Cunaguaro',
         'CV' => 'Chrome Webview',
+        'YC' => 'CyBrowser',
         'DB' => 'dbrowser',
         'PD' => 'Peeps dBrowser',
         'DE' => 'Deepnet Explorer',
@@ -170,6 +171,7 @@ class Browser extends AbstractClientParser
         'HA' => 'Hawk Turbo Browser',
         'HQ' => 'Hawk Quick Browser',
         'HE' => 'Helio',
+        'HI' => 'Hi Browser',
         'HO' => 'hola! Browser',
         'HJ' => 'HotJava',
         'HU' => 'Huawei Browser Mobile',
@@ -237,6 +239,7 @@ class Browser extends AbstractClientParser
         'MY' => 'Mypal',
         'MR' => 'Monument Browser',
         'MW' => 'MAUI WAP Browser',
+        'NA' => 'Navegador',
         'NW' => 'Navigateur Web',
         'NR' => 'NFS Browser',
         'NB' => 'Nokia Browser',
@@ -417,7 +420,7 @@ class Browser extends AbstractClientParser
             'TB', 'TG', 'TR', 'TS', 'TU', 'TV', 'UB', 'UR', 'VE',
             'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'FH',
             'B1', 'BO', 'HB', 'PC', 'LA', 'LT', 'PD', 'HR', 'HU',
-            'HP', 'IO', 'TP', 'CJ', 'HQ',
+            'HP', 'IO', 'TP', 'CJ', 'HQ', 'HI', 'NA',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -448,7 +451,7 @@ class Browser extends AbstractClientParser
         'MN', 'MZ', 'NX', 'OC', 'OI', 'OM', 'OZ', 'PU', 'PI',
         'PE', 'QU', 'RE', 'S0', 'S7', 'SA', 'SB', 'SG', 'SK',
         'ST', 'SU', 'T1', 'UH', 'UM', 'UT', 'VE', 'VV', 'WI',
-        'WP', 'YN', 'IO', 'IS', 'HQ', 'RW',
+        'WP', 'YN', 'IO', 'IS', 'HQ', 'RW', 'HI', 'NA',
     ];
 
     /**
