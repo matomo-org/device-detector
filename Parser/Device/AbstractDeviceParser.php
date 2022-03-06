@@ -680,6 +680,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'YL' => 'Loview',
         '1L' => 'Logic',
         'LM' => 'Logicom',
+        'GY' => 'LOKMAT',
         '0L' => 'Lumigon',
         'LU' => 'Lumus',
         'L9' => 'Luna',
