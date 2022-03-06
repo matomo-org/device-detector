@@ -349,6 +349,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'E4' => 'Echo Mobiles',
         'ES' => 'ECS',
         '35' => 'ECON',
+        'ZZ' => 'ecom',
         'E6' => 'EE',
         'EK' => 'EKO',
         'EY' => 'Einstein',
