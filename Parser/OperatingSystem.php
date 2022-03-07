@@ -279,9 +279,15 @@ class OperatingSystem extends AbstractParser
 
             // use version from user agent if non was provided in client hints, but os family from useragent matches
             if (empty($version)
-                && self::getOsFamily($osFromClientHints['name']) === self::getOsFamily($osFromUserAgent['name'])
+                && self::getOsFamily($name) === self::getOsFamily($osFromUserAgent['name'])
             ) {
                 $version = $osFromUserAgent['version'];
+            }
+
+            // If the OS name detected from client hints matches the OS family from user agent
+            // but the os name is another, we use the one from user agent, as it might be more detailed
+            if (self::getOsFamily($osFromUserAgent['name']) === $name && $osFromUserAgent['name'] !== $name) {
+                $name = $osFromUserAgent['name'];
             }
 
             $short = $osFromClientHints['short_name'];
