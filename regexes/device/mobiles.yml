@@ -70,8 +70,8 @@ SFR:
       model: 'StarText' # ZTE
     - regex: 'StarNaute II(?:[);/ ]|$)'
       model: 'StarNaute 2' # ZTE
-    - regex: 'STARNAUTE ?4(?:[);/ ]|$)'
-      model: 'StarNaute 4'
+    - regex: 'STARNAUTE ?([1-4])(?:[);/ ]|$)'
+      model: 'StarNaute $1'
     - regex: 'StarNaute(?:[);/ ]|$)'
       model: 'StarNaute' # ZTE Amigo
     - regex: 'StarTab'
@@ -1546,7 +1546,7 @@ Bravis:
 
 # Acer (acer.com)
 Acer:
-  regex: 'acer|(?<!Satellite |ZTE BLADE |ImSmart |ERGO |X-Style Tab )(?<!Optima 7 )a(?:101|110|2[10]0|211|50[10]|51[10]|70[10])(?:[);/ ]|$)|Android.*V3[67]0(?:[);/ ]|$)|Android.*Z1[23456]0 Build|Android.*Z5\d{2} Build|Android.*T0[234678] Build|Android.*S55(?! Nova)(?:[);/ ]|$)|(?:A1-(713(HD)?|7[23]4|830|841|840(?:FHD)?|81[01])|A3-A[1234][01]|B1-(7[1235-9][01](HD)?|7[23]3|7A0|8[1235]0|A71|860A)|TPA60W|B3-(A[125]0|A3[02]|A40FHD)|E39)(?:[);/ ]|$)|S5[12]0 Build|(DA[0-9]+HQ?L|Aspire (?:V5-121|XC-704G|V5-573G|4349)|Chromebook 14 \(CB3-431\)|Predator G9-793|GT-810|B1-870|B3-A4[02]|B3-A50FHD|ET-108-11A|ATAB1021E|ACTAB721)(?:[);/ ]|$)'
+  regex: 'acer|(?<!Satellite |ZTE BLADE |ImSmart |ERGO |X-Style Tab )(?<!Optima 7 )a(?:101|110|2[10]0|211|50[10]|51[10]|70[10])(?:[);/ ]|$)|Android.*V3[67]0(?:[);/ ]|$)|Android.*Z1[23456]0 Build|Android.*Z5\d{2} Build|Android.*T0[234678] Build|Android.*S55(?! Nova)(?:[);/ ]|$)|(?:A1-(713(HD)?|7[23]4|830|841|840(?:FHD)?|81[01])|A3-A[1234][01]|B1-(7[1235-9][01](HD)?|7[23]3|7A0|8[1235]0|A71|860A)|TPA60W|B3-(A[125]0|A3[02]|A40FHD)|E39)(?:[);/ ]|$)|S5[12]0 Build|(DA[0-9]+HQ?L|Aspire (?:V5-121|XC-704G|V5-573G|4349)|Chromebook 14 \(CB3-431\)|Predator G9-793|GT-810|B1-870|B3-A4[02]|B3-A50FHD|ET-108-11A|ATAB1021E|ACTAB721|A3-A20FHD)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # smart displays
@@ -1585,6 +1585,9 @@ Acer:
     - regex: 'A1-7[23]4'
       model: 'Iconia Talk S'
       device: 'tablet'
+    - regex: 'A3-A20FHD'
+      device: 'tablet'
+      model: 'Iconia A3 FHD'
     - regex: 'A3-A[12][01]'
       model: 'Iconia A3'
       device: 'tablet'
@@ -2568,13 +2571,15 @@ Ainol:
 
 # Archos (www.archos.com)
 Archos:
-  regex: '(?:YL-)?Archos|(?:A50TI|AC101BHE|AC50BHE)(?:[);/ ]|$)'
+  regex: '(?:YL-)?Archos|(?:A50TI|AC101BHE|AC50BHE|AC45NE)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Archos (Oxygen (?:63|57|68XL))(?:[);/ ]|$)'
       model: '$1'
     - regex: 'A50TI(?:[);/ ]|$)'
       model: '50 Titanium 4G'
+    - regex: 'AC45NE(?:[);/ ]|$)'
+      model: '45 Neon'
     - regex: 'Archos ?5(?:[);/ ]|$)'
       device: 'tablet'
       model: '5'
@@ -5238,7 +5243,7 @@ AllDocube:
 
 # Cube (short name Alldocube)
 Cube:
-  regex: '(<!myPhone ?)Cube|(U[0-9]+GT|K8GT)|(?:T8-PLUSM?S?|T8PLUSML|I1-TF[BD]?|I1-TC|i15-TG|i1002S|Iwork10 Flagship|iwork10 Pro)(?:[);/ ]|$)'
+  regex: '(<!myPhone ?)Cube|(U[0-9]+GT|K8GT)|(?:T8-PLUSM?S?|T8PLUSML|I1-TF[BD]?|I1-TC|i15-TG|i1002S|Iwork10 Flagship|iwork10 Pro|T10 PLUS)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'U27GT'
@@ -5247,6 +5252,8 @@ Cube:
       model: 'T8 Ultimate'
     - regex: 'U55GT'
       model: 'Talk 79'
+    - regex: 'T10 PLUS'
+      model: 'T10 Plus'
     - regex: 'U65GT'
       model: 'Talk 9X'
     - regex: 'I1-TF[BD]?(?:[);/ ]|$)'
@@ -5775,7 +5782,7 @@ DoCoMo:
 
 # Doogee
 Doogee:
-  regex: 'DOOGEE[/ _-]|Valencia2_Y100(?:_?(?:pro|plus))?|Y100_Plus|X5max(?:[_ ]PRO)?|Shoot_[12]|x5_doogee|(KISSME|BIGBOY|COLLO[23]?|DAGGER|DISCOVERY2?|FIND|HOTWIND|LATTE|MAX|MINT|MOON|PIXELS|RAINBOX|TURBO|VALENCIA|VOYAGER2?|TITANS2?)[ -_](DG[0-9]+C?)(?:[);/ ]|$)|(?:BL12000|BL5500[_ ]Lite|X9 Mini|LEO_DG280|Y9Plus|Y8 Plus|Hitman_DG850|S(?:[568]8|9[0567]|59|40|86)Pro|X9[56]Pro|S[478]0Lite|S88Plus|BL[579]000|N[24]0Pro|(?<!Lenovo )S90C|Ibiza_F2|S55_Lite|S60 ?Lite|Iron-bone DG750|X10S|X[56]0L|MIX2|Y6 Max|Y6_Piano(?:_black)?|X[679]pro)(?:[);/ ]|$)'
+  regex: 'DOOGEE[/ _-]|Valencia2_Y100(?:_?(?:pro|plus))?|Y100_Plus|X5max(?:[_ ]PRO)?|Shoot_[12]|x5_doogee|(KISSME|BIGBOY|COLLO[23]?|DAGGER|DISCOVERY2?|FIND|HOTWIND|LATTE|MAX|MINT|MOON|PIXELS|RAINBOX|TURBO|VALENCIA|VOYAGER2?|TITANS2?)[ -_](DG[0-9]+C?)(?:[);/ ]|$)|(?:BL12000|BL5500[_ ]Lite|X9 Mini|LEO_DG280|Y9Plus|Y8 Plus|Hitman_DG850|S(?:[568]8|9[0567]|59|40|86)Pro|X9[56]Pro|S[478]0Lite|S88Plus|BL[579]000|N[24]0Pro|(?<!Lenovo )S90C|Ibiza_F2|S55_Lite|T5_Lite|S60 ?Lite|Iron-bone DG750|X10S|X[56]0L|MIX2|Y6 Max|Y6_Piano(?:_black)?|X[679]pro)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(?:Valencia2_)?Y100_Plus(?:[);/ ]|$)'
@@ -5814,6 +5821,8 @@ Doogee:
       model: 'X9 Mini'
     - regex: 'x5_doogee'
       model: 'X5'
+    - regex: 'T5_Lite'
+      model: 'T5 Lite'
     - regex: 'Doogee X5MP'
       model: 'X5 Max Pro'
     - regex: 'Shoot_([12])'
@@ -12086,7 +12095,7 @@ Konka:
 
 # Konrow (konrow.com)
 Konrow:
-  regex: '(?:BIGCOOL|COOLFIVE|COOL-K|Just5|Link5|EASY(?:5|62)|CITY55|Cool55|SKY_55_EEA)(?:[);/ ]|$)'
+  regex: '(?:BIGCOOL|COOLFIVE|COOL-K|Just5|Link5|EASY(?:5|62)|CITY55|Cool55|SKY_55_EEA|android 11.+ SWEET5)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'BIGCOOL(?:[);/ ]|$)'
@@ -12107,6 +12116,8 @@ Konrow:
       model: 'City 55'
     - regex: 'SKY_55_EEA(?:[);/ ]|$)'
       model: 'Sky 55'
+    - regex: 'SWEET5(?:[);/ ]|$)'
+      model: 'Sweet 5'
 
 # Karbonn (karbonnmobiles.com)
 Karbonn:
@@ -17284,9 +17295,13 @@ STF Mobile:
 
 # STK
 STK:
-  regex: 'STK[_ ]'
+  regex: 'STK[_ ]|Storm 2e Pluz'
   device: 'smartphone'
   models:
+    - regex: 'Life 8'
+      model: 'Life 8'
+    - regex: 'Storm 2e Pluz'
+      model: 'Storm 2e Plus'
     - regex: 'STK[_ ]([^/;]+) Build'
       model: '$1'
     - regex: 'STK[_ ]([a-z0-9]+)'
@@ -24928,7 +24943,7 @@ Nos:
 
 # Accent (DBM Maroc) (accent.ma)
 Accent:
-  regex: '(?:ACCENT[_ ]NEON|FAST73G|PEARL[_ ]A[24567]|TANK_P55|CAMELEON[_ ](?:C[456]|A1)(?:[_ ]PLUS)?|Speed[- ](?:[AXYM]2|X2\+))(?:[);/ ]|$)'
+  regex: '(?:ACCENT[_ ]NEON|FAST73G|PEARL[_ ]A[24567]|TANK_P55|CAMELEON[_ ](?:C[456]|A1)(?:[_ ]PLUS)?|Speed[- ](?:[AXYM]2|X2\+)|SURF1000)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'ACCENT[_ ]NEON(?:[);/ ]|$)'
@@ -24950,6 +24965,9 @@ Accent:
     - regex: 'FAST73G(?:[);/ ]|$)'
       device: 'phablet'
       model: 'FAST7 3G'
+    - regex: 'SURF1000(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'Surf 1000'
 
 # Avenzo (www.avenzo.es)
 Avenzo:
