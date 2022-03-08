@@ -265,7 +265,7 @@ class Browser extends AbstractClientParser
         'OF' => 'Off By One',
         'HH' => 'OhHai Browser',
         'OE' => 'ONE Browser',
-        'YO' => 'Opera Crypto',
+        'Y1' => 'Opera Crypto',
         'OX' => 'Opera GX',
         'OG' => 'Opera Neon',
         'OH' => 'Opera Devices',
@@ -296,6 +296,7 @@ class Browser extends AbstractClientParser
         'PX' => 'Phoenix',
         'PB' => 'Phoenix Browser',
         'PF' => 'PlayFree Browser',
+        'PK' => 'PocketBook Browser',
         'PO' => 'Polaris',
         'PT' => 'Polarity',
         'LY' => 'PolyBrowser',
@@ -390,7 +391,7 @@ class Browser extends AbstractClientParser
         'YL' => 'Yandex Browser Lite',
         'YN' => 'Yaani Browser',
         'YB' => 'Yolo Browser',
-        'Y1' => 'YouCare',
+        'YO' => 'YouCare',
         'XS' => 'xStand',
         'XI' => 'Xiino',
         'XV' => 'Xvast',
@@ -426,7 +427,7 @@ class Browser extends AbstractClientParser
             'TB', 'TG', 'TR', 'TS', 'TU', 'TV', 'UB', 'UR', 'VE',
             'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'FH',
             'B1', 'BO', 'HB', 'PC', 'LA', 'LT', 'PD', 'HR', 'HU',
-            'HP', 'IO', 'TP', 'CJ', 'HQ', 'HI', 'NA', 'BW', 'Y1',
+            'HP', 'IO', 'TP', 'CJ', 'HQ', 'HI', 'NA', 'BW', 'YO',
             'DC', 'G8',
         ],
         'Firefox'            => [
@@ -441,7 +442,7 @@ class Browser extends AbstractClientParser
         'NetFront'           => ['NF'],
         'NetSurf'            => ['NE'],
         'Nokia Browser'      => ['DO', 'NB', 'NO', 'NV'],
-        'Opera'              => ['O1', 'OG', 'OH', 'OI', 'OM', 'ON', 'OO', 'OP', 'OX', 'YO'],
+        'Opera'              => ['O1', 'OG', 'OH', 'OI', 'OM', 'ON', 'OO', 'OP', 'OX', 'Y1'],
         'Safari'             => ['MF', 'S7', 'SF', 'SO', 'PV'],
         'Sailfish Browser'   => ['SA'],
     ];
@@ -459,7 +460,7 @@ class Browser extends AbstractClientParser
         'PE', 'QU', 'RE', 'S0', 'S7', 'SA', 'SB', 'SG', 'SK',
         'ST', 'SU', 'T1', 'UH', 'UM', 'UT', 'VE', 'VV', 'WI',
         'WP', 'YN', 'IO', 'IS', 'HQ', 'RW', 'HI', 'NA', 'BW',
-        'Y1',
+        'YO', 'PK',
     ];
 
     /**
