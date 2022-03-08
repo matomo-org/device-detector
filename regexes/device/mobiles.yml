@@ -15626,12 +15626,12 @@ RT Project:
 
 # S-TELL
 S-TELL:
-  regex: 'S-TELL|(?:M630|M55[78]|P760|M555i)(?:[);/ ]|$)'
+  regex: 'S-TELL|(?:M630|M55[78]|P760|M555i|M655)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(P760)(?:[);/ ]|$)'
       model: '$1'
-    - regex: '(?:S-TELL[ _])?M([0-9]{3}|555i)(?:[);/ ]|$)'
+    - regex: '(?:S-TELL[ _])?M([0-9]{3}|555i|M655)(?:[);/ ]|$)'
       model: 'M$1'
 
 # Safaricom
@@ -19025,7 +19025,7 @@ Tecno Mobile:
 
 # TechPad (techpad.mx)
 TechPad:
-  regex: 'Tech[ _]?pad|XTAB[ _-]|(?:3G_16|Dual C1081HD|S813G|NOTE[_ ]4CAM|M5(?:Go|Plus))(?:[);/ ]|$)'
+  regex: 'Tech[ _]?pad|XTAB[ _-]|(?:3G_16|Dual C1081HD|S813G|NOTE[_ ]4CAM|M5(?:Go|Plus)|M6Plus)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'S813G'
@@ -19050,6 +19050,9 @@ TechPad:
     - regex: 'M5(Go|Plus)'
       device: 'smartphone'
       model: 'M5 $1'
+    - regex: 'M6Plus'
+      device: 'smartphone'
+      model: 'M6 Plus'
     - regex: 'NOTE[ _]4CAM'
       device: 'smartphone'
       model: 'Note 4 Cam'
@@ -22521,11 +22524,13 @@ Zuum:
 
 # Zen
 Zen:
-  regex: '(Admire[_ ][^/;]+|Cinemax[^/;)]+)(?:Build|\))|AdmireGlam'
+  regex: '(Admire[_ ][^/;]+|Cinemax[^/;)]+)(?:Build|\))|(?:AdmireGlam|M72 Smart)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'AdmireGlam(?:[);/ ]|$)'
+    - regex: 'AdmireGlam'
       model: 'Admire Glam'
+    - regex: '(M72 Smart)'
+      model: '$1'
     - regex: '(Admire[_ ][^/;]+|Cinemax[^/;)]+)(?:Build|\))'
       model: '$1'
 
@@ -25532,13 +25537,15 @@ iSWAG:
 
 # Reeder (reeder.com.tr)
 Reeder:
-  regex: '(?:reeder[_ ](?:3G_Tablet|A7iC|A[78]i[_ ]Quad|A8i Q2|M8 Plus|[TM]8|M10 Plus|P11SE)|M10SPlus|P12Curve|P13_Blue_Plus|P13_Max_Blue|P13[_ ]Blue[_ ]Ma(?:ks|x)|P13_Blue|P13 Blue 2021)(?:[);/ ]|$)'
+  regex: '(?:reeder[_ ](?:3G_Tablet|A7iC|A[78]i[_ ]Quad|A8i Q2|M8 Plus|[TM]8|M10 Plus|P11SE)|M10SPlus|P12Curve|P13_Blue_Plus|P13_Max_Blue|P13[_ ]Blue[_ ]Ma(?:ks|x)|P13_Blue|P13 Blue 2021|M7Plus)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'reeder[_ ](3G_Tablet|A7iC|A[78]i[_ ]Quad|A8i Q2|M8 Plus|[TM]8|M10 Plus|P11SE)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'M10SPlus'
       model: 'M10S Plus'
+    - regex: 'M7Plus'
+      model: 'M7 Plus'
 
     - regex: 'P12Curve'
       device: 'smartphone'
@@ -28540,6 +28547,14 @@ LOKMAT:
   regex: '(APPLLP2?)(?:[);/ ]|$)'
   device: 'wearable'
   model: '$1'
+
+# Joy
+Joy:
+  regex: 'Joy (?:HH|JD)'
+  device: 'smartphone'
+  models:
+    - regex: 'Joy[ _]([^/;)]+)(?: Build|[);])'
+      model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:

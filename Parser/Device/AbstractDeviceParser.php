@@ -594,6 +594,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VJ' => 'Jivi',
         'JK' => 'JKL',
         'JO' => 'Jolla',
+        'JP' => 'Joy',
         'UJ' => 'Juniper Systems',
         'J5' => 'Just5',
         '7J' => 'Jumper',
