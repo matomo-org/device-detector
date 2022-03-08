@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace DeviceDetector\Tests;
 
 use DeviceDetector\Cache\DoctrineBridge;
+use DeviceDetector\ClientHints;
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\AbstractParser;
 use DeviceDetector\Parser\Device\AbstractDeviceParser;
@@ -185,12 +186,13 @@ class DeviceDetectorTest extends TestCase
      */
     public function testParse(array $fixtureData): void
     {
-        $ua = $fixtureData['user_agent'];
+        $ua          = $fixtureData['user_agent'];
+        $clientHints = !empty($fixtureData['headers']) ? ClientHints::factory($fixtureData['headers']) : null;
 
         AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
 
         try {
-            $uaInfo = DeviceDetector::getInfoFromUserAgent($ua);
+            $uaInfo = DeviceDetector::getInfoFromUserAgent($ua, $clientHints);
         } catch (\Exception $exception) {
             throw new \Exception(
                 \sprintf('Error: %s from useragent %s', $exception->getMessage(), $ua),
@@ -198,6 +200,8 @@ class DeviceDetectorTest extends TestCase
                 $exception
             );
         }
+
+        unset($fixtureData['headers']); // ignore headers in result
 
         $this->assertEquals($fixtureData, $uaInfo, "UserAgent: {$ua}");
     }

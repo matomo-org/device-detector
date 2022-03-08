@@ -88,6 +88,12 @@ class DeviceDetector
     protected $userAgent = '';
 
     /**
+     * Holds the client hints that should be parsed
+     * @var ?ClientHints
+     */
+    protected $clientHints = null;
+
+    /**
      * Holds the operating system data after parsing the UA
      * @var ?array
      */
@@ -176,12 +182,17 @@ class DeviceDetector
     /**
      * Constructor
      *
-     * @param string $userAgent UA to parse
+     * @param string      $userAgent   UA to parse
+     * @param ClientHints $clientHints Browser client hints to parse
      */
-    public function __construct(string $userAgent = '')
+    public function __construct(string $userAgent = '', ?ClientHints $clientHints = null)
     {
         if ('' !== $userAgent) {
             $this->setUserAgent($userAgent);
+        }
+
+        if ($clientHints instanceof ClientHints) {
+            $this->setClientHints($clientHints);
         }
 
         $this->addClientParser(new FeedReader());
@@ -238,6 +249,20 @@ class DeviceDetector
         }
 
         $this->userAgent = $userAgent;
+    }
+
+    /**
+     * Sets the browser client hints to be parsed
+     *
+     * @param ?ClientHints $clientHints
+     */
+    public function setClientHints(?ClientHints $clientHints = null): void
+    {
+        if ($this->clientHints !== $clientHints) {
+            $this->reset();
+        }
+
+        $this->clientHints = $clientHints;
     }
 
     /**
@@ -350,6 +375,11 @@ class DeviceDetector
      */
     public function isMobile(): bool
     {
+        // Client hints indicate a mobile device
+        if ($this->clientHints instanceof ClientHints && $this->clientHints->isMobile()) {
+            return true;
+        }
+
         // Mobile device types
         if (\in_array($this->device, [
             AbstractDeviceParser::DEVICE_TYPE_FEATURE_PHONE,
@@ -522,6 +552,16 @@ class DeviceDetector
     }
 
     /**
+     * Returns the client hints that is set to be parsed
+     *
+     * @return ?ClientHints
+     */
+    public function getClientHints(): ?ClientHints
+    {
+        return $this->clientHints;
+    }
+
+    /**
      * Returns the bot extracted from the parsed UA
      *
      * @return array|bool|null
@@ -552,8 +592,10 @@ class DeviceDetector
 
         $this->parsed = true;
 
-        // skip parsing for empty useragents or those not containing any letter
-        if (empty($this->userAgent) || !\preg_match('/([a-z])/i', $this->userAgent)) {
+        // skip parsing for empty useragents or those not containing any letter (if no client hints were provided)
+        if ((empty($this->userAgent) || !\preg_match('/([a-z])/i', $this->userAgent))
+            && empty($this->clientHints)
+        ) {
             return;
         }
 
@@ -586,11 +628,12 @@ class DeviceDetector
      *
      * @deprecated
      *
-     * @param string $ua UserAgent to parse
+     * @param string       $ua          UserAgent to parse
+     * @param ?ClientHints $clientHints Client Hints to parse
      *
      * @return array
      */
-    public static function getInfoFromUserAgent(string $ua): array
+    public static function getInfoFromUserAgent(string $ua, ?ClientHints $clientHints = null): array
     {
         static $deviceDetector;
 
@@ -599,6 +642,7 @@ class DeviceDetector
         }
 
         $deviceDetector->setUserAgent($ua);
+        $deviceDetector->setClientHints($clientHints);
 
         $deviceDetector->parse();
 
@@ -629,7 +673,7 @@ class DeviceDetector
 
         unset($os['short_name'], $os['family']);
 
-        $processed = [
+        return [
             'user_agent'     => $deviceDetector->getUserAgent(),
             'os'             => $os,
             'client'         => $client,
@@ -641,8 +685,6 @@ class DeviceDetector
             'os_family'      => $osFamily,
             'browser_family' => $browserFamily,
         ];
-
-        return $processed;
     }
 
     /**
@@ -782,9 +824,10 @@ class DeviceDetector
         $parsers = $this->getBotParsers();
 
         foreach ($parsers as $parser) {
-            $parser->setUserAgent($this->getUserAgent());
             $parser->setYamlParser($this->getYamlParser());
             $parser->setCache($this->getCache());
+            $parser->setUserAgent($this->getUserAgent());
+            $parser->setClientHints($this->getClientHints());
 
             if ($this->discardBotInformation) {
                 $parser->discardDetails();
@@ -801,7 +844,7 @@ class DeviceDetector
     }
 
     /**
-     * Tries to detected the client (e.g. browser, mobile app, ...)
+     * Tries to detect the client (e.g. browser, mobile app, ...)
      */
     protected function parseClient(): void
     {
@@ -811,6 +854,7 @@ class DeviceDetector
             $parser->setYamlParser($this->getYamlParser());
             $parser->setCache($this->getCache());
             $parser->setUserAgent($this->getUserAgent());
+            $parser->setClientHints($this->getClientHints());
             $client = $parser->parse();
 
             if (!empty($client)) {
@@ -822,7 +866,7 @@ class DeviceDetector
     }
 
     /**
-     * Tries to detected the device type, model and brand
+     * Tries to detect the device type, model and brand
      */
     protected function parseDevice(): void
     {
@@ -832,6 +876,7 @@ class DeviceDetector
             $parser->setYamlParser($this->getYamlParser());
             $parser->setCache($this->getCache());
             $parser->setUserAgent($this->getUserAgent());
+            $parser->setClientHints($this->getClientHints());
 
             if ($parser->parse()) {
                 $this->device = $parser->getDeviceType();
@@ -840,6 +885,13 @@ class DeviceDetector
 
                 break;
             }
+        }
+
+        /**
+         * If no model could be parsed from useragent, we use the one from client hints if available
+         */
+        if ($this->clientHints instanceof ClientHints && empty($this->model)) {
+            $this->model = $this->clientHints->getModel();
         }
 
         /**
@@ -999,6 +1051,7 @@ class DeviceDetector
     {
         $osParser = new OperatingSystem();
         $osParser->setUserAgent($this->getUserAgent());
+        $osParser->setClientHints($this->getClientHints());
         $osParser->setYamlParser($this->getYamlParser());
         $osParser->setCache($this->getCache());
         $this->os = $osParser->parse();

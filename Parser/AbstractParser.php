@@ -14,6 +14,7 @@ namespace DeviceDetector\Parser;
 
 use DeviceDetector\Cache\CacheInterface;
 use DeviceDetector\Cache\StaticCache;
+use DeviceDetector\ClientHints;
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Yaml\ParserInterface as YamlParser;
 use DeviceDetector\Yaml\Spyc;
@@ -37,10 +38,22 @@ abstract class AbstractParser
     protected $parserName;
 
     /**
-     * Holds the user agent the should be parsed
+     * Holds the user agent to be parsed
      * @var string
      */
     protected $userAgent;
+
+    /**
+     * Holds the client hints to be parsed
+     * @var ?ClientHints
+     */
+    protected $clientHints = null;
+
+    /**
+     * Contains a list of mappings from names we use to known client hint values
+     * @var array<string, array<string>>
+     */
+    protected static $clientHintMapping = [];
 
     /**
      * Holds an array with method that should be available global
@@ -116,11 +129,13 @@ abstract class AbstractParser
     /**
      * AbstractParser constructor.
      *
-     * @param string $ua
+     * @param string       $ua
+     * @param ?ClientHints $clientHints
      */
-    public function __construct(string $ua = '')
+    public function __construct(string $ua = '', ?ClientHints $clientHints = null)
     {
         $this->setUserAgent($ua);
+        $this->setClientHints($clientHints);
     }
 
     /**
@@ -151,6 +166,16 @@ abstract class AbstractParser
     public function setUserAgent(string $ua): void
     {
         $this->userAgent = $ua;
+    }
+
+    /**
+     * Sets the client hints to parse
+     *
+     * @param ?ClientHints $clientHints client hints
+     */
+    public function setClientHints(?ClientHints $clientHints): void
+    {
+        $this->clientHints = $clientHints;
     }
 
     /**
@@ -232,6 +257,27 @@ abstract class AbstractParser
         }
 
         return $this->regexList;
+    }
+
+    /**
+     * Returns the provided name after applying client hint mappings.
+     * This is used to map names provided in client hints to the names we use.
+     *
+     * @param string $name
+     *
+     * @return string
+     */
+    protected function applyClientHintMapping(string $name): string
+    {
+        foreach (static::$clientHintMapping as $mappedName => $clientHints) {
+            foreach ($clientHints as $clientHint) {
+                if (\strtolower($name) === \strtolower($clientHint)) {
+                    return $mappedName;
+                }
+            }
+        }
+
+        return $name;
     }
 
     /**
@@ -351,5 +397,19 @@ abstract class AbstractParser
         }
 
         return $this->matchUserAgent($this->overAllMatch);
+    }
+
+    /**
+     * Compares if two strings equals after lowering their case and removing spaces
+     *
+     * @param string $value1
+     * @param string $value2
+     *
+     * @return bool
+     */
+    protected function fuzzyCompare(string $value1, string $value2): bool
+    {
+        return \str_replace(' ', '', \strtolower($value1)) ===
+            \str_replace(' ', '', \strtolower($value2));
     }
 }

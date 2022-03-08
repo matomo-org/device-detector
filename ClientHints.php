@@ -1,0 +1,294 @@
+<?php
+
+/**
+ * Device Detector - The Universal Device Detection library for parsing User Agents
+ *
+ * @link https://matomo.org
+ *
+ * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
+ */
+
+declare(strict_types=1);
+
+namespace DeviceDetector;
+
+class ClientHints
+{
+    /**
+     * Represents `Sec-CH-UA-Arch` header field: The underlying architecture's instruction set
+     *
+     * @var string
+     */
+    protected $architecture = '';
+
+    /**
+     * Represents `Sec-CH-UA-Bitness` header field: The underlying architecture's bitness
+     *
+     * @var string
+     */
+    protected $bitness = '';
+
+    /**
+     * Represents `Sec-CH-UA-Mobile` header field: whether the user agent should receive a specifically "mobile" UX
+     *
+     * @var bool
+     */
+    protected $mobile = false;
+
+    /**
+     * Represents `Sec-CH-UA-Model` header field: the user agent's underlying device model
+     *
+     * @var string
+     */
+    protected $model = '';
+
+    /**
+     * Represents `Sec-CH-UA-Platform` header field: the platform's brand
+     *
+     * @var string
+     */
+    protected $platform = '';
+
+    /**
+     * Represents `SSec-CH-UA-Platform-Version` header field: the platform's major version
+     *
+     * @var string
+     */
+    protected $platformVersion = '';
+
+    /**
+     * Represents `Sec-CH-UA-Full-Version` header field: the platform's major version
+     *
+     * @var string
+     */
+    protected $uaFullVersion = '';
+
+    /**
+     * Represents `Sec-CH-UA-Full-Version-List` header field: the full version for each brand in its brand list
+     *
+     * @var array
+     */
+    protected $fullVersionList = [];
+
+    /**
+     * Constructor
+     *
+     * @param string $model           `Sec-CH-UA-Model` header field
+     * @param string $platform        `Sec-CH-UA-Platform` header field
+     * @param string $platformVersion `Sec-CH-UA-Platform-Version` header field
+     * @param string $uaFullVersion   `Sec-CH-UA-Full-Version` header field
+     * @param array  $fullVersionList `Sec-CH-UA-Full-Version-List` header field
+     * @param bool   $mobile          `Sec-CH-UA-Mobile` header field
+     * @param string $architecture    `Sec-CH-UA-Arch` header field
+     * @param string $bitness         `Sec-CH-UA-Bitness`
+     */
+    public function __construct(string $model = '', string $platform = '', string $platformVersion = '', string $uaFullVersion = '', array $fullVersionList = [], bool $mobile = false, string $architecture = '', string $bitness = '') // phpcs:ignore Generic.Files.LineLength
+    {
+        $this->model           = $model;
+        $this->platform        = $platform;
+        $this->platformVersion = $platformVersion;
+        $this->uaFullVersion   = $uaFullVersion;
+        $this->fullVersionList = $fullVersionList;
+        $this->mobile          = $mobile;
+        $this->architecture    = $architecture;
+        $this->bitness         = $bitness;
+    }
+
+    /**
+     * Magic method to directly allow accessing the protected properties
+     *
+     * @param string $variable
+     *
+     * @return mixed
+     *
+     * @throws \Exception
+     */
+    public function __get(string $variable)
+    {
+        if (\property_exists($this, $variable)) {
+            return $this->$variable;
+        }
+
+        throw new \Exception('Invalid ClientHint property requested.');
+    }
+
+    /**
+     * Returns if the client hints
+     *
+     * @return bool
+     */
+    public function isMobile(): bool
+    {
+        return $this->mobile;
+    }
+
+    /**
+     * Returns the Architecture
+     *
+     * @return string
+     */
+    public function getArchitecture(): string
+    {
+        return $this->architecture;
+    }
+
+    /**
+     * Returns the Bitness
+     *
+     * @return string
+     */
+    public function getBitness(): string
+    {
+        return $this->bitness;
+    }
+
+    /**
+     * Returns the device model
+     *
+     * @return string
+     */
+    public function getModel(): string
+    {
+        return $this->model;
+    }
+
+    /**
+     * Returns the Operating System
+     *
+     * @return string
+     */
+    public function getOperatingSystem(): string
+    {
+        return $this->platform;
+    }
+
+    /**
+     * Returns the Operating System version
+     *
+     * @return string
+     */
+    public function getOperatingSystemVersion(): string
+    {
+        return $this->platformVersion;
+    }
+
+    /**
+     * Returns the Browser name
+     *
+     * @return array<string>
+     */
+    public function getBrandList(): array
+    {
+        if (\count($this->fullVersionList)) {
+            return \array_combine(
+                \array_column($this->fullVersionList, 'brand'),
+                \array_column($this->fullVersionList, 'version')
+            ) ?: [];
+        }
+
+        return [];
+    }
+
+    /**
+     * Returns the Browser version
+     *
+     * @return string
+     */
+    public function getBrandVersion(): string
+    {
+        if (!empty($this->uaFullVersion)) {
+            return $this->uaFullVersion;
+        }
+
+        return '';
+    }
+
+    /**
+     * Factory method to easily instantiate this class using an array containing all available (client hint) headers
+     *
+     * @param array $headers
+     *
+     * @return ClientHints
+     */
+    public static function factory(array $headers): ClientHints
+    {
+        $model           = $platform = $platformVersion = $uaFullVersion = $architecture = $bitness = '';
+        $mobile          = false;
+        $fullVersionList = [];
+
+        foreach ($headers as $name => $value) {
+            switch (\strtolower($name)) {
+                case 'sec-ch-ua-arch':
+                case 'arch':
+                case 'architecture':
+                    $architecture = $value;
+
+                    break;
+                case 'sec-ch-ua-bitness':
+                case 'bitness':
+                    $bitness = $value;
+
+                    break;
+                case 'sec-ch-ua-mobile':
+                case 'mobile':
+                    $mobile = true === $value || '1' === $value || '?1' === $value;
+
+                    break;
+                case 'sec-ch-ua-model':
+                case 'model':
+                    $model = $value;
+
+                    break;
+                case 'sec-ch-ua-full-version':
+                case 'uafullversion':
+                    $uaFullVersion = $value;
+
+                    break;
+                case 'sec-ch-ua-platform':
+                case 'platform':
+                    $platform = $value;
+
+                    break;
+                case 'sec-ch-ua-platform-version':
+                case 'platformversion':
+                    $platformVersion = $value;
+
+                    break;
+                case 'brands':
+                    $fullVersionList = \is_array($value) ? $value : $fullVersionList;
+
+                    break;
+                case 'sec-ch-ua':
+                    if (!empty($fullVersionList)) {
+                        break;
+                    }
+                    // use this only if no other header already set the list
+                case 'sec-ch-ua-full-version-list':
+                    $reg  = '/^"([^"]+)"; ?v="([^"]+)"(?:, )?/';
+                    $list = [];
+
+                    while (\preg_match($reg, $value, $matches)) {
+                        $list[] = ['brand' => $matches[1], 'version' => $matches[2]];
+                        $value  = \substr($value, \strlen($matches[0]));
+                    }
+
+                    if (\count($list)) {
+                        $fullVersionList = $list;
+                    }
+
+                    break;
+            }
+        }
+
+        return new self(
+            $model,
+            $platform,
+            $platformVersion,
+            $uaFullVersion,
+            $fullVersionList,
+            $mobile,
+            $architecture,
+            $bitness
+        );
+    }
+}

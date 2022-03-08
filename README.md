@@ -17,7 +17,7 @@ DeviceDetector
 
 ## Description
 
-The Universal Device Detection library that parses User Agents and detects devices (desktop, tablet, mobile, tv, cars, console, etc.), clients (browsers, feed readers, media players, PIMs, ...), operating systems, brands and models.
+The Universal Device Detection library that parses User Agents and Browser Client Hints to detect devices (desktop, tablet, mobile, tv, cars, console, etc.), clients (browsers, feed readers, media players, PIMs, ...), operating systems, brands and models.
 
 ## Usage
 
@@ -33,6 +33,7 @@ And use some code like this one:
 ```php
 require_once 'vendor/autoload.php';
 
+use DeviceDetector\ClientHints;
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\Device\AbstractDeviceParser;
 
@@ -42,8 +43,9 @@ use DeviceDetector\Parser\Device\AbstractDeviceParser;
 AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
 
 $userAgent = $_SERVER['HTTP_USER_AGENT']; // change this to the useragent you want to parse
+$clientHints = ClientHints::factory($_SERVER); // client hints are optional
 
-$dd = new DeviceDetector($userAgent);
+$dd = new DeviceDetector($userAgent, $clientHints);
 
 // OPTIONAL: Set caching method
 // By default static cache is used, which works best within one php process (memory array caching)
