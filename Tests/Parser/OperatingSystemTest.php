@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace DeviceDetector\Tests\Parser;
 
+use DeviceDetector\ClientHints;
 use DeviceDetector\Parser\OperatingSystem;
 use PHPUnit\Framework\TestCase;
 use Spyc;
@@ -23,10 +24,15 @@ class OperatingSystemTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
-    public function testParse(string $useragent, array $os): void
+    public function testParse(string $useragent, array $os, ?array $headers = null): void
     {
         $osParser = new OperatingSystem();
         $osParser->setUserAgent($useragent);
+
+        if (null !== $headers) {
+            $osParser->setClientHints(ClientHints::factory($headers));
+        }
+
         $this->assertEquals($os, $osParser->parse(), "UserAgent: {$useragent}");
         self::$osTested[] = $os['name'];
     }

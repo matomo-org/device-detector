@@ -166,6 +166,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'Z2' => 'Atvio',
         'AX' => 'Audiovox',
         'AJ' => 'AURIS',
+        'YZ' => 'Autan',
         'ZA' => 'Avenzo',
         'AH' => 'AVH',
         'AV' => 'Avvio',
@@ -348,6 +349,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'E4' => 'Echo Mobiles',
         'ES' => 'ECS',
         '35' => 'ECON',
+        'ZZ' => 'ecom',
         'E6' => 'EE',
         'EK' => 'EKO',
         'EY' => 'Einstein',
@@ -1013,6 +1015,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '61' => 'Seuic',
         'SX' => 'SFR',
         'SH' => 'Sharp',
+        'JU' => 'Shanling',
         '7S' => 'Shift Phones',
         '78' => 'Shivaki',
         'RS' => 'Shtrikh-M',
@@ -1185,6 +1188,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'UO' => 'Unnecto',
         'UU' => 'Unonu',
         'UN' => 'Unowhy',
+        'UY' => 'UNNO',
         'UK' => 'UTOK',
         '3U' => 'IUNI',
         'UT' => 'UTStarcom',
@@ -1212,6 +1216,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VT' => 'Vestel',
         '48' => 'Vexia',
         'V6' => 'VGO TEL',
+        'QJ' => 'VDVD',
         'VD' => 'Videocon',
         'VW' => 'Videoweb',
         'VS' => 'ViewSonic',
@@ -1449,6 +1454,14 @@ abstract class AbstractDeviceParser extends AbstractParser
         }
 
         if (empty($matches)) {
+            if ($this->clientHints && $this->clientHints->getModel()) {
+                return [
+                    'deviceType' => null,
+                    'model'      => $this->clientHints->getModel(),
+                    'brand'      => '',
+                ];
+            }
+
             return null;
         }
 

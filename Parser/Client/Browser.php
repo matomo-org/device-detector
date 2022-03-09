@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace DeviceDetector\Parser\Client;
 
+use DeviceDetector\ClientHints;
 use DeviceDetector\Parser\Client\Browser\Engine;
 
 /**
@@ -161,6 +162,7 @@ class Browser extends AbstractClientParser
         'FS' => 'Flast',
         'FU' => 'FreeU',
         'GA' => 'Galeon',
+        'G8' => 'Gener8',
         'GH' => 'Ghostery Privacy Browser',
         'GI' => 'GinxDroid Browser',
         'GB' => 'Glass Browser',
@@ -263,6 +265,7 @@ class Browser extends AbstractClientParser
         'OF' => 'Off By One',
         'HH' => 'OhHai Browser',
         'OE' => 'ONE Browser',
+        'Y1' => 'Opera Crypto',
         'OX' => 'Opera GX',
         'OG' => 'Opera Neon',
         'OH' => 'Opera Devices',
@@ -293,6 +296,7 @@ class Browser extends AbstractClientParser
         'PX' => 'Phoenix',
         'PB' => 'Phoenix Browser',
         'PF' => 'PlayFree Browser',
+        'PK' => 'PocketBook Browser',
         'PO' => 'Polaris',
         'PT' => 'Polarity',
         'LY' => 'PolyBrowser',
@@ -424,7 +428,7 @@ class Browser extends AbstractClientParser
             'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'FH',
             'B1', 'BO', 'HB', 'PC', 'LA', 'LT', 'PD', 'HR', 'HU',
             'HP', 'IO', 'TP', 'CJ', 'HQ', 'HI', 'NA', 'BW', 'YO',
-            'DC',
+            'DC', 'G8',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -438,7 +442,7 @@ class Browser extends AbstractClientParser
         'NetFront'           => ['NF'],
         'NetSurf'            => ['NE'],
         'Nokia Browser'      => ['DO', 'NB', 'NO', 'NV'],
-        'Opera'              => ['O1', 'OG', 'OH', 'OI', 'OM', 'ON', 'OO', 'OP', 'OX'],
+        'Opera'              => ['O1', 'OG', 'OH', 'OI', 'OM', 'ON', 'OO', 'OP', 'OX', 'Y1'],
         'Safari'             => ['MF', 'S7', 'SF', 'SO', 'PV'],
         'Sailfish Browser'   => ['SA'],
     ];
@@ -446,7 +450,7 @@ class Browser extends AbstractClientParser
     /**
      * Browsers that are available for mobile devices only
      *
-     * @var array
+     * @var array<string>
      */
     protected static $mobileOnlyBrowsers = [
         '36', 'AH', 'AI', 'BL', 'C1', 'C4', 'CB', 'CW', 'DB',
@@ -456,7 +460,16 @@ class Browser extends AbstractClientParser
         'PE', 'QU', 'RE', 'S0', 'S7', 'SA', 'SB', 'SG', 'SK',
         'ST', 'SU', 'T1', 'UH', 'UM', 'UT', 'VE', 'VV', 'WI',
         'WP', 'YN', 'IO', 'IS', 'HQ', 'RW', 'HI', 'NA', 'BW',
-        'YO',
+        'YO', 'PK',
+    ];
+
+    /**
+     * Contains a list of mappings from OS names we use to known client hint values
+     *
+     * @var array<string, array<string>>
+     */
+    protected static $clientHintMapping = [
+        'Chrome' => ['Google Chrome'],
     ];
 
     /**
@@ -515,6 +528,130 @@ class Browser extends AbstractClientParser
      */
     public function parse(): ?array
     {
+        $browserFromClientHints = $this->parseBrowserFromClientHints();
+        $browserFromUserAgent   = $this->parseBrowserFromUserAgent();
+
+        // use client hints in favor of user agent data if possible
+        if (!empty($browserFromClientHints['name']) && !empty($browserFromClientHints['version'])) {
+            $name          = $browserFromClientHints['name'];
+            $version       = $browserFromClientHints['version'];
+            $short         = $browserFromClientHints['short_name'];
+            $engine        = '';
+            $engineVersion = '';
+
+            // If client hints report Chromium, but user agent detects a chromium based browser, we favor this instead
+            if ('Chromium' === $name
+                && !empty($browserFromUserAgent['name'])
+                && 'Chromium' !== $browserFromUserAgent['name']
+                && 'Chrome' === self::getBrowserFamily($browserFromUserAgent['name'])
+            ) {
+                $name    = $browserFromUserAgent['name'];
+                $short   = $browserFromUserAgent['short_name'];
+                $version = $browserFromUserAgent['version'];
+            }
+
+            // Fix mobile browser names e.g. Chrome => Chrome Mobile
+            if ($name . ' Mobile' === $browserFromUserAgent['name']) {
+                $name  = $browserFromUserAgent['name'];
+                $short = $browserFromUserAgent['short_name'];
+            }
+
+            // If useragent detects another browser, but the family matches, we use the detected engine from useragent
+            if ($name !== $browserFromUserAgent['name']
+                && self::getBrowserFamily($name) === self::getBrowserFamily($browserFromUserAgent['name'])
+            ) {
+                $engine        = $browserFromUserAgent['engine'] ?? '';
+                $engineVersion = $browserFromUserAgent['engine_version'] ?? '';
+            }
+
+            if ($name === $browserFromUserAgent['name']) {
+                $engine        = $browserFromUserAgent['engine'] ?? '';
+                $engineVersion = $browserFromUserAgent['engine_version'] ?? '';
+
+                // In case the user agent reports a more detailed version, we try to use this instead
+                if (!empty($browserFromUserAgent['version'])
+                    && 0 === \strpos($browserFromUserAgent['version'], $version)
+                    && \version_compare($version, $browserFromUserAgent['version'], '<')
+                ) {
+                    $version = $browserFromUserAgent['version'];
+                }
+            }
+        } else {
+            $name          = $browserFromUserAgent['name'];
+            $version       = $browserFromUserAgent['version'];
+            $short         = $browserFromUserAgent['short_name'];
+            $engine        = $browserFromUserAgent['engine'];
+            $engineVersion = $browserFromUserAgent['engine_version'];
+        }
+
+        if (empty($name)) {
+            return [];
+        }
+
+        return [
+            'type'           => 'browser',
+            'name'           => $name,
+            'short_name'     => $short,
+            'version'        => $version,
+            'engine'         => $engine,
+            'engine_version' => $engineVersion,
+            'family'         => self::getBrowserFamily((string) $short),
+        ];
+    }
+
+    /**
+     * Returns the browser that can be safely detected from client hints
+     *
+     * @return array
+     */
+    protected function parseBrowserFromClientHints(): array
+    {
+        $name = $version = $short = '';
+
+        if ($this->clientHints instanceof ClientHints && $this->clientHints->getBrandList()) {
+            $brands = $this->clientHints->getBrandList();
+
+            foreach ($brands as $brand => $brandVersion) {
+                $brand = $this->applyClientHintMapping($brand);
+
+                foreach (self::$availableBrowsers as $browserShort => $browserName) {
+                    if ($this->fuzzyCompare("{$brand}", $browserName)
+                        || $this->fuzzyCompare($brand . ' Browser', $browserName)
+                        || $this->fuzzyCompare("{$brand}", $browserName . ' Browser')
+                    ) {
+                        $name    = $browserName;
+                        $short   = $browserShort;
+                        $version = $brandVersion;
+
+                        break;
+                    }
+                }
+
+                // If we detected a brand, that is not chromium, we will use it, otherwise we will look further
+                if ('' !== $name && 'Chromium' !== $name) {
+                    break;
+                }
+            }
+
+            $version = $this->clientHints->getBrandVersion() ?: $version;
+        }
+
+        return [
+            'name'       => $name,
+            'short_name' => $short,
+            'version'    => $version,
+        ];
+    }
+
+    /**
+     * Returns the browser that can be detected from useragent
+     *
+     * @return array
+     *
+     * @throws \Exception
+     */
+    protected function parseBrowserFromUserAgent(): array
+    {
         foreach ($this->getRegexes() as $regex) {
             $matches = $this->matchUserAgent($regex['regex']);
 
@@ -524,7 +661,13 @@ class Browser extends AbstractClientParser
         }
 
         if (empty($matches) || empty($regex)) {
-            return null;
+            return [
+                'name'           => '',
+                'short_name'     => '',
+                'version'        => '',
+                'engine'         => '',
+                'engine_version' => '',
+            ];
         }
 
         $name = $this->buildByMatch($regex['name'], $matches);
@@ -536,13 +679,11 @@ class Browser extends AbstractClientParser
                 $engineVersion = $this->buildEngineVersion($engine);
 
                 return [
-                    'type'           => 'browser',
                     'name'           => $browserName,
                     'short_name'     => (string) $browserShort,
                     'version'        => $version,
                     'engine'         => $engine,
                     'engine_version' => $engineVersion,
-                    'family'         => self::getBrowserFamily((string) $browserShort),
                 ];
             }
         }
