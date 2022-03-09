@@ -13,45 +13,77 @@ declare(strict_types=1);
 namespace DeviceDetector\Tests;
 
 use DeviceDetector\ClientHints;
-use DeviceDetector\DeviceDetector;
-use DeviceDetector\Parser\Device\AbstractDeviceParser;
 use PHPUnit\Framework\TestCase;
 
 class ClientHintsTest extends TestCase
 {
-    public function getOsFixtures(): array
+    public function testHeaders(): void
     {
-        return [
-            [
-                'user_agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 OPR/83.0.4254.27',
-                'headers'    => [
-                    'sec-ch-ua'                  => '"Opera";v="83", " Not;A Brand";v="99", "Chromium";v="98"',
-                    'sec-ch-ua-mobile'           => '?0',
-                    'sec-ch-ua-platform'         => 'Windows',
-                    'sec-ch-ua-platform-version' => '14.0.0',
-                ],
-                'fixture'    => [
-                    'os' => [
-                        'name'       => 'Windows',
-                        'short_name' => 'WIN',
-                        'version'    => '11',
-                        'platform'   => 'x64',
-                        'family'     => 'Windows',
-                    ],
-                ],
-            ],
+        $headers = [
+            'sec-ch-ua'                  => '"Opera";v="83", " Not;A Brand";v="99", "Chromium";v="98"',
+            'sec-ch-ua-mobile'           => '?0',
+            'sec-ch-ua-platform'         => 'Windows',
+            'sec-ch-ua-platform-version' => '14.0.0',
         ];
+
+        $ch = ClientHints::factory($headers);
+        self::assertFalse($ch->isMobile());
+        self::assertSame('Windows', $ch->getOperatingSystem());
+        self::assertSame('14.0.0', $ch->getOperatingSystemVersion());
+        self::assertSame([
+            'Opera'        => '83',
+            ' Not;A Brand' => '99',
+            'Chromium'     => '98',
+        ], $ch->getBrandList());
     }
 
-    /**
-     * @dataProvider getOsFixtures
-     */
-    public function testOs(string $useragent, array $headers, array $fixture): void
+    public function testHeadersHttp(): void
     {
-        AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
+        $headers = [
+            'HTTP_SEC_CH_UA_FULL_VERSION_LIST' => '" Not A;Brand";v="99.0.0.0", "Chromium";v="98.0.4758.82", "Opera";v="98.0.4758.82"',
+            'HTTP_SEC_CH_UA'                   => '" Not A;Brand";v="99", "Chromium";v="98", "Opera";v="84"',
+            'HTTP_SEC_CH_UA_MOBILE'            => '?1',
+            'HTTP_SEC_CH_UA_MODEL'             => 'DN2103',
+            'HTTP_SEC_CH_UA_PLATFORM'          => 'Ubuntu',
+            'HTTP_SEC_CH_UA_PLATFORM_VERSION'  => '3.7',
+            'HTTP_SEC_CH_UA_FULL_VERSION'      => '98.0.14335.105',
+        ];
+
         $ch = ClientHints::factory($headers);
-        $dd = new DeviceDetector($useragent, $ch);
-        $dd->parse();
-        $this->assertEquals($dd->getOs(), $fixture['os']);
+        self::assertTrue($ch->isMobile());
+        self::assertSame('Ubuntu', $ch->getOperatingSystem());
+        self::assertSame('3.7', $ch->getOperatingSystemVersion());
+        self::assertSame([
+            ' Not A;Brand' => '99.0.0.0',
+            'Chromium'     => '98.0.4758.82',
+            'Opera'        => '98.0.4758.82',
+        ], $ch->getBrandList());
+        self::assertSame('DN2103', $ch->getModel());
+    }
+
+    public function testHeadersJavascript(): void
+    {
+        $headers = [
+            'fullVersionList' => [
+                ['brand' => ' Not A;Brand', 'version' => '99.0.0.0'],
+                ['brand' => 'Chromium', 'version' => '99.0.4844.51'],
+                ['brand' => 'Google Chrome', 'version' => '99.0.4844.51'],
+            ],
+            'mobile'          => false,
+            'model'           => '',
+            'platform'        => 'Windows',
+            'platformVersion' => '10.0.0',
+        ];
+
+        $ch = ClientHints::factory($headers);
+        self::assertFalse($ch->isMobile());
+        self::assertSame('Windows', $ch->getOperatingSystem());
+        self::assertSame('10.0.0', $ch->getOperatingSystemVersion());
+        self::assertSame([
+            ' Not A;Brand'  => '99.0.0.0',
+            'Chromium'      => '99.0.4844.51',
+            'Google Chrome' => '99.0.4844.51',
+        ], $ch->getBrandList());
+        self::assertSame('', $ch->getModel());
     }
 }

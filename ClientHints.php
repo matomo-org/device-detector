@@ -175,7 +175,7 @@ class ClientHints
     /**
      * Returns the Browser name
      *
-     * @return array<string>
+     * @return array<string, string>
      */
     public function getBrandList(): array
     {
@@ -217,52 +217,66 @@ class ClientHints
         $fullVersionList = [];
 
         foreach ($headers as $name => $value) {
-            switch (\strtolower($name)) {
+            switch (\str_replace('_', '-', \strtolower($name))) {
+                case 'http-sec-ch-ua-arch':
                 case 'sec-ch-ua-arch':
                 case 'arch':
                 case 'architecture':
                     $architecture = $value;
 
                     break;
+                case 'http-sec-ch-ua-bitness':
                 case 'sec-ch-ua-bitness':
                 case 'bitness':
                     $bitness = $value;
 
                     break;
+                case 'http-sec-ch-ua-mobile':
                 case 'sec-ch-ua-mobile':
                 case 'mobile':
                     $mobile = true === $value || '1' === $value || '?1' === $value;
 
                     break;
+                case 'http-sec-ch-ua-model':
                 case 'sec-ch-ua-model':
                 case 'model':
                     $model = $value;
 
                     break;
+                case 'http-sec-ch-ua-full-version':
                 case 'sec-ch-ua-full-version':
                 case 'uafullversion':
                     $uaFullVersion = $value;
 
                     break;
+                case 'http-sec-ch-ua-platform':
                 case 'sec-ch-ua-platform':
                 case 'platform':
                     $platform = $value;
 
                     break;
+                case 'http-sec-ch-ua-platform-version':
                 case 'sec-ch-ua-platform-version':
                 case 'platformversion':
                     $platformVersion = $value;
 
                     break;
                 case 'brands':
+                    if (!empty($fullVersionList)) {
+                        break;
+                    }
+                    // use this only if no other header already set the list
+                case 'fullversionlist':
                     $fullVersionList = \is_array($value) ? $value : $fullVersionList;
 
                     break;
+                case 'http-sec-ch-ua':
                 case 'sec-ch-ua':
                     if (!empty($fullVersionList)) {
                         break;
                     }
                     // use this only if no other header already set the list
+                case 'http-sec-ch-ua-full-version-list':
                 case 'sec-ch-ua-full-version-list':
                     $reg  = '/^"([^"]+)"; ?v="([^"]+)"(?:, )?/';
                     $list = [];
