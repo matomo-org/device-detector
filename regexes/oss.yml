@@ -6,6 +6,20 @@
 ###############
 
 ##########
+# TencentOS (https://github.com/Tencent/TencentOS-kernel)
+##########
+- regex: 'Linux/(\d+[\.\d]*).+tlinux'
+  name: 'TencentOS'
+  version: '$1'
+
+##########
+# Amazon Linux (https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html)
+##########
+- regex: '.+.amzn(\d).x86_64'
+  name: 'Amazon Linux'
+  version: '$1'
+
+##########
 # COS (China Operating System - https://web.archive.org/web/20170825001023/http://www.china-cos.com/)
 ##########
 - regex: ' COS like Android'
@@ -385,7 +399,7 @@
   version: '$1'
 
 # PCLinuxOS (https://www.pclinuxos.com/)
-- regex: 'PCLinuxOS/(\d+[\.\d]+)'
+- regex: 'PCLinuxOS/(\d+[\.\d]+)|.+pc-linux-gnu'
   name: 'PCLinuxOS'
   version: '$1'
 
@@ -414,6 +428,10 @@
   name: 'VectorLinux'
   version: '$1'
 
+- regex: '.+.el(\d+(?:[_\.]\d+)*).(?:centos|x86_64)'
+  name: 'CentOS'
+  version: '$1'
+
 - regex: 'Linux; .*((?:Debian|Knoppix|Mint|Ubuntu|Kubuntu|Xubuntu|Lubuntu|Fedora|Red Hat|Mandriva|Gentoo|Sabayon|Slackware|SUSE|CentOS|BackTrack))[ /](\d+[\.\d]+)'
   name: '$1'
   version: '$2'
@@ -425,6 +443,10 @@
 - regex: '(Debian|Knoppix|Mint(?! Browser)|Ubuntu|Kubuntu|Xubuntu|Lubuntu|Fedora|Red Hat|Mandriva|Gentoo|Sabayon|Slackware|SUSE|CentOS|BackTrack|Freebox)(?:(?: Enterprise)? Linux)?(?:[ /\-](\d+[\.\d]+))?'
   name: '$1'
   version: '$2'
+
+- regex: '.+redhat-linux-gnu'
+  name: 'Red Hat'
+  version: ''
 
 - regex: 'OS ROSA; Linux'
   name: 'Rosa'
@@ -1228,7 +1250,11 @@
 ###########
 # Linux (Generic)
 ###########
-- regex: 'Linux(?:OS)?[^a-z]|Cinnamon/(?:\d+[\.\d]+)'
+- regex: 'Linux/(\d+[\.\d]+)'
+  name: 'GNU/Linux'
+  version: '$1'
+
+- regex: 'Linux(?:OS)?[^a-z]|Cinnamon/(?:\d+[\.\d]+)|.+unknown-linux-gnu'
   name: 'GNU/Linux'
   version: ''
 
