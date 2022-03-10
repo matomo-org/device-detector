@@ -217,8 +217,8 @@ class ClientHints
         $fullVersionList = [];
 
         foreach ($headers as $name => $value) {
-            if(is_string($value)){
-                $value = str_replace('"', '', $value);
+            if (\is_string($value)) {
+                $value = \str_replace('"', '', $value);
             }
 
             switch (\str_replace('_', '-', \strtolower($name))) {
