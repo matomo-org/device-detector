@@ -222,13 +222,13 @@ class ClientHints
                 case 'sec-ch-ua-arch':
                 case 'arch':
                 case 'architecture':
-                    $architecture = \str_replace('"', '', $value);
+                    $architecture = \trim($value, '"');
 
                     break;
                 case 'http-sec-ch-ua-bitness':
                 case 'sec-ch-ua-bitness':
                 case 'bitness':
-                    $bitness = \str_replace('"', '', $value);
+                    $bitness = \trim($value, '"');
 
                     break;
                 case 'http-sec-ch-ua-mobile':
@@ -240,25 +240,25 @@ class ClientHints
                 case 'http-sec-ch-ua-model':
                 case 'sec-ch-ua-model':
                 case 'model':
-                    $model = \str_replace('"', '', $value);
+                    $model = \trim($value, '"');
 
                     break;
                 case 'http-sec-ch-ua-full-version':
                 case 'sec-ch-ua-full-version':
                 case 'uafullversion':
-                    $uaFullVersion = \str_replace('"', '', $value);
+                    $uaFullVersion = \trim($value, '"');
 
                     break;
                 case 'http-sec-ch-ua-platform':
                 case 'sec-ch-ua-platform':
                 case 'platform':
-                    $platform = \str_replace('"', '', $value);
+                    $platform = \trim($value, '"');
 
                     break;
                 case 'http-sec-ch-ua-platform-version':
                 case 'sec-ch-ua-platform-version':
                 case 'platformversion':
-                    $platformVersion = \str_replace('"', '', $value);
+                    $platformVersion = \trim($value, '"');
 
                     break;
                 case 'brands':
