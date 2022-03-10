@@ -44,10 +44,6 @@ use DeviceDetector\Parser\Device\AbstractDeviceParser;
 // for other options see VERSION_TRUNCATION_* constants in DeviceParserAbstract class
 AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
 
-// needed for clientHints
-header('Accept-CH: Sec-CH-UA-Full-Version, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version, Sec-CH-UA-Model, Sec-CH-UA-Arc', true);
-
-
 $userAgent = $_SERVER['HTTP_USER_AGENT']; // change this to the useragent you want to parse
 $clientHints = ClientHints::factory($_SERVER); // client hints are optional
 
