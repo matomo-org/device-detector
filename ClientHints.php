@@ -217,22 +217,18 @@ class ClientHints
         $fullVersionList = [];
 
         foreach ($headers as $name => $value) {
-            if (\is_string($value)) {
-                $value = \str_replace('"', '', $value);
-            }
-
             switch (\str_replace('_', '-', \strtolower($name))) {
                 case 'http-sec-ch-ua-arch':
                 case 'sec-ch-ua-arch':
                 case 'arch':
                 case 'architecture':
-                    $architecture = $value;
+                    $architecture = \str_replace('"', '', $value);;
 
                     break;
                 case 'http-sec-ch-ua-bitness':
                 case 'sec-ch-ua-bitness':
                 case 'bitness':
-                    $bitness = $value;
+                    $bitness = \str_replace('"', '', $value);;
 
                     break;
                 case 'http-sec-ch-ua-mobile':
@@ -244,25 +240,25 @@ class ClientHints
                 case 'http-sec-ch-ua-model':
                 case 'sec-ch-ua-model':
                 case 'model':
-                    $model = $value;
+                    $model = \str_replace('"', '', $value);;
 
                     break;
                 case 'http-sec-ch-ua-full-version':
                 case 'sec-ch-ua-full-version':
                 case 'uafullversion':
-                    $uaFullVersion = $value;
+                    $uaFullVersion = \str_replace('"', '', $value);;
 
                     break;
                 case 'http-sec-ch-ua-platform':
                 case 'sec-ch-ua-platform':
                 case 'platform':
-                    $platform = $value;
+                    $platform = \str_replace('"', '', $value);;
 
                     break;
                 case 'http-sec-ch-ua-platform-version':
                 case 'sec-ch-ua-platform-version':
                 case 'platformversion':
-                    $platformVersion = $value;
+                    $platformVersion = \str_replace('"', '', $value);;
 
                     break;
                 case 'brands':
