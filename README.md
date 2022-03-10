@@ -155,9 +155,19 @@ As this library is not included you need to include it manually or use another Y
 include_once 'path/to/spyc/Spyc.php';
 include_once 'path/to/device-detector/autoload.php';
 
+use DeviceDetector\ClientHints;
 use DeviceDetector\DeviceDetector;
+use DeviceDetector\Parser\Device\AbstractDeviceParser;
 
-$deviceDetector = new DeviceDetector();
+// OPTIONAL: Set version truncation to none, so full versions will be returned
+// By default only minor versions will be returned (e.g. X.Y)
+// for other options see VERSION_TRUNCATION_* constants in DeviceParserAbstract class
+AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
+
+$userAgent = $_SERVER['HTTP_USER_AGENT']; // change this to the useragent you want to parse
+$clientHints = ClientHints::factory($_SERVER); // client hints are optional
+
+$dd = new DeviceDetector($userAgent, $clientHints);
 
 // ...
 
