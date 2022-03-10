@@ -5044,9 +5044,9 @@ Condor:
       model: 'Plume H1'
     - regex: 'Plume L([2468]) Pro'
       model: 'Plume L$1 Pro'
-    - regex: 'Plume L3 Plus'
-      model: 'Plume L3 Plus'
-    - regex: 'Plume L3 Smart'
+    - regex: 'Plume L([13]) Plus'
+      model: 'Plume L$1 Plus'
+    - regex: 'Plume L Smart'
       model: 'Plume L3 Smart'
     - regex: 'Plume L([1-4])'
       model: 'Plume L$1'
@@ -9063,7 +9063,7 @@ iBerry:
 
 # iHunt
 iHunt:
-  regex: 'iHunt|One_ Love_|TITAN[_ ]P\d+|Like_(3|4U|3_Pro)|X300 Elite|S10_Tank_2019|S10 Tank PRO 2020|S60_Discovery_2019|AlienXLite2020|Alien X Lite|Alien_X|(?:S[23]0 Ultra ApeX 2021|S21 Ultra 4G 2021|Like 11 Panda Pro|Like_Hi10_2021|S21 Plus 2021|Like_[78])(?:_EEA)?(?:[);/ ]|$)'
+  regex: 'iHunt|One_ Love_|TITAN[_ ]P\d+|Like_(3|4U|3_Pro)|X300 Elite|S10_Tank_2019|S10 Tank PRO 2020|S60_Discovery_2019|AlienXLite2020|Alien X Lite|Alien_X|(?:S[23]0 Ultra ApeX 2021|S21 Ultra 4G 2021|Like 11 Panda Pro|Like_Hi10_2021|Like Hi5|S21 Plus 2021|Like_[78])(?:_EEA)?(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Like_Hi10_2021'
@@ -9082,6 +9082,8 @@ iHunt:
       model: 'Titan P8000 Pro (2021)'
     - regex: 'Like_3_Pro'
       model: 'Like 3 Pro'
+    - regex: 'Like Hi5'
+      model: 'Like Hi5'
     - regex: 'Like_([378])'
       model: 'Like $1'
     - regex: 'Like_4U'
@@ -11993,7 +11995,7 @@ Lingwin:
 
 # Logicom (logicom-europe.com)
 Logicom:
-  regex: 'LOGICOM[_ ]|(TAB950|TAB1062|E731|E812|E912|E1031|POWER BOT|La[ _]Tab[ _](?:7[24]|10[57]|11[345])|(?:B|C|M|ID|VR)[ _]?BOT[ _]?(?:TAB[ _])?([0-9]+\+?)(?:PLUS)?|KT712A_4\.4|L-?IXIR[0-9]*|L-ITE|L-EGANTONE(?:-R)?|Le Fizz|L-?EMENT.+|Le[ _]?(?:Up|Connect|Hop|Hello|Lift|Hola|Moov[2]?|Must(?: 2)?|Starter L|Fit FR|Spark|Prime|Smooth(?: FR)?))[_);/ ]'
+  regex: 'LOGICOM[_ ]|(TAB950|TAB1062|E731|E812|E912|E1031|POWER BOT|La[ _]Tab[ _](?:7[24]|10[57]|11[345])|(?:B|C|M|ID|VR)[ _]?BOT[ _]?(?:TAB[ _])?([0-9]+\+?)(?:PLUS)?|KT712A_4\.4|L-?IXIR[0-9]*|L-ITE|L-EGANTONE(?:-R)?|Le Fizz|L-?EMENT.+|Le[ _]?(?:Up|Connect|Hop|Hello|Lift|Hola|Moov[2]?|Must(?: 2)?|Starter L|Fit FR|Spark|Prime|Smooth(?: FR)?)|LeFit)(?:[);/ ]|$|_)'
   device: 'tablet'
   models:
     - regex: 'La[ _]Tab[ _](7[24]|10[57]|11[345]|105_P)(?:[);/ ]|$)'
@@ -12044,6 +12046,9 @@ Logicom:
       device: 'smartphone'
     - regex: 'Le Fit FR(?:[);/ ]|$)'
       model: 'Le Fit FR'
+      device: 'smartphone'
+    - regex: 'Le[ _]?Fit'
+      model: 'Le Fit'
       device: 'smartphone'
     - regex: 'Le Fizz'
       model: 'Le Fizz'
@@ -17985,7 +17990,7 @@ Vankyo:
 
 # QMobile or QSmart or Q-Smart (qmobile.com.pk)
 QMobile:
-  regex: 'QMobile|QTab(?!10EW)|Q-Smart|(?:E2 Noir|Noir X1S|LUNA PRO|NICE S|JazzX JS(?:[27]|10)(?: PRO)?|LT[57]00[ _]PRO|LT950|Q Infinity|Hot 5|Hot Pro 2|VITA S|i7i 2020|i10[ _]20(?:20|19)|Z12 PRO| GLi)(?:[);/ ]|$)'
+  regex: 'QMobile|QTab(?!10EW)|Q-?Smart|(?:E2 Noir|Noir X1S|LUNA PRO|NICE S|JazzX JS(?:[27]|10)(?: PRO)?|LT[57]00[ _]PRO|LT950|Q Infinity|Hot 5|Hot Pro 2|VITA S|i7i 2020|i10[ _]20(?:20|19)|Z12 PRO| GLi)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'JazzX JS7 PRO'
@@ -18039,9 +18044,7 @@ QMobile:
     - regex: 'QTab[ _-]([^;/)]+)(?:[;/)]|$)'
       model: '$1 Tab'
       device: 'tablet'
-    - regex: '(?:QMobile|Q-Smart)[ _-]([^;/]+) Build'
-      model: '$1'
-    - regex: '(?:QMobile|Q-Smart)[ _-]([^;/)]+)(?:[;/)]|$)'
+    - regex: '(?:QMobile|Q-?Smart)[ _-]([^;/)]+)(?: Build|[;)])'
       model: '$1'
     - regex: 'Q Infinity'
       model: 'Q Infinity'
@@ -24077,6 +24080,8 @@ Positivo BGH:
       model: 'Twist Mini'
     - regex: 'Twist 2 Fit(?:[);/ ]|$)'
       model: 'Twist 2 Fit'
+    - regex: 'Twist 2 Go(?:[);/ ]|$)'
+      model: 'Twist 2 Go'
     - regex: 'Twist 2 Pro(?:[);/ ]|$)'
       model: 'Twist 2 Pro'
     - regex: 'Twist XL(?:[);/ ]|$)'
