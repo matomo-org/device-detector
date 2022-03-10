@@ -217,6 +217,10 @@ class ClientHints
         $fullVersionList = [];
 
         foreach ($headers as $name => $value) {
+            if(is_string($value)){
+                $value = str_replace('"', '', $value);
+            }
+
             switch (\str_replace('_', '-', \strtolower($name))) {
                 case 'http-sec-ch-ua-arch':
                 case 'sec-ch-ua-arch':
