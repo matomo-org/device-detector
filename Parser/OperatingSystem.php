@@ -52,6 +52,7 @@ class OperatingSystem extends AbstractParser
         'BEO' => 'BeOS',
         'BLB' => 'BlackBerry OS',
         'QNX' => 'BlackBerry Tablet OS',
+        'BOS' => 'Bliss OS',
         'BMP' => 'Brew',
         'CAI' => 'Caixa Mágica',
         'CES' => 'CentOS',
@@ -172,7 +173,7 @@ class OperatingSystem extends AbstractParser
     protected static $osFamilies = [
         'Android'               => [
             'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
-            'ADR', 'CLR',
+            'ADR', 'CLR', 'BOS',
         ],
         'AmigaOS'               => ['AMG', 'MOR'],
         'BlackBerry'            => ['BLB', 'QNX'],
