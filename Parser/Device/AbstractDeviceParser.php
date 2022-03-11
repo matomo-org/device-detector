@@ -1257,7 +1257,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         '3V' => 'VVETIME',
         'WA' => 'Walton',
         'WM' => 'Weimei',
-        'ZW' => 'Welcome',
         'WE' => 'WellcoM',
         'W6' => 'WELLINGTON',
         'WD' => 'Western Digital',
