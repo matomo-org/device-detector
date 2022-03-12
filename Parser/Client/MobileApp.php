@@ -72,9 +72,6 @@ class MobileApp extends AbstractClientParser
         $version = $result['version'] ?? '';
         $appHash = $this->appHints->parse();
 
-        var_dump($appHash);
-
-
         if (null !== $appHash && $appHash['name'] !== $name) {
             $name    = $appHash['name'];
             $version = '';
