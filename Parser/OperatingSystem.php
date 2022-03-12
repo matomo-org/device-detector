@@ -312,15 +312,17 @@ class OperatingSystem extends AbstractParser
             return [];
         }
 
-        $platform = $this->parsePlatform();
-        $family   = self::getOsFamily($short);
-
+        $platform    = $this->parsePlatform();
+        $family      = self::getOsFamily($short);
         $androidApps = ['com.hisense.odinbrowser'];
-        if ($this->clientHints !== null && \in_array($this->clientHints->getApp(), $androidApps) && $name !== 'Android') {
-            $name    = 'Android';
-            $family  = 'Android';
-            $short   = 'ADR';
-            $version = '';
+
+        if (null !== $this->clientHints) {
+            if (\in_array($this->clientHints->getApp(), $androidApps) && 'Android' !== $name) {
+                $name    = 'Android';
+                $family  = 'Android';
+                $short   = 'ADR';
+                $version = '';
+            }
         }
 
         $return = [

@@ -478,6 +478,12 @@ class Browser extends AbstractClientParser
         'Chrome' => ['Google Chrome'],
     ];
 
+    /**
+     * Browser constructor.
+     *
+     * @param string $ua
+     * @param ClientHints|null $clientHints
+     */
     public function __construct(string $ua = '', ?ClientHints $clientHints = null)
     {
         $this->browserHints = new BrowserHints($ua, $clientHints);

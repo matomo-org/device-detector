@@ -89,17 +89,7 @@ class ClientHints
      * @param string $bitness         `Sec-CH-UA-Bitness`
      * @param string $app             `HTTP_X-REQUESTED-WITH`
      */
-    public function __construct(
-        string $model           = '',
-        string $platform        = '',
-        string $platformVersion = '',
-        string $uaFullVersion   = '',
-        array $fullVersionList  = [],
-        bool $mobile            = false,
-        string $architecture    = '',
-        string $bitness         = '',
-        string $app             = ''
-    ) // phpcs:ignore Generic.Files.LineLength
+    public function __construct(string $model = '', string $platform = '', string $platformVersion = '', string $uaFullVersion = '', array $fullVersionList = [], bool $mobile = false, string $architecture = '', string $bitness = '', string $app = '') // phpcs:ignore Generic.Files.LineLength
     {
         $this->model           = $model;
         $this->platform        = $platform;

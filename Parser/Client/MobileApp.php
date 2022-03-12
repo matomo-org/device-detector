@@ -37,6 +37,12 @@ class MobileApp extends AbstractClientParser
      */
     protected $parserName = 'mobile app';
 
+    /**
+     * MobileApp constructor.
+     *
+     * @param string $ua
+     * @param ClientHints|null $clientHints
+     */
     public function __construct(string $ua = '', ?ClientHints $clientHints = null)
     {
         $this->appHints = new AppHints($ua, $clientHints);
@@ -65,6 +71,12 @@ class MobileApp extends AbstractClientParser
         $this->appHints->setUserAgent($ua);
     }
 
+    /**
+     * Parses the current UA and checks whether it contains any client information
+     * See parent::parse() for more details.
+     *
+     * @return array|null
+     */
     public function parse(): ?array
     {
         $result  = parent::parse();

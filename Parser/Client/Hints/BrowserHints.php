@@ -26,6 +26,11 @@ class BrowserHints extends AbstractParser
      */
     protected $parserName = 'BrowserHints';
 
+    /**
+     * Get browser name if is in collection
+     *
+     * @return array|null
+     */
     public function parse(): ?array
     {
         if (null === $this->clientHints) {

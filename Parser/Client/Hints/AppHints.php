@@ -26,6 +26,11 @@ class AppHints extends AbstractParser
      */
     protected $parserName = 'AppHints';
 
+    /**
+     * Get application name if is in collection
+     *
+     * @return array|null
+     */
     public function parse(): ?array
     {
         if (null === $this->clientHints) {
