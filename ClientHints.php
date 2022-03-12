@@ -230,7 +230,8 @@ class ClientHints
      */
     public static function factory(array $headers): ClientHints
     {
-        $model           = $platform = $platformVersion = $uaFullVersion = $architecture = $bitness = $app ='';
+        $model           = $platform = $platformVersion = $uaFullVersion = $architecture = $bitness = '';
+        $app             = '';
         $mobile          = false;
         $fullVersionList = [];
 
@@ -309,12 +310,12 @@ class ClientHints
                     }
 
                     break;
-
                 case 'http-x-requested-with':
                 case 'x-requested-with':
                     if ('xmlhttprequest' !== \strtolower($value)) {
                         $app = $value;
                     }
+
                 break;
             }
         }
