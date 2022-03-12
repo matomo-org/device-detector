@@ -481,7 +481,7 @@ class Browser extends AbstractClientParser
     /**
      * Browser constructor.
      *
-     * @param string $ua
+     * @param string           $ua
      * @param ClientHints|null $clientHints
      */
     public function __construct(string $ua = '', ?ClientHints $clientHints = null)

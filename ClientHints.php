@@ -316,7 +316,7 @@ class ClientHints
                         $app = $value;
                     }
 
-                break;
+                    break;
             }
         }
 
