@@ -14,6 +14,7 @@ namespace DeviceDetector\Parser\Client;
 
 use DeviceDetector\ClientHints;
 use DeviceDetector\Parser\Client\Browser\Engine;
+use DeviceDetector\Parser\Client\Hints\BrowserHints;
 
 /**
  * Class Browser
@@ -22,6 +23,11 @@ use DeviceDetector\Parser\Client\Browser\Engine;
  */
 class Browser extends AbstractClientParser
 {
+    /**
+     * @var BrowserHints|null
+     */
+    private $browserHints;
+
     /**
      * @var string
      */
@@ -472,6 +478,34 @@ class Browser extends AbstractClientParser
         'Chrome' => ['Google Chrome'],
     ];
 
+    public function __construct(string $ua = '', ?ClientHints $clientHints = null)
+    {
+        $this->browserHints = new BrowserHints($ua, $clientHints);
+        parent::__construct($ua, $clientHints);
+    }
+
+    /**
+     * Sets the client hints to parse
+     *
+     * @param ?ClientHints $clientHints client hints
+     */
+    public function setClientHints(?ClientHints $clientHints): void
+    {
+        parent::setClientHints($clientHints);
+        $this->browserHints->setClientHints($clientHints);
+    }
+
+    /**
+     * Sets the user agent to parse
+     *
+     * @param string $ua user agent
+     */
+    public function setUserAgent(string $ua): void
+    {
+        parent::setUserAgent($ua);
+        $this->browserHints->setUserAgent($ua);
+    }
+
     /**
      * Returns list of all available browsers
      * @return array
@@ -584,6 +618,21 @@ class Browser extends AbstractClientParser
             $engineVersion = $browserFromUserAgent['engine_version'];
         }
 
+        $family  = self::getBrowserFamily((string) $short);
+        $appHash = $this->browserHints->parse();
+
+        if (null !== $appHash && $appHash['name'] !== $name) {
+            $name    = $appHash['name'];
+            $version = '';
+            $short   = '';
+
+            if (\preg_match('~Chrome\/.+ Safari\/537.36~i', $this->userAgent)) {
+                $engine        = 'Blink';
+                $family        = 'Chrome';
+                $engineVersion = '';
+            }
+        }
+
         if (empty($name)) {
             return [];
         }
@@ -595,7 +644,7 @@ class Browser extends AbstractClientParser
             'version'        => $version,
             'engine'         => $engine,
             'engine_version' => $engineVersion,
-            'family'         => self::getBrowserFamily((string) $short),
+            'family'         => $family,
         ];
     }
 

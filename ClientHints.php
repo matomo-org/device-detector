@@ -71,6 +71,12 @@ class ClientHints
     protected $fullVersionList = [];
 
     /**
+     * Represents `x-requested-with` header field: Android app id
+     * @var string
+     */
+    protected $app = '';
+
+    /**
      * Constructor
      *
      * @param string $model           `Sec-CH-UA-Model` header field
@@ -81,8 +87,19 @@ class ClientHints
      * @param bool   $mobile          `Sec-CH-UA-Mobile` header field
      * @param string $architecture    `Sec-CH-UA-Arch` header field
      * @param string $bitness         `Sec-CH-UA-Bitness`
+     * @param string $app             `HTTP_X-REQUESTED-WITH`
      */
-    public function __construct(string $model = '', string $platform = '', string $platformVersion = '', string $uaFullVersion = '', array $fullVersionList = [], bool $mobile = false, string $architecture = '', string $bitness = '') // phpcs:ignore Generic.Files.LineLength
+    public function __construct(
+        string $model = '',
+        string $platform = '',
+        string $platformVersion = '',
+        string $uaFullVersion = '',
+        array $fullVersionList = [],
+        bool $mobile = false,
+        string $architecture = '',
+        string $bitness = '',
+        string $app = ''
+    ) // phpcs:ignore Generic.Files.LineLength
     {
         $this->model           = $model;
         $this->platform        = $platform;
@@ -92,6 +109,7 @@ class ClientHints
         $this->mobile          = $mobile;
         $this->architecture    = $architecture;
         $this->bitness         = $bitness;
+        $this->app             = $app;
     }
 
     /**
@@ -204,6 +222,16 @@ class ClientHints
     }
 
     /**
+     * Returns the Android app id
+     *
+     * @return string
+     */
+    public function getApp(): string
+    {
+        return $this->app;
+    }
+
+    /**
      * Factory method to easily instantiate this class using an array containing all available (client hint) headers
      *
      * @param array $headers
@@ -212,7 +240,7 @@ class ClientHints
      */
     public static function factory(array $headers): ClientHints
     {
-        $model           = $platform = $platformVersion = $uaFullVersion = $architecture = $bitness = '';
+        $model           = $platform = $platformVersion = $uaFullVersion = $architecture = $bitness = $app ='';
         $mobile          = false;
         $fullVersionList = [];
 
@@ -291,6 +319,13 @@ class ClientHints
                     }
 
                     break;
+
+                case 'http-x-requested-with':
+                case 'x-requested-with':
+                    if ('xmlhttprequest' !== \strtolower($value)) {
+                        $app = $value;
+                    }
+                break;
             }
         }
 
@@ -302,7 +337,8 @@ class ClientHints
             $fullVersionList,
             $mobile,
             $architecture,
-            $bitness
+            $bitness,
+            $app
         );
     }
 }
