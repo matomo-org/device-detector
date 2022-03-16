@@ -663,7 +663,7 @@ class Browser extends AbstractClientParser
         $family  = self::getBrowserFamily((string) $short);
         $appHash = $this->browserHints->parse();
 
-        if (null !== $appHash && $appHash['name'] !== $name) {
+        if (null !== $appHash && $name !== $appHash['name']) {
             $name    = $appHash['name'];
             $version = '';
             $short   = self::getBrowserShortName($name);
