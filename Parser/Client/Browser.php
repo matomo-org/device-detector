@@ -531,6 +531,22 @@ class Browser extends AbstractClientParser
     }
 
     /**
+     * @param string $name name browser
+     *
+     * @return string
+     */
+    public static function getBrowserShortName(string $name): ?string
+    {
+        foreach (self::getAvailableBrowsers() as $browserShort => $browserName) {
+            if (\strtolower($name) === \strtolower($browserName)) {
+                return (string) $browserShort;
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * @param string $browserLabel name or short name
      *
      * @return string|null If null, "Unknown"
@@ -630,12 +646,21 @@ class Browser extends AbstractClientParser
         if (null !== $appHash && $appHash['name'] !== $name) {
             $name    = $appHash['name'];
             $version = '';
-            $short   = '';
+            $short   = self::getBrowserShortName($name);
 
             if (\preg_match('~Chrome/.+ Safari/537.36~i', $this->userAgent)) {
                 $engine        = 'Blink';
                 $family        = 'Chrome';
                 $engineVersion = '';
+            }
+
+            if (null === $short) {
+                // This Exception should never be thrown. If so a defined browser name is missing in $availableBrowsers
+                throw new \Exception(\sprintf(
+                    'Detected browser name "%s" was not found in $availableBrowsers. Tried to parse user agent: %s',
+                    $name,
+                    $this->userAgent
+                )); // @codeCoverageIgnore
             }
         }
 
@@ -725,22 +750,21 @@ class Browser extends AbstractClientParser
             ];
         }
 
-        $name = $this->buildByMatch($regex['name'], $matches);
+        $name         = $this->buildByMatch($regex['name'], $matches);
+        $browserShort = self::getBrowserShortName($name);
 
-        foreach (self::getAvailableBrowsers() as $browserShort => $browserName) {
-            if (\strtolower($name) === \strtolower($browserName)) {
-                $version       = $this->buildVersion((string) $regex['version'], $matches);
-                $engine        = $this->buildEngine($regex['engine'] ?? [], $version);
-                $engineVersion = $this->buildEngineVersion($engine);
+        if (null !== $browserShort) {
+            $version       = $this->buildVersion((string) $regex['version'], $matches);
+            $engine        = $this->buildEngine($regex['engine'] ?? [], $version);
+            $engineVersion = $this->buildEngineVersion($engine);
 
-                return [
-                    'name'           => $browserName,
-                    'short_name'     => (string) $browserShort,
-                    'version'        => $version,
-                    'engine'         => $engine,
-                    'engine_version' => $engineVersion,
-                ];
-            }
+            return [
+                'name'           => $name,
+                'short_name'     => $browserShort,
+                'version'        => $version,
+                'engine'         => $engine,
+                'engine_version' => $engineVersion,
+            ];
         }
 
         // This Exception should never be thrown. If so a defined browser name is missing in $availableBrowsers
