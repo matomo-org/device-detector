@@ -53,6 +53,7 @@ class Browser extends AbstractClientParser
         '1I' => 'IE Browser Fast',
         '1V' => 'Vegas Browser',
         '1O' => 'OH Browser',
+        '3O' => 'OH Private Browser',
         '1X' => 'XBrowser Mini',
         '1S' => 'Sharkee Browser',
         '2L' => 'Lark Browser',
@@ -672,11 +673,10 @@ class Browser extends AbstractClientParser
             $name    = $appHash['name'];
             $version = '';
             $short   = self::getBrowserShortName($name);
-            $family  = self::getBrowserFamily((string) $short);
 
             if (\preg_match('~Chrome/.+ Safari/537.36~i', $this->userAgent)) {
                 $engine        = 'Blink';
-                $family        = $family ?? 'Chrome';
+                $family        = self::getBrowserFamily((string) $short) ?? 'Chrome';
                 $engineVersion = '';
             }
 
