@@ -224,6 +224,7 @@ class Browser extends AbstractClientParser
         'JB' => 'Japan Browser',
         'JS' => 'Jasmine',
         'JA' => 'JavaFX',
+        'JL' => 'Jelly',
         'JI' => 'Jig Browser',
         'JP' => 'Jig Browser Plus',
         'JO' => 'Jio Browser',

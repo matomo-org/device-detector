@@ -1592,7 +1592,7 @@
   engine:
     default: 'Blink'
 
-#Midori
+# Midori
 - regex: 'Chrome.+Midori Browser/(\d+[\.\d]+)'
   name: 'Midori'
   version: '$1'
@@ -1610,13 +1610,18 @@
   version: '$1'
 
 #Maxthon
-- regex: 'Chrome.+Maxthon(?:.+\(portable\))?/(\d+[\.\d]+)'
+- regex: 'Chrome.+Maxthon/\d{4}'
+  name: 'Maxthon'
+  version: ''
+  engine:
+    default: 'Blink'
+- regex: 'Chrome.+(?:MxBrowser|Maxthon)(?:.+\(portable\))?/(\d+\.[\.\d]+)'
   name: 'Maxthon'
   version: '$1'
   engine:
     default: 'WebKit'
     versions:
-      '5.2': 'Blink'
+      '4.5': 'Blink'
 - regex: '(?:Maxthon(?:%20Browser)?|MxBrowser(?:-inhouse|-iPhone)?|MXiOS)[ /](\d+[\.\d]+)?'
   name: 'Maxthon'
   version: '$1'
