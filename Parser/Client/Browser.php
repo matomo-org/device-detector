@@ -672,10 +672,11 @@ class Browser extends AbstractClientParser
             $name    = $appHash['name'];
             $version = '';
             $short   = self::getBrowserShortName($name);
+            $family  = self::getBrowserFamily((string) $short);
 
             if (\preg_match('~Chrome/.+ Safari/537.36~i', $this->userAgent)) {
                 $engine        = 'Blink';
-                $family        = 'Chrome';
+                $family        = $family ?? 'Chrome';
                 $engineVersion = '';
             }
 
