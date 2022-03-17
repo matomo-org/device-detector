@@ -85,6 +85,7 @@ class Browser extends AbstractClientParser
         'AI' => 'Arvin',
         'A0' => 'Atom',
         'AT' => 'Atomic Web Browser',
+        'A2' => 'Atlas',
         'AS' => 'Avast Secure Browser',
         'VG' => 'AVG Secure Browser',
         'AC' => 'Avira Scout',
