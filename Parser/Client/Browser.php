@@ -14,6 +14,7 @@ namespace DeviceDetector\Parser\Client;
 
 use DeviceDetector\ClientHints;
 use DeviceDetector\Parser\Client\Browser\Engine;
+use DeviceDetector\Parser\Client\Hints\BrowserHints;
 
 /**
  * Class Browser
@@ -22,6 +23,11 @@ use DeviceDetector\Parser\Client\Browser\Engine;
  */
 class Browser extends AbstractClientParser
 {
+    /**
+     * @var BrowserHints|null
+     */
+    private $browserHints;
+
     /**
      * @var string
      */
@@ -38,6 +44,23 @@ class Browser extends AbstractClientParser
      * @var array
      */
     protected static $availableBrowsers = [
+        'V1' => 'Via',
+        '1P' => 'Pure Mini Browser',
+        '1R' => 'Raise Fast Browser',
+        'FQ' => 'Fast Browser UC Lite',
+        '1L' => 'Lightning Browser',
+        '1C' => 'Cake Browser',
+        '1I' => 'IE Browser Fast',
+        '1V' => 'Vegas Browser',
+        '1O' => 'OH Browser',
+        '1X' => 'XBrowser Mini',
+        '1S' => 'Sharkee Browser',
+        '2L' => 'Lark Browser',
+        '3P' => 'Pluma',
+        '1A' => 'Anka Browser',
+        '1D' => 'Dragon Browser',
+        '1E' => 'Easy Browser',
+        'DW' => 'Dark Web Browser',
         '1B' => '115 Browser',
         '2B' => '2345 Browser',
         '36' => '360 Phone Browser',
@@ -153,6 +176,7 @@ class Browser extends AbstractClientParser
         'FK' => 'Firefox Focus',
         'FY' => 'Firefox Reality',
         'FR' => 'Firefox Rocket',
+        '1F' => 'Firefox Klar',
         'FL' => 'Flock',
         'FO' => 'Flow',
         'FM' => 'Firefox Mobile',
@@ -200,6 +224,7 @@ class Browser extends AbstractClientParser
         'JI' => 'Jig Browser',
         'JP' => 'Jig Browser Plus',
         'JO' => 'Jio Browser',
+        'J1' => 'JioPages',
         'KB' => 'K.Browser',
         'KI' => 'Kindle Browser',
         'KM' => 'K-meleon',
@@ -208,6 +233,7 @@ class Browser extends AbstractClientParser
         'KN' => 'Kinza',
         'KW' => 'Kiwi',
         'KD' => 'Kode Browser',
+        'KT' => 'KUTO Mini Browser',
         'KY' => 'Kylo',
         'KZ' => 'Kazehakase',
         'LB' => 'Cheetah Browser',
@@ -260,6 +286,7 @@ class Browser extends AbstractClientParser
         'O1' => 'Opera Mini iOS',
         'OB' => 'Obigo',
         'O2' => 'Odin',
+        '2O' => 'Odin Browser',
         'H2' => 'OceanHero',
         'OD' => 'Odyssey Web Browser',
         'OF' => 'Off By One',
@@ -289,6 +316,7 @@ class Browser extends AbstractClientParser
         'PP' => 'Oppo Browser',
         'PR' => 'Palm Pre',
         'PU' => 'Puffin',
+        '2P' => 'Puffin Web Browser',
         'PW' => 'Palm WebPro',
         'PA' => 'Palmscape',
         'PE' => 'Perfect Browser',
@@ -374,6 +402,7 @@ class Browser extends AbstractClientParser
         'UT' => 'UC Browser Turbo',
         'UR' => 'UR Browser',
         'UZ' => 'Uzbl',
+        'UE' => 'Ume Browser',
         'VE' => 'Venus Browser',
         'VI' => 'Vivaldi',
         'VV' => 'vivo Browser',
@@ -473,6 +502,40 @@ class Browser extends AbstractClientParser
     ];
 
     /**
+     * Browser constructor.
+     *
+     * @param string           $ua
+     * @param ClientHints|null $clientHints
+     */
+    public function __construct(string $ua = '', ?ClientHints $clientHints = null)
+    {
+        $this->browserHints = new BrowserHints($ua, $clientHints);
+        parent::__construct($ua, $clientHints);
+    }
+
+    /**
+     * Sets the client hints to parse
+     *
+     * @param ?ClientHints $clientHints client hints
+     */
+    public function setClientHints(?ClientHints $clientHints): void
+    {
+        parent::setClientHints($clientHints);
+        $this->browserHints->setClientHints($clientHints);
+    }
+
+    /**
+     * Sets the user agent to parse
+     *
+     * @param string $ua user agent
+     */
+    public function setUserAgent(string $ua): void
+    {
+        parent::setUserAgent($ua);
+        $this->browserHints->setUserAgent($ua);
+    }
+
+    /**
      * Returns list of all available browsers
      * @return array
      */
@@ -488,6 +551,22 @@ class Browser extends AbstractClientParser
     public static function getAvailableBrowserFamilies(): array
     {
         return self::$browserFamilies;
+    }
+
+    /**
+     * @param string $name name browser
+     *
+     * @return string
+     */
+    public static function getBrowserShortName(string $name): ?string
+    {
+        foreach (self::getAvailableBrowsers() as $browserShort => $browserName) {
+            if (\strtolower($name) === \strtolower($browserName)) {
+                return (string) $browserShort;
+            }
+        }
+
+        return null;
     }
 
     /**
@@ -584,6 +663,30 @@ class Browser extends AbstractClientParser
             $engineVersion = $browserFromUserAgent['engine_version'];
         }
 
+        $family  = self::getBrowserFamily((string) $short);
+        $appHash = $this->browserHints->parse();
+
+        if (null !== $appHash && $name !== $appHash['name']) {
+            $name    = $appHash['name'];
+            $version = '';
+            $short   = self::getBrowserShortName($name);
+
+            if (\preg_match('~Chrome/.+ Safari/537.36~i', $this->userAgent)) {
+                $engine        = 'Blink';
+                $family        = 'Chrome';
+                $engineVersion = '';
+            }
+
+            if (null === $short) {
+                // This Exception should never be thrown. If so a defined browser name is missing in $availableBrowsers
+                throw new \Exception(\sprintf(
+                    'Detected browser name "%s" was not found in $availableBrowsers. Tried to parse user agent: %s',
+                    $name,
+                    $this->userAgent
+                )); // @codeCoverageIgnore
+            }
+        }
+
         if (empty($name)) {
             return [];
         }
@@ -595,7 +698,7 @@ class Browser extends AbstractClientParser
             'version'        => $version,
             'engine'         => $engine,
             'engine_version' => $engineVersion,
-            'family'         => self::getBrowserFamily((string) $short),
+            'family'         => $family,
         ];
     }
 
@@ -670,22 +773,21 @@ class Browser extends AbstractClientParser
             ];
         }
 
-        $name = $this->buildByMatch($regex['name'], $matches);
+        $name         = $this->buildByMatch($regex['name'], $matches);
+        $browserShort = self::getBrowserShortName($name);
 
-        foreach (self::getAvailableBrowsers() as $browserShort => $browserName) {
-            if (\strtolower($name) === \strtolower($browserName)) {
-                $version       = $this->buildVersion((string) $regex['version'], $matches);
-                $engine        = $this->buildEngine($regex['engine'] ?? [], $version);
-                $engineVersion = $this->buildEngineVersion($engine);
+        if (null !== $browserShort) {
+            $version       = $this->buildVersion((string) $regex['version'], $matches);
+            $engine        = $this->buildEngine($regex['engine'] ?? [], $version);
+            $engineVersion = $this->buildEngineVersion($engine);
 
-                return [
-                    'name'           => $browserName,
-                    'short_name'     => (string) $browserShort,
-                    'version'        => $version,
-                    'engine'         => $engine,
-                    'engine_version' => $engineVersion,
-                ];
-            }
+            return [
+                'name'           => $name,
+                'short_name'     => $browserShort,
+                'version'        => $version,
+                'engine'         => $engine,
+                'engine_version' => $engineVersion,
+            ];
         }
 
         // This Exception should never be thrown. If so a defined browser name is missing in $availableBrowsers

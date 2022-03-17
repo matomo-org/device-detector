@@ -201,9 +201,15 @@ class DeviceDetectorTest extends TestCase
             );
         }
 
+        $errorMessage = \sprintf(
+            "UserAgent: %s\nHeaders: %s",
+            $ua,
+            \print_r($fixtureData['headers'] ?? null, true)
+        );
+
         unset($fixtureData['headers']); // ignore headers in result
 
-        $this->assertEquals($fixtureData, $uaInfo, "UserAgent: {$ua}");
+        $this->assertEquals($fixtureData, $uaInfo, $errorMessage);
     }
 
     public function getFixtures(): array
