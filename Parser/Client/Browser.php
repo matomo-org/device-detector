@@ -53,6 +53,7 @@ class Browser extends AbstractClientParser
         '1I' => 'IE Browser Fast',
         '1V' => 'Vegas Browser',
         '1O' => 'OH Browser',
+        '3O' => 'OH Private Browser',
         '1X' => 'XBrowser Mini',
         '1S' => 'Sharkee Browser',
         '2L' => 'Lark Browser',
@@ -85,6 +86,7 @@ class Browser extends AbstractClientParser
         'AI' => 'Arvin',
         'A0' => 'Atom',
         'AT' => 'Atomic Web Browser',
+        'A2' => 'Atlas',
         'AS' => 'Avast Secure Browser',
         'VG' => 'AVG Secure Browser',
         'AC' => 'Avira Scout',
@@ -151,6 +153,7 @@ class Browser extends AbstractClientParser
         'DT' => 'Delta Browser',
         'DS' => 'DeskBrowse',
         'DF' => 'Dolphin',
+        'DZ' => 'Dolphin Zero',
         'DO' => 'Dorado',
         'DR' => 'Dot Browser',
         'DL' => 'Dooble',
@@ -221,6 +224,7 @@ class Browser extends AbstractClientParser
         'JB' => 'Japan Browser',
         'JS' => 'Jasmine',
         'JA' => 'JavaFX',
+        'JL' => 'Jelly',
         'JI' => 'Jig Browser',
         'JP' => 'Jig Browser Plus',
         'JO' => 'Jio Browser',
@@ -673,7 +677,7 @@ class Browser extends AbstractClientParser
 
             if (\preg_match('~Chrome/.+ Safari/537.36~i', $this->userAgent)) {
                 $engine        = 'Blink';
-                $family        = 'Chrome';
+                $family        = self::getBrowserFamily((string) $short) ?? 'Chrome';
                 $engineVersion = '';
             }
 
