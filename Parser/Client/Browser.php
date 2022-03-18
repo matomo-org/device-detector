@@ -179,6 +179,7 @@ class Browser extends AbstractClientParser
         '1F' => 'Firefox Klar',
         'FL' => 'Flock',
         'FO' => 'Flow',
+        'F2' => 'Flow Browser',
         'FM' => 'Firefox Mobile',
         'FW' => 'Fireweb',
         'FN' => 'Fireweb Navigator',
