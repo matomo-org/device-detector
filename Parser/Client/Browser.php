@@ -219,6 +219,7 @@ class Browser extends AbstractClientParser
         'IV' => 'Isivioo',
         'IW' => 'Iceweasel',
         'IE' => 'Internet Explorer',
+        'I5' => 'Indian UC Mini Browser',
         'IM' => 'IE Mobile',
         'IR' => 'Iron',
         'JB' => 'Japan Browser',
