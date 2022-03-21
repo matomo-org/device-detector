@@ -123,6 +123,7 @@ class Browser extends AbstractClientParser
         'C1' => 'Coast',
         'CX' => 'Charon',
         'CE' => 'CM Browser',
+        'C7' => 'CM Mini',
         'CF' => 'Chrome Frame',
         'HC' => 'Headless Chrome',
         'CH' => 'Chrome',
