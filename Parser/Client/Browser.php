@@ -406,6 +406,7 @@ class Browser extends AbstractClientParser
         'UH' => 'UC Browser HD',
         'UM' => 'UC Browser Mini',
         'UT' => 'UC Browser Turbo',
+        'UI' => 'Ui Browser Mini',
         'UR' => 'UR Browser',
         'UZ' => 'Uzbl',
         'UE' => 'Ume Browser',
@@ -463,7 +464,7 @@ class Browser extends AbstractClientParser
             'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'FH',
             'B1', 'BO', 'HB', 'PC', 'LA', 'LT', 'PD', 'HR', 'HU',
             'HP', 'IO', 'TP', 'CJ', 'HQ', 'HI', 'NA', 'BW', 'YO',
-            'DC', 'G8', 'DT', 'AP', 'AK',
+            'DC', 'G8', 'DT', 'AP', 'AK', 'UI',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -495,7 +496,7 @@ class Browser extends AbstractClientParser
         'PE', 'QU', 'RE', 'S0', 'S7', 'SA', 'SB', 'SG', 'SK',
         'ST', 'SU', 'T1', 'UH', 'UM', 'UT', 'VE', 'VV', 'WI',
         'WP', 'YN', 'IO', 'IS', 'HQ', 'RW', 'HI', 'NA', 'BW',
-        'YO', 'PK', 'MR', 'AP', 'AK',
+        'YO', 'PK', 'MR', 'AP', 'AK', 'UI',
     ];
 
     /**
