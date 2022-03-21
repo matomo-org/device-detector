@@ -364,6 +364,7 @@ class Browser extends AbstractClientParser
         'SV' => 'SFive',
         'SH' => 'Shiira',
         'S1' => 'SimpleBrowser',
+        '3S' => 'SilverMob US',
         'SY' => 'Sizzy',
         'SK' => 'Skyfire',
         'SS' => 'Seraphic Sraf',
