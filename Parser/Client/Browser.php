@@ -386,6 +386,7 @@ class Browser extends AbstractClientParser
         'SU' => 'Super Fast Browser',
         'HR' => 'Sushi Browser',
         'S3' => 'surf',
+        '4S' => 'Surf Browser',
         'SG' => 'Stargon',
         'S0' => 'START Internet Browser',
         'S4' => 'Steam In-Game Overlay',
@@ -466,7 +467,7 @@ class Browser extends AbstractClientParser
             'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'FH',
             'B1', 'BO', 'HB', 'PC', 'LA', 'LT', 'PD', 'HR', 'HU',
             'HP', 'IO', 'TP', 'CJ', 'HQ', 'HI', 'NA', 'BW', 'YO',
-            'DC', 'G8', 'DT', 'AP', 'AK', 'UI', 'SD', 'VN',
+            'DC', 'G8', 'DT', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -498,7 +499,7 @@ class Browser extends AbstractClientParser
         'PE', 'QU', 'RE', 'S0', 'S7', 'SA', 'SB', 'SG', 'SK',
         'ST', 'SU', 'T1', 'UH', 'UM', 'UT', 'VE', 'VV', 'WI',
         'WP', 'YN', 'IO', 'IS', 'HQ', 'RW', 'HI', 'NA', 'BW',
-        'YO', 'PK', 'MR', 'AP', 'AK', 'UI', 'SD', 'VN',
+        'YO', 'PK', 'MR', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
     ];
 
     /**
