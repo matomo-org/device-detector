@@ -48,6 +48,7 @@ class Browser extends AbstractClientParser
         '1P' => 'Pure Mini Browser',
         '1R' => 'Raise Fast Browser',
         'FQ' => 'Fast Browser UC Lite',
+        'FJ' => 'Fast Explorer',
         '1L' => 'Lightning Browser',
         '1C' => 'Cake Browser',
         '1I' => 'IE Browser Fast',
