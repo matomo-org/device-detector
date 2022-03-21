@@ -85,6 +85,7 @@ class Browser extends AbstractClientParser
         'AV' => 'Amiga Voyager',
         'AW' => 'Amiga Aweb',
         'AI' => 'Arvin',
+        'AK' => 'Ask.com',
         'A0' => 'Atom',
         'AT' => 'Atomic Web Browser',
         'A2' => 'Atlas',
@@ -462,7 +463,7 @@ class Browser extends AbstractClientParser
             'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'FH',
             'B1', 'BO', 'HB', 'PC', 'LA', 'LT', 'PD', 'HR', 'HU',
             'HP', 'IO', 'TP', 'CJ', 'HQ', 'HI', 'NA', 'BW', 'YO',
-            'DC', 'G8', 'DT', 'AP',
+            'DC', 'G8', 'DT', 'AP', 'AK',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -494,7 +495,7 @@ class Browser extends AbstractClientParser
         'PE', 'QU', 'RE', 'S0', 'S7', 'SA', 'SB', 'SG', 'SK',
         'ST', 'SU', 'T1', 'UH', 'UM', 'UT', 'VE', 'VV', 'WI',
         'WP', 'YN', 'IO', 'IS', 'HQ', 'RW', 'HI', 'NA', 'BW',
-        'YO', 'PK', 'MR', 'AP',
+        'YO', 'PK', 'MR', 'AP', 'AK',
     ];
 
     /**
