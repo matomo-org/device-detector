@@ -57,6 +57,7 @@ class Version extends AbstractClientParser
         }
 
         $engineToken = $this->engine;
+
         if ('Blink' === $this->engine) {
             $engineToken = 'Chrome';
         }
