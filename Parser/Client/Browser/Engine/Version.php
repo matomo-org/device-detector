@@ -56,8 +56,14 @@ class Version extends AbstractClientParser
             }
         }
 
+        $engineToken = $this->engine;
+
+        if ('Blink' === $this->engine) {
+            $engineToken = 'Chrome';
+        }
+
         \preg_match(
-            "~{$this->engine}\s*/?\s*((?(?=\d+\.\d)\d+[.\d]*|\d{1,7}(?=(?:\D|$))))~i",
+            "~{$engineToken}\s*/?\s*((?(?=\d+\.\d)\d+[.\d]*|\d{1,7}(?=(?:\D|$))))~i",
             $this->userAgent,
             $matches
         );
