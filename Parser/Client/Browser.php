@@ -696,6 +696,11 @@ class Browser extends AbstractClientParser
             return [];
         }
 
+        // exclude Blink engine versions for browsers
+        if ('Blink' === $engine && 'Flow Browser' === $name) {
+            $engineVersion = '';
+        }
+
         return [
             'type'           => 'browser',
             'name'           => $name,
