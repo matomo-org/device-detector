@@ -187,6 +187,7 @@ class Browser extends AbstractClientParser
         '1F' => 'Firefox Klar',
         'FL' => 'Flock',
         'FO' => 'Flow',
+        'F2' => 'Flow Browser',
         'FM' => 'Firefox Mobile',
         'FW' => 'Fireweb',
         'FN' => 'Fireweb Navigator',
@@ -706,6 +707,11 @@ class Browser extends AbstractClientParser
 
         if (empty($name)) {
             return [];
+        }
+
+        // exclude Blink engine version for browsers
+        if ('Blink' === $engine && 'Flow Browser' === $name) {
+            $engineVersion = '';
         }
 
         return [
