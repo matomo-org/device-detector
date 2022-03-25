@@ -419,6 +419,7 @@ class Browser extends AbstractClientParser
         'VV' => 'vivo Browser',
         'VB' => 'Vision Mobile Browser',
         'VM' => 'VMware AirWatch',
+        'WB' => 'Wave Browser',
         'WI' => 'Wear Internet Browser',
         'WP' => 'Web Explorer',
         'WE' => 'WebPositive',
@@ -469,6 +470,7 @@ class Browser extends AbstractClientParser
             'B1', 'BO', 'HB', 'PC', 'LA', 'LT', 'PD', 'HR', 'HU',
             'HP', 'IO', 'TP', 'CJ', 'HQ', 'HI', 'NA', 'BW', 'YO',
             'DC', 'G8', 'DT', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
+            'WB',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -629,7 +631,7 @@ class Browser extends AbstractClientParser
             $engine        = '';
             $engineVersion = '';
 
-            // If client hints report Chromium, but user agent detects a chromium based browser, we favor this instead
+            // If client hints report Chromium, but user agent detects a Chromium based browser, we favor this instead
             if ('Chromium' === $name
                 && !empty($browserFromUserAgent['name'])
                 && 'Chromium' !== $browserFromUserAgent['name']
@@ -657,14 +659,14 @@ class Browser extends AbstractClientParser
             if ($name === $browserFromUserAgent['name']) {
                 $engine        = $browserFromUserAgent['engine'] ?? '';
                 $engineVersion = $browserFromUserAgent['engine_version'] ?? '';
+            }
 
-                // In case the user agent reports a more detailed version, we try to use this instead
-                if (!empty($browserFromUserAgent['version'])
-                    && 0 === \strpos($browserFromUserAgent['version'], $version)
-                    && \version_compare($version, $browserFromUserAgent['version'], '<')
-                ) {
-                    $version = $browserFromUserAgent['version'];
-                }
+            // In case the user agent reports a more detailed version, we try to use this instead
+            if (!empty($browserFromUserAgent['version'])
+                && 0 === \strpos($browserFromUserAgent['version'], $version)
+                && \version_compare($version, $browserFromUserAgent['version'], '<')
+            ) {
+                $version = $browserFromUserAgent['version'];
             }
         } else {
             $name          = $browserFromUserAgent['name'];
