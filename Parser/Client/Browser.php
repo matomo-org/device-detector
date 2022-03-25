@@ -668,6 +668,13 @@ class Browser extends AbstractClientParser
             ) {
                 $version = $browserFromUserAgent['version'];
             }
+
+            // If client hints report Opera Mobile, we use the version from useragent
+            if (!empty($browserFromUserAgent['version'])
+                && 'OM' === $short
+            ) {
+                $version = $browserFromUserAgent['version'];
+            }
         } else {
             $name          = $browserFromUserAgent['name'];
             $version       = $browserFromUserAgent['version'];
