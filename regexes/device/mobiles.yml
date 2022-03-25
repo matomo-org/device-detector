@@ -6649,7 +6649,7 @@ Sony:
       device: 'wearable'
 
     # SONY: Bravia or TV Box
-    - regex: '(?:BRAVIA )(2K GB ATV3|4K UR[23]|4K GB ATV3|4K GB|4K 2015|2015)(?:[);/ ]|$)'
+    - regex: '(?:BRAVIA )(2K GB ATV3|4K UR[123]|4K GB ATV3|4K GB|4K VH2|4K 2015|2015|VH1|VU1)(?:[);/ ]|$)'
       model: 'Bravia $1'
       device: 'tv'
     - regex: 'SVP-DTV15(?:[);/ ]|$)'
@@ -6974,6 +6974,10 @@ EKO:
   regex: 'EKO'
   device: 'smartphone'
   models:
+    - regex: 'EKO Android TV 2K'
+      model: '2K Android TV'
+      device: 'tv'
+
     - regex: 'EKO[ _-]?([^;/)]+) Build'
       model: '$1'
     - regex: 'EKO[ _-]?([^;/)]+)(?:[);/ ]|$)'
@@ -10222,6 +10226,10 @@ Kogan:
   regex: 'Kogan'
   device: 'smartphone'
   models:
+    - regex: 'Kogan ?(SmarterTV(?: 2K)?|TV|TVAP)(?:[);/ ]|$)'
+      device: 'tv'
+      model: '$1'
+
     - regex: 'Kogan[ _-]([^;/]+) Build'
       model: '$1'
     - regex: 'Kogan[ _-]([a-z0-9_-]+)'
@@ -18437,6 +18445,9 @@ Sharp:
       model: 'Aquos Net Plus'
     - regex: 'SHARP[ \-]([a-z0-9\-]+)'
       model: '$1'
+    - regex: 'AQUOS[ \-]TV([a-z0-9\-]+)'
+      device: 'tv'
+      model: 'Aquos TV$1'
     - regex: '(?:SHARP|SBM)([a-z0-9]+)'
       model: '$1'
     - regex: '(SH-?[0-9]+[a-z]?|IS05)(?:[);/ ]|$)'
@@ -20183,6 +20194,10 @@ Vodafone:
     - regex: 'Smart ?Tab ?III ?10'
       model: 'Smart Tab III 10' # Lenovo
       device: 'tablet'
+
+    - regex: 'Vodafone TV(?:[);/ ]|$)'
+      model: 'TV'
+      device: 'tv'
 
     - regex: 'VFD[ _]([0-9]+)(?:[);/ ]|$)'
       model: 'VFD $1'
