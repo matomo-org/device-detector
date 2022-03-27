@@ -1242,6 +1242,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'V0' => 'VKworld',
         'VM' => 'Vodacom',
         'VF' => 'Vodafone',
+        '7W' => 'VOGA',
         'V2' => 'Vonino',
         '1V' => 'Vontar',
         'VG' => 'Vorago',
