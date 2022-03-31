@@ -385,6 +385,7 @@ class Browser extends AbstractClientParser
         'S7' => 'SP Browser',
         'T1' => 'Stampy Browser',
         '7S' => '7Star',
+        'SQ' => 'Smart Browser',
         'LE' => 'Smart Lenovo Browser',
         'OZ' => 'Smooz',
         'SN' => 'Snowshoe',
@@ -478,7 +479,7 @@ class Browser extends AbstractClientParser
             'B1', 'BO', 'HB', 'PC', 'LA', 'LT', 'PD', 'HR', 'HU',
             'HP', 'IO', 'TP', 'CJ', 'HQ', 'HI', 'NA', 'BW', 'YO',
             'DC', 'G8', 'DT', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
-            '2S', 'RF', 'LR',
+            '2S', 'RF', 'LR', 'SQ',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -511,7 +512,7 @@ class Browser extends AbstractClientParser
         'ST', 'SU', 'T1', 'UH', 'UM', 'UT', 'VE', 'VV', 'WI',
         'WP', 'YN', 'IO', 'IS', 'HQ', 'RW', 'HI', 'NA', 'BW',
         'YO', 'PK', 'MR', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
-        'RF', 'LR',
+        'RF', 'LR', 'SQ',
     ];
 
     /**
