@@ -362,6 +362,7 @@ class Browser extends AbstractClientParser
         'SC' => 'SEMC-Browser',
         'SE' => 'Sogou Explorer',
         'SO' => 'Sogou Mobile Browser',
+        'RF' => 'SOTI Surf',
         '2S' => 'Soul Browser',
         'SF' => 'Safari',
         'PV' => 'Safari Technology Preview',
@@ -476,7 +477,7 @@ class Browser extends AbstractClientParser
             'B1', 'BO', 'HB', 'PC', 'LA', 'LT', 'PD', 'HR', 'HU',
             'HP', 'IO', 'TP', 'CJ', 'HQ', 'HI', 'NA', 'BW', 'YO',
             'DC', 'G8', 'DT', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
-            '2S',
+            '2S', 'RF',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -509,6 +510,7 @@ class Browser extends AbstractClientParser
         'ST', 'SU', 'T1', 'UH', 'UM', 'UT', 'VE', 'VV', 'WI',
         'WP', 'YN', 'IO', 'IS', 'HQ', 'RW', 'HI', 'NA', 'BW',
         'YO', 'PK', 'MR', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
+        'RF',
     ];
 
     /**
