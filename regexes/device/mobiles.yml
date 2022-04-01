@@ -3350,15 +3350,13 @@ Bluegood:
 
 # Blackview
 Blackview:
-  regex: 'Blackview|(BV([24-9]000|[46]900|(5[1589]|9[15689])00|6[1368]00)(?:[ _](?:PRO))?|(P10000(?:[ _](?:PRO))?)|omega[ _]pro|Alife[ _][PS]1|Heatwave|DM550|BV9700Pro|(?<!Lenovo[_ ])A[68]0(?:Pro)?\))|(?:A[86]0Plus|A80S|BL6000Pro|R6 Lite|P2Lite|A8 MAX)(?:[);/ ]|$)'
+  regex: 'Blackview|(BV([24-9]000|[46]900|(5[1589]|9[15689])00|6[1368]00)(?:[ _](?:PRO))?|(P10000(?:[ _](?:PRO))?)|omega[ _]pro|Alife[ _][PS]1|Heatwave|DM550|BV9700Pro|(?<!Lenovo[_ ])A[68]0(?:Pro)?\))|(?:A[86]0Plus|A80S|BL6000Pro|R6 Lite|P2Lite|A8 MAX|A20Pro)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'A60Pro\)'
-      model: 'A60 Pro'
+    - regex: 'A([268]0)Pro(?:[);/ ]|$)'
+      model: 'A$1 Pro'
     - regex: 'A60\)'
       model: 'A60'
-    - regex: 'A80Pro(?:[);/ ]|$)'
-      model: 'A80 Pro'
     - regex: 'A8 MAX(?:[);/ ]|$)'
       model: 'A8 Max'
     - regex: 'A80S(?:[);/ ]|$)'
@@ -19646,7 +19644,7 @@ UTStarcom:
 
 # Ulefone (ulefone.com or ulefone.ru)
 Ulefone:
-  regex: 'Ulefone|Gemini Pro|Power_[356]|Power_5S|S(?:10|9)_Pro|(?:Note [89]P|Armor(?:[ _](?:[2367]|2S|X[236]|6[SE]|3WT|3W|X))?|U00[78][ _]Pro|Be[ _]X|Be[ _]Touch(?:[ _][23])?|Be[ _](?:One|Pure)(?:[ _]Lite)?|Note (?:11P|7T)|Paris_X|P6000_Plus)(?:[);/ ]|$)'
+  regex: 'Ulefone|Gemini Pro|Power 3S|Power_[356]|Power_5S|S(?:10|9)_Pro|(?:Note [89]P|Armor(?:[ _](?:[2367]|2S|X[236]|6[SE]|3WT|3W|X))?|U00[78][ _]Pro|Be[ _]X|Be[ _]Touch(?:[ _][23])?|Be[ _](?:One|Pure)(?:[ _]Lite)?|Note (?:11P|7T)|Paris_X|P6000_Plus)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'S(10|9)_Pro'
@@ -23492,11 +23490,15 @@ Daewoo:
       model: '$1'
       device: 'tv'
 
-# Vesta
+# Vesta (vesta.md)
 Vesta:
-  regex: 'VESTA32LD86(?:[);/ ]|$)'
+  regex: 'VESTA_SMART|VESTA32LD86(?:[);/ ]|$)'
   device: 'tv'
-  model: 'SmartT V2.0 32LD86S'
+  models:
+    - regex: 'VESTA32LD86'
+      model: 'SmartTV 32LD86S'
+    - regex: 'VESTA_SMART_TV'
+      model: 'SmartTV'
 
 # Spectrum
 Spectrum:
@@ -28851,6 +28853,8 @@ Pelitt:
   models:
     - regex: 'Pelitt T1 MAX'
       model: 'T1 Max'
+    - regex: 'Pelitt T1 PLUS'
+      model: 'T1 Plus'
 
 # Devices with undectable brand, but detectable model
 Unknown:
