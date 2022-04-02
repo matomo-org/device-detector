@@ -281,6 +281,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '1O' => 'Cosmote',
         'CW' => 'Cowon',
         '75' => 'Covia',
+        'QG' => 'COYOTE',
         'YW' => 'ClearPHONE',
         '33' => 'Clementoni',
         'CR' => 'CreNova',
