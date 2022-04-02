@@ -24711,7 +24711,7 @@ SQOOL:
 
 # TurboPad (turbopad.ru)
 TurboPad:
-  regex: 'Turbopad[-_ ]?(72[34]|80[23]|912|101[456])(?:NEW)?(?:[);/ ]|$)'
+  regex: 'Turbopad[-_ ]?(72[34]|80[23]|912|101[456]|Pro)(?:NEW)?(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
 
@@ -28153,9 +28153,13 @@ Gocomma:
 
 # LEMFO
 LEMFO:
-  regex: '(LEM14)(?:[);/ ]|$)'
+  regex: '(?:LEM14|LEM12Pro)(?:[);/ ]|$)'
   device: 'wearable'
-  model: '$1'
+  models:
+    - regex: '(LEM12)Pro'
+      model: '$1 Pro'
+    - regex: '(LEM14)'
+      model: '$1'
 
 # Urovo (en.urovo.com)
 Urovo:
