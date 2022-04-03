@@ -180,6 +180,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '0B' => 'BB Mobile',
         'B6' => 'BDF',
         'QD' => 'BDQ',
+        '8Z' => 'BDsharing',
         'BE' => 'Becker',
         'B5' => 'Beeline',
         'B0' => 'Beelink',
