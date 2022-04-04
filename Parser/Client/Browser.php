@@ -60,6 +60,7 @@ class Browser extends AbstractClientParser
         '2L' => 'Lark Browser',
         '3P' => 'Pluma',
         '1A' => 'Anka Browser',
+        'AZ' => 'Azka Browser',
         '1D' => 'Dragon Browser',
         '1E' => 'Easy Browser',
         'DW' => 'Dark Web Browser',
@@ -486,7 +487,7 @@ class Browser extends AbstractClientParser
             'HP', 'IO', 'TP', 'CJ', 'HQ', 'HI', 'NA', 'BW', 'YO',
             'DC', 'G8', 'DT', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
             '2S', 'RF', 'LR', 'SQ', 'BV', 'L1', 'F0', 'KS', 'V0',
-            'C8',
+            'C8', 'AZ',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -520,6 +521,7 @@ class Browser extends AbstractClientParser
         'WP', 'YN', 'IO', 'IS', 'HQ', 'RW', 'HI', 'NA', 'BW',
         'YO', 'PK', 'MR', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
         'RF', 'LR', 'SQ', 'BV', 'L1', 'F0', 'KS', 'V0', 'C8',
+        'AZ',
     ];
 
     /**
