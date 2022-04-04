@@ -350,6 +350,7 @@ class Browser extends AbstractClientParser
         'PT' => 'Polarity',
         'LY' => 'PolyBrowser',
         'PI' => 'PrivacyWall',
+        'P0' => 'PronHub Browser',
         'PC' => 'PSI Secure Browser',
         'RW' => 'Reqwireless WebViewer',
         'PS' => 'Microsoft Edge',
@@ -490,7 +491,7 @@ class Browser extends AbstractClientParser
             'HP', 'IO', 'TP', 'CJ', 'HQ', 'HI', 'NA', 'BW', 'YO',
             'DC', 'G8', 'DT', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
             '2S', 'RF', 'LR', 'SQ', 'BV', 'L1', 'F0', 'KS', 'V0',
-            'C8', 'AZ', 'MM', 'BT', 'N0',
+            'C8', 'AZ', 'MM', 'BT', 'N0', 'P0',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -524,7 +525,7 @@ class Browser extends AbstractClientParser
         'WP', 'YN', 'IO', 'IS', 'HQ', 'RW', 'HI', 'NA', 'BW',
         'YO', 'PK', 'MR', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
         'RF', 'LR', 'SQ', 'BV', 'L1', 'F0', 'KS', 'V0', 'C8',
-        'AZ', 'MM', 'BT', 'N0',
+        'AZ', 'MM', 'BT', 'N0', 'P0',
     ];
 
     /**
