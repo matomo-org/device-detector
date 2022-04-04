@@ -240,6 +240,7 @@ class Browser extends AbstractClientParser
         'JO' => 'Jio Browser',
         'J1' => 'JioPages',
         'KB' => 'K.Browser',
+        'KS' => 'Kids Safe Browser',
         'KI' => 'Kindle Browser',
         'KM' => 'K-meleon',
         'KO' => 'Konqueror',
@@ -482,7 +483,7 @@ class Browser extends AbstractClientParser
             'B1', 'BO', 'HB', 'PC', 'LA', 'LT', 'PD', 'HR', 'HU',
             'HP', 'IO', 'TP', 'CJ', 'HQ', 'HI', 'NA', 'BW', 'YO',
             'DC', 'G8', 'DT', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
-            '2S', 'RF', 'LR', 'SQ', 'BV', 'L1', 'F0',
+            '2S', 'RF', 'LR', 'SQ', 'BV', 'L1', 'F0', 'KS',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -515,7 +516,7 @@ class Browser extends AbstractClientParser
         'ST', 'SU', 'T1', 'UH', 'UM', 'UT', 'VE', 'VV', 'WI',
         'WP', 'YN', 'IO', 'IS', 'HQ', 'RW', 'HI', 'NA', 'BW',
         'YO', 'PK', 'MR', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
-        'RF', 'LR', 'SQ', 'BV', 'L1', 'F0',
+        'RF', 'LR', 'SQ', 'BV', 'L1', 'F0', 'KS',
     ];
 
     /**
