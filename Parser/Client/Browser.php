@@ -436,7 +436,7 @@ class Browser extends AbstractClientParser
         'UE' => 'Ume Browser',
         'V0' => 'vBrowser',
         'VE' => 'Venus Browser',
-        'N0' => 'Video Downloader Pro',
+        'N0' => 'Nova Video Downloader Pro',
         'VI' => 'Vivaldi',
         'VV' => 'vivo Browser',
         'VB' => 'Vision Mobile Browser',
