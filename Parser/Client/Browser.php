@@ -442,6 +442,7 @@ class Browser extends AbstractClientParser
         'V0' => 'vBrowser',
         'VE' => 'Venus Browser',
         'N0' => 'Nova Video Downloader Pro',
+        'VS' => 'Viasat Browser',
         'VI' => 'Vivaldi',
         'VV' => 'vivo Browser',
         'VB' => 'Vision Mobile Browser',
@@ -497,7 +498,7 @@ class Browser extends AbstractClientParser
             'HP', 'IO', 'TP', 'CJ', 'HQ', 'HI', 'NA', 'BW', 'YO',
             'DC', 'G8', 'DT', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
             '2S', 'RF', 'LR', 'SQ', 'BV', 'L1', 'F0', 'KS', 'V0',
-            'C8', 'AZ', 'MM', 'BT', 'N0', 'P0', 'F3',
+            'C8', 'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'VS',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
