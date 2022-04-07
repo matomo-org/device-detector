@@ -722,6 +722,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ZM' => 'Maximus',
         '6X' => 'Maxtron',
         '0D' => 'MAXVI',
+        'XZ' => 'MAXX',
         'MW' => 'Maxwest',
         'M0' => 'Maze',
         'YM' => 'Maze Speed',
