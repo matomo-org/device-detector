@@ -258,6 +258,7 @@ class Browser extends AbstractClientParser
         'LB' => 'Cheetah Browser',
         'LA' => 'Lagatos Browser',
         'LR' => 'Lexi Browser',
+        'LV' => 'Lenovo Browser',
         'LF' => 'LieBaoFast',
         'LG' => 'LG Browser',
         'LH' => 'Light',
