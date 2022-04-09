@@ -271,6 +271,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CL' => 'Compal',
         'CQ' => 'Compaq',
         'C7' => 'ComTrade Tesla',
+        '7Z' => 'COMPUMAX',
         'C8' => 'Concord',
         'CC' => 'ConCorde',
         'C5' => 'Condor',
