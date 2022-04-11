@@ -161,6 +161,7 @@ class Browser extends AbstractClientParser
         'DG' => 'deg-degan',
         'DA' => 'Deledao',
         'DT' => 'Delta Browser',
+        'D0' => 'Desi Browser',
         'DS' => 'DeskBrowse',
         'DF' => 'Dolphin',
         'DZ' => 'Dolphin Zero',
@@ -501,6 +502,7 @@ class Browser extends AbstractClientParser
             'DC', 'G8', 'DT', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
             '2S', 'RF', 'LR', 'SQ', 'BV', 'L1', 'F0', 'KS', 'V0',
             'C8', 'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'VS', 'DU',
+            'D0',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -534,7 +536,7 @@ class Browser extends AbstractClientParser
         'WP', 'YN', 'IO', 'IS', 'HQ', 'RW', 'HI', 'NA', 'BW',
         'YO', 'PK', 'MR', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
         'RF', 'LR', 'SQ', 'BV', 'L1', 'F0', 'KS', 'V0', 'C8',
-        'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'DU',
+        'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'DU', 'D0',
     ];
 
     /**
