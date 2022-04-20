@@ -288,6 +288,7 @@ class Browser extends AbstractClientParser
         'M2' => 'Me Browser',
         'MF' => 'Mobile Safari',
         'MI' => 'Midori',
+        'M3' => 'Midori Lite',
         'MO' => 'Mobicip',
         'MU' => 'MIUI Browser',
         'MS' => 'Mobile Silk',
