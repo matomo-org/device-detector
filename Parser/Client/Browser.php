@@ -418,6 +418,7 @@ class Browser extends AbstractClientParser
         'SR' => 'Sunrise',
         'SP' => 'SuperBird',
         'SU' => 'Super Fast Browser',
+        '5S' => 'SuperFast Browser',
         'HR' => 'Sushi Browser',
         'S3' => 'surf',
         '4S' => 'Surf Browser',
