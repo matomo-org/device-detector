@@ -46,6 +46,7 @@ class Browser extends AbstractClientParser
     protected static $availableBrowsers = [
         'V1' => 'Via',
         '1P' => 'Pure Mini Browser',
+        '4P' => 'Pure Lite Browser',
         '1R' => 'Raise Fast Browser',
         'FQ' => 'Fast Browser UC Lite',
         'FJ' => 'Fast Explorer',
@@ -104,6 +105,7 @@ class Browser extends AbstractClientParser
         'BI' => 'Basilisk',
         'BV' => 'Belva Browser',
         'BE' => 'Beonex',
+        'B2' => 'Berry Browser',
         'BT' => 'Bitchute Browser',
         'BH' => 'BlackHawk',
         'BJ' => 'Bunjalloo',
@@ -205,6 +207,7 @@ class Browser extends AbstractClientParser
         'FS' => 'Flast',
         'FU' => 'FreeU',
         'F3' => 'Frost+',
+        'FI' => 'Fulldive',
         'GA' => 'Galeon',
         'G8' => 'Gener8',
         'GH' => 'Ghostery Privacy Browser',
