@@ -101,6 +101,7 @@ class Browser extends AbstractClientParser
         'BA' => 'Beaker Browser',
         'BM' => 'Beamrise',
         'BB' => 'BlackBerry Browser',
+        'H1' => 'BrowseHere',
         'BD' => 'Baidu Browser',
         'BS' => 'Baidu Spark',
         'BI' => 'Basilisk',
