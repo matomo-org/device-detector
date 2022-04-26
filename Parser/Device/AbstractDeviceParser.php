@@ -1345,6 +1345,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FZ' => 'ZIFRO',
         'ZX' => 'Ziox',
         'ZO' => 'Zonda',
+        'ZW' => 'Zonko',
         'ZP' => 'Zopo',
         'ZT' => 'ZTE',
         'ZU' => 'Zuum',
