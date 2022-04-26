@@ -616,7 +616,7 @@ Palm:
 
 # HP or Hewlett-Packard
 HP:
-  regex: 'Hewlett-Packard|HP/HP|HP Chromebook|HP EliteBook 820|TouchPad/\d+\.\d+|hp-tablet|HP ?iPAQ|webOS.*P160U|HP (?:Pro )?Slate|HP [78]|HP 10 Plus|Compaq [7|8]|HP; [^;/)]+'
+  regex: 'Hewlett-Packard|HP/HP|HP Chromebook|HP EliteBook 820|TouchPad/\d+\.\d+|hp-tablet|HP ?iPAQ|webOS.*P160U|HP (?:Pro )?Slate|Slate 21|HP [78]|HP 10 Plus|Compaq [7|8]|HP; [^;/)]+'
   device: 'smartphone'
   models:
     - regex: 'HP Slate 6 Voice Tab'
@@ -629,6 +629,9 @@ HP:
 
     - regex: 'HP ([78][^)/;]*)(?: Build|\))'
       model: 'Slate $1'
+      device: 'tablet'
+    - regex: 'Slate 21'
+      model: 'Slate 21'
       device: 'tablet'
 
     - regex: 'Compaq ([78][^/;]*) Build'
@@ -5588,7 +5591,7 @@ Desay:
 
 # DEXP (dexp.club)
 DEXP:
-  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|Larus_TV1|Ixion(?:ML4.7|ES250)|M150Storm|(?:SENIOR|F4[38]D8000K|VA(?:[12]10|170)|ML450|MS[56]50|BL(?:[123]50|160|155)|BS(?:155|160|[1256]50)|(?<!ILIUM )S(?:3[78]0|2[89]0|670)|AL(?:[12]40|[23]50)|AS(?:155|[123]60)| (?:N280i|P310|P380i?|R1[18]0|Q110|E1[78]0|E[12]10|B(?:450|340|35[05])|M445|T155|U43F8000Q|A(?:1[456]0|340|[34]55)|GS15[035]|GL[23]55|G25[05]|G15[05]|ES750|XL150|Z[1-4]55|H170|H310|P510|L2[17]0)|Z250|A440|N[13]80i|L3[17]0i|(?<!VOX )G450|G660|Q[123]10|Q[12]80|N[234]10|N[35]70|EX111|S[45]70|S270i)(?:[);/ ]|$)'
+  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|Larus_TV1|Ixion(?:ML4.7|ES250)|M150Storm|(?:SENIOR|F4[38]D8000K|VA(?:[12]10|170)|ML450|MS[56]50|BL(?:[123]50|160|155)|BS(?:155|160|[1256]50)|(?<!ILIUM )S(?:3[78]0|2[89]0|670)|AL(?:[12]40|[23]50)|AS(?:155|[123]60)| (?:N280i|P310|P380i?|R1[18]0|Q110|E1[78]0|E[12]10|B(?:450|340|35[05])|M445|M[12]10|T155|U43F8000Q|A(?:1[456]0|340|[34]55)|GS15[035]|GL[23]55|G25[05]|G15[05]|ES750|XL150|Z[1-4]55|H170|H310|P510|L2[17]0)|Z250|A440|N[13]80i|L3[17]0i|(?<!VOX )G450|G660|Q[123]10|Q[12]80|N[234]10|N[35]70|EX111|S[45]70|S270i)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Ixion[_ ]([^;/]+)(?: Build|\))'
@@ -5619,7 +5622,7 @@ DEXP:
     - regex: 'Ursus[ _]([^;/)]+)(?: Build|[);])'
       model: 'Ursus $1'
       device: 'tablet'
-    - regex: '(VA[21]10|VA170|E210|R1[18]0|Q110|N280i|P380i?|P[35]10|S2[89]0|S3[78]0|S[456]70|H170|H310|L2[17]0|N[13]80i|N[234]10|E1[178]0|Q[123]10|Q[12]80|EX111|N[35]70|L3[17]0i|S270i)(?:[);/ ]|$)'
+    - regex: '(VA[21]10|VA170|E210|R1[18]0|Q110|M[12]10|N280i|P380i?|P[35]10|S2[89]0|S3[78]0|S[456]70|H170|H310|L2[17]0|N[13]80i|N[234]10|E1[178]0|Q[123]10|Q[12]80|EX111|N[35]70|L3[17]0i|S270i)(?:[);/ ]|$)'
       model: 'Ursus $1'
       device: 'tablet'
 
@@ -16938,6 +16941,8 @@ Samsung:
       model: 'Galaxy F22'
     - regex: '(?:SAMSUNG-)?SM-F415F(?:[);/ ]|$)'
       model: 'Galaxy F41'
+    - regex: '(?:SAMSUNG-)?SM-E426B(?:[);/ ]|$)'
+      model: 'Galaxy F42 5G'
     - regex: '(?:SAMSUNG-)?SM-E5260(?:[);/ ]|$)'
       model: 'Galaxy F52 5G'
     - regex: '(?:SAMSUNG-)?SM-E625'
@@ -29199,6 +29204,12 @@ Zonko:
   regex: 'K101_EEA(?:[);/ ]|$)'
   device: 'tablet'
   model: 'K101'
+
+# TJC (www.tjc-jp.com)
+TJC:
+  regex: 'Metal_Tablet_10(?:[);/ ]|$)'
+  device: 'tablet'
+  model: 'Metal Tablet 10'
 
 # Devices with undectable brand, but detectable model
 Unknown:

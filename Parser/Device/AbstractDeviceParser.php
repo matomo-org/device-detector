@@ -1148,6 +1148,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '9T' => 'Tetratab',
         'TZ' => 'teXet',
         '29' => 'Teknosa',
+        'JZ' => 'TJC',
         'JC' => 'TENPLUS',
         'T4' => 'ThL',
         'TN' => 'Thomson',
