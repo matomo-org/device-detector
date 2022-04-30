@@ -7851,7 +7851,7 @@ Hasee:
 
 # Hisense (www.hisense-usa.com)
 Hisense:
-  regex: '(?:HS-)?Hisense ([^;/]+) Build|Hisense [^);/]+|HISENSE; |HS-(?:G|U|EG?|I|L|T|X)[0-9]+[a-z0-9\-]*|HNR55[01]T|E270BSA|HWCD100E|HITV300C|M470BS[AE]|EG98|E2281|EG680|I46D1G|HAT4KDTV|HITV10[12]C|HLTE([237]00T|200M|203T|202N|21[023567][TM]|22[67]T|22[13]E|230E|103E|310[TM]|31[16]T|500T|501N|510[TM]|7[23]0T)|KS(?:907|964)|U601S Pro|HNR320T|HiSmart [24]K ATV4'
+  regex: '(?:HS-)?Hisense ([^;/]+) Build|Hisense [^);/]+|HISENSE; |HS-(?:G|U|EG?|I|L|T|X)[0-9]+[a-z0-9\-]*|HNR55[01]T|E270BSA|HWCD100E|HITV300C|M470BS[AE]|EG98|E2281|EG680|I46D1G|HAT4KDTV|HITV10[12]C|HLTE([237]00T|200M|203T|202N|21[023567][TM]|22[67]T|22[13]E|230E|103E|310[TM]|31[16]T|500T|501N|510[TM]|7[23]0T|M800)|KS(?:907|964)|U601S Pro|HNR320T|HiSmart [24]K ATV4'
   device: 'smartphone'
   models:
     # explicit tablet models
@@ -7931,6 +7931,8 @@ Hisense:
       model: 'H11'
     - regex: '(?:HLTE230E|Infinity H40 Lite)(?:[);/ ]|$)'
       model: 'Infinity H40 Lite'
+    - regex: 'HLTEM800'
+      model: 'Xiaohaitun 2'
     - regex: 'HLTE720T(?:[);/ ]|$)'
       model: 'U30'
       device: 'phablet'
@@ -23471,9 +23473,13 @@ Umax:
 
 # Mann
 Mann:
-  regex: '(ZUG 3|ZUG 5S(?: Q)?)(?:[);/ ]|$)'
+  regex: 'MANN[ _]|(ZUG 3|ZUG 5S(?: Q)?)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'MANN[ _](8S)'
+      model: '$1'
+    - regex: '(ZUG 3|ZUG 5S(?: Q)?)(?:[);/ ]|$)'
+      model: '$1'
 
 # Unihertz (unihertz.com)
 Unihertz:
@@ -29245,6 +29251,36 @@ Zeeker:
  models:
    - regex: 'ZEEKER[ _]P10'
      model: 'P10'
+
+# AUX
+AUX:
+  regex: 'AUX[ _]([^/;)]+)(?:_TD)'
+  device: 'smartphone'
+  model: '$1'
+
+# Neolix
+Neolix:
+  regex: 'Neolix[ _]([^/;)]+)(?: Build|[);])'
+  device: 'smartphone'
+  model: '$1'
+
+# ATMAN
+ATMAN:
+  regex: 'ATMAN[ _-]([^/;)]+)(?: Build|[);])'
+  device: 'smartphone'
+  model: '$1'
+
+# EYU
+EYU:
+  regex: 'EYU[ _-](T53|T7)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
+
+# FOODO
+FOODO:
+  regex: 'FOODO[ _-](X10)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
