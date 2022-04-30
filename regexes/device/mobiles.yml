@@ -24181,6 +24181,8 @@ Sugar:
   models:
     - regex: 'SUGAR Y([78]) MAX(?:[);/ ]|$)'
       model: 'Y$1 Max'
+    - regex: 'SUGAR S60 pro(?:[);/ ]|$)'
+      model: 'S60 Pro'
     - regex: 'SUGAR F7 Mini(?:[);/ ]|$)'
       model: 'F7 Mini'
     - regex: 'SUGAR[ _]([^);/]+)(?: Build|[);])'
@@ -28023,9 +28025,15 @@ VAVA:
 
 # ivvi
 ivvi:
-  regex: 'ivvi[ _](F1S|F2C|V1M-S|V2|i1-S)(?:[);/ ]|$)'
+  regex: 'ivvi[ _]'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'ivvi P60_X11 Plus'
+      model: 'P60-X11 Plus'
+    - regex: 'ivvi[ _](P60)[_ ](\w\d+)'
+      model: '$1-$2'
+    - regex: 'ivvi[ _]([^/;)]+)(?: Build|[);])'
+      model: '$1'
 
 # Dragon Touch (dragontouch.com)
 Dragon Touch:
