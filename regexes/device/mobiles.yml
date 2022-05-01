@@ -10491,9 +10491,17 @@ KRONO:
 
 #k-touch
 K-Touch:
-  regex: 'K-?Touch[ _][a-z0-9]+|Pace 2 Lite(?:[);/ ]|$)'
+  regex: 'K-?Touch[ _][a-z0-9]+|(?:Pace 2 Lite|KT202011(?:99|88)|LDXA-2[01]22)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
+    - regex: 'KT20201199'
+      model: 'P60 Pro'
+    - regex: 'KT20201188'
+      model: 'T12 Pro Max'
+    - regex: 'LDXA-2022'
+      model: 'X27S Pro'
+    - regex: 'LDXA-2122'
+      model: 'X27S'
     - regex: 'Pace 2 Lite'
       model: 'Pace 2 Lite'
     - regex: 'K-?Touch[ _]([^/;]*)[ _]Build'
@@ -29268,9 +29276,13 @@ AUX:
 
 # Neolix
 Neolix:
-  regex: 'Neolix[ _]([^/;)]+)(?: Build|[);])'
+  regex: 'Neolix[ _-]'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'Neolix[ _-]T7[_ ]'
+      model: 'T7'
+    - regex: 'Neolix[ _-]([^/;)]+)(?: Build|[);])'
+      model: '$1'
 
 # ATMAN
 ATMAN:
@@ -29289,6 +29301,14 @@ FOODO:
   regex: 'FOODO[ _-](X10)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
+
+# YEPEN
+YEPEN:
+  regex: 'M20201419(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'M20201419'
+      model: 'X12 Pro Max'
 
 # Devices with undectable brand, but detectable model
 Unknown:
