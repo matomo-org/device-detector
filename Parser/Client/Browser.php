@@ -235,6 +235,7 @@ class Browser extends AbstractClientParser
         'IO' => 'iBrowser',
         'IS' => 'iBrowser Mini',
         'IB' => 'IBrowse',
+        'I6' => 'iDesktop PC Browser',
         'IC' => 'iCab',
         'I2' => 'iCab Mobile',
         'I1' => 'Iridium',
