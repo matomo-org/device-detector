@@ -11078,10 +11078,10 @@ Lephone:
     - regex: 'lephone[ _](K7|K10)'
       device: 'feature phone'
       model: '$1'
-    - regex: 'lephone(?:[ _])?(W(1[0125]|[279])|T2|P1)(?:[);/ ]|$)'
-      model: '$1'
-    - regex: 'lephone_W7_plus'
+    - regex: 'lephone_W7_plus|lephone W7+'
       model: 'W7 Plus'
+    - regex: 'lephone(?:[ _])?([^/);]*)(?: Build|[);])'
+      model: '$1'
 
 # lenco
 Lenco:
@@ -29245,6 +29245,12 @@ Zeeker:
  models:
    - regex: 'ZEEKER[ _]P10'
      model: 'P10'
+
+# BROR
+BROR:
+  regex: 'BROR[_ ]([^/;)]+)(?: Build|[);])'
+  device: 'smartphone'
+  model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
