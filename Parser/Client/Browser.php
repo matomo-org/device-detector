@@ -161,6 +161,7 @@ class Browser extends AbstractClientParser
         'YC' => 'CyBrowser',
         'DB' => 'dbrowser',
         'PD' => 'Peeps dBrowser',
+        'D1' => 'Debuggable Browser',
         'DC' => 'Decentr',
         'DE' => 'Deepnet Explorer',
         'DG' => 'deg-degan',
