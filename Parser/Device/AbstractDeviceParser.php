@@ -1320,6 +1320,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'QX' => 'XGIMI',
         'XL' => 'Xiaolajiao',
         'XI' => 'Xiaomi',
+        'XW' => 'Xiaodu',
         'XN' => 'Xion',
         'XO' => 'Xolo',
         'XR' => 'Xoro',
