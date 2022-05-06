@@ -574,6 +574,9 @@ Ghia:
       model: 'Zeus 3G'
     - regex: 'GHIA[ _](L1)'
       model: '$1'
+    - regex: 'GHIA_AXIS7P'
+      model: 'Axis 7P'
+      device: 'tablet'
     - regex: 'GHIA_AXIS7'
       model: 'Axis 7'
       device: 'tablet'
@@ -1801,14 +1804,14 @@ Airness:
 
 # Aiwa (aiwa.mx)
 Aiwa:
-  regex: '(?:AW790|M300(?! 4G)|AWM(?:53[39]|50[19]|561)|AW500)(?:[);/ ]|$)'
+  regex: '(?:AW790|M300(?! 4G)|AWM(?:53[39]|50[19]|561|999)|AW500)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'AW790(?:[);/ ]|$)'
       model: 'AW790'
     - regex: 'AW500(?:[);/ ]|$)'
       model: 'AW500'
-    - regex: 'AWM(53[39]|50[19]|561)(?:[);/ ]|$)'
+    - regex: 'AWM(53[39]|50[19]|561|999)(?:[);/ ]|$)'
       model: 'AWM$1'
     - regex: 'M300(?:[);/ ]|$)'
       model: 'M300'
@@ -9089,7 +9092,7 @@ Huawei:
 
 # Hyundai
 Hyundai:
-  regex: 'Hyundai|Ultra (?:Active|Air|Charm|Dream|Energy|Latitude|Link|Live|Shadow|Shine|Storm|Style|Sync|Trend|Vision|Wave)|Ultra_Vision_Plus|E(?:475|504|603)|G(?:24027|2552[34])K|W25042L|HP554O|Seoul S8|L503F Plus|HT0701L16|HT0704K08|HT1004L16|HT1004LI16|Koral_8W2|Eternity[_ ]G25|HYMI 5S Plus|7GB1|7WD1|(?:Android 9.+ E553)(?:[);/ ]|$)'
+  regex: 'Hyundai|Ultra (?:Active|Air|Charm|Dream|Energy|Latitude|Link|Live|Shadow|Shine|Storm|Style|Sync|Trend|Vision|Wave)|Ultra_Vision_Plus|E(?:475|504|603)|G(?:24027|2552[34])K|W25042L|HP554O|Seoul S8|L503F Plus|HT0701L16|HT0704K08|HT1004L16|HT1004LI16|Koral_8W2|Eternity[_ ](?:G25|H68)|HYMI 5S Plus|7GB1|7WD1|(?:Android 9.+ E553)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Ultra[_ ]Vision[_ ]Plus'
@@ -9100,8 +9103,8 @@ Hyundai:
       model: 'Seoul S8'
     - regex: 'G25523K'
       model: 'Eternity G23'
-    - regex: 'Eternity[_ ]G25'
-      model: 'Eternity G25'
+    - regex: 'Eternity[_ ](G25|H68)'
+      model: 'Eternity $1'
     - regex: 'G25524K'
       model: 'Eternity G24'
     - regex: 'G24027K'
@@ -22957,7 +22960,7 @@ Onix:
       model: '$1'
 
 Zuum:
-  regex: 'Zuum[ _-]|Android 6.+ UNIQ(?: Build|[);])|(?:ROCKET III?|Akus (?:PRO|Z1?)|COVET|MAGNO(?:-S)?|ONIX(?: S)?|STEDI|STELLAR(?:[ _](?:Z|PRO|[MP]1|M2))?|GRAVITY [ZM]|AURA X|COVET_PRO_LITE|RONI|Android.+; LIMIT)(?:[);/ ]|$)'
+  regex: 'Zuum[ _-]|Android 6.+ UNIQ(?: Build|[);])|(?:ROCKET III?|Akus (?:PRO|Z1?)|COVET|MAGNO(?:-S)?|ONIX(?: S)?|STEDI|STELLAR(?:[ _](?:Z|PRO|[MP]1|M2))?|GRAVITY [ZM]|AURA X|COVET_PRO_LITE|RONI|Android.+; LIMIT|Gravity Life)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'AKUS PRO'
@@ -23000,6 +23003,8 @@ Zuum:
       model: 'Stellar'
     - regex: 'GRAVITY ([MZ])'
       model: 'Gravity $1'
+    - regex: 'Gravity Life'
+      model: 'Gravity Life'
     - regex: 'AURA X'
       model: 'Aura X'
     - regex: 'RONI'
@@ -29379,6 +29384,12 @@ Vortex:
 Xiaodu:
   regex: '(XDH-(?:0F-A1|1[78]-A1|21-A1|29-B1|2A-B1))(?:[);/ ]|$)'
   device: 'smart display'
+  model: '$1'
+
+# Future Mobile Technology
+Future Mobile Technology:
+  regex: '(FXT810R)(?:[);/ ]|$)'
+  device: 'smartphone'
   model: '$1'
 
 # Devices with undectable brand, but detectable model
