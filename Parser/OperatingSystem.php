@@ -94,6 +94,7 @@ class OperatingSystem extends AbstractParser
         'LIN' => 'GNU/Linux',
         'LND' => 'LindowsOS',
         'LNS' => 'Linspire',
+        'LEN' => 'Lineage OS',
         'LBT' => 'Lubuntu',
         'LOS' => 'Lumin OS',
         'VLN' => 'VectorLinux',
@@ -125,6 +126,7 @@ class OperatingSystem extends AbstractParser
         'PS3' => 'PlayStation',
         'PUR' => 'PureOS',
         'RHT' => 'Red Hat',
+        'REV' => 'Revenge OS',
         'ROS' => 'RISC OS',
         'ROK' => 'Roku OS',
         'RSO' => 'Rosa',
@@ -174,7 +176,7 @@ class OperatingSystem extends AbstractParser
     protected static $osFamilies = [
         'Android'               => [
             'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
-            'ADR', 'CLR', 'BOS',
+            'ADR', 'CLR', 'BOS', 'REV', 'LEN',
         ],
         'AmigaOS'               => ['AMG', 'MOR'],
         'BlackBerry'            => ['BLB', 'QNX'],
@@ -315,7 +317,7 @@ class OperatingSystem extends AbstractParser
 
         $platform    = $this->parsePlatform();
         $family      = self::getOsFamily($short);
-        $androidApps = ['com.hisense.odinbrowser', 'com.seraphic.openinet.pre'];
+        $androidApps = ['com.hisense.odinbrowser', 'com.seraphic.openinet.pre', 'com.appssppa.idesktoppcbrowser'];
 
         if (null !== $this->clientHints) {
             if (\in_array($this->clientHints->getApp(), $androidApps) && 'Android' !== $name) {
