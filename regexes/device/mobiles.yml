@@ -14061,7 +14061,7 @@ NOGA:
 
 # Nomu
 Nomu:
-  regex: '(?:Nomu[ _-](?:T18|S30mini|S10)|(?:V1600S|S10 PRO|S50_Pro))(?:[);/ ]|$)'
+  regex: '(?:Nomu[ _-](?:T18|S30mini|S10)|(?:V1600S|S10 PRO|S50_Pro)|LMCV1)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Nomu[ _-]T18(?:[);/ ]|$)'
@@ -14070,6 +14070,8 @@ Nomu:
       model: 'S10'
     - regex: 'Nomu[ _-]S30mini(?:[);/ ]|$)'
       model: 'S30 Mini'
+    - regex: 'LMCV1(?:[);/ ]|$)'
+      model: 'S30'
     - regex: 'S([15]0)[_ ]PRO(?:[);/ ]|$)'
       model: 'S$1 Pro'
     - regex: '(V1600S)(?:[);/ ]|$)'
@@ -15359,7 +15361,7 @@ Overmax:
 
 # Oysters
 Oysters:
-  regex: 'Oysters|T84ERI[ _]3G|T72HM(s_)?3G|T102MS_3G|T102ER3G|(T74HMi|T84Bi)[_ ]4G|T74MR4G|T84Ni[_ ][34]G|Pacific(?:[ ]?800i|E)|T104B_[34]G|IndianV|T72HA_3G|T12V? 3G|T74D_3G|T74N_3G|T74SC_3G|T74Mai_3G|T104MBi_3G|T104SCi_3G|T104ER4G|Atlantic4G|AntarcticE|T7V 3G|Pacific(?:VS?|4G)'
+  regex: 'Oysters|T84ERI[ _]3G|T72HM(s_)?3G|T102MS_3G|T102ER3G|(T74HMi|T84Bi)[_ ]4G|T74MR4G|T84Ni[_ ][34]G|Pacific(?:[ ]?800i|E)|T104B_[34]G|IndianV|T72HA_3G|T12V? 3G|T74D_3G|T74N_3G|T74SC_3G|T74Mai_3G|T104MBi_3G|T104SCi_3G|T104ER4G|Atlantic(?:4G|454|[EV])|T7V 3G|Pacific(?:VS?|4G)'
   device: 'tablet'
   models:
     - regex: 'Pacific[ ]?800i'
@@ -15368,18 +15370,15 @@ Oysters:
     - regex: 'PacificE'
       device: 'smartphone'
       model: 'Pacific E'
-    - regex: 'Atlantic4G'
-      device: 'smartphone'
-      model: 'Atlantic 4G'
-    - regex: 'AntarcticE'
-      device: 'smartphone'
-      model: 'Antarctic E'
     - regex: 'IndianV'
       device: 'smartphone'
       model: 'Indian V'
     - regex: '(?:Oysters[_ ])?Pacific(VS?|4G)'
       device: 'smartphone'
       model: 'Pacific $1'
+    - regex: 'Atlantic(454|[EV]|4G)(?:[);/ ]|$)'
+      device: 'smartphone'
+      model: 'Atlantic $1'
     - regex: 'Oysters ((?:Arctic|Indian|Atlantic|Pacific)[^/;]+) Build'
       device: 'smartphone'
       model: '$1'
