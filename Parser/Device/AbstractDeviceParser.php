@@ -700,6 +700,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'LI' => 'Lingwin',
         'LJ' => 'L-Max',
         'LW' => 'Linnex',
+        'HJ' => 'LNMBBS',
         'LO' => 'Loewe',
         'YL' => 'Loview',
         '1L' => 'Logic',
