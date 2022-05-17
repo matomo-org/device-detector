@@ -5302,9 +5302,14 @@ Crosscall:
 
 # Crown
 Crown:
-  regex: 'CROWN, ([a-z0-9_ \-]+), (?:wired|wireless)'
-  device: 'tv'
-  model: ''
+  regex: 'CROWN, ([a-z0-9_ \-]+), (?:wired|wireless)|BlossomB902(?:[);/ ]|$)'
+  device: 'tablet'
+  models:
+    - regex: 'CROWN, ([a-z0-9_ \-]+), (?:wired|wireless)'
+      device: 'tv'
+      model: ''
+    - regex: 'BlossomB902'
+      model: 'Blossom B902'
 
 # AllDocube (alldocube.com)
 AllDocube:
@@ -7382,14 +7387,14 @@ Geotel:
 
 # Gigabyte
 Gigabyte:
-  regex: 'GSmart[ _][a-z0-9 ]+(?: Build|\))|Gigabyte-[a-z0-9]+|Simba SX1|GSmart_Classic_Lite|(?<!Eagle )Classic[_ ](?:Joy|Pro)'
+  regex: 'GSmart[ _][a-z0-9 ]+(?: Build|\))|Gigabyte-[a-z0-9]+|Simba SX1|Boston 4G|GSmart_Classic_Lite|(?<!Eagle )Classic[_ ](?:Joy|Pro)'
   device: 'smartphone'
   models:
     - regex: '(GSmart[ _][a-z0-9 ]+)(?: Build|[);])'
       model: '$1'
     - regex: 'Gigabyte-([a-z0-9]+)'
       model: '$1'
-    - regex: '(Classic[ _](?:Joy|Pro)|GSmart_Classic_Lite)'
+    - regex: '(Classic[ _](?:Joy|Pro)|GSmart_Classic_Lite|Boston 4G)'
       model: '$1'
     - regex: 'Simba SX1'
       model: 'GSmart Simba SX1'
