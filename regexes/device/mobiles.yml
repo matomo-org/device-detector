@@ -5613,7 +5613,7 @@ Desay:
 
 # DEXP (dexp.club)
 DEXP:
-  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|Larus_TV1|Ixion(?:ML4.7|ES250)|M150Storm|(?:SENIOR|F4[38]D8000K|VA(?:[12]10|170)|ML450|MS[56]50|BL(?:[123]50|160|155)|BS(?:155|160|[1256]50)|(?<!ILIUM )S(?:3[78]0|2[89]0|670)|AL(?:[12]40|[23]50)|AS(?:155|[123]60)| (?:N280i|P310|P380i?|R1[18]0|Q110|E1[78]0|E[12]10|B(?:450|340|35[05])|M445|M[12]10|T155|U43F8000Q|A(?:1[456]0|340|[34]55)|GS15[035]|GL[23]55|G25[05]|G15[05]|ES750|XL150|Z[1-4]55|H[13]70|H[34]10|P510|L2[17]0)|Z250|A440|N[13]80i|L3[17]0i|(?<!VOX )G450|G660|Q[123]10|Q[12]80|N[234]10|N[35]70|EX111|S[45]70|S[27]70i)(?:[);/ ]|$)'
+  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|Larus_TV1|Ixion(?:ML4.7|ES250)|M150Storm|(?:SENIOR|F4[38]D8000K|VA(?:[12]10|170)|ML450|MS[56]50|BL(?:[123]50|160|155)|BS(?:155|160|[1256]50)|(?<!ILIUM )S(?:3[78]0|2[89]0|670)|AL(?:[12]40|[23]50)|AS(?:155|[123]60)| (?:N280i|P310|P380i?|R1[18]0|Q110|E1[78]0|E[12]10|B(?:450|340|35[05])|M445|M[12]10|T155|U43F8000Q|A(?:1[456]0|340|[34]55)|GS15[035]|GL[23]55|G25[05]|G15[05]|ES750|XL150|Z[1-4]55|H[13]70|H[34]10|P510|L2[17]0)|Z250|A440|N[13]80i|L3[17]0i|(?<!VOX )G450|G660|Q[123]10|Q[12]80|N[234]10|N[35]70|EX111|S[45]70|S[27]70i|android 11.*; K51)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Ixion[_ ]([^;/]+)(?: Build|\))'
@@ -5643,6 +5643,9 @@ DEXP:
 
     - regex: 'Ursus[ _]([^;/)]+)(?: Build|[);])'
       model: 'Ursus $1'
+      device: 'tablet'
+    - regex: ' (K51)(?:[);/ ]|$)'
+      model: '$1'
       device: 'tablet'
     - regex: '(VA[21]10|VA170|E210|R1[18]0|Q110|M[12]10|N280i|P380i?|P[35]10|S2[89]0|S3[78]0|S[456]70|H[13]70|H[34]10|L2[17]0|N[13]80i|N[234]10|E1[178]0|Q[123]10|Q[12]80|EX111|N[35]70|L3[17]0i|S[27]70i)(?:[);/ ]|$)'
       model: 'Ursus $1'
@@ -7445,7 +7448,7 @@ Ginzzu:
 
 # Gionee
 Gionee:
-  regex: '(?:GIO-)?GIONEE[ _-]?[a-z0-9]+|(?:Dream_D1|V188S?|GN[0-9]{3,4}[a-z]?)(?:[);/ ]|$)|F103(?: Pro)?(?: Build|\))|P5 mini Build|P7 Max Build|(M7 Power|F106L|F100A|F103S|F103 Pro|M6 mirror|20190620G|20190619G|20190418Q|GNP21M02|GNS2161B|GAU0820)(?:[);/ ]|$)'
+  regex: '(?:GIO-)?GIONEE[ _-]?[a-z0-9]+|(?:Dream_D1|V188S?|GN[0-9]{3,4}[a-z]?)(?:[);/ ]|$)|F103(?: Pro)?(?: Build|\))|P5 mini Build|P7 Max Build|(M7 Power|F106L|F100A|F103S|F103 Pro|M6 mirror|20190620G|20190619G|20190418Q|GNP21M02|GNS2161B|GAU0820|Android 11.*; P61)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'GNP21M02'
@@ -7488,6 +7491,8 @@ Gionee:
       model: 'F9 Plus'
     - regex: 'F103( Pro)?( BUILD|\))'
       model: 'F103$1'
+    - regex: ' (P61)(?:[);/ ]|$)'
+      model: '$1'
     - regex: '(?:(?:GIO-)?GIONEE[ _-])?Dream_D1(?:[);/ ]|$)'
       model: 'Dream D1'
     - regex: '(?:GIO-)?GIONEE[ _-]([a-z0-9_-]+).*Android'
@@ -21287,7 +21292,7 @@ Xiaomi:
       model: 'Black Shark 2 Pro'
     - regex: '(?:SHARK )?KLE-A0'
       model: 'Black Shark 3'
-    - regex: '(?:SHARK )?KSR-A0'
+    - regex: '(?:SHARK )?KSR-[AH]0'
       model: 'Black Shark 4 Pro'
     - regex: '(?:SHARK )?KLE-H0'
       model: 'Black Shark 3 5G'
