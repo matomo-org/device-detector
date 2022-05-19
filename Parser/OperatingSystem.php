@@ -522,7 +522,7 @@ class OperatingSystem extends AbstractParser
             }
 
             if (false !== \strpos($arch, 'x64')
-                || (false !== \strpos($arch, 'x86')) && '64' === $this->clientHints->getBitness()
+                || (false !== \strpos($arch, 'x86') && '64' === $this->clientHints->getBitness())
             ) {
                 return 'x64';
             }
