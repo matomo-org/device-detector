@@ -508,6 +508,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ZH'  => 'Hezire',
         'HL'  => 'Hi-Level',
         '3H'  => 'Hi',
+        'HLL' => 'HLLO',
         'H2'  => 'Highscreen',
         'Q1'  => 'High Q',
         '1H'  => 'Hipstreet',
