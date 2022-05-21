@@ -1083,6 +1083,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '3Y'  => 'Smarty',
         'HH'  => 'Smooth Mobile',
         '1Q'  => 'Smotreshka',
+        'SNA' => 'SNAMI',
         'SF'  => 'Softbank',
         '9L'  => 'SOLE',
         'JL'  => 'SOLO',
