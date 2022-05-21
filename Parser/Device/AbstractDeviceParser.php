@@ -1148,6 +1148,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'TX'  => 'TechniSat',
         'TT'  => 'TechnoTrend',
         'TP'  => 'TechPad',
+        'TEA' => 'TeachTouch',
         '9E'  => 'Techwood',
         '7F'  => 'Technopc',
         'T7'  => 'Teclast',
