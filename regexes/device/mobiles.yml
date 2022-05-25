@@ -14410,11 +14410,13 @@ Nous:
 
 # Nvidia
 Nvidia:
-  regex: 'NVIDIA|SHIELD|Tegra(Note-P1640| Note 7)'
+  regex: 'NVIDIA|SHIELD|Tegra(Note-P1640| Note 7)|wx_na_wf'
   device: 'tablet'
   models:
     - regex: 'TegraNote-P1640'
       model: 'Tegra Note P1640'
+    - regex: 'wx_na_wf'
+      model: 'SHIELD Tablet'
     - regex: '(SHIELD Tablet(?: K1)?|Tegra Note 7)(?: Build|[;)])'
       model: '$1'
     - regex: 'SHIELD Andr[o0]id TV'
@@ -19771,7 +19773,7 @@ teXet:
 
 # Telefunken
 Telefunken:
-  regex: 'TELEFUNKEN|Foxtrot|TEL-1013GIQA|TEL-1014GIQ|TEL-73GIQA|TEL-74GIQ|TF-SP(?:500[12]|4002)|(TF-MID(?:[78]02G|70[78]G|80[46]G|9705RG|9707G|7805G|100[57]G|1010G))|(TF-LED(?:65S75T2SU|32S39T2S|32S5[289]T2S|32S7[05]T2S|40S63T2S|40S19T2S))|LTE_LIMA|LTE Mike|Outdoor (?:LTE|WT4|WT4-S)'
+  regex: 'TELEFUNKEN|Foxtrot|TEL-1013GIQA|TEL-1014GIQ|TEL-73GIQA|TEL-74GIQ|TF-SP(?:500[12]|4002)|(TF-MID(?:[78]02G|70[78]G|80[46]G|9705RG|9707G|7805G|100[57]G|1010G))|(TF-LED(?:65S75T2SU|32S39T2S|32S5[289]T2S|32S7[05]T2S|40S63T2S|40S19T2S|40S41T2S))|LTE_LIMA|LTE Mike|Outdoor (?:LTE|WT4|WT4-S)'
   device: 'tablet'
   models:
     - regex: 'TEL-1013GIQA'
@@ -19792,7 +19794,7 @@ Telefunken:
       device: 'smartphone'
     - regex: '(TF-MID(?:[78]02G|70[78]G|80[46]G|9705RG|9707G|7805G|100[57]G|1010G))'
       model: '$1'
-    - regex: '(TF-LED(?:65S75T2SU|32S39T2S|32S5[289]T2S|32S7[05]T2S|40S63T2S|40S19T2S))'
+    - regex: '(TF-LED(?:65S75T2SU|32S39T2S|32S5[289]T2S|32S7[05]T2S|40S63T2S|40S19T2S|40S41T2S))'
       model: '$1'
       device: 'tv'
     - regex: 'TELEFUNKEN, ([a-z0-9_ \-]+), (?:wired|wireless)'
@@ -20059,11 +20061,15 @@ Unimax:
   device: 'smartphone'
   model: 'U$1'
 
-# Unowhy
+# Unowhy (www.unowhy.com)
 Unowhy:
-  regex: 'QOOQ '
+  regex: '(?:QOOQ|QOOQ-V[1-5]0?)(?:[);/ ]|$)'
   device: 'tablet'
-  model: 'QOOQ'
+  models:
+    - regex: 'QOOQ-V([1-5])0?'
+      model: 'QOOQ V$1'
+    - regex: 'QOOQ'
+      model: 'QOOQ'
 
 # UTStarcom
 UTStarcom:
@@ -27277,7 +27283,7 @@ Shtrikh-M:
 
 # BBK (bbk.ru)
 BBK:
-  regex: '([65]5|50|4[03]|3[29]|28)LEX[-_](81(?:27|39|45|58|6[12]|7[34])|71(?:[23]7|4[345]|5[45]|6[368]|[57]8))[_/]([FU]?TS2C)(?:[);/ ]|$)'
+  regex: '([65]5|50|4[03]|3[29]|28)LEX[-_](81(?:27|39|45|58|6[12]|7[34])|71(?:[23]7|4[345]|5[45]|6[368]|[57]8|71))[_/]([FU]?TS2C)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1LEX-$2/$3'
 
