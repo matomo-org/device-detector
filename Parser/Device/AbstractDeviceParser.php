@@ -418,6 +418,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FAC' => 'Facetel',
         'FA'  => 'Fairphone',
         'FM'  => 'Famoco',
+        'FAM' => 'Famous',
         '17'  => 'FarEasTone',
         '9R'  => 'FaRao Pro',
         'FB'  => 'Fantec',
