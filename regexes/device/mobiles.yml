@@ -623,7 +623,7 @@ Palm:
 
 # HP or Hewlett-Packard
 HP:
-  regex: 'Hewlett-Packard|HP/HP|HP Chromebook|HP EliteBook 820|TouchPad/\d+\.\d+|hp-tablet|HP ?iPAQ|webOS.*P160U|HP (?:Pro )?Slate|Slate 21|HP [78]|HP 10 Plus|Compaq [7|8]|HP; [^;/)]+'
+  regex: 'Hewlett-Packard|HP/HP|HP Chromebook|HP EliteBook 820|TouchPad/\d+\.\d+|hp-tablet|HP ?iPAQ|webOS.*P160U|HP (?:Pro )?Slate|Slate 21|HP [78]|HP 10 Plus|Compaq [7|8]|HP; [^;/)]+|cm_tenderloin'
   device: 'smartphone'
   models:
     - regex: 'HP Slate 6 Voice Tab'
@@ -639,6 +639,9 @@ HP:
       device: 'tablet'
     - regex: 'Slate 21'
       model: 'Slate 21'
+      device: 'tablet'
+    - regex: 'cm_tenderloin'
+      model: 'Touch 9.7" WiFi'
       device: 'tablet'
 
     - regex: 'Compaq ([78][^/;]*) Build'
@@ -4810,7 +4813,7 @@ Changhong:
 
 # Cherry Mobile (cherrymobile.com)
 'Cherry Mobile':
-  regex: 'Cherry|Superion[_ ](?:S2|Radar Deluxe|S1 DTV|S1 Plus DTV)|Flare([ _])?(2X|4|A[123]|J[123568]|P[13]|S[4-8]|X2|Y[367]|S Play|HD|LITE|XL|X_V2|Y3s|Tab)(?:[ _](?:Pro|Plus|Max|LTE))?|Fusion Bolt|Omega[_ ](?:Icon 2|Icon Lite 2|lite[_ ][43][Cs]?|HD [45]|HD_Duo)|Spin Max 2|Selfie_Two|Flare_5|Android 1.*Aqua S9'
+  regex: 'Cherry|Superion[_ ](?:S2|Radar Deluxe|S1 DTV|S1 Plus DTV)|Flare([ _])?(2.[01]|2X|4|A[123]|J[123568]|P[13]|S[4-8]|X2|Y[367]|S Play|HD|LITE|XL|X_V2|Y3s|Tab)(?:[ _](?:Pro|Plus|Max|LTE))?|Fusion Bolt|Omega[_ ](?:Icon 2|Icon Lite 2|lite[_ ][43][Cs]?|HD [45]|HD_Duo)|Spin Max 2|Selfie_Two|Flare_5|Android 1.*Aqua S9'
   device: 'smartphone'
   models:
     - regex: '(Flare2X|Aqua S9(?: (?:Max|Lite|Pro))?)'
@@ -4823,6 +4826,8 @@ Changhong:
       model: 'Flare Lite'
     - regex: 'Flare S Play'
       model: 'Flare S Play'
+    - regex: 'Flare (2\.[01])'
+      model: 'Flare $1'
     - regex: 'Flare[_ ]J([26])S'
       model: 'Flare J$1s'
     - regex: 'Flare_([A-Z]\d+)_Prime'
@@ -5258,6 +5263,8 @@ Cosmote:
     - regex: 'Cosmote_My_mini_Tab' # Allview My Mini Tab
       device: 'tablet'
       model: 'My Mini Tab'
+    - regex: 'Cosmote?[_ ]([^;/)]+)(?: Build|[);])'
+      model: '$1'
 
 # Cricket
 Cricket:
@@ -5837,6 +5844,9 @@ Digma:
       model: '$1'
     - regex: 'HIT 4G HT7074ML'
       model: 'HIT 4G'
+      device: 'tablet'
+    - regex: 'DIGMA[_ ]IDSD'
+      model: 'IDsD 10 3G'
       device: 'tablet'
     - regex: 'CITI[_ ](1902 3G|Kids|8527_4G|Octa [178]0|10 E402 4G|8 E400 4G|7 E401 4G)'
       model: 'CITI $1'
@@ -7055,7 +7065,7 @@ Evoo:
 
 # Leotec
 Leotec:
-  regex: '(LESPH501[14]|LESPH5003B|SUPERNOVA (?:Qi16|Qi32|i3G96[X]?|iS3G)|PULSAR QI3G)(?:[);/ ]|$)'
+  regex: '(LESPH501[14]|LESPH5003B|SUPERNOVA (?:Qi16|Qi32|i3G96[X]?|iS3G)|PULSAR QI3G|LETAB916)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'LESPH5011'
@@ -7070,6 +7080,9 @@ Leotec:
     - regex: 'PULSAR (QI3G)'
       device: 'tablet'
       model: 'Pulsar $1'
+    - regex: 'LETAB916'
+      device: 'tablet'
+      model: 'L-Pad Star S'
 
 # EVPAD (https://www.evpadpro.com/ or https://evpad.com.my/)
 EVPAD:
