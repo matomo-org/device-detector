@@ -937,6 +937,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '9P'  => 'Planet Computers',
         'PY'  => 'Ployer',
         'P4'  => 'Plum',
+        'PLU' => 'PlusStyle',
         '22'  => 'Pluzz',
         'P8'  => 'PocketBook',
         '0P'  => 'POCO',
