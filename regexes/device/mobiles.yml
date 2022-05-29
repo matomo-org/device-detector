@@ -12805,7 +12805,7 @@ Maze:
 
 # Mediacom (mediacomeurope.it)
 Mediacom:
-  regex: '(?:SmartPad7503G|M-SP10MXA|M-PPAB500|SmartPad970s2(?:3G)?|M[_-][MPS]P[0-9a-z]+|M-IPRO[0-9a-z]+|1AEC|1AZ2[TP])(?:[);/ ]|$)'
+  regex: '(?:SmartPad7503G|M-SP10MXA|M-PPAB500|SmartPad970s2(?:3G)?|M[_-][MPS]P[0-9a-z]+|M-IPRO[0-9a-z]+|1AEC|1AZ2[TP]| (?:7[BCD]Y|8AY))(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'SmartPad7503G(?:[);/ ]|$)'
@@ -12876,6 +12876,8 @@ Mediacom:
       model: 'SmartPad 8.0" HD iPro$1 3G'
     - regex: '1AZ2[TP](?:[);/ ]|$)'
       model: 'SmartPad 10.0" Azimut 2'
+    - regex: ' (7[BCD]Y|8AY)(?:[);/ ]|$)'
+      model: '$1'
 
     - regex: '(?:M-MP75S23G|M-MP72[01]M)(?:[);/ ]|$)'
       model: 'SmartPad 7.0" Mobile'
@@ -16202,7 +16204,7 @@ Soundmax:
 
 # Samsung
 Samsung:
-  regex: 'SAMSUNG(?! ?(?:Browser|Redmi))|FamilyHub|Maple (?!III)|Gear Live|(?:SEC_)?SC-(?:001|01[EFGHKLM]|02[CGHJKLMF]|03[EFJKL]|04[EFJL]|05[GL]|(?:4[12]|5[1-4])A|5[1-5]B|5[12]C)|N[57]100|N5110|N9100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|SMART-TV|GT-|(?<!GOG|GOG )Galaxy|(?:portalmmm|o2imode)/2\.0 [SZ]|sam[rua]|vollo Vi86(?:[);/ ]|$)|(?:lineage_|aokp_)?(?:serranoltexx|j5y17lte)|(?:OTV-)?SMT-E5015|ISW11SC|40[34]SC|SC(?:V3[1-9]|V4[0-9]|51Aa|-56B|T21|G0[1-9]|G1[0-4]|L2[234])(?:-[uj])?(?:[);/ ]|$)'
+  regex: 'SAMSUNG(?! ?(?:Browser|Redmi))|FamilyHub|Maple (?!III)|Gear Live|(?:SEC_)?SC-(?:001|01[EFGHKLM]|02[CGHJKLMF]|03[EFJKL]|04[EFJLG]|05[GL]|(?:4[12]|5[1-4])A|5[1-5]B|5[12]C)|N[57]100|N5110|N9100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|SMART-TV|GT-|(?<!GOG|GOG )Galaxy|(?:portalmmm|o2imode)/2\.0 [SZ]|sam[rua]|vollo Vi86(?:[);/ ]|$)|(?:lineage_|aokp_)?(?:serranoltexx|j5y17lte)|(?:OTV-)?SMT-E5015|ISW11SC|40[34]SC|SC(?:V3[1-9]|V4[0-9]|51Aa|-56B|T21|G0[1-9]|G1[0-4]|L2[234])(?:-[uj])?(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit tv models
@@ -16922,7 +16924,7 @@ Samsung:
       model: 'Galaxy S6'
     - regex: '(?:SAMSUNG-)?SM-G890A'
       model: 'Galaxy S5 Active'
-    - regex: '(?:SAMSUNG-)?SM-G925[0ADFIKLPRSTVWX]|SCV31|404SC'
+    - regex: '(?:SAMSUNG-)?SM-G925[0ADFIKLPRSTVWX]|SCV31|404SC|SC-04G'
       model: 'Galaxy S6 Edge'
     - regex: '(?:SAMSUNG-)?SM-G928(?:7C|N0|R4|W8|[07ACFGIKLPSTVX])'
       model: 'Galaxy S6 Edge+'
@@ -26816,12 +26818,16 @@ Colors:
 
 # Honeywell (honeywell.com)
 Honeywell:
-  regex: '(?:EDA50K?|EDA70|EDA51|CK65|CT60)(?:[);/ ]|$)'
+  regex: '(?:EDA50K?|EDA70|EDA71_G|EDA51|CK65|CT60)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # smartphone + scan
     - regex: '(EDA50K?|EDA70|EDA51)(?:[);/ ]|$)'
       model: 'ScanPal $1'
+    # tablet + scan
+    - regex: 'EDA71'
+      device: 'tablet'
+      model: 'ScanPal EDA71'
     # mobile terminal
     - regex: '(CK65|CT60)(?:[);/ ]|$)'
       device: 'peripheral'
