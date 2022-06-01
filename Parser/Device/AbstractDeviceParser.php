@@ -96,6 +96,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'AE'  => 'Ace',
         'AC'  => 'Acer',
         '3K'  => 'Acteck',
+        'ACT' => 'actiMirror',
         'A9'  => 'Advan',
         'AD'  => 'Advance',
         '76'  => 'Adronix',
