@@ -16047,7 +16047,7 @@ ProScan:
 
 # RCA Tablets (RCA) (www.rca.com)
 'RCA Tablets':
-  regex: 'RCT([^;/]+) Build|RCA RLTP4028|RC7T3G21|RCT6B06P23|RCT6613W23P|RCT6513W87|RCT6973W43(?:MD)?|RCT6703W12|RCT(?:6A06P22|6603W47M7|6303W87(?:DK|M)|6773W22B|6203W46L|6873W42M|6K03W13|6876Q22N|6A06Q22)'
+  regex: 'RCT([^;/]+) Build|RCA RLTP4028|RC7T3G21|RCT6B06P23|RCT6613W23P|RCT6513W87|DRP29101|RCT6973W43(?:MD)?|RCT6703W12|RCT(?:6A06P22|6603W47M7|6303W87(?:DK|M)|6773W22B|6203W46L|6873W42M|6K03W13|6876Q22N|6A06Q22)'
   device: 'smartphone'
   models:
     - regex: 'RCA RLTP4028'
@@ -16082,6 +16082,11 @@ ProScan:
     - regex: 'RCT6613W23P'
       device: 'tablet'
       model: 'Delta Pro 11.6"'
+    # tablet + dvd player
+    - regex: '(DRP29101)'
+      device: 'portable media player'
+      model: '$1'
+    # general detections
     - regex: 'RCT([^;/)]+)(?: Build|[;)])'
       device: 'tablet'
       model: 'RCT$1'
@@ -25642,7 +25647,7 @@ Finlux:
 
 # FireFly Mobile
 FireFly Mobile:
-  regex: '(?:AURII[ _](?:Passion|Virtuoso|ULTRA|Secret Lite|AMUSE[_ ]3G|FORCE|FUSION|F8[_ ]Premium|XCITE|DELIGHT|DREAM[_ ](?:MINI|One))|SECRET_XR|INTENSE[ _](?:POWER|METAL_2|XT)|SUPER SWEET|SWEET MINI)(?:[);/ ]|$)'
+  regex: '(?:AURII[ _](?:Passion|Virtuoso|ULTRA|Secret Lite|AMUSE[_ ]3G|FORCE|FUSION|F8[_ ]Premium|XCITE|DELIGHT|DREAM[_ ](?:MINI|One))|SECRET_XR|INTENSE[ _](?:POWER|METAL_2|XT)|SUPER SWEET|SWEET MINI|Dream_One_8)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'AURII[ _]FORCE(?:[);/ ]|$)'
@@ -25651,6 +25656,8 @@ FireFly Mobile:
       model: 'Aurii Delight'
     - regex: 'AURII[ _]DREAM[_ ]MINI(?:[);/ ]|$)'
       model: 'Aurii Dream Mini'
+    - regex: 'Dream_One_8(?:[);/ ]|$)'
+      model: 'Aurii Dream One 8'
     - regex: 'AURII[ _]DREAM[_ ]One(?:[);/ ]|$)'
       model: 'Aurii Dream One'
     - regex: 'AURII[ _]ULTRA(?:[);/ ]|$)'
