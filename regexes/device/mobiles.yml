@@ -3344,7 +3344,7 @@ Bitel:
 
 # Blu
 Blu:
-  regex: 'BLU[ _]|(?:blu|Dash)[ _]([^/;)]+)(?: Build|[;)])|(?:Studio[ _](X12|5.0K|5.5|View XL|Mega|C 8\+8|[CGM][ _]HD|G2 HD|G4|[CGX]|SELFIE|Selfie LTE|Touch|M5 Plus|J[1258]|X8 HD|X10\+?|XL(?: 2)?)|Advance (4.0 ?[LM]|5.[02](?: HD)?|A4|L[45])|M6 2021|ENERGY (DIAMOND|XL)|Energy X 2|LIFE XL|B110DL|Dash (?:X[2L]|L3)|PURE (?:X[LR]|MINI|View)|Life One X2|G50 (?:Mega|Plus)|G51 Plus|G90(?: PRO)?|G91 Pro|GRAND (?:M3|Max|5.5 HD|XL LTE|Mini|Energy)|R1 (?:HD|PLUS)|R2 (?:LTE|Plus)|Tank Xtreme [45].0|Tank Xtreme(?: Pro)?|Touchbook M7 Pro|DASH X PLUS|C[456] 2019|BOLD (?:M7|N1)|B1[34]0DL|Vivo (?:5 Mini|One Plus|5R|XL[234]| Plus|8L|XI[+]?|GO)|(?<!Neffos )C[56]L(?: 2020)?|C6 2020|G9 PRO|D701|VIEW 1)(?:[);/ ]|$)'
+  regex: 'BLU[ _]|(?:blu|Dash)[ _]([^/;)]+)(?: Build|[;)])|(?:Studio[ _](X12|5.0K|5.5|View XL|Mega|C 8\+8|[CGM][ _]HD|G2 HD|G4|[CGX]|SELFIE|Selfie LTE|Touch|M5 Plus|J[1258]|X8 HD|X10\+?|XL(?: 2)?)|Advance (4.0 ?[LM]|5.[02](?: HD)?|A4|L[45])|M6 2021|ENERGY (DIAMOND|XL)|ENERGY[_ ]DIAMOND[_ ]MINI|Energy X 2|LIFE XL|B110DL|Dash (?:X[2L]|L3)|PURE (?:X[LR]|MINI|View)|Life One X2|G50 (?:Mega|Plus)|G51 Plus|G90(?: PRO)?|G91 Pro|GRAND (?:M3|Max|5.5 HD|XL LTE|Mini|Energy)|R1 (?:HD|PLUS)|R2 (?:LTE|Plus)|Tank Xtreme [45].0|Tank Xtreme(?: Pro)?|Touchbook M7 Pro|DASH X PLUS|C[456] 2019|BOLD (?:M7|N1)|B1[34]0DL|Vivo (?:5 Mini|One Plus|5R|XL[234]| Plus|8L|XI[+]?|GO)|(?<!Neffos )C[56]L(?: 2020)?|C6 2020|G9 PRO|D701|VIEW 1)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Advance (4.0 ?[LM]|4.0|5.[02](?: HD)?|A4|L[54])'
@@ -3367,6 +3367,8 @@ Blu:
       model: 'Studio Selfie'
     - regex: '(?:BLU[_ ])?NEO_ENERGY_MINI'
       model: 'Neo Energy Mini'
+    - regex: 'ENERGY[_ ]DIAMOND[_ ]MINI'
+      model: 'Energy Diamond Mini'
     - regex: 'ENERGY DIAMOND'
       model: 'Energy Diamond'
     - regex: 'Grand Energy'
@@ -5667,6 +5669,8 @@ Desay:
   models:
     - regex: 'Desay[ _-]?([^;/)]+)(?: Build|[;)])'
       model: '$1'
+    - regex: 'Desay[ _-]?([^;/)]+)'
+      model: '$1'
 
 # DEXP (dexp.club)
 DEXP:
@@ -6303,13 +6307,16 @@ Evercoss:
 
 # Eurostar
 Eurostar:
-  regex: '(ET7002C-H12|Onyx-[13]S)(?:[);/ ]|$)'
+  regex: '(ET7002C-H12|ET8183GQ-HM15|ET7184GQ-B15|ET7183GQ-H16|Onyx-[13]S)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'Onyx-([13]S)(?:[);/ ]|$)'
+    - regex: 'Onyx-([13]S)'
       model: 'Onyx $1'
-    - regex: 'ET7002C-H12(?:[);/ ]|$)'
+    - regex: 'ET7002C-H12'
       model: 'ePad 4S'
+      device: 'tablet'
+    - regex: '(ET8183GQ-HM15|ET7184GQ-B15|ET7183GQ-H16)'
+      model: '$1'
       device: 'tablet'
 
 # Eton
@@ -10487,7 +10494,7 @@ Keneksi:
 
 # Kiano
 Kiano:
-  regex: 'Kiano|Elegance_[45]_[015](?:_PRO)?|Elegance 6|CORE 10.1 DUAL 3G|Intelect ?(7|8|10)|Slim ?Tab ?\d+(?:[_ ]3GR?)?(?:[);/ ]|$)'
+  regex: 'Kiano|Elegance_[45]_[015](?:_PRO)?|ELEGANCE 5.0 Lite|Elegance_4.5|Elegance 6|CORE 10.1 DUAL 3G|Intelect ?(7|8|10)|Slim ?Tab ?\d+(?:[_ ]3GR?)?(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Slim ?Tab ?(\d+)(?:[_ ]3GR?)?'
@@ -10498,10 +10505,12 @@ Kiano:
       device: 'tablet'
     - regex: 'Elegance_(5)_([51])_Pro'
       model: 'Elegance $1.$2" Pro'
-    - regex: 'Elegance_([45])_([015])'
-      model: 'Elegance $1.$2"'
+    - regex: 'ELEGANCE 5.0 Lite'
+      model: 'Elegance 5.0" Lite'
     - regex: 'Elegance 6'
       model: 'Elegance 6 5.85"'
+    - regex: 'Elegance_([45])[_.]([015])'
+      model: 'Elegance $1.$2"'
     - regex: '(Kiano)?(Intelect|Elegance) ?(7|8|10)?'
       model: '$2 $3'
       device: 'tablet'
@@ -17776,7 +17785,7 @@ Senwa:
 
 # Sky or Sky Devices (skydevices.com)
 Sky:
-  regex: '(?:SKY|Elite|Fuego)[_ ][3-7]\.[05](?:[A-Z]{1,2})?|Elite[ _](?:5_0T|M45|[45]T|45T|GO|M5Plus|T[46]|[ABCHP]5|5_5_Octa|Octa|[BCEFHPT]55|A65)|Platinum[_ ](?:5.0M|5\.5C|[56]\.[05]\+?|[HJM]5|[ABCMP]4|[ACGK]55|[ABDEFG]5|A57|P9|X|UNO|VIEW2|O|4\.0|4_0Plus)|PLATINUMVIEW|SKY[ _](?:55M|Pro_III)|SKYVISION|SKY Black| SKY[ _]Prestige'
+  regex: '(?:SKY|Elite|Fuego)[_ ][3-7]\.[05](?:[A-Z]{1,2})?|Elite[ _](?:PHOTOPRO|5_0T|M45|[45]T|45T|GO|M5Plus|T[46]|[ABCHP]5|5_5_Octa|Octa|[BCEFHPT]55|A65)|Platinum[_ ](?:5.0M|5\.5C|[56]\.[05]\+?|[HJM]5|[ABCMP]4|[ACGK]55|[ABDEFG]5|A57|P9|X|UNO|VIEW2|O|4\.0|4_0Plus)|PLATINUMVIEW|SKY[ _](?:55M|Pro_III)|SKYVISION|SKY Black| SKY[ _]Prestige'
   device: 'smartphone'
   models:
     - regex: 'Platinum[_ ](?:5\.0M|M5)'
@@ -17804,6 +17813,8 @@ Sky:
       model: 'Elite Octa'
     - regex: 'Elite_5_5_Octa'
       model: 'Elite 5.5 Octa'
+    - regex: 'ELITE PHOTOPRO'
+      model: 'Elite Photo Pro'
     - regex: 'Elite M5Plus'
       model: 'Elite M5 Plus'
     - regex: 'Elite[ _](M45|Go|[45]T|T[46]|[ABCHP]5|[ABCEFHPT]55|A65|45T)(?:[);/ ]|$)'
@@ -20843,7 +20854,7 @@ Vodafone:
 
 # Vonino (vonino.ro, vonino.it)
 Vonino:
-  regex: 'Vonino|Epic (?:E8|P7)|Gyga[ _](?:X|S|QS|XS)|Jax[ _](?:QS|[SXQN]|Mini)|Magnet[ _](?:M[19]|G[35]0)|Navo_QS|Onyx_(QS|Z)|Orin_QS|Pluri[ _](?:[BCMQ]7|[CQM]8)|Sirius_QS|(?<!Schok )Volt[ _][XS]|Xavy_(T7|L8)|Xylo[ _][XSPQT]|Zun[ _]X[OS]?|JAX_N|Druid_L10|iMart_Pro'
+  regex: 'Vonino|Epic (?:E8|P7)|Epic_(?:M8|P7)|Gyga[ _](?:X|S|QS|XS)|Jax[ _](?:QS|[SXQN]|Mini)|Magnet[ _](?:M[19]|G[35]0)|Navo_QS|Onyx_(QS|Z)|Orin_QS|Pluri[ _](?:[BCMQ]7|[CQM]8)|Sirius_QS|(?<!Schok )Volt[ _][XS]|Xavy_(T7|L8)|Xylo[ _][XSPQT]|Zun[ _]X[OS]?|JAX_N|Druid_L10|iMart_Pro'
   device: 'smartphone'
   models:
     - regex: 'Zun[ _]XO'
@@ -20878,7 +20889,7 @@ Vonino:
     - regex: 'iMart_Pro'
       device: 'tablet'
       model: 'IMart Pro'
-    - regex: 'Epic (E8|P7)'
+    - regex: 'Epic[_ ]([EM]8|P7)'
       model: 'Epic $1'
       device: 'tablet'
     - regex: 'Pluri[ _](B|C|M|Q)7'
@@ -21933,7 +21944,7 @@ Xion:
 
 # Xolo
 Xolo:
-  regex: 'Xolo|(?:Q600|Q700s?|Q800|Q1000s|Q1000[ _]Opus|Q1010i|Q2000|Omega[ _]5.[05]|Era5X|Era[ _]2V|Era_4X(?:_2GB)?|BLACK-1XM|A1000s_Lite)(?:[);/ ]|$)'
+  regex: 'Xolo|(?:Q600|Q700s?|Q800|Q1000s|Q1000[ _]Opus|Q1010i|Q2000|Omega[ _]5.[05]|Era5X|Era[ _]2V|era_HD|era[_ ]4[GK]|Era_4?X(?:_2GB)?|BLACK-1XM|A1000s_Lite)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'BLACK-1XM'
@@ -21944,6 +21955,8 @@ Xolo:
       model: 'Era 4X 2GB'
     - regex: 'Era[ _]2V(?:[);/ ]|$)'
       model: 'Era 2V'
+    - regex: 'era[_ ](HD|4[GK]|X)'
+      model: 'Era $1'
     - regex: '(Q600 Club|Q600|Q700s?|Q800|Q1000s Plus|Q1000s|Q1000[ _]Opus|Q1010i|Q2000|Omega[ _]5.[05]|A1000s_Lite)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'Xolo[ _]?([^;/]+) Build'
