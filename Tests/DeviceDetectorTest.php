@@ -290,6 +290,31 @@ class DeviceDetectorTest extends TestCase
         ];
     }
 
+    public function testVersionTruncationForClientHints(): void
+    {
+        AbstractParser::setVersionTruncation(AbstractParser::VERSION_TRUNCATION_MINOR);
+        $dd = new DeviceDetector();
+        $dd->setClientHints(new ClientHints(
+            'Galaxy 4',
+            'Android',
+            '8.0.5',
+            '98.0.14335.105',
+            [
+                ['brand' => ' Not A;Brand', 'version' => '99.0.0.0'],
+                ['brand' => 'Chromium', 'version' => '98.0.14335.105'],
+                ['brand' => 'Chrome', 'version' => '98.0.14335.105'],
+            ],
+            true,
+            '',
+            '',
+            ''
+        ));
+        $dd->parse();
+        $this->assertEquals('8.0', $dd->getOs('version'));
+        $this->assertEquals('98.0', $dd->getClient('version'));
+        AbstractParser::setVersionTruncation(AbstractParser::VERSION_TRUNCATION_NONE);
+    }
+
     /**
      * @dataProvider getBotFixtures
      */

@@ -439,7 +439,7 @@ class OperatingSystem extends AbstractParser
         return [
             'name'       => $name,
             'short_name' => $short,
-            'version'    => $version,
+            'version'    => $this->buildVersion($version, []),
         ];
     }
 
