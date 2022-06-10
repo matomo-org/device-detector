@@ -817,7 +817,7 @@ class Browser extends AbstractClientParser
         return [
             'name'       => $name,
             'short_name' => $short,
-            'version'    => $version,
+            'version'    => $this->buildVersion($version, []),
         ];
     }
 
