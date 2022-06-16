@@ -3670,13 +3670,15 @@ Brondi:
 
 # VGO TEL (vgotel.com)
 VGO TEL:
-  regex: 'VGOTEL|(?:Venture V(?:[278]|12)|VentureV10|Ocean[_ ][689]|Ocean9L)(?:[);/ ]|$)'
+  regex: 'VGOTEL|(?:Venture V(?:[278]|12)|VentureV10|Ocean[_ ][689]|Ocean9L|NEW [57])(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Venture ?V([278]|1[02])(?:[);/ ]|$)'
       model: 'Venture V$1'
     - regex: 'Ocean[_ ]?([689]|9L)(?:[);/ ]|$)'
       model: 'Ocean $1'
+    - regex: 'NEW (\d+)'
+      model: 'New $1'
 
 # Vivo (vivo.com.cn, vivo.com)
 Vivo:
@@ -9330,7 +9332,7 @@ Hyundai:
 
 # iBall (iball.co.in)
 iBall:
-  regex: 'iBall[ _]([^;/)]+)[ _]Build|iBall_Slide|(?:Snap[_ ]4G2|6351-Q400i|iT-KSA0003|iT-KSA0012|iT-KSA0066|Avid|Twinkle_i5|Gorgeo[_ ]4GL|Brisk 4G2|Blaze_V4|Wondro 10|Q27 4G|Andi (?:Wink|5G Blink) 4G|Co-Mate)(?:[);/ ]|$)'
+  regex: 'iBall[ _]([^;/)]+)[ _]Build|iBall_Slide|(?:Snap[_ ]4G2|6351-Q400i|iT-KSA0003|iT-KSA0012|iT-KSA0066|Avid|Twinkle_i5|Gorgeo[_ ]4GL|Brisk 4G2|Blaze_V4|Wondro 10|Q27 4G|Andi (?:Wink|5G Blink) 4G|Co-Mate|Nova_4G)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'Andi Wink 4G'
@@ -9339,7 +9341,7 @@ iBall:
     - regex: 'Andi 5G Blink 4G'
       device: 'smartphone'
       model: 'Andi 5G Blink 4G'
-    - regex: '(Snap[_ ]4G2|Avid|Twinkle_i5|Gorgeo[_ ]4GL|Blaze_V4|Wondro 10|Q27 4G|Brisk 4G2|Co-Mate)(?:[);/ ]|$)'
+    - regex: '(Snap[_ ]4G2|Avid|Twinkle_i5|Gorgeo[_ ]4GL|Blaze_V4|Wondro 10|Q27 4G|Brisk 4G2|Co-Mate|Nova_4G)(?:[);/ ]|$)'
       model: '$1'
     - regex: '6351-Q400i(?:[);/ ]|$)'
       model: 'Slide'
@@ -10688,15 +10690,24 @@ Koridy:
   device: 'smartphone'
   model: '$1'
 
-# KRONO
+# KRONO (www.kronodigital.com)
 KRONO:
-  regex: 'NET1100|NET_(?:TITAN|VOLT)'
+  regex: '(?:NET1100|NET_(?:LITE|TITAN|VOLT|MAX|MATRIX)|android 8.*; NETWORK)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'NET1100'
       model: 'NET 1100'
-    - regex: 'NET_(TITAN|VOLT)'
+    - regex: 'NET_(LITE|TITAN|VOLT)'
       model: 'NET $1'
+    - regex: 'NET_MATRIX'
+      device: 'tablet'
+      model: 'Net Matrix'
+    - regex: 'NET_MAX'
+      device: 'tablet'
+      model: 'Net Max'
+    - regex: 'NETWORK'
+      device: 'tablet'
+      model: 'Network'
 
 #k-touch
 K-Touch:
@@ -14590,7 +14601,7 @@ Fusion5:
 
 # Odys (odys.de)
 Odys:
-  regex: 'ODYS[ _-]|IEOS[_ ]([^/;]+)|NOON(?:_PRO)? Build|SPACE10_(?:PLUS|PRO)_3G|THOR_?10|TAO_X10|RAPID_?(?:10|7)_?LTE|MAVEN_?10_|CONNECT[78]|ELEMENT10_PLUS_3G|XELIO[_0-9P]|ADM816HC|ADM8000KP|NEO6_LTE|EOS10|AEON|FALCON_10_PLUS_3G|FUSION|THANOS_10|MAVEN_X10_HD(?:_LTE)?|JUNIOR_8_PRO|JuniorT8Pro|(?:NOVA|PYRO)_X?7_PLUS_3G|UNO_X8|MAVEN_[GT]10|SLADE_X55|XELIO_PRO_10_LTE|NOTOSplus3G|PACE ?10|PACE_10_LTE|Titan_10_LTE|PEDI_PLUS_W'
+  regex: 'ODYS[ _-]|IEOS[_ ]([^/;]+)|NOON(?:_PRO)? Build|SPACE10_(?:PLUS|PRO)_3G|THOR_?10|TAO_X10|RAPID_?(?:10|7)_?LTE|MAVEN_?10_|CONNECT[78]|ELEMENT10_PLUS_3G|XELIO[_0-9P]|(?:ADM816HC|ADM8000KP|NEO6_LTE|EOS10|AEON|FALCON_10_PLUS_3G|FUSION|THANOS_10|MAVEN_X10_HD(?:_LTE)?|JUNIOR_8_PRO|JuniorT8Pro|(?:NOVA|PYRO)_X?7_PLUS_3G|UNO_X8|MAVEN_[GT]10|SLADE_X55|XELIO_PRO_10_LTE|NOTOSplus3G|PACE ?10|PACE_10_LTE|Titan_10_LTE|PEDI_PLUS_W|NoteTab_Pro)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'XELIO[_ ]A10'
@@ -14683,6 +14694,8 @@ Odys:
       model: 'Maven G10'
     - regex: 'PEDI_PLUS_W'
       model: 'Pedi Plus W'
+    - regex: 'NoteTab_Pro'
+      model: 'NoteTab Pro'
 
     # explicit smartphones models
     - regex: 'NEO6[_ ]LTE'
@@ -15620,9 +15633,12 @@ Overmax:
       model: 'Qualcore 1010'
     - regex: 'Qualcore 1027 4G'
       model: 'Qualcore 1027 4G'
-    - regex: 'OV1027([34])G'
-      model: 'Qualcore 1027 $1G'
-    - regex: '(OV-[a-z]+(?:[^;(/]*))(?<!Build)[();/ ]'
+    - regex: 'OV(\d+)([34])G'
+      model: 'Qualcore $1 $2G'
+    - regex: 'OV-Qualcore-(\d+)-([34])G'
+      model: 'Qualcore $1 $2G'
+
+    - regex: '(OV-[a-z]+(?:[^/();]+))(?: Build|[();])'
       model: '$1'
 
 # Oysters
@@ -16254,7 +16270,7 @@ S-TELL:
 
 # Safaricom
 Safaricom:
-  regex: 'NEON[_ ]RAY'
+  regex: 'NEON[_ ]RAY|(?:NEON_NOVA|NEON PLUS|NEON PLUS|NEON LITE)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'NEON_RAY_PRO'
@@ -16263,6 +16279,12 @@ Safaricom:
       model: 'Neon Ray'
     - regex: 'NEON RAY 2'
       model: 'Neon Ray 2'
+    - regex: 'NEON_NOVA'
+      model: 'Neon Nova'
+    - regex: 'NEON PLUS'
+      model: 'Neon Plus'
+    - regex: 'NEON LITE'
+      model: 'Neon Lite'
 
 # Santin
 Santin:
@@ -29410,9 +29432,11 @@ VEON:
 
 # FiGi (figi-mobile.com)
 FiGi:
-  regex: '(?:Note_(?:[37]|11)_Pro|Note_1_Lite)(?:[);/ ]|$)'
+  regex: '(?:Note_(?:[37]|11)_Pro|Note_1_Lite|Nopal)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
+    - regex: 'Nopal'
+      model: 'Nopal'
     - regex: 'Note_([37]|11)_Pro'
       device: 'phablet'
       model: 'Note $1 Pro'
