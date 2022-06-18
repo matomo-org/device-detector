@@ -7625,7 +7625,7 @@ Vizio:
 
 # GOCLEVER (goclever.com)
 GOCLEVER:
-  regex: 'GOCLEVER|QUANTUM_(?:[235]_)?[0-9]{3}|QUANTUM [0-9]{1}|QUANTUM 700N|Quantum2 500|QUANTUM_(1010N|1010M|900|II_500_N)|ARIES|INSIGNIA|ORION_|ELIPSO|LIBRA[ _]97|TERRA_7o[WL]'
+  regex: 'GOCLEVER|QUANTUM_(?:[235]_)?[0-9]{3}|QUANTUM [0-9]{1}|QUANTUM 700N|Quantum2 500|QUANTUM_(1010N|1010M|900|II_500_N)|ARIES|INSIGNIA|ORION_|ELIPSO|LIBRA[ _]97|TERRA_7o[WL]|TQ700(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'QUANTUM_(1010N|1010M|900)'
@@ -7639,6 +7639,9 @@ GOCLEVER:
       device: 'tablet'
     - regex: 'TQ700N'
       model: 'QUANTUM 700N'
+      device: 'tablet'
+    - regex: 'TQ700(?:[);/ ]|$)'
+      model: 'QUANTUM 700'
       device: 'tablet'
     - regex: 'QUANTUM_1010_Lite'
       model: 'Quantum 1010 Lite'
@@ -10359,9 +10362,11 @@ iZotron:
 
 # JAY-Tech
 JAY-Tech:
-  regex: '(?<!VIVAX )TPC-[A-Z0-9]+|TPCY-TX[TE][^);/ ]+'
+  regex: '(?<!VIVAX )TPC-(?!71213G)[A-Z0-9]+|TPCY-TX[TE][^);/ ]+'
   device: 'tablet'
   models:
+    - regex: 'TPC-PA10.1M'
+      model: 'Tablet PC PA10.1M'
     - regex: 'TPC-([A-Z0-9]+)'
       model: 'Tablet PC $1'
     - regex: '(TPCY-TX[TE][^);/ ]+)'
@@ -20035,11 +20040,11 @@ Telit:
 
 # Telpo ((https://www.telpo.com.cn/))
 Telpo:
-  regex: 'TPS320'
+  regex: 'TPS3[29]0'
   device: 'peripheral'
   models:
-    - regex: 'TPS320'
-      model: 'TPS320'
+    - regex: 'TPS(3[29]0)'
+      model: 'TPS$1'
 
 # ThL
 ThL:
@@ -22269,7 +22274,7 @@ ZYQ:
 
 # Vivax (www.vivax.com)
 Vivax:
-  regex: 'VIVAX|(?:Fly5[_ ]Lite|Fun[_ ]S500|Point[_ ](?:X[12]|X501|X450)|PRO3|32LE77SM|40LE77SM|FUN S1|FUN_S20)(?:[);/ ]|$)'
+  regex: 'VIVAX|(?:Fly5[_ ]Lite|Fun[_ ]S500|Point[_ ](?:X[12]|X501|X450)|PRO3|32LE77SM|40LE77SM|FUN S1|FUN_S20|TPC-71213G)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Fly5[_ ]Lite(?:[);/ ]|$)'
@@ -22290,6 +22295,9 @@ Vivax:
       model: 'Smart Point X5010'
     - regex: 'VIVAX[_ ]PRO3'
       model: 'Pro 3'
+    - regex: 'TPC-(7121)([34])G'
+      model: 'TPC-$1 $2G'
+      device: 'tablet'
     - regex: 'VIVAX (?:TABLET )?TPC[-_ ](\d+) ([34])G(?:[);/ ]|$)'
       model: 'TPC-$1 $2G'
 
@@ -24997,12 +25005,12 @@ Maxtron:
 
 # Philco (philco.com.br)
 Philco:
-  regex: 'PHILCO |(PCS0[12]|PH350B|PTB[78]R|PTB7PAP_PTB7PAB_PTB7PAR|Hit Max|Hit P1[03])(?:[);/ ]|$)'
+  regex: 'PHILCO |(PCS0[12]|PH350B|PTB[78]R|PTB7PAP_PTB7PAB_PTB7PAR|Hit Max|Hit P1[03]|TP10A1I)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(PCS0[12]|PH350B|Hit Max|Hit P1[03])(?:[);/ ]|$)'
       model: '$1'
-    - regex: '(PTB[78]R)(?:[);/ ]|$)'
+    - regex: '(PTB[78]R|TP10A1I)(?:[);/ ]|$)'
       device: 'tablet'
       model: '$1'
     - regex: 'PHILCO Android TV(?:[);/ ]|$)'
