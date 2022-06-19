@@ -4978,10 +4978,10 @@ Compal:
 
 # Artel (artelgroup.org)
 Artel:
-  regex: 'Artel[_ ]|\w+_ARTEL_\w+|(?:GAP YOQ| ALO|U1 MINI|Android 8.+; U4(?!/))(?:[);/ ]|$)'
+  regex: 'Artel[_ ]|\w+_ARTEL_\w+|(?: GAP|GAP YOQ| ALO|U1 MINI|Android 8.+; U4(?!/))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'GAP YOQ(?:[);/ ]|$)'
+    - regex: ' GAP|GAP YOQ(?:[);/ ]|$)'
       model: 'Gap Yo Q'
     - regex: 'U1 MINI(?:[);/ ]|$)'
       model: 'U1 Mini'
@@ -5384,7 +5384,7 @@ Crown:
 
 # AllDocube (alldocube.com)
 AllDocube:
-  regex: '(?:T1001XS?|T1006S?|T1001|iPlay_[234]0|U1006H?|U63PLUS|iPlay8|iPlay_?8T|iPlay[34]0|iPlay_40H|iPlay20S|kPad|X_Game|T806MHE?)(?:[);/ ]|$)'
+  regex: '(?:T1001XS?|T1006S?|T1001|iPlay_[234]0|U1006H?|U63PLUS|iPlay8|iPlay_?8T|iPlay[34]0|iPlay_40H|iPlay20S|kPad|X_Game|T806MHE?|Power M3)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'T1001XS(?:[);/ ]|$)'
@@ -5409,6 +5409,8 @@ AllDocube:
       model: 'iPlay $1'
     - regex: 'X_Game(?:[);/ ]|$)'
       model: 'X Game'
+    - regex: 'Power M3(?:[);/ ]|$)'
+      model: 'Power M3'
 
 # Cube (short name Alldocube)
 Cube:
@@ -9511,7 +9513,7 @@ IconBIT:
     - regex: 'TOUCAN Stick 4K'
       model: 'Toucan Stick 4K'
       device: 'tv'
-    - regex: '(?:iconBIT )?(Movie Smart 4K|Movie Play|Movie IPTV Quad|Movie Ultra HD 4K|XDS[789]4K|Omnicast UHD|Stick|XDS1000)'
+    - regex: '(?:iconBIT )?(Movie (?:Smart 4K|UNO|Play|IPTV Quad|Ultra HD 4K)|XDS[789]4K|Omnicast UHD|Stick|XDS1000)'
       model: '$1'
       device: 'tv'
 
@@ -10245,9 +10247,13 @@ Impression:
 
 #iLife or i-life (lifedigital.com)
 iLife:
-  regex: '(ITELL[_ ](?:K3300|K3500N?|K4700)|WTAB_714|WTAB 805)(?:[);/ ]|$)'
+  regex: 'WTAB[ _]?\d{3}|(ITELL[_ ](?:K3300|K3500N?|K4700))(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: 'WTAB[ _]?(\d{3}(?:[^;/)]*))(?: Build|[;)])'
+      model: 'WTAB $1'
+    - regex: '(ITELL[_ ](?:K3300|K3500N?|K4700))(?:[);/ ]|$)'
+      model: '$1'
 
 # iTel
 iTel:
@@ -21082,7 +21088,7 @@ Wexler:
     - regex: 'ZEN[ _]5\+(?:[);/ ]|$)'
       model: 'ZEN 5 Plus'
       device: 'smartphone'
-    - regex: '(?:Wexler[ _\-\.])?TAB[ _]10Q(?:[);/ ]|$)'
+    - regex: '(?:Wexler[._-])?TAB[ _]?10Q(?:[);/ ]|$)'
       model: 'TAB 10Q'
     - regex: 'TAB10iQ3G(?:[);/ ]|$)'
       model: 'TAB 10iQ 3G'
@@ -22450,7 +22456,7 @@ FLYCAT:
 
 # Fly
 Fly:
-  regex: 'Fly(?!Flow|touch)|Power Plus 5000|Photo Pro|Slimline|Life (?:Ace|Jet|Sky|Compact 4G|Geo|Zen|Play)|(?:lineage_)?FS50[1-9]|FS51[0-8]|FS52[0-9]|FS530|FS55[134]|FS40[1-9]|FS45[1-9]|4FS06|MERIDIAN-|(?:IQ(?!10[134]0)[0-9]{3,}[i]?)[ _]?(?:Quad|Firebird|Quattro|Turbo|Magic)?(?:[);/ ]|$)'
+  regex: 'Fly(?!Flow|touch)|Power Plus 5000|Power Plus 3|Photo Pro|Slimline|Life (?:Ace|Jet|Sky|Compact 4G|Geo|Zen|Play)|(?:lineage_)?FS50[1-9]|FS51[0-8]|FS52[0-9]|FS530|FS55[134]|FS40[1-9]|FS45[1-9]|4FS06|MERIDIAN-|(?:IQ(?!10[134]0)[0-9]{3,}[i]?)[ _]?(?:Quad|Firebird|Quattro|Turbo|Magic)?(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(?:Fly_)?IQ310(?:[);/ ]|$)'
@@ -22519,6 +22525,8 @@ Fly:
       model: 'Cirrus 9'
     - regex: 'FS554'
       model: 'Power Plus FHD'
+    - regex: 'Power Plus 3'
+      model: 'Power Plus 3'
     - regex: 'FS517'
       model: 'Cirrus 11'
     - regex: 'FS516'
