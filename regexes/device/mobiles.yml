@@ -2461,6 +2461,8 @@ Allview:
       model: 'V$1 Viper I 4G'
     - regex: 'V1_Viper_I'
       model: 'V1 Viper I'
+    - regex: 'V4_Viper_PRO'
+      model: 'V4 Viper Pro'
     - regex: 'V([134])_Viper'
       model: 'V$1 Viper'
     - regex: 'V2_Viper_X_plus'
@@ -12638,10 +12640,8 @@ Karbonn:
       model: 'Titanium Mach One Plus'
     - regex: 'MACHONE'
       model: 'Titanium Mach One'
-    - regex: 'Titanium[ _]S2[ _]Plus'
-      model: 'Titanium S2 Plus'
-    - regex: 'Titanium_S9Plus'
-      model: 'Titanium S9 Plus'
+    - regex: 'Titanium[ _]S([29])[ _]?Plus'
+      model: 'Titanium S$1 Plus'
     - regex: 'Titanium[_ ]S(99|360|1[059]|109|35|200 HD|20[13]|22|[15])(?:[);/ ]|$)'
       model: 'Titanium S$1'
     - regex: 'Titanium Vista 4G'
@@ -15962,7 +15962,7 @@ Primepad:
 
 # Pioneer
 Pioneer:
-  regex: 'Pioneer|.*; R1 Build|(?:dvr700pi|XDP-300R|F9212[AB])(?:[);/ ]|$)'
+  regex: 'Pioneer|.*; R1 Build|(?:dvr700pi|XDP-300R|F9212[AB]|SDA-835TAB)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '.*; R1 Build'
@@ -15974,7 +15974,7 @@ Pioneer:
     - regex: '(XDP-300R)'
       device: 'portable media player'
       model: '$1'
-    - regex: '(F9212[AB])'
+    - regex: '(F9212[AB]|SDA-835TAB)'
       device: 'car browser'
       model: '$1'
     - regex: 'BDP-160'
@@ -19807,7 +19807,7 @@ TechPad:
       model: '10XX'
     - regex: 'TechPad703'
       model: '703'
-    - regex: 'Tech ?Pad[_ ](10Y|9x|i700)'
+    - regex: 'Tech ?Pad[_ ](10Y|9x|i700|10Z)'
       model: '$1'
     - regex: 'TechPad[_ ]3Gx'
       model: '3Gx'
@@ -19982,7 +19982,7 @@ teXet:
 
 # Telefunken
 Telefunken:
-  regex: 'TELEFUNKEN|Foxtrot|TEL-1013GIQA|TEL-1014GIQ|TEL-73GIQA|TEL-74GIQ|TF-SP(?:500[12]|4002)|(TF-MID(?:[78]02G|70[78]G|80[46]G|9705RG|9707G|7805G|100[57]G|1010G))|(TF-LED(?:65S75T2SU|32S39T2S|32S5[289]T2S|32S60T2S|32S7[05]T2S|40S63T2S|40S19T2S|40S41T2S|43S94T2S))|LTE_LIMA|LTE Mike|Diamond_LTE|Outdoor (?:LTE|WT4|WT4-S)'
+  regex: 'TELEFUNKEN|Foxtrot|TEL-1013GIQA|TEL-1014GIQ|TEL-73GIQA|TEL-74GIQ|TF-SP(?:500[12]|4002)|(TF-MID(?:[78]02G|70[78]G|80[46]G|9705RG|9707G|7805G|100[57]G|1010G))| TF5X|(TF-LED(?:65S75T2SU|32S39T2S|32S5[289]T2S|32S60T2S|32S7[05]T2S|40S63T2S|40S19T2S|40S41T2S|43S94T2S|43S22T2SU))|LTE_LIMA|LTE Mike|Diamond_LTE|Outdoor (?:LTE|WT4|WT4-S)'
   device: 'tablet'
   models:
     - regex: 'TEL-1013GIQA'
@@ -20001,12 +20001,12 @@ Telefunken:
     - regex: 'LTE Mike'
       model: 'Mike LTE'
       device: 'smartphone'
-    - regex: '(?:TELEFUNKEN)?(TF-SP(?:500[12]|4002)|Outdoor (?:LTE|WT4-S|WT4)|Foxtrot)'
+    - regex: '(?:TELEFUNKEN)?(TF-SP(?:500[12]|4002)|Outdoor (?:LTE|WT4-S|WT4)|Foxtrot|TF5X)'
       model: '$1'
       device: 'smartphone'
     - regex: '(TF-MID(?:[78]02G|70[78]G|80[46]G|9705RG|9707G|7805G|100[57]G|1010G))'
       model: '$1'
-    - regex: '(TF-LED(?:65S75T2SU|32S39T2S|32S5[289]T2S|32S60T2S|32S7[05]T2S|40S63T2S|40S19T2S|40S41T2S|43S94T2S))'
+    - regex: '(TF-LED(?:65S75T2SU|32S39T2S|32S5[289]T2S|32S60T2S|32S7[05]T2S|40S63T2S|40S19T2S|40S41T2S|43S94T2S|43S22T2SU))'
       model: '$1'
       device: 'tv'
     - regex: 'TELEFUNKEN, ([a-z0-9_ \-]+), (?:wired|wireless)'
@@ -20769,7 +20769,7 @@ Vestel:
 
 # Videocon
 Videocon:
-  regex: 'Videocon[_ \-]|(?:VT75C|V406018|V512930|V50(?:2430|3630|4730|5024|5430|4630|5[98]20)|Z45_(?:Dazzle|Amaze)|Z45Q Star|Z50 Nova)(?:[);/ ]|$)'
+  regex: 'Videocon[_ \-]|(?:VT75C|V50DC|V406018|V512930|V50(?:2430|3630|4730|5024|5430|4630|5[98]20)|Z45_(?:Dazzle|Amaze)|Z45Q Star|Z50 Nova)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Videocon_V1585'
@@ -20782,6 +20782,8 @@ Videocon:
       device: 'tablet'
     - regex: 'V502430(?:[);/ ]|$)'
       model: 'Kryton 3'
+    - regex: 'V50DC(?:[);/ ]|$)'
+      model: 'Kryton'
     - regex: 'V505024(?:[);/ ]|$)'
       model: 'Kryton 22 Plus'
     - regex: 'V503630(?:[);/ ]|$)'
@@ -27971,12 +27973,12 @@ Singtech:
 
 # Sunny
 Sunny:
-  regex: '(?:SS4G9 Mira|SS4G7 Sole|SS4G1 Luna|SS4G8 Nora|SS4G6 Lola|SN7014S?|SN7016)(?:[);/ ]|$)'
+  regex: '(?:SS4G9 Mira|SS4G7 Sole|SS4G1 Luna|SS4G8 Nora|SS4G6 Lola|SN7014S?|SN7016|SN10016)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(SS4G9 Mira|SS4G7 Sole|SS4G1 Luna|SS4G8 Nora|SS4G6 Lola)(?:[);/ ]|$)'
       model: '$1'
-    - regex: '(SN7014S?|SN7016)(?:[);/ ]|$)'
+    - regex: '(SN7014S?|SN7016|SN10016)(?:[);/ ]|$)'
       device: 'tablet'
       model: '$1'
 
