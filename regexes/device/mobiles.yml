@@ -9270,7 +9270,7 @@ Hyundai:
       model: 'Hymi 5S Plus'
     - regex: 'E(475|504|553|603)(?:[);/ ]|$)'
       model: 'E$1'
-    - regex: '(?:Hyundai_)?(Eternity_(?:G57L?|G[56]0))'
+    - regex: '(?:Hyundai_)?(Eternity_(?:G57L?|G[56]0W?))'
       model: '$1'
 
     # explicit tables models
@@ -19367,7 +19367,7 @@ Amazon:
 
 # Symphony
 Symphony:
-  regex: 'SYMPHONY[ \_]([a-z0-9]+)|(?:(?:roar[ _](?:V20|V78|E80|V150))|roarV95|ZVIII|V141|SYMTAB\d+)(?:[);/ ]|$)'
+  regex: 'SYMPHONY[ \_]([a-z0-9]+)|(?:(?:roar[ _](?:V20|V78|E80|V150))|roarV95|ZVIII|V141|SYMTAB\d+| (?:i97|i74|i68|i30|i18))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'ZVIII'
@@ -19376,7 +19376,7 @@ Symphony:
       model: 'Atom II'
     - regex: 'roar[ _]?(V20|E80|V78|V95|V150)(?:[);/ ]|$)'
       model: 'Roar $1'
-    - regex: '(V141)(?:[);/ ]|$)'
+    - regex: ' (V141|i97|i74|i68|i30|i18)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'SYMPHONY[ \_]([a-z0-9]+)'
       model: '$1'
@@ -23747,7 +23747,7 @@ NEXBOX:
 
 # True or TrueSmart
 'True':
-  regex: ' TRUE BEYOND TAB 3G|SMART[ _](4G Adventure Pro|MAX 4.0 PLUS|4G[ _](?:GEN C [45].[05]|M1 Plus|Champion|Speedy 5.0 Plus|Speedy[_ ]5inch|P1))'
+  regex: ' TRUE BEYOND TAB 3G|HPH07|SMART[ _](4G Adventure Pro|MAX 4.0 PLUS|4G[ _](?:GEN C [45].[05]|M1 Plus|Champion|Speedy 5.0 Plus|Speedy[_ ]5inch|P1))'
   device: 'smartphone'
   models:
     - regex: 'SMART MAX 4.0 PLUS'
@@ -23769,7 +23769,12 @@ NEXBOX:
     - regex: 'SMART[ _]4G M1 Plus'
       model: 'Smart 4G M1 Plus'
     - regex: 'TRUE BEYOND TAB 3G'
+      device: 'tablet'
       model: 'Beyond Tab 3G'
+
+    - regex: 'HPH07'
+      device: 'tv'
+      model: 'ID TV HPH07'
 
 Yandex:
   regex: '(YNDX-?000SB)(?:[);/ ]|$)'
@@ -26076,11 +26081,13 @@ Alcor:
 
 # iBrit
 iBrit:
-  regex: 'IBRIT_|(?:SI5[12])(?:[);/ ]|$)'
+  regex: 'IBRIT_|(?:SI5[12]|i5Plus)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'IBRIT_I([57])(?:[);/ ]|$)'
       model: 'I$1'
+    - regex: 'i5Plus'
+      model: 'I5 Plus'
     - regex: 'iBRIT_POWER6(?:[);/ ]|$)'
       model: 'Power 6'
     - regex: 'iBRIT_Speed Pro(?:[);/ ]|$)'
@@ -26372,12 +26379,12 @@ eSTAR:
 
 # Hometech (hometech.com.tr)
 Hometech:
-  regex: '(?:Ideal (?:10S|Tab [79])|ALFA(?:10TB|7LM)|ALFA[_ ](?:10RC|10TM?|10MB|7RS|[78]RC|7M|8ST)|HT[ _](?:7RT|8MZ))(?:[);/ ]|$)'
+  regex: '(?:Ideal (?:10S|Tab [79])|ALFA(?:10TB|7LM)|ALFA[_ ](?:10R[CX]|10TM?|10MB|7RS|[78]RC|7M|8ST|8RX)|HT[ _](?:7RT|8MZ))(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: '(Ideal (?:10S|Tab 9))(?:[);/ ]|$)'
       model: '$1'
-    - regex: 'ALFA[_ ]?(10RC|10T[BM]?|7RS|[78]RC|7L?M|10MB|8ST)(?:[);/ ]|$)'
+    - regex: 'ALFA[_ ]?(10R[CX]|10T[BM]?|7RS|[78]RC|7L?M|10MB|8ST|8RX)(?:[);/ ]|$)'
       model: 'ALFA $1'
     - regex: 'Ideal Tab 7 Ips( 3G)?'
       model: 'Ideal Tab 7 IPS$1'
