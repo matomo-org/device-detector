@@ -51,9 +51,6 @@ abstract class AbstractDeviceParser extends AbstractParser
     public const DEVICE_TYPE_WEARABLE             = 12; // including set watches, headsets
     public const DEVICE_TYPE_PERIPHERAL           = 13; // including portable terminal, portable projector
 
-    private const DESKTOP_PATTERN         = '(?:Windows (?:NT|IoT)|X11; Linux x86_64)';
-    private const DESKTOP_EXCLUDE_PATTERN = '^.+Mozilla/|Lenovo|compatible; MSIE|Android|iPhone|Windows Phone|Trident/|Tesla/|Tablet|Mobile|XBOX|FBMD/|ARM; ?([^)]+)';
-
     /**
      * Detectable device types
      *
@@ -1493,9 +1490,11 @@ abstract class AbstractDeviceParser extends AbstractParser
      */
     public function parse(): ?array
     {
+
         $isDesktop = (
-            $this->matchUserAgent(self::DESKTOP_PATTERN) &&
-            !$this->matchUserAgent(self::DESKTOP_EXCLUDE_PATTERN)
+            $this->matchUserAgent('(?:Windows (?:NT|IoT)|X11; Linux x86_64)') &&
+            !$this->matchUserAgent('^.+Mozilla/|Android|Tablet|Mobile|iPhone|Windows Phone') &&
+            !$this->matchUserAgent('Lenovo|compatible; MSIE|Trident/|Tesla/|XBOX|FBMD/|ARM; ?([^)]+)')
         );
 
         if ($isDesktop) {
