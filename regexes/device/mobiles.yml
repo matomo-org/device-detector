@@ -7471,7 +7471,7 @@ Gemini:
 
 # General Mobile (www.generalmobile.com)
 General Mobile:
-  regex: 'GM 5 Plus|GM8 go|GM [568] d|GM 8|General Mobile 4G|GM6_Tur|GM 9 (?:Pro|Plus)|(?:e-tab 20|Android 1.+ (?:G[35]01|G[35]10|(?<!Huawei )G700)|GM Discovery II| GM6)(?:[);/ ]|$)'
+  regex: 'GM 5 Plus|GM8 go|GM [568] d|GM 8|General Mobile 4G|GM6_Tur|GM 9 (?:Pro|Plus)|(?:e-tab 20|Android 1.+ (?:G[35]01|G[35]10|(?<!Huawei )G700)|Discovery (?:Air|Elite)|GM Discovery II| GM6)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'GM 5 Plus'
@@ -7498,6 +7498,8 @@ General Mobile:
       model: 'GM 9 Pro'
     - regex: 'GM 9 Plus'
       model: 'GM 9 Plus'
+    - regex: 'Discovery (Air|Elite)'
+      model: 'Discovery $1'
     - regex: 'GM Discovery II'
       model: 'GM Discovery II'
     - regex: 'General Mobile 4G Dual'
@@ -13692,7 +13694,7 @@ Motorola:
       model: 'Moto G$1 5G'
     - regex: '(?:MOT-|Motorola-)?XT1609'
       model: 'Moto G4 Play'
-    - regex: '(?:MOT-|Motorola-)?XT180[3-5]|Moto G ?5S Plus|Moto G \(5S\) Plus'
+    - regex: '(?:MOT-|Motorola-)?XT180[1-6]|Moto G ?5S Plus|Moto G \(5S\) Plus'
       model: 'Moto G5s Plus'
     - regex: '(?:MOT-|Motorola-)?XT1799-2|Moto G \(5S\)'
       model: 'Moto G5s'
@@ -19467,7 +19469,7 @@ Amazon:
 
 # Symphony
 Symphony:
-  regex: 'SYMPHONY[ \_]([a-z0-9]+)|(?:(?:roar[ _](?:V20|V78|E80|V150))|roarV95|ZVIII|V141|SYMTAB\d+| (?:i97|i74|i68|i30|i18))(?:[);/ ]|$)'
+  regex: 'SYMPHONY[ \_]([a-z0-9]+)|(?:(?:roar[ _](?:V20|V78|E80|V150))|roarV95|ZVIII|V141|SYMTAB\d+| (?:i97|i74|i68|i30|i18|i120))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'ZVIII'
@@ -19476,7 +19478,7 @@ Symphony:
       model: 'Atom II'
     - regex: 'roar[ _]?(V20|E80|V78|V95|V150)(?:[);/ ]|$)'
       model: 'Roar $1'
-    - regex: ' (V141|i97|i74|i68|i30|i18)(?:[);/ ]|$)'
+    - regex: ' (V141|i97|i74|i68|i30|i18|i120)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'SYMPHONY[ \_]([a-z0-9]+)'
       model: '$1'
@@ -20579,9 +20581,15 @@ Unonu:
 
 # UTOK
 UTOK:
-  regex: 'UTOK (45[01]D)'
+  regex: 'UTOK (45[01]D)|(?:Dorel \d|Dorel 3S)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'UTOK (45[01]D)'
+      model: '$1'
+    - regex: 'Dorel 3S'
+      model: 'Dorel 3S'
+    - regex: 'Dorel (\d)'
+      model: 'Dorel $1'
 
 # Vastking
 Vastking:
@@ -26455,7 +26463,7 @@ Selenga:
 
 # Starlight
 Starlight:
-  regex: 'Starlight|(?:My_Star_X|RIO STAR|C_Note_Pro|Star_Mix_2|I_STAR_PLUS)(?:[);/ ]|$)'
+  regex: 'Starlight|(?:My_Star_X|RIO STAR|C_Note_Pro|Star_Mix_2|I_STAR_PLUS|I star (?:one|two))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'My_Star_X'
@@ -26468,6 +26476,10 @@ Starlight:
       model: 'Star Mix 2'
     - regex: 'I_STAR_PLUS'
       model: 'I Star Plus'
+    - regex: 'I star two'
+      model: 'I Star Two'
+    - regex: 'I star one'
+      model: 'I Star One'
     - regex: 'Starlight_ROME_X'
       model: 'Rome X'
 
