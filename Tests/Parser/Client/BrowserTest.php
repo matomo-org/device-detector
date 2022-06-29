@@ -115,7 +115,7 @@ class BrowserTest extends TestCase
         $hints    = $method->invoke(new BrowserHints());
         $fixtures = [];
 
-        foreach ($hints as $hash => $name) {
+        foreach ($hints as $name) {
             $fixtures[] = \compact('name');
         }
 
