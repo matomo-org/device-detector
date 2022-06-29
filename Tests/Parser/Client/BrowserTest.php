@@ -125,7 +125,7 @@ class BrowserTest extends TestCase
     /**
      * @dataProvider getFixturesBrowserHints
      */
-    public function testBrowserHintsForAvailableBrowsers($name): void
+    public function testBrowserHintsForAvailableBrowsers(string $name): void
     {
         $browserShort = Browser::getBrowserShortName($name);
         $this->assertNotEquals(
