@@ -5117,7 +5117,7 @@ ConCorde:
 
 # Condor (www.condor.dz)
 Condor:
-  regex: 'Allure (?:M[123]|X)|Griffe T[235-9]|TFX712G|TRA-901G|TGW[-]?(710G|709|102L|801[GL])|(?:PGN\-?[456][012][0-9]|PHS\-601|PHQ519|PHQ52[056]|TB105L|TB717G|PKT\-301|Plume (?:H1|L[1-468]|P8|P6 PRO LTE)|Infinity a4|Infinity_i[45])(?:[);/ ]|$)|CTAB[^/;]+ Build'
+  regex: 'Allure (?:M[123]|X)|Griffe T[235-9]|TFX712G|TRA-901G|TGW[-]?(710G|709|102L|801[GL])|(?:PGN\-?[456][012][0-9]|PHS\-601|PHQ519|PHQ52[056]|TB105L|TB717G|PKT\-301|Plume (?:H1|L[1-468]|P8|P6 PRO LTE)|Infinity E5|Infinity a4|Infinity_i[45])(?:[);/ ]|$)|CTAB[^/;]+ Build'
   device: 'smartphone'
   models:
     - regex: 'CTAB([^/;]+) Build'
@@ -5183,6 +5183,10 @@ Condor:
       model: 'Plume P6'
     - regex: 'Infinity a4'
       model: 'Infinity A4'
+    - regex: 'Infinity e5 pro'
+      model: 'Infinity E5 Pro'
+    - regex: 'Infinity E5'
+      model: 'Infinity E5'
     - regex: 'Infinity_i([45])'
       model: 'Infinity I$1'
     - regex: 'PGN-?521'
@@ -9317,7 +9321,7 @@ Huawei:
 
 # Hyundai
 Hyundai:
-  regex: 'Hyundai|Ultra (?:Active|Air|Charm|Dream|Energy|Latitude|Link|Live|Shadow|Shine|Storm|Style|Sync|Trend|Vision|Wave)|Ultra_Vision_Plus|E(?:475|504|603)|G(?:24027|2552[34])K|W25042L|HP554O|Seoul (ECO|S8|MIX|5 Plus)|L503F Plus|HT0701L16|HT0703K16|HT0704K08|HT100(?:4LI?16|2W32|3X16|2W16)|Koral_8W2|Eternity[_ ](?:G25|H68)|HYMI 5S Plus|7GB1|7WD1|(?:Android 9.+ E553)(?:[);/ ]|$)'
+  regex: 'Hyundai|Ultra (?:Active|Air|Charm|Dream|Energy|Latitude|Link|Live|Shadow|Shine|Storm|Style|Sync|Trend|Vision|Wave)|Ultra_Vision_Plus|E(?:475|504|603)|G(?:24027|2552[34])K|W25042L|HP554O|Seoul (ECO|S8|MIX|5 Plus)|L503F Plus|HT0701L16|HT0703K16|HT0704K08|HT100(?:4LI?16|2W32|3X16|2W16)|Koral_8W2|Eternity[_ ](?:G25|H68)|HYMI 5S Plus|7GB1|7WD1|(?:Android 9.*; [EL]553)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Ultra[_ ]Vision[_ ]Plus'
@@ -9350,6 +9354,8 @@ Hyundai:
       model: 'Hymi 5S Plus'
     - regex: 'E(475|504|553|603)(?:[);/ ]|$)'
       model: 'E$1'
+    - regex: 'L(553)(?:[);/ ]|$)'
+      model: 'L$1'
     - regex: '(?:Hyundai_)?(Eternity_(?:G57L?|G[56]0W?))'
       model: '$1'
 
@@ -10037,6 +10043,8 @@ Infinix:
       model: 'S5 Lite'
     - regex: 'Infinix[ _-]X626'
       model: 'S4'
+    - regex: 'Infinix[ _-]X652C'
+      model: 'S5 Lite'
     - regex: 'Infinix[ _-]X652'
       model: 'S5'
     - regex: 'Infinix[ _-]X660'
@@ -10409,7 +10417,7 @@ iTel:
       model: 'S17'
     - regex: 'A551L'
       model: 'S17 Pro'
-    - regex: 'W5005'
+    - regex: 'W5005P?'
       model: 'P15'
     - regex: 'L5502'
       model: 'A44 Air'
@@ -10427,6 +10435,8 @@ iTel:
       model: 'A33 Plus'
     - regex: 'P681L'
       model: 'P37 Pro'
+    - regex: 'W6501'
+      model: 'P36'
     - regex: 'L5007'
       model: 'A24'
     - regex: 'L6003P'
@@ -11196,12 +11206,16 @@ Lava:
       model: 'Z60s'
     - regex: 'LE9920[ _]P(?:[);/ ]|$)'
       model: 'V7'
+    - regex: 'LE9940(?:[);/ ]|$)'
+      model: 'V7 Prime'
     - regex: 'LE9920(?:[);/ ]|$)'
       model: 'Z53'
     - regex: 'LH9910(?:[);/ ]|$)'
       model: 'Z52'
     - regex: 'LF9810(?:_2GB)?(?:[);/ ]|$)'
       model: 'Z62'
+    - regex: 'LF9820(?:[);/ ]|$)'
+      model: 'Z71'
     - regex: 'LE9830(?:[);/ ]|$)'
       model: 'Z93'
     - regex: 'LH9810(?:[);/ ]|$)'
@@ -22570,13 +22584,15 @@ Vivax:
 
 # MLS or Making Life Simple (mlsinnovation.com)
 MLS: #iQ
-  regex: 'IQ(?:0705|L550|1010w?|1012N?|1019N|1025|1060M|1380|1401|1436|1452a|1453|1470|1502a|1511|1552|1553|1568|1570|1805N|1806|1808|1810B_M|1832|1850|1890|5017|L626|9610|181011N|A27X_E|E[12]00|EL41|G550|GW516|L30|L5[01]|M801|M1001|N700|P50|R300|S300|S1001|W503|W511T|W553N?|W60[38]|W626|M960|D700|9013_4N)(?:[);/ ]|$)'
+  regex: 'IQ(?:0705|L550|1017|1010w?|1012N?|1019N|1025|1060M|1380|1401|1436|1452a|1453|1470|1502a|1511|1552|1553|1568|1570|1805N|1806|1808|1810B_M|1832|1850|1890|5017|L626|9610|181011N|A27X_E|E[12]00|EL41|G550|GW516|L30|L5[01]|M801|M1001|N700|P50|R300|S300|S801|S1001|W503|W511T|W553N?|W60[38]|W626|M960|D10S|D700|9013_4N)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'IQ0705(?:[);/ ]|$)'
       model: 'iQTalk Twist'
     - regex: 'IQL550(?:[);/ ]|$)'
       model: 'Notch Lite'
+    - regex: 'iQD10S(?:[);/ ]|$)'
+      model: 'Notch Sense'
     - regex: 'IQ1010W?(?:[);/ ]|$)'
       model: 'iQTab 10'
       device: 'tablet'
@@ -22634,6 +22650,9 @@ MLS: #iQ
     - regex: 'IQ1832(?:[);/ ]|$)'
       model: 'Jet 3G'
       device: 'tablet'
+    - regex: 'iQ1017(?:[);/ ]|$)'
+      model: 'Trophy 4G'
+      device: 'tablet'
     - regex: 'IQ1850(?:[);/ ]|$)'
       model: 'Diamond 5.2 4G'
     - regex: 'IQ1890(?:[);/ ]|$)'
@@ -22645,6 +22664,9 @@ MLS: #iQ
       device: 'tablet'
     - regex: 'iQM960(?:[);/ ]|$)'
       model: 'Angel 3G (2018)'
+      device: 'tablet'
+    - regex: 'iQS801(?:[);/ ]|$)'
+      model: 'Vital 4G'
       device: 'tablet'
     - regex: 'IQG550(?:[);/ ]|$)'
       model: 'Style 4G'
@@ -28322,13 +28344,15 @@ OASYS:
 
 # Aspera (asperamobile.com)
 Aspera:
-  regex: 'ASPERA|(?:Wren)(?:[);/ ]|$)'
+  regex: 'ASPERA|(?:Wren|Jazz 2)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'ASPERA[ _](R5h|R9|RT3|A4[02]|A50)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'Wren(?:[);/ ]|$)'
       model: 'Wren'
+    - regex: 'Jazz 2(?:[);/ ]|$)'
+      model: 'Jazz 2'
 
 # Vision Touch
 Vision Touch:
@@ -29710,9 +29734,13 @@ QLink:
 
 # IRA or IRA (explore more) (wishtel.com)
 IRA:
-  regex: 'IRA_DUO(?:[);/ ]|$)'
+  regex: '(?:IRA_DUO|IRAW7258)(?:[);/ ]|$)'
   device: 'tablet'
-  model: 'Duo Tablet'
+  models:
+    - regex: '(IRAW7258)'
+      model: '$1'
+    - regex: 'IRA_DUO'
+      model: 'Duo Tablet'
 
 # Microtech (microtech.store)
 Microtech:
