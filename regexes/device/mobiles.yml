@@ -669,7 +669,7 @@ RIM:
 
 # Ghia or GHIA (www.ghia.com.mx)
 Ghia:
-  regex: 'GHIA|QS702|SVEGLIO[ _][QH]1|VECTOR10\.1|GTKIDS7[BVR]?|(?:GTA7WF|VENUS7|TREO_TAB8G)(?:[);/ ]|$)'
+  regex: 'GHIA|QS702|SVEGLIO[ _][QH]1|VECTOR10\.1|GTKIDS7[BVR]?|(?:GTA7WF|VENUS7|TREO_TAB8|GTABPND|GTABKIDS)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'SVEGLIO[ _]([QH]1)'
@@ -695,9 +695,12 @@ Ghia:
     - regex: 'TREO_TAB8G'
       device: 'tablet'
       model: 'TREO TAB8G'
-    - regex: 'GTKIDS7[BVR]?'
+    - regex: 'GTKIDS7[BVR]?|GTABKIDS'
       device: 'tablet'
       model: 'GT KIDS 7'
+    - regex: 'GTABPND'
+      device: 'tablet'
+      model: 'Kids Panda'
     - regex: 'VENUS7'
       device: 'tablet'
       model: 'VENUS 7'
@@ -7641,6 +7644,8 @@ Gionee:
       model: 'Dream D1'
     - regex: '(?:GIO-)?GIONEE[ _-]([a-z0-9_-]+).*Android'
       model: '$1'
+    - regex: 'Android.*(?:GIO-)?GIONEE[ _-]([a-z0-9_-]+)[ _]Pro'
+      model: '$1 Pro'
     - regex: 'Android.*(?:GIO-)?GIONEE[ _-]([a-z0-9_-]+)'
       model: '$1'
     - regex: '(?:GIO-)?GIONEE[ _-]?([a-z0-9]+)'
@@ -10547,7 +10552,7 @@ Jolla:
 
 # Just5 (www.just5.com)
 Just5:
-  regex: 'JUST5(-)?SPACER(s)?|COSMO[_ ](L707|L808)|BLASTER|FREEDOM[ _](C100|M303|X1)|Freedom'
+  regex: 'JUST5(-)?SPACER(s)?|COSMO[_ ](L707|L808)|BLASTER|FREEDOM[ _](C100|M303|X1)|Freedom(?!TurboXL)'
   device: 'smartphone'
   models:
     - regex: 'COSMO[_ ](L707|L808)'
@@ -23883,11 +23888,13 @@ Savio:
 
 # Schok (https://www.schokgear.com/)
 Schok:
-  regex: 'Schok '
+  regex: 'Schok[ _]|FreedomTurboXL'
   device: 'smartphone'
   models:
     - regex: 'Schok Volt SV55'
       model: 'Volt SV55'
+    - regex: 'FreedomTurboXL'
+      model: 'Freedom Turbo XL'
 
 # Simbans
 Simbans:
@@ -26409,6 +26416,8 @@ Fero:
       model: 'Royale $1'
     - regex: 'FERO PACE'
       model: 'Pace'
+    - regex: 'A4001 Plus 2019'
+      model: 'A4001 Plus (2019)'
     - regex: 'Fero[ _](A4001|A450[23]|A5001|L100|Iris|Power|Mega LTE|Vibe)'
       model: '$1'
 
@@ -27004,13 +27013,15 @@ Spark:
 
 # SPC or SPC Universe or SPC Mobile (spc.es)
 SPC:
-  regex: '(?:Gravity Max|GRAVITY 2|GRAVITY 4G_2019|GRAVITY_OCTACORE|SPC (?:GEN|SMART)|SPC_ALIEN(?:_STICK)?|SPC Glow9.7|Lightyear|L70_Lite)(?:[);/ ]|$)'
+  regex: '(?:Gravity Max|GRAVITY 2|GRAVITY [34]G(?:_2019)?|GRAVITY_OCTACORE|SPC (?:GEN|SMART)|SPC_ALIEN(?:_STICK)?|SPC Glow9.7|Lightyear|L70_Lite)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'GRAVITY_OCTACORE'
       model: 'Gravity OctaCore'
-    - regex: 'GRAVITY 4G_2019'
-      model: 'Gravity (2019) 4G'
+    - regex: 'GRAVITY 4G'
+      model: 'Gravity 4G'
+    - regex: 'GRAVITY ([34])G_2019'
+      model: 'Gravity (2019) $1G'
     - regex: 'Gravity Max'
       model: 'Gravity Max'
     - regex: 'GRAVITY 2'
