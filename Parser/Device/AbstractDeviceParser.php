@@ -1493,13 +1493,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         $resultClientHint = $this->parseClientHints();
         $deviceModel      = $resultClientHint['model'] ?? '';
 
-        $isDesktop = '' === $deviceModel && (
-            $this->matchUserAgent('(?:Windows (?:NT|IoT)|X11; Linux x86_64)') &&
-            !$this->matchUserAgent(' Mozilla/|Android|Tablet|Mobile|iPhone|Windows Phone') &&
-            !$this->matchUserAgent('Lenovo|compatible; MSIE|Trident/|Tesla/|XBOX|FBMD/|ARM; ?([^)]+)')
-        );
-
-        if ($isDesktop) {
+        if ('' === $deviceModel && $this->hasDesktopFragment()) {
             return $this->getResult();
         }
 
@@ -1605,6 +1599,19 @@ abstract class AbstractDeviceParser extends AbstractParser
         }
 
         return null;
+    }
+
+    /**
+     * Returns if the parsed UA contains the 'Windows NT;' or 'X11; Linux x86_64' fragments
+     *
+     * @return bool
+     */
+    protected function hasDesktopFragment(): bool
+    {
+        return
+            $this->matchUserAgent('(?:Windows (?:NT|IoT)|X11; Linux x86_64)') &&
+            !$this->matchUserAgent(' Mozilla/|Android|Tablet|Mobile|iPhone|Windows Phone') &&
+            !$this->matchUserAgent('Lenovo|compatible; MSIE|Trident/|Tesla/|XBOX|FBMD/|ARM; ?([^)]+)');
     }
 
     /**
