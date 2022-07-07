@@ -457,6 +457,7 @@ class Browser extends AbstractClientParser
         'TG' => 'ToGate',
         'TS' => 'TweakStyle',
         'TV' => 'TV Bro',
+        'U0' => 'U Browser',
         'UB' => 'UBrowser',
         'UC' => 'UC Browser',
         'UH' => 'UC Browser HD',
@@ -529,7 +530,7 @@ class Browser extends AbstractClientParser
             '2S', 'RF', 'LR', 'SQ', 'BV', 'L1', 'F0', 'KS', 'V0',
             'C8', 'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'VS', 'DU',
             'D0', 'P1', 'O4', '8S', 'H3', 'TE', 'WB', 'K1', 'P2',
-            'XO',
+            'XO', 'U0',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -564,7 +565,7 @@ class Browser extends AbstractClientParser
         'YO', 'PK', 'MR', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
         'RF', 'LR', 'SQ', 'BV', 'L1', 'F0', 'KS', 'V0', 'C8',
         'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'DU', 'D0', 'P1',
-        'O4', 'XO',
+        'O4', 'XO', 'U0',
     ];
 
     /**
