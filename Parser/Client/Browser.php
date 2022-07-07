@@ -469,6 +469,7 @@ class Browser extends AbstractClientParser
         'UZ' => 'Uzbl',
         'UE' => 'Ume Browser',
         'V0' => 'vBrowser',
+        'VA' => 'Vast Browser',
         'VE' => 'Venus Browser',
         'N0' => 'Nova Video Downloader Pro',
         'VS' => 'Viasat Browser',
@@ -531,7 +532,7 @@ class Browser extends AbstractClientParser
             '2S', 'RF', 'LR', 'SQ', 'BV', 'L1', 'F0', 'KS', 'V0',
             'C8', 'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'VS', 'DU',
             'D0', 'P1', 'O4', '8S', 'H3', 'TE', 'WB', 'K1', 'P2',
-            'XO', 'U0', 'B0',
+            'XO', 'U0', 'B0', 'VA',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -566,7 +567,7 @@ class Browser extends AbstractClientParser
         'YO', 'PK', 'MR', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
         'RF', 'LR', 'SQ', 'BV', 'L1', 'F0', 'KS', 'V0', 'C8',
         'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'DU', 'D0', 'P1',
-        'O4', 'XO', 'U0', 'B0',
+        'O4', 'XO', 'U0', 'B0', 'VA',
     ];
 
     /**
