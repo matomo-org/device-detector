@@ -252,6 +252,7 @@ class Browser extends AbstractClientParser
         'ID' => 'IceDragon',
         'IV' => 'Isivioo',
         'IW' => 'Iceweasel',
+        'IN' => 'Inspect Browser',
         'IE' => 'Internet Explorer',
         'I7' => 'Internet Browser Secure',
         'I5' => 'Indian UC Mini Browser',
