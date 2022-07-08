@@ -266,6 +266,7 @@ class Browser extends AbstractClientParser
         'JO' => 'Jio Browser',
         'J1' => 'JioPages',
         'KB' => 'K.Browser',
+        'KF' => 'Keepsafe Browser',
         'KS' => 'Kids Safe Browser',
         'KI' => 'Kindle Browser',
         'KM' => 'K-meleon',
