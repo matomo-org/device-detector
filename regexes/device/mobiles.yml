@@ -4852,7 +4852,7 @@ Casio:
 
 # Casper (casper.com.tr)
 Casper:
-  regex: 'CASPER[_ ]|VIA[- _]([XF]20|T7D|A[34]|E[43]|E30|F[123]|G[345]|M4|[LS]8|S7|P[23]|V8C|A[13]_Plus(?:_64)?|A1(?:_1)?|S[13]0|S48|S|T17_M|T1[07]|T7|T7-3G|T8B|T8D-3G|S1[78]|S48_0|L30_0)(?:[);/ ]|$)'
+  regex: 'CASPER[_ ]|VIA[- _]([XF]20|T7D|A[34]|E[43]|E30|F[123]|G[345]|M4|[LS]8|S7|P[23]|V8C|A[13]_Plus(?:_64)?|A1(?:_1)?|S[13]0|S48|S|T17_M|T1[07]|T7|T7-3G|T8B|T8D-3G|S1[78]|S48_0|[LS]30_0)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(?:CASPER[_ ])?VIA_A1_Plus(?:_64)?'
@@ -4873,7 +4873,7 @@ Casper:
     - regex: 'VIA[- _](T7D|S[13]0|S48|[LS]8|S7|T17_M|T1[07]|T7|T8B|S1[78])(?:[);/ ]|$)'
       model: 'VIA $1'
       device: 'tablet'
-    - regex: 'VIA[- _](S48|L30)(?:_0)?(?:[);/ ]|$)'
+    - regex: 'VIA[- _](S48|[LS]30)(?:_0)?(?:[);/ ]|$)'
       model: 'VIA $1'
       device: 'tablet'
 
@@ -11701,6 +11701,9 @@ Lenovo:
     - regex: 'Lenovo TB-X306'
       model: 'Tab M10 HD'
       device: 'tablet'
+    - regex: 'Lenovo TB125FU'
+      model: 'Tab M10 Plus (Gen 3)'
+      device: 'tablet'
     - regex: 'Lenovo TB-X505' # 2019
       model: 'Tab M10'
       device: 'tablet'
@@ -15172,7 +15175,7 @@ OnePlus:
 
 # Realme (sub brand Oppo)
 Realme:
-  regex: 'Realme[ _]|(?:RMX(?:19(03|4[1235]|19|9[23]|2[1579]|[01379]1|73)|20(?:[025-7]1|42|[0357]2|03|2[257]|63|7[56]|63L1|8[1356]|[2-5]0)|21(?:0[13]|1[27]|[12]1|4[24]|5[156]|6[13]|7[036]|8[059]|9[345])|220[0125]|18(0[13579]|11|3[13]|2[1257]|[45]1|53|45)|32(?:0[13]|42|[346]1)|30(?:[3468]1|4[23]|9[23]|63|85)|31(?:2[12]|15|42|9[1357]|51|6[16]|71)|3125|3286|33[157]0|330[01]|3312|3388|3357|339[123]|336[036]|326[23589]|3235|3430|34[67]2|34[69]1|33[86]1|350[123]|351[167]|3521|356[02])|(?:OPPO[ _]?)?CPH1861|RMP210[23])(?:[);/ ]|$)'
+  regex: 'Realme[ _]|(?:RMX(?:19(03|4[1235]|19|9[23]|2[1579]|[01379]1|73)|20(?:[025-7]1|42|[0357]2|03|2[257]|63|7[56]|63L1|8[1356]|[2-5]0)|21(?:0[13]|1[27]|[12]1|4[24]|5[156]|6[13]|7[036]|8[059]|9[345])|220[0125]|18(0[13579]|11|3[13]|2[1257]|[45]1|53|45)|32(?:0[13]|42|[346]1)|30(?:[3468]1|4[23]|9[23]|63|85)|31(?:2[12]|15|42|9[1357]|51|6[16]|71)|3125|3286|33[157]0|330[01]|3312|3388|3357|339[123]|336[036]|326[23589]|3235|3430|34[67]2|34[69]1|33[86]1|350[123]|351[167]|3521|356[012])|(?:OPPO[ _]?)?CPH1861|RMP210[23])(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(?:OPPO[ _]?)?RMX3142(?:[);/ ]|$)'
@@ -15301,7 +15304,7 @@ Realme:
       model: 'GT Neo'
     - regex: 'RMX3370(?:[);/ ]|$)'
       model: 'GT Neo 2'
-    - regex: 'RMX356[02](?:[);/ ]|$)'
+    - regex: 'RMX356[012](?:[);/ ]|$)'
       model: 'GT Neo 3'
     - regex: 'RMX3357(?:[);/ ]|$)'
       model: 'GT Neo 2T'
@@ -16943,7 +16946,7 @@ Samsung:
     - regex: '(?:SAMSUNG-)?SM-T735'
       device: 'tablet'
       model: 'Galaxy Tab S7 FE 12.4" LTE'
-    - regex: '(?:SAMSUNG-)?SM-T736'
+    - regex: '(?:SAMSUNG-)?(?:SM-T736|SM-T738U)'
       device: 'tablet'
       model: 'Galaxy Tab S7 FE 12.4" 5G'
     - regex: '(?:SAMSUNG-)?SM-T733'
@@ -18192,8 +18195,8 @@ Sky:
       model: 'Elite $1.$2'
     - regex: 'Fuego[_ ]([3-7]\.[05](?:[A-Z]{1,2})?\+?)'
       model: 'Fuego $1'
-    - regex: 'SKY Black'
-      model: 'Black'
+    - regex: 'SKY Black ?(2)?'
+      model: 'Black $1'
     - regex: 'SKY_Pro_III'
       model: 'Pro III'
     - regex: 'SKY 5.0Pro II'
@@ -23789,15 +23792,13 @@ Onix:
       model: '$1'
 
 Zuum:
-  regex: 'Zuum[ _-]|Android 6.+ UNIQ(?: Build|[);])|(?:ROCKET III?|Akus (?:PRO|Z1?)|COVET|MAGNO(?:-S)?|ONIX(?: S)?|STEDI|STELLAR(?:[ _](?:Z|PRO|[MP]1|M2))?|GRAVITY [ZM]|AURA X|COVET_PRO_LITE|RONI|Android.+; LIMIT|Gravity Life|ULTRA Z)(?:[);/ ]|$)'
+  regex: 'Zuum[ _-]|Android 6.+ UNIQ(?: Build|[);])|(?:ROCKET III?|Akus (?:PRO|[ZP]1?)|COVET|MAGNO(?:-S)?|ONIX(?: S)?|STEDI|STELLAR(?:[ _](?:Z|PRO|[MP]1|M2))?|GRAVITY [ZM]|AURA X|COVET_PRO_LITE|RONI|Android.+; LIMIT|Gravity Life|ULTRA Z)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'AKUS PRO'
       model: 'Akus Pro'
-    - regex: 'AKUS Z1'
-      model: 'Akus Z1'
-    - regex: 'Akus Z'
-      model: 'Akus Z'
+    - regex: 'AKUS ([ZP]1?)'
+      model: 'Akus $1'
     - regex: 'COVET_PRO_LITE'
       model: 'Covet Pro Lite'
     - regex: 'COVET PRO'
@@ -25553,9 +25554,11 @@ Tone:
 
 # AT&T
 AT&T:
-  regex: '(?:EA1002|EA21100[12]|U(?:304|202|705|31[89])AA|QS5509A|V340U|V350U)(?:[);/ ]|$)'
+  regex: '(?:EA1002|EA21100[125]|U(?:304|202|705|31[89])AA|QS5509A|V340U|V350U)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
+    - regex: 'EA211005'
+      model: 'Fusion 5G'
     - regex: 'U304AA(?:[);/ ]|$)'
       model: 'Radiant Core'
     - regex: 'U705AA(?:[);/ ]|$)'
