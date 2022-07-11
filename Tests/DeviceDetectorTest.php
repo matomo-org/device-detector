@@ -17,6 +17,7 @@ use DeviceDetector\ClientHints;
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\AbstractParser;
 use DeviceDetector\Parser\Device\AbstractDeviceParser;
+use DeviceDetector\Parser\Device\Mobile;
 use DeviceDetector\Yaml\Symfony;
 use Doctrine\Common\Cache\MemcachedCache;
 use PHPUnit\Framework\TestCase;
@@ -288,6 +289,46 @@ class DeviceDetectorTest extends TestCase
             ['Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', AbstractParser::VERSION_TRUNCATION_MINOR, '4.2', '34.0'],
             ['Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', AbstractParser::VERSION_TRUNCATION_MAJOR, '4', '34'],
         ];
+    }
+
+    public function testNotSkipDetectDeviceForClientHints(): void
+    {
+        $dd = $this->createPartialMock(Mobile::class, ['hasDesktopFragment']);
+
+        $dd->expects($this->once())->method('hasDesktopFragment')->willReturn(true);
+
+        // simulate work not use clienthints
+        $dd->setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36');
+
+        $this->assertEquals($dd->parse(), [
+            'deviceType' => null,
+            'model'      => '',
+            'brand'      => '',
+        ]);
+
+        // simulate work use clienthint + model
+        $dd->setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36 Edg/103.0.1264.44');
+        $dd->setClientHints(new ClientHints(
+            'Galaxy 4',
+            'Android',
+            '8.0.5',
+            '103.0.0.0',
+            [
+                ['brand' => ' Not A;Brand', 'version' => '103.0.0.0'],
+                ['brand' => 'Chromium', 'version' => '103.0.0.0'],
+                ['brand' => 'Chrome', 'version' => '103.0.0.0'],
+            ],
+            true,
+            '',
+            '',
+            ''
+        ));
+
+        $this->assertEquals($dd->parse(), [
+            'deviceType' => null,
+            'model'      => 'Galaxy 4',
+            'brand'      => '',
+        ]);
     }
 
     public function testVersionTruncationForClientHints(): void
