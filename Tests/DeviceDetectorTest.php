@@ -40,6 +40,7 @@ class DeviceDetectorTest extends TestCase
 
     public function testDevicesYmlFiles(): void
     {
+        $allowedKeys  = ['regex', 'device', 'models', 'model', 'brand'];
         $fixtureFiles = \glob(\realpath(__DIR__) . '/../regexes/device/*.yml');
 
         foreach ($fixtureFiles as $file) {
@@ -49,6 +50,17 @@ class DeviceDetectorTest extends TestCase
 
             foreach ($ymlData as $brand => $regex) {
                 $this->assertArrayHasKey('regex', $regex);
+
+                $keys = \array_keys($regex);
+
+                foreach ($keys as $key) {
+                    $this->assertTrue(\in_array($key, $allowedKeys), \sprintf(
+                        'Unknown key `%s`, file %s, brand %s',
+                        $key,
+                        $file,
+                        $brand
+                    ));
+                }
 
                 $this->assertTrue(false === \strpos($regex['regex'], '||'), \sprintf(
                     'Detect `||` in regex, file %s, brand %s, common regex %s',
@@ -86,6 +98,18 @@ class DeviceDetectorTest extends TestCase
                     $this->assertIsArray($regex['models']);
 
                     foreach ($regex['models'] as $model) {
+                        $keys = \array_keys($model);
+
+                        foreach ($keys as $key) {
+                            $this->assertTrue(\in_array($key, $allowedKeys), \sprintf(
+                                'Unknown key `%s`, file %s, brand %s, model regex %s',
+                                $key,
+                                $file,
+                                $brand,
+                                $model['regex']
+                            ));
+                        }
+
                         $this->assertArrayHasKey('regex', $model);
                         $this->assertArrayHasKey('model', $model, \sprintf(
                             'Key model not exist, file %s, brand %s, model regex %s',
