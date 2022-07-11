@@ -6,6 +6,13 @@
 ###############
 
 ##########
+# Nova (https://www.nova.cu/)
+##########
+- regex: 'Nova; Linux'
+  name: 'Nova'
+  version: ''
+
+##########
 # Bliss OS (https://blissos.org/)
 ##########
 - regex: 'Android 10.+bliss_maple'
@@ -504,6 +511,18 @@
   name: 'CentOS'
   version: '$1'
 
+- regex: 'Fedora/.+.fc(\d+)'
+  name: 'Fedora'
+  version: '$1'
+
+- regex: 'Mandriva(?: Linux)?/.+mdv(\d+[\.\d]+)'
+  name: 'Mandriva'
+  version: '$1'
+
+- regex: 'Linux Mint/(\d)'
+  name: 'Mint'
+  version: '$1'
+
 - regex: 'Linux; .*((?:Debian|Knoppix|Mint|Ubuntu|Kubuntu|Xubuntu|Lubuntu|Fedora|Red Hat|Mandriva|Gentoo|Sabayon|Slackware|SUSE|CentOS|BackTrack))[ /](\d+[\.\d]+)'
   name: '$1'
   version: '$2'
@@ -657,11 +676,11 @@
 ##########
 # tvOS (https://developer.apple.com/tvos/)
 ##########
-- regex: 'Apple ?TV.*CPU (?:iPhone )?OS ((?:9|1[0-5])[_\.]\d+(?:[_.]\d+)*)'
+- regex: 'Apple ?TV.*CPU (?:iPhone )?OS ((?:9|1[0-6])[_\.]\d+(?:[_.]\d+)*)'
   name: 'tvOS'
   version: '$1'
 
-- regex: 'iOS(?:; |/)((?:9|1[0-5]).\d+(?:[_\.]\d+)*) (?:model/)?AppleTV'
+- regex: 'iOS(?:; |/)((?:9|1[0-6]).\d+(?:[_\.]\d+)*) (?:model/)?AppleTV'
   name: 'tvOS'
   version: '$1'
 
@@ -675,27 +694,27 @@
 ##########
 # iPadOS (https://www.apple.com/ipados/)
 ##########
-- regex: 'FBMD/iPad;.*FBSV/ ?(1[345]).(\d+[\.\d]*);'
+- regex: 'FBMD/iPad;.*FBSV/ ?(1[3-6]).(\d+[\.\d]*);'
   name: 'iPadOS'
   version: '$1.$2'
 
-- regex: 'iPad/(1[345]).(\d+[\.\d]*)'
+- regex: 'iPad/(1[3-6]).(\d+[\.\d]*)'
   name: 'iPadOS'
   version: '$1.$2'
 
-- regex: '^iPad(?:\d+[\,\d]*)/(1[345]).(\d+[\.\d]*)'
+- regex: '^iPad(?:\d+[\,\d]*)/(1[3-6]).(\d+[\.\d]*)'
   name: 'iPadOS'
   version: '$1.$2'
 
-- regex: 'iPad(?:; iOS|.+CPU OS) ((1[345])+(?:[_\.]\d+)*)'
+- regex: 'iPad(?:; iOS|.+CPU OS) ((1[3-6])+(?:[_\.]\d+)*)'
   name: 'iPadOS'
   version: '$1'
 
-- regex: 'iOS/(1[345]).(\d+[\.\d]*).+Apple/iPad'
+- regex: 'iOS/(1[3-6]).(\d+[\.\d]*).+Apple/iPad'
   name: 'iPadOS'
   version: '$1.$2'
 
-- regex: 'iPhone OS,(1[345]).(\d+[\.\d]*).+iPad'
+- regex: 'iPhone OS,(1[3-6]).(\d+[\.\d]*).+iPad'
   name: 'iPadOS'
   version: '$1.$2'
 
@@ -714,6 +733,10 @@
   name: 'iOS'
   version: '$1'
 
+- regex: 'iOS (\d+[\.\d]+)\)'
+  name: 'iOS'
+  version: '$1'
+
 - regex: '(?:iPhone ?OS|iOS(?: Version)?)(?:/|; |,)(\d+[\.\d]+)'
   name: 'iOS'
   version: '$1'
@@ -721,6 +744,10 @@
 - regex: '^(?!com.apple.Safari.SearchHelper).*CFNetwork/.+ Darwin/(\d+[\.\d]+)(?!.*(?:x86_64|i386|PowerMac|Power%20Macintosh))'
   name: 'iOS'
   versions:
+    - regex: 'Darwin/22.0.0'
+      version: '16.0'
+    - regex: 'Darwin/21.6.0'
+      version: '15.6'
     - regex: 'Darwin/21.5.0'
       version: '15.5'
     - regex: 'Darwin/21.4.0'
@@ -860,7 +887,7 @@
   name: 'iOS'
   version: '$1.$2.$3'
 
-- regex: '(?:CPU OS|iPh(?:one)?[ _]OS|iOS)[ _/](\d+(?:[_\.]\d+)*)'
+- regex: '(?:CPU OS|iPh(?:one)?[ _]OS|iPhone.+ OS|iOS)[ _/](\d+(?:[_\.]\d+)*)'
   name: 'iOS'
   version: '$1'
 
@@ -926,6 +953,12 @@
 - regex: 'CFNetwork/.+ Darwin/(?:[\d\.]+).+(?:x86_64|i386|Power%20Macintosh)|(?:x86_64-apple-)?darwin(?:[\d\.]+)|PowerMac|com.apple.Safari.SearchHelper'
   name: 'Mac'
   versions:
+    - regex: '(?:x86_64-apple-)?Darwin/?22.0.0'
+      version: '13.0'
+    - regex: '(?:x86_64-apple-)?Darwin/?21.6.0'
+      version: '12.5'
+    - regex: '(?:x86_64-apple-)?Darwin/?21.5.0'
+      version: '12.4'
     - regex: '(?:x86_64-apple-)?Darwin/?21.4.0'
       version: '12.3'
     - regex: '(?:x86_64-apple-)?Darwin/?21.3.0'
@@ -1085,7 +1118,7 @@
   name: 'Mac'
   version: '$1'
 
-- regex: '(?:macOS[/,]|Mac-)(\d+[\.\d]+)'
+- regex: '(?:macOS[ /,]|Mac-)(\d+[\.\d]+)'
   name: 'Mac'
   version: '$1'
 
