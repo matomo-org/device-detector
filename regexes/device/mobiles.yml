@@ -13101,9 +13101,14 @@ Masstel:
 
 # Mastertech (https://mastertechhome.com/)
 Mastertech:
-  regex: 'MASTERTECH,([a-z0-9_ \-]+),(?:wired|wireless)'
+  regex: 'MASTERTECH,([a-z0-9_ \-]+),(?:wired|wireless)|QC77QPS(?:[);/ ]|$)'
   device: 'tv'
-  model: '$1'
+  models:
+    - regex: 'MASTERTECH,([a-z0-9_ \-]+),(?:wired|wireless)'
+      model: '$1'
+    - regex: '(QC77QPS)(?:[);/ ]|$)'
+      model: '$1'
+      device: 'tablet'
 
 # Maxwest
 Maxwest:
