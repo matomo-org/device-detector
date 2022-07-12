@@ -1682,7 +1682,7 @@ Bravis:
 
 # Acer (acer.com)
 Acer:
-  regex: 'acer|(?<!Satellite |ZTE BLADE |ImSmart |ERGO |X-Style Tab )(?<!Optima 7 )a(?:101|110|2[10]0|211|50[10]|51[10]|70[10])(?:[);/ ]|$)|Android.*V3[67]0(?:[);/ ]|$)|Android.*Z1[23456]0 Build|Android.*Z5\d{2} Build|Android.*T0[234678] Build|Android 5.*; S59|Android.*S55(?! Nova)(?:[);/ ]|$)|(?:A1-(713(HD)?|7[23]4|830|841|840(?:FHD)?|81[01])|A3-A[1-5][01]|B1-(7[1235-9][01](HD)?|7[23]3|7A0|8[1235]0|A71|860A)|TPA60W|B3-(A[125]0|A3[02]|A40FHD)|E39)(?:[);/ ]|$)|S5[12]0 Build|(DA[0-9]+HQ?L|Aspire (?:V5-121|XC-704G|V5-573G|4349)|Chromebook 14 \(CB3-431\)|Predator G9-793|GT-810|B1-870|B3-A20B|B3-A4[02]|B3-A50FHD|ET-108-11A|AC?TAB(?:721E?|1021E|1022)|A3-A20FHD)(?:[);/ ]|$)'
+  regex: 'acer|ACTAB|(?<!Satellite |ZTE BLADE |ImSmart |ERGO |X-Style Tab )(?<!Optima 7 )a(?:101|110|2[10]0|211|50[10]|51[10]|70[10])(?:[);/ ]|$)|Android.*V3[67]0(?:[);/ ]|$)|Android.*Z1[23456]0 Build|Android.*Z5\d{2} Build|Android.*T0[234678] Build|Android 5.*; S59|Android.*S55(?! Nova)(?:[);/ ]|$)|(?:A1-(713(HD)?|7[23]4|830|841|840(?:FHD)?|81[01])|A3-A[1-5][01]|B1-(7[1235-9][01](HD)?|7[23]3|7A0|8[1235]0|A71|860A)|TPA60W|B3-(A[125]0|A3[02]|A40FHD)|E39)(?:[);/ ]|$)|S5[12]0 Build|(DA[0-9]+HQ?L|Aspire (?:V5-121|XC-704G|V5-573G|4349)|Chromebook 14 \(CB3-431\)|Predator G9-793|GT-810|B1-870|B3-A20B|B3-A4[02]|B3-A50FHD|ET-108-11A|AC?TAB(?:721E?|821|1021(?:E|_A)|1022)|A3-A20FHD)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # smart displays
@@ -1703,7 +1703,10 @@ Acer:
     - regex: 'ATAB(102[12]|721)E'
       model: 'ATAB$1E'
       device: 'tablet'
-    - regex: 'ACTAB(1022)'
+    - regex: 'ACTAB1021_A'
+      model: 'ACTAB1021'
+      device: 'tablet'
+    - regex: 'ACTAB(821|1022)'
       model: 'ACTAB$1'
       device: 'tablet'
     - regex: 'ET-108-11A'
@@ -6434,12 +6437,12 @@ Eton:
 
 # Essentielb
 Essentielb:
-  regex: '(?:Wooze[_ ]?(?:I55?|I45|X?L)|HEYOU(?:[135]|20PLUS|[23456]0))(?:[);/ ]|$)'
+  regex: '(?:Wooze[_ ]?(?:I55?|I45|X?L)|HEYOU(?:[135]|20PLUS|[2-7]0))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'HEYOU20PLUS(?:[);/ ]|$)'
       model: 'HEYou 20 Plus'
-    - regex: 'HEYOU([135]|[2-6]0)(?:[);/ ]|$)'
+    - regex: 'HEYOU([135]|[2-7]0)(?:[);/ ]|$)'
       model: 'HEYou $1'
     - regex: 'Wooze[_ ]?((?:I55?|I45|X?L))(?:[);/ ]|$)'
       model: 'Wooze $1'
@@ -13101,9 +13104,14 @@ Masstel:
 
 # Mastertech (https://mastertechhome.com/)
 Mastertech:
-  regex: 'MASTERTECH,([a-z0-9_ \-]+),(?:wired|wireless)'
+  regex: 'MASTERTECH,([a-z0-9_ \-]+),(?:wired|wireless)|QC77QPS(?:[);/ ]|$)'
   device: 'tv'
-  model: '$1'
+  models:
+    - regex: 'MASTERTECH,([a-z0-9_ \-]+),(?:wired|wireless)'
+      model: '$1'
+    - regex: '(QC77QPS)(?:[);/ ]|$)'
+      model: '$1'
+      device: 'tablet'
 
 # Maxwest
 Maxwest:
@@ -13178,7 +13186,7 @@ Maze:
 
 # Mediacom (mediacomeurope.it)
 Mediacom:
-  regex: '(?:SmartPad7503G|M-SP10MXA|M-PPAB500|SmartPad970s2(?:3G)?|M[_-][MPS]P[0-9a-z]+|M-IPRO[0-9a-z]+|1AEC|1AZ2[TP]| (?:7[BCD]Y|8AY|1BEC|1CY|1AZ|1[DI]Y4G|1AZ2TW)(?:_eea)?)(?:[);/ ]|$)'
+  regex: '(?:SmartPad7503G|M-SP10MXA|M-PPAB500|SmartPad970s2(?:3G)?|M[_-][MPS]P[0-9a-z]+|M-IPRO[0-9a-z]+|1AEC|1AZ2[TP]| (?:7[BCD]Y|8[AD]Y|1BEC|1CY|1AZ|1[DI]Y4G|1AZ2TW)(?:_eea)?)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'SmartPad7503G(?:[);/ ]|$)'
@@ -13251,6 +13259,8 @@ Mediacom:
       model: 'SmartPad 8.0" HD iPro$1 3G'
     - regex: '1AZ2[TP](?:[);/ ]|$)'
       model: 'SmartPad 10.0" Azimut 2'
+    - regex: '8DY(?:[);/ ]|$)'
+      model: 'SmartPad iyo 8"'
     - regex: ' (7[BCD]Y|8AY|1BEC|1CY|1AZ|1AZ2TW)(?:_eea)?(?:[);/ ]|$)'
       model: '$1'
 
@@ -18252,6 +18262,12 @@ Sky:
     - regex: 'Sky Vision2'
       device: 'tablet'
       model: 'Vision 2'
+    - regex: 'Elite_Octaplus(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'Elite OctaPlus'
+    - regex: 'Elite_OctaXS(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'Elite Octa XS'
     - regex: 'Elite Octa(?:[);/ ]|$)'
       device: 'tablet'
       model: 'Elite Octa'
@@ -24324,13 +24340,15 @@ BDF:
 
 # Hi (https://www.hi-online.co.za/)
 Hi:
-  regex: '(?:Boost (?:Hypa|Ultra)|HMR5012)(?:[);/ ]|$)'
+  regex: '(?:Boost (?:Hypa|Ultra)|HMR(?:5012|5450))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Boost (Hypa|Ultra)(?:[);/ ]|$)'
       model: 'Boost $1'
     - regex: 'HMR5012(?:[);/ ]|$)'
       model: 'Boost Go'
+    - regex: '(HMR5450)(?:[);/ ]|$)'
+      model: '$1'
 
 # Highscreen
 Highscreen:
@@ -26154,7 +26172,7 @@ iMars:
 
 # Logic (logicmobility.com)
 Logic:
-  regex: '(?:LOGIC[_ ](X50|X[135]|X4M|L5D|X5[AFT]|X60G|L50T?|L57|L6[01]|X60_PLUS)(:?[_ ]LITE2?)?|L55[ABS])(?:[);/ ]|$)'
+  regex: '(?:LOGIC[_ ](X50|X[135]|X4M|L4T|L5D|X5[AFT]|X60G|L50T?|L57|L6[01]|X60_PLUS)(:?[_ ]LITE2?)?|L55[ABS])(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'LOGIC[_ ]X60_PLUS(?:[);/ ]|$)'
@@ -26163,9 +26181,9 @@ Logic:
       model: '$1 Lite'
     - regex: 'LOGIC[_ ](X5)[_ ]LITE2(?:[);/ ]|$)'
       model: '$1 Lite 2'
-    - regex: 'LOGIC[_ ](X50|X[13]|X4M|L5D|X5[AFT]|X60G|L6[01])(?:[);/ ]|$)'
+    - regex: 'LOGIC[_ ](X50|X[13]|X4M|L4T|L5D|L6[01]|X5[AFT]|X60G)(?:[);/ ]|$)'
       model: '$1'
-    - regex: '(L50T?|L57|L55[ABS])(?:[);/ ]|$)'
+    - regex: '(L50T?|L55[ABS]|L57)(?:[);/ ]|$)'
       model: '$1'
 
 # Cloud or Cloud TruConnect (www.cloudmobileusa.com)
@@ -27020,15 +27038,15 @@ Reach:
 
 # MobiWire
 MobiWire:
-  regex: '(?:Kiona|KANUNA|Halona|Kicka[_ ][45][ _]Plus|Kohana|Kosumi|KWANITA|Lonan|Hotah|Kicka 5|Kiona|SmartE11|Sakari)(?:[);/ ]|$)'
+  regex: '(?:Kiona|KANUNA|Halona|Kicka[_ ][45][ _]Plus|Kohana|Kosumi|KWANITA|Lonan|Hotah|Kicka 5|Kiona|Smart ?(?:[CEN]11|N12)|Sakari)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'KANUNA'
       model: 'Kanuna'
     - regex: 'KWANITA'
       model: 'Kwanita'
-    - regex: 'SmartE11'
-      model: 'Smart E11'
+    - regex: 'Smart ?([CEN]11|N12)'
+      model: 'Smart $1'
     - regex: '(Kiona|Kicka[_ ][45][ _]Plus|Kohana|Kosumi|Lonan|Halona|Hotah|Kicka 5|Kiona|Sakari)(?:[);/ ]|$)'
       model: '$1'
 
@@ -28854,11 +28872,11 @@ RoyQueen:
 
 # Remdun (https://www.remdun.com/)
 Remdun:
-  regex: 'RD86E(?:[);/ ]|$)'
+  regex: 'RD(?:16Q|86E)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'RD86E(?:[);/ ]|$)'
-      model: 'RD86E'
+    - regex: 'RD(16Q|86E)(?:[);/ ]|$)'
+      model: 'RD$1'
 
 # Revo or RevoPhone or RevoPad (revophone.com)
 Revo:
@@ -28893,7 +28911,7 @@ Pico:
 
 # STG Telecom (stgtelecom.com)
 STG Telecom:
-  regex: 'STG[ _](A[12] Pro|[AS]1|X[1-3]|X20|S[1-3]0|[BC]10)(?:[);/ ]|$)'
+  regex: 'STG[ _](A[12] Pro|[AS]1|X[1-3]|X20|S[1-3]0|[BCP]10)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
 
@@ -29756,6 +29774,14 @@ Meizu:
     - regex: '(?:MZ-)?Meizu[_ ]([a-z0-9_]+)'
       model: '$1'
     - regex: 'MZ-([^/;]+) Build'
+      model: '$1'
+
+# Athesi (https://www.athesi-professional.com/)
+Athesi:
+  regex: '(?:AP5705S)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: '(AP5705S)(?:[);/ ]|$)'
       model: '$1'
 
 # Atmaca Elektronik (http://www.atmacaelektronik.com.tr/)
