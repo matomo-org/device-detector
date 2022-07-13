@@ -1170,6 +1170,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SM'  => 'Symphony',
         '4S'  => 'Syrox',
         'TM'  => 'T-Mobile',
+        'T96' => 'T96',
         'TK'  => 'Takara',
         '73'  => 'Tambo',
         '9N'  => 'Tanix',
