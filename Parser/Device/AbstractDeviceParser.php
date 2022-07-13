@@ -943,6 +943,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'PT'  => 'Pantech',
         '94'  => 'Packard Bell',
         'H9'  => 'Parrot Mobile',
+        'PAR' => 'Partner Mobile',
         'PAP' => 'PAPYRE',
         'PB'  => 'PCBOX',
         'PC'  => 'PCD',
