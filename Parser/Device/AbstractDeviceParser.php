@@ -334,6 +334,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'D3'  => 'Digicel',
         'DH'  => 'Digihome',
         'DD'  => 'Digiland',
+        'DIG' => 'Digit4G',
         'DIC' => 'DIGICOM',
         'Q0'  => 'DIGIFORS',
         'DQ'  => 'DISH',
