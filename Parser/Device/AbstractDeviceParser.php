@@ -1371,6 +1371,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'XV'  => 'X-View',
         'X4'  => 'X.Vision',
         'X88' => 'X88',
+        'X96' => 'X96',
         'XG'  => 'Xgody',
         'QX'  => 'XGIMI',
         'XL'  => 'Xiaolajiao',
