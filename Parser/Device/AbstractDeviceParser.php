@@ -1658,7 +1658,7 @@ abstract class AbstractDeviceParser extends AbstractParser
     {
         return
             $this->matchUserAgent('(?:Windows (?:NT|IoT)|X11; Linux x86_64)') &&
-            !$this->matchUserAgent(' Mozilla/|Android|Tablet|Mobile|iPhone|Windows Phone') &&
+            !$this->matchUserAgent(' Mozilla/|Andr[o0]id|Tablet|Mobile|iPhone|Windows Phone') &&
             !$this->matchUserAgent('Lenovo|compatible; MSIE|Trident/|Tesla/|XBOX|FBMD/|ARM; ?([^)]+)');
     }
 
