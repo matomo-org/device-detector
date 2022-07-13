@@ -1399,6 +1399,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'YX'  => 'Yxtel',
         '0Z'  => 'Zatec',
         '2Z'  => 'Zaith',
+        'ZEA' => 'Zealot',
         'PZ'  => 'Zebra',
         'ZE'  => 'Zeemi',
         'WZ'  => 'Zeeker',
