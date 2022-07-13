@@ -362,6 +362,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'DRE' => 'DreamTab',
         'DU'  => 'Dune HD',
         'UD'  => 'DUNNS Mobile',
+        'ENO' => 'eNOVA',
         'EB'  => 'E-Boda',
         'EJ'  => 'Engel',
         'ENA' => 'ENACOM',
