@@ -835,6 +835,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MG'  => 'MyWigo',
         'J3'  => 'Mymaga',
         '07'  => 'MyGica',
+        'NEO' => 'neoCore',
         '08'  => 'Nabi',
         'N7'  => 'National',
         'NC'  => 'Navcity',
