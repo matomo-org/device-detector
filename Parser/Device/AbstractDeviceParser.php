@@ -899,7 +899,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'O7'  => 'Oale',
         'OC'  => 'OASYS',
         'OB'  => 'Obi',
-        'OQ'  => 'Oculus',
+        'OQ'  => 'Meta',
         'O1'  => 'Odys',
         'O9'  => 'Ok',
         'OA'  => 'Okapia',
@@ -1664,7 +1664,7 @@ abstract class AbstractDeviceParser extends AbstractParser
     {
         return
             $this->matchUserAgent('(?:Windows (?:NT|IoT)|X11; Linux x86_64)') &&
-            !$this->matchUserAgent(' Mozilla/|Andr[o0]id|Tablet|Mobile|iPhone|Windows Phone|ricoh') &&
+            !$this->matchUserAgent(' Mozilla/|Andr[o0]id|Tablet|Mobile|iPhone|Windows Phone|ricoh|OculusBrowser') &&
             !$this->matchUserAgent('Lenovo|compatible; MSIE|Trident/|Tesla/|XBOX|FBMD/|ARM; ?([^)]+)');
     }
 
