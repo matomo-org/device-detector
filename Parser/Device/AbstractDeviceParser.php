@@ -912,6 +912,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'OJ'  => 'Ookee',
         'OD'  => 'Onda',
         'ON'  => 'OnePlus',
+        'ONC' => 'OneClick',
         'OX'  => 'Onix',
         '3O'  => 'ONYX BOOX',
         'O4'  => 'ONN',
