@@ -11438,7 +11438,7 @@ iOutdoor:
 
 # lanix (lanix.com)
 Lanix:
-  regex: 'LANIX-([a-z0-9]+)|Ilium[ _]|IliumPad|X120C|(?:Alpha 950|Alpha 5V)(?:[);/ ]|$)'
+  regex: 'LANIX-([a-z0-9]+)|Ilium[ _]|IliumPad|X120C|(?:Alpha 950|Alpha [35]V)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'ILIUM[ _]?PAD[ _]?([^;/]+)(?: Build|[;)])'
@@ -11452,8 +11452,8 @@ Lanix:
       model: 'Ilium $1'
     - regex: 'Alpha 950'
       model: 'Ilium Alpha 950'
-    - regex: 'Alpha 5V'
-      model: 'Alpha 5V'
+    - regex: 'Alpha ([35])V'
+      model: 'Alpha $1V'
     - regex: 'LANIX-([a-z0-9]+)'
       device: 'feature phone'
       model: '$1'
@@ -15965,7 +15965,7 @@ Orange:
 
 # Oukitel
 Oukitel:
-  regex: 'OUKITEL|(?:Android 10.+ (?:C19|C22)|Android 8.+ U23|Android 7.+ (?:U1[78]|U22)|(?:C1[569]|K10000|K[46]000)(?:[ _]Pro)|K4000Pro|C1[18]_Pro|C1[0237] Pro|C2[13] Pro|C12 Plus|[UK]15 Pro|K15_Plus|U16 Max|C11_F|U7 Max|U7 Plus|U11[_ ]Plus|U20_Plus|OK6000 Plus|WP5000|WP[58] Pro|K[46]000[ _](?:Plus|Lite)|Y4800|K10000|K7 Power|K[4-8]000| RT1| WP(?:[15-79]|1[0235678])|K[37]_Pro|K13_Pro|U25_Pro)(?:[);/ ]|$)'
+  regex: 'OUKITEL|(?:Android 10.+ (?:C19|C22)|Android 8.+ U23|Android 7.+ (?:U1[78]|U22)|(?:C1[569]|K10000|K[46]000)(?:[ _]Pro)|K4000Pro|C1[18]_Pro|C1[0237] Pro|C2[13] Pro|C12 Plus|[UK]15 Pro|K15_Plus|U16 Max|C11_F|U7 Max|U7 Plus|U11[_ ]Plus|U20_Plus|OK6000 Plus|WP5000|WP[58] Pro|K[46]000[ _](?:Plus|Lite)|Y4800|K10000|K7 Power|K[4-8]000| RT1| WP(?:[15-79]|1[0235678]|20)|K[37]_Pro|K13_Pro|U25_Pro)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(C1[0-9]|C2[13]|K10000|K[46]000|WP[258]|WP12|U[12]5|K[37]|K1[35])[ _]?Pro(?:[);/ ]|$)'
@@ -16248,7 +16248,7 @@ Pentagram:
 
 # Tcl (tcl.com)
 TCL:
-  regex: 'TCL,|TCL[_ -][a-z0-9]+|(?:TCL[_ -][^;/]+ Build)|(?:TCLGalaG60(?:\(9108A\))?|4187[DMU]|5004S|5087Z|5101A|5102[BKM]|5107G|5130[JM]|5133A|5148A|5152D|5159[AJ]|5199I|6125[ADFH]|6156[ADH]|6159K|6165H|7040N|9081X|9080G|9048S|929[56]G|A(?:50[279]|600)DL|T(?:671[EFHO]|766[AHJU]|767H|770[BH]|773O|774H|775[BH]|780H|781|782H|790Y|799[BH]|810[HS])|Percee TV| 9061|BeyondTV\d?|9060[GX]|8491X)(?:_(?:RU|EEA|TR))?(?:[);/ ]|$)'
+  regex: 'TCL,|TCL[_ -][a-z0-9]+|(?:TCL[_ -][^;/]+ Build)|(?:TCLGalaG60(?:\(9108A\))?|4187[DMU]|5004S|5087Z|5101A|5102[BKM]|5107G|5130[JM]|5133A|5148A|5152D|5159[AJ]|5199I|6125[ADFH]|6156[ADH]|6159K|6165H|7040N|9081X|9080G|9048S|929[56]G|A(?:50[279]|600)DL|T(?:671[EFHO]|676[KJ]|766[AHJU]|767H|770[BH]|773O|774H|775[BH]|780H|781|782H|790Y|799[BH]|810[HS])|Percee TV| 9061|BeyondTV\d?|9060[GX]|8491X)(?:_(?:RU|EEA|TR))?(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'TCLGalaG60(?:\(9108A\))?(?:[);/ ]|$)'
@@ -16321,6 +16321,8 @@ TCL:
       model: '20 SE'
     - regex: '6165H'
       model: '30 SE'
+    - regex: 'T676[KJ]'
+      model: '30+'
     - regex: 'T767H(?:[);/ ]|$)'
       model: '20R 5G'
     - regex: 'T773O(?:[);/ ]|$)'
@@ -17351,6 +17353,8 @@ Samsung:
       model: 'Galaxy Beam 2'
     - regex: '(?:SAMSUNG-)?SM-G600S'
       model: 'Galaxy Wide'
+    - regex: '(?:SAMSUNG-)?SM-E426S'
+      model: 'Galaxy Wide 5'
     - regex: '(?:SAMSUNG-)?GT-I855[028]'
       model: 'Galaxy Win'
     - regex: '(?:SAMSUNG-)?SM-G381[28]'
@@ -20172,6 +20176,10 @@ Tecno Mobile:
       model: 'Camon 18'
     - regex: 'Tecno[ _-]CH7n?(?:[);/ ]|$)'
       model: 'Camon 18P'
+    - regex: 'Tecno[ _-]CH6i(?:[);/ ]|$)'
+      model: 'Camon 19'
+    - regex: 'Tecno[ _-]CI8n?(?:[);/ ]|$)'
+      model: 'Camon 19 Pro'
     - regex: 'Tecno[ _-]CA6(?:[);/ ]|$)'
       model: 'Camon CM'
     - regex: 'Tecno[ _-]CA7(?:[);/ ]|$)'
@@ -23568,6 +23576,8 @@ ZTE:
       model: 'Axon 30 5G'
     - regex: 'A2322'
       model: 'Axon 30'
+    - regex: 'A2023P'
+      model: 'Axon 40 Ultra'
     - regex: 'N799D(?:[);/ ]|$)'
       model: 'Blade Eg'
     - regex: 'Z818L(?:[);/ ]|$)'
@@ -25079,7 +25089,7 @@ Zfiner:
 
 # iGet
 iGet:
-  regex: 'SMART[_ ](L20X|G10[12]|S7[02]|G71|G81[H]?|L10[34]|W10X|W8X|W202)(?:_eea)?(?:[);/ ]|$)'
+  regex: 'SMART[_ ](L20X|G10[12]|S7[02]|G71|G81[H]?|L10[34]|W[12]0X|W8X|W20[23]|L206)(?:_eea)?(?:[);/ ]|$)'
   device: 'tablet'
   model: 'Smart $1'
 
