@@ -878,6 +878,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'N8'  => 'NEXON',
         'N2'  => 'Nextbit',
         'NT'  => 'NextBook',
+        'NTT' => 'NTT West',
         '4N'  => 'NextTab',
         'NJO' => 'nJoy',
         'NG'  => 'NGM',
