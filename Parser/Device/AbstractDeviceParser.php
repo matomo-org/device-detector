@@ -170,6 +170,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '5Q'  => 'Atmaca Elektronik',
         'YH'  => 'ATMAN',
         '2A'  => 'Atom',
+        'ATO' => 'ATOL',
         'Z2'  => 'Atvio',
         'AX'  => 'Audiovox',
         'AJ'  => 'AURIS',

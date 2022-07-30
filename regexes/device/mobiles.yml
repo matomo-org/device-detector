@@ -4339,7 +4339,7 @@ BenQ:
 
 # Blaupunkt (blaupunkt.com)
 Blaupunkt:
-  regex: 'Blaupunkt|Soundphone S2|Atlantis[_ ](?:1001A|1010A|A10\.G40[23])|SLplus02|Discovery[_ ](?:A10_302|111C|1000C|1001A?)|Endeavour[_ ](?:785|101[GLM]|1000|1001|101[03]|1100)|Polaris[_ ]803|BP_6010'
+  regex: 'Blaupunkt|Soundphone S2|Atlantis[_ ](?:1001A|1010A|A10[._]G40[23])|SLplus02|Discovery[_ ](?:A10_302|111C|1000C|1001A?)|Endeavour[_ ](?:785|101[GLM]|1000|1001|101[03]|1100)|Polaris[_ ]803|BP_6010'
   device: 'tablet'
   models:
     - regex: 'Discovery[_ ]111C'
@@ -4358,6 +4358,8 @@ Blaupunkt:
       model: 'Endeavour $1'
     - regex: 'Polaris[_ ](803)'
       model: 'Polaris $1'
+    - regex: 'Atlantis_A10_G403'
+      model: 'Atlantis A10.G403'
     - regex: 'Atlantis[_ ](1001A|1010A|A10\.G40[23])'
       model: 'Atlantis $1'
     - regex: 'SLplus02'
@@ -6448,7 +6450,7 @@ E-tel:
 
 # Evercoss
 Evercoss:
-  regex: 'EVERCOSS[ _]|(A75A\*|U50A_PLUS|M50 STAR|A75 MAX)(?:[);/ ]|$)'
+  regex: 'EVERCOSS[ _]|(A75A\*|AT8B|U50A_PLUS|M50 STAR|A75 MAX)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'A75A\*(?:[);/ ]|$)'
@@ -6459,6 +6461,9 @@ Evercoss:
       model: 'U50A Plus'
     - regex: 'M50 STAR(?:[);/ ]|$)'
       model: 'M50 Star'
+    - regex: '(AT8B)(?:[);/ ]|$)'
+      device: 'tablet'
+      model: '$1'
     - regex: 'EVERCOSS[ _](A7[BRLZ]|A65|A74A|A5Z)(?:[);/ ]|$)'
       model: '$1'
 
@@ -20085,7 +20090,7 @@ T-Mobile:
 
 # Teclast (teclast.com)
 Teclast:
-  regex: 'Teclast|P80_G3M2|TLA00[12]|TLA016|X98 Air III|M20_4G|X98 Air II\(HG5N\)|Tbook|X80 Power\(B2N4\)|(?:T40 Plus|T30|P80[XH]|P20HD|P10[_ ]HD|M40|P10S|M30_Pro|M40SE|P8[05]|P25)_(?:ROW|EEA|RUS)|P20HD\(N6H5\)|T40 Plus\(M7T3\)|T40 PRO(?:\(T1A1\))?|T10\(E3C[56]\)|P10S\(N4H5\)|98\(M1E[45789]\)|98\(M3E3\)|X10 \(M1D3\)|M89 Pro|M40\(N9H[13]\)|P20HD\(N6H7\)|M40SE\(M5T3\)|M40(?:SE|Pro)_(?:ROW|EEA|RUS)'
+  regex: 'Teclast|P80_G3M2|TLA00[12]|TLA016|X98 Air III|M20_4G|X98 Air II\(HG5N\)|Tbook|X80 Power\(B2N4\)|(?:T40 Plus|T30|P80[XH]|P20HD|P10[_ ]HD|M40|P10SE?|M30_Pro|M40SE|P8[05]|P25)_(?:ROW|EEA|RUS)|P20HD\(N6H5\)|T40 Plus\(M7T3\)|T40 PRO(?:\(T1A1\))?|T10\(E3C[56]\)|P10S\(N4H5\)|98\(M1E[45789]\)|98\(M3E3\)|X10 \(M1D3\)|M89 Pro|M40\(N9H[13]\)|P20HD\(N6H7\)|M40SE\(M5T3\)|M40(?:SE|Pro)_(?:ROW|EEA|RUS)'
   device: 'tablet'
   models:
     - regex: 'Tbook[_ -]([^;/]+) Build'
@@ -20124,7 +20129,7 @@ Teclast:
       model: 'T40'
     - regex: 'T40 Plus(?:_(?:ROW|EEA)|\(M7T3\))'
       model: 'T40 Plus'
-    - regex: '(P80[Xh]|T30|M40|P25)[_ ](?:ROW|EEA)'
+    - regex: '(P80[Xh]|T30|M40|P25|P10SE)[_ ](?:ROW|EEA)'
       model: '$1'
     - regex: '98\(M1E[45789]\)|98\(M3E3\)'
       model: 'TPad 98 10.1" 4G'
@@ -26495,17 +26500,23 @@ MiXzo:
 
 # Openbox
 Openbox:
-  regex: '(?:Openbox (?:A[34](?: (?:Pro|Lite))?)|AS1_HD|AS_4K_CI(?:_PRO)?)(?:[);/ ]|$)'
+  regex: '(?:Openbox (?:A[34](?: (?:Pro|Lite))?)|AS1_HD|AS_?4K[_-](?:CI(?:_PRO)?(?:_PLUS)?|PLUS|2X)|AS_?4K)(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: 'Openbox (A[34](?: (?:Pro|Lite))?)(?:[);/ ]|$)'
       model: '$1'
-    - regex: 'AS_4K_CI_PRO'
+    - regex: 'AS_4K_CI_PRO_PLUS'
+      model: 'AS 4K CI Pro Plus'
+    - regex: 'AS_?4K_CI_PRO'
       model: 'AS 4K CI Pro'
-    - regex: 'AS_4K_CI'
-      model: 'AS 4K CI'
+    - regex: 'AS_?4K[_-](2X|CI)'
+      model: 'AS 4K $1'
+    - regex: 'AS_?4K[_-]PLUS'
+      model: 'AS 4K Plus'
     - regex: 'AS1_HD'
       model: 'AS1 HD'
+    - regex: 'AS_?4K'
+      model: 'AS 4K'
 
 # Ziox
 Ziox:
@@ -31260,6 +31271,12 @@ Tibuta:
   models:
     - regex: 'Tibuta[_ ]MasterPad-(E100)'
       model: 'MasterPad $1'
+
+# ATOL (www.atol.ru)
+ATOL:
+  regex: ' ATOL (150F)'
+  device: 'peripheral'
+  model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
