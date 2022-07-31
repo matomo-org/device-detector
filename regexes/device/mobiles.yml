@@ -695,6 +695,9 @@ Ghia:
     - regex: 'GHIA_AXIS7P'
       model: 'Axis 7P'
       device: 'tablet'
+    - regex: 'GHIA_AXIS7_3G'
+      model: 'Axis 7 3G'
+      device: 'tablet'
     - regex: 'GHIA_AXIS7'
       model: 'Axis 7'
       device: 'tablet'
@@ -719,7 +722,7 @@ Ghia:
     - regex: 'VENUS7'
       device: 'tablet'
       model: 'VENUS 7'
-    - regex: 'GHIA[ ]?(47458)'
+    - regex: 'GHIA[ _]?(47458|VECTOR_3G)'
       device: 'tablet'
       model: '$1'
 
@@ -1905,7 +1908,7 @@ Advan:
 
 # Advance (advanceperu.com)
 Advance:
-  regex: 'Hollogram|(?:HL(?:4936|6246|[56]575|5[67]67|9000)|IntroTr3544|Pr(?:61(?:4[56]|50)|60[27]0|5[69]50)|Tr3845|SP[345]701)(?:[);/ ]|$)'
+  regex: 'Hollogram|(?:HL(?:4936|6246|5576|[56]575|5[67]67|9000)|IntroTr3544|Pr(?:61(?:4[56]|50)|60[27]0|5[69]50)|Tr3845|SP[345]701)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit table models
@@ -1919,7 +1922,7 @@ Advance:
       model: 'Prime PR$1'
       device: 'tablet'
     # explicit smartphone models
-    - regex: 'HL(4936|6246|[56]575|5[67]67|9000)'
+    - regex: 'HL(4936|6246|[56]575|5576|5[67]67|9000)'
       model: 'Hollogram HL$1'
     - regex: 'Hollogram ([^;/)]+)(?: Build|[;)])'
       model: 'Hollogram $1'
@@ -30325,13 +30328,15 @@ VEON:
 
 # FiGi (figi-mobile.com)
 FiGi:
-  regex: '(?:Note_(?:[37]|11)_Pro|Note_1_Lite|Nopal|Mtwo)(?:[);/ ]|$)'
+  regex: '(?:Note_(?:[37]|11)_Pro|Note_1_Lite|Nopal|Mtwo)(?:[);/ ]|$)|Android 8.*; Fj(?: Build|[;)])'
   device: 'smartphone'
   models:
     - regex: 'Nopal'
       model: 'Nopal'
     - regex: 'Mtwo'
       model: 'Mtwo'
+    - regex: ' Fj(?: Build|[;)])'
+      model: 'Fj'
     - regex: 'Note_([37]|11)_Pro'
       device: 'phablet'
       model: 'Note $1 Pro'
@@ -31206,6 +31211,20 @@ Elong Mobile:
   regex: ' (6CS)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
+
+# HexaByte
+HexaByte:
+  regex: '(?:HB_X7)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: 'X7'
+
+# HiKing
+HiKing:
+  regex: 'HIKING[_ ]'
+  device: 'smartphone'
+  models:
+    - regex: 'HIKING[_ ]([^/;)]+)(?: Build|[);])'
+      model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
