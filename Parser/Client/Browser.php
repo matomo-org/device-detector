@@ -68,7 +68,6 @@ class Browser extends AbstractClientParser
         'DW' => 'Dark Web Browser',
         '1B' => '115 Browser',
         '2B' => '2345 Browser',
-        '36' => '360 Phone Browser',
         '3B' => '360 Browser',
         '7B' => '7654 Browser',
         'AA' => 'Avant Browser',
@@ -462,6 +461,7 @@ class Browser extends AbstractClientParser
         'TB' => 'Tenta Browser',
         'TE' => 'Tesla Browser',
         'TZ' => 'Tizen Browser',
+        'TI' => 'Tint Browser',
         'TU' => 'Tungsten',
         'TG' => 'ToGate',
         'TS' => 'TweakStyle',
@@ -509,8 +509,10 @@ class Browser extends AbstractClientParser
         'XV' => 'Xvast',
         'ZE' => 'Zetakey',
         'ZV' => 'Zvu',
+        'ZI' => 'Zirco Browser',
 
         // detected browsers in older versions
+        // '36' => '360 Phone Browser',
         // 'IA' => 'Iceape',  => pim
         // 'SM' => 'SeaMonkey',  => pim
     ];
@@ -569,7 +571,7 @@ class Browser extends AbstractClientParser
      * @var array<string>
      */
     protected static $mobileOnlyBrowsers = [
-        '36', 'AH', 'AI', 'BL', 'C1', 'C4', 'CB', 'CW', 'DB',
+        'AH', 'AI', 'BL', 'C1', 'C4', 'CB', 'CW', 'DB',
         'DD', 'DT', 'EU', 'EZ', 'FK', 'FM', 'FR', 'FX', 'GH',
         'GI', 'GR', 'HA', 'HU', 'IV', 'JB', 'KD', 'M1', 'MF',
         'MN', 'MZ', 'NX', 'OC', 'OI', 'OM', 'OZ', 'PU', 'PI',
