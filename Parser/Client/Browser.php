@@ -69,7 +69,7 @@ class Browser extends AbstractClientParser
         '1B' => '115 Browser',
         '2B' => '2345 Browser',
         '3B' => '360 Browser',
-		'36' => '360 Phone Browser',
+        '36' => '360 Phone Browser',
         '7B' => '7654 Browser',
         'AA' => 'Avant Browser',
         'AB' => 'ABrowse',
