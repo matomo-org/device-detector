@@ -756,6 +756,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'GY'  => 'LOKMAT',
         '0L'  => 'Lumigon',
         'LU'  => 'Lumus',
+        'LUM' => 'Lumitel',
         'L9'  => 'Luna',
         'LR'  => 'Luxor',
         'LY'  => 'LYF',
