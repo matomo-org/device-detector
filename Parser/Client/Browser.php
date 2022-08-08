@@ -68,8 +68,8 @@ class Browser extends AbstractClientParser
         'DW' => 'Dark Web Browser',
         '1B' => '115 Browser',
         '2B' => '2345 Browser',
-        '36' => '360 Phone Browser',
         '3B' => '360 Browser',
+        '36' => '360 Phone Browser',
         '7B' => '7654 Browser',
         'AA' => 'Avant Browser',
         'AB' => 'ABrowse',
@@ -430,6 +430,7 @@ class Browser extends AbstractClientParser
         'SL' => 'Sleipnir',
         'S6' => 'Slimjet',
         'S7' => 'SP Browser',
+        '9S' => 'Sony Small Browser',
         '8S' => 'Secure Private Browser',
         'T1' => 'Stampy Browser',
         '7S' => '7Star',
@@ -462,6 +463,7 @@ class Browser extends AbstractClientParser
         'TB' => 'Tenta Browser',
         'TE' => 'Tesla Browser',
         'TZ' => 'Tizen Browser',
+        'TI' => 'Tint Browser',
         'TU' => 'Tungsten',
         'TG' => 'ToGate',
         'TS' => 'TweakStyle',
@@ -509,6 +511,7 @@ class Browser extends AbstractClientParser
         'XV' => 'Xvast',
         'ZE' => 'Zetakey',
         'ZV' => 'Zvu',
+        'ZI' => 'Zirco Browser',
 
         // detected browsers in older versions
         // 'IA' => 'Iceape',  => pim
