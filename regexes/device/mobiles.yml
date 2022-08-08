@@ -6457,17 +6457,19 @@ E-tel:
 
 # Evercoss
 Evercoss:
-  regex: 'EVERCOSS[ _]|(A75A\*|AT8B|U50A_PLUS|M50 STAR|A75 MAX)(?:[);/ ]|$)'
+  regex: 'EVERCOSS[ _]|(A75A\*|AT8B|U50A_PLUS|M50 STAR|A75 MAX|M50A)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'A75A\*(?:[);/ ]|$)'
       model: 'A75A Star'
-    - regex: 'A75 MAX*(?:[);/ ]|$)'
-      model: 'A75 Max'
+    - regex: '(A75|M50A) MAX*(?:[);/ ]|$)'
+      model: '$1 Max'
     - regex: 'U50A_PLUS(?:[);/ ]|$)'
       model: 'U50A Plus'
     - regex: 'M50 STAR(?:[);/ ]|$)'
       model: 'M50 Star'
+    - regex: '(M50A)(?:[);/ ]|$)'
+      model: '$1'
     - regex: '(AT8B)(?:[);/ ]|$)'
       device: 'tablet'
       model: '$1'
@@ -19249,7 +19251,7 @@ Quest:
 
 # QMobile or QSmart or Q-Smart (qmobile.com.pk)
 QMobile:
-  regex: 'QMobile|QTab(?!10EW)|Q-?Smart|(?:Mark 2|E2 Noir|Noir X1S|LUNA PRO|NICE S|JazzX JS(?:[27]|10)(?: PRO)?|LT[57]00[ _]PRO|LT950|Infinity (?:Cinema 2|triple|santos|Prime 2)|Q Infinity|Hot 5|Hot Pro 2|VITA S|i7i 2020|i10[ _]20(?:20|19)|V2 2018|Z12 PRO|Smart HD Pro|V6_Metal|Rocket (?:Lite|Pro)| GLi|i6i 2020|Android 6([\d.]*); S2 Pro|Android 5.*; Z9 Plus|i8i Dual)(?:[);/ ]|$)'
+  regex: 'QMobile|QTab(?!10EW)|Q-?Smart|(?:Mark [25]|E2 Noir|Noir X1S|LUNA PRO|NICE S|JazzX JS(?:[27]|10)(?: PRO)?|LT[57]00[ _]PRO|LT950|Infinity (?:Cinema 2|triple|santos|Prime 2)|Q Infinity|Hot 5|Hot Pro 2|VITA S|i7i 2020|i10[ _]20(?:20|19)|V2 2018|Z12 PRO|Smart HD Pro|V6_Metal|Rocket (?:Lite|Pro)| GLi|i6i 2020|Android 6([\d.]*); S2 Pro|Android 5.*; Z9 Plus|i8i Dual)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'JazzX JS7 PRO'
@@ -19310,8 +19312,8 @@ QMobile:
       model: 'Rocket Pro'
     - regex: 'Rocket Lite'
       model: 'Rocket Lite'
-    - regex: 'Mark 2'
-      model: 'Mark 2'
+    - regex: 'Mark ([25])'
+      model: 'Mark $1'
     - regex: 'QSmart (X[124]0)'
       model: '$1'
     - regex: 'Infinity Cinema 2'
