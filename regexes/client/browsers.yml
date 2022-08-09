@@ -774,6 +774,8 @@
 - regex: 'Atom/(?:(\d+[\.\d]+))?'
   name: 'Atom'
   version: '$1'
+  engine:
+    default: 'Blink'
 
 # Firefox Reality (https://mixedreality.mozilla.org/firefox-reality/)
 - regex: 'Mobile VR.+Firefox'
@@ -1239,10 +1241,14 @@
   engine:
     default: 'Blink'
 
-#Iridium
+#Iridium (https://iridiumbrowser.de/)
 - regex: 'Iridium(?:/(\d+[\.\d]+))?'
   name: 'Iridium'
   version: '$1'
+  engine:
+    default: 'WebKit'
+    versions:
+      '28': 'Blink'
 
 #Iceweasel
 - regex: 'Iceweasel(?:/(\d+[\.\d]+))?'
@@ -1978,6 +1984,8 @@
   version: '$1'
   engine:
     default: '' # multi engine -- WebKit or Blink
+    versions:
+      28: 'Blink'
 
 # CM Browser
 - regex: 'ACHEETAHI'
