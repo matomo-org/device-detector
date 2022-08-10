@@ -547,7 +547,7 @@ class Browser extends AbstractClientParser
             '2S', 'RF', 'LR', 'SQ', 'BV', 'L1', 'F0', 'KS', 'V0',
             'C8', 'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'VS', 'DU',
             'D0', 'P1', 'O4', '8S', 'H3', 'TE', 'WB', 'K1', 'P2',
-            'XO', 'U0', 'B0', 'VA', 'X0', 'NX', 'O5', 'R1',
+            'XO', 'U0', 'B0', 'VA', 'X0', 'NX', 'O5', 'R1', 'I1',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -710,6 +710,15 @@ class Browser extends AbstractClientParser
             $short         = $browserFromClientHints['short_name'];
             $engine        = '';
             $engineVersion = '';
+
+            // If version from client hints report 2022.04, then is the Iridium browser
+            // https://iridiumbrowser.de/news/2022/05/16/version-2022-04-released
+            if ('2022.04' === $version) {
+                $name          = 'Iridium';
+                $short         = 'I1';
+                $engine        = $browserFromUserAgent['engine'];
+                $engineVersion = $browserFromUserAgent['engine_version'];
+            }
 
             // If client hints report Chromium, but user agent detects a chromium based browser, we favor this instead
             if ('Chromium' === $name
