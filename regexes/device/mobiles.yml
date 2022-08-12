@@ -5787,9 +5787,11 @@ Dazen:
 
 # Denver Electronics (denver-electronics.com)
 Denver:
-  regex: '(?:TA[CDQ]-[0-9]+)|P(?:.+)TAQ-(?:[0-9]+)|SDQ[_-](?:550[24]4L|52001G|50002G|57004L)'
+  regex: '(?:TAQ_10[4G]|TA[CDQ]-[0-9]+)|P(?:.+)TAQ-(?:[0-9]+)|SDQ[_-](?:550[24]4L|52001G|50002G|57004L)'
   device: 'tablet'
   models:
+    - regex: 'TAQ_(10[4G])'
+      model: 'TAQ-$1'
     - regex: 'P(?:.+)TAQ-(10213GMK2|10172MK3|10242MK2|70242MK2|[0-9]+)(?:[);/ ]|$)'
       model: 'TAQ-$1'
     - regex: '(TA[CDQ]-[0-9]+)'
@@ -10992,7 +10994,7 @@ Kocaso:
 
 # Kogan
 Kogan:
-  regex: 'Kogan|(?:Agora 8 Plus)(?:[);/ ]|$)'
+  regex: 'Kogan|(?:Agora (?:8 Plus|XI))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Kogan ?(SmarterTV(?: 2K)?|TV|TVAP)(?:[);/ ]|$)'
@@ -11001,6 +11003,8 @@ Kogan:
 
     - regex: 'Agora 8 Plus'
       model: 'Agora 8 Plus'
+    - regex: 'Agora XI'
+      model: 'Agora 11'
     - regex: 'Kogan[ _-]([^;/]+) Build'
       model: '$1'
     - regex: 'Kogan[ _-]([a-z0-9_-]+)'
@@ -11395,7 +11399,7 @@ Benco:
 
 # Lava (Lavamobiles.com)
 Lava:
-  regex: 'Lava[ _]|LAVA(?:A1|X10)|(?:DISCOVER136|KKT QUADRA)|iris(?! Plus 2021)[ _]?([^/;)]+)(?<!Plus 2021)(?: Build|[;)])|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|(?:Flair (?:[ZS]1|P8)|PixelV1|Pixel V2\+?|Z60s|Z61_2GB|A97 IPS|A97 2GB PLUS|L[EH]9920(?:[_ ]P)?|L[NEH]9910|LH9810|Ivory(?:S1|S4G)?|A76Plus|Grand2c|AH9910| A3_mini|T71_w|V23GB)(?:[);/ ]|$)'
+  regex: 'Lava[ _]|LAVA(?:A1|X10)|(?:DISCOVER136|KKT QUADRA)|iris(?! Plus 2021)[ _]?([^/;)]+)(?<!Plus 2021)(?: Build|[;)])|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|X1_atom_L|(?:Flair (?:[ZS]1|P8)|PixelV1|Pixel V2\+?|Z60s|Z61_2GB|A97 IPS|A97 2GB PLUS|L[EH]9920(?:[_ ]P)?|L[NEH]9910|LH9810|Ivory(?:S1|S4G)?|A76Plus|Grand2c|AH9910| A3_mini|T71_w|V23GB)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -11421,6 +11425,8 @@ Lava:
       model: 'Pixel V2 Plus'
     - regex: 'Pixel ?V([12])(?:[);/ ]|$)'
       model: 'Pixel V$1'
+    - regex: 'X1_atom_L(?:[);/ ]|$)'
+      model: 'X1 Atom L'
     - regex: 'X1 Selfie(?:[);/ ]|$)'
       model: 'Iris X1 Selfie'
     - regex: 'X41 Plus(?:[);/ ]|$)'
@@ -16084,6 +16090,9 @@ Orange:
     - regex: 'MouveTab7WIFI'
       model: 'Mouve Tab 7 WiFi'
       device: 'tablet'
+    - regex: 'orange_Tab_7_4G'
+      model: 'Tab 7 4G'
+      device: 'tablet'
     - regex: 'Orange[ _-](Rise)(3[12]|5[12])(?:[);/ ]|$)'
       model: '$1 $2'
     - regex: '(?:Orange[ _-])?Dive ?(\d+) Dual(?:[);/ ]|$)'
@@ -16848,10 +16857,10 @@ RT Project:
 
 # S-TELL
 S-TELL:
-  regex: 'S-TELL|(?:M630|M55[78]|P760|M555i|M655)(?:[);/ ]|$)'
+  regex: 'S-TELL|(?:M630|M55[78]|P760|P750i|M555i|M655)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: '(P760)(?:[);/ ]|$)'
+    - regex: '(P760|P750i)(?:[);/ ]|$)'
       model: '$1'
     - regex: '(?:S-TELL[ _])?M([0-9]{3}|555i|M655)(?:[);/ ]|$)'
       model: 'M$1'
@@ -29286,14 +29295,14 @@ STG Telecom:
 
 # Rivo
 Rivo:
-  regex: 'PHANTOM (?:PZ|RX)|RHYTHM RX'
+  regex: 'PHANTOM (?:PZ|RX)|RHYTHM[ _]RX'
   device: 'smartphone'
   models:
     - regex: 'PHANTOM PZ ?(2[05]|[13]5|4|18)(?:[);/ ]|$)'
       model: 'Phantom PZ$1'
     - regex: 'PHANTOM RX ?(298|387)(?:[);/ ]|$)'
       model: 'Phantom RX$1'
-    - regex: 'RHYTHM RX ?([15-9]0|[467]5|[12]80|150|[14]00)(?:[);/ ]|$)'
+    - regex: 'RHYTHM[ _]RX ?([15-9]0|[467]5|[12]80|150|[14]00)(?:[);/ ]|$)'
       model: 'Rhythm RX$1'
 
 # Four Mobile or 4mobile
