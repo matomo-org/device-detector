@@ -1384,6 +1384,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'WAN' => 'Wanmukang',
         'WY'  => 'Wexler',
         '3W'  => 'WE',
+        'WEE' => 'Weelikeit',
         'WP'  => 'Wieppo',
         'W2'  => 'Wigor',
         'WI'  => 'Wiko',
