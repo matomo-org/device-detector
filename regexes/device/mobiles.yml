@@ -16062,7 +16062,7 @@ Orange:
       model: 'Dive $1 Dual'
     - regex: '(?:Orange[ _-])?Dive ?(\d+)(?:[);/ ]|$)'
       model: 'Dive $1'
-    - regex: 'Orange[ _-](Daytona|Dublin|Fova|Gova|Hi 4G|Hiro|Kivo|Monte Carlo|Neva 80|Neva play|Nura|Reyo|Rise[_ ](3[034]|40|5[345])|Rono|Roya|San Francisco|Tactile internet 2|Tado|Yomi|Yumo|Zali|Mahpee|Neva leaf|Sanza touch)(?:[);/ ]|$)'
+    - regex: 'Orange[ _-](Daytona|Dublin|Fova|Gova|Hi 4G|Hiro|Kivo|Monte Carlo|Neva 80|Neva play|Nura|Reyo|Rise[_ ](3[034]|40|5[345])|Rono|Roya|San Francisco|Tactile internet 2|Tado|Yomi|Yumo|Zali|Mahpee|Neva leaf|Sanza touch|Viking L508)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'SPV[ \-]?([a-z0-9]+)'
       model: 'SPV $1'
@@ -16293,7 +16293,7 @@ Panasonic:
 
 # PCBOX
 PCBOX:
-  regex: 'Art-PCB-V116|Bee-PCB-V216|Clap-PCB-I316|PCB-T(103|715)'
+  regex: 'Art-PCB-V116|Bee-PCB-V216|Clap-PCB-I316|PCB-T(103|715)|Kova[ _-]PCB-\w+|Kova_Plus_PCB_T735'
   device: 'smartphone'
   models:
     - regex: 'Art-PCB-V116'
@@ -16308,6 +16308,12 @@ PCBOX:
     - regex: 'PCB-T715'
       device: 'tablet'
       model: 'T715'
+    - regex: 'Kova[ _-]PCB-T730'
+      device: 'tablet'
+      model: 'Kova T730'
+    - regex: 'Kova_Plus_PCB_T735'
+      device: 'tablet'
+      model: 'Kova Plus T735'
 
 # PCD
 PCD:
@@ -20045,7 +20051,7 @@ Amazon:
 
 # Symphony
 Symphony:
-  regex: 'SYMPHONY[ \_]([a-z0-9]+)|(?:(?:roar[ _](?:V20|V78|E80|V150))|roarV95|ZVIII|V10[25]|V128|V14[012]|V1[45]5|SYMTAB\d+| (?:i97|i7[245]|i6[58]|i30|i1[58]|i120|Z30 pro|Z30|V9[246789]))(?:[);/ ]|$)'
+  regex: 'SYMPHONY[ \_]([a-z0-9]+)|(?:(?:roar[ _](?:V20|V78|E80|V150))|roarV95|ZVIII|V10[25]|V128|V14[012]|V1[45]5|SYMTAB\d+| (?:i97|i7[245]|i6[58]|i30|i1[58]|i120|Z30 pro|Z30|V9[246789])|6.*; V75)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'ZVIII'
@@ -20056,7 +20062,7 @@ Symphony:
       model: 'Roar $1'
     - regex: '(Z30|P7) pro'
       model: '$1 Pro'
-    - regex: ' (V141|V10[25]|V128|V14[012]|i97|i7[245]|i6[58]|i30|i1[58]|i120|V1[45]5|Z30|V9[246789])(?:[);/ ]|$)'
+    - regex: ' (V141|V10[25]|V128|V14[012]|i97|i7[245]|i6[58]|i30|i1[58]|i120|V1[45]5|Z30|V9[246789]|V75)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'SYMPHONY[ \_]([a-z0-9]+)'
       model: '$1'
@@ -29723,9 +29729,13 @@ Covia:
 
 # Elevate
 Elevate:
-  regex: 'LUNA (V57|V55A|G58|G62|G60X)(?:[);/ ]|$)'
+  regex: '(?:LUNA (V57|V55A|G58|G62|G60X)|V55C)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: 'Luna $1'
+  models:
+    - regex: '(V55C)'
+      model: 'Luna $1'
+    - regex: 'LUNA (V57|V55A|G58|G62|G60X)'
+      model: 'Luna $1'
 
 # Stylo
 Stylo:
