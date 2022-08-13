@@ -10583,9 +10583,11 @@ Impression:
 
 #iLife or i-life (lifedigital.com)
 iLife:
-  regex: 'WTAB[ _]?\d{3}|(ITELL[_ ](?:K3300|K3500N?|K4700))(?:[);/ ]|$)'
+  regex: 'WTAB[ _]?\d{3}|(ITELL[_ ](?:K3300|K3500N?|K4700)|K3102 WIFI)(?:[);/ ]|$)'
   device: 'tablet'
   models:
+    - regex: 'K3102 WIFI'
+      model: 'K3102 WiFi'
     - regex: 'WTAB[ _]?(\d{3}(?:[^;/)]*))(?: Build|[;)])'
       model: 'WTAB $1'
     - regex: '(ITELL[_ ](?:K3300|K3500N?|K4700))(?:[);/ ]|$)'
@@ -25099,16 +25101,16 @@ DIXON:
 
 # Kanji
 Kanji:
-  regex: 'KJ[-_](OB0[23]|YUBI|SMART4K|GOCHI|ALFARK|AC0[25])(?:[);/ ]|$)'
+  regex: 'KJ[-_](OB0[23]|YU_?BI|SMART4K|GOCHI|ALFARK|AC0[25])(?:[);/ ]|$)'
   device: 'tablet'
   models:
-    - regex: 'KJ-OB03'
+    - regex: 'KJ[-_]OB03'
       model: 'Cata 7'
     - regex: 'KJ-GOCHI'
       model: 'Gochi'
-    - regex: 'KJ-OB02'
+    - regex: 'KJ[-_]OB02'
       model: 'Ailu Max'
-    - regex: 'KJ-YUBI'
+    - regex: 'KJ[-_]YU_?BI'
       model: 'Yubi 3G'
     - regex: 'KJ[-_]ALFARK'
       model: 'Alfa'
@@ -26259,12 +26261,12 @@ Alfawise:
 
 # Klipad (www.klipad.fr)
 Klipad:
-  regex: 'KLIPAD_|(?:KL-V905|KL4889|KL9878A?(?:_EEA)?|7589AN|KL628_HL|KL628KO|KL4898[_ -]A50|V356B?)(?:[);/ ]|$)'
+  regex: 'KLIPAD_|(?:KL-V905|KL(4889|489[08]|9878A|3669|500|601)?(?:_EEA)?|7589AN|KL628_HL|KL628KO|KL4898[_ -]A50|V356B?)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: '(?:KLIPAD_)?(V355B?|KL600|KL-V905|V356B?)(?:[);/ ]|$)'
+    - regex: '(?:KLIPAD_)?(V355B?|KL600|KL-V905|V356B?|KL500|KL601)(?:[);/ ]|$)'
       model: '$1'
-    - regex: '(KL4889|7589AN|KL9878A?|KL628KO)(?:_EEA)?(?:[);/ ]|$)'
+    - regex: '(KL4889|7589AN|KL9878A?|KL628KO|KL3669|KL489[08])(?:_EEA)?(?:[);/ ]|$)'
       device: 'tablet'
       model: '$1'
     - regex: 'KL628_HL'
@@ -31433,6 +31435,13 @@ Odotpad:
   device: 'tablet'
   model: 'Dragon Fruit Fire V7'
 
+# Ceibal (www.ceibal.edu.uy)
+Ceibal:
+  regex: '(?:Kil-82WFDC)(?:[);/ ]|$)'
+  device: 'tablet'
+  models:
+    - regex: 'Kil-82WFDC'
+      model: 'Kiland T8'
 # Devices with undectable brand, but detectable model
 Unknown:
   regex: 'Plasma Mobile|WebTV/(\d+\.\d+)|(?:M10 Ultra|FO-R15|TVBOX|Smart[ _]?TV|SmartATV|M8S\+ 4K|PCBox|rk3368-box|H10 PLAY|Smart AIO TV|TVBOX_L|L-BOX|TVBOX-5G|mips.+(?:Opera TV|wireless|wired)|smartbox|TV BOX|I12Pro Max|(?:audi_)?ks1280x480)(?:[);/ ]|$)'
