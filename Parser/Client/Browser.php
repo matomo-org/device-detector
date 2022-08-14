@@ -548,7 +548,7 @@ class Browser extends AbstractClientParser
             'C8', 'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'VS', 'DU',
             'D0', 'P1', 'O4', '8S', 'H3', 'TE', 'WB', 'K1', 'P2',
             'XO', 'U0', 'B0', 'VA', 'X0', 'NX', 'O5', 'R1', 'I1',
-            'HO', 'LE',
+            'HO',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -729,8 +729,6 @@ class Browser extends AbstractClientParser
             if ('Chromium' === $name
                 && !empty($browserFromUserAgent['name'])
                 && 'Chromium' !== $browserFromUserAgent['name']
-                && ('Chrome' === self::getBrowserFamily($browserFromUserAgent['name'])
-                || 'Opera' === self::getBrowserFamily($browserFromUserAgent['name']))
             ) {
                 $name    = $browserFromUserAgent['name'];
                 $short   = $browserFromUserAgent['short_name'];
@@ -779,12 +777,6 @@ class Browser extends AbstractClientParser
             $version = '';
             $short   = self::getBrowserShortName($name);
 
-            if (\preg_match('~Chrome/.+ Safari/537.36~i', $this->userAgent)) {
-                $engine        = 'Blink';
-                $family        = self::getBrowserFamily((string) $short) ?? 'Chrome';
-                $engineVersion = $this->buildEngineVersion($engine);
-            }
-
             if (null === $short) {
                 // This Exception should never be thrown. If so a defined browser name is missing in $availableBrowsers
                 throw new \Exception(\sprintf(
@@ -793,6 +785,18 @@ class Browser extends AbstractClientParser
                     $this->userAgent
                 )); // @codeCoverageIgnore
             }
+        }
+
+        if (\preg_match('~Chrome/.+ Safari/537.36~i', $this->userAgent)) {
+            $engine        = 'Blink';
+            $family        = self::getBrowserFamily((string) $short) ?? 'Chrome';
+            $engineVersion = $this->buildEngineVersion($engine);
+        }
+
+        if (\preg_match('~Trident/~i', $this->userAgent)) {
+            $engine        = 'Trident';
+            $family        = self::getBrowserFamily((string) $short) ?? 'Internet Explorer';
+            $engineVersion = $this->buildEngineVersion($engine);
         }
 
         if (empty($name)) {
