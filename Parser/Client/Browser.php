@@ -729,10 +729,7 @@ class Browser extends AbstractClientParser
             if ('Chromium' === $name
                 && !empty($browserFromUserAgent['name'])
                 && 'Chromium' !== $browserFromUserAgent['name']
-                && (
-                    'Chrome' === self::getBrowserFamily($browserFromUserAgent['name'])
-                    || 'Opera' === self::getBrowserFamily($browserFromUserAgent['name'])
-                )
+                && ('Chrome' === self::getBrowserFamily($browserFromUserAgent['name']) || 'Opera' === self::getBrowserFamily($browserFromUserAgent['name']))
             ) {
                 $name    = $browserFromUserAgent['name'];
                 $short   = $browserFromUserAgent['short_name'];
