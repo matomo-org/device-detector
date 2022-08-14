@@ -9674,13 +9674,13 @@ iBerry:
 
 # iHunt
 iHunt:
-  regex: 'iHunt|One_ Love_|TIT?AN[_ ]P\d+|Like_(3|4U|3_Pro)|X300 Elite|S10_Tank_2019|S10 Tank PRO 2020|S60_Discovery_2019|AlienXLite2020|Alien X (?:Lite|Pro)|Alien_X|(?:Titan ?P6000|S[23]0 Ultra ApeX 2021|S21 Ultra 4G 2021|Like 11 Panda Pro|Like_Hi10_2021|Like Hi5|S21 Plus 2021|Like_[78])(?:_EEA)?(?:[);/ ]|$)'
+  regex: 'iHunt|One_ Love_|TIT?AN[_ ]P\d+|Like_(3|4U|3_Pro)|X300 Elite|S10_Tank_2019|S10 Tank PRO 2020|S60_Discovery_2019|AlienXLite2020|Alien X (?:Lite|Pro)|Alien_X|(?:Titan ?P6000|S[23]0 Ultra ApeX 2021|S21 Ultra 4G 2021|Like 11 Panda Pro|Like_Hi10_2021|Like Hi5|S21 Plus 2021|Like_[78]|S10 Tank 2020)(?:_EEA)?(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Like_Hi10_2021'
       model: 'Like Hi10 (2021)'
-    - regex: 'S10_Tank_2019'
-      model: 'S10 Tank (2019)'
+    - regex: 'S10[_ ]Tank[_ ]20(19|20)'
+      model: 'S10 Tank (20$1)'
     - regex: 'S10 Tank PRO 2020'
       model: 'S10 Tank Pro (2020)'
     - regex: 'One_ Love_'
@@ -11725,10 +11725,10 @@ Lenco:
 
 # Aligator
 Aligator:
-  regex: 'ALIGATOR[_ ]|RX[67]00(?:[);/ ]|$)'
+  regex: 'ALIGATOR[_ ]|(?:RX[67]00|S5710)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: '(?:ALIGATOR[ _])?(S4080|S50(?:6[56]|[678]0)|S55[24]0|RX510|S6[05]00|RX710|RX[678]00)(?:[);/ ]|$)'
+    - regex: '(?:ALIGATOR[ _])?(S4080|S50(?:6[56]|[678]0)|S55[24]0|S5710|RX510|S6[05]00|RX710|RX[678]00)(?:[);/ ]|$)'
       model: '$1'
 
 # lenovo (lenovo.com)
@@ -19283,15 +19283,17 @@ Qilive:
 
 # Vankyo
 Vankyo:
-  regex: 'Vankyo[_ ]|(?:QTAB1010X|S10_ROW)(?:[);/ ]|$)'
+  regex: 'Vankyo[_ ]|(?:QTAB1010X|S10_ROW|S20_EEA)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'Vankyo[_ ]S(10|[78])'
       model: 'MatrixPad S$1'
+    - regex: '(S20)_EEA'
+      model: 'MatrixPad $1'
     - regex: 'QTAB(1010X)'
       model: 'QTab $1'
     - regex: 'S10_ROW'
-      model: 'S10'
+      model: 'MatrixPad S10'
 
 # Quest or Quest Mobile
 Quest:
@@ -22530,8 +22532,10 @@ Xiaomi:
       model: 'Redmi K50 Pro'
     - regex: 'Redmi Y1 Lite(?:[);/ ]|$)'
       model: 'Redmi Y1 Lite'
-    - regex: 'Redmi 6 Pro(?:[);/ ]|$)'
-      model: 'Redmi 6 Pro'
+    - regex: 'Redmi 6 Pro Extreme'
+      model: 'Redmi 6 Pro Extreme'
+    - regex: 'Redmi (\d+) Pro(?:[);/ ]|$)'
+      model: 'Redmi $1 Pro'
     - regex: 'Redmi 4 Prime(?:[);/ ]|$)'
       model: 'Redmi 4 Prime'
     - regex: 'Qin 2 Pro(?:[);/ ]|$)'
@@ -27000,7 +27004,7 @@ Fero:
 
 # Ruio
 Ruio:
-  regex: 'Ruio[ _]|(?:M671M4|i7Plus)(?:[);/ ]|$)'
+  regex: 'Ruio[ _]|(?:M671M4|i7Plus|S5506)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Ruio[ _](S4)(?:[);/ ]|$)'
@@ -27009,6 +27013,8 @@ Ruio:
       model: '$1 Plus'
     - regex: 'M671M4'
       model: 'Cola 4G'
+    - regex: '(S5506)'
+      model: '$1'
 
 # Transpeed
 Transpeed:
