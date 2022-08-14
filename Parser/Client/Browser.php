@@ -777,6 +777,12 @@ class Browser extends AbstractClientParser
             $version = '';
             $short   = self::getBrowserShortName($name);
 
+            if (\preg_match('~Chrome/.+ Safari/537.36~i', $this->userAgent)) {
+                $engine        = 'Blink';
+                $family        = self::getBrowserFamily((string) $short) ?? 'Chrome';
+                $engineVersion = $this->buildEngineVersion($engine);
+            }
+
             if (null === $short) {
                 // This Exception should never be thrown. If so a defined browser name is missing in $availableBrowsers
                 throw new \Exception(\sprintf(
@@ -785,18 +791,6 @@ class Browser extends AbstractClientParser
                     $this->userAgent
                 )); // @codeCoverageIgnore
             }
-        }
-
-        if (\preg_match('~Chrome/.+ Safari/537.36~i', $this->userAgent)) {
-            $engine        = 'Blink';
-            $family        = self::getBrowserFamily((string) $short) ?? 'Chrome';
-            $engineVersion = $this->buildEngineVersion($engine);
-        }
-
-        if (\preg_match('~Trident/~i', $this->userAgent)) {
-            $engine        = 'Trident';
-            $family        = self::getBrowserFamily((string) $short) ?? 'Internet Explorer';
-            $engineVersion = $this->buildEngineVersion($engine);
         }
 
         if (empty($name)) {
