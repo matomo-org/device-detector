@@ -720,6 +720,10 @@ class Browser extends AbstractClientParser
                 $engineVersion = $browserFromUserAgent['engine_version'];
             }
 
+            if ('Atom' === $name) {
+                $version = $browserFromUserAgent['version'];
+            }
+
             // If client hints report Chromium, but user agent detects a chromium based browser, we favor this instead
             if ('Chromium' === $name
                 && !empty($browserFromUserAgent['name'])
