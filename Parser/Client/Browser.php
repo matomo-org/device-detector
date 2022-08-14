@@ -725,11 +725,13 @@ class Browser extends AbstractClientParser
                 $version = $browserFromUserAgent['version'];
             }
 
-            // If client hints report Chromium, but user agent detects a chromium based browser, we favor this instead
+            // If client hints report Chromium, but user agent detects a Chromium based browser, we favor this instead
             if ('Chromium' === $name
                 && !empty($browserFromUserAgent['name'])
                 && 'Chromium' !== $browserFromUserAgent['name']
-                && 'Chrome' === self::getBrowserFamily($browserFromUserAgent['name'])
+                && ('Chrome' === self::getBrowserFamily($browserFromUserAgent['name'])
+                    || 'Opera' === self::getBrowserFamily($browserFromUserAgent['name'])
+                )
             ) {
                 $name    = $browserFromUserAgent['name'];
                 $short   = $browserFromUserAgent['short_name'];
