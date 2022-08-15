@@ -16175,7 +16175,7 @@ Overmax:
 
 # Oysters
 Oysters:
-  regex: 'Oysters|T84ERI[ _]3G|T72HM(s_)?3G|T102MS_3G|T102ER3G|T72ER3G|(T74HMi|T84Bi)[_ ]4G|T74MR4G|T84Ni[_ ][34]G|Pacific(?:[ ]?800i|E)|T104B_[34]G|IndianV|T72HA_3G|T12V? 3G|T74D_3G|T74N_3G|T74SC_3G|T74Mai_3G|T104MBi_3G|T104SCi_3G|T104ER4G|Arctic450|Atlantic(?:4G|454|[EV])|AntarcticE|Life4G|T7V 3G|Pacific(?:VS?|4G)'
+  regex: 'Oysters|T84ERI[ _]3G|T72HM(s_)?3G|T102MS_3G|T102ER3G|T72ER3G|(T74HMi|T84Bi)[_ ]4G|T74MR4G|T84Ni[_ ][34]G|Pacific(?:[ ]?800i|E)|T104B_[34]G|IndianV|T72HA_3G|T12V? 3G|T74D_3G|T74N_3G|T74SC_3G|T74Mai_3G|T104MBi_3G|T104SCi_3G|T104ER4G|Arctic450|Atlantic(?:4G|454|[EV])|AntarcticE|Life4G|T7V 3G|Pacific(?:VS?|4G|454)'
   device: 'tablet'
   models:
     - regex: 'Pacific[ ]?800i'
@@ -16187,7 +16187,7 @@ Oysters:
     - regex: 'IndianV'
       device: 'smartphone'
       model: 'Indian V'
-    - regex: '(?:Oysters[_ ])?Pacific(VS?|4G)'
+    - regex: '(?:Oysters[_ ])?Pacific(VS?|4G|454)'
       device: 'smartphone'
       model: 'Pacific $1'
     - regex: 'Atlantic(454|[EV]|4G)(?:[);/ ]|$)'
@@ -19014,7 +19014,7 @@ Positivo:
 
 # Prestigio (prestigio.ru)
 Prestigio:
-  regex: 'Prestigio 5500 DUO|(?:PMP|PAP|PMT|PSP|PGPS)[0-9]+[a-z0-9_]+(?:[);/ ]|$)|Muze C3|PTV32SS04Z_CIS_ML|SILVER POS'
+  regex: 'Prestigio 5500 DUO|(?:PMP|PAP|PMT|PSP|PGPS)[0-9]+[a-z0-9_]+(?:[);/ ]|$)|Muze C3|PTV32SS04Z_CIS_ML|SILVER POS|PAB4411'
   device: 'tablet'
   models:
     # explicit smartphone models
@@ -19200,6 +19200,9 @@ Prestigio:
     - regex: 'PTV32SS04Z_CIS_ML'
       device: 'tv'
       model: 'PTV32SS04ZCISML'
+    - regex: '(PAB4411)'
+      device: 'tv'
+      model: 'MultiCenter $1'
     # general detection
     - regex: '(PM[PT][0-9]+[a-z0-9_]+)(?:[);/ ]|$)'
       model: '$1'
@@ -29557,7 +29560,7 @@ FNF:
 
 # iMan
 iMan:
-  regex: '(i5800C|i6800)(?:[);/ ]|$)'
+  regex: '(i5800C|i6800|Victor(?:_S)?)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
 
@@ -29819,9 +29822,13 @@ Stylo:
 
 # galaxy innovations or GI  (www.galaxy-innovations.ru)
 Galaxy Innovations:
-  regex: 'GI UNI2(?:[);/ ]|$)'
+  regex: 'GI (?:UNI2|iTV912)(?:[);/ ]|$)'
   device: 'tv'
-  model: 'Uni 2'
+  models:
+    - regex: 'GI iTV912'
+      model: 'iTV912'
+    - regex: 'GI UNI2'
+      model: 'Uni 2'
 
 # Benzo
 Benzo:
