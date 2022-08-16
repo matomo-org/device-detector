@@ -5,6 +5,37 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
+# Inspect Browser (https://apps.apple.com/us/app/inspect-browser/id1203594958)
+- regex: 'InspectBrowser'
+  name: 'Inspect Browser'
+  version: ''
+
+# Keepsafe Browser (https://www.getkeepsafe.com/products/browser/)
+- regex: 'Keepsafe Browser'
+  name: 'Keepsafe Browser'
+  version: ''
+
+# Vast Browser (https://play.google.com/store/apps/details?id=com.vast.vpn.proxy.unblock)
+- regex: '(.*)Vast Browser/(\d+\.[\.\d]+)'
+  name: 'Vast Browser'
+  version: '$2'
+  engine:
+    default: 'Blink'
+
+# Bloket (https://play.google.com/store/apps/details?id=ai.blokee.browser.android)
+- regex: 'bloket'
+  name: 'Bloket'
+  version: ''
+  engine:
+    default: 'Blink'
+
+# U Browser (https://play.google.com/store/apps/details?id=com.u_browser)
+- regex: '(.*)U Browser(\d+\.[\.\d]+)'
+  name: 'U Browser'
+  version: '$2'
+  engine:
+    default: 'Blink'
+
 # Tesla Browser (https://www.teslabrowser.com/)
 - regex: 'Chrome/(\d+\.[\.\d]+).+TeslaBrowser/'
   name: 'Tesla Browser'
@@ -340,6 +371,13 @@
 - regex: 'Lolifox/(\d+[\.\d]+)'
   name: 'Lolifox'
   version: '$1'
+
+# PiBrowser (https://play.google.com/store/apps/details?id=pi.browser)
+- regex: 'PiBrowser/(\d+[\.\d]+)'
+  name: 'Pi Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
 
 # Qutebrowser (https://qutebrowser.org/)
 - regex: 'qutebrowser/(\d+[\.\d]+).+Chrome'
@@ -736,6 +774,8 @@
 - regex: 'Atom/(?:(\d+[\.\d]+))?'
   name: 'Atom'
   version: '$1'
+  engine:
+    default: 'Blink'
 
 # Firefox Reality (https://mixedreality.mozilla.org/firefox-reality/)
 - regex: 'Mobile VR.+Firefox'
@@ -1062,16 +1102,14 @@
     default: 'Blink'
 
 # 360 Browser
-- regex: 'QIHU 360[ES]E'
+- regex: 'QIHU 360[ES]E|QihooBrowserHD/(\d+[.\d]+)'
   name: '360 Browser'
-  version: ''
+  version: '$1'
 
-# 360 Phone Browser
-- regex: '360 Aphone Browser(?: \((\d+[\.\d]+)(?:beta)?\))?'
+# 360 Browser
+- regex: '360 Aphone Browser(?:[ /]?\(?(\d+[.\d]+)(?:beta)?\)?)?'
   name: '360 Phone Browser'
   version: '$1'
-  engine:
-    default: 'WebKit'
 
 #SailfishBrowser
 - regex: 'SailfishBrowser(?:/(\d+[\.\d]+))?'
@@ -1203,10 +1241,14 @@
   engine:
     default: 'Blink'
 
-#Iridium
+#Iridium (https://iridiumbrowser.de/)
 - regex: 'Iridium(?:/(\d+[\.\d]+))?'
   name: 'Iridium'
   version: '$1'
+  engine:
+    default: 'WebKit'
+    versions:
+      '28': 'Blink'
 
 #Iceweasel
 - regex: 'Iceweasel(?:/(\d+[\.\d]+))?'
@@ -1482,6 +1524,11 @@
 - regex: 'OP(?:RG)?X(?:/(\d+[\.\d]+))?'
   name: 'Opera GX'
   version: '$1'
+  engine:
+    default: 'WebKit'
+- regex: 'Opera%20GX/.+CFNetwork/.+Darwin/'
+  name: 'Opera GX'
+  version: ''
   engine:
     default: 'WebKit'
 
@@ -1906,11 +1953,16 @@
     default: 'WebKit'
 
 # Seznam Browser
-- regex: 'SznProhlizec/(\d+[\.\d]+)'
+- regex: 'Chrome.+SznProhlizec/(\d+[\.\d]+)'
   name: 'Seznam Browser'
   version: '$1'
   engine:
     default: 'Blink'
+- regex: 'SznProhlizec/(\d+[\.\d]+)'
+  name: 'Seznam Browser'
+  version: '$1'
+  engine:
+    default: 'WebKit'
 
 # SogouMobileBrowser
 - regex: 'SogouMobileBrowser/(\d+[\.\d]+)'
@@ -1932,6 +1984,8 @@
   version: '$1'
   engine:
     default: '' # multi engine -- WebKit or Blink
+    versions:
+      28: 'Blink'
 
 # CM Browser
 - regex: 'ACHEETAHI'

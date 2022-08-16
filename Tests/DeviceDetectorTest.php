@@ -17,6 +17,7 @@ use DeviceDetector\ClientHints;
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\AbstractParser;
 use DeviceDetector\Parser\Device\AbstractDeviceParser;
+use DeviceDetector\Parser\Device\Mobile;
 use DeviceDetector\Yaml\Symfony;
 use Doctrine\Common\Cache\MemcachedCache;
 use PHPUnit\Framework\TestCase;
@@ -39,6 +40,7 @@ class DeviceDetectorTest extends TestCase
 
     public function testDevicesYmlFiles(): void
     {
+        $allowedKeys  = ['regex', 'device', 'models', 'model', 'brand'];
         $fixtureFiles = \glob(\realpath(__DIR__) . '/../regexes/device/*.yml');
 
         foreach ($fixtureFiles as $file) {
@@ -48,6 +50,17 @@ class DeviceDetectorTest extends TestCase
 
             foreach ($ymlData as $brand => $regex) {
                 $this->assertArrayHasKey('regex', $regex);
+
+                $keys = \array_keys($regex);
+
+                foreach ($keys as $key) {
+                    $this->assertTrue(\in_array($key, $allowedKeys), \sprintf(
+                        'Unknown key `%s`, file %s, brand %s',
+                        $key,
+                        $file,
+                        $brand
+                    ));
+                }
 
                 $this->assertTrue(false === \strpos($regex['regex'], '||'), \sprintf(
                     'Detect `||` in regex, file %s, brand %s, common regex %s',
@@ -85,6 +98,18 @@ class DeviceDetectorTest extends TestCase
                     $this->assertIsArray($regex['models']);
 
                     foreach ($regex['models'] as $model) {
+                        $keys = \array_keys($model);
+
+                        foreach ($keys as $key) {
+                            $this->assertTrue(\in_array($key, $allowedKeys), \sprintf(
+                                'Unknown key `%s`, file %s, brand %s, model regex %s',
+                                $key,
+                                $file,
+                                $brand,
+                                $model['regex']
+                            ));
+                        }
+
                         $this->assertArrayHasKey('regex', $model);
                         $this->assertArrayHasKey('model', $model, \sprintf(
                             'Key model not exist, file %s, brand %s, model regex %s',
@@ -288,6 +313,71 @@ class DeviceDetectorTest extends TestCase
             ['Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', AbstractParser::VERSION_TRUNCATION_MINOR, '4.2', '34.0'],
             ['Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', AbstractParser::VERSION_TRUNCATION_MAJOR, '4', '34'],
         ];
+    }
+
+    public function testNotSkipDetectDeviceForClientHints(): void
+    {
+        $dd = $this->createPartialMock(Mobile::class, ['hasDesktopFragment']);
+
+        $dd->expects($this->once())->method('hasDesktopFragment')->willReturn(true);
+
+        // simulate work not use clienthints
+        $dd->setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36');
+
+        $this->assertEquals($dd->parse(), [
+            'deviceType' => null,
+            'model'      => '',
+            'brand'      => '',
+        ]);
+
+        // simulate work use clienthint + model
+        $dd->setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36 Edg/103.0.1264.44');
+        $dd->setClientHints(new ClientHints(
+            'Galaxy 4',
+            'Android',
+            '8.0.5',
+            '103.0.0.0',
+            [
+                ['brand' => ' Not A;Brand', 'version' => '103.0.0.0'],
+                ['brand' => 'Chromium', 'version' => '103.0.0.0'],
+                ['brand' => 'Chrome', 'version' => '103.0.0.0'],
+            ],
+            true,
+            '',
+            '',
+            ''
+        ));
+
+        $this->assertEquals($dd->parse(), [
+            'deviceType' => null,
+            'model'      => 'Galaxy 4',
+            'brand'      => '',
+        ]);
+    }
+
+    public function testVersionTruncationForClientHints(): void
+    {
+        AbstractParser::setVersionTruncation(AbstractParser::VERSION_TRUNCATION_MINOR);
+        $dd = new DeviceDetector();
+        $dd->setClientHints(new ClientHints(
+            'Galaxy 4',
+            'Android',
+            '8.0.5',
+            '98.0.14335.105',
+            [
+                ['brand' => ' Not A;Brand', 'version' => '99.0.0.0'],
+                ['brand' => 'Chromium', 'version' => '98.0.14335.105'],
+                ['brand' => 'Chrome', 'version' => '98.0.14335.105'],
+            ],
+            true,
+            '',
+            '',
+            ''
+        ));
+        $dd->parse();
+        $this->assertEquals('8.0', $dd->getOs('version'));
+        $this->assertEquals('98.0', $dd->getClient('version'));
+        AbstractParser::setVersionTruncation(AbstractParser::VERSION_TRUNCATION_NONE);
     }
 
     /**

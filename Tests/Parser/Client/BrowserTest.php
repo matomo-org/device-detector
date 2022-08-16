@@ -15,6 +15,7 @@ namespace DeviceDetector\Tests\Parser\Client;
 use DeviceDetector\ClientHints;
 use DeviceDetector\Parser\Client\Browser;
 use DeviceDetector\Parser\Client\Browser\Engine;
+use DeviceDetector\Parser\Client\Hints\BrowserHints;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
@@ -102,6 +103,36 @@ class BrowserTest extends TestCase
                 );
             }
         }
+    }
+
+    /**
+     * @return array
+     */
+    public function getFixturesBrowserHints(): array
+    {
+        $method = new \ReflectionMethod(BrowserHints::class, 'getRegexes');
+        $method->setAccessible(true);
+        $hints    = $method->invoke(new BrowserHints());
+        $fixtures = [];
+
+        foreach ($hints as $name) {
+            $fixtures[] = \compact('name');
+        }
+
+        return $fixtures;
+    }
+
+    /**
+     * @dataProvider getFixturesBrowserHints
+     */
+    public function testBrowserHintsForAvailableBrowsers(string $name): void
+    {
+        $browserShort = Browser::getBrowserShortName($name);
+        $this->assertNotEquals(
+            null,
+            $browserShort,
+            \sprintf('Browser name "%s" was not found in $availableBrowsers.', $name)
+        );
     }
 
     protected function checkBrowserEngine(string $engine): bool

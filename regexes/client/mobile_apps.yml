@@ -254,7 +254,7 @@
 - regex: 'BingWeb/([\d\.]+)?'
   name: 'BingWebApp'
   version: '$1'
-- regex: '(?:com.google.GoogleMobile|GSA)/([\d\.]+)?'
+- regex: '(?:com.google.GoogleMobile|GSA|GoogleApp)/([\d.]+)?'
   name: 'Google Search App'
   version: '$1'
 - regex: 'Flipboard/([\d\.]+)?'
@@ -265,6 +265,12 @@
   version: '$1'
 - regex: 'baiduboxapp/([\d\.]+)?'
   name: 'Baidu Box App'
+  version: '$1'
+- regex: 'baiduinput/([\d.]+)?'
+  name: 'Baidu Input'
+  version: '$1'
+- regex: 'PetalSearch/([\d\.]+)?'
+  name: 'Petal Search App'
   version: '$1'
 - regex: 'Crosswalk(?!.*(?:Streamy|QwantMobile))/([\d\.]+)?'
   name: 'CrosswalkApp'
@@ -289,12 +295,19 @@
 - regex: 'TopBuzz/([\d\.]+)'
   name: 'TopBuzz'
   version: '$1'
-- regex: 'Snapchat/([\d\.]+)'
+
+# Snapchat
+- regex: '(?:Safari/[\d\.]+)?Snapchat/?([\d\.]+)'
   name: 'Snapchat'
   version: '$1'
+- regex: 'CronetSnapDevSheldon'
+  name: 'Snapchat'
+  version: ''
+
 - regex: 'AhaRadio2/([\d\.]+)'
   name: 'Aha Radio 2'
   version: '$1'
+
 # Unibox (https://apps.apple.com/app/id933879046)
 - regex: 'Unibox/([\d\.]+)'
   name: 'Unibox'
@@ -404,7 +417,7 @@
   name: '1Password'
   version: '$1'
 
-- regex: '(?:Microsoft Office )?(Access|Excel|OneDrive for Business|OneNote|PowerPoint|Project|Publisher|Visio|Word)[ /]([\d\.]+)'
+- regex: '(?:Microsoft Office )?(Access|Excel|OneDrive for Business|OneNote|PowerPoint|Project|Publisher|Visio|Word)[ /](\d+\.[\d.]*)'
   name: 'Microsoft Office $1'
   version: '$2'
 
@@ -1081,6 +1094,11 @@
   name: 'Microsoft Bing Search'
   version: '$1'
 
+# Microsoft Start (https://play.google.com/store/apps/details?id=com.microsoft.amp.apps.bingnews | https://apps.apple.com/us/app/microsoft-start/id945416273)
+- regex: 'NewsSapphire/(\d+\.[\.\d]+)'
+  name: 'Microsoft Start'
+  version: '$1'
+
 # HiSearch
 - regex: '.+HiSearch/(\d+\.[\.\d]+)'
   name: 'HiSearch'
@@ -1248,4 +1266,67 @@
 # Bitcoin Core (https://bitcoin.org/en/bitcoin-core/)
 - regex: '/Satoshi:(\d+\.[\.\d]+)/'
   name: 'Bitcoin Core'
+  version: '$1'
+
+# Amazon Shopping (https://play.google.com/store/apps/details?id=com.amazon.mShop.android.shopping)
+- regex: 'Amazon.com/(\d+\.[\.\d]+)'
+  name: 'Amazon Shopping'
+  version: '$1'
+
+# mobile.de (https://play.google.com/store/apps/details?id=de.mobile.android.app)
+- regex: 'de.mobile.android.app/(\d+\.[\.\d]+)'
+  name: 'mobile.de'
+  version: '$1'
+- regex: 'de.mobile.android.app/(.*) \((\d+\.[\.\d]+)\)'
+  name: 'mobile.de'
+  version: '$2'
+
+# Jitsi Meet (https://meet.jit.si/)
+- regex: 'jitsi-meet/'
+  name: 'Jitsi Meet'
+  version: ''
+
+# Don't Waste My Time! (https://apps.apple.com/us/app/dont-waste-my-time/id1503883738)
+- regex: 'Waste My Time! Extension/(\d+\.[\.\d]+)'
+  name: "Don't Waste My Time!"
+  version: '$1'
+
+# Surfshark (https://apps.apple.com/app/apple-store/id1391782046)
+- regex: 'Surfshark/(\d+\.[\.\d]+)'
+  name: 'Surfshark'
+  version: '$1'
+
+# 1Password (https://apps.apple.com/us/app/1password-password-manager/id568903335)
+- regex: '1Password/(\d+\.[\.\d]+)'
+  name: '1Password'
+  version: '$1'
+
+# Startsiden (https://apps.apple.com/us/app/startsiden/id435032741)
+- regex: 'iOSStartsidenApp'
+  name: 'Startsiden'
+  version: ''
+
+# HisThumbnail
+- regex: 'HisThumbnail'
+  name: 'HisThumbnail'
+  version: ''
+
+# Yahoo OneSearch (https://apps.apple.com/us/app/yahoo-onesearch/id1494021151)
+- regex: 'OneSearch/(\d+\.[\.\d]+)'
+  name: 'Yahoo OneSearch'
+  version: '$1'
+
+# Bing iPad
+- regex: 'bingipadclient'
+  name: 'Bing iPad'
+  version: ''
+
+# AntiBrowserSpy (https://www.abelssoft.de/en/windows/security-privacy/antibrowserspy)
+- regex: 'anonymized by Abelssoft'
+  name: 'AntiBrowserSpy'
+  version: ''
+
+# 다음 or Daum
+- regex: 'DaumApps/(\d+\.[.\d]+)?'
+  name: 'Daum'
   version: '$1'

@@ -113,6 +113,7 @@ class OperatingSystem extends AbstractParser
         'MRE' => 'MRE',
         'WII' => 'Nintendo',
         'NDS' => 'Nintendo Mobile',
+        'NOV' => 'Nova',
         'OS2' => 'OS/2',
         'T64' => 'OSF1',
         'OBS' => 'OpenBSD',
@@ -130,6 +131,7 @@ class OperatingSystem extends AbstractParser
         'ROS' => 'RISC OS',
         'ROK' => 'Roku OS',
         'RSO' => 'Rosa',
+        'ROU' => 'RouterOS',
         'REM' => 'Remix OS',
         'REX' => 'REX',
         'RZD' => 'RazoDroiD',
@@ -137,6 +139,7 @@ class OperatingSystem extends AbstractParser
         'SSE' => 'SUSE',
         'SAF' => 'Sailfish OS',
         'SEE' => 'SeewoOS',
+        'SIR' => 'Sirin OS',
         'SLW' => 'Slackware',
         'SOS' => 'Solaris',
         'SYL' => 'Syllable',
@@ -176,7 +179,7 @@ class OperatingSystem extends AbstractParser
     protected static $osFamilies = [
         'Android'               => [
             'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
-            'ADR', 'CLR', 'BOS', 'REV', 'LEN',
+            'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR',
         ],
         'AmigaOS'               => ['AMG', 'MOR'],
         'BlackBerry'            => ['BLB', 'QNX'],
@@ -195,6 +198,7 @@ class OperatingSystem extends AbstractParser
             'ORD', 'TOS', 'RSO', 'DEE', 'FRE', 'MAG', 'FEN', 'CAI', 'PCL', 'HAS',
             'LOS', 'DVK', 'ROK', 'OWR', 'OTV', 'KTV', 'PUR', 'PLA', 'FUC', 'PAR',
             'FOR', 'MON', 'KAN', 'ZEN', 'LND', 'LNS', 'CHN', 'AMZ', 'TEN', 'CST',
+            'NOV', 'ROU',
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
@@ -439,7 +443,7 @@ class OperatingSystem extends AbstractParser
         return [
             'name'       => $name,
             'short_name' => $short,
-            'version'    => $version,
+            'version'    => $this->buildVersion($version, []),
         ];
     }
 
