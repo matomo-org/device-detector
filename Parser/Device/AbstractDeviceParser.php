@@ -540,6 +540,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'HEX' => 'HexaByte',
         'HL'  => 'Hi-Level',
         '3H'  => 'Hi',
+        'HIH' => 'HiHi',
         'HIK' => 'HiKing',
         'H2'  => 'Highscreen',
         'Q1'  => 'High Q',
