@@ -801,6 +801,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '1Y'  => 'MDTV',
         '09'  => 'meanIT',
         'M3'  => 'Mecer',
+        'M3M' => 'M3 Mobile',
         '0M'  => 'Mecool',
         'MC'  => 'Mediacom',
         'MK'  => 'MediaTek',
