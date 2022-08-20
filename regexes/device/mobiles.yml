@@ -1888,7 +1888,7 @@ Acer:
 
 # Advan or advan digital
 Advan:
-  regex: '(?:ADVAN (?:M4|S40|T5C)|i7U|S45E|S50H|I7D|i55[KD]|i4U|S7D|S4Z|i5[KE]|S5E[ _]NXT|S5J\+|S4\+|1011|E1C_3G)(?:[);/ ]|$)| (?:5505|5202|50(?:[46]1|5[89]|62)|600[24])(?: Build|[;)])'
+  regex: '(?:ADVAN (?:M4|S40|T5C)|i7U|S45E|S50H|I7D|i55[KD]|i4U|S7D|S4Z|i5[KE]|S5E[ _]NXT|S5J\+|S4\+|1011|E1C_3G)(?:[);/ ]|$)| (?:5505|5202|50(?:[46]1|5[89]|62)|600[24]|Android [56].*; (?:i5C|i7A))(?: Build|[;)])'
   device: 'smartphone'
   models:
     - regex: 'ADVAN M4'
@@ -1911,14 +1911,14 @@ Advan:
       model: 'G2 Pro'
     - regex: ' 6002(?: Build|[;)])'
       model: 'G3 Pro'
-    - regex: '(S45E|50[46]1|505[89]|5062|S50H|I7D|S7D|S4Z|S5J\+|S4\+)(?:[);/ ]|$)'
+    - regex: '(S45E|50[46]1|505[89]|5062|S50H|I7D|S7D|S4Z|S5J\+|S4\+|i5C)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'E1C_3G'
       device: 'tablet'
       model: 'E1C 3G'
-    - regex: 'T5C(?:[);/ ]|$)'
+    - regex: '(T5C|i7A)(?:[);/ ]|$)'
       device: 'tablet'
-      model: 'T5C'
+      model: '$1'
     - regex: 'ADVAN 1011(?:[);/ ]|$)'
       device: 'tablet'
       model: 'Sketsa 2'
@@ -9579,7 +9579,7 @@ Hyundai:
       model: 'E$1'
     - regex: 'L(553|601F)(?:[);/ ]|$)'
       model: 'L$1'
-    - regex: '(?:Hyundai_)?(Eternity_(?:G57L?|G[56]0W?))'
+    - regex: '(?:Hyundai[_ ])?(Eternity_(?:G57L?|G[56]0W?)|H7|Aero Plus)'
       model: '$1'
 
     # explicit tables models
@@ -13844,6 +13844,12 @@ Mobicel:
     - regex: 'FEVER_PLUS_([HJ])'
       device: 'tablet'
       model: 'Fever Plus $1'
+
+# iStar
+iStar:
+  regex: '(I-T60)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
 
 # Mobiistar
 Mobiistar:
@@ -20145,7 +20151,7 @@ Amazon:
 
 # Symphony
 Symphony:
-  regex: 'SYMPHONY[ \_]([a-z0-9]+)|(?:(?:roar[ _](?:V20|V78|E80|V150))|roarV95|ZVIII|V10[25]|V128|V14[012]|V1[45]5|SYMTAB\d+| (?:i97|i7[245]|i6[58]|i30|i1[58]|i120|Z30 pro|[ZR]30|V9[246789])|6.*; V75)(?:[);/ ]|$)'
+  regex: 'SYMPHONY[ \_]([a-z0-9]+)|(?:(?:roar[ _](?:V20|V78|E80|V150))|roarV95|ZVIII|V10[25]|V128|V14[012]|V1[45]5|SYMTAB\d+| (?:i97|i7[245]|i6[58]|i30|i1[58]|i120|Z30 pro|[ZR]30|V9[246789])|6.*; (?:V75|i2[015]))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'ZVIII'
@@ -20156,7 +20162,7 @@ Symphony:
       model: 'Roar $1'
     - regex: '(Z30|P7) pro'
       model: '$1 Pro'
-    - regex: ' (V141|V10[25]|V128|V14[012]|i97|i7[245]|i6[58]|i30|i1[58]|i120|V1[45]5|[ZR]30|V9[246789]|V75)(?:[);/ ]|$)'
+    - regex: ' (V141|V10[25]|V128|V14[012]|i97|i7[245]|i6[58]|i30|i1[58]|i120|V1[45]5|[ZR]30|V9[246789]|V75|i2[015])(?:[);/ ]|$)'
       model: '$1'
     - regex: 'SYMPHONY[ \_]([a-z0-9]+)'
       model: '$1'
@@ -31647,6 +31653,12 @@ Coopers:
 # Lovme
 Lovme:
   regex: 'Lovme[-_ ]([^/;)]+)(?: Build|[);])'
+  device: 'smartphone'
+  model: '$1'
+
+# Redbean
+Redbean:
+  regex: '(i-Jupiter)(?: Build|[);])'
   device: 'smartphone'
   model: '$1'
 
