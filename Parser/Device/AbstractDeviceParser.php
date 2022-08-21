@@ -1188,6 +1188,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'GQ'  => 'STG Telecom',
         'S2'  => 'Stonex',
         'ST'  => 'Storex',
+        'STR' => 'Stream',
         '71'  => 'StrawBerry',
         '96'  => 'STRONG',
         '69'  => 'Stylo',
