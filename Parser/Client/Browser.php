@@ -66,6 +66,7 @@ class Browser extends AbstractClientParser
         '1D' => 'Dragon Browser',
         '1E' => 'Easy Browser',
         'DW' => 'Dark Web Browser',
+        '18' => '18+ Privacy Browser',
         '1B' => '115 Browser',
         '2B' => '2345 Browser',
         '3B' => '360 Browser',
@@ -550,7 +551,7 @@ class Browser extends AbstractClientParser
             'C8', 'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'VS', 'DU',
             'D0', 'P1', 'O4', '8S', 'H3', 'TE', 'WB', 'K1', 'P2',
             'XO', 'U0', 'B0', 'VA', 'X0', 'NX', 'O5', 'R1', 'I1',
-            'HO', 'A5', 'I8',
+            'HO', 'A5', 'I8', '18',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -585,7 +586,7 @@ class Browser extends AbstractClientParser
         'YO', 'PK', 'MR', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
         'RF', 'LR', 'SQ', 'BV', 'L1', 'F0', 'KS', 'V0', 'C8',
         'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'DU', 'D0', 'P1',
-        'O4', 'XO', 'U0', 'B0', 'VA', 'X0', 'A5', 'I8',
+        'O4', 'XO', 'U0', 'B0', 'VA', 'X0', 'A5', 'I8', '18',
     ];
 
     /**
