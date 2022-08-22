@@ -80,6 +80,7 @@ class Browser extends AbstractClientParser
         'AH' => 'Aloha Browser Lite',
         'AM' => 'Amaya',
         'A3' => 'Amaze Browser',
+        'A5' => 'Amerigo',
         'AO' => 'Amigo',
         'AN' => 'Android Browser',
         'AE' => 'AOL Desktop',
@@ -548,7 +549,7 @@ class Browser extends AbstractClientParser
             'C8', 'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'VS', 'DU',
             'D0', 'P1', 'O4', '8S', 'H3', 'TE', 'WB', 'K1', 'P2',
             'XO', 'U0', 'B0', 'VA', 'X0', 'NX', 'O5', 'R1', 'I1',
-            'HO',
+            'HO', 'A5',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -583,7 +584,7 @@ class Browser extends AbstractClientParser
         'YO', 'PK', 'MR', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
         'RF', 'LR', 'SQ', 'BV', 'L1', 'F0', 'KS', 'V0', 'C8',
         'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'DU', 'D0', 'P1',
-        'O4', 'XO', 'U0', 'B0', 'VA', 'X0',
+        'O4', 'XO', 'U0', 'B0', 'VA', 'X0', 'A5',
     ];
 
     /**
