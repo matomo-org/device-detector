@@ -25087,9 +25087,13 @@ Sunvell:
 
 # Ugoos
 Ugoos:
-  regex: 'UGOOS-(AM[36])(?:[);/ ]|$)'
+  regex: 'UGOOS-'
   device: 'tv'
-  model: '$1'
+  models:
+    - regex: 'UGOOS-UT3 ?Plus'
+      model: 'UT3 Plus'
+    - regex: 'UGOOS-(\w{2}\d+\w?)'
+      model: '$1'
 
 # Yxtel
 Yxtel:
@@ -31521,11 +31525,15 @@ Hytera:
 
 # PIRANHA (piranha.com.tr)
 PIRANHA:
-  regex: 'PIRANHA[_ ]'
+  regex: 'PIRANHA[_ ]|(?:Ultra 4 Tab 9.0|Ultra 5 Tab White)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'Pro II Tab 7.0'
       model: 'Pro II'
+    - regex: 'Ultra 4 Tab 9.0'
+      model: 'Ultra 4'
+    - regex: 'Ultra 5 Tab White'
+      model: 'Ultra 5'
 
 # CipherLab (www.cipherlab.com)
 CipherLab:
