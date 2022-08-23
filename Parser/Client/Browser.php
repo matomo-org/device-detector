@@ -87,6 +87,7 @@ class Browser extends AbstractClientParser
         'AE' => 'AOL Desktop',
         'AD' => 'AOL Shield',
         'A4' => 'AOL Shield Pro',
+        'A6' => 'AppBrowzer',
         'AP' => 'APUS Browser',
         'AR' => 'Arora',
         'AX' => 'Arctic Fox',
@@ -554,7 +555,7 @@ class Browser extends AbstractClientParser
             'C8', 'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'VS', 'DU',
             'D0', 'P1', 'O4', '8S', 'H3', 'TE', 'WB', 'K1', 'P2',
             'XO', 'U0', 'B0', 'VA', 'X0', 'NX', 'O5', 'R1', 'I1',
-            'HO', 'A5', 'X1', '18', 'B5', 'B6', 'TC',
+            'HO', 'A5', 'X1', '18', 'B5', 'B6', 'TC', 'A6',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -590,7 +591,7 @@ class Browser extends AbstractClientParser
         'RF', 'LR', 'SQ', 'BV', 'L1', 'F0', 'KS', 'V0', 'C8',
         'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'DU', 'D0', 'P1',
         'O4', 'XO', 'U0', 'B0', 'VA', 'X0', 'A5', 'X1', '18',
-        'B5', 'B6', 'TC',
+        'B5', 'B6', 'TC', 'A6',
     ];
 
     /**
