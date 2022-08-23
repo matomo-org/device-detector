@@ -519,6 +519,7 @@ class Browser extends AbstractClientParser
         'YB' => 'Yolo Browser',
         'YO' => 'YouCare',
         'YZ' => 'Yuzu Browser',
+        'XR' => 'xBrowser',
         'XB' => 'X Browser Lite',
         'X0' => 'X-VPN',
         'X1' => 'xBrowser Pro Super Fast',
