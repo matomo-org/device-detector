@@ -258,7 +258,6 @@ class Browser extends AbstractClientParser
         'IW' => 'Iceweasel',
         'IN' => 'Inspect Browser',
         'IE' => 'Internet Explorer',
-        'I8' => 'Internet Browser Private',
         'I7' => 'Internet Browser Secure',
         'I5' => 'Indian UC Mini Browser',
         'IM' => 'IE Mobile',
@@ -510,6 +509,7 @@ class Browser extends AbstractClientParser
         'YO' => 'YouCare',
         'YZ' => 'Yuzu Browser',
         'X0' => 'X-VPN',
+        'X1' => 'xBrowser Pro Super Fast',
         'XS' => 'xStand',
         'XI' => 'Xiino',
         'XO' => 'Xooloo Internet',
@@ -553,7 +553,7 @@ class Browser extends AbstractClientParser
             'C8', 'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'VS', 'DU',
             'D0', 'P1', 'O4', '8S', 'H3', 'TE', 'WB', 'K1', 'P2',
             'XO', 'U0', 'B0', 'VA', 'X0', 'NX', 'O5', 'R1', 'I1',
-            'HO', 'A5', 'I8', '18', 'B5', 'B6',
+            'HO', 'A5', 'X1', '18', 'B5', 'B6',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -588,7 +588,7 @@ class Browser extends AbstractClientParser
         'YO', 'PK', 'MR', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
         'RF', 'LR', 'SQ', 'BV', 'L1', 'F0', 'KS', 'V0', 'C8',
         'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'DU', 'D0', 'P1',
-        'O4', 'XO', 'U0', 'B0', 'VA', 'X0', 'A5', 'I8', '18',
+        'O4', 'XO', 'U0', 'B0', 'VA', 'X0', 'A5', 'X1', '18',
         'B5', 'B6',
     ];
 
