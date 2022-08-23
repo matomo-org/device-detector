@@ -66,6 +66,7 @@ class Browser extends AbstractClientParser
         '1D' => 'Dragon Browser',
         '1E' => 'Easy Browser',
         'DW' => 'Dark Web Browser',
+        '18' => '18+ Privacy Browser',
         '1B' => '115 Browser',
         '2B' => '2345 Browser',
         '3B' => '360 Browser',
@@ -80,6 +81,7 @@ class Browser extends AbstractClientParser
         'AH' => 'Aloha Browser Lite',
         'AM' => 'Amaya',
         'A3' => 'Amaze Browser',
+        'A5' => 'Amerigo',
         'AO' => 'Amigo',
         'AN' => 'Android Browser',
         'AE' => 'AOL Desktop',
@@ -108,6 +110,7 @@ class Browser extends AbstractClientParser
         'BS' => 'Baidu Spark',
         'BI' => 'Basilisk',
         'BV' => 'Belva Browser',
+        'B5' => 'Beyond Private Browser',
         'BE' => 'Beonex',
         'B2' => 'Berry Browser',
         'BT' => 'Bitchute Browser',
@@ -115,6 +118,7 @@ class Browser extends AbstractClientParser
         'B0' => 'Bloket',
         'BJ' => 'Bunjalloo',
         'BL' => 'B-Line',
+        'B6' => 'Black Lion Browser',
         'BU' => 'Blue Browser',
         'BO' => 'Bonsai',
         'BN' => 'Borealis Navigator',
@@ -505,6 +509,7 @@ class Browser extends AbstractClientParser
         'YO' => 'YouCare',
         'YZ' => 'Yuzu Browser',
         'X0' => 'X-VPN',
+        'X1' => 'xBrowser Pro Super Fast',
         'XS' => 'xStand',
         'XI' => 'Xiino',
         'XO' => 'Xooloo Internet',
@@ -548,7 +553,7 @@ class Browser extends AbstractClientParser
             'C8', 'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'VS', 'DU',
             'D0', 'P1', 'O4', '8S', 'H3', 'TE', 'WB', 'K1', 'P2',
             'XO', 'U0', 'B0', 'VA', 'X0', 'NX', 'O5', 'R1', 'I1',
-            'HO',
+            'HO', 'A5', 'X1', '18', 'B5', 'B6',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -583,7 +588,8 @@ class Browser extends AbstractClientParser
         'YO', 'PK', 'MR', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
         'RF', 'LR', 'SQ', 'BV', 'L1', 'F0', 'KS', 'V0', 'C8',
         'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'DU', 'D0', 'P1',
-        'O4', 'XO', 'U0', 'B0', 'VA', 'X0',
+        'O4', 'XO', 'U0', 'B0', 'VA', 'X0', 'A5', 'X1', '18',
+        'B5', 'B6',
     ];
 
     /**
