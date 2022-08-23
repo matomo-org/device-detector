@@ -247,6 +247,7 @@ class Browser extends AbstractClientParser
         'HI' => 'Hi Browser',
         'HO' => 'hola! Browser',
         'HJ' => 'HotJava',
+        'HT' => 'HTC Browser',
         'HU' => 'Huawei Browser Mobile',
         'HP' => 'Huawei Browser',
         'H3' => 'HUB Browser',
@@ -571,7 +572,7 @@ class Browser extends AbstractClientParser
             'XO', 'U0', 'B0', 'VA', 'X0', 'NX', 'O5', 'R1', 'I1',
             'HO', 'A5', 'X1', '18', 'B5', 'B6', 'TC', 'A6', '2X',
             'F4', 'YG', 'WR', 'NA', 'DM', '1M', 'A7', 'XN', 'XT',
-            'XB', 'W1',
+            'XB', 'W1', 'HT',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -608,7 +609,7 @@ class Browser extends AbstractClientParser
         'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'DU', 'D0', 'P1',
         'O4', 'XO', 'U0', 'B0', 'VA', 'X0', 'A5', 'X1', '18',
         'B5', 'B6', 'TC', 'A6', '2X', 'F4', 'YG', 'WR', 'NA',
-        'DM', '1M', 'A7', 'XN', 'XT', 'XB', 'W1',
+        'DM', '1M', 'A7', 'XN', 'XT', 'XB', 'W1', 'HT',
     ];
 
     /**
