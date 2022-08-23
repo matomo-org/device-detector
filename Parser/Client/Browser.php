@@ -371,6 +371,7 @@ class Browser extends AbstractClientParser
         'O3' => 'OpenFin',
         'O4' => 'Open Browser',
         '4U' => 'Open Browser 4U',
+        '5G' => 'Open Browser fast 5G',
         'OW' => 'OmniWeb',
         'OT' => 'Otter Browser',
         'PL' => 'Palm Blazer',
