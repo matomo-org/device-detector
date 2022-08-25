@@ -5894,7 +5894,7 @@ Desay:
 
 # DEXP (dexp.club)
 DEXP:
-  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|Larus_TV1|Ixion(?:ML4.7|ES250)|M150Storm|(?:SENIOR|F4[38]D8000K|VA(?:[12]10|170)|ML450|MS[56]50|BL(?:[123]50|160|155)|BS(?:155|160|[1256]50)|(?<!ILIUM )S(?:3[78]0|2[89]0|670)|AL(?:[12]40|[23]50)|AS(?:155|[123]60)| (?:H[12]10|H270|L470|N280i|P310|P380i?|R1[18]0|Q110|E1[78]0|E[12]10|B(?:450|340|35[05])|M445|M[12]10|T155|U43F8000Q|A(?:1[456]0|340|[34]55)|GS15[035]|GL[23]55|G25[035]|G355|G550|G15[05]|ES750|XL150|Z[1-4]55|H[13]70|H[34]10|P510|L2[17]0)|Z250|A440|N[13]80i|(?<!Blade )L1[178]0|L3[17]0i|(?<!VOX )G450|G660|Q[123]10|Q[12]80|N[234]10|N[35]70|EX111|S[45]70|S[127]70i|A555(?! Universe)|android 10.*; (?:B[23]1|B38|B1[87])|android 9.*; K(?:18|21)|android 11.*; (?:K[345]1|K[34]8))(?:[);/ ]|$)'
+  regex: 'DEXP|(?:Ursus|Ixion)[ _]([^;/)]+)|H135[ _]Build|Larus_TV1|Ixion(?:ML4.7|ES250)|M150Storm|(?:SENIOR|F4[38]D8000K|VA(?:[12]10|170)|ML450|MS[56]50|BL(?:[123]50|160|155)|BS(?:155|160|[1256]50)|(?<!ILIUM )S(?:3[78]0|2[89]0|670)|AL(?:[12]40|[23]50)|AS(?:155|[123]60)| (?:H[12]10|H270|L470|N280i|P310|P380i?|R1[18]0|Q110|E1[78]0|E[12]10|B(?:450|340|35[05])|M445|M[12]10|T155|U43F8000Q|A(?:1[456]0|340|[34]55)|GS15[035]|GL[23]55|G25[035]|G355|G550|G15[05]|ES750|XL150|Z[1-4]55|H[13]70|H[34]10|P510|L2[17]0)|Z250|A440|N[13]80i|(?<!Blade )L1[178]0|L3[17]0i|(?<!VOX )G450|G660|Q[123]10|Q[12]80|N[234]10|N[35]70|EX111|S[45]70|S[127]70i|A555(?! Universe)|android 10.*; (?:B[23]1|B38|B1[87])|android 9.*; (?:K18|K21|B11)|android 11.*; (?:K[345]1|K[34]8))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(?:DEXP_)?(ML450|MS[56]50|ES750|XL150|ES1050)(?:[);/ ]|$)'
@@ -5927,7 +5927,7 @@ DEXP:
     - regex: 'Ursus[ _]([^;/)]+)(?: Build|[);])'
       model: 'Ursus $1'
       device: 'tablet'
-    - regex: ' (K[2345]1|K[34]8|[KB]18|B[23]1|B17|B38)(?:[);/ ]|$)'
+    - regex: ' (K[2345]1|K[34]8|[KB]18|B[23]1|B17|B38|B11)(?:[);/ ]|$)'
       model: '$1'
       device: 'tablet'
     - regex: '(VA[21]10|VA170|E210|R1[18]0|Q110|M[12]10|N280i|P380i?|P[35]10|S2[89]0|S3[78]0|S[456]70|H[12]10|H[123]70|H[34]10|L1[178]0|L2[17]0|N[13]80i|N[234]10|E1[178]0|Q[123]10|Q[12]80|EX111|N[35]70|L3[17]0i|L470|S[127]70i)(?:[);/ ]|$)'
@@ -29299,7 +29299,7 @@ Kyowon:
 
 # LT Mobile or LT Electronics (lt-smartphone.com or lt-yemen.com)
 LT Mobile:
-  regex: 'LT[ _-](?:NOTE 10[SM]|NOTE 30|C1500|C3[135]00|S10[ _]Lite|S10)'
+  regex: 'LT[ _-](?:NOTE 10[SM]|NOTE 30|C1500|C3[135]00|S10[ _]Lite|S10)|(?:C3[67]00)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'LT[- ]NOTE ([13]0[SM]?)'
@@ -29308,6 +29308,10 @@ LT Mobile:
       model: 'P9'
     - regex: 'LT[ _-]C3500'
       model: 'P10 Plus'
+    - regex: '(?:LT[ _-])?C3600'
+      model: 'P20'
+    - regex: '(?:LT[ _-])?C3700'
+      model: 'P30'
     - regex: 'LT[ _-](C3300|C1500)'
       model: '$1'
     - regex: 'LT[ _]S10[ _]Lite'
@@ -31849,6 +31853,14 @@ Unblock Tech:
       model: 'S900 Pro BT'
     - regex: 'S900_Pro'
       model: 'S900 Pro'
+
+# Chainway (www.chainway.net)
+Chainway:
+  regex:  ' (?:C66)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: ' (C66)'
+      model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:

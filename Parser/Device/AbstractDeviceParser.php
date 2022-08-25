@@ -271,6 +271,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CG'  => 'Cellution',
         '62'  => 'Centric',
         'C2'  => 'Changhong',
+        'CHA' => 'Chainway',
         'CH'  => 'Cherry Mobile',
         'C3'  => 'China Mobile',
         'U9'  => 'China Telecom',
