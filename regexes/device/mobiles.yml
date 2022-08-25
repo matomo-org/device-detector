@@ -11732,7 +11732,7 @@ LCT:
 
 # Leagoo
 Leagoo:
-  regex: '(?:MY)?LEAGOO[ _-]?|(?:XRover(?: C)?|Shark 5000|M5 EDGE|KIICAA (POWER|MIX)|Leapad[ _](?:X|7s|7Pro)|Alfa [125]|Elite [15]|Venture 1|Z10-E|M9 Pro|Power 5|Power[ _]2(?: Pro)?|Android 9.+ M1[23]|Lead 3| T5c)(?:[);/ ]|$)'
+  regex: '(?:MY)?LEAGOO[ _-]?|(?:XRover(?: C)?|Shark (5000|1|6300)|M5 EDGE|KIICAA (POWER|MIX)|Leapad[ _](?:X|7s|7Pro)|Alfa [125]|Elite [15]|Venture 1|Z10-E|M9 Pro|Power 5|Power[ _]2(?: Pro)?|Android 9.+ M1[23]|Lead 3| T5c)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(?:LEAGOO[- _])?M([89])[_-]?Pro(?:[);/ ]|$)'
@@ -11749,8 +11749,8 @@ Leagoo:
       model: 'KICCAA Mix'
     - regex: 'Elite ([15])(?:[);/ ]|$)'
       model: 'Elite $1'
-    - regex: 'Shark 5000(?:[);/ ]|$)'
-      model: 'Shark 5000'
+    - regex: 'Shark (1|5000|6300)(?:[);/ ]|$)'
+      model: 'Shark $1'
     - regex: 'Power 2 Pro(?:[);/ ]|$)'
       model: 'Power 2 Pro'
     - regex: '(?:leagoo-)?Power[ _]([25])(?:[);/ ]|$)'
@@ -14685,6 +14685,16 @@ Navon:
       device: 'tablet'
       model: 'Vision Tab $1'
 
+# C5 Mobile
+C5 Mobile:
+  regex: '(?:noa X2 Plus|noaXPower)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'noa X2 Plus'
+      model: 'Noa X2 Plus'
+    - regex: 'noaXPower'
+      model: 'Noa X Power'
+
 # NOA or NOA Mobile (noa-mobile.eu)
 NOA:
   regex: '(?:NOA-)?NOA[ _]|Hummer(?:_2019_R|LE)|NextSE|Vivo 4G_r|SPRINT4G|SparkSE'
@@ -14698,6 +14708,8 @@ NOA:
       model: 'Hummer R (2019)'
     - regex: 'NOA[_ ]Hummer[_ ]Lite'
       model: 'Hummer Lite'
+    - regex: 'NOA[_ ]HUMMER'
+      model: 'Hummer'
     - regex: 'NOA[_ ]MOVEse'
       model: 'Move SE'
     - regex: 'NextSE'
@@ -15340,15 +15352,13 @@ Odys:
     - regex: 'Odys[ _-]([^/;]+) Build'
       model: '$1'
 
-# Obi
+# Obi or Obi Worldphone
 Obi:
-  regex: 'Obi[ _-]|(SJ1\.5|SJ2\.6|(?<!verykool )S(400|452\+|45[13]|50[127]|503\+?|520|55[01])|falcon)[ _]'
+  regex: 'Obi[ _-]|(?:(SJ1\.5|SJ2\.6|(?<!verykool )S(400|452\+|45[13]|50[127]|503\+?|520|55[01])|falcon)[ _]|SJ1-5|SJ[23]\.2)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'SJ2\.6'
-      model: 'SJ2.6'
-    - regex: 'SJ1\.5'
-      model: 'SJ1.5'
+    - regex: 'SJ(\d)[.-](\d)'
+      model: 'SJ$1.$2'
     - regex: '(?:Obi_)?S400'
       model: 'Skipper'
     - regex: '(?:Obi_)?S451|falcon'
@@ -18518,6 +18528,12 @@ Selfix:
       model: 'ES732 Experius'
     - regex: 'SELFIX_Q5_URBAN'
       model: 'Q5 Urban'
+    - regex: 'SELFIX_Q3_REBEL'
+      model: 'Q3 Rebel'
+    - regex: 'SELFIX_Q6_STALLION'
+      model: 'Q6 Stallion'
+    - regex: 'SELFIX_V41_PRO_MARDIGRAS'
+      model: 'V41 Pro Mardigras'
 
 # Sencor (sencor.cz or sencor.com)
 Sencor:

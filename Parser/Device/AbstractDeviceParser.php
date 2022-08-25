@@ -294,6 +294,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'C8'  => 'Concord',
         'CC'  => 'ConCorde',
         'C5'  => 'Condor',
+        'C5M' => 'C5 Mobile',
         '4C'  => 'Conquest',
         '3C'  => 'Contixo',
         '8C'  => 'Connex',
