@@ -1944,7 +1944,7 @@ Advan:
 
 # Advance (advanceperu.com)
 Advance:
-  regex: 'Hollogram|(?:HL(?:4936|6246|5576|[56]575|5[67]67|9000)|IntroTr3544|Pr(?:61(?:4[56]|50)|60[27]0|5[69]50)|Tr3845|SP[345]701)(?:[);/ ]|$)'
+  regex: 'Hollogram|(?:HL(?:4936|6246|5576|[56]575|5[67]67|7257|9000)|IntroTr3544|Pr(?:61(?:4[56]|50)|60[27]0|5[69]50)|Tr3845|SP[345]701)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit table models
@@ -1958,7 +1958,7 @@ Advance:
       model: 'Prime PR$1'
       device: 'tablet'
     # explicit smartphone models
-    - regex: 'HL(4936|6246|[56]575|5576|5[67]67|9000)'
+    - regex: 'HL(4936|6246|[56]575|5576|5[67]67|7257|9000)'
       model: 'Hollogram HL$1'
     - regex: 'Hollogram ([^;/)]+)(?: Build|[;)])'
       model: 'Hollogram $1'
@@ -26855,7 +26855,7 @@ Finlux:
 
 # FireFly Mobile
 FireFly Mobile:
-  regex: '(?:AURII[ _](?:Passion|Virtuoso|RAZOR|ULTRA|Secret Lite|AMUSE[_ ]3G|FORCE|FUSION|F8[_ ]Premium|XCITE|DELIGHT|DREAM[_ ](?:MINI|One))|SECRET_XR?|INTENSE[ _](?:POWER|METAL_2|XT)|SUPER SWEET|SWEET MINI|Dream_One_8|INSPIRE_4G)(?:[);/ ]|$)'
+  regex: '(?:AURII[ _](?:Passion|Virtuoso|RAZOR|ULTRA|Secret Lite|AMUSE[_ ]3G|FORCE|FUSION|F8[_ ]Premium|XCITE|DELIGHT|DREAM[_ ](?:MINI|One))|SECRET_XR?|INTENSE[ _](?:POWER|METAL_2|XT)|SUPER SWEET|SWEET MINI|Dream_One_8|INSPIRE_4G|S90_Q)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'AURII[ _]FORCE(?:[);/ ]|$)'
@@ -26894,6 +26894,8 @@ FireFly Mobile:
       model: 'Sweet Mini'
     - regex: 'Inspire_4G'
       model: 'Inspire 4G'
+    - regex: '(S90_Q)(?:[);/ ]|$)'
+      model: '$1'
 
 # FISE (http://www.fise.com.cn/)
 FISE:
@@ -30708,13 +30710,13 @@ VEON:
 
 # FiGi (figi-mobile.com)
 FiGi:
-  regex: '(?:Note_(?:[37]|11)_Pro|Note_1_Lite|Nopal|Mtwo)(?:[);/ ]|$)|Android 8.*; Fj(?: Build|[;)])'
+  regex: '(?:Note_(?:[37]|11)_Pro|Note_1_Lite|Nopal|Mtwo|Gtwo)(?:[);/ ]|$)|Android 8.*; Fj(?: Build|[;)])'
   device: 'smartphone'
   models:
     - regex: 'Nopal'
       model: 'Nopal'
-    - regex: 'Mtwo'
-      model: 'Mtwo'
+    - regex: '(M|G)two'
+      model: '$1two'
     - regex: ' Fj(?: Build|[;)])'
       model: 'Fj'
     - regex: 'Note_([37]|11)_Pro'
@@ -31600,10 +31602,12 @@ HexaByte:
 
 # HiKing
 HiKing:
-  regex: 'HIKING[_ ]'
+  regex: 'HIKING[_ ]|(?:HK-MH501)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'HIKING[_ ]([^/;)]+)(?: Build|[);])'
+      model: '$1'
+    - regex: 'HK-(MH501)'
       model: '$1'
 
 # Hytera
@@ -31819,6 +31823,16 @@ Pritom:
       model: 'M10 Air'
     - regex: 'M10_PLUS'
       model: 'M10 Plus'
+
+# Unblock Tech
+Unblock Tech:
+  regex: '(?:S900PROBT|S900_Pro)(?:[);/ ]|$)'
+  device: 'tv'
+  models:
+    - regex: 'S900PROBT'
+      model: 'S900 Pro BT'
+    - regex: 'S900_Pro'
+      model: 'S900 Pro'
 
 # Devices with undectable brand, but detectable model
 Unknown:
