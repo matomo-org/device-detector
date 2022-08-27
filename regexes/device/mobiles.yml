@@ -3472,7 +3472,7 @@ Bitel:
 
 # Blu
 Blu:
-  regex: 'BLU[ _]|(?:blu|Dash)[ _]([^/;)]+)(?: Build|[;)])|(?:Studio[ _](G3|J8M|X12|5.0K|5.5|View XL|Mega|C 8\+8|[CGM][ _]HD|G2 HD|G4|[CGX]|SELFIE|Selfie LTE|Touch|M5 Plus|J[1258]|X8 HD|X10\+?|XL(?: 2)?)|Advance (4.0 ?[LM]|5.[02](?: HD)?|A4|L[45])|M6 2021|ENERGY (DIAMOND|XL)|ENERGY[_ ]DIAMOND[_ ]MINI|Energy X 2|LIFE XL|B110DL|Dash (?:X[2L]|L3)|PURE (?:X[LR]|MINI|View)|Life One X2|G50 (?:Mega|Plus)|G51 Plus|G90(?: PRO)?|G91 Pro|GRAND (?:M3|Max|5.5 HD|XL LTE|Mini|Energy)|R1 (?:HD|PLUS)|R2 (?:LTE|Plus)|Tank Xtreme [45].0|Tank Xtreme(?: Pro)?|Touchbook M7 Pro|DASH X PLUS|C[456] 2019|BOLD (?:M7|N1)|B1[34]0DL|Vivo (?:5 Mini|One Plus|5R|XL[234]| Plus|8L|XI[+]?|GO)|(?<!Neffos )C[56]L(?: 2020)?|C6 2020|G9 PRO|D701|VIEW 1|B131DL|R2 3G)(?:[);/ ]|$)'
+  regex: 'BLU[ _]|(?:blu|Dash)[ _]([^/;)]+)(?: Build|[;)])|(?:Studio[ _](G3|J8M|X12|5.0K|5.5|View XL|Mega|C 8\+8|[CGM][ _]HD|G2 HD|G4|[CGX]|SELFIE|Selfie LTE|Touch|M5 Plus|J[1258]|X8 HD|X10\+?|XL(?: 2)?)|Advance (4.0 ?[LM]|5.[02](?: HD)?|A4|L[45])|M6 2021|ENERGY (DIAMOND|XL)|ENERGY[_ ]DIAMOND[_ ]MINI|Energy X 2|LIFE XL|B110DL|Dash (?:X[2L]|L3)|PURE (?:X[LR]|MINI|View)|Life One X2|G50 (?:Mega|Plus)|G51 Plus|G90(?: PRO)?|G91 Pro|GRAND (?:M3|Max|5.5 HD|XL LTE|Mini|Energy)|R1 (?:HD|PLUS)|R2 (?:LTE|Plus)|Tank Xtreme [45].0|Tank Xtreme(?: Pro)?|Touchbook M7 Pro|DASH X PLUS|C[456] 2019|BOLD (?:M7|N1)|B1[34]0DL|Vivo (?:5 Mini|One Plus|5R|XL[234]| Plus|8L|XI[+]?|GO)|(?<!Neffos )C[56]L(?: 2020)?|C6 2020|G9 PRO|D701|VIEW 1|B131DL|R2 3G|Grand (?:M2X?|XL|M2 LTE))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Advance (4.0 ?[LM]|4.0|5.[02](?: HD)?|A4|L[54])'
@@ -3505,6 +3505,10 @@ Blu:
       model: 'Energy Diamond'
     - regex: 'Grand Energy'
       model: 'Grand Energy'
+    - regex: 'Grand M2 LTE'
+      model: 'Grand M2 LTE'
+    - regex: 'Grand (M2X?|XL)'
+      model: 'Grand $1'
     - regex: 'ENERGY XL'
       model: 'Energy XL'
     - regex: 'Energy X 2'
@@ -15356,7 +15360,7 @@ Odys:
 
 # Obi or Obi Worldphone
 Obi:
-  regex: 'Obi[ _-]|(?:(SJ1\.5|SJ2\.6|(?<!verykool )S(400|452\+|45[13]|50[127]|503\+?|520|55[01])|falcon)[ _]|SJ1-5|SJ[23]\.2)(?:[);/ ]|$)'
+  regex: 'Obi[ _-]|SJ1\.5|SJ2\.6|(?<!verykool )S(400|452\+|45[13]|50[127]|503\+?|520|55[01])|falcon[ _]|SJ1-5|SJ[23]\.2'
   device: 'smartphone'
   models:
     - regex: 'SJ(\d)[.-](\d)'
@@ -19625,11 +19629,13 @@ Maximus:
 
 # Quantum
 Quantum:
-  regex: '(?:Quantum (?:Fit|Five|UP|MUV (?:PRO|UP)|Go|Mini|M|V|You [2E])|Q20|LIO\+|Q-TITANO(_007i|-H2)?|Q-Pulse70M|Q-Wave(?:101|71M))(?:[);/ ]|$)'
+  regex: '(?:Quantum (?:Fit|Five|UP|MUV (?:PRO|UP)|Go|Mini|M|V|You [2E])|GO 2|Q20|LIO\+|Q-TITANO(_007i|-H2)?|Q-Pulse70M|Q-Wave(?:101|71M))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'LIO\+(?:[);/ ]|$)'
       model: 'Lio Plus'
+    - regex: 'GO 2(?:[);/ ]|$)'
+      model: 'Go 2'
     - regex: 'Quantum (Fit|Five|Go|Mini|M|V|You [2E]|Q20)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'Quantum MUV PRO(?:[);/ ]|$)'
@@ -24371,7 +24377,7 @@ Onix:
       model: '$1'
 
 Zuum:
-  regex: 'Zuum[ _-]|Android 6.+ UNIQ(?: Build|[);])|(?:ROCKET III?|Akus (?:PRO|[ZP]1?)|COVET|MAGNO(?:-S)?|ONIX(?: S)?|STEDI|STELLAR(?:[ _](?:Z|PRO|[MP]1|M2))?|GRAVITY [ZM]|AURA X|COVET_PRO_LITE|RONI|Android.+; LIMIT|Gravity Life|ULTRA Z)(?:[);/ ]|$)'
+  regex: 'Zuum[ _-]|Android 6.+ UNIQ(?: Build|[);])|(?:ROCKET III?|Akus (?:PRO|[ZP]1?)|COVET|MAGNO(?:-S)?|ONIX(?: S)?|STEDI|STELLAR(?:[ _](?:Z|PRO|[MP]1|M2))?|GRAVITY [ZM]|AURA X|COVET_PRO_LITE|RONI|Android.*; (?:GRANT|LIMIT)|Gravity Life|ULTRA Z)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'AKUS PRO'
@@ -24426,6 +24432,8 @@ Zuum:
       model: 'Uniq'
     - regex: 'Android.+; LIMIT(?: Build|[);])'
       model: 'Limit'
+    - regex: 'GRANT'
+      model: 'Grant'
     - regex: 'Zuum[ _-]([^;/]+) Build'
       model: '$1'
     - regex: 'Zuum[ _-]?([^;/)]+)(?:[);/ ]|$)'
@@ -27858,17 +27866,19 @@ Spark:
 
 # SPC or SPC Universe or SPC Mobile (spc.es)
 SPC:
-  regex: '(?:Gravity Max|GRAVITY 2|GRAVITY [34]G(?:_2019)?|GRAVITY_OCTACORE|SPC (?:GEN|SMART)|SPC_ALIEN(?:_STICK)?|SPC Glow9.7|Lightyear|L70_Lite|L60 Turbo|L60 Pro|FLOW 7)(?:[);/ ]|$)'
+  regex: '(?:Gravity Max|GRAVITY 2|GRAVITY [34]G(?:_2019)?|GRAVITY_OCTACORE|GRAVITY PRO|SPC (?:GEN|SMART)|SPC_ALIEN(?:_STICK)?|SPC Glow9.7|Lightyear|L70_Lite|L60 Turbo|L60 Pro|FLOW 7)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'GRAVITY_OCTACORE'
       model: 'Gravity OctaCore'
     - regex: 'GRAVITY ([34])G_2019'
       model: 'Gravity (2019) $1G'
-    - regex: 'GRAVITY 4G'
-      model: 'Gravity 4G'
+    - regex: 'GRAVITY ([34])G'
+      model: 'Gravity $1G'
     - regex: 'Gravity Max'
       model: 'Gravity Max'
+    - regex: 'GRAVITY PRO'
+      model: 'Gravity Pro'
     - regex: 'GRAVITY 2'
       model: 'Gravity 2'
     - regex: 'SPC Glow9.7'
