@@ -9600,7 +9600,7 @@ Huawei:
 
 # Hyundai
 Hyundai:
-  regex: 'Hyundai|(?:Ultra (?:Active|Air|Charm|Dream|Energy|Latitude|Link|Live|Shadow|Shine|Storm|Style|Sync|Trend|Vision|Wave)|Ultra_Vision_Plus|E(?:475|504|603)|G(?:24027|2552[34])K|W25042L|HP554O|Seoul (ECO|S8|MIX|5 Plus|9)|L503F Plus|HT0701L16|HT0703K16|HT0704K08|HT100(?:4LI?16|2W32|3X16|2W16)|Koral_8W2|HT0701W16|Eternity[_ ](?:G25|H68)|HYMI 5S Plus|7GB1|7WD1|(?:Android 9.*; [EL]553)|10LB1|L601F|10WB1)(?:[);/ ]|$)'
+  regex: 'Hyundai|(?:Ultra (?:Active|Air|Charm|Dream|Energy|Latitude|Link|Live|Shadow|Shine|Storm|Style|Sync|Trend|Vision|Wave)|Ultra_Vision_Plus|E(?:475|504|603)|G(?:24027|2552[34])K|W25042L|HP554O|Seoul (ECO|S8|MIX|5 Plus|9)|L503F Plus|HT0701L16|HT0703K16|HT0704K08|HT100(?:4LI?16|2W32|3X16|2W16)|Koral_8W2|HT0701W16|Eternity[_ ](?:G25|H68)|HYMI 5S Plus|7GB1|7WD1|(?:Android 9.*; [EL]553)|10LB1|L601F|10WB1|E601F|E503F|E465GO)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Ultra[_ ]Vision[_ ]Plus'
@@ -9633,7 +9633,9 @@ Hyundai:
       model: 'L503F Plus'
     - regex: 'HYMI 5S Plus'
       model: 'Hymi 5S Plus'
-    - regex: 'E(475|504|553|603)(?:[);/ ]|$)'
+    - regex: 'E465GO'
+      model: 'E465 Go'
+    - regex: 'E(475|504|503F|553|603|601F)(?:[);/ ]|$)'
       model: 'E$1'
     - regex: 'L(553|601F)(?:[);/ ]|$)'
       model: 'L$1'
@@ -12208,7 +12210,7 @@ Lenovo:
       model: 'K6'
     - regex: 'L38043(?:[);/ ]|$)'
       model: 'K9'
-    - regex: 'L38082(?:[);/ ]|$)'
+    - regex: 'L3808[23](?:[);/ ]|$)'
       model: 'K11'
     - regex: 'P2A42(?:[);/ ]|$)'
       model: 'P2'
@@ -12425,11 +12427,11 @@ LG:
       model: 'Tribute 5'
     - regex: 'LG-F570'
       model: 'Band Play'
-    - regex: 'VS980|L-01F|LG-F320L|LG-D800'
+    - regex: 'VS980|L-01F|LG-(?:F320L|D800|LS980)'
       model: 'G2'
     - regex: 'LG-D6(?:18|20)'
       model: 'G2 Mini'
-    - regex: 'LG-(?:D85[012568]|AS990)|VS985|LGLS990|LGL24(?:[);/ ]|$)'
+    - regex: 'LG-(?:D85[012568]|AS990)|(?:LG-)?(?:VS985|LGLS990|LGL24)(?:[);/ ]|$)'
       model: 'G3'
     - regex: 'LG-D722'
       model: 'G3S'
@@ -12493,6 +12495,8 @@ LG:
       model: 'Magna'
     - regex: 'LGL63BL'
       model: 'Fiesta'
+    - regex: 'LGL163BL'
+      model: 'Fiesta 2'
     - regex: 'LG-(?:X15[05]|X165g)'
       model: 'Bello 2'
     - regex: 'LG-D33[15]'
@@ -28586,7 +28590,7 @@ EWIS:
 
 # Leader Phone or LP (lp.tn) or LP (TN)
 Leader Phone:
-  regex: '(Vyper|N-5[07]|N-45|LP DAISY|LP_(?:VEYRON|PRADO|Pro1|B-50)|LP T70 Lite|INFINITY_light|Alphatel_T1)(?:[);/ ]|$)'
+  regex: '(Vyper|N-5[07]|N-45|LP DAISY|LP_(?:VEYRON|PRADO|Pro1|B-50)|LP_T70|LP T70 Lite|INFINITY_light|Alphatel_T1)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'N-45 light'
@@ -28606,6 +28610,9 @@ Leader Phone:
     - regex: 'LP T70 Lite'
       device: 'tablet'
       model: 'T70 Lite'
+    - regex: 'LP_T70'
+      device: 'tablet'
+      model: 'T70'
     - regex: '(?:LP_)?(Vyper|N-5[07]|N-45|Pro1|Alphatel_T1)(?:[);/ ]|$)'
       model: '$1'
 
@@ -29294,7 +29301,7 @@ Kyowon:
 
 # LT Mobile or LT Electronics (lt-smartphone.com or lt-yemen.com)
 LT Mobile:
-  regex: 'LT[ _-](?:NOTE 10[SM]|NOTE 30|C1[45]00|C3[135]00|S10[ _]Lite|S10)'
+  regex: 'LT[ _-](?:P[89]|P10I|NOTE 10[SM]|NOTE 30|C1[45]00|C3[135]00|S10[ _]Lite|S10)'
   device: 'smartphone'
   models:
     - regex: 'LT[- ]NOTE ([13]0[SM]?)'
@@ -29311,6 +29318,10 @@ LT Mobile:
       model: 'S10 Lite'
     - regex: 'LT[ _]S10'
       model: 'S10'
+    - regex: 'LT[ _]P10I'
+      model: 'P10i'
+    - regex: 'LT[ _]P([89])(?:[);/ ]|$)'
+      model: 'P$1'
 
 # ONYX BOOX (onyx-boox.ru)
 ONYX BOOX:
@@ -31487,9 +31498,13 @@ OTTO:
 
 # Kenbo
 Kenbo:
-  regex: ' (O[76]1)(?:[);/ ]|$)'
+  regex: ' (O[76]1|E61Pro)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'E61Pro'
+      model: 'E61 Pro'
+    - regex: '(O[76]1)(?:[);/ ]|$)'
+      model: '$1'
 
 # VALEM
 VALEM:
