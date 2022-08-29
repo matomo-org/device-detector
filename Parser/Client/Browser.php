@@ -111,8 +111,10 @@ class Browser extends AbstractClientParser
         'BM' => 'Beamrise',
         'BB' => 'BlackBerry Browser',
         'H1' => 'BrowseHere',
+        'B8' => 'Browser Hup Pro',
         'BD' => 'Baidu Browser',
         'BS' => 'Baidu Spark',
+        'B9' => 'Bangla Browser',
         'BI' => 'Basilisk',
         'BV' => 'Belva Browser',
         'B5' => 'Beyond Private Browser',
@@ -132,6 +134,7 @@ class Browser extends AbstractClientParser
         'B3' => 'Browspeed Browser',
         'BX' => 'BrowseX',
         'BZ' => 'Browzar',
+        'B7' => 'Browlser',
         'BY' => 'Biyubi',
         'BF' => 'Byffox',
         'B4' => 'BF Browser',
@@ -226,6 +229,7 @@ class Browser extends AbstractClientParser
         'FN' => 'Fireweb Navigator',
         'FH' => 'Flash Browser',
         'FS' => 'Flast',
+        'F5' => 'Flyperlink',
         'FU' => 'FreeU',
         'F3' => 'Frost+',
         'FI' => 'Fulldive',
@@ -572,7 +576,7 @@ class Browser extends AbstractClientParser
             'XO', 'U0', 'B0', 'VA', 'X0', 'NX', 'O5', 'R1', 'I1',
             'HO', 'A5', 'X1', '18', 'B5', 'B6', 'TC', 'A6', '2X',
             'F4', 'YG', 'WR', 'NA', 'DM', '1M', 'A7', 'XN', 'XT',
-            'XB', 'W1', 'HT',
+            'XB', 'W1', 'HT', 'B8', 'F5', 'B9',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -609,7 +613,8 @@ class Browser extends AbstractClientParser
         'AZ', 'MM', 'BT', 'N0', 'P0', 'F3', 'DU', 'D0', 'P1',
         'O4', 'XO', 'U0', 'B0', 'VA', 'X0', 'A5', 'X1', '18',
         'B5', 'B6', 'TC', 'A6', '2X', 'F4', 'YG', 'WR', 'NA',
-        'DM', '1M', 'A7', 'XN', 'XT', 'XB', 'W1', 'HT',
+        'DM', '1M', 'A7', 'XN', 'XT', 'XB', 'W1', 'HT', 'B7',
+        'B9',
     ];
 
     /**
