@@ -5018,7 +5018,7 @@ Casper:
 
 # Cat (Caterpillar, Catphones)
 Cat:
-  regex: 'Cat ?(tablet|stargate|nova)|(?:B15Q|CAT B35|CAT-B100|S62 Pro|S48c)(?:[);/ ]|$)'
+  regex: 'Cat ?(tablet|stargate|nova)|(?:B15Q|CAT B35|CAT-B100|S62 Pro|S48c|Android 9.*; S52|Android 10; S42)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'B15Q'
@@ -5030,8 +5030,8 @@ Cat:
     - regex: 'S62 Pro'
       model: 'S62 Pro'
       device: 'smartphone'
-    - regex: 'S48c'
-      model: 'S48c'
+    - regex: ' (S48c|S[45]2)(?:[);/ ]|$)'
+      model: '$1'
       device: 'smartphone'
     - regex: 'Cat ?(?:tablet)? ?((?:Galactica|Nova|StarGate|PHOENIX)[^/;]*) Build'
       model: '$1'
@@ -9794,7 +9794,7 @@ iBerry:
 
 # iHunt
 iHunt:
-  regex: 'iHunt|One_ Love_|TIT?AN[_ ]P\d+|Like_(3|4U|3_Pro)|X300 Elite|S10_Tank_2019|S10 Tank PRO 2020|S60_Discovery_2019|AlienXLite2020|Alien X (?:Lite|Pro)|Alien_X|(?:Titan ?P6000|S[23]0 Ultra ApeX 2021|S21 Ultra 4G 2021|Like 11 Panda Pro|Like_Hi10_2021|Like Hi5|S21 Plus 2021|Like_[78]|S10 Tank 2020)(?:_EEA)?(?:[);/ ]|$)'
+  regex: 'iHunt|One_ Love_|TIT?AN[_ ]P\d+|Like_(3|4U|3_Pro)|X300 Elite|S10_Tank_2019|S10 Tank PRO 2020|S60 Discovery Plus|S60_Discovery_2019|AlienXLite2020|Alien X (?:Lite|Pro)|Alien_X|(?:Titan ?P6000|S[23]0 Ultra ApeX 2021|S21 Ultra 4G 2021|Like 11 Panda Pro|Like_Hi10_2021|Like Hi5|S21 Plus 2021|Like_[78]|S10 Tank 2020)(?:_EEA)?(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Like_Hi10_2021'
@@ -9833,6 +9833,8 @@ iHunt:
       model: 'X300 Elite'
     - regex: 'S60_Discovery_2019'
       model: 'S60 Discovery (2019)'
+    - regex: 'S60 Discovery Plus'
+      model: 'S60 Discovery Plus'
     - regex: 'S60 Discovery Pro 2022'
       model: 'S60 Discovery Pro (2022)'
     - regex: 'AlienXLite2020'
@@ -19472,12 +19474,12 @@ Qilive:
 
 # Vankyo
 Vankyo:
-  regex: 'Vankyo[_ ]|(?:QTAB1010X|S10_ROW|S20_EEA|Z4_EEA)(?:[);/ ]|$)'
+  regex: 'Vankyo[_ ]|(?:QTAB1010X|S10_ROW|S[23]0_EEA|Z4_EEA)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'Vankyo[_ ]S(10|[78])'
       model: 'MatrixPad S$1'
-    - regex: '(S20|Z4)_EEA'
+    - regex: '(S[23]0|Z4)_EEA'
       model: 'MatrixPad $1'
     - regex: 'QTAB(1010X)'
       model: 'QTab $1'
@@ -27788,10 +27790,10 @@ ELARI:
 
 # Altice
 Altice:
-  regex: 'Altice[ _]|(SX41)(?:[);/ ]|$)'
+  regex: 'Altice[ _]|(SX41|Android 9.*; (?:S32|S42|S32_Plus))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: '(SX41)(?:[);/ ]|$)'
+    - regex: ' (SX41|S32|S42|S32_Plus)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'Altice[ _](S62|S31|S43)(?:[);/ ]|$)'
       model: '$1'
