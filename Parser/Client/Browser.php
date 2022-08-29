@@ -403,6 +403,7 @@ class Browser extends AbstractClientParser
         'PT' => 'Polarity',
         'LY' => 'PolyBrowser',
         'PI' => 'PrivacyWall',
+        'P4' => 'Privacy Explorer Fast Safe',
         'P2' => 'Pi Browser',
         'P0' => 'PronHub Browser',
         'PC' => 'PSI Secure Browser',
