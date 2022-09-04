@@ -3049,7 +3049,7 @@ Assistant:
 
 # Ark (Ark Electronic Technology)
 Ark:
-  regex: '(ARK[_ -])?Benefit[_ -]([^/;]*)(?: Build|\))|Impulse[ _]P[12]|(?:EDGE A5HD|Elf_S8|ICON (R40\+|R45)|Wizard_[12]|UKOZI U5)(?:[);/ ]|$)'
+  regex: '(ARK[_ -])?Benefit[_ -]([^/;]*)(?: Build|\))|Impulse[ _]P[12]|(?:EDGE A5HD|Elf_S8|ICON (R40\+|R45)|Wizard_[12]|UKOZI U5|L925)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(?:ARK[_ -])?Benefit[_ -]([^/;]*)(?: Build|\))'
@@ -3068,6 +3068,8 @@ Ark:
       model: 'Elf S8'
     - regex: 'UKOZI U5(?:[);/ ]|$)'
       model: 'Ukozi U5'
+    - regex: 'L925(?:[);/ ]|$)'
+      model: 'Hercls L925'
 
 # Garmin-Asus
 Garmin-Asus:
@@ -13766,9 +13768,12 @@ Mio:
 
 # Miray
 Miray:
-  regex: 'MIDM[_-]|MPM[_-]'
+  regex: 'MIDM[_-]|MPM[_-]|TPM4G_WT8'
   device: 'smartphone'
   models:
+    - regex: 'TPM4G_WT8'
+      device: 'tablet'
+      model: 'TPM4G WT8'
     - regex: 'MIDM[_-]([a-z0-9]+)'
       model: 'MIDM $1'
       device: 'tablet'
@@ -31671,11 +31676,16 @@ OneClick:
     - regex: 'X-music (S)'
       model: 'X-Music $1'
 
-# D-Tech
+# D-Tech (www.d-tech.dz)
 D-Tech:
-  regex: '(D5-L)(?:[);/ ]|$)'
+  regex: '(:D5-L|DT07-TAB4G)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'DT07-TAB4G'
+      device: 'tablet'
+      model: 'DT07 Tab 4G'
+    - regex: '(D5-L)(?:[);/ ]|$)'
+      model: '$1'
 
 # nJoy or Njoy
 nJoy:
