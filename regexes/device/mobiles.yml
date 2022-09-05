@@ -3652,7 +3652,7 @@ Bluegood:
 
 # Blackview
 Blackview:
-  regex: 'Blackview|(BL8800|BV([24-9]000|8800|[46]900|(5[1589]|9[15689])00|6[1368]00)(?:[ _](?:PRO))?|(P10000(?:[ _](?:PRO))?)|omega[ _]pro|Alife[ _][PS]1|Heatwave|DM550|BV9700Pro|(?<!Lenovo[_ ])A[68]0(?:Pro)?\))|(?:SOLID 4 G2|A[86]0Plus|A80S|BL6000Pro|BL8800Pro|R6 Lite|P2Lite|A8 MAX|A30-RU|A20Pro|Android 10;(?: [\w-]+;)? Tab[89]|Android 1[12];(?: [\w-]+;)? (?:A[79]0|A70 Pro|A55 Pro|Tab 1[01]|Tab 6))(?:[);/ ]|$)'
+  regex: 'Blackview|(BL8800|BV([24-9]000|8800|[46]900|(5[1589]|9[15689])00|6[1368]00)(?:[ _](?:PRO))?|(P10000(?:[ _](?:PRO))?)|omega[ _]pro|Alife[ _][PS]1|Heatwave|DM550|BV9700Pro|(?<!Lenovo[_ ])A[68]0(?:Pro)?\))|(?:SOLID 4 G2|A[86]0Plus|A80S|BL6000Pro|BL8800Pro|R6 Lite|P2Lite|A8 MAX|A30-RU|A20Pro|Android 10;(?: [\w-]+;)? Tab[89]|Android 1[12];(?: [\w-]+;)? (?:A[79]0|A70 Pro|A55 Pro|Tab 1[01]|Tab 6)|BV500)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'A([2678]0|55) ?Pro(?:[);/ ]|$)'
@@ -5092,6 +5092,8 @@ Celkon:
       model: '2GB Xpress'
     - regex: 'CliQ2(?:[);/ ]|$)'
       model: 'CliQ 2'
+    - regex: 'Q4GPlus(?:[);/ ]|$)'
+      model: 'Q4G Plus'
     - regex: 'Android 7.+ UniQ(?: Build|[);])'
       model: 'UniQ'
     - regex: '(Campus Prime)(?:[);/ ]|$)'
@@ -14146,6 +14148,19 @@ Verssed:
   device: 'tablet'
   model: 'Motion E1.1'
 
+# Torque
+Torque:
+  regex: '(?:EGO[ _](?:Max[ _]S|Surf[_ ][iS])|DROIDZ (?:Duo|Dash|Quad|Beat TV|Avatar TV|Easy|Push i|Edge\+))(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'DROIDZ (Duo|Dash|Push i|Edge\+)'
+      device: 'tablet'
+      model: 'DROIDZ $1'
+    - regex: 'DROIDZ (Quad|Beat TV|Avatar TV|Easy)'
+      model: 'DROIDZ $1'
+    - regex: 'EGO[ _](Max[ _]S|Surf[_ ][iS])'
+      model: 'EGO $1'
+
 # motorola
 Motorola:
   regex: 'MOT(?!TO)|(?<!AN)DROID ?(?:Build|[a-z0-9]+)|portalmmm/2.0 (?:E378i|L6|L7|v3)|XOOM [^;/]*Build|XT1941-2|XT1924-9|XT1925-10|XT1965-6|XT1970-5|XT1799-2|XT1021|XT2171-3|XT2071-4|XT2175-2|XT2125-4|XT2143-1|XT2153-1|XT2201-2|XT2137-2|XT1710-08|XT180[3-5]|XT194[23]-1|XT1929-15|(?:XT|MZ|MB|ME)[0-9]{3,4}[a-z]?(?:\(Defy\)|-0[1-5])?(?:[;]? Build|\))|lineage_osprey'
@@ -14261,7 +14276,7 @@ Motorola:
     - regex: 'Moto E\(?([567])s\)?(?:[);/ ]|$)'
       model: 'Moto E$1s'
     - regex: 'Moto E(\d+)s'
-      model: 'Moro E$1s'
+      model: 'Moto E$1s'
     - regex: 'Moto E(?: Build|[;)])'
       model: 'Moto E'
     - regex: '(?:MOT-|Motorola-)?XT1030'
@@ -28205,9 +28220,11 @@ POPTEL:
 
 # Zentality (zentalityinfo.com)
 Zentality:
-  regex: 'C-723ULTRA(?:[);/ ]|$)'
+  regex: '(?:C-723ULTRA|C-70[13] ?ULTRA)(?:[);/ ]|$)'
   device: 'tablet'
-  model: 'C-723 Ultra'
+  models:
+    - regex: 'C-(\d+) ?Ultra'
+      model: 'C-$1 Ultra'
 
 # Black Bear
 'Black Bear':
