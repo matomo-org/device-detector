@@ -755,7 +755,7 @@ class Browser extends AbstractClientParser
                 $engineVersion = $browserFromUserAgent['engine_version'];
             }
 
-            if ('Atom' === $name) {
+            if ('Atom' === $name || 'Huawei Browser' === $name) {
                 $version = $browserFromUserAgent['version'];
             }
 
