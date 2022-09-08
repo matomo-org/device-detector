@@ -8313,7 +8313,7 @@ Haier:
       model: '$1'
       device: 'feature phone'
 
-# HannSpree
+# HannSpree (hannspree.eu)
 HannSpree:
   regex: '(HSG[0-9]{4})|SN97T41W|SN1AT71W\(B\)|SN70T51A|SN70T31?|T7-QC'
   device: 'tablet'
@@ -11096,6 +11096,14 @@ Kingbox:
   device: 'tv'
   model: ''
 
+# Kingstar
+Kingstar:
+  regex: 'Kingstar'
+  device: 'smartphone'
+  models:
+    - regex: 'Kingstar[-_ ]?([^;/)]+)(?: Build|[;)])'
+      model: '$1'
+
 # Kingsun
 Kingsun:
   regex: 'Kingsun[ _-]'
@@ -11163,7 +11171,7 @@ Komu:
   regex: 'Komu[_ -]'
   device: 'smartphone'
   models:
-    - regex: 'Komu[_ -]([^;/]+) Build'
+    - regex: 'Komu[_ -]([^;/)]+)(?: Build|[;)])'
       model: '$1'
     - regex: 'Komu[_ -]([a-z0-9_-]+)'
       model: '$1'
@@ -11703,6 +11711,12 @@ Land Rover:
 # iOutdoor
 iOutdoor:
   regex: 'iOutdoor (X)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
+
+# Lanin
+Lanin:
+  regex: 'lanin (T4)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
 
@@ -13299,7 +13313,7 @@ Karbonn:
       device: 'feature phone'
     - regex: 'Karbonn_([^;/)]+)'
       model: '$1'
-    - regex: 'Karbonn ([^;/]+) Build'
+    - regex: 'Karbonn ([^;/)]+)(?: Build|[);])'
       model: '$1'
     - regex: 'Karbonn ([^;/]+)/'
       model: '$1'
@@ -14537,9 +14551,11 @@ Movic:
 
 # MTN
 MTN:
-  regex: 'MTN-'
+  regex: 'MTN-|(?:Kafit V900)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
+    - regex: 'Kafit V900'
+      model: 'KaFit V900'
     - regex: 'MTN-(L860|S620)'
       model: 'Sm@rt Mini $1'
     - regex: 'MTN-8978P'
@@ -19603,15 +19619,17 @@ Quest:
 
 # QMobile or QSmart or Q-Smart (qmobile.com.pk)
 QMobile:
-  regex: 'QMobile|QTab(?!10EW)|Q-?Smart|(?:Mark [25]|E2 Noir|Noir X1S|LUNA PRO|NICE S|JazzX JS(?:[27]|10)(?: PRO)?|LT[57]00[ _]PRO|LT950|Infinity (?:Cinema 2|triple|santos|Prime 2)|Q Infinity|Hot 5|Hot Pro 2|VITA S|i7i 2020|i10[ _]20(?:20|19)|V2 2018|Z12 PRO|Smart HD Pro|V6_Metal|Rocket (?:Lite|Pro)| GLi|i6i 2020|Android 6(?:[\d.]*);(?: [\w-]+;)? S2 Pro|Android 5(?:[\d.]*);(?: [\w-]+;)? Z9 Plus|i8i Dual)(?:[);/ ]|$)'
+  regex: 'QMobile|QTab(?!10EW)|Q-?Smart|(?:Mark [25]|E2 Noir|Noir[ _](A[18]|X1S)|LUNA PRO|NICE S|JazzX JS(?:[27]|10)(?: PRO)?|LT[57]00[ _]PRO|LT950|Infinity (?:Cinema 2|triple|santos|Prime 2)|Q Infinity|Hot 5|Hot Pro 2|VITA S|i7i 2020|i10[ _]20(?:20|19)|V2 2018|Z12 PRO|Smart HD Pro|V6_Metal|Rocket (?:Lite|Pro)| GLi|i6i 2020|Android 6(?:[\d.]*);(?: [\w-]+;)? S2 Pro|Android 5(?:[\d.]*);(?: [\w-]+;)? Z9 Plus|i8i Dual)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'JazzX JS7 PRO'
       model: 'Jazz X JS7 Pro'
     - regex: 'JazzX JS(2|10)'
       model: 'Jazz X JS$1'
-    - regex: 'Noir X1S'
-      model: 'Noir X1S'
+    - regex: 'Noir A1 lite'
+      model: 'Noir A1 Lite'
+    - regex: 'Noir[ _](A[18]|X1S)(?:[);/ ]|$)'
+      model: 'Noir $1'
     - regex: 'Z9 Plus'
       model: 'Z9 Plus'
     - regex: 'A600(?:[);/ ]|$)'
@@ -21785,6 +21803,8 @@ Vestel:
       model: '5000 Dual'
     - regex: 'Vestel_5000_2gb'
       model: '5000 2GB'
+    - regex: 'Vestel[ _]5530[ _]Dual'
+      model: '5530 Dual'
     - regex: 'Vestel[ _](5000|5530)'
       model: '$1'
 
@@ -31775,7 +31795,7 @@ D-Tech:
 
 # nJoy or Njoy
 nJoy:
-  regex: ' (Deimos 7)(?:[);/ ]|$)'
+  regex: ' (Deimos 7|Kali_8)(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
 
@@ -32104,6 +32124,14 @@ Optoma:
   models:
     - regex: 'Optoma-UHD'
       model: 'UHD55'
+
+# Zinox (zinoxtechnologies.com)
+Zinox:
+  regex: 'KidsLegacyTabPro'
+  device: 'tablet'
+  models:
+    - regex: 'KidsLegacyTabPro'
+      model: 'Kids Legacy Tab Pro'
 
 # Devices with undectable brand, but detectable model
 Unknown:
