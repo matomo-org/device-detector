@@ -212,6 +212,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'B8'  => 'BIHEE',
         '1B'  => 'Billion',
         'BA'  => 'BilimLand',
+        'BIL' => 'Billow',
         'BH'  => 'BioRugged',
         'BI'  => 'Bird',
         'BT'  => 'Bitel',
