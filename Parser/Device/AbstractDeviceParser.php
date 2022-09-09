@@ -1465,6 +1465,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'YF'  => 'YU Fly',
         'Y0'  => 'YUHO',
         'YN'  => 'Yuno',
+        'YUN' => 'YUNDOO',
         'YUM' => 'YUMKEM',
         'YU'  => 'Yuandao',
         'YS'  => 'Yusun',
