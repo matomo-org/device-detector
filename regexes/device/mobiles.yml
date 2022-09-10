@@ -7718,7 +7718,7 @@ Gemini:
 
 # General Mobile (www.generalmobile.com)
 General Mobile:
-  regex: 'GM 5 Plus|GM8 go|GM [568] d|GM [86]|General Mobile 4G|GM6_Tur|GM 9 (?:Pro|Plus)|(?:e-tab 20|Android 1[012];(?: [\w-]+;)? (?:G[35]01|G[35]10|(?<!Huawei )G700)|Discovery (?:Air|Elite)|GM Discovery II| GM6|G300|G008)(?:[);/ ]|$)'
+  regex: 'General_Mobile_|GM 5 Plus|GM8 go|GM[ _][568][ _]d|GM [86]|General Mobile 4G|GM6_Tur|GM 9 (?:Pro|Plus)|(?:e-tab 20|Android 1[012];(?: [\w-]+;)? (?:G[35]01|G[35]10|(?<!Huawei )G700)|Discovery (?:Air|Elite)|GM Discovery II| GM6|G300|G008)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'GM 5 Plus'
@@ -7735,7 +7735,7 @@ General Mobile:
       model: 'GM 20'
     - regex: 'G501'
       model: 'GM 20 Pro'
-    - regex: 'GM (\d+) d'
+    - regex: 'GM[ _](\d+)[ _]d'
       model: 'GM $1D'
     - regex: 'GM6_Tur|GM ?6'
       model: 'GM 6'
@@ -7753,7 +7753,7 @@ General Mobile:
       model: 'Discovery $1'
     - regex: 'GM Discovery II'
       model: 'GM Discovery II'
-    - regex: 'General Mobile 4G Dual'
+    - regex: 'General[ _]Mobile[ _]4G[ _]Dual'
       model: '4G Dual'
     - regex: 'General Mobile 4G'
       model: '4G'
@@ -18413,6 +18413,9 @@ Samsung:
     - regex: '(?:SAMSUNG-)?(?:SM-F926|SC-55B|SCG11)'
       model: 'Galaxy Z Fold 3 5G'
       device: 'phablet'
+    - regex: '(?:SAMSUNG-)?(?:SM-F936)'
+      model: 'Galaxy Z Fold 4'
+      device: 'phablet'
     - regex: '(?:SAMSUNG-)?GT-I9060(?:[);/ ]|$)'
       model: 'Galaxy Grand Neo'
       device: 'phablet'
@@ -21119,12 +21122,15 @@ Toplux:
 
 # Touchmate (touchmate.net)
 Touchmate:
-  regex: 'TOUCHMATE|(TM-(?:MID1050WKD|MID1020A|MID794C|MID795|MID710|MID798|MID792|MID788D|SM500N|SM410|MID1010))'
+  regex: 'TOUCHMATE|(TM-(?:MID870SB|MID1050WKD|MID1020A|MID794C|MID795|MID710|MID798|MID792|MID788D|SM500N|SM410|MID1010))'
   device: 'smartphone'
   models:
     - regex: '(TM-(?:MID1020A|MID794C|MID795|MID710|MID798|MID792|MID788D|MID1010))'
       device: 'tablet'
       model: '$1'
+    - regex: 'TM-MID870SB'
+      device: 'tablet'
+      model: 'SuperMan 8"'
     - regex: 'TM-MID1050WKD'
       device: 'tablet'
       model: 'Mega Matrix 10.1" 3G'
@@ -22492,7 +22498,7 @@ X-View:
 
 # POCO (sub brand Xiaomi)
 POCO:
-  regex: '(?:POCO[ _](?:X[2-5](?:_SN)?|F2 PRO|M[324]|F3)|M2010J19C[GI]|M2007J20C[ITG]|M2012K11AG|M2006C3MI|M2004J19PI|M2102J20S[GI]|M2103K19P[IGY]|21091116AG|21061110AG|M2104K10I|211033MI|2201117P[GI]|camellian?|2201116P[GI]|21121210G|22031116AI|22021211R[GI]|22041216G|220333QPG)(?:[);/ ]|$)'
+  regex: '(?:POCO[ _](?:X[2-5](?:_SN)?|F2 PRO|M[324]|F3)|M2010J19C[GI]|M2007J20C[ITG]|M2012K11AG|M2006C3MI|M2004J19PI|M2102J20S[GI]|M2103K19P[IGY]|21091116AG|21061110AG|M2104K10I|211033MI|2201117P[GI]|camellian?|2201116P[GI]|21121210G|22031116AI|22021211R[GI]|2204121(?:6G|9PI)|220333QPG)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'POCO X2(?:[);/ ]|$)'
@@ -22507,6 +22513,8 @@ POCO:
       model: 'M$1 Pro'
     - regex: '21091116AG|M4 Pro 5G'
       model: 'M4 Pro 5G'
+    - regex: '22041219P[IG]'
+      model: 'M4 5G'
     - regex: '2201117P[GI]|POCO M4 Pro'
       model: 'M4 Pro'
     - regex: '(?:M2010J19C[GI]|POCO M3)(?:[);/ ]|$)'
@@ -24022,7 +24030,7 @@ ZTE:
       model: 'Axon 7'
     - regex: 'A2019G? Pro(?:[);/ ]|$)'
       model: 'Axon 9 Pro'
-    - regex: '(?:902ZT|A2020N3 Pro)(?:[);/ ]|$)'
+    - regex: '(?:902ZT|A2020N[23] Pro)(?:[);/ ]|$)'
       model: 'Axon 10 Pro 5G'
     - regex: 'A2020 SP(?:[);/ ]|$)'
       model: 'Axon 10s Pro 5G'
@@ -32088,6 +32096,18 @@ YUNDOO:
 # Billow Technology
 Billow:
   regex: '(MD09TV)(?:[);/ ]|$)'
+  device: 'tv'
+  model: '$1'
+
+# Dany
+Dany:
+  regex: '(Signature-S8)(?:[);/ ]|$)'
+  device: 'tablet'
+  model: '$1'
+
+# DreamStar
+DreamStar:
+  regex: 'DREAMSTAR([^/;)]+)(?: Build|[);])'
   device: 'tv'
   model: '$1'
 
