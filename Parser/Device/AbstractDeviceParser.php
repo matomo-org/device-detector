@@ -985,6 +985,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'QF'  => 'OYSIN',
         'O6'  => 'Oyyu',
         'OZ'  => 'OzoneHD',
+        'OLL' => 'Ollee',
         '7P'  => 'P-UP',
         'YP'  => 'Paladin',
         'PM'  => 'Palm',
