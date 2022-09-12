@@ -373,6 +373,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'DJ'  => 'Dragon Touch',
         'DY'  => 'Dreamgate',
         'DRE' => 'DreamTab',
+        'DTA' => 'Dtac',
         'DU'  => 'Dune HD',
         'UD'  => 'DUNNS Mobile',
         'DTE' => 'D-Tech',
