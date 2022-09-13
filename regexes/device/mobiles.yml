@@ -15198,7 +15198,7 @@ NUU Mobile:
   regex: 'NUU_|(?:(?:N(570[24]|500[12])L|S6001L|[SN]5501L)|A6L-[CG]|N5502L)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'NUU_A([13])'
+    - regex: 'NUU_A([13]L?)'
       model: 'A$1'
     - regex: 'NUU_M([32])(?:[);/ ]|$)'
       model: 'M$1'
@@ -15218,16 +15218,18 @@ NUU Mobile:
       model: 'A7L'
     - regex: 'N5502L'
       model: 'A10L'
-    - regex: '(N5001L|A6L-[CG])(?:[);/ ]|$)'
+    - regex: '(?:NUU_)?(N5001L|A6L-[CG]|Q500)(?:[);/ ]|$)'
       model: '$1'
 
-# NYX Mobile
+# NYX Mobile or NYX
 NYX Mobile:
   regex: 'NYX[ _]|(?:GLAM|ARGON|TQ14)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'NYX_A1'
       model: 'A1'
+    - regex: 'NYX[_ ]ALTER'
+      model: 'Alter'
     - regex: 'NYX_Blink'
       model: 'Blink'
     - regex: 'NYX_EGO'
@@ -15307,15 +15309,31 @@ Nvidia:
 
 # O+ (OPlus)
 O+:
-  regex: 'O\+[ _](8\.38z|8\.97|Air|Crunch|Ultra|Upsized|Venti|360 ALPHA PLUS 2.0)'
+  regex: 'O\+[ _](Presto 700 LTE|FAB GO|360|8\.(?:3[178]z|[15]2|37y|3[38]|9[12378]|1[75]|6)|Air|Grande|Crunch|Ultra|Xfinit|Upsized|Venti|EVO 4G|Sonic|360[ _]ALPHA[ _]PLUS[ _]2\.0|360[ _]HD[ _]2\.0|Stream HDTV)'
   device: 'smartphone'
   models:
-    - regex: 'O\+[ _](Crunch|Ultra 2.0|Ultra|Upsized|Venti 4G|8\.38z|8\.97)'
+    - regex: 'O\+[ _](Presto 700 LTE|Grande|Crunch|Ultra 2.0|Xfinit|Ultra Lite|Ultra|Sonic|Upsized|Venti 4G|EVO 4G|8\.(?:3[178]z|37y|3[38]|[15]2|9[12378]|1[75]|6))'
       model: '$1'
     - regex: 'O\+_AIR'
       model: 'Air'
-    - regex: 'O\+ 360 ALPHA PLUS 2.0'
+    - regex: 'O\+[ _]360[ _]HD[ _]2\.0'
+      model: '360 HD 2.0'
+    - regex: 'O\+[ _]360[ _]HD'
+      model: '360 HD'
+    - regex: 'O\+[ _]360[ _]ALPHA[ _]PLUS[ _]2\.0'
       model: '360 Alpha Plus 2.0'
+    - regex: 'O\+[ _]360 ALPHA Plus'
+      model: '360 Alpha Plus'
+    - regex: 'O\+[ _]360 ALPHA'
+      model: '360 Alpha'
+    - regex: 'O\+[ _]360'
+      model: '360'
+    - regex: 'O\+ Stream HDTV'
+      device: 'tablet'
+      model: 'Stream HDTV'
+    - regex: 'O\+ FAB GO'
+      device: 'tablet'
+      model: 'Fab Go'
 
 # o2
 O2:
@@ -27589,11 +27607,15 @@ Iris:
       device: 'tablet'
       model: '$1'
 
-# Fonos
+# Fonos (fonos.eu)
 Fonos:
-  regex: 'Fonos-(O1)(?:[);/ ]|$)'
+  regex: 'Fonos-|(?:Android 10;(?: [\w-]+;)? O3)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'Fonos-(O\d)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: '(?:Android 10;(?: [\w-]+;)? O3)(?:[);/ ]|$)'
+      model: 'O3'
 
 # Xtouch (www.xtouchtechnologies.com)
 Xtouch:
@@ -31750,11 +31772,13 @@ OTTO:
 
 # Kenbo
 Kenbo:
-  regex: ' (O[76]1|E61Pro)(?:[);/ ]|$)'
+  regex: ' (O[76]1|E61Pro|O31 Plus)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'E61Pro'
       model: 'E61 Pro'
+    - regex: 'O31 Plus'
+      model: 'O31 Plus'
     - regex: '(O[76]1)(?:[);/ ]|$)'
       model: '$1'
 
