@@ -13460,9 +13460,15 @@ Mastertech:
       model: '$1'
       device: 'tablet'
 
+# Talius
+Talius:
+  regex: '(Nitro 551)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
+
 # Maxwest
 Maxwest:
-  regex: '(?:Astro[_ ](?:Phablet_9|55?N[_ ]LTE|5 PRO|5s|[45]P|X4|5_GO_LTE|X55s?|4\.5|4|X5)|Astro6|Virtue Z5|Nitro[_ ](?:4S?|55[RC]|5[XRP]|[45] GO|4s LTE)|Gravity_(?:55?_GO|6P)|Nitro_Phablet_9s)(?:[);/ ]|$)'
+  regex: '(?:Astro[_ ](?:Phablet_9|55?N[_ ]LTE|5 PRO|5s|[45]P|X4|5_GO_LTE|X55s?|4\.5|4|X5)|Astro6|Virtue Z5|Nitro[_ ](?:4S?|55[RCM]|5[XRPM]|[45] GO|4s LTE|55[ _]LTE)|Gravity_(?:55?_GO|6P)|Nitro_Phablet_9s)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Astro[_ ](55?)N[_ ]LTE'
@@ -13489,7 +13495,7 @@ Maxwest:
       model: 'Nitro 4s LTE'
     - regex: 'Nitro[ _]4s'
       model: 'Nitro 4s'
-    - regex: 'Nitro[_ ](4|55[RC]|5[XRP])'
+    - regex: 'Nitro[_ ](4|55[RCM]|5[XRPM]|55[_ ]LTE)'
       model: 'Nitro $1'
     - regex: 'Gravity_(55?)_GO'
       model: 'Gravity $1 GO'
@@ -15131,6 +15137,9 @@ Nomi:
       model: 'Jump'
     - regex: 'Nomi[ _]i504(?:[);/ ]|$)'
       model: 'Dream'
+    - regex: 'Nomi[ _](\w+)[ _]PLUS(?:[);/ ]|$)'
+      model: '$1 Plus'
+
     - regex: 'C101010 Ultra2'
       model: 'Ultra 2'
       device: 'tablet'
@@ -31775,9 +31784,14 @@ Yuno:
 
 # Handheld or Handheld Group or Handheld Wireless (https://www.handheldgroup.com/)
 Handheld:
-  regex: '(ALGIZ_RT8)(?:[);/ ]|$)'
+  regex: '(?:ALGIZ_RT8|NAUTIZ_X2)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: '(NAUTIZ_X2)(?:[);/ ]|$)'
+      device: 'smartphone'
+      model: '$1'
+    - regex: '(ALGIZ_RT8)(?:[);/ ]|$)'
+      model: '$1'
 
 # HDC S.A (https://www.hdcsa.com.ar/)
 HDC:
@@ -32203,6 +32217,24 @@ Ollee:
   regex: 'Ollee008twoa(?:[);/ ]|$)'
   device: 'tablet'
   model: '008 TwoA'
+
+# NINETEC (www.ninetec.de)
+NINETEC:
+  regex: 'NINETEC'
+  device: 'tablet'
+  models:
+    - regex: 'UltraTab 10 Pro'
+      model: 'UltraTab 10 Pro'
+    - regex: 'Platinum 10 G3'
+      model: 'Platinum 10 G3'
+
+# NASCO
+NASCO:
+  regex: 'NASCO (?:TANGO 7)(?:[);/ ]|$)'
+  device: 'tablet'
+  models:
+    - regex: 'TANGO 7'
+      model: 'Tango 7'
 
 # Devices with undectable brand, but detectable model
 Unknown:
