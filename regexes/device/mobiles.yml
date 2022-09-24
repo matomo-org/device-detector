@@ -5881,7 +5881,7 @@ Denver:
 
 # Dell
 Dell:
-  regex: 'Dell[^a-z]|Venue|XCD35'
+  regex: 'Dell[^a-z]|Venue|XCD35|Latitude \d{4}'
   device: 'smartphone'
   models:
     - regex: 'XCD35'
@@ -5901,7 +5901,7 @@ Dell:
     - regex: '(?:Dell )?(Streak|Venue) ?([^/;]*) Build'
       model: '$1 $2'
       device: 'tablet'
-    - regex: '(?:Dell Inc./)?(XPS 13 9360|Latitude 7480)(?:[);/ ]|$)'
+    - regex: '(?:Dell Inc./)?(XPS 13 9360|Latitude (?:7480|7390))(?:[);/ ]|$)'
       device: 'desktop'
       model: '$1'
     - regex: 'Dell; ((?:Streak|Venue)[^;/\)]*)'
@@ -10274,10 +10274,10 @@ Infinix:
       model: 'Zero 2'
     - regex: 'Infinix[ _-]X552'
       model: 'Zero 3'
+    - regex: 'Infinix[ _-](?:X(?:574|602)|Zero 4 Plus)'
+      model: 'Zero 4 Plus'
     - regex: 'Infinix[ _-](?:X555|Zero 4)'
       model: 'Zero 4'
-    - regex: 'Infinix[ _-]X(?:574|602)'
-      model: 'Zero 4 Plus'
     - regex: 'Infinix[ _-]X603'
       model: 'Zero 5'
     - regex: 'Infinix[ _-]X603B'
@@ -10494,6 +10494,8 @@ Infinix:
       device: 'tablet'
       model: '$1'
     - regex: 'Infinix[ _-](X\d+)'
+      model: '$1'
+    - regex: 'Infinix[_ ]([^/;)]+)(?: Build|[);])'
       model: '$1'
     - regex: 'Infinix[ _-]([a-z0-9_\-]+)'
       model: '$1'
