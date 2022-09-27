@@ -7438,12 +7438,12 @@ Leotec:
 
 # EVPAD (https://www.evpadpro.com/ or https://evpad.com.my/)
 EVPAD:
-  regex: '(?:EVBOX-PLUS\+|EVPAD-5S)(?:[);/ ]|$)'
+  regex: '(?:EVBOX-PLUS\+|EVPAD-[35]S)(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: 'EVBOX-PLUS\+'
       model: 'EVBox Plus'
-    - regex: 'EVPAD-(5S)'
+    - regex: 'EVPAD-([35]S)'
       model: '$1'
 
 # EvroMedia
@@ -13691,7 +13691,7 @@ Mediacom:
     - regex: 'M-PP2S500[BC]?(?:[);/ ]|$)'
       model: 'PhonePad Duo S500'
       device: 'smartphone'
-    - regex: 'M[_-]PP[Ax]X(470|510|520)U(?:[);/ ]|$)'
+    - regex: 'M[_-]PP[Ax]X(470|510|555|520)U(?:[);/ ]|$)'
       model: 'PhonePad Duo X$1U'
       device: 'smartphone'
     - regex: 'M-PPxG(400|501|[457][PM]?)(?:[);/ ]|$)'
@@ -24331,6 +24331,8 @@ ZTE:
       model: 'Z331'
     - regex: 'N818S(?:[);/ ]|$)'
       model: 'N818S'
+    - regex: '(?:ZTE[_ ])?V0840(?:[);/ ]|$)'
+      model: 'Small Fresh 5'
     - regex: 'Z5031O(?:[);/ ]|$)'
       model: 'Optus X Spirit 2'
     - regex: 'P545(?:[);/ ]|$)'
@@ -24621,6 +24623,12 @@ ZTE:
     - regex: 'K87CA(?:[);/ ]|$)'
       device: 'tablet'
       model: 'Grand X View 4'
+    - regex: 'ZTE-K88(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'Trek 2' # AT&T
+    - regex: 'ZTE-K92(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'PrimeTime'
 
     - regex: 'AxonPhone ([^;/]+) Build'
       model: 'AxonPhone $1'
@@ -26562,11 +26570,13 @@ Tinai:
   device: 'smartphone'
   model: '$1'
 
-# Winds (Windsmobile)
+# Winds or Windsmobile (www.windsmobile.com.my)
 Winds:
-  regex: 'NOTE GRACE V(?:[);/ ]|$)'
+  regex: '(?:NOTE GRACE V)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: 'Note Grace V'
+  models:
+    - regex: 'NOTE GRACE V'
+      model: 'Note Grace V'
 
 # Asano
 Asano:
@@ -32088,11 +32098,15 @@ FILIX:
   device: 'smartphone'
   model: 'Ultra M FX4423'
 
-# Odotpad
+# Odotpad or DotPad
 Odotpad:
-  regex: 'FIRE_V7(?:[);/ ]|$)'
+  regex: '(?:FIRE_V7|POMELO-MAX\+)(?:[);/ ]|$)'
   device: 'tablet'
-  model: 'Dragon Fruit Fire V7'
+  models:
+    - regex: 'FIRE_V7'
+      model: 'Dragon Fruit Fire V7'
+    - regex: 'POMELO-MAX\+'
+      model: 'Pomelo Max+'
 
 # Orbsmart (www.orbsmart.de)
 Orbsmart:
@@ -32233,7 +32247,7 @@ Chainway:
 
 # Harper
 Harper:
-  regex: '(ABX-332)(?:[);/ ]|$)'
+  regex: '(ABX-332|ABX-[12]10)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
@@ -32312,6 +32326,18 @@ Dtac:
   regex: 'Dtac[_ ]?Phone[_ ]?([^/;)]+)(?: Build|[);])'
   device: 'smartphone'
   model: 'Phone $1'
+
+# Scosmos (scosmosphone.com)
+Scosmos:
+ regex: '(Pi 5\.5L)(?:[);/ ]|$)'
+ device: 'smartphone'
+ model: '$1'
+
+# QFX USA (store.qfxusa.com)
+QFX:
+  regex: '(TLW-100[BG]?)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
