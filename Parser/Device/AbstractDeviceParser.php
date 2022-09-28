@@ -359,6 +359,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'D6'  => 'Divisat',
         'X6'  => 'DIXON',
         '5D'  => 'DING DING',
+        'DIN' => 'Dinax',
         'DM'  => 'DMM',
         'DN'  => 'DNS',
         'DC'  => 'DoCoMo',

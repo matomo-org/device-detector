@@ -6566,13 +6566,20 @@ Essential:
     - regex: 'PH-1'
       model: 'PH-1'
 
-# E-tel
+# E-tel (etelmobiles.com)
 E-tel:
-  regex: 'E-tel_i250'
+  regex: 'E-tel[-_ ](?:i2[45]0|i300|i7c|N[67]|Q4|O9)'
   device: 'smartphone'
   models:
-    - regex: 'E-tel[_ ]i250'
-      model: 'i250'
+    - regex: 'E-tel[-_ ]i(7c|\d+)'
+      model: 'i$1'
+    - regex: 'E-tel[-_ ]N([67])'
+      model: 'N$1'
+    - regex: 'E-tel[-_ ]O9'
+      model: 'Curiosity O9'
+    - regex: 'E-tel[-_ ]Q4'
+      device: 'tablet'
+      model: 'Q4'
 
 # Evercoss
 Evercoss:
@@ -9648,7 +9655,7 @@ Huawei:
 
 # Hyundai
 Hyundai:
-  regex: 'Hyundai|(?:Ultra (?:Active|Air|Charm|Dream|Energy|Latitude|Link|Live|Shadow|Shine|Storm|Style|Sync|Trend|Vision|Wave)|Ultra_Vision_Plus|E(?:475|504|603)|G(?:24027|2552[34])K|W25042L|HP554O|Seoul (ECO|S8|MIX|5 Plus|9)|L503F Plus|HT0701L16|HT0703K16|HT0704K08|HT100(?:4LI?16|2W32|3X16|2W16)|Koral_8W2|HT0701W16|Eternity[_ ](?:G25|H68)|HYMI 5S Plus|7GB1|7WD1|(?:Android 9;(?: [\w-]+;)? [EL]553)|10LB1|L601F|10WB1|E601F|E503F|E465GO)(?:[);/ ]|$)'
+  regex: 'Hyundai|(?:Ultra (?:Active|Air|Charm|Dream|Energy|Latitude|Link|Live|Shadow|Shine|Storm|Style|Sync|Trend|Vision|Wave)|Ultra_Vision_Plus|E(?:475|504|603)|G(?:24027|2552[34])K|W25042L|HP554O|Seoul (ECO|S8|MIX|5 Plus|9)|L503F Plus|HT0701L16|HT0703K16|HT0704K08|HT100(?:4LI?16|2W32|3X16|2W16)|Koral_8W2|HT0701W16|Eternity[_ ](?:G25|H6[578])|HYMI 5S Plus|7GB1|7WD1|(?:Android 9;(?: [\w-]+;)? [EL]553)|10LB1|L601F|10WB1|E601F|E503F|E465GO)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Ultra[_ ]Vision[_ ]Plus'
@@ -9667,7 +9674,7 @@ Hyundai:
       model: 'Seoul $1'
     - regex: 'G25523K'
       model: 'Eternity G23'
-    - regex: 'Eternity[_ ](G25|H68)'
+    - regex: 'Eternity[_ ](G25|H6[578])'
       model: 'Eternity $1'
     - regex: 'G25524K'
       model: 'Eternity G24'
@@ -9687,7 +9694,7 @@ Hyundai:
       model: 'E$1'
     - regex: 'L(553|601F)(?:[);/ ]|$)'
       model: 'L$1'
-    - regex: '(?:Hyundai[_ ])?(Eternity_(?:G57L?|G[56]0W?)|H7|Aero Plus)'
+    - regex: '(?:Hyundai[_ ])?(Eternity[_ ](?:G57L?|G[56]0W?)|H7|Aero Plus)'
       model: '$1'
 
     # explicit tables models
@@ -25419,11 +25426,19 @@ Vinga:
 
 # Viumee (viumee.com)
 Viumee:
-  regex: '(?:SMART[_ ]EV[56]|EV7_Pro)(?:[);/ ]|$)'
+  regex: '(?:SMART[_ ]EV[56]|EV7_Pro|EV6 ELITE|EV5 X|EV7_Play| EV7)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(EV7)_Pro'
       model: '$1 Pro'
+    - regex: '(EV6) ELITE'
+      model: '$1 Elite'
+    - regex: '(EV7)_Play'
+      model: '$1 Play'
+    - regex: 'EV5 X'
+      model: 'EV5 X'
+    - regex: ' EV7(?:[);/ ]|$)'
+      model: 'EV7'
     - regex: 'SMART[_ ](EV[56])'
       model: 'Smart $1'
 
@@ -26597,11 +26612,13 @@ OzoneHD:
 
 # KZEN (kzen.me)
 Kzen:
-  regex: '(?:Ureki_U1|Victor V1|DART KZ07|REX RX)(?:[);/ ]|$)'
+  regex: '(?:Ureki_U1|Victor V1|DART KZ07|REX RX|Eva_E01)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Ureki_U1'
       model: 'Ureki U1'
+    - regex: 'Eva_E01'
+      model: 'Eva E01'
     - regex: 'Victor V1'
       model: 'Victor V1'
     - regex: 'REX RX'
@@ -29682,11 +29699,15 @@ KINGZONE:
 
 # MTech
 M-Tech:
-  regex: '(?:EROS 4G|MTECH (?:ACE9|TURBO L\d+|TEZ 4G|JAZBAA)|Foto3)(?:[);/ ]|$)'
+  regex: '(?:Eros[_ ](4G|Star|Smart)|MTECH (?:ACE9|TURBO L\d+|TEZ 4G|JAZBAA)|Foto3)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'EROS 4G'
       model: 'Eros 4G'
+    - regex: 'Eros[_ ]Star'
+      model: 'Eros Star'
+    - regex: 'Eros[_ ]Smart'
+      model: 'Eros Smart'
     - regex: 'ACE9'
       model: 'Ace 9'
     - regex: 'JAZBAA'
@@ -31742,7 +31763,7 @@ Envizen:
 
 # Denali
 Denali:
-  regex: '(DT0704K08|DT0702W08)(?:[);/ ]|$)'
+  regex: '(DT0704K08|DT070[25]W08)(?:[);/ ]|$)'
   device: 'tablet'
   model: 'E-Tab $1'
 
@@ -32291,6 +32312,12 @@ Dtac:
   regex: 'Dtac[_ ]?Phone[_ ]?([^/;)]+)(?: Build|[);])'
   device: 'smartphone'
   model: 'Phone $1'
+
+# Dinax
+Dinax:
+  regex: 'DX_TA_?(7001|SL83)(?:[);/ ]|$)'
+  device: 'tablet'
+  model: 'DX TA $1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
