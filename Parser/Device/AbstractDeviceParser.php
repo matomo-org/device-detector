@@ -400,6 +400,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ZZ'  => 'ecom',
         'E6'  => 'EE',
         'GW'  => 'EGL',
+        'EFT' => 'EFT',
         'EK'  => 'EKO',
         'EY'  => 'Einstein',
         'EM'  => 'Eks Mobility',
