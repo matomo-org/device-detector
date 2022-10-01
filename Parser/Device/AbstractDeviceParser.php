@@ -1393,6 +1393,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '9V'  => 'Vision Touch',
         'VK'  => 'VK Mobile',
         'JM'  => 'v-mobile',
+        'VHO' => 'V-HOPE',
         'V0'  => 'VKworld',
         'VM'  => 'Vodacom',
         'VF'  => 'Vodafone',
