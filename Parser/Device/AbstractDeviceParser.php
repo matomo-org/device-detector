@@ -523,6 +523,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '5G'  => 'Gocomma',
         'GB'  => 'Gol Mobile',
         'GL'  => 'Goly',
+        'GOL' => 'GoldMaster',
         'GX'  => 'GLX',
         'G5'  => 'Gome',
         'G1'  => 'GoMobile',

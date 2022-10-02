@@ -2008,9 +2008,9 @@ Airness:
   device: 'feature phone'
   model: '$1'
 
-# Aiwa (aiwa.mx)
+# Aiwa (aiwa.mx eu-aiwa.com)
 Aiwa:
-  regex: '(?:AW790|M300(?! 4G)|AWM(?:53[39]|50[19]|561|999)|AW500|Android 7(?:[\d.]*);(?: [\w-]+;)? Z9 PLUS)(?:[);/ ]|$)'
+  regex: '(?:AW790|M300(?! 4G)|AWM(?:53[39]|50[19]|561|999)|AW500|Android 7(?:[\d.]*);(?: [\w-]+;)? Z9 PLUS|JA2-SMP0601)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'AW790(?:[);/ ]|$)'
@@ -2021,6 +2021,8 @@ Aiwa:
       model: 'AW500'
     - regex: 'AWM(53[39]|50[19]|561|999)(?:[);/ ]|$)'
       model: 'AWM$1'
+    - regex: '(JA2-SMP0601)(?:[);/ ]|$)'
+      model: '$1'
     - regex: 'M300(?:[);/ ]|$)'
       model: 'M300'
       device: 'phablet'
@@ -4958,9 +4960,7 @@ bq:
     - regex: 'BQ(?:ru)?-7081(?:[);/ ]|$)'
       model: 'Charm'
       device: 'tablet'
-    - regex: '(?:bq )?(Aquaris[^/;]*) Build'
-      model: '$1'
-    - regex: 'Aquaris (VS|E(4.5|[56])|M(5|10)|U2 Lite|U2|U (Lite|Plus)|V Plus|X5 Plus|X2? Pro|X[25]|[CMUVX])'
+    - regex: '(?:bq )?Aquaris ([^/);]*)(?: Build|[);])'
       model: 'Aquaris $1'
     - regex: 'bq ([^/;]+) Build'
       model: '$1'
@@ -11216,7 +11216,7 @@ KT-Tech:
 
 # kddi
 KDDI:
-  regex: 'kddi-([a-z0-9]+)|INFOBAR A01'
+  regex: 'kddi-([a-z0-9]+)|(?:INFOBAR A01|HTX21|HTL21)(?:[);/ ]|$)'
   device: 'feature phone'
   models:
     - regex: 'kddi-([a-z0-9]+)'
@@ -11224,6 +11224,12 @@ KDDI:
     - regex: 'INFOBAR (A01)'
       device: 'smartphone'
       model: 'iida InfoBar $1'
+    - regex: 'HTX21(?:[);/ ]|$)'
+      device: 'smartphone'
+      model: 'InfoBar A02'
+    - regex: 'HTL21(?:[);/ ]|$)'
+      device: 'smartphone'
+      model: 'J Butterfly'
 
 # Kodak
 Kodak:
@@ -11950,7 +11956,7 @@ Aligator:
 
 # lenovo (lenovo.com)
 Lenovo:
-  regex: '(?:LNV-)?Lenovo|IdeaTab|IdeaPad|Thinkpad|Yoga Tablet|Tab2A[0-9]-[0-9]{2}[a-z]?|ZUK[ -_]|(?:TB2-X30L|TB3-710I|TB328FU|YT3-X50[ML]|K50a40|TB-(?:X103F|8504F|X304F|X704V|X704A)|A5500-H|A2107A-H|A3500-HV|A2109A|S6000|Z2 Plus|Vibe[ _](?:P1|S6i Plus|S[23567]i|C|[ZX]2|K5(?: Plus)?|V7)|P2A42|L38011|L18011|[5-8]01LV|[67]02LV|Z2131|K350t|K31-t3|TAB 2 A8-50LC|S90-A|A101LV|P70-A|VR-1541F|d-42A|lineage_A6020)(?:[);/ ]|$)'
+  regex: '(?:LNV-)?Lenovo|IdeaTab|IdeaPad|Thinkpad|Yoga Tablet|Tab2A[0-9]-[0-9]{2}[a-z]?|ZUK[ -_]|(?:TB2-X30L|TB3-710I|TB328FU|YT3-X50[ML]|K50a40|TB-(?:X103F|8504F|X304F|X704V|X704A)|A5500-H|A2107A-H|A3500-HV|A2109A|S6000|Z2 Plus|Vibe[ _](?:P1|S6i Plus|S[23567]i|C|[ZX]2|K5(?: Plus)?|V7)|P2A42|L38011|L18011|[5-8]01LV|[67]02LV|Z2131|K350t|K31-t3|TAB 2 A8-50LC|S90-A|A101LV|P70-A|VR-1541F|d-42A|lineage_A6020|EveryPad2)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Lenovo ?G780'
@@ -12141,6 +12147,9 @@ Lenovo:
       device: 'tablet'
     - regex: 'TB-J716F'
       model: 'XiaoXin Pad Pro 11.5" (2021)'
+      device: 'tablet'
+    - regex: 'EveryPad2'
+      model: 'Yamada Every Pad 2'
       device: 'tablet'
 
     - regex: 'S6000(?:[);/ ]|$)'
@@ -32137,9 +32146,13 @@ Lovme:
 
 # Stream or Stream System
 Stream:
-  regex: '(B3 (?:Maxi|Simply))(?:[);/ ]|$)'
+  regex: '(B3 (?:Maxi|Simply)|B3Pro)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: '(?:B3 (?:Maxi|Simply))(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'B3Pro(?:[);/ ]|$)'
+      model: 'B3 Pro'
 
 # DASS
 DASS:
@@ -32280,6 +32293,12 @@ Dtac:
   regex: 'Dtac[_ ]?Phone[_ ]?([^/;)]+)(?: Build|[);])'
   device: 'smartphone'
   model: 'Phone $1'
+
+# GoldMaster
+GoldMaster:
+  regex: 'BENGAL_6(?:[);/ ]|$)'
+  device: 'tablet'
+  model: 'Bengal 6'
 
 # Devices with undectable brand, but detectable model
 Unknown:
