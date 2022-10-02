@@ -646,6 +646,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'IV'  => 'Inverto',
         '32'  => 'Invens',
         '4I'  => 'Invin',
+        'INA' => 'iNavi',
         'I1'  => 'iOcean',
         'IP'  => 'iPro',
         'X9'  => 'iPEGTOP',
