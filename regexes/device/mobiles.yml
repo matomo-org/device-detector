@@ -751,6 +751,16 @@ Palm:
     - regex: 'Xiino|Palmscape' # Browser for Palm OS only
       model: ''
 
+# Compaq
+Compaq:
+  regex: '(?:CT101|CT1085_32GB)(?:[);/ ]|$)'
+  device: 'tablet'
+  models:
+    - regex: '(CT1085)_32GB'
+      model: '$1'
+    - regex: '(CT101)'
+      model: '$1'
+
 # HP or Hewlett-Packard
 HP:
   regex: 'Hewlett-Packard|HP/HP|HP Chromebook|HP EliteBook 820|TouchPad/\d+\.\d+|hp-tablet|HP ?iPAQ|webOS.*P160U|HP (?:Pro )?Slate|Slate 21|HP [78]|HP 10 Plus|Compaq [7|8]|HP; [^;/)]+|cm_tenderloin'
@@ -3499,7 +3509,7 @@ Bitel:
 
 # Blu
 Blu:
-  regex: 'BLU[ _]|(?:blu|(?<!DROIDZ )Dash)[ _]([^/;)]+)(?: Build|[;)])|(?:Studio[ _](G3|J8M|X12|5.0K|5.5|View XL|Mega|C 8\+8|[CGM][ _]HD|G2 HD|G4|[CGX]|SELFIE|Selfie LTE|Touch|M5 Plus|J[1258]|X8 HD|X10\+?|XL(?: 2)?)|Advance (4.0 ?[LM]|5.[02](?: HD)?|A4|L[45])|M6 2021|ENERGY (DIAMOND|XL)|ENERGY[_ ]DIAMOND[_ ]MINI|Energy X 2|LIFE XL|B110DL|Dash (?:X[2L]|L3)|PURE (?:X[LR]|MINI|View)|Life One X2|G50 (?:Mega|Plus)|G51 Plus|G90(?: PRO)?|G91 Pro|GRAND (?:M3|Max|5.5 HD|XL LTE|Mini|Energy)|R1 (?:HD|PLUS)|R2 (?:LTE|Plus)|Tank Xtreme [45].0|Tank Xtreme(?: Pro)?|Touchbook M7 Pro|DASH X PLUS|C[456] 2019|BOLD (?:M7|N1)|B1[34]0DL|Vivo (?:5 Mini|One Plus|5R|XL[234]| Plus|8L|XI[+]?|GO)|(?<!Neffos )C[56]L(?: 2020)?|C6 2020|G9 PRO|D701|VIEW 1|B131DL|R2 3G|Grand (?:M2X?|XL|M2 LTE))(?:[);/ ]|$)'
+  regex: 'BLU[ _]|(?:blu|(?<!DROIDZ )Dash)[ _]([^/;)]+)(?: Build|[;)])|(?:Studio[ _](G3|J8M|X12|5.0K|5.5|View XL|Mega|C 8\+8|[CGM][ _]HD|G2 HD|G4|[CGX]|SELFIE|Selfie LTE|Touch|M5 Plus|J[1258]|X8 HD|X10\+?|XL(?: 2)?)|Advance (4.0 ?[LM]|5.[02](?: HD)?|A4|L[45])|M6 2021|ENERGY (DIAMOND|XL)|ENERGY[_ ]DIAMOND[_ ]MINI|Energy X 2|LIFE XL|B110DL|Dash (?:X[2L]|L3)|PURE (?:X[LR]|MINI|View)|Life One X2|G50 (?:Mega|Plus)|G51 Plus|G90(?: PRO)?|G91 Pro|GRAND (?:M3|Max|5.5 HD|XL LTE|Mini|Energy)|R1 (?:HD|PLUS)|R2 (?:LTE|Plus)|Tank Xtreme [45].0|Tank Xtreme(?: Pro)?|Touchbook M7 Pro|DASH X PLUS|C[456] 2019|BOLD (?:M7|N1)|B1[34]0DL|Vivo (?:5 Mini|One Plus|5R|XL[234]| Plus|8L|XI[+]?|GO)|(?<!Neffos )C[56]L(?: 2020)?|C6 2020|G9 PRO|D701|VIEW 1|B131DL|R2 3G|Grand (?:M2X?|XL|M2 LTE)|D600|D5[01]0)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Advance (4.0 ?[LM]|4.0|5.[02](?: HD)?|A4|L[54])'
@@ -3642,6 +3652,8 @@ Blu:
       model: 'Vivo $1'
     - regex: '(?:BLU[_ ])?VIVO GO'
       model: 'Vivo Go'
+    - regex: '(?:BLU[_ ])?(D600|D5[01]0)'
+      model: '$1'
 
     - regex: 'Touchbook M7 Pro'
       model: 'Touchbook M7 Pro'
@@ -3718,7 +3730,7 @@ Blackview:
 
 # Bluboo (bluboo.tel)
 Bluboo:
-  regex: 'Bluboo|Maya Build|(?:(?<!IQM )Picasso(?: 4G)?|Xfire2?|D6 Lite|D1_Pro|D6 Pro)(?:[);/ ]|$)'
+  regex: 'Bluboo|Maya Build|(?:(?<!IQM )Picasso(?: 4G)?|Xfire2?|D6 Lite|D1_Pro|D6 Pro|Android 8(?:[\d.]*);(?: [\w-]+;)? D6)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Maya Build'
@@ -3735,7 +3747,9 @@ Bluboo:
       model: 'D$1 Pro'
     - regex: '(?:Bluboo[_ ])?S8[_ ]plus'
       model: 'S8 Plus'
-    - regex: 'Bluboo[ _-]?([^;/)]+) Build'
+    - regex: ' D6(?: Build|[;)])'
+      model: 'D6'
+    - regex: 'Bluboo[ _-]?([^;/)]+)(?: Build|[;)])'
       model: '$1'
     - regex: 'Bluboo[ _-]?([^;/)]+)'
       model: '$1'
@@ -13367,7 +13381,7 @@ Sagem:
 
 # Coby Kyros
 Coby Kyros:
-  regex: '(MID(?:1024|112[56]|1045|1048|106[05]|4331|701[26]|7015A?|70[32]2|703[56]|704[278]|7052|7065|7120|8024|80[47]2|8048|8065|8125|812[78]|9724|974[02]))(?:[);/ ]|$)'
+  regex: '(MID(?:1024|112[56]|1045|1048|106[05]|4331|701[26]|7015A?|70[32]2|703[56]|704[278]|7052|7065|7120|8024|80[47]2|8048|8065|8125|812[78]|9724|974[02])|CTB761)(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
 
@@ -25086,16 +25100,16 @@ HiHi:
     - regex: 'HIHI-(4[01])KH-TAB-0?1'
       model: '$1KH-TAB-01'
 
-# Hi (https://www.hi-online.co.za/)
+# Hi or Hi TFG (https://www.hi-online.co.za/)
 Hi:
-  regex: '(?:Boost (?:Hypa|Ultra)|HMR(?:5012|5450))(?:[);/ ]|$)'
+  regex: '(?:Boost (?:Hypa|Ultra)|HMR(?:5012|5450)|Crusader)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Boost (Hypa|Ultra)(?:[);/ ]|$)'
       model: 'Boost $1'
     - regex: 'HMR5012(?:[);/ ]|$)'
       model: 'Boost Go'
-    - regex: '(HMR5450)(?:[);/ ]|$)'
+    - regex: '(HMR5450|Crusader)(?:[);/ ]|$)'
       model: '$1'
 
 # Boost
@@ -28552,7 +28566,7 @@ Colors:
 
 # Honeywell (honeywell.com)
 Honeywell:
-  regex: '(?:EDA50K?|EDA70|EDA71_G|EDA5[12]|CK65|CT60|CN80)(?:[);/ ]|$)'
+  regex: '(?:EDA50K?|EDA70|EDA71_G|EDA5[12]|CK65|CT[46]0|CN80)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # smartphone + scan
@@ -28563,7 +28577,7 @@ Honeywell:
       device: 'tablet'
       model: 'ScanPal EDA71'
     # mobile terminal
-    - regex: '(CK65|CT60|CN80)(?:[);/ ]|$)'
+    - regex: '(CK65|CT[46]0|CN80)(?:[);/ ]|$)'
       device: 'peripheral'
       model: 'Dolphin $1'
 
