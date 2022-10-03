@@ -1185,6 +1185,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SF'  => 'Softbank',
         '9L'  => 'SOLE',
         'JL'  => 'SOLO',
+        'SOD' => 'Soda',
         '16'  => 'Solone',
         'OI'  => 'Sonim',
         'SO'  => 'Sony',
