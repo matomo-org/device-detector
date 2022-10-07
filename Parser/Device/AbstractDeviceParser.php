@@ -360,6 +360,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '9D'  => 'Ditecma',
         'D2'  => 'Digma',
         '1D'  => 'Diva',
+        'DIV' => 'DiverMax',
         'D6'  => 'Divisat',
         'X6'  => 'DIXON',
         '5D'  => 'DING DING',
