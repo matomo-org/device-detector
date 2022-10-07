@@ -1026,6 +1026,13 @@ class DeviceDetector
         }
 
         /**
+         * All devices containing TV fragment are assumed to be a tv
+         */
+        if (null === $this->device && $this->matchUserAgent('\(TV;')) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
+        }
+
+        /**
          * Set device type desktop if string ua contains desktop
          */
         $hasDesktop = AbstractDeviceParser::DEVICE_TYPE_DESKTOP !== $this->device
