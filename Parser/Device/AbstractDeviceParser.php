@@ -768,6 +768,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'L5'  => 'Leagoo',
         'U3'  => 'Leben',
         'LD'  => 'Ledstar',
+        'LEE' => 'Leelbox',
         'L1'  => 'LeEco',
         '4B'  => 'Leff',
         'LEG' => 'Legend',
