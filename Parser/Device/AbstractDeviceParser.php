@@ -348,6 +348,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'DX'  => 'DEXP',
         'DEN' => 'Denali',
         '8D'  => 'DF',
+        'DGT' => 'DGTEC',
         'DG'  => 'Dialog',
         'DI'  => 'Dicam',
         'D4'  => 'Digi',
