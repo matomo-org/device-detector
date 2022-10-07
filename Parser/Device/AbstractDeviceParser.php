@@ -1302,6 +1302,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'JY'  => 'Tigers',
         '8T'  => 'Time2',
         'TQ'  => 'Timovi',
+        'TIM' => 'TIMvision',
         '2T'  => 'Tinai',
         'TF'  => 'Tinmo',
         'TH'  => 'TiPhone',
