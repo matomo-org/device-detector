@@ -299,6 +299,10 @@ class OperatingSystem extends AbstractParser
             // but the os name is another, we use the one from user agent, as it might be more detailed
             if (self::getOsFamily($osFromUserAgent['name']) === $name && $osFromUserAgent['name'] !== $name) {
                 $name = $osFromUserAgent['name'];
+
+                if ('HarmonyOS' === $name) {
+                    $version = '';
+                }
             }
 
             $short = $osFromClientHints['short_name'];
