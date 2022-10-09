@@ -1292,6 +1292,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'T2'  => 'Telenor',
         'TE'  => 'Telit',
         '65'  => 'Telia',
+        'TEL' => 'Telma',
         'PW'  => 'Telpo',
         'TER' => 'Teracube',
         'TD'  => 'Tesco',
