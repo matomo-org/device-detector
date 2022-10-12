@@ -5231,13 +5231,15 @@ Cellution:
 
 # Changhong
 Changhong:
-  regex: 'Changhong|HON H01'
+  regex: 'Changhong|HON H01|GHONGV12'
   device: 'smartphone'
   models:
     - regex: 'Changhong[ ]?(X1-K|X6|R8|Z9S?|Z1S|S18|R9)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'HON H01'
       model: 'HONPhone H01'
+    - regex: 'GHONGV12'
+      model: 'V12'
 
     - regex: 'ChangHong Andr[o0]id TV'
       device: 'tv'
@@ -13673,13 +13675,13 @@ Mpman:
 
 # Majestic (www.newmajestic.com)
 Majestic:
-  regex: 'MAJESTIC[ _-]|CRONO ?[0-9]+|(?:TAB (?:647|411) 3G|TAB_911_3G|TAB_811_4G|TAB_912_4G|TAB-714|TAB 711 4G|URANO 47|URANO 77LTE|PLUTO__?26N?)(?:[);/ ]|$)'
+  regex: 'MAJESTIC[ _-]|CRONO ?[0-9]+|(?:TAB (?:647|411) 3G|TAB_911_3G|TAB_811_4G|TAB_912_4G|TAB-714|TAB 711 4G|URANO27|URANO 47|URANO 77LTE|PLUTO__?26N?)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'URANO 77LTE(?:[);/ ]|$)'
       model: 'Urano 77 LTE'
-    - regex: 'URANO 47(?:[);/ ]|$)'
-      model: 'Urano 47'
+    - regex: 'URANO ?([24]7)(?:[);/ ]|$)'
+      model: 'Urano $1'
     - regex: 'PLUTO__?(26N?)(?:[);/ ]|$)'
       model: 'Pluto $1'
     - regex: 'TAB[ _](647|[478]11|91[12])[ _]([34])G'
@@ -21949,6 +21951,8 @@ UMIDIGI:
       model: 'C Note 2'
     - regex: 'UMI[_ ]SUPER'
       model: 'Super'
+    - regex: 'UMI[_ ]ZERO'
+      model: 'Zero'
     - regex: 'S2 LITE'
       model: 'S2 Lite'
     - regex: 'S2_PRO'
@@ -22651,7 +22655,7 @@ WellcoM:
 
 # Wexler
 Wexler:
-  regex: 'Wexler|(?:ULTIMA 7 TWIST PLUS|TAB10iQ3G|TAB[ _]10Q)(?:[);/ ]|$)|ZEN[ _](?:4\.[57]|5)'
+  regex: 'Wexler|(?:ULTIMA 7 TWIST PLUS|ULTIMA 7|ULTIMA [78] TWIST|TAB10iQ3G|TAB[ _]10Q)(?:[);/ ]|$)|ZEN[ _](?:4\.[57]|5)'
   device: 'tablet'
   models:
     - regex: '(?:Wexler[ _\-\.])?ZEN[ _]4\.5(?:[);/ ]|$)'
@@ -22674,7 +22678,7 @@ Wexler:
       model: '$1'
     - regex: 'Wexler[ _\-\.]([^);/]+)(?:[);/]|$)'
       model: '$1'
-    - regex: '(ULTIMA 7 TWIST PLUS)(?:[);/ ]|$)'
+    - regex: '(ULTIMA 7 TWIST PLUS|ULTIMA [78] TWIST|ULTIMA 7 OCTA|ULTIMA 7)(?:[);/ ]|$)'
       model: '$1'
 
 # Inco (incomobile.com)
@@ -24142,7 +24146,7 @@ FLYCAT:
 
 # Fly
 Fly:
-  regex: 'Fly(?!Flow|touch)|Power Plus 5000|Power Plus 3|Photo Pro|Slimline|Cirrus 6|Life (?:Ace|Jet|Sky|Compact 4G|Geo|Zen|Play)|(?:lineage_)?FS50[1-9]|FS51[0-8]|FS52[0-9]|FS530|FS55[134]|FS40[1-9]|FS45[1-9]|4FS06|MERIDIAN-|(?:IQ(?!10[134]0)[0-9]{3,}[i]?)[ _]?(?:Quad|Firebird|Quattro|Turbo|Magic)?(?:[);/ ]|$)'
+  regex: '(?<!GI )Fly(?!Flow|touch)|Power Plus 5000|Power Plus 3|Photo Pro|Slimline|Cirrus 6|Life (?:Ace|Jet|Sky|Compact 4G|Geo|Zen|Play)|(?:lineage_)?FS50[1-9]|FS51[0-8]|FS52[0-9]|FS530|FS55[134]|FS40[1-9]|FS45[1-9]|4FS06|MERIDIAN-|(?:IQ(?!10[134]0)[0-9]{3,}[i]?)[ _]?(?:Quad|Firebird|Quattro|Turbo|Magic)?(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(?:Fly_)?IQ310(?:[);/ ]|$)'
@@ -30923,13 +30927,15 @@ Stylo:
 
 # galaxy innovations or GI  (www.galaxy-innovations.ru)
 Galaxy Innovations:
-  regex: 'GI (?:UNI2|iTV912)(?:[);/ ]|$)'
+  regex: 'GI (?:UNI2|iTV912|Fly T2)(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: 'GI iTV912'
       model: 'iTV912'
     - regex: 'GI UNI2'
       model: 'Uni 2'
+    - regex: 'GI Fly T2'
+      model: 'Fly T2'
 
 # Benzo
 Benzo:
@@ -33046,6 +33052,12 @@ Rizzen:
   regex: '(NovaTab_R10)(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
+
+# UE or United Education (www.ue.cn)
+UE:
+  regex: 'UE Pad 1'
+  device: 'tablet'
+  model: 'Pad 1'
 
 # Devices with undectable brand, but detectable model
 Unknown:

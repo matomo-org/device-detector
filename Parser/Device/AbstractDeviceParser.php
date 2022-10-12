@@ -464,6 +464,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'EI'  => 'Ezio',
         'EZ'  => 'Ezze',
         'UF'  => 'EYU',
+        'UE1' => 'UE',
         '5F'  => 'F150',
         'F6'  => 'Facebook',
         'FAC' => 'Facetel',
