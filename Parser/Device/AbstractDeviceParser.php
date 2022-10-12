@@ -1048,6 +1048,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'PX'  => 'Pixus',
         'QP'  => 'Pico',
         'PIR' => 'PIRANHA',
+        'PIN' => 'PINE',
         '9P'  => 'Planet Computers',
         'PY'  => 'Ployer',
         'P4'  => 'Plum',
