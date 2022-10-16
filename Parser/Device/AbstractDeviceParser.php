@@ -616,6 +616,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'HN'  => 'Hyundai',
         '7H'  => 'Hyve',
         'HYT' => 'Hytera',
+        'HYK' => 'Hykker',
         '3I'  => 'i-Cherry',
         'IJ'  => 'i-Joy',
         'IM'  => 'i-mate',
