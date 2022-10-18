@@ -5,6 +5,20 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
+# APN Browser
+- regex: 'Safari/537.36 (?:Browser|Navegador)'
+  name: 'APN Browser'
+  version: ''
+  engine:
+    default: 'Blink'
+
+# YAGI (https://play.google.com/store/apps/details?id=in.nismah.yagi)
+- regex: 'YAGI/(\d+\.[\.\d]+)'
+  name: 'YAGI'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
 # Inspect Browser (https://apps.apple.com/us/app/inspect-browser/id1203594958)
 - regex: 'InspectBrowser'
   name: 'Inspect Browser'
@@ -108,13 +122,6 @@
 - regex: 'ABB/(\d+[\.\d]+)'
   name: 'AdBlock Browser'
   version: '$1'
-  engine:
-    default: 'Blink'
-
-# Navegador
-- regex: 'Navegador'
-  name: 'Navegador'
-  version: ''
   engine:
     default: 'Blink'
 
@@ -453,6 +460,13 @@
 - regex: 'Smooz/(\d+[\.\d]+)'
   name: 'Smooz'
   version: '$1'
+
+# Bangla Browser (https://play.google.com/store/apps/details?id=com.w3engineers.banglabrowser)
+- regex: 'BanglaBrowser/(\d+\.[.\d]+)'
+  name: 'Bangla Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
 
 # Cornowser (https://github.com/xdevs23/Cornowser)
 - regex: 'Cornowser/(\d+[\.\d]+)'
@@ -888,7 +902,7 @@
   name: 'Faux Browser'
   version: '$1'
 
-# Splash (https://scrapinghub.com/splash)
+# Splash (https://www.zyte.com/splash/)
 - regex: 'splash Version(?:/(\d+[\.\d]+))?'
   name: 'Splash'
   version: '$1'
@@ -1408,12 +1422,12 @@
   version: '$1'
   engine:
     default: 'Servo'
-- regex: '(?!.*Opera[ /])Firefox(?:/(\d+[\.\d]+))?'
+- regex: '(?!.*Opera[ /])Firefox(?:[ /](\d+[\.\d]+))?'
   name: 'Firefox'
   version: '$1'
   engine:
     default: 'Gecko'
-- regex: '(?:BonEcho|GranParadiso|Lorentz|Minefield|Namoroka|Shiretoko)/(\d+[\.\d]+)'
+- regex: '(?:BonEcho|GranParadiso|Lorentz|Minefield|Namoroka|Shiretoko)[ /](\d+[\.\d]+)'
   name: 'Firefox'
   version: '$1'
   engine:
@@ -1722,7 +1736,7 @@
   version: '$1'
   engine:
     default: 'Blink'
-- regex: 'Midori(?:/(\d+[\.\d]+))?'
+- regex: 'Midori(?:[ /](\d+[\.\d]+))?'
   name: 'Midori'
   version: '$1'
   engine:
@@ -1853,7 +1867,7 @@
     versions:
       28: 'Blink'
 
-- regex: 'DuckDuckGo/(\d+[\.\d]*)'
+- regex: '(?:DDG-Android-|DuckDuckGo/)(\d+[\.\d]*)'
   name: 'DuckDuckGo Privacy Browser'
   version: '$1'
   engine:
@@ -2354,7 +2368,7 @@
     default: 'WebKit'
 
 #Elinks
-- regex: 'Elinks(?:/(\d+[\.\d]+))?'
+- regex: 'Elinks(?:[ /](\d+[\.\d]+))?'
   name: 'Elinks'
   version: '$1'
   engine:
@@ -2604,6 +2618,11 @@
 - regex: 'BlackBerry|PlayBook|BB10'
   name: 'BlackBerry Browser'
   version: ''
+
+# Browlser (https://play.google.com/store/apps/details?id=com.browlser | https://browlser.io/)
+- regex: 'Browlser/(\d+[\.\d]+)'
+  name: 'Browlser'
+  version: '$1'
 
 #Android Browser
 - regex: '(?<! like )Android'

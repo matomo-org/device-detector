@@ -68,7 +68,7 @@ class DeviceDetector
     /**
      * Current version number of DeviceDetector
      */
-    public const VERSION = '6.0.2';
+    public const VERSION = '6.0.4';
 
     /**
      * Constant used as value for unknown browser / os
@@ -1022,6 +1022,13 @@ class DeviceDetector
          * Devices running Kylo or Espital TV Browsers are assumed to be a TV
          */
         if (null === $this->device && \in_array($clientName, ['Kylo', 'Espial TV Browser'])) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
+        }
+
+        /**
+         * All devices containing TV fragment are assumed to be a tv
+         */
+        if (null === $this->device && $this->matchUserAgent('\(TV;')) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
         }
 
