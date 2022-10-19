@@ -568,6 +568,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'HE'  => 'HannSpree',
         'HK'  => 'Hardkernel',
         'HAR' => 'Harper',
+        'HA1' => 'Hartens',
         'HS'  => 'Hasee',
         '8H'  => 'Hamlet',
         'HAM' => 'Hammer',
