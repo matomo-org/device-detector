@@ -1681,7 +1681,7 @@ Alba:
 
 # AllCall
 AllCall:
-  regex: 'AllCall_|Heat[34]|Rio_X(?:[);/ ]|$)|Hot ?[125][^;/]+ Build'
+  regex: 'AllCall_|Heat[34]|(?:Rio_X|S5500)(?:[);/ ]|$)|Hot ?[125][^;/]+ Build'
   device: 'smartphone'
   models:
     - regex: 'AllCall_(Alpha|Atom|Bro|Madrid)'
@@ -1700,6 +1700,8 @@ AllCall:
       model: 'Heat $1'
     - regex: 'Rio_X(?:[);/ ]|$)'
       model: 'Rio X'
+    - regex: '(S5500)(?:[);/ ]|$)'
+      model: '$1'
     - regex: 'Hot ?([125][^;/]+) Build'
       model: 'Hot $1'
 
@@ -28218,7 +28220,7 @@ Fero:
 
 # Ruio
 Ruio:
-  regex: 'Ruio[ _]|(?:M671M4|i7Plus|S5506)(?:[);/ ]|$)'
+  regex: 'Ruio[ _]|(?:M671M4|i7Plus|S5[05]06|S518)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Ruio[ _](S4)(?:[);/ ]|$)'
@@ -28227,7 +28229,7 @@ Ruio:
       model: '$1 Plus'
     - regex: 'M671M4'
       model: 'Cola 4G'
-    - regex: '(S5506)'
+    - regex: '(S5[05]06|S518)(?:[);/ ]|$)'
       model: '$1'
 
 # Transpeed
@@ -29455,11 +29457,13 @@ VC:
 
 # Cellacom (http://cellacom.com/)
 Cellacom:
-  regex: 'Cellacom'
+  regex: 'Cellacom|(?:S51_lite)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Cellacom_S62(?:[);/ ]|$)'
       model: 'S62'
+    - regex: 'S51_lite(?:[);/ ]|$)'
+      model: 'S51 Lite'
 
 # CellAllure (cellallure.com)
 CellAllure:
@@ -30587,7 +30591,7 @@ Rivo:
 
 # Four Mobile or 4mobile
 Four Mobile:
-  regex: 'Four[ _]?(S600|S300I|S185|K500|S61)(?:[);/ ]|$)'
+  regex: '(?:Four[ _]?(S600|S300I|S185|K500|S61)|S62_Eco_3)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Four[ _]?(S600|S300I|K500)'
@@ -30596,6 +30600,8 @@ Four Mobile:
       model: 'S185 Sky 2'
     - regex: 'Four[ _]?S61'
       model: 'S61 Eco 2'
+    - regex: 'S62_Eco_3'
+      model: 'S62 Eco 3'
 
 # Seven Mobile or 7mobile (www.7mobileafrica.com)
 7 Mobile:
@@ -33362,6 +33368,12 @@ Hykker:
   regex: 'Hykker_MyTab10'
   device: 'tablet'
   model: 'MyTab10'
+
+# Fluo
+Fluo:
+  regex: 'S554020(?:[);/ ]|$)'
+  device: 'tablet'
+  model: 'L'
 
 # Devices with undectable brand, but detectable model
 Unknown:
