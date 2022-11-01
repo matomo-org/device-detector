@@ -1104,6 +1104,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'Q9'  => 'QTECH',
         'QA'  => 'Quantum',
         'QUE' => 'Quest',
+        'QUA' => 'Quatro',
         'QU'  => 'Quechua',
         'QUI' => 'Quipus',
         'QO'  => 'Qumo',
