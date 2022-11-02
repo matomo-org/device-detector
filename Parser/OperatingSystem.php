@@ -133,6 +133,7 @@ class OperatingSystem extends AbstractParser
         'RSO' => 'Rosa',
         'ROU' => 'RouterOS',
         'REM' => 'Remix OS',
+        'RRS' => 'Resurrection Remix OS',
         'REX' => 'REX',
         'RZD' => 'RazoDroiD',
         'SAB' => 'Sabayon',
@@ -180,7 +181,7 @@ class OperatingSystem extends AbstractParser
     protected static $osFamilies = [
         'Android'               => [
             'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
-            'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR',
+            'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS',
         ],
         'AmigaOS'               => ['AMG', 'MOR'],
         'BlackBerry'            => ['BLB', 'QNX'],
