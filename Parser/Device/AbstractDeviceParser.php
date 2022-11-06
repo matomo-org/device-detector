@@ -1384,6 +1384,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'US'  => 'Uniscope',
         'UNI' => 'Unistrong',
         'U2'  => 'UNIWA',
+        'UND' => 'Uniden',
         'UO'  => 'Unnecto',
         'UNN' => 'Unnion Technologies',
         'UU'  => 'Unonu',
