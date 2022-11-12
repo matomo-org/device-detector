@@ -1316,6 +1316,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'TD'  => 'Tesco',
         'TA'  => 'Tesla',
         '9T'  => 'Tetratab',
+        'TET' => 'TETC',
         'TZ'  => 'teXet',
         '29'  => 'Teknosa',
         'JZ'  => 'TJC',
