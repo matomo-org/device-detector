@@ -1442,6 +1442,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '6V'  => 'VIWA',
         'VID' => 'VIDA',
         'VZ'  => 'Vizio',
+        'VIZ' => 'Vizmo',
         '9V'  => 'Vision Touch',
         'VK'  => 'VK Mobile',
         'JM'  => 'v-mobile',

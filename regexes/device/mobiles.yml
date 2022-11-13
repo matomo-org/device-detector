@@ -6770,7 +6770,7 @@ E-tel:
 
 # Evercoss
 Evercoss:
-  regex: 'EVERCOSS[ _]|(A75A\*|AT8B|U50A_PLUS|M50 STAR|A75 MAX|M50A|R40K|R70A|7.*; (?:R70|R5C)|U6 PRIME)(?:[);/ ]|$)'
+  regex: 'EVERCOSS[ _]|(U6 PRIME|A75A\*|AT8B|U50A_PLUS|M50 STAR|A75 MAX|M50A|R40K|R70A|7.*; (?:R70|R5C))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'A75A\*(?:[);/ ]|$)'
@@ -6783,7 +6783,7 @@ Evercoss:
       model: 'M50 Star'
     - regex: 'U6 PRIME'
       model: 'U6 Prime'
-    - regex: 'M (M50A|R40K|R70|R5C)(?:[);/ ]|$)'
+    - regex: ' (M50A|R40K|R70|R5C)(?:[);/ ]|$)'
       model: '$1'
     - regex: '(AT8B|R70A)(?:[);/ ]|$)'
       device: 'tablet'
@@ -33569,11 +33569,21 @@ PRIME:
   device: 'smartphone'
   model: '$1'
 
+# TETC
 TETC:
   regex: 'TETC[ -](F\d)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
 
+# Vizmo
+Vizmo:
+  regex: 'VIZ(?:101|070)TAB[78]11'
+  device: 'tablet'
+  models:
+    - regex: 'VIZ070TAB(\d{3})'
+      model: 'TAB $1 7"'
+    - regex: 'VIZ101TAB(\d{3})'
+      model: 'TAB $1 10.1"'
 
 # Uniden
 Uniden:
