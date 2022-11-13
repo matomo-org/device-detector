@@ -6770,7 +6770,7 @@ E-tel:
 
 # Evercoss
 Evercoss:
-  regex: 'EVERCOSS[ _]|(A75A\*|AT8B|U50A_PLUS|M50 STAR|A75 MAX|M50A|R40K|R70A|7.*; (?:R70|R5C))(?:[);/ ]|$)'
+  regex: 'EVERCOSS[ _]|(A75A\*|AT8B|U50A_PLUS|M50 STAR|A75 MAX|M50A|R40K|R70A|7.*; (?:R70|R5C)|U6 PRIME)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'A75A\*(?:[);/ ]|$)'
@@ -6781,7 +6781,9 @@ Evercoss:
       model: 'U50A Plus'
     - regex: 'M50 STAR(?:[);/ ]|$)'
       model: 'M50 Star'
-    - regex: ' (M50A|R40K|R70|R5C)(?:[);/ ]|$)'
+    - regex: 'U6 PRIME'
+      model: 'U6 Prime'
+    - regex: 'M (M50A|R40K|R70|R5C)(?:[);/ ]|$)'
       model: '$1'
     - regex: '(AT8B|R70A)(?:[);/ ]|$)'
       device: 'tablet'
@@ -20334,7 +20336,7 @@ Quest:
 
 # QMobile or QSmart or Q-Smart (qmobile.com.pk)
 QMobile:
-  regex: 'QMobile|QTab(?!10EW)|Q-?Smart|(?:Mark [25]|E2 Noir|Noir[ _](A[18]|X1S)|LUNA PRO|NICE S|JazzX JS(?:[27]|10)(?: PRO)?|LT[57]00[ _]PRO|LT950|Infinity (?:Cinema 2|triple|santos|Prime 2)|Q Infinity|Hot 5|Hot Pro 2|VITA S|i7i 2020|i10[ _]20(?:20|19)|V2 2018|Z12 PRO|Smart HD Pro|V6_Metal|Rocket (?:Lite|Pro)| GLi|i6i 2020|Android 6(?:[\d.]*);(?: [\w-]+;)? (?:J5|S2 Pro)|Android 5(?:[\d.]*);(?: [\w-]+;)? Z9 Plus|i8i Dual)(?:[);/ ]|$)'
+  regex: 'QMobile|QTab(?!10EW)|Q-?Smart|(?:Mark [25]|E2 Noir|Noir[ _](A[18]|X1S)|LUNA PRO|NICE S|JazzX JS(?:[27]|10)(?: PRO)?|LT[57]00[ _]PRO|LT950|Infinity (?:Cinema 2|triple|santos|Prime 2)|Q Infinity|Hot 5|Hot Pro 2|VITA S|i7i 2020|i10[ _]20(?:20|19)|V2 2018|Z12 PRO|Smart HD Pro|V[67]_Metal|Rocket (?:Lite|Pro)| GLi|i6i 2020|Android 6(?:[\d.]*);(?: [\w-]+;)? (?:J5|S2 Pro)|Android 5(?:[\d.]*);(?: [\w-]+;)? Z9 Plus|i8i Dual)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'JazzX JS7 PRO'
@@ -20373,8 +20375,8 @@ QMobile:
       model: 'Vita S'
     - regex: 'NICE S'
       model: 'Nice S'
-    - regex: 'V6_Metal'
-      model: 'V6 Metal'
+    - regex: 'V([67])_Metal'
+      model: 'V$1 Metal'
     - regex: 'i(\d+)i 20(20|1[89])'
       model: 'i$1i (20$2)'
     - regex: 'i10[ _]20(20|19)'
@@ -22649,11 +22651,13 @@ Videocon:
 
 # Vodafone
 Vodafone:
-  regex: '(?<!FBCR/)Vodafone[ _-]|Smart ?Tab ?(?:III? ?)?(?:|4G|7|10)[);/ -]|VodafoneSmartChat|Smart Ultra 6|(?:GigaTV|VFD[ _][0-9]+|VFD320|VF6[89]5|VF-(696|1397|795|895N|1497))(?:[);/ ]|$)'
+  regex: '(?<!FBCR/)Vodafone[ _-]|Smart ?Tab ?(?:III? ?)?(?:|4G|7|10)[);/ -]|VodafoneSmartChat|Smart Ultra 6|(?:GigaTV|VFD[ _][0-9]+|VFD[37]20|VF6[89]5|VF-(696|1397|795|895N|1497))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'VFD 100'
       model: 'Smart Mini'
+    - regex: 'VFD720'
+      model: 'Smart N9'
     - regex: 'VF685'
       model: 'Smart Kicka'
     - regex: 'VF695'
@@ -22668,8 +22672,10 @@ Vodafone:
       model: 'Smart Turbo 7'
     - regex: 'VFD 51[013]'
       model: 'Smart E8'
-    - regex: 'VFD 52[78]'
+    - regex: 'VFD 52[789]'
       model: 'Smart E9'
+    - regex: 'VFD 822'
+      model: 'Smart X9'
     - regex: 'VFD 600'
       model: 'Smart Prime 7'
     - regex: 'VFD320'
@@ -23176,7 +23182,7 @@ Wiko:
       model: 'View 5'
     - regex: 'W-V850-EEA'
       model: 'View 5 Plus'
-    - regex: 'W-K130-(?:OPE|EEA)'
+    - regex: 'W-K130-(?:OPE|EEA|BYT)'
       model: 'Y50'
     - regex: 'W-K420-EEA'
       model: 'Y50'
@@ -27376,11 +27382,14 @@ Vipro:
 
 # Virzo (https://virzo.com/)
 Virzo:
-  regex: '(?:V608C|V50[15]c)(?:[);/ ]|$)'
+  regex: '(?:V608C|V50[15]c|VT701)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'V(50[15]|608)C(?:[);/ ]|$)'
       model: 'V$1c'
+    - regex: '(VT701)'
+      device: 'tablet'
+      model: '$1'
 
 # OzoneHD
 OzoneHD:
@@ -31315,9 +31324,13 @@ Benzo:
 
 # Vexia (www.vexia.eu)
 Vexia:
-  regex: '(Zippers Tab 10i 3G)'
+  regex: '(?:Zippers Tab 10i 3G)|Vexia FCS E2 CLM'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: 'Vexia FCS E2 CLM'
+      model: 'Elegance E2 CLM'
+    - regex: '(Zippers Tab 10i 3G)'
+      model: '$1'
 
 # HiMax (himaxmobilebd.com)
 HiMax:
