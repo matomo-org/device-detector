@@ -8973,6 +8973,8 @@ Huawei:
       model: 'Enjoy 10S'
     - regex: 'TAG-[ACT]L00(?:[);/ ]|$)'
       model: 'Enjoy 5S'
+    - regex: 'TAG-(?:L0[13]|L32||L13|L2[123])(?:[);/ ]|$)'
+      model: 'GR3'
     - regex: 'NCE-(AL[10]0|TL10)(?:[);/ ]|$)'
       model: 'Enjoy 6'
     - regex: 'DIG-(?:TL10|AL00)(?:[);/ ]|$)'
@@ -9021,6 +9023,8 @@ Huawei:
       model: 'GX8'
     - regex: 'RIO-L0[12](?:[);/ ]|$)'
       model: 'G8'
+    - regex: 'RIO-[UT]L00(?:[);/ ]|$)'
+      model: 'G7 Plus'
     - regex: 'JAD-(?:AL[056]0|LX9)(?:[);/ ]|$)'
       model: 'P50 Pro'
     - regex: 'ABR-(?:AL00|LX9)'
@@ -11005,6 +11009,33 @@ Aquarius:
     - regex: 'Aquarius[_ ]CMP[_ ]([^/;)]+)(?: Build|[);])'
       model: 'CMP $1'
     - regex: 'Aquarius[_ ]([^/;)]+)(?: Build|[);])'
+      model: '$1'
+
+
+# Vsun
+Vsun:
+  regex: '(?:VSUN (?:ILLUSION|RACE|V9|TOUCH)|Aqua Tough|MERCURY Tough|MARS TOUCH|MARS NOTE|MARS NOCAM|SATURN SELFIE)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'ILLUSION(?:[);/ ]|$)'
+      model: 'Illusion'
+    - regex: 'MARS TOUCH(?:[);/ ]|$)'
+      model: 'Mars Touch'
+    - regex: 'MERCURY Tough'
+      model: 'Mercury Touch'
+    - regex: 'MARS NOTE'
+      model: 'Mars Note'
+    - regex: 'MARS NOCAM'
+      model: 'Mars Nocam'
+    - regex: 'Aqua Tough'
+      model: 'Aqua Tough'
+    - regex: 'SATURN SELFIE(?:[);/ ]|$)'
+      model: 'Saturn Selfie'
+    - regex: 'RACE(?:[);/ ]|$)'
+      model: 'Race'
+    - regex: 'VSUN TOUCH(?:[);/ ]|$)'
+      model: 'Touch'
+    - regex: '(V9)(?:[);/ ]|$)'
       model: '$1'
 
 # Intex
@@ -20545,7 +20576,7 @@ Sendo:
 
 # Turbo-X
 Turbo-X:
-  regex: 'Turbo-X|(?:Hive V 3G|Turbox_S3|Fire_II_WiFi|Breeze IV)(?:[);/ ]|$)|Mercury(?!/)'
+  regex: 'Turbo-X|(?:Hive V 3G|Turbox_S3|Fire_II_WiFi|Breeze IV)(?:[);/ ]|$)|Mercury(?!/| Tough)'
   device: 'smartphone'
   models:
     # specific smartphone models
@@ -26455,28 +26486,6 @@ National:
   device: 'tv'
   model: '$1'
 
-# Vsun
-Vsun:
-  regex: '(?:VSUN (?:ILLUSION|RACE|V9|TOUCH)|MARS TOUCH|MARS NOTE|MARS NOCAM|SATURN SELFIE)(?:[);/ ]|$)'
-  device: 'smartphone'
-  models:
-    - regex: 'ILLUSION(?:[);/ ]|$)'
-      model: 'Illusion'
-    - regex: 'MARS TOUCH(?:[);/ ]|$)'
-      model: 'Mars Touch'
-    - regex: 'MARS NOTE(?:[);/ ]|$)'
-      model: 'Mars Note'
-    - regex: 'MARS NOCAM(?:[);/ ]|$)'
-      model: 'Mars Nocam'
-    - regex: 'SATURN SELFIE(?:[);/ ]|$)'
-      model: 'Saturn Selfie'
-    - regex: 'RACE(?:[);/ ]|$)'
-      model: 'Race'
-    - regex: 'VSUN TOUCH(?:[);/ ]|$)'
-      model: 'Touch'
-    - regex: '(V9)(?:[);/ ]|$)'
-      model: '$1'
-
 # Shift Phones
 Shift Phones:
   regex: '(SHIFT6mq?)(?:[);/ ]|$)'
@@ -28261,16 +28270,16 @@ MDTV:
 
 # meanIT (meanit.hr)
 meanIT:
-  regex: 'meanIT[ _](?:C[12]|X10|X[126]|MG430|Q[145])(?:[);/ ]|$)'
+  regex: 'meanIT[ _](?:C[12]|X10|X[126]|MG430|Q[145]|C[18]0C[18]1)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'meanIT[ _]Q1 plus(?:[);/ ]|$)'
       model: 'Q1 Plus'
     - regex: 'meanIT[ _](C[12]|X[126]|MG430|Q[145])(?:[);/ ]|$)'
       model: '$1'
-    - regex: 'meanIT[ _]X10(?:[);/ ]|$)'
+    - regex: 'meanIT[ _](X10|C[18]0C[18]1)(?:[);/ ]|$)'
       device: 'tablet'
-      model: 'X10'
+      model: '$1'
 
 # Kenxinda
 Kenxinda:
@@ -28454,7 +28463,7 @@ Paladin:
 
 # iVooMi
 iVooMi:
-  regex: '(?:Innelo_1|iV 505|Me 1\+|Me 3S)(?:[);/ ]|$)'
+  regex: '(?:Innelo_1|iV 505|Me 1\+|Me 3S|Me [2345])(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Innelo_1'
@@ -28463,8 +28472,8 @@ iVooMi:
       model: 'Me 1'
     - regex: 'Me 1\+'
       model: 'Me 1+'
-    - regex: 'Me 3S'
-      model: 'Me 3S'
+    - regex: 'Me ([2345]S?)'
+      model: 'Me $1'
 
 # Pixelphone
 Pixelphone:
