@@ -417,9 +417,18 @@
   name: '1Password'
   version: '$1'
 
-- regex: '(?:Microsoft Office )?(Access|Excel|OneDrive for Business|OneNote|PowerPoint|Project|Publisher|Visio|Word)[ /](\d+\.[\d.]*)'
+- regex: '(?:Microsoft Office )?(Access|Excel|OneDrive for Business|OneNote|PowerPoint|Project|Publisher|Visio|Word)(?: 20\d{2})?[ /]\(?(\d+\.[\d.]*)'
   name: 'Microsoft Office $1'
   version: '$2'
+- regex: '^Mozilla/4\.0 \(compatible; ms-office; MSOffice[ /]([\d\.]+)'
+  name: 'Microsoft Office'
+  version: '$1'
+- regex: 'Microsoft Office SyncProc ([\d\.]+)'
+  name: 'Microsoft Office'
+  version: '$1'
+- regex: 'Microsoft Lync ([\d\.]+)'
+  name: 'Microsoft Lync'
+  version: '$1'
 
 # https://play.google.com/store/apps/details?id=cn.wps.moffice_eng
 - regex: 'WpsM?office/([\d\.]+)'
@@ -435,7 +444,7 @@
   name: 'Microsoft Office'
   version: ''
 
-- regex: 'Microsoft Office Mobile/([\d\.]+)'
+- regex: '(?:Microsoft Office Mobile|officemobile)[ /]([\d\.]+)'
   name: 'Microsoft Office Mobile'
   version: '$1'
 
