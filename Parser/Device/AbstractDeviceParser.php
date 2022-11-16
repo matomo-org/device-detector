@@ -477,6 +477,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FAM' => 'Famous',
         '17'  => 'FarEasTone',
         '9R'  => 'FaRao Pro',
+        'FAR' => 'Farassoo',
         'FB'  => 'Fantec',
         'FE'  => 'Fengxiang',
         'F7'  => 'Fero',

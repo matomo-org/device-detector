@@ -101,7 +101,7 @@ Adronix:
 
 # Cherry Mobile (cherrymobile.com)
 'Cherry Mobile':
-  regex: 'Cherry|Superion[_ ](?:S2|Radar Deluxe|S1 DTV|S1 Plus DTV|Tab Pro)|Flare([ _])?(2.[01]|2X|4|A[123]|J[1235678]|P[13]|S[4-8]|X2|Y[3567]|S Play|HD|LITE|XL|X_V2|Y3s|Tab|INFINITY)(?:[ _](?:Pro|Plus|Max|LTE))?|Fusion Aura 3s|Radar Deluxe 2|Desire R[678]|Desire_R[67]_Lite|Fusion Bolt|Omega[_ ](?:Icon 2|Icon Lite 2|lite[_ ][43][Cs]?|HD [45]|HD_Duo|X)|Spin Max 2|Selfie_Two|Flare X Lite|Flare_5|Android 1.*Aqua S9|Omega_HD_4|MAIA PAD PLUS|COSMOS THREE'
+  regex: 'Cherry|Superion[_ ](?:S2|Radar Deluxe|S1 DTV|S1 Plus DTV|Tab Pro)|Flare([ _])?(2.[01]|2X|4|A[123]|J[1235678]|P[13]|S[4-8]|X2|Y[3567]|S Play|HD|LITE|XL|X_V[23]|Y3s|Tab|INFINITY)(?:[ _](?:Pro|Plus|Max|LTE))?|Fusion Aura 3s|Radar Deluxe 2|Desire R[678]|Desire_R[67]_Lite|Fusion Bolt|Omega[_ ](?:Icon 2|Icon Lite 2|lite[_ ][43][Cs]?|HD [45]|HD_Duo|X)|Spin Max 2|Selfie_Two|Flare X Lite|Flare_5|Android 1.*Aqua S9|Omega_HD_4|MAIA PAD PLUS|COSMOS THREE'
   device: 'smartphone'
   models:
     - regex: '(Flare2X|Aqua S9(?: (?:Max|Lite|Pro))?)'
@@ -139,8 +139,8 @@ Adronix:
       model: 'Flare X Lite'
     - regex: 'Cherry[_ ]X740'
       model: 'Flare A5'
-    - regex: 'Flare[ _]X[_ ]V2'
-      model: 'Flare X V2'
+    - regex: 'Flare[ _]X[_ ]V([23])'
+      model: 'Flare X V$1'
     - regex: 'Flare[ _]XL[_ ]?2'
       model: 'Flare XL 2'
     - regex: 'Flare[ _]([A-Z]\d+)[ _]mini'
@@ -28363,7 +28363,7 @@ Fero:
       model: 'Pace'
     - regex: 'A4001 Plus 2019'
       model: 'A4001 Plus (2019)'
-    - regex: 'Fero[ _](A4001|A450[23]|A5001|L100|Iris|Power|Mega LTE|Vibe)'
+    - regex: 'Fero[ _](A4001|A450[23]|A5001|L100|Iris|Power|Mega LTE|Vibe|J1)'
       model: '$1'
 
 # Ruio
@@ -29588,13 +29588,15 @@ Clementoni:
 
 # Cell-C
 Cell-C:
-  regex: 'Cell_?C_|(?:Android 5(?:[\d.]*);(?: [\w-]+;)? Summit)(?:[);/ ]|$)'
+  regex: 'Cell_?C_|(?:Android 5(?:[\d.]*);(?: [\w-]+;)? (?:Summit|Fantasy))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Cell_C_(Summit_Plus|Fame|Evolve)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'Summit(?:[);/ ]|$)'
       model: 'Summit'
+    - regex: 'Fantasy(?:[);/ ]|$)'
+      model: 'Fantasy'
     - regex: 'CELLC_Evolve'
       device: 'tablet'
       model: 'Evolve'
@@ -33589,6 +33591,12 @@ Vizmo:
 Uniden:
   regex: 'Uniden[ _](C505)(?:[);/ ]|$)'
   device: 'smartphone'
+  model: '$1'
+
+# Farassoo
+Farassoo:
+  regex: '(FAST81[08])(?:[);/ ]|$)'
+  device: 'tablet'
   model: '$1'
 
 # Devices with undectable brand, but detectable model
