@@ -1523,6 +1523,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '4X'  => 'Xtouch',
         'X8'  => 'Xtratech',
         'XCR' => 'Xcruiser',
+        'XWA' => 'Xwave',
         'YD'  => 'Yandex',
         'YA'  => 'Yarvik',
         'Y2'  => 'Yes',
