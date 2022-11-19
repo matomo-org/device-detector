@@ -11997,7 +11997,7 @@ Benco:
 
 # Lava (Lavamobiles.com)
 Lava:
-  regex: 'Lava[ _]|LAVA(?:A1|X10)|(?:DISCOVER136|KKT QUADRA)|iris(?! Plus 2021|_Pad_G)[ _]?([^/;)]+)(?<!Plus 2021)(?: Build|[;)])|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|X1_atom_L|(?:Flair (?:[ZS]1|P8)|PixelV1|Pixel V2\+?|Z60s|Z61_2GB|A97 IPS|A97 2GB PLUS|L[EH]9920(?:[_ ]P)?|L[NEH]9910|LH9810|Ivory(?:S1|S4G)?|A76Plus|Grand2c|AH9910| A3_mini|T71_w|V23GB|R1_Lite|Atom 2X|AF9030)(?:[);/ ]|$)'
+  regex: 'Lava[ _]|LAVA(?:A1|X10)|(?:DISCOVER136|KKT QUADRA)|iris(?! Plus 2021|_Pad_G)[ _]?([^/;)]+)(?<!Plus 2021)(?: Build|[;)])|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|X1_atom_L|(?:Flair (?:[ZS]1|P8)|PixelV1|Pixel V2\+?|Z60s|Z61_2GB|A97 IPS|A97 2GB PLUS|L[EH]9920(?:[_ ]P)?|L[NEH]9910|LH9810|Ivory(?:S1|S4G)?|A76Plus|Grand2c|AH9910| A3_mini|T71_w|V23GB|R1_Lite|Atom 2X|AF9030| Z(?:[56]1|92))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -12035,8 +12035,8 @@ Lava:
       model: 'A$1'
     - regex: 'LAVA_R(1s?)'
       model: 'R$1'
-    - regex: 'Z61_2GB(?:[);/ ]|$)'
-      model: 'Z61'
+    - regex: ' Z(\d{2})(?:_2GB)?(?:[);/ ]|$)'
+      model: 'Z$1'
     - regex: 'LMX06(?:[);/ ]|$)'
       model: 'Z6'
     - regex: 'LMG01(?:[);/ ]|$)'
@@ -25702,8 +25702,8 @@ X-TIGI:
     - regex: 'X[_ ]TIGI[_ ]JOY7_TV'
       model: 'Joy 7 TV'
       device: 'tablet'
-    - regex: 'JOY10 Mate'
-      model: 'Joy 10 Mate'
+    - regex: '(?:X_TIGI_)?JOY(10|7)[ _]Mate'
+      model: 'Joy $1 Mate'
       device: 'tablet'
     - regex: 'Hope7[_ ](Mate|Max)'
       model: 'Hope 7 $1'
@@ -32231,12 +32231,12 @@ DORLAND:
   device: 'smartphone'
   model: '$1'
 
-# Hamlet
+# Hamlet (english.hamletcom.com)
 Hamlet:
-  regex: 'Hamlet[ _]'
+  regex: 'Hamlet[ _]|XZPAD412LTE'
   device: 'tablet'
   models:
-    - regex: '(?:Hamlet[ _])?XZPAD(412W)'
+    - regex: '(?:Hamlet[ _])?XZPAD(412W|412LTE)'
       model: 'Zelig Pad $1'
 
 # Vorcom
@@ -32735,11 +32735,13 @@ DIGICOM:
 
 # InFone (nfone.co.th)
 InFone:
-  regex: '(?:INFONE (?:XE?)|GORILLA 9 PLUS)(?:[);/ ]|$)'
+  regex: '(?:INFONE (?:XE?)|GORILLA 9 PLUS|X_RAINBOW)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'GORILLA 9 PLUS'
       model: 'Gorilla 9 Plus'
+    - regex: 'X_RAINBOW'
+      model: 'X Rainbow'
     - regex: 'INFONE (XE?)(?:[);/ ]|$)'
       model: '$1'
 
