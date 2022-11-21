@@ -91,6 +91,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '04'  => '4ife',
         '36'  => '360',
         '88'  => '8848',
+        '10M' => '10moons',
         '41'  => 'A1',
         '00'  => 'Accent',
         'AE'  => 'Ace',
