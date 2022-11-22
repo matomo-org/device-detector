@@ -351,6 +351,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'DW'  => 'DeWalt',
         'DX'  => 'DEXP',
         'DEN' => 'Denali',
+        'DEA' => 'DEALDIG',
         '8D'  => 'DF',
         'DGT' => 'DGTEC',
         'DG'  => 'Dialog',
