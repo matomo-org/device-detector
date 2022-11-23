@@ -1316,6 +1316,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '7F'  => 'Technopc',
         'T7'  => 'Teclast',
         'TB'  => 'Tecno Mobile',
+        'TEC' => 'TecToy',
         '91'  => 'TEENO',
         '2L'  => 'Tele2',
         'TL'  => 'Telefunken',
