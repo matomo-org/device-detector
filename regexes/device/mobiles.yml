@@ -15338,7 +15338,7 @@ Hammer:
 
 # myphone (myphone.com.ph)
 MyPhone:
-  regex: '(?:MyPhone|MyPad|MyTab)[ _][^;/)]+( Build|[);])|(?:HAMMER_)?AXE[_ ]M[_ ]LTE|Hammer[_ ](?:Axe)|Cube_LTE|myTab10II|LUNA_II|C-Smart_pix|myPhone_Fun_8|FUN_18x9|MyPhoneMY27|Prime_4_Lite|myA1[78]|myX12|Pocket_2|Prime_18x9|Prime3Lite|myG1|myT[356] DTV|myWX1 Plus|myXI1(?:[ _](?:Plus|Pro))?|my(?:XI[3]|NX1|X[23589]|A1[12356]|29S)|Q_Smart_BE|Brown 1|Q-Smart_Plus|Q-Smart_III_Plus|SmartView_(?:[78]|9_6)_(?:LTE|[34]G)|Android 6(?:[\d.]*);(?: [\w-]+;)? Pocket|Infinit 2'
+  regex: '(?:MyPhone|MyPad|MyTab)[ _][^;/)]+( Build|[);])|(?:HAMMER_)?AXE[_ ]M[_ ]LTE|Hammer[_ ](?:Axe)|Cube_LTE|myTab10II|LUNA_II|C-Smart_pix|myPhone_Fun_8|FUN_18x9|MyPhoneMY27|Prime_4_Lite|myA1[78]|myX12|Pocket_2|Prime_18x9|Prime3Lite|myG1|myA10|myA(10|[789]) DTV|myT[356] DTV|myWX1 Plus|myXI1(?:[ _](?:Plus|Pro))?|my(?:XI[3]|NX1|X[23589]|A1[12356]|29S|807)|Q_Smart_BE|Brown 1|Q-Smart_Plus|Q-Smart_III_Plus|SmartView_(?:[78]|9_6)_(?:LTE|[34]G)|Android 6(?:[\d.]*);(?: [\w-]+;)? Pocket|Infinit 2'
   device: 'smartphone'
   models:
     # explicit table models
@@ -15362,6 +15362,8 @@ MyPhone:
       device: 'tablet'
 
     # explicit smartphones models
+    - regex: 'myA([789]|10) DTV'
+      model: 'myA$1 DTV'
     - regex: 'Cube_LTE|Cube 16GB'
       model: 'Cube LTE'
     - regex: 'INFINITY (LTE|3G)'
@@ -15390,13 +15392,15 @@ MyPhone:
       model: 'Hammer Axe M LTE'
     - regex: 'MyPhoneMY27'
       model: 'my27'
+    - regex: 'MY807'
+      model: 'myX1'
     - regex: 'myXI1 Plus(?:[);/ ]|$)'
       model: 'myXI1 Plus'
     - regex: 'myXI1 Pro(?:[);/ ]|$)'
       model: 'myXI1 Pro'
     - regex: 'myXI([13])(?:[);/ ]|$)'
       model: 'myXI$1'
-    - regex: 'my(X[23589]|NX1|A1[12356]i?|29S|G1|X12|A1[78])(?:[);/ ]|$)'
+    - regex: 'my(X[23589]|NX1|A1[12356]i?|29S|G1|X12|A1[078])(?:[);/ ]|$)'
       model: 'my$1'
     - regex: 'myWX1 Plus(?:[);/ ]|$)'
       model: 'myWX1 Plus'
@@ -33876,6 +33880,12 @@ TecToy:
   regex: 'TECTOY_5029Y(?:[);/ ]|$)'
   device: 'smartphone'
   model: 'ON 128GB'
+
+# MygPad
+MygPad:
+  regex: 'MygPad[_ ]([^/;)]+)(?: Build|[);])'
+  device: 'tablet'
+  model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
