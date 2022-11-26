@@ -6190,11 +6190,15 @@ DGTEC:
       model: 'DG101TBIPS'
       device: 'tablet'
 
-# Dialog
+# Dialog or Dialog Blaze
 Dialog:
-  regex: 'Dialog ?([^;/]+)(?: Build|[;)])'
+  regex: 'Dialog ?([^;/]+)(?: Build|[;)])|(?:M50E-1A)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: '(M50E-1A)'
+      model: '$1'
+    - regex: 'Dialog ?([^;/]+)(?: Build|[;)])'
+      model: '$1'
 
 # Dicam
 Dicam:
@@ -6616,12 +6620,12 @@ Horizont:
 
 # Echo Mobiles
 Echo Mobiles:
-  regex: 'ECHO[ _](HOLI|HORIZON|MAX|MOSS|NOTE|POWER|SMART|DUNE|JAVA|FUSION)|HORIZON_M|Stellar [34]G|FEELING'
+  regex: 'ECHO[ _](HOLI|HORIZON|MAX|MOSS|NOTE|POWER|SMART|DUNE|JAVA|FUSION)|(?:HORIZON_M|Stellar [34]G|FEELING|MOON)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'ECHO_HORIZON_LITE'
       model: 'HORIZON Lite'
-    - regex: '(HORIZON_M|FEELING)(?:[);/ ]|$)'
+    - regex: '(HORIZON_M|FEELING|MOON)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'STELLAR ([34])G'
       model: 'STELLAR $1G'
@@ -6770,7 +6774,7 @@ E-tel:
 
 # Evercoss
 Evercoss:
-  regex: 'EVERCOSS[ _]|(U6 PRIME|A75A\*|AT8B|U50A_PLUS|M50 STAR|A75 MAX|M50A|R40K|R70A|7.*; (?:R70|R5C))(?:[);/ ]|$)'
+  regex: 'EVERCOSS[ _]|(U6 PRIME|A75A\*|AT8B|U50A_PLUS|M50 (?:MAX|STAR)|A75 MAX|M50A|R40K|R70A|7.*; (?:R70|R5C))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'A75A\*(?:[);/ ]|$)'
@@ -6781,6 +6785,8 @@ Evercoss:
       model: 'U50A Plus'
     - regex: 'M50 STAR(?:[);/ ]|$)'
       model: 'M50 Star'
+    - regex: 'M50 MAX(?:[);/ ]|$)'
+      model: 'M50 Max'
     - regex: 'U6 PRIME'
       model: 'U6 Prime'
     - regex: ' (M50A|R40K|R70|R5C)(?:[);/ ]|$)'
@@ -10393,7 +10399,7 @@ Lumus:
       model: 'AEON $1'
 # M4tel
 M4tel:
-  regex: '(?:M4 SS[0-9]{4}(?:-R)?|M4_B[23]|M4_R2|R2_Plus)(?:[);/ ]|$)'
+  regex: '(?:M4[ -]SS[0-9]{4}(?:-R)?|M4_B[23]|M4_R2|R2_Plus)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'SS1050'
@@ -10438,7 +10444,7 @@ M4tel:
       model: 'Ever'
     - regex: 'SS4457'
       model: 'Elegance'
-    - regex: 'SS4458-R'
+    - regex: 'SS4458-R|M4-SS4458-R'
       model: 'Feel Plus'
     - regex: 'SS4458'
       model: 'Attitude'
@@ -14266,7 +14272,7 @@ Memup:
 
 # Mecer (mecer.co.za)
 Mecer:
-  regex: '(M785|800P3[12]C|101P51C|X1010|M7[67]QF6|M17QF[67]_[43]G)(?:[);/ ]|$)'
+  regex: '(MF716\+?|M785|800P3[12]C|101P51C|X1010|M7[67]QF6|M17QF[67]_[43]G)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'M785(?:[);/ ]|$)'
@@ -14283,6 +14289,10 @@ Mecer:
       model: 'Xpress Smartlife 101P51C'
     - regex: 'M7([76])QF6'
       model: 'Xpress Smartlife M7$1QF6'
+    - regex: 'MF716\+'
+      model: 'Xpress Smartlife M716 Plus'
+    - regex: 'MF716'
+      model: 'Xpress Smartlife M716'
 
 # Mione
 Mione:
@@ -14534,7 +14544,7 @@ Mobiistar:
       model: 'Lai Zumbo J (2017)'
     - regex: 'Mobiistar_LAI_Zumbo_J(?:[);/ ]|$)'
       model: 'Lai Zumbo J'
-    - regex: 'Mobiistar_Zumbo_J2'
+    - regex: 'Mobiistar[_ ]Zumbo[_ ]J2'
       model: 'Lai Zumbo J2'
     - regex: 'Mobiistar[_ ]Zumbo[_ ]S2'
       model: 'Zumbo S2'
@@ -14544,7 +14554,7 @@ Mobiistar:
       model: 'Lai Yuna $1'
     - regex: 'mobiistar LAI Yuki'
       model: 'Lai Yuki'
-    - regex: 'mobiistar[ _]LAI[ _]ZORO[ _]([23])'
+    - regex: 'mobiistar[ _](?:LAI[ _])?ZORO[ _]([235])'
       model: 'Lai Zoro $1'
     - regex: 'mobiistar[ _]LAI[ _]Zena'
       model: 'Lai Zena'
@@ -19792,6 +19802,14 @@ Pantech:
       model: '$1'
     - regex: '(IM-[a-z0-9]+)(?:[);/ ]|$)'
       model: '$1'
+
+# Mosimosi
+Mosimosi:
+  regex: '(?:momo3s)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'momo3s'
+      model: 'momo3S'
 
 # Ployer
 Ployer:
@@ -27033,7 +27051,7 @@ How:
 
 # Multilaser
 Multilaser:
-  regex: 'Multilaser[ _]|ML-TI-MS|(?:MS50[LGXM]|M7[_-]3G[_-](?:PLUS|QC_3|QUAD_CORE)|MS5\.V2|M9-3G|MS45S_A6|ML([02]1|12)-M7s[- ]?Quad-?Core| ML01-M7-SD|MS45S|MS50S|MS60[XZ]|M7SQC_Plus|MS80X|MS40[GS]|MS55M|MS70|M7_3G_A10|M7_3G|M7S_PLUS|M10_3G|M7-3G QUAD CORE|M7s_?Lite|M7_WIFI|ML-(?:SO|WI)-M9-3G|M10_4G_PRO|MS50L?_4G|MS60F(?:_PLUS)?|MS45S_A6_(?:Teen|Senior)|MLX8)(?:[);/ ]|$)'
+  regex: 'Multilaser[ _]|ML-TI-MS|(?:MS50[LGXM]|M7[_-]3G[_-](?:PLUS|QC_3|QUAD_CORE)|MS5\.V2|M9-3G|MS45S_A6|ML([02]1|12)-M7s[- ]?Quad-?Core| ML01-M7-SD|MS45S|MS50S|MS60[XZ]|M7SQC_Plus|MS80X|MS40[GS]|MS55M|MS70|M7_3G_A10|M7_3G|M7S_PLUS|M10_3G|M7-3G QUAD CORE|M7s_?Lite|M7_WIFI|ML-(?:SO|WI)-M9-3G|M10A-Lite|M10_4G_PRO|MS50L?_4G|MS60F(?:_PLUS)?|MS45S_A6_(?:Teen|Senior)|MLX8|ML-WI-M7_3G_PLUS)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Multilaser[ _]G[_ ]Pro(?:[);/ ]|$)'
@@ -27062,7 +27080,7 @@ Multilaser:
       model: 'MS45S A6 Teen'
     - regex: '(MS50[LGXSM]|MS45S_A6|MS40[GS]|MS55M|MS60F|MS70|MS60[XZ]|MS45S|MS80X|MS50L?_4G|MS5\.V2)(?:[);/ ]|$)'
       model: '$1'
-    - regex: 'M7[_-]3G[_-]PLUS(?:[);/ ]|$)'
+    - regex: '(?:ML-WI-)?M7[_-]3G[_-]PLUS(?:[);/ ]|$)'
       device: 'tablet'
       model: 'M7 3G Plus'
     - regex: 'M7S_PLUS'
@@ -27092,6 +27110,9 @@ Multilaser:
     - regex: 'ML01-M7-SD(?:[);/ ]|$)'
       device: 'tablet'
       model: 'ML01-M7 SD'
+    - regex: 'M10A-Lite(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'M10A Lite'
     - regex: '(?:ML-(?:SO|WI)-)?M9-3G(?:[);/ ]|$)'
       device: 'tablet'
       model: 'M9 3G'
@@ -33590,6 +33611,20 @@ Uniden:
   regex: 'Uniden[ _](C505)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
+
+# Mobell (mobell.vn)
+Mobell:
+  regex: 'Mobell[ _](S50)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
+
+# Smartex
+Smartex:
+  regex: '(?:Android 7(?:[\d.]*);(?: [\w-]+;)? M512)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: '(M512)(?:[);/ ]|$)'
+      model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
