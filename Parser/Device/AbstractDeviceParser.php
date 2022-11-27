@@ -285,6 +285,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'U9'  => 'China Telecom',
         'CI'  => 'Chico Mobile',
         'CIP' => 'CipherLab',
+        'CIT' => 'Citycall',
         '1C'  => 'Chuwi',
         'L8'  => 'Clarmin',
         '25'  => 'Claresta',
