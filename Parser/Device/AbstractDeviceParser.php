@@ -851,6 +851,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MAS' => 'Master-G',
         '50'  => 'Matrix',
         '7M'  => 'Maxcom',
+        '7M1' => 'Maxfone',
         'ZM'  => 'Maximus',
         '6X'  => 'Maxtron',
         '0D'  => 'MAXVI',
