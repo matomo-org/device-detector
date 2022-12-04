@@ -520,6 +520,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '5J'  => 'Fusion5',
         'FF'  => 'Future Mobile Technology',
         'FW'  => 'FNF',
+        'FXT' => 'Fxtec',
         'GT'  => 'G-TiDE',
         'G9'  => 'G-Touch',
         '0G'  => 'GFive',
