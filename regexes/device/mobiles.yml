@@ -6105,7 +6105,7 @@ Denver:
 
 # Dell
 Dell:
-  regex: 'Dell[^a-z]|Venue|XCD35|Latitude \d{4}|Inspiron N?\d{4}'
+  regex: 'Dell[^a-z]|Venue|XCD35|Latitude \d{4}|Inspiron N?\d{4}|Inspiron 13'
   device: 'smartphone'
   models:
     - regex: 'XCD35'
@@ -6125,7 +6125,7 @@ Dell:
     - regex: '(?:Dell )?(Streak|Venue) ?([^/;]*) Build'
       model: '$1 $2'
       device: 'tablet'
-    - regex: '(?:Dell Inc./)?(XPS 13 9360|Latitude (?:7480|7390)|Inspiron N?\d{4})(?:[);/ ]|$)'
+    - regex: '(?:Dell Inc./)?(XPS 13 9360|Latitude (?:7480|7390)|Inspiron N?\d{4}|Inspiron 13-\d{4})(?:[);/ ]|$)'
       device: 'desktop'
       model: '$1'
     - regex: 'Dell; ((?:Streak|Venue)[^;/\)]*)'
@@ -16384,7 +16384,7 @@ Odys:
 
 # Obi or Obi Worldphone
 Obi:
-  regex: 'Obi[ _-]|(SJ1\.5|SJ2\.6|(?<!verykool )S(400|452\+|45[13]|50[127]|503\+?|520|55[01])|falcon)[ _]|SJ1-5|SJ[23]\.2'
+  regex: 'Obi[ _-]|(?:(?:SJ1\.5|SJ2\.6|(?<!verykool )S(400|452\+|45[13]|50[127]|503\+?|520|55[01])|falcon)[ _]|SJ1-5|SJ[23]\.2| SF1)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'SJ(\d)[.-](\d)'
@@ -16397,6 +16397,8 @@ Obi:
       model: 'Python'
     - regex: '(?:Obi_)?S453'
       model: 'Fox'
+    - regex: '(?:Obi[_ ])?(SF1)(?:[);/ ]|$)'
+      model: '$1'
     - regex: '(?:Obi_)?S501'
       model: 'Wolverine'
     - regex: '(?:Obi_)?S502'
@@ -20374,8 +20376,11 @@ Prestigio:
     - regex: 'Prestigio 5500 DUO'    # PAP5500DUO
       model: 'MultiPhone 5500 Duo'
       device: 'smartphone'
-    - regex: 'PSP(5517|550[578])DUO(?:[);/ ]|$)'
+    - regex: 'P[AS]P(5517|5503|550[578])DUO(?:[);/ ]|$)'
       model: 'MultiPhone $1 Duo'
+      device: 'smartphone'
+    - regex: 'PAP(7500)(?:[);/ ]|$)'
+      model: 'MultiPhone $1'
       device: 'smartphone'
     - regex: 'PSP5551DUO'
       device: 'smartphone'
@@ -21403,7 +21408,7 @@ Amazon:
 
 # Symphony
 Symphony:
-  regex: 'SYMPHONY[ \_]([a-z0-9]+)|(?:(?:roar[ _](?:V20|V78|E80|V150))|roarV95|ZVIII?|V10[25]|V128|V14[012]|V1[45]5|SYMTAB\d+| (?:i97|i7[245]|i6[58]|i30|i1[58]|i120|Z30 pro|[ZR]30|V9[246789])|INOVA|6.*; (?:V75|i2[015])|EASY_NAV_2)(?:[);/ ]|$)'
+  regex: 'SYMPHONY[ \_]([a-z0-9]+)|(?:(?:roar[ _](?:V20|A50|V78|E80|V150))|roarV95|ZVIII?|V10[25]|V128|V14[012]|V1[45]5|SYMTAB\d+| (?:i97|i7[245]|i6[58]|i30|i1[58]|i120|Z30 pro|[ZR]30|V9[246789])|INOVA|6.*; (?:V75|i2[015])|EASY_NAV_2)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'ZVIII'
@@ -21414,7 +21419,7 @@ Symphony:
       model: 'iNova'
     - regex: 'Symphony Atom ii'
       model: 'Atom II'
-    - regex: 'roar[ _]?(V20|E80|V78|V95|V150)(?:[);/ ]|$)'
+    - regex: 'roar[ _]?(V20|A50|E80|V78|V95|V150)(?:[);/ ]|$)'
       model: 'Roar $1'
     - regex: '(Z30|P7) pro'
       model: '$1 Pro'
@@ -24751,7 +24756,7 @@ FLYCAT:
 
 # Fly
 Fly:
-  regex: '(?<!GI )Fly(?!Flow|touch)|Power Plus 5000|Power Plus 3|Photo Pro|Slimline|Cirrus (?:6|13)|Life (?:Ace|Jet|Sky|Compact 4G|Geo|Zen|Play)|(?:lineage_)?FS50[1-9]|FS51[0-8]|FS52[0-9]|FS530|FS55[134]|FS40[1-9]|FS45[1-9]|4FS06|MERIDIAN-|(?:IQ(?!10[134]0)[0-9]{3,}[i]?)[ _]?(?:Quad|Firebird|Quattro|Turbo|Magic)?(?:[);/ ]|$)'
+  regex: '(?<!GI )Fly(?!Flow|touch)|Power Plus 5000|Power Plus 3|Photo Pro|Slimline|Cirrus (?:6|13)|Life (?:Ace|Jet|Sky|Compact 4G|Geo|Zen|Play)|(?:lineage_)?FS50[1-9]|FS51[0-8]|FS52[0-9]|FS530|FS55[134]|FS40[1-9]|FS45[1-9]|4FS06|MERIDIAN-|(?:Phoenix 2|(?:IQ(?!10[134]0)[0-9]{3,}[i]?)[ _]?(?:Quad|Firebird|Quattro|Turbo|Magic)?)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(?:Fly_)?IQ310(?:[);/ ]|$)'
@@ -24950,6 +24955,8 @@ Fly:
       model: 'Spark'
     - regex: '(?:Fly_)?IQ4410 Quad(?:[);/ ]|$)'
       model: 'Phoenix'
+    - regex: 'Phoenix 2(?:[);/ ]|$)'
+      model: 'Phoenix 2'
     - regex: '(?:Fly_)?IQ4411(?:[);/ ]|$)'
       model: 'Energy 2'
     - regex: '(?:Fly_)?IQ4412 Quad(?:[);/ ]|$)'
@@ -31790,13 +31797,13 @@ Glofiish:
 
 # Polar (polar.ru)
 Polar:
-  regex: 'Polar[_ ](P24L51T2CSM|P40L33T2CSM)(?:[);/ ]|$)'
+  regex: 'Polar(?:_WK)?[_ ](P24L51T2CSM|P40L33T2CSM|P43U51T2SCSM|P39L21T2CSM)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
 # Polarline (sub brand Polar)
 PolarLine:
-  regex: 'PolarLine[_ ](?:[KW]_)?(24PL51TC-SM|32PL1[34]TC-SM|40PL(?:52|11)TC-SM|55PU11TC-SM)(?:[);/ ]|$)'
+  regex: 'PolarLine[_ ](?:WK[_ ])?(24PL51TC-SM|32PL1[34]TC-SM|40PL(?:52|11)TC-SM|55PU11TC-SM)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
