@@ -2088,7 +2088,7 @@ Aiwa:
 
 # Akai
 Akai:
-  regex: 'AKAI,|Akai[ _-]|Eco[ _]E2|Glory[ _](?:G[1235]|L[123]|O[125])|TAB-[79]8[03]0Q?|X6 METAL|AKTB-703MZ|FZ70[13]'
+  regex: 'AKAI,|Akai[ _-]|Eco[ _]E2|Glory[ _](?:G[1235]|L[123]|O[125])|(?:TAB-[79]8[03]0Q?|X[56] METAL|AKTB-703MZ|FZ70[13]|X5_PRO|X3[_ ]PRO[_ ]SLIM)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'TAB-([79]8[03]0Q?)'
@@ -2101,8 +2101,12 @@ Akai:
       device: 'tablet'
       model: '$1'
 
-    - regex: 'X6 METAL'
-      model: 'iLike'
+    - regex: 'X([56]) METAL'
+      model: 'iLike X$1 Metal'
+    - regex: 'X3[_ ]PRO[_ ]SLIM'
+      model: 'iLike X3 Pro Slim'
+    - regex: 'X5_PRO'
+      model: 'iLike X5 Pro'
     - regex: 'Glory[ _](G[1235]|L[123]|O[125])'
       model: 'Glory $1'
     - regex: 'Eco[ _]E2'
@@ -6528,8 +6532,10 @@ Doogee:
       model: 'X5'
     - regex: 'T5_Lite'
       model: 'T5 Lite'
-    - regex: 'Doogee X5MP'
+    - regex: 'Doogee X5MP|x5MaxPro'
       model: 'X5 Max Pro'
+    - regex: 'X5max_S'
+      model: 'X5 Max S'
     - regex: 'Shoot_([12])'
       model: 'Shoot $1'
     - regex: 'Ibiza_F2'
@@ -12247,7 +12253,7 @@ Benco:
 
 # Lava (Lavamobiles.com)
 Lava:
-  regex: 'Lava[ _]|LAVA(?:A1|X10)|(?:DISCOVER136|KKT QUADRA)|iris(?! Plus 2021|_Pad_G)[ _]?([^/;)]+)(?<!Plus 2021)(?: Build|[;)])|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|X1_atom_L|(?:Flair (?:[ZS]1|P8)|PixelV1|Pixel V2\+?|Z60s|Z61_2GB|A97 IPS|A97 2GB PLUS|L[EH]9920(?:[_ ]P)?|L[NEH]9910|LH9810|Ivory(?:S1|S4G)?|A76Plus|Grand2c|AH9910| A3_mini|T71_w|V23GB|R1_Lite|Atom 2X|AF9030|Z50_Pro| Z(?:[56]1|92)|Android 6(?:[\d.]*);(?: [\w-]+;)? P7plus)(?:[);/ ]|$)'
+  regex: 'Lava[ _]|LAVA(?:A1|X10)|(?:DISCOVER136|KKT QUADRA)|iris(?! Plus 2021|_Pad_G)[ _]?([^/;)]+)(?<!Plus 2021)(?: Build|[;)])|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|X1_atom_L|(?:Flair (?:[ZS]1|P8)|PixelV1|Pixel V2\+?|Z60s|Z61_2GB|A97 IPS|A97 2GB PLUS|L[EH]9920(?:[_ ]P)?|L[NEH]9910|LH9810|Ivory(?:S1|S4G)?|A76Plus|Grand2c|AH9910| A3_mini|T71_w|V23GB|R1_Lite|Atom 2X|AF9030|Z50_Pro| Z(?:[56]1|92)|Android 6(?:[\d.]*);(?: [\w-]+;)? (:?X28|P7plus))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -12343,6 +12349,10 @@ Lava:
       model: 'R3 Note'
     - regex: 'P7plus'
       model: 'P7 Plus'
+    - regex: '(X\d+)[ _]Plus(?:[);/ ]|$)'
+      model: '$1 Plus'
+    - regex: ' (X28)(?:[);/ ]|$)'
+      model: '$1'
     # explicit feature phone models
     - regex: 'DISCOVER136'
       device: 'feature phone'
@@ -12392,7 +12402,7 @@ Landvo:
   models:
     - regex: 'S6 Build' # clone Galaxy S6
       model: 'S6'
-    - regex: 'XM([123])00([^/;]*) Build'
+    - regex: 'XM([123])00([^/;)]*)(?: Build|[;)])'
       model: 'XM$100$2'
 
 # Land Rover
@@ -29971,13 +29981,15 @@ VC:
 
 # Cellacom (http://cellacom.com/)
 Cellacom:
-  regex: 'Cellacom|(?:S51_lite)(?:[);/ ]|$)'
+  regex: 'Cellacom|(?:S51_lite|X501_Prime)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Cellacom_S62(?:[);/ ]|$)'
       model: 'S62'
     - regex: 'S51_lite(?:[);/ ]|$)'
       model: 'S51 Lite'
+    - regex: 'X501_Prime(?:[);/ ]|$)'
+      model: 'X501 Prime'
 
 # CellAllure (cellallure.com)
 CellAllure:
@@ -34153,6 +34165,16 @@ SSKY:
   regex: '(Y777_Fire)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
+
+# XCOM
+XCOM:
+  regex: 'XCOM[ _](?:X520|ISMART)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'XCOM[ _](X520)'
+      model: '$1'
+    - regex: 'XCOM[ _]ISMART'
+      model: 'iSmart'
 
 # Devices with undectable brand, but detectable model
 Unknown:
