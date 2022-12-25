@@ -1518,6 +1518,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '9W'  => 'Winmax',
         'W5'  => 'Winnovo',
         'WU'  => 'Wintouch',
+        'WIS' => 'Winstar',
         'W0'  => 'Wiseasy',
         '2W'  => 'Wizz',
         'W4'  => 'WIWA',

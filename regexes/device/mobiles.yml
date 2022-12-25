@@ -16403,7 +16403,7 @@ Odys:
 
 # Obi or Obi Worldphone
 Obi:
-  regex: 'Obi[ _-]|(?:(?:SJ1\.5|SJ2\.6|(?<!verykool )S(400|452\+|45[13]|50[127]|503\+?|520|55[01])|falcon)[ _]|SJ1-5|SJ[23]\.2| SF1)(?:[);/ ]|$)'
+  regex: 'Obi[ _-]|(?:(?:SJ1\.5|SJ2\.6|(?<!verykool )S(400|452\+|45[13]|50[127]|503\+?|520|55[01])|falcon)|SJ1-5|SJ[23]\.2| SF1)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'SJ(\d)[.-](\d)'
@@ -22154,15 +22154,15 @@ Telefunken:
 
 # Telego
 Telego:
-  regex: 'TELEGO'
+  regex: 'TELEGO|Wise2_plus'
   device: 'smartphone'
   models:
     - regex: 'TELEGO-W503'
       model: 'W503'
     - regex: 'Telego_JOY2'
       model: 'Joy 2'
-    - regex: 'Telego[ _]Mate'
-      model: 'Mate'
+    - regex: 'Wise2_plus'
+      model: 'Wise 2 Plus'
     - regex: 'Telego[ _-]([^/;)]+)(?: Build|[;)])'
       model: '$1'
 
@@ -23598,13 +23598,15 @@ Wileyfox:
 
 # Wolder
 Wolder:
-  regex: 'miSmart|miTab|WIAM \#24|WOLDER'
+  regex: 'miSmart|miTab|WIAM[ _]\#?\d+|WOLDER'
   device: 'smartphone'
   models:
-    - regex: 'WIAM \#24'
-      model: 'Wiam #24'
-    - regex: 'WOLDER_WIAM_65'
-      model: 'Wiam #65'
+    - regex: 'WIAM[_ ]\#?65[_ ]lite'
+      model: 'Wiam #65 Lite'
+    - regex: '(?:WOLDER_)?WIAM[ _]\#?(\d+)'
+      model: 'Wiam #$1'
+    - regex: 'WOLDER[_ ](\d+)'
+      model: 'Wiam #$1'
     - regex: 'miSmart[ \-_]?([^/]+) Build'
       model: 'miSmart $1'
     - regex: 'miTab[ \-_]?([^/)]+)(?: Build|\))'
@@ -31828,7 +31830,7 @@ Polar:
 
 # Polarline (sub brand Polar)
 PolarLine:
-  regex: 'PolarLine[_ ](?:WK[_ ])?(24PL51TC-SM|32PL1[34]TC-SM|40PL(?:52|11)TC-SM|55PU11TC-SM)(?:[);/ ]|$)'
+  regex: 'PolarLine[_ ](?:W?K?[_ ])?(24PL51TC-SM|32PL1[34]TC-SM|40PL(?:52|11)TC-SM|55PU11TC-SM)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
@@ -34175,6 +34177,14 @@ XCOM:
       model: '$1'
     - regex: 'XCOM[ _]ISMART'
       model: 'iSmart'
+
+# Winstar
+Winstar:
+  regex: 'Winstar S-?5'
+  device: 'smartphone'
+  models:
+    - regex: 'Winstar S-?5'
+      model: 'S5'
 
 # Devices with undectable brand, but detectable model
 Unknown:
