@@ -914,6 +914,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MF'  => 'Mofut',
         'MR'  => 'Motorola',
         'MV'  => 'Movic',
+        'MOV' => 'Movitel',
         'MOS' => 'Mosimosi',
         'MM'  => 'Mpman',
         'MZ'  => 'MSI',
