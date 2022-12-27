@@ -1562,6 +1562,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'YK'  => 'Yoka TV',
         'YO'  => 'Yota',
         'YOU' => 'Youin',
+        'YO1' => 'Youwei',
         'YOO' => 'Yooz',
         'YT'  => 'Ytone',
         'Y9'  => 'YOTOPT',
