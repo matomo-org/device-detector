@@ -1011,6 +1011,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ODP' => 'Odotpad',
         'O9'  => 'Ok',
         'OA'  => 'Okapia',
+        'OLY' => 'Olympia',
         'OJ'  => 'Ookee',
         'OD'  => 'Onda',
         'ON'  => 'OnePlus',
