@@ -1411,6 +1411,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'UZ'  => 'Unihertz',
         '3Z'  => 'UZ Mobile',
         'UX'  => 'Unimax',
+        'UNQ' => 'Uniqcell',
         'US'  => 'Uniscope',
         'UNI' => 'Unistrong',
         'U2'  => 'UNIWA',
