@@ -744,6 +744,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'KZ'  => 'Kazam',
         '9K'  => 'Kazuna',
         'KD'  => 'KDDI',
+        'KHA' => 'Khadas',
         'KS'  => 'Kempler & Strauss',
         'K3'  => 'Keneksi',
         'KX'  => 'Kenxinda',
