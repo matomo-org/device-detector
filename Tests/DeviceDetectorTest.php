@@ -385,8 +385,12 @@ class DeviceDetectorTest extends TestCase
      */
     public function testParseBots(array $fixtureData): void
     {
-        $ua = $fixtureData['user_agent'];
-        $dd = new DeviceDetector($ua);
+        $ua          = $fixtureData['user_agent'];
+        $headers     = $fixtureData['headers'] ?? [];
+        $clientHints = ClientHints::factory($headers);
+        $dd          = new DeviceDetector($ua);
+
+        $dd->setClientHints($clientHints);
         $dd->parse();
         $this->assertTrue($dd->isBot());
         $botData = $dd->getBot();
