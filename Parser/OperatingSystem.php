@@ -219,7 +219,7 @@ class OperatingSystem extends AbstractParser
      *
      * @var array<string, array<string>>
      */
-    protected static $clientHintMapping = [
+    protected static $xClientMapping = [
         'GNU/Linux' => ['Linux'],
         'Mac'       => ['MacOS'],
     ];

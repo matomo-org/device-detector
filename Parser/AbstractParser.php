@@ -53,7 +53,7 @@ abstract class AbstractParser
      * Contains a list of mappings from names we use to known client hint values
      * @var array<string, array<string>>
      */
-    protected static $clientHintMapping = [];
+    protected static $xClientMapping = [];
 
     /**
      * Holds an array with method that should be available global
@@ -269,7 +269,7 @@ abstract class AbstractParser
      */
     protected function applyClientHintMapping(string $name): string
     {
-        foreach (static::$clientHintMapping as $mappedName => $clientHints) {
+        foreach (static::$xClientMapping as $mappedName => $clientHints) {
             foreach ($clientHints as $clientHint) {
                 if (\strtolower($name) === \strtolower($clientHint)) {
                     return $mappedName;

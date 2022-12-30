@@ -77,6 +77,12 @@ class ClientHints
     protected $app = '';
 
     /**
+     * Represents `x-client` header field: additional header from applications/bots
+     * @var string
+     */
+    protected $xClient = '';
+
+    /**
      * Constructor
      *
      * @param string $model           `Sec-CH-UA-Model` header field
@@ -88,8 +94,9 @@ class ClientHints
      * @param string $architecture    `Sec-CH-UA-Arch` header field
      * @param string $bitness         `Sec-CH-UA-Bitness`
      * @param string $app             `HTTP_X-REQUESTED-WITH`
+     * @param string $xClient         `HTTP_X_CLIENT`
      */
-    public function __construct(string $model = '', string $platform = '', string $platformVersion = '', string $uaFullVersion = '', array $fullVersionList = [], bool $mobile = false, string $architecture = '', string $bitness = '', string $app = '') // phpcs:ignore Generic.Files.LineLength
+    public function __construct(string $model = '', string $platform = '', string $platformVersion = '', string $uaFullVersion = '', array $fullVersionList = [], bool $mobile = false, string $architecture = '', string $bitness = '', string $app = '', string $xClient = '') // phpcs:ignore Generic.Files.LineLength
     {
         $this->model           = $model;
         $this->platform        = $platform;
@@ -100,6 +107,7 @@ class ClientHints
         $this->architecture    = $architecture;
         $this->bitness         = $bitness;
         $this->app             = $app;
+        $this->xClient         = $xClient;
     }
 
     /**
@@ -222,6 +230,16 @@ class ClientHints
     }
 
     /**
+     * Returns the xClient string
+     *
+     * @return string
+     */
+    public function getXClient(): string
+    {
+        return $this->xClient;
+    }
+
+    /**
      * Factory method to easily instantiate this class using an array containing all available (client hint) headers
      *
      * @param array $headers
@@ -231,7 +249,7 @@ class ClientHints
     public static function factory(array $headers): ClientHints
     {
         $model           = $platform = $platformVersion = $uaFullVersion = $architecture = $bitness = '';
-        $app             = '';
+        $app             = $xClient = '';
         $mobile          = false;
         $fullVersionList = [];
 
@@ -294,6 +312,7 @@ class ClientHints
                     if (!empty($fullVersionList)) {
                         break;
                     }
+
                     // use this only if no other header already set the list
                 case 'http-sec-ch-ua-full-version-list':
                 case 'sec-ch-ua-full-version-list':
@@ -317,6 +336,11 @@ class ClientHints
                     }
 
                     break;
+                case 'http-x-client':
+                case 'x-client':
+                    $xClient = $value;
+
+                    break;
             }
         }
 
@@ -329,7 +353,8 @@ class ClientHints
             $mobile,
             $architecture,
             $bitness,
-            $app
+            $app,
+            $xClient
         );
     }
 }

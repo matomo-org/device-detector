@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace DeviceDetector\Parser;
 
+use DeviceDetector\ClientHints;
+
 /**
  * Class Bot
  *
@@ -45,6 +47,19 @@ class Bot extends AbstractBotParser
     }
 
     /**
+     * Contains a list of mappings from xClient names we use to known x-client values of bots
+     *
+     * @var array<string, array<string>>
+     */
+    protected static $xClientMapping = [
+        'Collabim' => [
+            'name'     => 'Collabim',
+            'category' => 'Crawler',
+            'url'      => 'https://www.collabim.com/',
+        ],
+    ];
+
+    /**
      * Parses the current UA and checks whether it contains bot information
      *
      * @see bots.yml for list of detected bots
@@ -64,6 +79,18 @@ class Bot extends AbstractBotParser
      */
     public function parse(): ?array
     {
+        if ($this->clientHints instanceof ClientHints && $this->clientHints->getXClient()) {
+            foreach (self::$xClientMapping as $key => $result) {
+                if ($this->fuzzyCompare($key, $this->clientHints->getXClient())) {
+                    if ($this->discardDetails) {
+                        return [true];
+                    }
+
+                    return $result;
+                }
+            }
+        }
+
         $result = null;
 
         if ($this->preMatchOverall()) {
