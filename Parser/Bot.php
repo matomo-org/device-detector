@@ -80,8 +80,8 @@ class Bot extends AbstractBotParser
     public function parse(): ?array
     {
         if ($this->clientHints instanceof ClientHints && $this->clientHints->getXClient()) {
-            foreach (self::$xClientMapping as $key => $result) {
-                if ($this->fuzzyCompare($key, $this->clientHints->getXClient())) {
+            foreach (self::$xClientMapping as $mappingName => $result) {
+                if ($this->fuzzyCompare($mappingName, $this->clientHints->getXClient())) {
                     if ($this->discardDetails) {
                         return [true];
                     }
