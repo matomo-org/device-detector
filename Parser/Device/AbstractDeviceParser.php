@@ -332,6 +332,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CU'  => 'Cube',
         'CB'  => 'CUBOT',
         'CV'  => 'CVTE',
+        'CWO' => 'Cwowdefu',
         'C4'  => 'Cyrus',
         'D5'  => 'Daewoo',
         'DA'  => 'Danew',
