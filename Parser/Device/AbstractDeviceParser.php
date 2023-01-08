@@ -907,6 +907,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '5H'  => 'MMI',
         '4M'  => 'Mobicel',
         'M6'  => 'Mobiistar',
+        'MOK' => 'Mobile Kingdom',
         'MH'  => 'Mobiola',
         'MB'  => 'Mobistel',
         'ID'  => 'MobiIoT',
