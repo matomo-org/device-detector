@@ -1225,6 +1225,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '24'  => 'Seeken',
         '61'  => 'Seuic',
         'SX'  => 'SFR',
+        'SGI' => 'SGIN',
         'SH'  => 'Sharp',
         'JU'  => 'Shanling',
         '7S'  => 'Shift Phones',
