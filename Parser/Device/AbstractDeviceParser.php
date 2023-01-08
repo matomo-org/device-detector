@@ -443,6 +443,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ED'  => 'Energizer',
         'E1'  => 'Energy Sistem',
         '3E'  => 'Enot',
+        'ENT' => 'Entity',
         'ENV' => 'Envizen',
         '8E'  => 'Epik One',
         'XP'  => 'Epson',
