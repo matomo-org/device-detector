@@ -26613,9 +26613,15 @@ Qumo:
 
 # Qubo (qubomobile.com)
 Qubo:
-  regex: '(Cronos|MINERVA(?:_32GB)?|X626_4G|Hermes)(?:[);/ ]|$)'
+  regex: '(?:Cronos|MINERVA_32GB|X668_64GB|X626_4G|Hermes)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'MINERVA(?:_32GB)?(?:[);/ ]|$)'
+      model: 'Minerva'
+    - regex: 'X668_64GB(?:[);/ ]|$)'
+      model: 'X668'
+    - regex: '(Cronos|Hermes|X626_4G)(?:[);/ ]|$)'
+      model: '$1'
 
 # Umax (umax.cz)
 Umax:
