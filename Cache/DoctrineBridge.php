@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace DeviceDetector\Cache;
 
-use Doctrine\Common\Cache\CacheProvider ;
+use Doctrine\Common\Cache\CacheProvider;
 
 class DoctrineBridge implements CacheInterface
 {
