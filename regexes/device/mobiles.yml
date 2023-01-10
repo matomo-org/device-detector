@@ -13962,7 +13962,9 @@ Logicom:
     - regex: 'VR bot (552)'
       device: 'smartphone'
       model: 'VR BOT $1'
-    - regex: '((?:B|C|M|ID|VR))[ _]?BOT[ _]?((?:TAB[ _])?([0-9]+\+?)(?:PLUS)?)'
+    - regex: '((?:[BCM]|ID|VR))[ _]?BOT[ _]?TAB[ _]([0-9]+(?:PLUS|\+)?)'
+      model: '$1 BOT Tab $2'
+    - regex: '((?:[BCM]|ID|VR))[ _]?BOT[ _]?((?:TAB[ _])?([0-9]+\+?)(?:PLUS)?)'
       model: '$1 BOT $2'
     - regex: 'Le Lift'
       model: 'Le Lift'
@@ -20244,7 +20246,7 @@ SWISSMOBILITY:
 
 # Thomson
 Thomson:
-  regex: '(?:Primo(7|8)|QM73[45]-8G|QM734-2|QM736-8G\(HD\)|(?<!\.)8950|MID1002|5014G|TEO(?:7RK|X10[23]|104G)|Friendly_TH101|Delight TH201|HERO10RK|SPTEO10BK16)(?:[);/ ]|$)|(?:Tlink|Every)[0-9]+|THOMSON,'
+  regex: '(?:Primo(7|8)|QM73[45]-8G|QM734-2|QM736-8G\(HD\)|(?<!\.)8950|MID1002|5014G|TEO(?:13P|10S|7RK|X10[23]|104G)|Friendly_TH101|Delight TH201|HERO10RK|SPTEO10BK16)(?:[);/ ]|$)|(?:Tlink|Every)[0-9]+|THOMSON,'
   device: 'tablet'
   models:
     # already detected as manta device
@@ -20264,7 +20266,7 @@ Thomson:
       model: '3G 8950'
     - regex: 'SPTEO10BK16'
       model: 'TEO10BK16'
-    - regex: 'TEO(7RK|104G|X10[23])(?:[);/ ]|$)'
+    - regex: 'TEO(13P|10S|7RK|104G|X10[23])(?:[);/ ]|$)'
       model: 'TEO$1'
     - regex: 'HERO10RK'
       model: 'Hero 10RK'
@@ -31172,7 +31174,7 @@ Kyowon:
 
 # LT Mobile or LT Electronics (lt-smartphone.com or lt-yemen.com)
 LT Mobile:
-  regex: 'LT[ _-](?:P[89]|P10I|NOTE 10[SM]|NOTE 30|C1[45]00|C3[135]00|S10[ _]Lite|S10|S9_NOTE)|(?:C3[67]00)(?:[);/ ]|$)'
+  regex: 'LT[ _-](?:P[89]|P10I|NOTE 10[SM]|NOTE 30|C1[45]00|C3[1235]00|S10[ _]Lite|S10|S9_NOTE)|(?:C3[67]00)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'LT[- ]NOTE ([13]0[SM]?)'
@@ -31181,6 +31183,8 @@ LT Mobile:
       model: 'Note S9'
     - regex: 'LT[ _-]C3100'
       model: 'P9'
+    - regex: 'LT[ _-]C3200'
+      model: 'P10'
     - regex: 'LT[ _-]C1400'
       model: 'P7s'
     - regex: 'LT[ _-]C3500'
@@ -34538,6 +34542,14 @@ Waltter:
   regex: 'Waltter NEO 10\.1'
   device: 'tablet'
   model: 'Neo 10.1"'
+
+# LPX-G
+LPX-G:
+  regex: 'LPX-G BOX'
+  device: 'tv'
+  models:
+    - regex: 'LPX-G Box Max'
+      model: 'Box Max'
 
 # Devices with undectable brand, but detectable model
 Unknown:
