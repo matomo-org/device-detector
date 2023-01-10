@@ -201,6 +201,11 @@ $cache = new \Doctrine\Common\Cache\ApcuCache();
 $dd->setCache(
     new \DeviceDetector\Cache\DoctrineBridge($cache)
 );
+
+// Example with Laravel
+$dd->setCache(
+    new \DeviceDetector\Cache\LaravelCache()
+);
 ```
 
 ## Contributing
