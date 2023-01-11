@@ -50,7 +50,7 @@ class ClientHints
     protected $platform = '';
 
     /**
-     * Represents `SSec-CH-UA-Platform-Version` header field: the platform's major version
+     * Represents `Sec-CH-UA-Platform-Version` header field: the platform's major version
      *
      * @var string
      */
