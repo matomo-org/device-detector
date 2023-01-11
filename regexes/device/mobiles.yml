@@ -15994,14 +15994,17 @@ Noain:
 
 # Noblex (https://noblex.com.ar/)
 Noblex:
-  regex: 'Noblex|NBX-|A[56]0UNS'
+  regex: 'Noblex|NBX-|(?:A[56]0UNS|T7A6INC)(?:[;/)]|$)'
   device: 'smartphone'
   models:
     - regex: '(?:Noblex|NBX)[ _-]([^;/]+) Build'
       model: '$1'
     - regex: '(?:Noblex|NBX)[ _-]([^;/)]+)(?:[;/)]|$)'
       model: '$1'
-    - regex: '(A[56]0)UNS(?:[;/)]|$)'
+    - regex: '(A[56]0)UNS'
+      model: '$1'
+    - regex: '(T7A6INC)'
+      device: 'tablet'
       model: '$1'
 
 # NOGA (https://noganet.ar/)
@@ -34575,6 +34578,12 @@ GIRASOLE:
 # MOVISUN
 MOVISUN:
   regex: '(TAB-S1)(?:[);/ ]|$)'
+  device: 'tablet'
+  model: '$1'
+
+# Samtech
+Samtech:
+  regex: '(T3G_04)(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
 

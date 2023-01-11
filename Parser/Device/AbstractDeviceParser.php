@@ -1206,6 +1206,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SG'  => 'Sagem',
         '4L'  => 'Salora',
         'SA'  => 'Samsung',
+        'SAT' => 'Samtech',
         'SNA' => 'SNAMI',
         'S0'  => 'Sanei',
         '12'  => 'Sansui',
