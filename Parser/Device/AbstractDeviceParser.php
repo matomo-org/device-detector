@@ -946,6 +946,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MYM' => 'MyMobile',
         '07'  => 'MyGica',
         'MYG' => 'MygPad',
+        'MWA' => 'MwalimuPlus',
         'NEO' => 'neoCore',
         '08'  => 'Nabi',
         'N7'  => 'National',
