@@ -26233,7 +26233,7 @@ Vertex:
   models:
     - regex: '(?:Vertex_)?Luck[_ ]L[_ ](5045)[_ ]([34])G'
       model: 'Luck L $1 $2G'
-    - regex: '(Lion_Dual|Lion_DC|Baccara|Eagle[ _]4G|Luck_L1[02]0_[34]G|Luck)(?:[);/ ]|$)'
+    - regex: '(Lion_Dual|Lion_DC|Baccara|Eagle[ _]4G|Luck[_ ]L1[023]0(?:[_ ][34]G)?|Luck)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'Impress ?MAX(?:[);/ ]|$)'
       model: 'Impress Max'
@@ -28381,11 +28381,13 @@ iTruck:
 
 # Torex (torex.tools)
 Torex:
-  regex: 'TOREX[- ](?:PS12|S18|S27)(?:[);/ ]|$)'
+  regex: 'TOREX[- ](?:PS12|S18|S27|PAD 8 ?PRO)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'TOREX-(PS12)'
       model: '$1'
+    - regex: 'TOREX PAD 8 ?PRO'
+      model: 'Pad 8 Pro'
     - regex: 'TOREX[- ](S18|S27)'
       device: 'smartphone'
       model: '$1'
@@ -34601,6 +34603,12 @@ MwalimuPlus:
   regex: '(MP01A3G)(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
+
+# OLTO (olto.su)
+OLTO:
+ regex: 'OLTO-(43ST20U)(?:[);/ ]|$)'
+ device: 'tv'
+ model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
