@@ -5518,6 +5518,9 @@ ComTrade Tesla:
     - regex: 'Tesla_Tablet_M8'
       model: 'M8'
       device: 'tablet'
+    - regex: 'TESLA XT550'
+      model: 'MediaBox XT550'
+      device: 'tv'
     - regex: 'TESLA,([a-z0-9_ \-]+),(?:wired|wireless)'
       model: ''
       device: 'tv'
@@ -20253,7 +20256,7 @@ SWISSMOBILITY:
 
 # Thomson
 Thomson:
-  regex: '(?:Primo(7|8)|QM73[45]-8G|QM734-2|QM736-8G\(HD\)|(?<!\.)8950|MID1002|5014G|TEO(?:13P|10S|7RK|X10[23]|104G)|Friendly_TH101|Delight TH201|HERO10RK|SPTEO10BK16)(?:[);/ ]|$)|(?:Tlink|Every)[0-9]+|THOMSON,'
+  regex: '(?:Primo(7|8)|QM73[45]-8G|QM734-2|QM736-8G\(HD\)|(?<!\.)8950|MID1002|5014G|TEO(?:13P|10S|7RK|X10[23]|104G)|Friendly_TH101|Delight TH201|HERO10RK|SPTEO10BK16)(?:[);/ ]|$)|(?:Tlink|Every)[0-9]+|THOMSON[, ]'
   device: 'tablet'
   models:
     # already detected as manta device
@@ -20293,6 +20296,9 @@ Thomson:
     - regex: 'Friendly_TH101'
       device: 'smartphone'
       model: 'Friendly TH101'
+    - regex: 'THOMSON[ _]SEREA500'
+      device: 'smartphone'
+      model: 'Serea 500'
     - regex: '((?:49|55)UC6306|55UC63|32HD55|40FD54|55UD63)'
       device: 'tv'
       model: '$1'
@@ -26309,7 +26315,7 @@ MYFON:
 
 # X-TIGI
 X-TIGI:
-  regex: 'X[-_]TIGI|Hope(?:7|10)[_ ](?:Mate|Max|Pro|Plus)|JOY10 Mate|Photo_P15_Lite|SHARP_2|SHARP1'
+  regex: 'X[-_]TIGI|Hope(?:7|10)[_ ](?:Mate|Max|Pro|Plus)|JOY10 Mate|Photo_P15_Lite|SHARP_2|SHARP1|V18 pro_A'
   device: 'smartphone'
   models:
     - regex: 'X-TIGI_JOY10_PRO'
@@ -26337,6 +26343,8 @@ X-TIGI:
       model: 'V28 LTE'
     - regex: 'X[-_]TIGI[_ ]V19'
       model: 'V19'
+    - regex: 'V18 pro_A'
+      model: 'V18 Pro'
     - regex: 'X[-_]TIGI[_ ]A1[_ ]?Plus'
       model: 'A1 Plus'
     - regex: 'X-TIGI[_ ]Photo[_ ]P11'
@@ -28789,13 +28797,15 @@ Dolamee:
 
 # INVIN
 Invin:
-  regex: 'INVIN[ _-]|KM5PRO(?:[);/ ]|$)'
+  regex: 'INVIN[ _-]|(?:IPC002|KM5PRO)(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: 'INVIN[ _-](X[24]|KM[678])'
       model: '$1'
     - regex: 'KM5PRO'
       model: 'KM5 Pro'
+    - regex: '(IPC002)'
+      model: '$1'
 
 # Doopro
 Doopro:
@@ -29624,10 +29634,10 @@ ELARI:
 
 # Altice
 Altice:
-  regex: 'Altice[ _]|(SX41|Android 9;(?: [\w-]+;)? (?:S32|S42|S32_Plus))(?:[);/ ]|$)'
+  regex: 'Altice[ _]|(SX41|Android 9;(?: [\w-]+;)? (?:S32|S42|S32_(?:Plus|NFC)))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: ' (SX41|S32|S42|S32_Plus)(?:[);/ ]|$)'
+    - regex: ' (SX41|S32|S42|S32_Plus|S32_NFC)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'Altice[ _](S62|S31|S43)(?:[);/ ]|$)'
       model: '$1'
@@ -30108,11 +30118,11 @@ Colors:
 
 # Honeywell (honeywell.com)
 Honeywell:
-  regex: '(?:EDA50K?|EDA70|EDA71_G|EDA5[12]|CK65|CT[46]0|CN80)(?:[);/ ]|$)'
+  regex: '(?:EDA50K?|EDA70|EDA71_G|EDA5[12]|CK65|CT[46]0|CN80|EDA61K)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # smartphone + scan
-    - regex: '(EDA50K?|EDA70|EDA5[12])(?:[);/ ]|$)'
+    - regex: '(EDA50K?|EDA70|EDA5[12]|EDA61K)(?:[);/ ]|$)'
       model: 'ScanPal $1'
     # tablet + scan
     - regex: 'EDA71'
@@ -31249,13 +31259,15 @@ AIRON:
 
 # GFive or G'Five (www.gfivepakistan.com)
 GFive:
-  regex: '(?:PRESIDENT_GOLD_(9|10)|President Gpower 1)(?:[);/ ]|$)'
+  regex: '(?:PRESIDENT_GOLD_(9|10)|President Gpower 1|Stark)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'PRESIDENT_GOLD_(9|10)'
       model: 'President Gold $1'
     - regex: 'President Gpower 1'
       model: 'President GPower 1'
+    - regex: 'Stark'
+      model: 'Stark'
 
 # KINGZONE or KING ZONE
 KINGZONE:
@@ -31852,6 +31864,8 @@ Perfeo:
       model: 'CHRONO'
     - regex: 'Perfeo_PF_A4552'
       model: 'RATE'
+    - regex: 'Perfeo_PF_A4553'
+      model: 'MATRIX'
 
 # CGV (www.cgv.fr)
 CGV:
@@ -33682,7 +33696,7 @@ PIRANHA:
 
 # CipherLab (www.cipherlab.com)
 CipherLab:
-  regex: '(RK25WO|RK25|RS35)(?:[);/ ]|$)'
+  regex: '(RK25WO|RK[29]5|RS35)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
 
@@ -34609,6 +34623,18 @@ OLTO:
  regex: 'OLTO-(43ST20U)(?:[);/ ]|$)'
  device: 'tv'
  model: '$1'
+
+# DSIC
+DSIC:
+  regex: '(RD86QE)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
+
+# Mascom
+Mascom:
+  regex: 'Mascom (S750)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
