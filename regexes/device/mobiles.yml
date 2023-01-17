@@ -23391,7 +23391,7 @@ Vodafone:
 
 # Vonino (vonino.ro, vonino.it)
 Vonino:
-  regex: 'Vonino|Epic (?:E8|P7)|Epic_(?:M8|P7)|Gyga[ _](?:X|S|QS|XS)|Jax[ _](?:QS|[SXQN]|Mini)|Magnet[ _](?:M[19]|G[135]0|W10)|Navo_QS|Navo S|Onyx_(QS|Z)|Orin_QS|Pluri[ _](?:[BCMQ]7|[CQM]8)|Sirius_QS|(?<!Schok )Volt[ _][XS]|Xavy[_ ]([GT]7|L8)|Xylo[ _][XSPQT]|Zun[ _](?:N|X[OS]?)|JAX_N|Druid_L10|iMart_Pro'
+  regex: 'Vonino|Epic (?:E8|P7)|Epic_(?:M8|P7)|Gyga[ _](?:X|S|QS|XS)|Jax[ _](?:QS|[SXQN]|Mini)|Magnet[ _](?:M[19]|G[135]0|W10)|Navo_QS|Navo S|Onyx_(QS|Z)|Orin_QS|Pluri[ _](?:[BCMQ]7|[CQM]8)|Sirius_QS|(?<!Schok )Volt[ _][XS]|Xavy[_ ]([GT]7|L8)|Xylo[ _][XSPQT]|Zun[ _](?:N|X[OS]?)|JAX_N|Druid_L10|iMart_Pro|MusicPAD_[HM]1'
   device: 'smartphone'
   models:
     - regex: 'Zun[ _](N|X[OS]?)'
@@ -23455,6 +23455,9 @@ Vonino:
     - regex: 'Xavy[_ ]([GT]7|L8)'
       model: 'Xavy $1'
       device: 'tablet'
+    - regex: 'MusicPAD_([HM]1)'
+      model: 'MusicPAD $1'
+      device: 'portable media player'
 
 # Vorago (www.voragolive.com)
 Vorago:
@@ -34071,11 +34074,15 @@ NEXT:
   device: 'smartphone'
   model: '$1'
 
-# iMuz
+# iMuz (shop.imuz.com)
 iMuz:
-  regex: '(Revolution A8)(?:[);/ ]|$)'
+  regex: '(?:Revolution A8|muPAD[_ ][KT]10|muPAD104|muPADT7|muPAD 7S)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: '(Revolution A8|muPAD[_ ][KT]10)'
+      model: '$1'
+    - regex: 'muPAD[ _]?(104|T7|7S)'
+      model: 'muPAD $1'
 
 # ECOO
 ECOO:
