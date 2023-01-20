@@ -463,6 +463,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '4J'  => 'Eurocase',
         'E9'  => 'Evercoss',
         'EV'  => 'Evertek',
+        'EV1' => 'Everex',
         'E3'  => 'Evolio',
         'EO'  => 'Evolveo',
         '0Q'  => 'Evoo',

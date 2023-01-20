@@ -7791,11 +7791,9 @@ Evolveo:
 
 # Evoo
 Evoo:
-  regex: 'EVM4G3(?:[);/ ]|$)'
+  regex: '(EVM4G3|EVM4G6)(?:[);/ ]|$)'
   device: 'smartphone'
-  models:
-    - regex: 'EVM4G3(?:[);/ ]|$)'
-      model: 'EVM4G3'
+  model: '$1'
 
 # Leotec
 Leotec:
@@ -11989,9 +11987,11 @@ Komu:
 
 # Koobee
 Koobee:
-  regex: 'Koobee'
+  regex: 'Koobee|F2_Plus(?:[);/ ]|$)'
   device: 'smartphone'
   models:
+    - regex: 'F2_Plus'
+      model: 'F2 Plus'
     - regex: 'Koobee[ _\-]?([^;/]+) Build'
       model: '$1'
     - regex: 'Koobee[ _\-]?([a-z0-9_-]+)'
@@ -12290,7 +12290,7 @@ Mymaga:
 
 # Krüger&Matz or Kruger&Matz (www.krugermatz.com)
 Krüger&Matz:
-  regex: 'Kruger[ _&]Matz|KrugerMatz[ _]|K&M|FLOW ?5PLUS|FLOW 4 PLUS|Flow 9|FLOW_5|FLOW7|FLOW6(?:S|Lite)?|DRIVE9|DRIVE 8|DRIVE[_ ]6S?|MOVE8mini|MOVE9|MOVE_|LIVE_6plus|LIVE 5 PLUS|Live [89]|LIVE4_KM043[89]|LIVE 7S?|Flow 7S|KM(?:106[679]|1065G|0701(?:_1)?|0702|080[45](?:_1)?|1070)'
+  regex: 'Kruger[ _&]Matz|KrugerMatz[ _]|K&M|EAGLE_(?:961|1068)|FLOW ?5PLUS|FLOW 4 PLUS|Flow 9|FLOW_5|FLOW7|FLOW6(?:S|Lite)?|DRIVE9|DRIVE 8|DRIVE[_ ]6S?|MOVE8mini|MOVE9|MOVE_|LIVE_6plus|LIVE 5 PLUS|Live [89]|LIVE4_KM043[89]|LIVE 7S?|Flow 7S|KM(?:106[679]|1065G|0701(?:_1)?|0702|080[45](?:_1)?|1070)'
   device: 'smartphone'
   models:
     - regex: 'MOVE8mini'
@@ -12329,6 +12329,9 @@ Krüger&Matz:
     - regex: 'KM(106[679])(?:[);/ ]|$)'
       device: 'tablet'
       model: 'EAGLE $1 10.1"'
+    - regex: 'EAGLE_(961|1068)(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'EAGLE $1'
     - regex: 'KM(1070)(?:[);/ ]|$)'
       device: 'tablet'
       model: 'EAGLE $1 10.5"'
@@ -22485,11 +22488,13 @@ Telit:
 
 # Telma (https://www.telma.mg/)
 Telma:
-  regex: 'Telma'
+  regex: 'Telma|F1x4G(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'Telma_F1_Max_4G(?:[);/ ]|$)'
+    - regex: 'Telma_F1_Max_4G'
       model: 'F1 Max 4G'
+    - regex: 'F1x4G'
+      model: 'F1x 4G'
 
 # Telpo (https://www.telpo.com.cn/)
 Telpo:
@@ -34728,6 +34733,12 @@ Oangcc:
   regex: '(Tab_A6)(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
+
+# Everex
+Everex:
+  regex: 'Fine 7B(?:[);/ ]|$)'
+  device: 'tablet'
+  model: 'Fine 7B'
 
 # Devices with undectable brand, but detectable model
 Unknown:
