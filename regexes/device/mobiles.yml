@@ -6176,7 +6176,7 @@ Datsun:
 
 # Danew (danew.fr)
 Danew:
-  regex: 'Dslide|Konnect_?(?:402|50[246]|556|60[1278])|GEODROID_A5'
+  regex: 'Dslide|Konnect_?(?:402|50[246]|556|60[1278])|GEODROID_A5|Dbook[_ ]110'
   device: 'smartphone'
   models:
     - regex: 'Konnect[_ ]?(402|50[246]|556|60[1278])'
@@ -6184,6 +6184,9 @@ Danew:
     - regex: 'GEODROID_A5'
       device: 'tablet'
       model: 'Geodroid A5'
+    - regex: 'Dbook[_ ](110)'
+      model: 'DBook $1'
+      device: 'tablet'
     - regex: 'Dslide[ _]?([^;/)]+)(?: Build|[);])'
       device: 'tablet'
       model: 'DSlide $1'
@@ -12393,7 +12396,7 @@ Benco:
 
 # Lava (Lavamobiles.com)
 Lava:
-  regex: 'Lava[ _]|LAVA(?:A1|X10)|(?:DISCOVER136|KKT QUADRA)|iris(?! Plus 2021|_Pad_G)[ _]?([^/;)]+)(?<!Plus 2021)(?: Build|[;)])|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|X1_atom_L|(?:Flair (?:[ZS]1|P8)|PixelV1|Pixel V2\+?|Z60s|Z61_2GB|A97 IPS|A97 2GB PLUS|L[EH]9920(?:[_ ]P)?|L[NEH]9910|LH9810|Ivory(?:S1|S4G)?|A76Plus|Grand2c|AH9910| A3_mini|T71_w|V23GB|R1_Lite|Atom 2X|AF9030|Z50_Pro| Z(?:[56]1|92)|Android 6(?:[\d.]*);(?: [\w-]+;)? (:?X28|P7plus))(?:[);/ ]|$)'
+  regex: 'Lava[ _]|LAVA(?:A1|X10)|(?:DISCOVER136|KKT QUADRA)|iris(?! Plus 2021|_Pad_G)[ _]?([^/;)]+)(?<!Plus 2021)(?: Build|[;)])|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|X1_atom_L|(?:Flair (?:[ZS]1|P8)|PixelV1|Pixel V2\+?|Z60s|Z61_2GB|A97 IPS|A97 2GB PLUS|L[EH]9920(?:[_ ]P)?|L[NEH]9910|LH9810|Ivory(?:S1|S4G)?|A76Plus|Grand2c|AH9910| A3_mini|T71_w|V23GB|R1_Lite|Atom 2X|AF9030|Z50_Pro| Z(?:[56]1|92)|Android 6(?:[\d.]*);(?: [\w-]+;)? (:?X28|P7plus)|AF9020)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -12401,6 +12404,8 @@ Lava:
       model: 'Flair $1'
     - regex: 'AF9030(?:[);/ ]|$)'
       model: 'Benco Y30'
+    - regex: 'AF9020(?:[);/ ]|$)'
+      model: 'Benco Y50'
     - regex: 'AH9910(?:[);/ ]|$)'
       model: 'Benco Y40'
     - regex: 'LXX501(?:[);/ ]|$)'
@@ -18062,11 +18067,13 @@ TCL:
 
 # JVC
 JVC:
-  regex: 'JVC[;,]|AV-10NT310'
+  regex: 'JVC[;,]|AV-10NT310|AFTSO001'
   device: 'tv'
   models:
     - regex: 'JVC[;,](32D1290)'
       model: '$1'
+    - regex: 'AFTSO001'
+      model: 'Fire TV 4K (2019)'
     - regex: 'JVC, ([a-z0-9_ \-]+), (?:wired|wireless)'
       model: ''
       device: 'tv'
@@ -21630,6 +21637,9 @@ Amazon:
       device: 'tv'
     - regex: 'AFTN'
       model: 'Fire TV (Gen 3)'
+      device: 'tv'
+    - regex: 'AFTTI43'
+      model: 'Fire TV 4-Series (2021)'
       device: 'tv'
     - regex: 'AFTB'
       model: 'Fire TV (Gen 1)'
@@ -30896,7 +30906,7 @@ Mantra:
 
 # Datalogic (datalogic.com)
 Datalogic:
-  regex: '(?:MEMOR )([12]0)(?:[);/ ]|$)'
+  regex: '(?:MEMOR )([12]0|1)(?:[);/ ]|$)'
   device: 'smartphone'
   model: 'Memor $1'
 
@@ -34753,6 +34763,18 @@ Everex:
 Guophone:
   regex: '(XP9800)(?:[);/ ]|$)'
   device: 'smartphone'
+  model: '$1'
+
+# Unitech (ute.com)
+Unitech:
+  regex: '(EA630)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
+
+# GTMEDIA
+GTMEDIA:
+  regex: '(GTCOMBO)(?:[);/ ]|$)'
+  device: 'tv'
   model: '$1'
 
 # Devices with undectable brand, but detectable model
