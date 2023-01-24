@@ -11726,6 +11726,8 @@ JAY-Tech:
   models:
     - regex: 'TPC-PA10.1M'
       model: 'Tablet PC PA10.1M'
+    - regex: 'TPC-(XE10D-H)'
+      model: 'Tablet PC $1'
     - regex: 'TPC-([A-Z0-9]+)'
       model: 'Tablet PC $1'
     - regex: '(TPCY-TX[TE][^);/ ]+)'
@@ -15937,10 +15939,10 @@ NEC:
 
 # Neffos (sub brand TP-Link) (neffos.com)
 Neffos:
-  regex: 'Neffos|(TP601A)(?:[);/ ]|$)'
+  regex: 'Neffos|(TP601[ABCE])(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: '(?:C57|TP601A)(?:[);/ ]|$)'
+    - regex: '(?:C57|TP601[ABCE])(?:[);/ ]|$)'
       model: 'C5L'
     - regex: 'Neffos[_ ]Y50'
       model: 'Y50'
@@ -20359,9 +20361,9 @@ Thomson:
     - regex: 'HERO10RK'
       model: 'Hero 10RK'
 
-    - regex: '5014G(?:[);/ ]|$)'
+    - regex: '(5014G|T510H)(?:[);/ ]|$)'
       device: 'smartphone'
-      model: '5014G'       # EGO-5014G
+      model: '$1'       # EGO-5014G
     - regex: 'Tlink([0-9]+)'
       device: 'smartphone'
       model: 'Tlink$1'
@@ -28839,9 +28841,9 @@ Time2:
   device: 'tablet'
   model: '$1 10.1"'
 
-# Sunstech
+# Sunstech (sunstech.com)
 Sunstech:
-  regex: '(TAB2323GMQC|TAB1081)(?:[);/ ]|$)'
+  regex: '(TAB(?:2323GMQC|1081|918QC|917QC-(?:8|16)GB))(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
 
@@ -33534,9 +33536,17 @@ DreamTab:
 
 # DL
 DL:
-  regex: 'DL_Horizon_Selfie'
+  regex: 'DL_Horizon_Selfie|Tablet_DL_\d{4}'
   device: 'smartphone'
-  model: 'Horizon Selfie'
+  models:
+    - regex: 'DL_Horizon_Selfie'
+      model: 'Horizon Selfie'
+    - regex: 'Tablet_DL_3910'
+      deivce: 'tablet'
+      model: 'iPlayer Kids'
+    - regex: 'Tablet_DL_(\d{4})'
+      deivce: 'tablet'
+      model: '$1'
 
 # DIGICOM
 DIGICOM:
