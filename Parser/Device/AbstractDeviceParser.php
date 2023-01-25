@@ -1565,6 +1565,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'WR'  => 'Wortmann',
         'WX'  => 'Woxter',
         'XQ'  => 'X-AGE',
+        'XEL' => 'XElectron',
         'X3'  => 'X-BO',
         'XMO' => 'X-Mobile',
         'XT'  => 'X-TIGI',
