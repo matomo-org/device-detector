@@ -4686,11 +4686,11 @@ BenQ-Siemens:
 
 # BenQ
 BenQ:
-  regex: 'BENQ(?:[ \-])?([a-z0-9]+)|(?:F52_09|F5_15)(?:[);/ ]|$)'
+  regex: 'BENQ(?:[ \-])?([a-z0-9]+)|(?:F52_09|F5_15|T47_09)(?:[);/ ]|$)'
   device: 'feature phone'
   models:
-    - regex: 'F(52|5)_(?:15|09)(?:[);/ ]|$)'
-      model: 'F$1'
+    - regex: '(F(?:52|5)|T47)_(?:15|09)(?:[);/ ]|$)'
+      model: '$1'
     - regex: 'BENQ(?:[ \-])?([a-z0-9]+)'
       model: '$1'
 
@@ -6923,9 +6923,14 @@ Element:
 
 # Elenberg
 Elenberg:
-  regex: '(TAB(?:101|728)[ _]3G|TAB7(?:[03]8|16|40|3[30]))(?:[);/ ]|$)'
+  regex: '(?:TAB(?:101|728)[ _]3G|TAB7(?:[03]8|16|40|3[30])|STB0819)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: '(STB0819)'
+      device: 'tv'
+      model: '$1'
+    - regex: '(TAB(?:101|728)[ _]3G|TAB7(?:[03]8|16|40|3[30])(?:[);/ ]|$)'
+      model: '$1'
 
 # Ericy
 Ericy:
@@ -11473,6 +11478,12 @@ i-mobile:
       device: 'smartphone'
     - regex: 'IQ ?(9\.1|5\.5|5\.6A?|II)'
       model: 'IQ $1'
+      device: 'smartphone'
+    - regex: 'IQ Z PRO'
+      model: 'IQ Z Pro'
+      device: 'smartphone'
+    - regex: 'IQ Z BRIGHT'
+      model: 'IQ Z Bright'
       device: 'smartphone'
     - regex: 'i-mobile (IQ[^/;]*) Build'
       model: '$1'
@@ -17704,7 +17715,7 @@ Overmax:
 
 # Oysters
 Oysters:
-  regex: 'Oysters|T84ERI[ _]3G|T72HM(s_)?3G|T102MS_3G|T102ER3G|T72ER3G|(T74HMi|T84Bi)[_ ]4G|T74MR4G|T84Ni[_ ][34]G|Pacific(?:[ ]?800i|E)|T104B_[34]G|IndianV|T72HA_3G|T12V? 3G|T74D_3G|T74N_3G|T74SC_3G|T74Mai_3G|T74MRi3G|T104MBi_3G|T104SCi_3G|T104ER4G|Arctic450|Atlantic(?:4G|454|[EV])|AntarcticE|Life4G|T7V 3G|Pacific(?:VS?|I?4G|454)'
+  regex: 'Oysters|T84ERI[ _]3G|T72HM(s_)?3G|T102MS_3G|T102ER3G|T72ER3G|(T74HMi|T84Bi)[_ ]4G|T74MR4G|T74RD|T84Ni[_ ][34]G|Pacific(?:[ ]?800i|E)|T104B_[34]G|IndianV|T72HA_3G|T12V? 3G|T74D_3G|T74N_3G|T74SC_3G|T74Mai_3G|T74MRi3G|T104MBi_3G|T104SCi_3G|T104ER4G|Arctic450|Atlantic(?:4G|454|[EV])|AntarcticE|Life4G|T7V 3G|Pacific(?:VS?|I?4G|454)'
   device: 'tablet'
   models:
     - regex: 'Pacific[ ]?800i'
@@ -17740,6 +17751,8 @@ Oysters:
       model: '$1 $2'
     - regex: 'T74Mai_3G'
       model: 'T74MAi 3G'
+    - regex: '(T74RD)'
+      model: '$1'
     - regex: 'Oysters ([^/;]+)( Build|\))'
       model: '$1'
 
@@ -21517,6 +21530,8 @@ Sonim:
       model: 'XP3 Plus'
     - regex: '(?:Sonim-)?XP5800(?:[);/ ]|$)'
       model: 'XP5s'
+    - regex: '(?:Sonim-)?XP5700(?:[);/ ]|$)'
+      model: 'XP5'
     - regex: '(?:Sonim-)?XP6700(?:[);/ ]|$)'
       model: 'XP6'
     - regex: '(?:Sonim-)?XP7700(?:[);/ ]|$)'
@@ -23989,11 +24004,13 @@ Wonu:
 
 # Woo
 Woo:
-  regex: 'SP5026i-Scorpio'
+  regex: 'SP5026i-Scorpio|SP5040-Casiopea'
   device: 'smartphone'
   models:
     - regex: 'SP5026i-Scorpio'
       model: 'Scorpio'
+    - regex: 'SP5040-Casiopea'
+      model: 'Casiopea II'
 
 # Woxter (woxter.es)
 Woxter:
@@ -27545,6 +27562,8 @@ Sugar:
       model: 'S60 Pro'
     - regex: 'SUGAR F7 Mini(?:[);/ ]|$)'
       model: 'F7 Mini'
+    - regex: 'SUGAR[ _]([^);/]+) ?Dual(?: Build|[);])'
+      model: '$1 Dual'
     - regex: 'SUGAR[ _]([^);/]+)(?: Build|[);])'
       model: '$1'
 
@@ -27673,13 +27692,13 @@ Macoox:
 
 # Prixton
 Prixton:
-  regex: 'PRIXTON |(T7012Q)(?:[);/ ]|$)'
+  regex: '(?:T1700Q-)?PRIXTON|(T7012Q)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'PRIXTON (C18)'
       device: 'smartphone'
       model: '$1'
-    - regex: '(T7012Q)(?:[);/ ]|$)'
+    - regex: '(T701[24]Q|T1700Q)'
       model: '$1'
 
 # Mafe
@@ -29441,10 +29460,10 @@ eSTAR:
 
 # Hometech (hometech.com.tr)
 Hometech:
-  regex: '(?:Ideal (?:10S|Tab [79])|ALFA(?:10T[BX]|7LM)|ALFA[_ ](?:10R[CX]|10BS|10TM?|8T|10MB|10YC|7RS|[78]M?RC|7M|8S[TL]|8RX|8MG)|HT[ _](?:7RT|8MZ))(?:[);/ ]|$)'
+  regex: '(?:Ideal (?:10S|Tab [79]|8S)|ALFA(?:10T[BX]|7LM)|ALFA[_ ](?:10R[CX]|10BS|10TM?|8T|10MB|10YC|7RS|[78]M?RC|7M|8S[TL]|8RX|8MG)|HT[ _](?:7RT|8MZ))(?:[);/ ]|$)'
   device: 'tablet'
   models:
-    - regex: '(Ideal (?:10S|Tab 9))(?:[);/ ]|$)'
+    - regex: '(Ideal (?:10S|Tab 9|8S))(?:[);/ ]|$)'
       model: '$1'
     - regex: 'ALFA[_ ]?(10R[CX]|10YC|10BS|10T[BMX]?|7RS|[78]M?RC|7L?M|10MB|8T|8S[TL]|8RX|8MG)(?:[);/ ]|$)'
       model: 'ALFA $1'
