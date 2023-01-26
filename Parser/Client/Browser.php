@@ -939,7 +939,7 @@ class Browser extends AbstractClientParser
             $engine        = $this->buildEngine($regex['engine'] ?? [], $version);
             $engineVersion = $this->buildEngineVersion($engine);
 
-            if ('Safari' === $name && $this->matchUserAgent('X11; Linux')) {
+            if ('Safari' === $name && $this->matchUserAgent('\(X11; Linux')) {
                 $name         = 'GNOME Web';
                 $version      = '';
                 $browserShort = 'EP';
