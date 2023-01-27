@@ -6929,7 +6929,7 @@ Elenberg:
     - regex: '(STB0819)'
       device: 'tv'
       model: '$1'
-    - regex: '(TAB(?:101|728)[ _]3G|TAB7(?:[03]8|16|40|3[30])(?:[);/ ]|$)'
+    - regex: '(TAB(?:101|728)[ _]3G|TAB7(?:[03]8|16|40|3[30]))'
       model: '$1'
 
 # Ericy
@@ -11599,6 +11599,8 @@ iTel:
       model: 'P15'
     - regex: 'P552W'
       model: 'P17 Pro'
+    - regex: 'P551W'
+      model: 'P17'
     - regex: 'W5003'
       model: 'S32 Mini'
     - regex: 'L5502'
@@ -19359,6 +19361,8 @@ Samsung:
       model: 'Galaxy A03'
     - regex: '(?:SAMSUNG-)?SM-A047'
       model: 'Galaxy A04s'
+    - regex: '(?:SAMSUNG-)?SM-A042F'
+      model: 'Galaxy A04e'
     - regex: '(?:SAMSUNG-)?SM-A045'
       model: 'Galaxy A04'
     - regex: '(?:SAMSUNG-)?SM-A032[F]?'
@@ -24439,7 +24443,7 @@ Xiaomi:
       model: 'Redmi $1 Pro'
     - regex: 'Redmi 4 Prime(?:[);/ ]|$)'
       model: 'Redmi 4 Prime'
-    - regex: '220733SFG(?:[);/ ]|$)'
+    - regex: '(?:220733SFG|Redmi A1\+)(?:[);/ ]|$)'
       model: 'Redmi A1+'
     - regex: '220733S[GIL](?:[);/ ]|$)'
       model: 'Redmi A1'
@@ -24604,11 +24608,11 @@ Xiaomi:
     - regex: '(?:21091116C|2201116T[IG])(?:[);/ ]|$)'
       model: 'Redmi Note 11 Pro'
       device: 'phablet'
-    - regex: '22041219C(?:[);/ ]|$)'
-      model: 'Redmi Note 11E'
-      device: 'phablet'
     - regex: '2201116SC(?:[);/ ]|$)'
       model: 'Redmi Note 11E Pro'
+      device: 'phablet'
+    - regex: '(?:22041219C|Redmi Note 11E)(?:[);/ ]|$)'
+      model: 'Redmi Note 11E'
       device: 'phablet'
     - regex: '22041216C(?:[);/ ]|$)'
       model: 'Redmi Note 11T Pro'
@@ -24616,22 +24620,22 @@ Xiaomi:
     - regex: '22041216UC(?:[);/ ]|$)'
       model: 'Redmi Note 11T Pro+'
       device: 'phablet'
-    - regex: '2201116S[GR](?:[);/ ]|$)'
+    - regex: '(?:2201116S[GR]|Redmi Note 11 Pro 5G)(?:[);/ ]|$)'
       model: 'Redmi Note 11 Pro 5G'
       device: 'phablet'
     - regex: '21091116U[CG](?:[);/ ]|$)'
       model: 'Redmi Note 11 Pro+'
       device: 'phablet'
-    - regex: '2201116SI(?:[);/ ]|$)'
+    - regex: '(?:2201116SI|Redmi Note 11 Pro\+ 5G)(?:[);/ ]|$)'
       model: 'Redmi Note 11 Pro+ 5G'
       device: 'phablet'
     - regex: '21091116AC(?:[);/ ]|$)'
       model: 'Redmi Note 11 5G'
       device: 'phablet'
-    - regex: '(?:21121119SC|2201117T[GILY])(?:[);/ ]|$)'
+    - regex: '(?:21121119SC|2201117T[GILY]|Redmi Note 11 4G)(?:[);/ ]|$)'
       model: 'Redmi Note 11 4G'
       device: 'phablet'
-    - regex: '22087RA4DI(?:[);/ ]|$)'
+    - regex: '(?:22087RA4DI|Redmi Note 11 SE)(?:[);/ ]|$)'
       model: 'Redmi Note 11 SE'
       device: 'phablet'
     - regex: '2201117S[GIYL]'
@@ -25816,8 +25820,8 @@ ZTE:
       model: 'Optus X Start'
     - regex: 'BA520(?:[);/ ]|$)'
       model: 'Blade A520'
-    - regex: 'Blade A52 Lite(?:[);/ ]|$)'
-      model: 'Blade A52 Lite'
+    - regex: 'Blade A(5[12]) Lite(?:[);/ ]|$)'
+      model: 'Blade A$1 Lite'
     - regex: 'Blade L2 Plus(?:[);/ ]|$)'
       model: 'Blade L2 Plus'
     - regex: '(?:ZTE_)?Blade[ _]L2(?:[);/ ]|$)'
@@ -27403,7 +27407,7 @@ Ryte:
 
 # Vontar
 Vontar:
-  regex: '(HK1 (?:Max|MINI|PLUS|PRO)|KK MAX|VONTAR[ -](?:Z[58]|V1|KIII|MX-4K|X3))(?:[);/ ]|$)'
+  regex: '(HK1 (?:Max|MINI\+?|PLUS|PRO)|KK MAX|VONTAR[ -](?:Z[58]|V1|KIII|MX-4K|X3))(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: 'VONTAR[ -](Z[58]|V1|KIII|MX-4K|X3)(?:[);/ ]|$)'
@@ -27412,6 +27416,8 @@ Vontar:
       model: 'HK1 Max'
     - regex: 'KK MAX(?:[);/ ]|$)'
       model: 'KK Max'
+    - regex: 'HK1 MINI\+(?:[);/ ]|$)'
+      model: 'HK1 Mini Plus'
     - regex: 'HK1 MINI(?:[);/ ]|$)'
       model: 'HK1 Mini'
     - regex: 'HK1 PLUS(?:[);/ ]|$)'
@@ -32572,9 +32578,11 @@ Starwind:
 
 # QTECH (https://www.qtech.ru/en/)
 QTECH:
-  regex: '(QMP_K8)(?:[);/ ]|$)'
+  regex: '(?:QMP_K8| QMP-M1-N-IP)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'QMP[_-](K8|M1)'
+      model: 'QMP $1'
 
 # Prology (www.prology.ru)
 Prology:
@@ -33564,10 +33572,10 @@ DL:
     - regex: 'DL_Horizon_Selfie'
       model: 'Horizon Selfie'
     - regex: 'Tablet_DL_3910'
-      deivce: 'tablet'
+      device: 'tablet'
       model: 'iPlayer Kids'
     - regex: 'Tablet_DL_(\d{4})'
-      deivce: 'tablet'
+      device: 'tablet'
       model: '$1'
 
 # DIGICOM
