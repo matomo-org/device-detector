@@ -245,6 +245,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'BLI' => 'BLISS',
         'BM'  => 'Bmobile',
         'Y5'  => 'BMAX',
+        'BMX' => 'BMXC',
         'B9'  => 'Bobarry',
         'B4'  => 'bogo',
         'BW'  => 'Boway',
