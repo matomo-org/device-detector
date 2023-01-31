@@ -562,19 +562,18 @@ class DeviceDetectorTest extends TestCase
         $this->assertEquals($expected, $dd->getClient());
     }
 
-    public function testCommonDetectTypeTv()
+    public function testCommonDetectTypeTv(): void
     {
         $userAgents = [
-            'Mozilla/5.0 (Linux; Android 9; XXXXXXXXX Build/PPR2.180905.006.A1; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.120 YaBrowser/22.8.0.12 (lite) TV Safari/537.36'
+            'Mozilla/5.0 (Linux; Android 9; XXXXXXXXX Build/PPR2.180905.006.A1; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.120 YaBrowser/22.8.0.12 (lite) TV Safari/537.36',
         ];
-        $dd = new DeviceDetector();
+        $dd         = new DeviceDetector();
 
         foreach ($userAgents as $userAgent) {
             $dd->setUserAgent($userAgent);
             $dd->parse();
             $this->assertEquals(true, $dd->isTV());
         }
-
     }
 
     public function testGetBrandName(): void
