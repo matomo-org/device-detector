@@ -3049,7 +3049,7 @@ MEU:
 
 # Arnova
 Arnova:
-  regex: 'arnova|ARCHM901|AN7CG2|AN7IG3|AN7G2(DTE|I)?|AN7[BCDFH]?G3|A80KSC|AN8G2|AN8[BC]?G3|AN9G2I?|AN9G3|A101[BC]|AN10G2|AN10BG2(DT|I)?|AN10BG3(DT)?|AN10[CD]G3'
+  regex: 'arnova|ARCHM901|AN7CG2|AN7IG3|AN7G2(DTE|I)?|AN7[BCDFH]?G3|A80KSC|AN8G2|AN8[BC]?G3|AN9G2I?|AN9G3|A101[BC](?!M)|AN10G2|AN10BG2(DT|I)?|AN10BG3(DT)?|AN10[CD]G3'
   device: 'tablet'
   models:
     # explicit tablet models
@@ -6023,7 +6023,7 @@ Meta:
 
 # CUBOT (www.cubot.net)
 CUBOT:
-  regex: 'CUBOT|(?<!QUMO )QUEST(?!(?:[0-9]|\s[0-9]))(?: LITE)?|(?:(?<!(?:Redmi|Tegra) )NOTE 7|NOTE 20(?: PRO)?|RAINBOW 2|KING_KONG_3|KINGKONG [57]|KINGKONG 5 Pro|ZORRO 001|KINGKONG[_ ]MINI2?|KING KONG CS|R15_PRO|S550 Pro| CHEETAH| [RX]19|X19 S|(?<!MI )MAX 3|Android 9;(?: [\w-]+;)? (?:J5|MAX 2)|Android [89](?:[\d.]*);(?: [\w-]+;)? R15|Android 11;(?: [\w-]+;)? Pocket|POCKET 3)(?:[);/ ]|$)'
+  regex: 'CUBOT|(?<!QUMO )QUEST(?!(?:[0-9]|\s[0-9]))(?: LITE)?|(?:(?<!(?:Redmi|Tegra) )NOTE 7|NOTE 20(?: PRO)?|RAINBOW 2|KING_KONG_3|KINGKONG [567]|KINGKONG 5 Pro|ZORRO 001|KINGKONG[_ ]MINI2?|KING KONG CS|R15_PRO|S550 Pro| CHEETAH| [RX]19|X19 S|(?<!MI )MAX 3|Android 9;(?: [\w-]+;)? (?:J5|MAX 2)|Android [89](?:[\d.]*);(?: [\w-]+;)? R15|Android 11;(?: [\w-]+;)? Pocket|POCKET 3)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'POCKET (3)'
@@ -6046,7 +6046,7 @@ CUBOT:
       model: 'King Kong Mini'
     - regex: 'KINGKONG 5 Pro'
       model: 'King Kong 5 Pro'
-    - regex: 'KING[_ ]?KONG[_ ]([357])'
+    - regex: 'KING[_ ]?KONG[_ ]([3567])'
       model: 'King Kong $1'
     - regex: 'KING KONG CS'
       model: 'King Kong CS'
@@ -12158,12 +12158,14 @@ Diva:
 
 # kyocera (kyocera.co.jp, kyocera.com)
 Kyocera:
-  regex: 'Kyocera|KWC-|QC-[0-9]{4}|(?:QC6035|NP501KC|302KC|503KC|602KC|705KC|901KC|C51[27]0|C5155|C5215|C67[35]0|C6522N?|C6530N|C6740N?|C6743|E6[89]10|KYL2[13]|KYV3[1-9]|KYT3[123]|KYF3[1235789]|KYF4[012]|KYX31|KYG01|KYY2[1-4]|S2151|KC-S701|S[468]-KC|S9-KC|KYV40U?|KYY31|KYV4[1-8]|KYV4[47]|KC-S301AE|X3-KC|E6560[CT]|E6782[L]?|E6790(?:TM)?|SZJ-JS20[12]|KCP01K|[47]04KC|A[012]01KC|WX10K|URBANO PROGRESSO|E7110|E6921|KY-51B|C6930)(?:[-_][uj]2?)?(?:[);/ ]|$)'
+  regex: 'Kyocera|KWC-|QC-[0-9]{4}|(?:QC6035|NP501KC|302KC|503KC|602KC|705KC|901KC|C51[27]0|C5155|C5215|C67[35]0|C6522N?|C6530N|C6740N?|C6743|E6[89]10|KYL2[13]|KYV3[1-9]|KYT3[123]|KYF3[1235789]|KYF4[012]|KYX31|KYG01|KYY2[1-4]|S2151|KC-S701|S[468]-KC|S9-KC|KYV40U?|KYY31|KYV4[1-8]|KYV4[47]|KC-S301AE|X3-KC|E6560[CT]|E6782[L]?|E6790(?:TM)?|SZJ-JS20[12]|KCP01K|[47]04KC|A[012]01KC|WX10K|URBANO PROGRESSO|E7110|E6921|KY-51B|C6930|A101BM)(?:[-_][uj]2?)?(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit smartphone models
     - regex: 'C5120(?:[);/ ]|$)'
       model: 'Milano'
+    - regex: '(A101BM)(?:[);/ ]|$)'
+      model: 'Balmuda $1'
     - regex: 'S([4689])-KC(?:[);/ ]|$)'
       model: 'One S$1'
     - regex: 'C5155(?:[);/ ]|$)'
@@ -30287,11 +30289,11 @@ Colors:
 
 # Honeywell (honeywell.com)
 Honeywell:
-  regex: '(?:EDA50K?|EDA70|EDA71_G|EDA5[12]|CK65|CT[46]0|CN80|EDA61K)(?:[);/ ]|$)'
+  regex: '(?:EDA5[01]K?|EDA70|EDA71_G|EDA5[12]|CK65|CT[46]0|CN80|EDA61K)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # smartphone + scan
-    - regex: '(EDA50K?|EDA70|EDA5[12]|EDA61K)(?:[);/ ]|$)'
+    - regex: '(EDA5[01]K?|EDA70|EDA5[12]|EDA61K)(?:[);/ ]|$)'
       model: 'ScanPal $1'
     # tablet + scan
     - regex: 'EDA71'
