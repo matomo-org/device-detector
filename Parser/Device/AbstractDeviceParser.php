@@ -1510,6 +1510,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'JM'  => 'v-mobile',
         'VHO' => 'V-HOPE',
         'VHM' => 'V-HOME',
+        'VGE' => 'V-Gen',
         'V0'  => 'VKworld',
         'VM'  => 'Vodacom',
         'VF'  => 'Vodafone',
