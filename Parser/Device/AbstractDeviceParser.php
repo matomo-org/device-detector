@@ -964,6 +964,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'NAS' => 'NASCO',
         'NP'  => 'Naomi Phone',
         'NE'  => 'NEC',
+        'NDP' => 'Nedaphone',
         '8N'  => 'Necnot',
         'NF'  => 'Neffos',
         '9X'  => 'Neo',

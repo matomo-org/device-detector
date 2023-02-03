@@ -16284,6 +16284,9 @@ Nomi:
     - regex: '(?:Nomi_)?C080012'
       model: 'Libra 3 3G'
       device: 'tablet'
+    - regex: '(?:Nomi_)?C080010'
+      model: 'Libra 2 3G'
+      device: 'tablet'
     - regex: '(?:Nomi_)?C080034'
       model: 'Libra 4 LTE'
       device: 'tablet'
@@ -23726,7 +23729,7 @@ Wink:
 
 # Smart (smartgsmphone.com)
 Smart:
-  regex: '(Coral 4|Slide Lite)(?:[);/ ]|$)'
+  regex: '(Coral 4|Slide Lite|Notrino)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
 
@@ -27155,7 +27158,7 @@ NewsMy:
 
 # Newsday
 Newsday:
-  regex: 'Newsday[_ ](E1|A[12])(?:[);/ ]|$)'
+  regex: 'Newsday[_ ](E1|A[12]|N2\+)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
 
@@ -29346,7 +29349,7 @@ Pixela:
 
 # Iris
 Iris:
-  regex: '(?:Vox[_ ](?:[45]S|Alpha|POP|STEEL Plus|Energy|FORTIS|VERO)|IS2_?Plus|IS2S|Next_P_PRO|IRS002-16|X1 mini|Iris_Pad_G8020|G7060|G7100|G8060)(?:[);/ ]|$)'
+  regex: '(?:Vox[_ ](?:[45]S|Alpha|POP|STEEL Plus|Energy|FORTIS|VERO)|IS2_?Plus|IS2S|Next_P(?:_PRO)?|NEXT U|NEXT P\+|IRS002-16|X1 mini|Iris_Pad_G8020|G7060|G7100|G8060)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Vox[_ ]([45])S'
@@ -29369,6 +29372,8 @@ Iris:
       model: 'Vox Pop Pro'
     - regex: 'Next_P_PRO'
       model: 'Next P Pro'
+    - regex: 'NEXT[_ ]([PU]\+?)'
+      model: 'Next $1'
     - regex: 'IS2_?Plus'
       model: 'IS2 Plus'
     - regex: 'IRS002-16'
@@ -34676,9 +34681,13 @@ MygPad:
 
 # Mobell (mobell.vn)
 Mobell:
-  regex: 'Mobell[ _](S50)(?:[);/ ]|$)'
+  regex: '(?:Mobell[ _](?:S50)|NOVA P3)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'Mobell[ _](S50)'
+      model: '$1'
+    - regex: 'NOVA P3'
+      model: 'Nova P3'
 
 # Smartex
 Smartex:
@@ -34938,6 +34947,12 @@ BMXC:
 # V-Gen
 V-Gen:
   regex: '(Albatros C2)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
+
+# Nedaphone
+Nedaphone:
+  regex: 'NEDAPHONE[ _](V9)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
 
