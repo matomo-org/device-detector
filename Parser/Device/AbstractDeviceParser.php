@@ -199,6 +199,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'B6'  => 'BDF',
         'QD'  => 'BDQ',
         '8Z'  => 'BDsharing',
+        'BEF' => 'Beafon',
         'BE'  => 'Becker',
         'B5'  => 'Beeline',
         'B0'  => 'Beelink',
