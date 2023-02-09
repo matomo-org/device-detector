@@ -915,6 +915,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'M5'  => 'MIXC',
         '2D'  => 'MIVO',
         '1Z'  => 'MiXzo',
+        'MIW' => 'MIWANG',
         'ML'  => 'MLLED',
         'LS'  => 'MLS',
         '5H'  => 'MMI',
