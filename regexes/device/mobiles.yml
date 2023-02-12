@@ -12541,6 +12541,8 @@ Lava:
       model: '$1 Plus'
     - regex: ' (X28)(?:[);/ ]|$)'
       model: '$1'
+    - regex: 'iris88[_ ]go'
+      model: 'Iris 88 Go'
     # explicit feature phone models
     - regex: 'DISCOVER136'
       device: 'feature phone'
@@ -12559,6 +12561,8 @@ Lava:
       device: 'tablet'
       model: 'T71'
     # explicit general
+    - regex: 'iris[ _]?([^/;)]+)[_ ]lite(?: Build|[);])'
+      model: 'Iris $1 Lite'
     - regex: 'iris[ _]?([^/;)]+)(?: Build|[);])'
       model: 'Iris $1'
     - regex: 'Lava[ _]?([^/;)]+)(?: Build|[);])'
@@ -29334,13 +29338,17 @@ Paladin:
 
 # iVooMi
 iVooMi:
-  regex: '(?:Innelo_1|iV 505|Me 1\+|Me 3S|Me [2345])(?:[);/ ]|$)'
+  regex: '(?:Innelo_1|iV 505|Me 1\+|Me 3S|Me [2345]|Android 8(?:[\d.]*);(?: [\w-]+;)? (?:i2_Lite|i2))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Innelo_1'
       model: 'Innelo 1'
     - regex: 'iV 505'
       model: 'Me 1'
+    - regex: 'i2_Lite'
+      model: 'i2 Lite'
+    - regex: ' i2(?:[);/ ]|$)'
+      model: 'i2'
     - regex: 'Me 1\+'
       model: 'Me 1+'
     - regex: 'Me ([2345]S?)'
@@ -29360,7 +29368,7 @@ Pixela:
 
 # Iris
 Iris:
-  regex: '(?:Vox[_ ](?:[45]S|Alpha|POP|STEEL Plus|Energy|FORTIS|VERO)|IS2_?Plus|IS2S|Next_P(?:_PRO)?|NEXT U|NEXT P\+|IRS002-16|X1 mini|Iris_Pad_G8020|G7060|G7100|G8060)(?:[);/ ]|$)'
+  regex: '(?:Vox[_ ](?:[45]S|Alpha|POP|STEEL Plus|Energy|FORTIS|VERO)|IS2_?Plus|IS[36]Plus|IS2S|Next_P(?:_PRO)?|NEXT U|NEXT P\+|IRS002-16|X1 mini|Iris_Pad_G8020|G7060|G7100|G8060)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Vox[_ ]([45])S'
@@ -29385,8 +29393,8 @@ Iris:
       model: 'Next P Pro'
     - regex: 'NEXT[_ ]([PU]\+?)'
       model: 'Next $1'
-    - regex: 'IS2_?Plus'
-      model: 'IS2 Plus'
+    - regex: 'IS([236])_?Plus'
+      model: 'IS$1 Plus'
     - regex: 'IRS002-16'
       model: 'I-S6'
     - regex: 'IS2S'
