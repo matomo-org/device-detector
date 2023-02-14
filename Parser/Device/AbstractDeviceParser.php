@@ -451,6 +451,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ENV' => 'Envizen',
         '8E'  => 'Epik One',
         'XP'  => 'Epson',
+        'EPH' => 'Ephone',
         'E7'  => 'Ergo',
         'EC'  => 'Ericsson',
         '05'  => 'Erisson',

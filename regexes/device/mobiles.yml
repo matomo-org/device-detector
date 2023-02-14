@@ -3026,9 +3026,15 @@ Archos:
     - regex: 'Archos T ?101 4G(?:[);/ ]|$)'
       device: 'tablet'
       model: 'T101 4G'
+    - regex: 'Archos Core (70|101) 3G'
+      device: 'tablet'
+      model: 'Core $1 3G'
     - regex: 'Archos Hello 7(?:[);/ ]|$)'
       device: 'tablet'
       model: 'Hello 7'
+    - regex: 'Archos Sense 101 X(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'Sense 101 X'
     - regex: '(?:YL-)?Archos ([^/;]*(?:PAD)[^/;]*) Build'
       device: 'tablet'
       model: '$1'
@@ -4709,7 +4715,7 @@ BenQ:
 
 # Blaupunkt (blaupunkt.com)
 Blaupunkt:
-  regex: 'Blaupunkt|Soundphone S2|Atlantis[_ ](?:1001A|1010A|A10[._]G40[23])|SLplus02|Discovery[_ ](?:A10_302|10[28]C|111C|1000C|1001A?)|Endeavour[_ ](?:785|101[GLM]|1000|1001|101[03]|1100)|Polaris[_ ]803|BP_6010'
+  regex: 'Blaupunkt|Soundphone S2|Atlantis[_ ](?:1001A|1010A|A10[._]G40[23])|SLplus02|Discovery[_ ](?:A10_302|10[28]C|111C|1000C|1001A?)|Endeavour[_ ](?:785|101[GLM]|1000|1001|101[03]|1100)|Polaris[_ ]80[38]|BP_6010'
   device: 'tablet'
   models:
     - regex: 'Discovery[_ ](1000|111|10[28])C'
@@ -4724,7 +4730,7 @@ Blaupunkt:
       model: 'Soundphone S2'
     - regex: 'Endeavour[_ ](101[GLM]|785|100[01]|101[03]|1100)'
       model: 'Endeavour $1'
-    - regex: 'Polaris[_ ](803)'
+    - regex: 'Polaris[_ ](808[_ ]BE|80[38])'
       model: 'Polaris $1'
     - regex: 'Atlantis_A10_G403'
       model: 'Atlantis A10.G403'
@@ -10758,9 +10764,13 @@ IMO Mobile:
 
 # iLA or ILA Mobile
 iLA:
-  regex: 'iLA[-_ ](Silk|X)(?:[);/ ]|$)'
+  regex: '(?:iLA[-_ ](?:Silk|X)|R1 Lite)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'iLA[-_ ](Silk|X)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: '(R1) Lite(?:[);/ ]|$)'
+      model: '$1 Lite'
 
 # iNew
 iNew:
@@ -32378,7 +32388,7 @@ Glofiish:
 
 # Polar (polar.ru)
 Polar:
-  regex: 'Polar(?:_WK)?[_ ](P24L51T2CSM|P40L33T2CSM|P43U51T2SCSM|P39L21T2CSM)(?:[);/ ]|$)'
+  regex: 'Polar(?:_WK)?[_ ](P32L32T2CSM|P24L51T2CSM|P40L33T2CSM|P43U51T2SCSM|P39L21T2CSM)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
@@ -33545,11 +33555,13 @@ TTK-TV:
 
 # Famous or Famous Fones
 Famous:
-  regex: 'Famous'
+  regex: 'Famous|Red Royal Edition'
   device: 'smartphone'
   models:
     - regex: 'Red 5\+'
       model: 'Red 5 Plus'
+    - regex: 'Red Royal Edition'
+      model: 'Red Royal Edition'
     - regex: '5Plus'
       model: '5 Plus'
     - regex: 'Famous 5'
@@ -34959,7 +34971,7 @@ ViBox:
 
 # BMXC
 BMXC:
-  regex: 'BMXC[_ ](800)(?:[);/ ]|$)'
+  regex: 'BMXC[_ ]?(80[01])(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
 
@@ -35008,8 +35020,18 @@ MIWANG:
 # PC Smart
 PC Smart:
   regex: 'QUICKTAB PLUS'
-  device: 'smartphone'
+  device: 'tablet'
   model: 'QuickTab Plus'
+
+# Ephone
+Ephone:
+  regex: '(?:EP19_star|EP19)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'EP19_star'
+      model: 'EP19 Star'
+    - regex: 'EP19'
+      model: 'EP19'
 
 # Devices with undectable brand, but detectable model
 Unknown:
