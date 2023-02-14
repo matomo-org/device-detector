@@ -1087,6 +1087,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'PAR' => 'Partner Mobile',
         'PAP' => 'PAPYRE',
         'PB'  => 'PCBOX',
+        'PCS' => 'PC Smart',
         'PC'  => 'PCD',
         'PD'  => 'PCD Argentina',
         'PE'  => 'PEAQ',
