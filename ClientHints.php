@@ -188,10 +188,12 @@ class ClientHints
     public function getBrandList(): array
     {
         if (\count($this->fullVersionList)) {
-            return \array_combine(
-                \array_column($this->fullVersionList, 'brand'),
-                \array_column($this->fullVersionList, 'version')
-            ) ?: [];
+            $brands = \array_column($this->fullVersionList, 'brand');
+            $versions = \array_column($this->fullVersionList, 'version');
+
+            if (\count($brands) === \count($versions)) {
+                return \array_combine($brands, $versions);
+            }
         }
 
         return [];

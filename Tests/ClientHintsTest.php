@@ -86,4 +86,18 @@ class ClientHintsTest extends TestCase
         ], $ch->getBrandList());
         self::assertSame('', $ch->getModel());
     }
+
+    public function testIncorrectVersionListIsDiscarded(): void
+    {
+        $headers = [
+            'fullVersionList' => [
+                ['brand' => ' Not A;Brand', 'version' => '99.0.0.0'],
+                ['brand' => 'Chromium', 'version' => '99.0.4844.51'],
+                ['version' => '99.0.4844.51'], // this entry lags a brand
+            ],
+        ];
+
+        $ch = ClientHints::factory($headers);
+        self::assertSame([], $ch->getBrandList());
+    }
 }
