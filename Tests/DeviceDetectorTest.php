@@ -531,16 +531,19 @@ class DeviceDetectorTest extends TestCase
 
     public function getTypeMethodFixtures(): array
     {
-        $fixturePath = realpath(__DIR__ . '/Parser/fixtures/type-methods.yml');
+        $fixturePath = \realpath(__DIR__ . '/Parser/fixtures/type-methods.yml');
+
         return \Spyc::YAMLLoad($fixturePath);
     }
 
     private function getDeviceDetector(): DeviceDetector
     {
         static $dd;
+
         if (null === $dd) {
             $dd = new DeviceDetector();
         }
+
         return $dd;
     }
 
@@ -554,7 +557,6 @@ class DeviceDetectorTest extends TestCase
             $dd->discardBotInformation();
             $dd->setUserAgent($ua);
             $dd->parse();
-
         } catch (\Exception $exception) {
             throw new \Exception(
                 \sprintf('Error: %s from useragent %s', $exception->getMessage(), $ua),
@@ -565,12 +567,12 @@ class DeviceDetectorTest extends TestCase
 
         $this->assertEquals([
             $dd->isBot(), $dd->isMobile(), $dd->isDesktop(),
-            $dd->isTablet(), $dd->isTV(), $dd->isWearable()
+            $dd->isTablet(), $dd->isTV(), $dd->isWearable(),
         ], $checkTypes, \sprintf(
             "test: %s\nfrom useragent %s",
-            '[isBot(), isMobile(), isDesktop(), isTablet(), isTV(), isWearable()]', $ua
+            '[isBot(), isMobile(), isDesktop(), isTablet(), isTV(), isWearable()]',
+            $ua
         ));
-
     }
 
     public function testGetBrandName(): void
