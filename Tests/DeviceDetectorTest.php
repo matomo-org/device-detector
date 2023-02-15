@@ -714,5 +714,4 @@ class DeviceDetectorTest extends TestCase
 
         return $dd;
     }
-
 }
