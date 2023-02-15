@@ -536,21 +536,10 @@ class DeviceDetectorTest extends TestCase
         return \Spyc::YAMLLoad($fixturePath);
     }
 
-    private function getDeviceDetector(): DeviceDetector
-    {
-        static $dd;
-
-        if (null === $dd) {
-            $dd = new DeviceDetector();
-        }
-
-        return $dd;
-    }
-
     /**
      * @dataProvider getTypeMethodFixtures
      */
-    public function testTypeMethods($ua, $checkTypes): void
+    public function testTypeMethods(string $ua, array $checkTypes): void
     {
         try {
             $dd = $this->getDeviceDetector();
@@ -714,4 +703,16 @@ class DeviceDetectorTest extends TestCase
 
         return true;
     }
+
+    private function getDeviceDetector(): DeviceDetector
+    {
+        static $dd;
+
+        if (null === $dd) {
+            $dd = new DeviceDetector();
+        }
+
+        return $dd;
+    }
+
 }
