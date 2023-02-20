@@ -497,39 +497,6 @@ class DeviceDetectorTest extends TestCase
         $dd->inValidMethod();
     }
 
-    /**
-     * @dataProvider getUserAgents
-     */
-    public function testTypeMethods(string $useragent, bool $isBot, bool $isMobile, bool $isDesktop): void
-    {
-        $dd = new DeviceDetector($useragent);
-        $dd->discardBotInformation();
-        $dd->parse();
-        $this->assertEquals($isBot, $dd->isBot());
-        $this->assertEquals($isMobile, $dd->isMobile());
-        $this->assertEquals($isDesktop, $dd->isDesktop());
-    }
-
-    public function getUserAgents(): array
-    {
-        return [
-            ['Mozilla/5.0 (Linux; U; Android 5.1.1; zh-CN; TEST-XXXXX Build/LMY47V) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.108 Quark/5.3.3.191 Mobile Safari/537.36', false, true, false],
-            ['Mozilla/5.0 (Linux; Android 10; HarmonyOS; TEST-XXXXX ; HMSCore 6.1.0.314) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 HuaweiBrowser/11.1.5.310 Mobile Safari/537.36', false, true, false],
-            ['Googlebot/2.1 (http://www.googlebot.com/bot.html)', true, false, false],
-            ['Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.136 Mobile Safari/537.36', false, true, false],
-            ['Mozilla/5.0 (Linux; Android 4.4.3; Build/KTU84L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.117 Mobile Safari/537.36', false, true, false],
-            ['Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)', false, false, true],
-            ['Mozilla/3.01 (compatible;)', false, false, false],
-            // Mobile only browsers:
-            ['Opera/9.80 (J2ME/MIDP; Opera Mini/9.5/37.8069; U; en) Presto/2.12.423 Version/12.16', false, true, false],
-            ['Mozilla/5.0 (X11; U; Linux i686; th-TH@calendar=gregorian) AppleWebKit/534.12 (KHTML, like Gecko) Puffin/1.3.2665MS Safari/534.12', false, true, false],
-            ['Mozilla/5.0 (Linux; Android 4.4.4; MX4 Pro Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36; 360 Aphone Browser (6.9.7)', false, true, false],
-            ['Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_7; xx) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Safari/530.17 Skyfire/6DE', false, true, false],
-            // useragent containing non unicode chars
-            ['Mozilla/5.0 (Linux; U; Android 4.1.2; ru-ru; PMP7380D3G Build/JZO54K) AppleWebKit/534.30 (KHTML, ÃÂºÃÂ°ÃÂº Gecko) Version/4.0 Safari/534.30', false, true, false],
-        ];
-    }
-
     public function testGetOs(): void
     {
         $dd = new DeviceDetector('Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)');
@@ -562,18 +529,39 @@ class DeviceDetectorTest extends TestCase
         $this->assertEquals($expected, $dd->getClient());
     }
 
-    public function testCommonDetectTypeTv(): void
+    public function getTypeMethodFixtures(): array
     {
-        $userAgents = [
-            'Mozilla/5.0 (Linux; Android 9; XXXXXXXXX Build/PPR2.180905.006.A1; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.120 YaBrowser/22.8.0.12 (lite) TV Safari/537.36',
-        ];
-        $dd         = new DeviceDetector();
+        $fixturePath = \realpath(__DIR__ . '/Parser/fixtures/type-methods.yml');
 
-        foreach ($userAgents as $userAgent) {
-            $dd->setUserAgent($userAgent);
+        return \Spyc::YAMLLoad($fixturePath);
+    }
+
+    /**
+     * @dataProvider getTypeMethodFixtures
+     */
+    public function testTypeMethods(string $ua, array $checkTypes): void
+    {
+        try {
+            $dd = $this->getDeviceDetector();
+            $dd->discardBotInformation();
+            $dd->setUserAgent($ua);
             $dd->parse();
-            $this->assertEquals(true, $dd->isTV());
+        } catch (\Exception $exception) {
+            throw new \Exception(
+                \sprintf('Error: %s from useragent %s', $exception->getMessage(), $ua),
+                $exception->getCode(),
+                $exception
+            );
         }
+
+        $this->assertEquals([
+            $dd->isBot(), $dd->isMobile(), $dd->isDesktop(),
+            $dd->isTablet(), $dd->isTV(), $dd->isWearable(),
+        ], $checkTypes, \sprintf(
+            "test: %s\nfrom useragent %s",
+            '[isBot(), isMobile(), isDesktop(), isTablet(), isTV(), isWearable()]',
+            $ua
+        ));
     }
 
     public function testGetBrandName(): void
@@ -714,5 +702,16 @@ class DeviceDetectorTest extends TestCase
         }
 
         return true;
+    }
+
+    private function getDeviceDetector(): DeviceDetector
+    {
+        static $dd;
+
+        if (null === $dd) {
+            $dd = new DeviceDetector();
+        }
+
+        return $dd;
     }
 }
