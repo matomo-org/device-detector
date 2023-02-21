@@ -12835,7 +12835,7 @@ Leagoo:
     - regex: 'Leapad 7Pro'
       device: 'tablet'
       model: 'LeaPad 7 Pro'
-    - regex: '(?:Leapad[ _])(7s|10|X)'
+    - regex: '(?:LEAGOO_)?Leapad[ _](7s|10|X|7I)'
       model: 'LeaPad $1'
       device: 'tablet'
 
@@ -26850,11 +26850,19 @@ Hi:
       device: 'tv'
       model: '$1'
 
-# Boost
+# Boost Cabana
 Boost:
-  regex: '(Pulse Retro|Pulse Sky|Pulse Glide)(?:[);/ ]|$)'
+  regex: '(?:Pulse Retro|Pulse Sky|Pulse Glide|Cabana|StrikaPlay)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: '(?:Pulse Retro|Pulse Sky|Pulse Glide)'
+      model: '$1'
+    - regex: '(Cabana)'
+      device: 'tablet'
+      model: '$1'
+    - regex: 'StrikaPlay'
+      device: 'tablet'
+      model: 'Strika Play'
 
 # Highscreen
 Highscreen:
@@ -30943,6 +30951,12 @@ Jivi:
       model: 'Xtreme View $1'
     - regex: 'Xtreme[ _]([137]|3x)(?:[);/ ]|$)'
       model: 'Xtreme $1'
+
+# NOVO
+NOVO:
+  regex: '(Bonvi Note|Bonvi Prime|Bonvi Pro|Borneo_Pro|Vi_Note)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
 
 # Winnovo (www.mywinnovo.com)
 Winnovo:
@@ -35270,6 +35284,24 @@ SANY:
       model: 'V8 Pro'
     - regex: 'SANY V8'
       model: 'V8'
+
+# Bookeen
+Bookeen:
+  regex: '(Cybook)[ -]Tablet(?:[);/ ]|$)'
+  device: 'tablet'
+  model: '$1'
+
+# Pano
+Pano:
+  regex: '(Boom P1)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
+
+# Bluslate or Blu Slate
+BluSlate:
+  regex: 'BLUSLATE([67])(?:[);/ ]|$)'
+  device: 'tablet'
+  model: 'Educational Tablet $1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
