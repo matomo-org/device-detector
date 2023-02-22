@@ -276,8 +276,10 @@ HTC:
       model: 'Desire $1 Dual SIM'
     - regex: 'HTC(?: One m7|6500LVW|PN071)(?:[);/ ]|$)'
       model: 'One M7'
-    - regex: '(?:One M8|HTC6525LVW|HTC[_ ]M8[xd]|HTC[_ ]0P6B)(?:[);/ ]|$)'
+    - regex: '(?:One M8|HTC6525LVW|HTC[_ ]M8[xd]|HTC[_ ]0P6B|HTCOneM8)(?:[);/ ]|$)'
       model: 'One M8'
+    - regex: 'HTC ?One ?M8 ?Eye(?:[);/ ]|$)'
+      model: 'One M8 Eye'
     - regex: '0PAJ5(?:[);/ ]|$)'
       model: 'One E8'
     - regex: 'HTC[_ ]E9x(?:[);/ ]|$)'
@@ -312,7 +314,7 @@ HTC:
       model: 'Desire $1'
     - regex: '0PM92(?:[);/ ]|$)'
       model: 'Desire 626S'
-    - regex: '0PCV1(?:[);/ ]|$)'
+    - regex: '(?:HTC_)?0PCV[12](?:[);/ ]|$)'
       model: 'Desire 510'
     - regex: 'HTC ?D160LVW(?:PP)?(?:[);/ ]|$)'
       model: 'Desire 530'
@@ -1582,6 +1584,8 @@ MicroMax:
       model: 'Bolt Warrior 1 Plus'
     - regex: 'Q352'
       model: 'Bolt Supreme 4'
+    - regex: '(?:Micromax_)?(Q333|S302|Q324)'
+      model: 'Bolt $1'
     - regex: 'Q306'
       model: 'Bolt Prime 3G'
     - regex: 'Q402 ?Plus'
@@ -22224,7 +22228,7 @@ Tecno Mobile:
       model: 'Camon 17 Pro'
     - regex: 'Tecno[ _-]CG7n?(?:[);/ ]|$)'
       model: 'Camon 17P'
-    - regex: 'Tecno[ _-]CH9n?(?:[);/ ]|$)'
+    - regex: 'Tecno[ _-](?:Mobile )?CH9n?(?:[);/ ]|$)'
       model: 'Camon 18 Premier'
     - regex: 'Tecno[ _-]CH6[nh]?(?:[);/ ]|$)'
       model: 'Camon 18'
@@ -23647,6 +23651,18 @@ Vodafone:
       model: '$1'
     - regex: 'Vodafone[ _-]([a-z0-9_-]+)'
       model: '$1'
+
+# Surge or Surgephone (surgephone.com)
+Surge:
+  regex: 'VOLT_(5XL)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: 'Volt $1'
+
+# Volt or Volt Mobile
+Volt:
+  regex: 'VOLT[_ ](SV451[_ ]Vision)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
 
 # Vonino (vonino.ro, vonino.it)
 Vonino:
@@ -26872,7 +26888,7 @@ Boost:
 
 # Highscreen
 Highscreen:
-  regex: 'HIGHSCREEN|(Easy[- ]Power(?:[- ]Pro)?|Pure[_ ](?:Power|F)|Power Ice(?: Max)?|Easy[_ ]([SFL]|XL)(?:_Pro)?|Razar_Pro|Power Rage(?: Evo)?|Zera-S-Power|Zera[ _][UFS]|Power[ _]?Five[ _]?(?:Pro|Evo|Max|Max(?:Lite|2))|Power(?:Four|Five)|BOOST II(?:se)?|Fest(?:XL)?(?:-Pro)?|Tasty|Boost3|Boost 3(?: Pro)? SE|Expanse|Hercules|Alpha Rage|VergeM|Ice2|Prime [LS]|Spade|Spark 2|Alpha GT[RX]|Wallet|Thunder|Razar)(?:[);/ ]|$)'
+  regex: 'HIGHSCREEN|(Easy[- ]Power(?:[- ]Pro)?|Pure[_ ](?:Power|F)|Power Ice(?: Max)?|Easy[_ ]([SFL]|XL)(?:_Pro)?|Razar_Pro|Power Rage(?: Evo)?|Zera-S-Power|Zera[ _][UFS]|Power[ _]?Five[ _]?(?:Pro|Evo|Max|Max(?:Lite|2))|Power(?:Four|Five)|BOOST II(?:se)?|Fest(?:XL)?(?:-Pro)?|Tasty|Boost3|Boost 3(?: Pro)? SE|Expanse|Hercules|Alpha Rage|VergeM|Ice2|Prime [LS]|Spade|Spark 2|Alpha GT[RX]|Wallet|Thunder|Razar|COSMO DUO)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(Power Ice(?:[ ](?:Max|Evo))?|Power Rage(?: Evo)?|Zera[ _][UFS]|Alpha GT[RX]|Wallet)(?:[);/ ]|$)'
@@ -26949,6 +26965,8 @@ Highscreen:
       model: 'Ice 2'
     - regex: 'Prime ([LS])(?:[);/ ]|$)'
       model: 'Prime $1'
+    - regex: 'COSMO DUO'
+      model: 'Cosmo Duo'
 
 # CVTE
 CVTE:
@@ -35308,6 +35326,28 @@ BluSlate:
   regex: 'BLUSLATE([67])(?:[);/ ]|$)'
   device: 'tablet'
   model: 'Educational Tablet $1'
+
+# Lectrus
+Lectrus:
+  regex: 'LECT-TAB(1011|0711)(?:[);/ ]|$)'
+  device: 'tablet'
+  model: 'LECT-TAB$1'
+
+# LeBest
+LeBest:
+  regex: 'LeBest[_ ](L9)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
+
+# BenWee
+BenWee:
+  regex: 'BenWee[ _-]?(?:[^;/)]+)(?: Build|[;)])'
+  device: 'smartphone'
+  models:
+    - regex: 'BenWee W5 ?pro'
+      model: 'W5 Pro'
+    - regex: 'BenWee[ _-]?([^;/)]+)(?: Build|[;)])'
+      model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
