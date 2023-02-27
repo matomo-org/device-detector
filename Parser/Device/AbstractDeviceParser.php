@@ -1029,6 +1029,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'NJ'  => 'NuAns',
         'NL'  => 'NUU Mobile',
         'N0'  => 'Nuvo',
+        'NUV' => 'NuVision',
         'NV'  => 'Nvidia',
         'NY'  => 'NYX Mobile',
         'O3'  => 'O+',
