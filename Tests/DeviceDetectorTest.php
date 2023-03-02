@@ -635,10 +635,12 @@ class DeviceDetectorTest extends TestCase
                 $this->assertInstanceOf(Symfony::class, $appHints->getYamlParser());
             }
 
-            if ($parser instanceof Browser) {
-                $browserHints = & $reader($parser, 'browserHints');
-                $this->assertInstanceOf(Symfony::class, $browserHints->getYamlParser());
+            if (!($parser instanceof Browser)) {
+                continue;
             }
+
+            $browserHints = & $reader($parser, 'browserHints');
+            $this->assertInstanceOf(Symfony::class, $browserHints->getYamlParser());
         }
     }
 
