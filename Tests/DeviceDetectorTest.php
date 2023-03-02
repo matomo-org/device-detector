@@ -12,10 +12,13 @@ declare(strict_types=1);
 
 namespace DeviceDetector\Tests;
 
+use Closure;
 use DeviceDetector\Cache\DoctrineBridge;
 use DeviceDetector\ClientHints;
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\AbstractParser;
+use DeviceDetector\Parser\Client\Browser;
+use DeviceDetector\Parser\Client\MobileApp;
 use DeviceDetector\Parser\Device\AbstractDeviceParser;
 use DeviceDetector\Parser\Device\Mobile;
 use DeviceDetector\Yaml\Symfony;
@@ -609,11 +612,34 @@ class DeviceDetectorTest extends TestCase
 
     public function testSetYamlParser(): void
     {
+        $reader = function & ($object, $property) {
+            $value = & Closure::bind(function & () use ($property) {
+                return $this->$property;
+            }, $object, $object)->__invoke();
+
+            return $value;
+        };
+
+
         $dd = new DeviceDetector();
         $dd->setYamlParser(new Symfony());
         $dd->setUserAgent('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36');
+
         $dd->parse();
         $this->assertTrue($dd->isMobile());
+        $this->assertInstanceOf(Symfony::class, $dd->getYamlParser());
+
+        foreach ($dd->getClientParsers() as $parser) {
+            if ($parser instanceof MobileApp) {
+                $appHints = & $reader($parser, 'appHints');
+                $this->assertInstanceOf(Symfony::class, $appHints->getYamlParser());
+            }
+
+            if ($parser instanceof Browser) {
+                $browserHints = & $reader($parser, 'browserHints');
+                $this->assertInstanceOf(Symfony::class, $browserHints->getYamlParser());
+            }
+        }
     }
 
     public function testCheckRegexRestrictionEndCondition(): void
