@@ -620,7 +620,6 @@ class DeviceDetectorTest extends TestCase
             return $value;
         };
 
-
         $dd = new DeviceDetector();
         $dd->setYamlParser(new Symfony());
         $dd->setUserAgent('Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36');
