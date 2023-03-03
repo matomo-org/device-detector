@@ -16,6 +16,7 @@ use DeviceDetector\Cache\CacheInterface;
 use DeviceDetector\ClientHints;
 use DeviceDetector\Parser\Client\Browser\Engine;
 use DeviceDetector\Parser\Client\Hints\BrowserHints;
+use DeviceDetector\Yaml\ParserInterface as YamlParser;
 
 /**
  * Class Browser
@@ -741,6 +742,17 @@ class Browser extends AbstractClientParser
     {
         return \in_array($browser, self::$mobileOnlyBrowsers) || (\in_array($browser, self::$availableBrowsers)
                 && \in_array(\array_search($browser, self::$availableBrowsers), self::$mobileOnlyBrowsers));
+    }
+
+    /**
+     * Sets the YamlParser class
+     *
+     * @param YamlParser $yamlParser
+     */
+    public function setYamlParser(YamlParser $yamlParser): void
+    {
+        parent::setYamlParser($yamlParser);
+        $this->browserHints->setYamlParser($this->getYamlParser());
     }
 
     /**
