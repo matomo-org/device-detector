@@ -1680,7 +1680,7 @@ MicroMax:
   regex: '4Good[ _]|S450m [43]G|S555m 4G|S501m 3G|T700i_3G|People (?:G503|G410|GT300)|Light (?:A10[34]|B100|AT300)|Light_AT200'
   device: 'smartphone'
   models:
-    - regex: '(T700i|T100m)[_ ]?3G'
+    - regex: '(T700i|T100m|T70[34]m)[_ ]?3G'
       model: '$1 3G'
       device: 'tablet'
     - regex: 'Light[_ ](AT[23]00)'
@@ -1693,6 +1693,8 @@ MicroMax:
       model: 'People'
     - regex: '(S(?:450m|501m)[_ ][43]G|Light (?:A10[34]|B100)|People (?:G503|G410))'
       model: '$1'
+    - regex: 'KIDS S45'
+      model: 'Kids S45'
     - regex: '4Good[ _]([^);/]+)(?: Build|[);])'
       model: '$1'
 
@@ -8480,11 +8482,13 @@ GoMobile:
 
 # Explay
 Explay:
-  regex: 'Explay|[\w]+-EXPLAY-FIN|ActiveD[ _]|Atlant |Informer[ _][0-9]+|CinemaTV 3G|Surfer[ _][0-9\.]|Surfer7773G|sQuad[ _][0-9\.]|Onliner[1-4]|RioPlay|Leader|Pulsar|Infinityll|Joy_TV|Imperium[78]|Winner[78]|Indigo|Lagoon|Tornado(?! 348| Slim)(?:3G)?|Onyx(?!_[A-Z]{1,2})(?:[);/ ]|$)|android 4([\d.]*);(?: [\w-]+;)? Discovery.+(?<! Mobile )Safari/|Party'
+  regex: 'Explay|[\w]+-EXPLAY-FIN|ActiveD[ _]|Atlant |Informer[ _][0-9]+|CinemaTV 3G|Surfer[ _][0-9\.]|Surfer7773G|sQuad[ _][0-9\.]|Onliner[1-4]|RioPlay|Leader|Pulsar|Infinityll|Joy_TV|Imperium[78]|Winner[78]|Indigo|Lagoon|Tornado(?! 348| Slim)(?:3G)?|Onyx(?!_[A-Z]{1,2})(?:[);/ ]|$)|android 4([\d.]*);(?: [\w-]+;)? Discovery.+(?<! Mobile )Safari/|Party|Scream 3G'
   device: 'tablet'
   models:
     - regex: 'ActiveD[ _]7.4[ _]3G'
       model: 'ActiveD 7.4 3G'
+    - regex: 'Scream 3G'
+      model: 'Scream 3G'
     - regex: 'Imperium([78])(?:[);/ ]|$)'
       model: 'Imperium $1 3G'
     - regex: 'ActiveD[ _]8.2[ _]3G'
@@ -13415,7 +13419,7 @@ Lenovo:
 
 # Lexand or LEXAND (lexand.ru)
 Lexand:
-  regex: 'Lexand[ _]|(?:SC7 PRO HD|S5A[1-4]|S4A[1-5]|S6A1|A811|A802|LPH7_Smarty)(?:[);/ ]|$)'
+  regex: 'Lexand[ _]|(?:S[BC]7 PRO HD|S5A[1-4]|S4A[1-5]|S6A1|A811|A802|LPH7_Smarty)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'A(811|802)'
@@ -13442,8 +13446,9 @@ Lexand:
       model: 'Argon'
     - regex: 'S6A1'
       model: 'Antares'
-    - regex: 'SC7 PRO HD'
-      model: 'SC7 PRO HD'
+    - regex: '(S[CB]7) PRO HD'
+      device: 'tablet'
+      model: '$1 PRO HD'
     - regex: 'LPH7_Smarty'
       model: 'LPH7 Smarty'
     - regex: 'Lexand[ _]([^;/)]+)(?: Build|[;)])'
@@ -27751,7 +27756,7 @@ Wigor:
 
 # NEXON (nexon.ua)
 NEXON:
-  regex: 'NEXON (X3\+|X[12589])(?:[);/ ]|$)'
+  regex: 'NEXON (X[13]\+|X[12589])(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
@@ -29424,7 +29429,7 @@ X88:
 
 # X96
 X96:
-  regex: '(?:X96Air_A100|X96_X6_I|X96Max_Plus_Ultra|X96MATE_PLUS)(?:[);/ ]|$)'
+  regex: '(?:X96Air_A100|X96_X6_I|X96Max_Plus_Ultra|X96MATE_PLUS|X96MINI_11)(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: 'X96Air_A100'
@@ -29435,6 +29440,8 @@ X96:
       model: 'X6i'
     - regex: 'X96MATE_PLUS'
       model: 'Mate Plus'
+    - regex: 'X96MINI_11'
+      model: 'Mini 11'
 
 # X96Q
 X96Q:
