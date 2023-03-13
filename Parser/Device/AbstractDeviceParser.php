@@ -1228,6 +1228,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'RG'  => 'RugGear',
         'RUG' => 'Ruggex',
         'RU'  => 'Runbo',
+        'RUP' => 'Rupa',
         'RL'  => 'Ruio',
         'RY'  => 'Ryte',
         'X5'  => 'Saba',
