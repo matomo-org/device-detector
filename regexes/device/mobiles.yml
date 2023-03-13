@@ -14484,7 +14484,7 @@ Mpman:
   regex: '(?:MPQC|MPDC)[0-9]+|PH(?:150|340|350|360|451|500|520|544|604)|(?:MID(?:7C|74C|82C|84C|801|811|701|711|170|77C|43C|102C|103C|104C|114C)|MP100i OCTA|MP(?:843|717|718|1010|7007|7008|843|888|959|969|QCG(1[01]|77)(?: 3G)?)|MGP7)(?:[);/ ]|$)'
   device: 'tablet'
   models:
-    - regex: '((?:MPQC|MPDC)[0-9]+[^/;)]+)(?: Build|\))'
+    - regex: '((?:MPQC|MPDC)[0-9]+[^/;)]*)(?: Build|[;)])'
       model: '$1'
     - regex: 'MP100i OCTA(?:[);/ ]|$)'
       model: 'MP100i OCTA'
@@ -16267,12 +16267,18 @@ Noblex:
 
 # NOGA (https://noganet.ar/)
 NOGA:
-  regex: 'NOGAPAD ?7G(?:[);/ ]|$)'
+  regex: '(?:NOGAPC (?:LIVE|PRO)|NOGAPAD ?7G)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'NOGAPAD ?7G(?:[);/ ]|$)'
       device: 'tablet'
       model: 'NOGAPAD 7G'
+    - regex: 'NOGAPC PRO(?:[);/ ]|$)'
+      device: 'tv'
+      model: 'PC Pro'
+    - regex: 'NOGAPC LIVE(?:[);/ ]|$)'
+      device: 'tv'
+      model: 'PC Live'
 
 # Nomu
 Nomu:
@@ -24235,7 +24241,10 @@ Wolder:
       model: 'Wiam #$1'
     - regex: 'miSmart[ \-_]?([^/]+) Build'
       model: 'miSmart $1'
-    - regex: 'miTab[ \-_]?([^/)]+)(?: Build|\))'
+    - regex: 'miTab[_ ]PRO[_ ]10[_ ]plus'
+      device: 'tablet'
+      model: 'miTab PRO 10 PLUS'
+    - regex: 'miTab[ \-_]?([^/)]+)(?: Build|[;)])'
       device: 'tablet'
       model: 'miTab $1'
 
@@ -27387,7 +27396,7 @@ Mystery:
     - regex: 'MID-(123G|72[12]|7[01348]3G|753G|8[23]3G)(?:[);/ ]|$)'
       model: 'MID-$1'
 
-    - regex: 'MYSTERY_TV_(D3155CH31)'
+    - regex: 'MYSTERY[_ ]TV[_ ](D\d{4}[A-Z]{2}\d{2})'
       device: 'tv'
       model: '$1'
 
@@ -28953,7 +28962,7 @@ Cloudpad:
 
 # Cloudfone
 Cloudfone:
-  regex: 'CloudFone[ _]|(?:Thrill[ _](?:Boost[ ]?(2|3)?|Power|Snap|Access|Plus 16GB|Lite|HD)|Excite Prime 2 Pro|Excite Prime|ExciteC|NBA Edition|Go SP|Next Infinity Plus|Next Infinity|Go Connect)(?:[);/ ]|$)'
+  regex: 'CloudFone[ _]|(?:Thrill[ _](?:Boost[ ]?(2|3)?|Power|Snap|Access|Plus 16GB|Lite|HD)|Excite Prime 2 Pro|Excite Prime|ExciteC|NBA Edition|Go SP|Next Infinity Plus|Next Infinity|Next Lite|Go Connect)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Thrill Boost 2 Plus(?:[);/ ]|$)'
@@ -28986,6 +28995,8 @@ Cloudfone:
       model: 'NBA Edition'
     - regex: '(Go SP(?: 2)?|Next Infinity (?:Pro|Plus)|Next Infinity|Go Connect(?: Lite)?(?: 2)?)(?:[);/ ]|$)'
       model: '$1'
+    - regex: 'Next Lite(?:[);/ ]|$)'
+      model: 'Next Lite'
     - regex: 'Next(?:[);/ ]|$)'
       model: 'Next'
 
