@@ -1217,6 +1217,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'QR'  => 'ROADMAX',
         'ROC' => 'Roam Cat',
         'R1'  => 'Rokit',
+        'ROI' => 'ROiK',
         'RK'  => 'Roku',
         'R3'  => 'Rombica',
         'R5'  => 'Ross&Moor',
