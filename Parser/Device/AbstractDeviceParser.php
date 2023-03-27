@@ -778,6 +778,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'K1'  => 'Kiano',
         '5W'  => 'Kingbox',
         'KI'  => 'Kingsun',
+        'KIS' => 'Kinstone',
         'KF'  => 'KINGZONE',
         'KIN' => 'Kingstar',
         '46'  => 'Kiowa',
