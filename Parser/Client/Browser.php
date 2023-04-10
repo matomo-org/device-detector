@@ -625,7 +625,7 @@ class Browser extends AbstractClientParser
         'O4', 'XO', 'U0', 'B0', 'VA', 'X0', 'A5', 'X1', '18',
         'B5', 'B6', 'TC', 'A6', '2X', 'F4', 'YG', 'WR', 'NA',
         'DM', '1M', 'A7', 'XN', 'XT', 'XB', 'W1', 'HT', 'B7',
-        'B9', 'T0', 'I8'
+        'B9', 'T0', 'I8',
     ];
 
     /**
