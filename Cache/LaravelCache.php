@@ -12,29 +12,16 @@ declare(strict_types=1);
 
 namespace DeviceDetector\Cache;
 
-use Doctrine\Common\Cache\CacheProvider;
+use Illuminate\Support\Facades\Cache;
 
-class DoctrineBridge implements CacheInterface
+class LaravelCache implements CacheInterface
 {
-    /**
-     * @var CacheProvider
-     */
-    private $cache;
-
-    /**
-     * @param CacheProvider $cache
-     */
-    public function __construct(CacheProvider $cache)
-    {
-        $this->cache = $cache;
-    }
-
     /**
      * @inheritDoc
      */
     public function fetch(string $id)
     {
-        return $this->cache->fetch($id);
+        return Cache::get($id);
     }
 
     /**
@@ -42,7 +29,7 @@ class DoctrineBridge implements CacheInterface
      */
     public function contains(string $id): bool
     {
-        return $this->cache->contains($id);
+        return Cache::has($id);
     }
 
     /**
@@ -50,7 +37,7 @@ class DoctrineBridge implements CacheInterface
      */
     public function save(string $id, $data, int $lifeTime = 0): bool
     {
-        return $this->cache->save($id, $data, $lifeTime);
+        return Cache::put($id, $data, \func_num_args() < 3 ? null : $lifeTime);
     }
 
     /**
@@ -58,7 +45,7 @@ class DoctrineBridge implements CacheInterface
      */
     public function delete(string $id): bool
     {
-        return $this->cache->delete($id);
+        return Cache::forget($id);
     }
 
     /**
@@ -66,6 +53,6 @@ class DoctrineBridge implements CacheInterface
      */
     public function flushAll(): bool
     {
-        return $this->cache->flushAll();
+        return Cache::flush();
     }
 }

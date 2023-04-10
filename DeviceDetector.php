@@ -68,7 +68,7 @@ class DeviceDetector
     /**
      * Current version number of DeviceDetector
      */
-    public const VERSION = '6.0.4';
+    public const VERSION = '6.1.1';
 
     /**
      * Constant used as value for unknown browser / os
@@ -345,9 +345,10 @@ class DeviceDetector
     /**
      * Returns if the parsed UA was identified as a Bot
      *
+     * @return bool
+     *
      * @see bots.yml for a list of detected bots
      *
-     * @return bool
      */
     public function isBot(): bool
     {
@@ -421,9 +422,10 @@ class DeviceDetector
      * Returns if the parsed UA was identified as desktop device
      * Desktop devices are all devices with an unknown type that are running a desktop os
      *
+     * @return bool
+     *
      * @see OperatingSystem::$desktopOsArray
      *
-     * @return bool
      */
     public function isDesktop(): bool
     {
@@ -480,9 +482,10 @@ class DeviceDetector
     /**
      * Returns the device type extracted from the parsed UA
      *
+     * @return int|null
+     *
      * @see AbstractDeviceParser::$deviceTypes for available device types
      *
-     * @return int|null
      */
     public function getDevice(): ?int
     {
@@ -492,9 +495,10 @@ class DeviceDetector
     /**
      * Returns the device type extracted from the parsed UA
      *
+     * @return string
+     *
      * @see AbstractDeviceParser::$deviceTypes for available device types
      *
-     * @return string
      */
     public function getDeviceName(): string
     {
@@ -508,9 +512,9 @@ class DeviceDetector
     /**
      * Returns the device brand extracted from the parsed UA
      *
-     * @see self::$deviceBrand for available device brands
-     *
      * @return string
+     *
+     * @see self::$deviceBrand for available device brands
      *
      * @deprecated since 4.0 - short codes might be removed in next major release
      */
@@ -522,9 +526,10 @@ class DeviceDetector
     /**
      * Returns the full device brand name extracted from the parsed UA
      *
+     * @return string
+     *
      * @see self::$deviceBrand for available device brands
      *
-     * @return string
      */
     public function getBrandName(): string
     {
@@ -624,14 +629,15 @@ class DeviceDetector
      * To get fast results from DeviceDetector you need to make your own implementation,
      * that should use one of the caching mechanisms. See README.md for more information.
      *
-     * @internal
-     *
-     * @deprecated
-     *
      * @param string       $ua          UserAgent to parse
      * @param ?ClientHints $clientHints Client Hints to parse
      *
      * @return array
+     *
+     * @deprecated
+     *
+     * @internal
+     *
      */
     public static function getInfoFromUserAgent(string $ua, ?ClientHints $clientHints = null): array
     {
@@ -910,6 +916,15 @@ class DeviceDetector
         $clientName = $this->getClientAttribute('name');
 
         /**
+         * if it's fake UA then it's best not to identify it as Apple running Android OS
+         */
+        if ('Android' === $osName && 'Apple' === $this->brand) {
+            $this->device = null;
+            $this->brand  = '';
+            $this->model  = '';
+        }
+
+        /**
          * Assume all devices running iOS / Mac OS are from Apple
          */
         if (empty($this->brand) && \in_array($osName, ['iPadOS', 'tvOS', 'watchOS', 'iOS', 'Mac'])) {
@@ -931,6 +946,13 @@ class DeviceDetector
             } elseif ($this->matchUserAgent('(?!Mobile )Safari/')) {
                 $this->device = AbstractDeviceParser::DEVICE_TYPE_TABLET;
             }
+        }
+
+        /**
+         * Some UA contain the fragment 'Pad/APad', so we assume those devices as tablets
+         */
+        if (AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE === $this->device && $this->matchUserAgent('Pad/APad')) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_TABLET;
         }
 
         /**
@@ -1007,7 +1029,7 @@ class DeviceDetector
         /**
          * All devices that contain Andr0id in string are assumed to be a tv
          */
-        if ($this->matchUserAgent('Andr0id|Android TV')) {
+        if ($this->matchUserAgent('Andr0id|Android TV|\(lite\) TV')) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
         }
 

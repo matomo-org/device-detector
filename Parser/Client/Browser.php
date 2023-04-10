@@ -12,9 +12,11 @@ declare(strict_types=1);
 
 namespace DeviceDetector\Parser\Client;
 
+use DeviceDetector\Cache\CacheInterface;
 use DeviceDetector\ClientHints;
 use DeviceDetector\Parser\Client\Browser\Engine;
 use DeviceDetector\Parser\Client\Hints\BrowserHints;
+use DeviceDetector\Yaml\ParserInterface as YamlParser;
 
 /**
  * Class Browser
@@ -516,9 +518,11 @@ class Browser extends AbstractClientParser
         'WE' => 'WebPositive',
         'WF' => 'Waterfox',
         'WB' => 'Wave Browser',
+        'WA' => 'Wavebox',
         'WH' => 'Whale Browser',
         'WO' => 'wOSBrowser',
         'WT' => 'WeTab Browser',
+        'WL' => 'Wolvic',
         'YG' => 'YAGI',
         'YJ' => 'Yahoo! Japan Browser',
         'YA' => 'Yandex Browser',
@@ -579,14 +583,14 @@ class Browser extends AbstractClientParser
             'XO', 'U0', 'B0', 'VA', 'X0', 'NX', 'O5', 'R1', 'I1',
             'HO', 'A5', 'X1', '18', 'B5', 'B6', 'TC', 'A6', '2X',
             'F4', 'YG', 'WR', 'NA', 'DM', '1M', 'A7', 'XN', 'XT',
-            'XB', 'W1', 'HT', 'B8', 'F5', 'B9',
+            'XB', 'W1', 'HT', 'B8', 'F5', 'B9', 'WA',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
             'FB', 'FE', 'FF', 'FM', 'FR', 'FY', 'GZ', 'I4', 'IF',
             'IW', 'LH', 'LY', 'MB', 'MN', 'MO', 'MY', 'OA', 'OS',
             'PI', 'PX', 'QA', 'QM', 'S5', 'SX', 'TF', 'TO', 'WF',
-            'ZV', 'FP', 'AD',
+            'ZV', 'FP', 'AD', 'WL',
         ],
         'Internet Explorer'  => ['BZ', 'CZ', 'IE', 'IM', 'PS'],
         'Konqueror'          => ['KO'],
@@ -664,6 +668,17 @@ class Browser extends AbstractClientParser
     }
 
     /**
+     * Sets the Cache class
+     *
+     * @param CacheInterface $cache
+     */
+    public function setCache(CacheInterface $cache): void
+    {
+        parent::setCache($cache);
+        $this->browserHints->setCache($cache);
+    }
+
+    /**
      * Returns list of all available browsers
      * @return array
      */
@@ -728,6 +743,17 @@ class Browser extends AbstractClientParser
     {
         return \in_array($browser, self::$mobileOnlyBrowsers) || (\in_array($browser, self::$availableBrowsers)
                 && \in_array(\array_search($browser, self::$availableBrowsers), self::$mobileOnlyBrowsers));
+    }
+
+    /**
+     * Sets the YamlParser class
+     *
+     * @param YamlParser $yamlParser
+     */
+    public function setYamlParser(YamlParser $yamlParser): void
+    {
+        parent::setYamlParser($yamlParser);
+        $this->browserHints->setYamlParser($this->getYamlParser());
     }
 
     /**
