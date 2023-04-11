@@ -7165,7 +7165,7 @@ SUNWIND:
       model: 'Sky $1 $2 3G'
     - regex: 'Sky (\d{4}[BCD]) ([34])G'
       model: 'Sky $1 $2G'
-    - regex: 'SUN[-_]LED(\d+\w\d+)'
+    - regex: 'SUN[-_]LED(\d+\w{1,2}\d+)'
       device: 'tv'
       model: 'SUN-LED$1'
 
@@ -11759,6 +11759,8 @@ iTel:
       model: 'A35'
     - regex: 'A571W'
       model: 'A37'
+    - regex: 'A631L'
+      model: 'A49 Play'
     - regex: 'W6002E?'
       model: 'S15'
     - regex: 'S663L[NC]'
@@ -22517,7 +22519,7 @@ Tecno Mobile:
       model: 'Spark 6 Air'
     - regex: 'TECNO[ _]KE5[jk]?(?:[);/ ]|$)'
       model: 'Spark 6 Go'
-    - regex: 'TECNO[ _](?:KF6(?:ks|[nmjki])?|PR651[EH]?)(?:[);/ ]|$)'
+    - regex: 'TECNO[ _](?:KF6(?:ks|[nhmjki])?|PR651[EH]?)(?:[);/ ]|$)'
       model: 'Spark 7'
     - regex: 'TECNO[ _]KF8(?:[);/ ]|$)'
       model: 'Spark 7 Pro'
@@ -22533,7 +22535,7 @@ Tecno Mobile:
       model: 'Spark 8P'
     - regex: 'TECNO(?: Mobile)?[ _]KG6p(?:[);/ ]|$)'
       model: 'Spark 8T'
-    - regex: 'TECNO[ _]KG8(?:[);/ ]|$)'
+    - regex: 'TECNO(?: Mobile)?[ _]KG8(?:[);/ ]|$)'
       model: 'Spark 8 Pro'
     - regex: 'TECNO[ _]KH7n?(?:[);/ ]|$)'
       model: 'Spark 9 Pro'
@@ -26749,9 +26751,9 @@ MTC:
     - regex: 'Redbox Mini 5\(MTS\)'
       device: 'tv'
       model: 'Redbox Mini 5'
-    - regex: 'MTS TV Box 317'
+    - regex: 'MTS TV Box (\d{3})'
       device: 'tv'
-      model: 'SB-317'
+      model: 'SB-$1'
     - regex: 'DV8304-C'
       device: 'tv'
       model: 'SuperWave DV8304-C'
@@ -28236,6 +28238,12 @@ Orbic:
       device: 'tablet'
       model: 'Tab8 5G'
 
+# RedLine (https://redline.com.tr/)
+RedLine:
+  regex: '(Space_M10)(?:[);/ ]|$)'
+  device: 'tablet'
+  model: '$1'
+
 # RED
 RED:
   regex: '(?:H1A1000)(?:[);/ ]|$)'
@@ -28617,7 +28625,7 @@ Winds:
 
 # Asano
 Asano:
-  regex: '(?:32LH7010T|32LH7030S|32LF7130S|28LH701[10]T|43LU8010T|24LH7020T|24LH8010T|40LF7030S|5[05]LU8120T)(?:[);/ ]|$)'
+  regex: '(?:32LH7010T|32LH7030S|32LF7130S|28LH701[10]T|43LU8010T|24LH7020T|24LH8010T|40LF7030S|5[05]LU8120T|42LF7110T)(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: '(\d{2})(L[FHU]\d+[ST])(?:[);/ ]|$)'
@@ -29012,7 +29020,7 @@ Torex:
 
 # Doffler
 Doffler:
-  regex: '(24DHS54|32GHS57)(?:[);/ ]|$)'
+  regex: '(24DHS54|32GHS57|40KFS57|32KHS57)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
@@ -33146,11 +33154,11 @@ Alps:
 
 # Starwind (starwind.com.ru)
 Starwind:
-  regex: 'Smart_Starwind|(?:SW-LED32SB302|SW-LED42SB300)(?:[);/ ]|$)'
+  regex: 'Smart_Starwind|(?:SW-LED(?:32SB302|42SB300|40SG300|32SG30[012]))(?:[);/ ]|$)'
   device: 'tv'
   models:
-    - regex: '(SW-LED32SB302|SW-LED42SB300)'
-      model: '$1'
+    - regex: 'SW-LED(\d{2}S[BG]\d{3})'
+      model: 'SW-LED$1'
 
 # QTECH (https://www.qtech.ru/en/)
 QTECH:
@@ -33209,7 +33217,7 @@ Smarty:
 
 # Leff
 Leff:
-  regex: '(32H540S|32H5[235]0T|5[05]U540S)(?:[);/ ]|$)'
+  regex: '(32H540S|32H5[235]0T|5[05]U540S|40F540S|43F550T)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
@@ -34664,9 +34672,9 @@ Chainway:
     - regex: ' (C66)'
       model: '$1'
 
-# Harper
+# Harper (https://harper.ru/)
 Harper:
-  regex: '(ABX-332|ABX-[12]10)(?:[);/ ]|$)'
+  regex: '(ABX-332|ABX-[12]10|40F660TS)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
@@ -35020,7 +35028,7 @@ DRAGON:
 
 # Skyline (skylinetv.ru)
 Skyline:
-  regex: '(?:SKYLINE[_ ])?(32YST5970|50UST5970|24YST5970|40LST5970)(?:[);/ ]|$)'
+  regex: '(?:SKYLINE[_ ])?(32YST5970|50UST5970|24YST5970|40LST5970|32YST5975)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
@@ -35772,6 +35780,12 @@ GOODTEL:
 # Viper (https://viper.pk/)
 Viper:
   regex: '(Z08MK)(?:[);/ ]|$)'
+  device: 'tablet'
+  model: '$1'
+
+# HAOQIN (https://haoqinofficial.com/)
+HAOQIN:
+  regex: '(SpaceTab_H20)(?:_EEA)?(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
 
