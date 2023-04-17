@@ -366,6 +366,7 @@ class Browser extends AbstractClientParser
         'O5' => 'Office Browser',
         'HH' => 'OhHai Browser',
         'OE' => 'ONE Browser',
+        'O6' => 'Open Broadcaster Software',
         'Y1' => 'Opera Crypto',
         'OX' => 'Opera GX',
         'OG' => 'Opera Neon',
@@ -496,6 +497,7 @@ class Browser extends AbstractClientParser
         'TG' => 'ToGate',
         'TS' => 'TweakStyle',
         'TV' => 'TV Bro',
+        'TW' => 'Twitch Studio',
         'U0' => 'U Browser',
         'UB' => 'UBrowser',
         'UC' => 'UC Browser',
@@ -540,6 +542,7 @@ class Browser extends AbstractClientParser
         'XB' => 'X Browser Lite',
         'X0' => 'X-VPN',
         'X1' => 'xBrowser Pro Super Fast',
+        'X2' => 'XSplit Broadcaster',
         'XN' => 'XNX Browser',
         'XT' => 'XtremeCast',
         'XS' => 'xStand',
@@ -587,7 +590,8 @@ class Browser extends AbstractClientParser
             'XO', 'U0', 'B0', 'VA', 'X0', 'NX', 'O5', 'R1', 'I1',
             'HO', 'A5', 'X1', '18', 'B5', 'B6', 'TC', 'A6', '2X',
             'F4', 'YG', 'WR', 'NA', 'DM', '1M', 'A7', 'XN', 'XT',
-            'XB', 'W1', 'HT', 'B8', 'F5', 'B9', 'WA', 'T0',
+            'XB', 'W1', 'HT', 'B8', 'F5', 'B9', 'WA', 'T0', 'O6',
+            'TW', 'X2'
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
