@@ -417,6 +417,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'DLI' => 'D-Link',
         'ENO' => 'eNOVA',
         'IN2' => 'iNOVA',
+        'INH' => 'Inhon',
         'EB'  => 'E-Boda',
         'EJ'  => 'Engel',
         'ENA' => 'ENACOM',
