@@ -14898,7 +14898,6 @@ Mediacom:
     - regex: 'M-PPxS551U(?:[);/ ]|$)'
       model: 'PhonePad Duo S551U'
       device: 'phablet'
-
     - regex: 'M-PPAG4(?:[);/ ]|$)'
       model: 'PhonePad Duo G4'
       device: 'smartphone'
@@ -14907,6 +14906,9 @@ Mediacom:
       device: 'smartphone'
     - regex: 'M-PP2S500[BC]?(?:[);/ ]|$)'
       model: 'PhonePad Duo S500'
+      device: 'smartphone'
+    - regex: 'M-PPx(S510|G551|G51[0125]|G415)(?:[);/ ]|$)'
+      model: 'PhonePad Duo $1'
       device: 'smartphone'
     - regex: 'M[_-]PP[Ax]X(470|510|555|520)U(?:[);/ ]|$)'
       model: 'PhonePad Duo X$1U'
@@ -14917,10 +14919,16 @@ Mediacom:
     - regex: 'M-PPxS(532[LU]|470|501|5P?|7P?)(?:[);/ ]|$)'
       model: 'PhonePad Duo S$1'
       device: 'smartphone'
-    - regex: 'M-PPxG(450)(?:[);/ ]|$)'
+    - regex: 'M-PPxG(4[15]0)(?:[);/ ]|$)'
       model: 'PhonePad Duo G$1'
       device: 'smartphone'
+    - regex: 'M-PPA(S520|R450|G552)(?:[);/ ]|$)'
+      model: 'PhonePad Duo $1'
+      device: 'smartphone'
 
+    - regex: 'M-PPx([XS]5\d{2}[UL])(?:[);/ ]|$)'
+      model: 'PhonePad Duo $1'
+      device: 'phablet'
     - regex: 'M-MP([0-9a-z]+)'
       model: 'SmartPad $1'
 
@@ -18775,7 +18783,7 @@ RT Project:
 
 # S-TELL
 S-TELL:
-  regex: 'S-TELL|(?:M630|M55[78]|P760|P750i|M555i|M655)(?:[);/ ]|$)'
+  regex: 'S-TELL|(?:M630|M55[78]|P760|P750i|M555i|M457|M655)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(P760|P750i)(?:[);/ ]|$)'
@@ -31193,7 +31201,7 @@ EWIS:
 
 # Leader Phone or LP (lp.tn) or LP (TN)
 Leader Phone:
-  regex: '(Vyper|N-5[07]|N-45|LP DAISY|LP_(?:VEYRON|PRADO|Pro1|B-50)|LP_T70|LP INFINITY\+|LP T70 Lite|INFINITY_light|Alphatel_T1)(?:[);/ ]|$)'
+  regex: '(Vyper|N-5[07]|N-45|LP DAISY|LP_(?:VEYRON|PRADO|Pro1|B-50|EVORA_light)|LP_T70|LP[ _]INFINITY\+?|LP T70 Lite|INFINITY_light|Alphatel_T1)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'N-45 light'
@@ -31212,6 +31220,10 @@ Leader Phone:
       model: 'Infinity Light'
     - regex: 'LP INFINITY\+'
       model: 'Infinity Plus'
+    - regex: 'LP_INFINITY'
+      model: 'Infinity'
+    - regex: 'LP_EVORA_light'
+      model: 'Evora Light'
     - regex: 'LP T70 Lite'
       device: 'tablet'
       model: 'T70 Lite'
@@ -31939,7 +31951,7 @@ Kyowon:
 
 # LT Mobile or LT Electronics (lt-smartphone.com or lt-yemen.com)
 LT Mobile:
-  regex: 'LT[ _-](?:P[89]|P10I|NOTE 10[SM]|NOTE 30|C1[45]00|C3[1235]00|S10[ _]Lite|S10|S9_NOTE)|(?:C3[67]00)(?:[);/ ]|$)'
+  regex: 'LT[ _-](?:P[89]|P10I|NOTE 10[SM]|NOTE 30|C1[45]00|C3[1235]00|S10[ _]Lite|S10|S9_NOTE|M[56]|M5_lite)|(?:C3[67]00)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'LT[- ]NOTE ([13]0[SM]?)'
@@ -31968,6 +31980,10 @@ LT Mobile:
       model: 'P10i'
     - regex: 'LT[ _]P([89])(?:[);/ ]|$)'
       model: 'P$1'
+    - regex: 'LT[ _]M([56])[_ ]lite(?:[);/ ]|$)'
+      model: 'M$1 Lite'
+    - regex: 'LT[ _]M([56])(?:[);/ ]|$)'
+      model: 'M$1'
 
 # ONYX BOOX (onyx-boox.ru)
 ONYX BOOX:
@@ -35852,6 +35868,14 @@ Inhon:
   regex: 'Inhon[_ ](V6)(?:_EEA)?(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
+
+# SKK Mobile
+SKK Mobile:
+  regex: 'LYNX_LUXE(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'LYNX_LUXE'
+      model: 'Lynx Luxe'
 
 # Devices with undectable brand, but detectable model
 Unknown:

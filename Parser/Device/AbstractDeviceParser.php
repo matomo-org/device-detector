@@ -1304,6 +1304,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SW'  => 'Sky',
         'SK'  => 'Skyworth',
         'SKY' => 'Skyline',
+        'SKK' => 'SKK Mobile',
         '14'  => 'Smadl',
         '19'  => 'Smailo',
         'SR'  => 'Smart Electronic',
