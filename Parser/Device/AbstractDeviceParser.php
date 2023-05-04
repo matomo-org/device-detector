@@ -383,6 +383,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'DIC' => 'DIGICOM',
         'Q0'  => 'DIGIFORS',
         'DQ'  => 'DISH',
+        'DIS' => 'Disney',
         '9D'  => 'Ditecma',
         'D2'  => 'Digma',
         '1D'  => 'Diva',

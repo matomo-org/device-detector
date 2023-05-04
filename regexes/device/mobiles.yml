@@ -2992,16 +2992,18 @@ Ainol:
       model: 'Novo 7 Fire'
     - regex: 'Novo7 ?Flame(?:[);/ ]|$)'
       model: 'Novo 7 Flame'
+    - regex: 'novo ?7[_ ]ELF(?:[);/ ]|$)'
+      model: 'Novo 7 Elf'
     - regex: 'NOVO7(?:[);/ ]|$)'
       model: 'Novo 7'
-    - regex: 'Numy[ _]([^;/]+) Build'
+    - regex: 'Numy[ _]([^;/)]+)(?: Build|[;)])'
       model: 'Numy $1'
-    - regex: 'Novo([0-9]+)[ \-]([^;/]+) Build'
+    - regex: 'Novo([0-9]+)[_ \-]([^;/)]+)(?: Build|[;)])'
       model: 'Novo $1 $2'
 
 # Archos (www.archos.com)
 Archos:
-  regex: '(?:YL-)?Archos|(?:A50TI|AC101BHE|AC50BHE|AC45NE|X67 5G)(?:[);/ ]|$)'
+  regex: '(?:YL-)?Archos|(?:A50TI|AC101BHE|AC50BHE|AC45NE|X67 5G|AC45BHE|AC101PL3GV2)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Archos (Oxygen (?:63|57|68XL))(?:[);/ ]|$)'
@@ -3014,6 +3016,8 @@ Archos:
       model: '40c Titanium v2'
     - regex: '45B Titanium'
       model: '45b Titanium'
+    - regex: 'AC45BHE'
+      model: '45b Helium'
     - regex: 'AC45NE(?:[);/ ]|$)'
       model: '45 Neon'
     - regex: 'X67 5G(?:[);/ ]|$)'
@@ -3041,6 +3045,9 @@ Archos:
     - regex: 'Archos Access 101 3G V2'
       device: 'tablet'
       model: '101 Access 3G V2'
+    - regex: 'AC101PL3GV2'
+      device: 'tablet'
+      model: '101 Platinum 3G V2'
     - regex: 'Archos Oxygen 101S ARDOIZ(?:[);/ ]|$)'
       device: 'tablet'
       model: '101s Oxygen Ardoiz'
@@ -11424,11 +11431,13 @@ Insignia:
 
 # INSYS (https://www.insys.pt/)
 INSYS:
-  regex: 'INSYS|(?:HK9-4010|IH9-L614)(?:[);/ ]|$)'
+  regex: 'INSYS|(?:HK9-4010|IH9-L614|AC7_DJ17)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'HK9-4010'
       model: 'HK9-4010'
+    - regex: 'AC7_DJ17'
+      model: 'AC7-DJ17'
     - regex: 'IH9-L614'
       model: 'MX IH9-L614'
     - regex: '(VI4-103|GU4-K147)'
@@ -26792,8 +26801,30 @@ Zen:
   models:
     - regex: 'AdmireGlam'
       model: 'Admire Glam'
-    - regex: 'ADMIRE_SENSE+'
+    - regex: 'ADMIRE[_ ]SENSE\+'
       model: 'Admire Sense+'
+    - regex: 'ADMIRE[_ ]SWADESH\+'
+      model: 'Admire Swadesh+'
+    - regex: 'ADMIRE[_ ]SENSE[_ ]DUO'
+      model: 'Admire Sense Duo'
+    - regex: 'ADMIRE[_ ]CURVE[_ ]NEO'
+      model: 'Admire Curve Neo'
+    - regex: 'ADMIRE[_ ]CURVE\+'
+      model: 'Admire Curve+'
+    - regex: 'ADMIRE[_ ]NEO\+'
+      model: 'Admire Neo+'
+    - regex: 'ADMIRE[_ ]DUO'
+      model: 'Admire Duo'
+    - regex: 'ADMIRE[_ ]SHINE'
+      model: 'Admire Shine'
+    - regex: 'ADMIRE[_ ]INFINITY'
+      model: 'Admire Infinity'
+    - regex: 'ADMIRE[_ ]Unity'
+      model: 'Admire Unity'
+    - regex: 'ADMIRE[_ ]STRONG'
+      model: 'Admire Strong'
+    - regex: 'ADMIRE[_ ]GLORY\+'
+      model: 'Admire Glory+'
     - regex: '(M72 Smart)'
       model: '$1'
     - regex: '(Admire[_ ][^/;]+|Cinemax[^/;)]+)(?:Build|\))'
@@ -36077,6 +36108,12 @@ Linsay:
   models:
     - regex: 'LINSAY[_ ]([^/;)]+)(?: Build|[);])'
       model: '$1'
+
+# Disney
+Disney:
+  regex: '(MARVEL|FROZEN)(?:[);/ ]|$)'
+  device: 'tablet'
+  model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
