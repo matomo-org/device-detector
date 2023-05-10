@@ -23000,13 +23000,15 @@ Telit:
 
 # Telma (https://www.telma.mg/)
 Telma:
-  regex: 'Telma|F1x4G(?:[);/ ]|$)'
+  regex: 'Telma|(?:F1x4G|Feel_Plus)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Telma_F1_Max_4G'
       model: 'F1 Max 4G'
     - regex: 'F1x4G'
       model: 'F1x 4G'
+    - regex: 'Feel_Plus'
+      model: 'Feel Plus'
 
 # Telpo (https://www.telpo.com.cn/)
 Telpo:
@@ -25264,18 +25266,20 @@ Xion:
 
 # Xolo
 Xolo:
-  regex: 'Xolo|(?:Q600|Q700s?|Q800|Q1000s|Q1000[ _]Opus|Q1010i|Q2000|Omega[ _]5.[05]|Era5X|Era[ _]2V|era_HD|era[_ ]4[GK]|Era_4?X(?:_2GB)?|BLACK-1XM|A1000s_Lite|cube 5\.0_2GB|Opus 3)(?:[);/ ]|$)'
+  regex: 'Xolo|(?:Q600|Q700s?|Q800|Q1000s|Q1000[ _]Opus|Q1010i|Q2000|Omega[ _]5.[05]|Era5X|Era[ _]2[VX]|era_HD|era[_ ]4[GK]|Era_4?X(?:_2GB)?|BLACK-1XM|A1000s_Lite|cube 5\.0_2GB|Opus 3|era1X|era [2X]|era1Xpro)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'BLACK-1XM'
       model: 'Black 1X'
-    - regex: 'Era_?([45])X(?:[);/ ]|$)'
+    - regex: 'Era[ _]?1X ?Pro'
+      model: 'Era 1X Pro'
+    - regex: 'Era[_ ]?([145])X(?:[);/ ]|$)'
       model: 'Era $1X'
     - regex: 'Era_4X_2GB(?:[);/ ]|$)'
       model: 'Era 4X 2GB'
     - regex: 'Era[ _]2V(?:[);/ ]|$)'
       model: 'Era 2V'
-    - regex: 'era[_ ](HD|4[GK]|X)'
+    - regex: 'era[_ ](HD|4[GK]|2)'
       model: 'Era $1'
     - regex: 'cube 5\.0_2GB'
       model: 'Cube 5.0'
@@ -32153,7 +32157,7 @@ AIRON:
 
 # GFive or G'Five (www.gfivepakistan.com)
 GFive:
-  regex: 'GFIVE[_ ]|(?:PRESIDENT_GOLD_(9|10)|President Gpower 1|Stark(?![_ ]K1))(?:[);/ ]|$)'
+  regex: 'GFIVE[_ ]|(?:PRESIDENT_GOLD_(9|10)|President Gpower 1|Stark(?![_ ]K1)|Gpad70[12])(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'PRESIDENT_GOLD_(9|10)'
@@ -32178,9 +32182,9 @@ GFive:
       model: 'President Smart $1'
     - regex: 'Stark'
       model: 'Stark'
-    - regex: 'GPad701'
+    - regex: 'GPad(70[12])'
       device: 'tablet'
-      model: 'GPad701'
+      model: 'GPad$1'
 
 # KINGZONE or KING ZONE
 KINGZONE:
@@ -32975,9 +32979,14 @@ Galaxy Innovations:
 
 # Benzo
 Benzo:
-  regex: '(Class S300 LTE)(?:[);/ ]|$)'
+  regex: '(?:Class S300 LTE|G-PADLITE)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'G-PADLITE'
+      device: 'tablet'
+      model: 'GPad Lite'
+    - regex: '(Class S300 LTE)'
+      model: '$1'
 
 # Vexia (www.vexia.eu)
 Vexia:
@@ -36114,6 +36123,32 @@ Disney:
   regex: '(MARVEL|FROZEN)(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
+
+# WAF or W.A.F
+WAF:
+  regex: '(F808NM)(?:[);/ ]|$)'
+  device: 'tablet'
+  model: '$1'
+
+# Geant
+Geant:
+  regex: 'GEANT[_ ](T\d)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
+
+# Galactic
+Galactic:
+  regex: 'Galactic[_ ](Astro)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: '$1'
+
+# Zigo
+Zigo:
+  regex: '(?:Eon45i)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'Eon45i'
+      model: 'Eon 45i'
 
 # Devices with undectable brand, but detectable model
 Unknown:
