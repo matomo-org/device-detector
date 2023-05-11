@@ -3937,6 +3937,9 @@ Blackview:
     - regex: ' Tab ?(6 Kids)(?:[);/ ]|$)'
       device: 'tablet'
       model: 'Tab $1'
+    - regex: 'Tab 11 SE(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'Tab 11 SE'
     - regex: ' Tab ?([689]|1[0135])(?:[);/ ]|$)'
       device: 'tablet'
       model: 'Tab $1'
@@ -12661,7 +12664,7 @@ Benco:
 
 # Lava (Lavamobiles.com)
 Lava:
-  regex: 'Lava[ _]|LAVA(?:A1|X10)|(?:DISCOVER136|KKT QUADRA)|iris(?! Plus 2021|_Pad_G)[ _]?([^/;)]+)(?<!Plus 2021)(?: Build|[;)])|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|X1_atom_L|(?:Flair (?:[ZS]1|P8)|PixelV1|Pixel V2\+?|Z60s|Z61_2GB|A97 IPS|A97 2GB PLUS|L[EH]9920(?:[_ ]P)?|L[NEH]9910|LH9810|Ivory(?:S1|S4G)?|A76Plus|Grand2c|AH9910| A3_mini|T71_w|V23GB|R1_Lite|Atom 2X|AF9030|Z50_Pro| Z(?:[56]1|92)|Android 6(?:[\d.]*);(?: [\w-]+;)? (:?X28|P7plus)|AF9020|Alfa L|T81N_UP|LN982[01])(?:[);/ ]|$)'
+  regex: 'Lava[ _]|LAVA(?:A1|X10)|(?:DISCOVER136|KKT QUADRA)|iris(?! Plus 2021|_Pad_G)[ _]?([^/;)]+)(?<!Plus 2021)(?: Build|[;)])|A(?:67|76) Build|X1 Selfie Build|X41 Plus Build|X1_atom_L|(?:Flair (?:[ZS]1|P8)|PixelV1|Pixel V2\+?|Z60s|Z61_2GB|A97 IPS|A97 2GB PLUS|L[EH]9920(?:[_ ]P)?|L[NEH]9910|LH9810|Ivory(?:S1|S4G)?|A76Plus|Grand2c|AH9910| A3_mini|T71_w|V23GB|R1_Lite|Atom 2X|AF9030|Z50_Pro| Z(?:[56]1|92)|Android 6(?:[\d.]*);(?: [\w-]+;)? (:?X28|P7plus)|AF9020|Alfa L|T81N(?:_UP)?|LN982[01])(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -12794,6 +12797,9 @@ Lava:
     - regex: 'T81N_UP(?:[);/ ]|$)'
       device: 'tablet'
       model: 'T81N Up'
+    - regex: 'T81N(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'T81N'
     - regex: 'T71_w(?:[);/ ]|$)'
       device: 'tablet'
       model: 'T71'
@@ -14632,7 +14638,7 @@ Mpman:
 
 # Majestic (www.newmajestic.com)
 Majestic:
-  regex: 'MAJESTIC[ _-]|CRONO ?[0-9]+|(?:TAB (?:647|411) 3G|TAB_911_3G|TAB_811_4G|TAB_912_4G|TAB-714|TAB 711 4G|URANO27|URANO 47|URANO 77LTE|PLUTO__?26N?)(?:[);/ ]|$)'
+  regex: 'MAJESTIC[ _-]|CRONO ?[0-9]+|(?:TAB (?:647|411) 3G|TAB_(?:81[12]|912)_4G|TAB_911_3G|TAB-714|TAB 711 4G|URANO27|URANO 47|URANO 77LTE|PLUTO__?26N?)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'URANO 77LTE(?:[);/ ]|$)'
@@ -14641,7 +14647,7 @@ Majestic:
       model: 'Urano $1'
     - regex: 'PLUTO__?(26N?)(?:[);/ ]|$)'
       model: 'Pluto $1'
-    - regex: 'TAB[ _](647|[478]11|91[12])[ _]([34])G'
+    - regex: 'TAB[ _](\d{3})[ _]([34])G'
       model: 'Tab $1 $2G'
       device: 'tablet'
     - regex: 'TAB-714'
@@ -20598,12 +20604,14 @@ Sky:
 
 # Skyworth
 Skyworth:
-  regex: 'Sky_?worth|FlowBox-F1'
+  regex: 'Sky_?worth|(?:FlowBox-F1|SWTV-20AE)(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: 'FlowBox-F1'
       model: 'FlowBox-F1'
-    - regex: 'Sky_?worth ([^;/]+) Build'
+    - regex: '(SWTV-20AE)'
+      model: '$1'
+    - regex: 'Sky_?worth ([^;/)]+)(?: Build|[;)])'
       model: '$1'
 
 # Smartfren
@@ -22431,6 +22439,8 @@ Tecno Mobile:
       model: 'Phantom X2 Pro'
     - regex: 'TECNO[ _]AC8(?:[);/ ]|$)'
       model: 'Phantom X'
+    - regex: 'TECNO[ _]AD10(?:[);/ ]|$)'
+      model: 'Phantom V Fold'
     - regex: 'TECNO[ _]AB7(?:[);/ ]|$)'
       model: 'Phantom 9'
     - regex: 'TECNO[ _]AX8(?:[);/ ]|$)'
@@ -25287,7 +25297,7 @@ Xion:
 
 # Xolo
 Xolo:
-  regex: 'Xolo|(?:Q600|Q700s?|Q800|Q1000s|Q1000[ _]Opus|Q1010i|Q2000|Omega[ _]5.[05]|Era5X|Era[ _]2[VX]|era_HD|era[_ ]4[GK]|Era_4?X(?:_2GB)?|BLACK-1XM|A1000s_Lite|cube 5\.0_2GB|Opus 3|era1X|era [2X]|era1Xpro)(?:[);/ ]|$)'
+  regex: 'Xolo|(?:Q600|Q700s?|Q800|Q1000s|Q1000[ _]Opus|Q1010i|Q2000|Omega[ _]5.[05]|Era5X|Era[ _]2[VX](?:[_ ]3GB)?|era[ _]X|era_HD|era[_ ]4[GK]|Era_4?X(?:_2GB)?|BLACK-1XM|A1000s_Lite|cube 5\.0_2GB|Opus 3|era1X|era [2X]|era1Xpro)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'BLACK-1XM'
@@ -25300,7 +25310,7 @@ Xolo:
       model: 'Era 4X 2GB'
     - regex: 'Era[ _]2V(?:[);/ ]|$)'
       model: 'Era 2V'
-    - regex: 'era[_ ](HD|4[GK]|2)'
+    - regex: 'era[_ ](HD|4[GK]|2X?|X)'
       model: 'Era $1'
     - regex: 'cube 5\.0_2GB'
       model: 'Cube 5.0'
@@ -27591,7 +27601,7 @@ Ghost:
 
 # Xoro (www.xoro.de)
 Xoro:
-  regex: 'XORO[ _]|(?:TelePAD(?:795|731|1032|10A3|7A3)|Era 2X|HMT(?:390Q?|400)|HST 260)(?:[);/ ]|$)'
+  regex: 'XORO[ _]|(?:TelePAD(?:795|731|1032|10A3|7A3)|HMT(?:390Q?|400)|HST 260)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'TelePAD(7|10)A3 4G(?:[);/ ]|$)'
@@ -27608,10 +27618,6 @@ Xoro:
     - regex: 'HST 260(?:[);/ ]|$)'
       model: 'HST 260'
       device: 'tv'
-
-    - regex: '(Era 2X)(?:[);/ ]|$)'
-      model: '$1'
-      device: 'smartphone'
 
 # Vinga
 Vinga:
@@ -33622,11 +33628,13 @@ Amino:
 
 # Saiet (acquistaonline.saiet.it)
 Saiet:
-  regex: '(?:STS5[57]0)(?:[);/ ]|$)'
+  regex: '(?:STS5[57]0|STS502)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(STS5[57]0)'
       model: 'Sicuro Smart $1'
+    - regex: '(STS502)'
+      model: '$1'
 
 # Magicsee (magicsees.com)
 Magicsee:
