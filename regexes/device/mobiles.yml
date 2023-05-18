@@ -7642,7 +7642,7 @@ Sony:
       model: 'Xperia X Performance Dual'
 
     # SONY: explicit tablet models
-    - regex: '(?:SGP(?:311|312|321)|(Sony)?SO-03E|Tablet Z LTE)(?:[);/ ]|$)'
+    - regex: '(?:Sony)?(?:SGP(?:311|312|321)|(Sony)?SO-03E|Tablet Z LTE)(?:[);/ ]|$)'
       model: 'Xperia Tablet Z'
       device: 'tablet'
     - regex: 'SGP712(?:[);/ ]|$)'
@@ -8502,7 +8502,7 @@ TIMvision:
 
 # GOCLEVER (goclever.com)
 GOCLEVER:
-  regex: 'GOCLEVER|QUANTUM_(?:[235]_)?[0-9]{3}|QUANTUM [0-9]{1}|QUANTUM 700N|Quantum2 500|QUANTUM_(1010N|1010M|900|II_500_N)|ARIES|INSIGNIA|ORION_|ELIPSO|LIBRA[ _]97|TERRA_7o[WL]|TQ700(?:[);/ ]|$)'
+  regex: 'GOCLEVER|QUANTUM_(?:[235]_)?[0-9]{3}|QUANTUM [0-9]{1}|QUANTUM 700N|Quantum2 500|QUANTUM_(1010N|1010M|900|II_500_N)|ARIES|INSIGNIA|ORION_|ELIPSO|LIBRA[ _]97|TERRA_7o[WL]|(?:TQ700|ORION7oL)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'QUANTUM_(1010N|1010M|900)'
@@ -8516,6 +8516,9 @@ GOCLEVER:
       device: 'tablet'
     - regex: 'TQ700N'
       model: 'QUANTUM 700N'
+      device: 'tablet'
+    - regex: 'ORION7oL'
+      model: 'ORION 70L'
       device: 'tablet'
     - regex: 'TQ700(?:[);/ ]|$)'
       model: 'QUANTUM 700'
@@ -16878,7 +16881,7 @@ Fusion5:
 
 # Odys (odys.de)
 Odys:
-  regex: 'ODYS[ _-]|IEOS[_ ]([^/;]+)|NOON(?:_PRO)? Build|SPACE10_(?:PLUS|PRO)_3G|THOR_?10|TAO_X10|RAPID_?(?:10|7)_?LTE|MAVEN_?10_|CONNECT[78]|ELEMENT10_PLUS_3G|XELIO[_0-9P]|PACE_10_LTE|(?:ADM816HC|ADM8000KP|NEO6_LTE|EOS10|AEON|FALCON_10_PLUS_3G|SPACE_ONE10|FUSION|THANOS_10|MAVEN_X10_HD(?:_LTE)?|JUNIOR_8_PRO|JuniorT8Pro|(?:NOVA|PYRO)_X?7_PLUS_3G|UNO_X8|MAVEN_[GT]10(?:_pro)?|MAVEN_7_PLUS|SLADE_X55|XELIO_PRO_10_LTE|GOAL_10_PLUS_3G|NOTOSplus3G|PACE ?10|Titan_10_LTE|PEDI_PLUS_W|NoteTab_Pro)(?:[);/ ]|$)'
+  regex: 'ODYS[ _-]|IEOS[_ ]([^/;]+)|NOON(?:_PRO)? Build|SPACE10_(?:PLUS|PRO)_3G|THOR_?10|TAO_X10|RAPID_?(?:10|7)_?LTE|MAVEN_?10_|CONNECT[78]|ELEMENT10_PLUS_3G|XELIO[_0-9P]|PACE_10_LTE|(?:ADM816HC|ADM8000KP|NEO6_LTE|EOS10|AEON|FALCON_10_PLUS_3G|SPACE_ONE10|FUSION|THANOS_10|MAVEN_X10_HD(?:_LTE)?|JUNIOR_8_PRO|JuniorT8Pro|(?:NOVA|PYRO)_X?7_PLUS_3G|UNO_X8|MAVEN_[GT]10(?:_pro)?|MAVEN_7_PLUS|SLADE_X55|XELIO_PRO_10_LTE|GOAL_10_PLUS_3G|NOTOSplus3G|PACE ?10|Titan_10_LTE|PEDI_PLUS_W|NoteTab_Pro|UNO_X10|NERON)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'XELIO[_ ]HD10[_ ]LTE'
@@ -16957,8 +16960,8 @@ Odys:
       model: 'Falcon 10 Plus 3G'
     - regex: 'FUSION'
       model: 'Fusion 7'
-    - regex: 'UNO_X8'
-      model: 'Uno X8'
+    - regex: 'UNO[_ ]X(8|10)'
+      model: 'Uno X$1'
     - regex: 'ADM8000KP'
       model: 'Titan'
     - regex: 'Titan_10_LTE'
@@ -16985,6 +16988,8 @@ Odys:
       model: 'Ieos Quad W'
     - regex: 'IEOS[_ ]QUAD[_ ]PRO'
       model: 'Ieos Quad Pro'
+    - regex: 'NERON'
+      model: 'Neron'
 
     # explicit smartphones models
     - regex: 'NEO6[_ ]LTE'
@@ -16999,7 +17004,7 @@ Odys:
       model: 'Ieos $1'
     - regex: '(?:ODYS[ _-])?NOON Build'
       model: 'Noon'
-    - regex: '(?:ODYS[ _-])?NOON_PRO Build'
+    - regex: '(?:ODYS[ _-])?NOON_PRO'
       model: 'Noon Pro'
     - regex: 'Odys[ _-]([^/;]+) Build'
       model: '$1'
@@ -18039,7 +18044,7 @@ Orange:
       model: 'Dive $1 Dual'
     - regex: '(?:Orange[ _-])?Dive ?(\d+)(?:[);/ ]|$)'
       model: 'Dive $1'
-    - regex: 'Orange[ _-](Daytona|Dublin|Fova|Gova|Hi 4G|Hiro|Kivo|Monte Carlo|Neva 80|Neva play|Nura|Reyo|Rise[_ ](3[034]|40|5[345])|Rono|Roya|San Francisco|Tactile internet 2|Tado|Yomi|Yumo|Zali|Mahpee|Neva leaf|Sanza touch|Viking L508)(?:[);/ ]|$)'
+    - regex: 'Orange[ _-](Daytona|Dublin|Fova|Gova|Hi 4G|Hiro|Kivo|Monte Carlo|Neva 80|Neva play|Nura|Reyo|Rise[_ ](3[034]|40|5[345])|Rono|Roya|San Francisco|Tactile internet 2|Tado|Yomi|Yumo|Zali|Mahpee|Neva leaf|Sanza touch|Viking L508|Zilo)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'SPV[ \-]?([a-z0-9]+)'
       model: 'SPV $1'
@@ -20932,9 +20937,7 @@ Ployer:
       model: 'MOMO mini S'
     - regex: 'momo mini 3GS'
       model: 'MOMO Mini 3GS'
-    - regex: 'MOMO([0-9][^);/]*) Build'
-      model: 'MOMO $1'
-    - regex: 'MOMO([0-9][^);/]*)(?:[);/]|$)'
+    - regex: 'MOMO([0-9][^);/]*)(?: Build|[;)])'
       model: 'MOMO $1'
 
 # Plum (plum-mobile.com)
