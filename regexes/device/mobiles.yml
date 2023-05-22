@@ -4779,7 +4779,7 @@ BenQ:
 
 # Blaupunkt (blaupunkt.com)
 Blaupunkt:
-  regex: 'Blaupunkt|Soundphone S2|Atlantis[_ ](?:1001A|1010A|A10[._]G40[23])|SLplus02|Discovery[_ ](?:A10_302|10[28]C|111C|1000C|1001A?)|Endeavour[_ ](?:785|101[GLM]|1000|1001|101[03]|1100)|Polaris[_ ]80[38]|BP_6010|B-STREAM'
+  regex: 'Blaupunkt|(?:Soundphone S2|Atlantis[_ ](?:1001A|1010A|A10[._]G40[23])|SLplus02|Discovery[_ ](?:A10_302|10[28]C|111C|1000C|1001A?)|Endeavour[_ ](?:785|101[GLM]|1000|1001|101[03]|1100)|Polaris[_ ]80[38]|BP_6010|B-STREAM|SL05|SM 02 2019)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'Discovery[_ ](1000|111|10[28])C'
@@ -4807,9 +4807,12 @@ Blaupunkt:
     - regex: 'Blaupunkt[_ ](SL[_ ]0[124]|SM[_ ]0[12])'
       device: 'smartphone'
       model: '$1'
-    - regex: '(SF02)'
+    - regex: '(SF02|SL05)'
       device: 'smartphone'
       model: '$1'
+    - regex: 'SM 02 2019'
+      device: 'smartphone'
+      model: 'SM 02 (2019)'
     - regex: '(4K Android TV)'
       device: 'tv'
       model: '$1'
@@ -8057,7 +8060,7 @@ Forstar:
 
 # InFocus
 InFocus:
-  regex: '(?:IF(900[1237]|902[19]|903[15])|M370i?|InFocus M808i?)(?:[);/ ]|$)'
+  regex: '(?:IF(900[1237]|902[19]|903[15]|236a|195a)|M370i?|InFocus M808i?)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'IF9001'
@@ -8078,6 +8081,9 @@ InFocus:
       model: 'Vision 3'
     - regex: 'IF9029'
       model: 'Vision 3 Pro'
+    - regex: 'IF(236|195)a'
+      model: 'Big Tab IF$1a'
+      device: 'tablet'
     - regex: 'InFocus M([0-9]+[a-z]?)'
       model: 'M$1'
 
@@ -10584,7 +10590,7 @@ Hyundai:
 
 # iBall (iball.co.in)
 iBall:
-  regex: 'iBall[ _]([^;/)]+)[ _]Build|iBall[_ ]Slide|(?:Snap[_ ]4G2|3G 1026-Q18|6351-Q400i|iT-KSA0003|iT-KSA0012|iT-KSA0066|Avid|Twinkle_i5|Gorgeo[_ ]4GL|Brisk 4G2|Slide[_ ]Dazzle[_ ]3500|Blaze_V4|Wondro 10|Q27 4G|Andi (?:Wink|5G Blink) 4G|Co-Mate|Nova_4G|Brace-X1|DD-1GB|Elan 4G2)(?:[);/ ]|$)'
+  regex: 'iBall[ _]([^;/)]+)[ _]Build|iBall[_ ]Slide|(?:Snap[_ ]4G2|3G 1026-Q18|6351-Q400i|iT-KSA0003|iT-KSA0012|iT-KSA0066|Avid|Twinkle_i5|Gorgeo[_ ]4GL|Brisk 4G2|Slide[_ ](?:Dazzle[_ ]3500|Skye_03)|Blaze_V4|Wondro 10|Q27 4G|Andi (?:Wink|5G Blink) 4G|Co-Mate|Nova_4G|Brace-X1|DD-1GB|Elan 4G2)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'Andi Wink 4G'
@@ -10603,6 +10609,8 @@ iBall:
       model: 'Slide Dazzle 3500'
     - regex: '1026-Q18(?:[);/ ]|$)'
       model: 'Slide 3G'
+    - regex: 'Slide_Skye_03'
+      model: 'Slide Skye 03'
     - regex: 'Brace-X1(?:[);/ ]|$)'
       model: 'Brace X1'
     - regex: 'iT-KSA0003(?:[);/ ]|$)'
@@ -11662,6 +11670,8 @@ Intex:
       model: 'Aqua Fulvu E5'
     - regex: 'AQUA JEWEL 2(?:[);/ ]|$)'
       model: 'Aqua Jewel 2'
+    - regex: 'Aqua[_ ]Life[_ ]?III(?:[);/ ]|$)'
+      model: 'Aqua Life III'
     - regex: '(?:INTEX[_ ])?AQUA[_ ]4\.0[_ ]4G'
       model: 'Aqua 4.0 4G'
     - regex: '(?:INTEX[_ ])?AQUA[_ ]4G[_ ]MINI'
@@ -12905,9 +12915,9 @@ Lanix:
       device: 'tablet'
     - regex: 'X120C'
       model: 'Ilium X120C'
-    - regex: 'Ilium[ _](Alpha [15]s|Alpha [379]|Alpha 1T|L(?:200|6[12]0|9[0125]0|1[0124]00|1050|1120)|LT5[012]0|M[579]s|M7T|M[13579]|S(?:106|520|6[27]0)|X(?:1[12]0|2[0126]0|5[12]0|500B|710))(?:[);/ ]|$)'
+    - regex: 'Ilium[ _](Alpha [15]s|Alpha [379]|Alpha 1T|L(?:200|6[12]0|9[0125]0|1[0124]00|1050|1120)|LT5[012]0|M[579]s|M7T|M[13579]|S(?:106|520|6[27]0)|X(?:1[12]0|2[0126]0|400|5[12]0|500B|710))(?:[);/ ]|$)'
       model: 'Ilium $1'
-    - regex: 'ILIUM[ _]([^;/]+) Build'
+    - regex: 'ILIUM[ _]([^;/)]+)(?: Build|[;)])'
       model: 'Ilium $1'
     - regex: 'Alpha (9500|950(?:XL)?)'
       model: 'Ilium Alpha $1'
@@ -20062,6 +20072,8 @@ Samsung:
       model: 'Galaxy J5 (2015)'
     - regex: '(?:SAMSUNG-)?SM-(?:J510(?:[FGMU]N|FQ|[8FGHKLSY])?|5108|G510H)(?:[);/ ]|$)'
       model: 'Galaxy J5 (2016)'
+    - regex: '(?:SAMSUNG-)?SM-J530[GY]'
+      model: 'Galaxy J5 Pro (2017)'
     - regex: '(?:SAMSUNG-)?SM-J530|(?:lineage_)?j5y17lte'
       model: 'Galaxy J5 (2017)'
     - regex: '(?:SAMSUNG-)?SM-G570[0FMY]'
@@ -20755,7 +20767,9 @@ STK:
       model: 'Storm 2e Plus'
     - regex: 'Sync 5z Plus'
       model: 'Sync 5z Plus'
-    - regex: 'STK[_ ]([^/;]+) Build'
+    - regex: 'STK[_ ]Transporter[_ ]1'
+      model: 'Transporter 1'
+    - regex: 'STK[_ ]([^/;)]+)(?: Build|[;)])'
       model: '$1'
     - regex: 'STK[_ ]([a-z0-9]+)'
       model: '$1'
@@ -20898,6 +20912,10 @@ Pantech:
     # explicit smartphone models
     - regex: 'ADR910L'
       model: 'Star Q'
+    - regex: 'IM-A860'
+      model: 'Vega No 6'
+    - regex: 'IM-A850'
+      model: 'Vega R3'
     - regex: 'IM-A870K'
       model: 'Vega Iron'
     - regex: 'Pantech[ -]?(P4100)'
@@ -30357,7 +30375,7 @@ Hezire:
 
 # Hurricane (hurricanemobile.com)
 Hurricane:
-  regex: 'Hurricane[ _]|(?:Flame_Plus|Glaze|Cobra|Ridge Plus|Rush Plus|DZIRE|Android 7(?:[\d.]*);(?: [\w-]+;)? Beam|Vulcan|SAGE|Iris Plus 2021|VortexPlus|Excite|Flint|Panther)(?:[);/ ]|$)'
+  regex: 'Hurricane[ _]|(?:Flame_Plus|Glaze|Cobra|Ridge Plus|Rush Plus|DZIRE|Android 7(?:[\d.]*);(?: [\w-]+;)? Beam|Vulcan|SAGE|Iris Plus 2021|VortexPlus|Excite|Flint|Panther|Slam)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Hurricane[ _]IGNITE'
@@ -30378,6 +30396,8 @@ Hurricane:
       model: 'Sage'
     - regex: 'Beam'
       model: 'Beam'
+    - regex: 'Slam'
+      model: 'Slam'
     - regex: 'Vulcan'
       model: 'Vulcan'
     - regex: 'Flame_Plus'
@@ -31750,9 +31770,9 @@ Jiake:
   device: 'smartphone'
   model: 'JK-$1'
 
-# iQ&T (iqandt.com)
+# iQ&T or iQandT (iqandt.com)
 'iQ&T':
-  regex: '(IFoo (?:U200|H55))(?:[);/ ]|$)'
+  regex: '(IFoo (?:U200|H55|S50))(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
 
@@ -32436,9 +32456,13 @@ STG Telecom:
 
 # Rivo
 Rivo:
-  regex: 'PHANTOM (?:PZ|RX)|RHYTHM[ _]RX'
+  regex: 'PHANTOM (?:PZ|RX)|RHYTHM[ _]RX|(?:STORM_S8(?: ?plus)?)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
+    - regex: 'STORM_S8plus'
+      model: 'Storm S8 Plus'
+    - regex: 'STORM_S8'
+      model: 'Storm S8'
     - regex: 'PHANTOM PZ ?(2[05]|[13]5|4|18)(?:[);/ ]|$)'
       model: 'Phantom PZ$1'
     - regex: 'PHANTOM RX ?(298|387)(?:[);/ ]|$)'
@@ -36246,6 +36270,14 @@ DPA:
       model: 'Zeta'
     - regex: 'DPA (H3)'
       model: '$1'
+
+# SkyStream
+SkyStream:
+  regex: 'SKYSTREAM_3Plus(?:[);/ ]|$)'
+  device: 'tv'
+  models:
+    - regex: 'SKYSTREAM_3Plus'
+      model: 'III Plus'
 
 # Devices with undectable brand, but detectable model
 Unknown:
