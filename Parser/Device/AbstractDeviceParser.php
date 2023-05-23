@@ -1386,6 +1386,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SU'  => 'SuperSonic',
         '79'  => 'SuperTab',
         'S5'  => 'Supra',
+        'SUP' => 'Supraim',
         'ZS'  => 'Suzuki',
         '2J'  => 'Sunmi',
         'SUN' => 'Sunmax',
