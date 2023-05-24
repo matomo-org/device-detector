@@ -6492,17 +6492,17 @@ Digi:
   device: 'smartphone'
   model: '$1'
 
-# Digicel
+# Digicel (digicelgroup.com)
 Digicel:
-  regex: 'DIGICEL|DL3(?:PlusPro)?(?:[);/ ]|$)'
+  regex: 'DIGICEL|(?:DL3(?:PlusPro)?|DL501)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'DL3PlusPro'
       model: 'DL3 Plus Pro'
     - regex: 'DL3(?:[);/ ]|$)'
       model: 'DL3'
-    - regex: 'DL755'
-      model: 'DL755'
+    - regex: 'DL(755|501)'
+      model: 'DL$1'
     - regex: 'DL810'
       model: 'DL810'
     - regex: 'DIGICEL[ _]([^/);]+)(?: Build|[;)])'
@@ -10598,7 +10598,7 @@ Hyundai:
 
 # iBall (iball.co.in)
 iBall:
-  regex: 'iBall[ _]([^;/)]+)[ _]Build|iBall[_ ]Slide|(?:Snap[_ ]4G2|3G 1026-Q18|6351-Q400i|iT-KSA0003|iT-KSA0012|iT-KSA0066|Avid|Twinkle_i5|Gorgeo[_ ]4GL|Brisk 4G2|Slide[_ ](?:Dazzle[_ ]3500|Skye_03)|Blaze_V4|Wondro 10|Q27 4G|Andi (?:Wink|5G Blink) 4G|Co-Mate|Nova_4G|Brace-X1|DD-1GB|Elan 4G2)(?:[);/ ]|$)'
+  regex: 'iBall[ _]([^;/)]+)[ _]Build|iBall[_ ]Slide|(?:Snap[_ ]4G2|3G 1026-Q18|6351-Q400i|iT-KSA0003|iT-KSA0012|iT-KSA0066|Avid|Twinkle_i5|Gorgeo[_ ]4GL|Brisk 4G2|Slide[_ ](?:Dazzle[_ ]3500|Skye_03)|Blaze_V4|Wondro 10|Q27 4G|Andi (?:Wink|5G Blink) 4G|Co-Mate|Nova_4G|Brace-X1|DD-1GB|Elan 4G2|Spirit_X2)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'Andi Wink 4G'
@@ -10617,6 +10617,8 @@ iBall:
       model: 'Slide Dazzle 3500'
     - regex: '1026-Q18(?:[);/ ]|$)'
       model: 'Slide 3G'
+    - regex: 'Spirit_X2'
+      model: 'Spirit X2'
     - regex: 'Slide_Skye_03'
       model: 'Slide Skye 03'
     - regex: 'Brace-X1(?:[);/ ]|$)'
@@ -16183,9 +16185,9 @@ M.T.T.:
     - regex: 'M\.T\.T\. ?([^;/)]+)(?: Build|[;)])'
       model: '$1'
 
-# Navon
+# Navon (https://smartnavon.eu/)
 Navon:
-  regex: 'Navon[_ ]|(?:Vision_Tab_(?:7|10)|Pure Micro|Superme_Max|Raptor3G8GB|Predator (?:10|3G)|Platinum[_ ]?10[_ ]?3G(?:_V2|2019)?|Supreme[_ ](?:Fine(?:[_ ]Micro)?|Chief|Pure|Pro)(?:[_ ](?:Mini|Plus))?|T400 3G 2017)(?:[);/ ]|$)'
+  regex: 'Navon[_ ]|(?:Vision_Tab_(?:7|10)|Pure Micro|Superme_Max|Raptor3G8GB|Predator (?:10|3G)|Platinum[_ ]?10[_ ]?3G(?:_V2|2019)?|Supreme[_ ](?:Fine(?:[_ ]Micro)?|Chief|Pure|Pro)(?:[_ ](?:Mini|Plus))?|T400 3G 2017|Spirit_Plus)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'M505 LTE(?:[);/ ]|$)'
@@ -16212,6 +16214,8 @@ Navon:
       model: 'Supreme Pro'
     - regex: 'Pure Micro(?:[);/ ]|$)'
       model: 'Pure Micro'
+    - regex: 'Spirit_Plus(?:[);/ ]|$)'
+      model: 'Spirit Plus'
     - regex: 'T400 3G 2017'
       model: 'T400 3G (2017)'
     - regex: 'Navon[_ ]Infinity(?:[);/ ]|$)'
@@ -24263,9 +24267,13 @@ Wink:
 
 # Smart (smartgsmphone.com)
 Smart:
-  regex: '(Coral 4|Slide Lite|Notrino)(?:[);/ ]|$)'
+  regex: '(?:Coral 4|Slide Lite|Notrino|Smart PRIME II)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'Smart PRIME II'
+      model: 'Prime II'
+    - regex: '(Coral 4|Slide Lite|Notrino|Smart PRIME II)'
+      model: '$1'
 
 # Wiko (wikomobile.com)
 Wiko:
@@ -28059,9 +28067,17 @@ Zfiner:
   device: 'tablet'
   model: 'Y900'
 
+# EKINOX (https://ekinoxnigeria.com/)
+EKINOX:
+  regex: '(?:E8_Ultra)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'E8_Ultra'
+      model: 'E8 Ultra'
+
 # iGet
 iGet:
-  regex: 'SMART[_ ](L20X|G10[12]|S7[02]|G71|G81[H]?|L10[234]|W[12]0X|W8X|W20[23]|L206)(?:_eea)?(?:[);/ ]|$)'
+  regex: 'SMART[_ ](L20X|G10[12]|S7[02]|G71|G81[H]?|L10[234]|W[12]0X|W101|W8X|W20[23]|L206)(?:_eea)?(?:[);/ ]|$)'
   device: 'tablet'
   model: 'Smart $1'
 
@@ -32030,9 +32046,14 @@ Blloc:
 
 # Huskee
 Huskee:
-  regex: 'VULKANO(?:[);/ ]|$)'
+  regex: '(?:VULKANO|ST-810)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: 'Vulkano'
+  models:
+    - regex: 'VULKANO'
+      model: 'Vulkano'
+    - regex: '(ST-810)'
+      device: 'tablet'
+      model: '$1'
 
 # SOLE
 SOLE:
@@ -36227,9 +36248,13 @@ Linsay:
 
 # Disney
 Disney:
-  regex: '(MARVEL|FROZEN)(?:[);/ ]|$)'
+  regex: '(?:MARVEL|FROZEN|Toy_story)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: 'Toy_story'
+      model: 'TOY STORY'
+    - regex: '(MARVEL|FROZEN)'
+      model: '$1'
 
 # WAF or W.A.F
 WAF:
