@@ -356,6 +356,18 @@ abstract class AbstractParser
         $versionString = $this->buildByMatch($versionString, $matches);
         $versionString = \str_replace('_', '.', $versionString);
 
+        return \trim($versionString, ' .');
+    }
+
+    /**
+     * Truncate the version based on the current truncation rule
+     *
+     * @param string $versionString
+     *
+     * @return string
+     */
+    protected function truncateVersion(string $versionString): string
+    {
         if (self::VERSION_TRUNCATION_NONE !== static::$maxMinorParts
             && \substr_count($versionString, '.') > static::$maxMinorParts
         ) {

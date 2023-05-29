@@ -980,10 +980,10 @@ class DeviceDetector
          * Devices running Android 3.X are tablets. Device type of Android 2.X and 4.X+ are unknown
          */
         if (null === $this->device && 'Android' === $osName && '' !== $osVersion) {
-            if (-1 === \version_compare($osVersion, '2.0')) {
+            if (-1 === \version_compare($osVersion, '2')) {
                 $this->device = AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE;
-            } elseif (\version_compare($osVersion, '3.0') >= 0
-                && -1 === \version_compare($osVersion, '4.0')
+            } elseif (\version_compare($osVersion, '3') >= 0
+                && -1 === \version_compare($osVersion, '4')
             ) {
                 $this->device = AbstractDeviceParser::DEVICE_TYPE_TABLET;
             }
