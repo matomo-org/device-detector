@@ -21791,6 +21791,14 @@ Maximus:
       device: 'tablet'
       model: '$1'
 
+# TOOGO
+TOOGO:
+  regex: 'TOOGO[_ ]'
+  device: 'smartphone'
+  models:
+    - regex: 'TOOGO[_ ]([^/;)]+)(?: Build|[);])'
+      model: '$1'
+
 # Quantum
 Quantum:
   regex: '(?:Quantum (?:Fit|Five|Fly|UP|MUV (?:PRO|UP)|Go|Mini|M|V|You [2E])|GO 2|Q20|LIO\+|Q-TITANO(_007i|-H2)?|Q-Pulse70M|Q-Wave(?:101|71M))(?:[);/ ]|$)'
@@ -23222,10 +23230,16 @@ Telma:
   models:
     - regex: 'Telma_F1_Max_4G'
       model: 'F1 Max 4G'
+    - regex: 'TELMA F1\+4G'
+      model: 'F1 Plus 4G'
     - regex: 'F1x4G'
       model: 'F1x 4G'
     - regex: 'Feel_Plus'
       model: 'Feel Plus'
+    - regex: 'TELMA[_ ]FEEL'
+      model: 'Feel'
+    - regex: 'Telma[_ ](F2|Titan[_ ]4G|EGO)'
+      model: '$1'
 
 # Telpo (https://www.telpo.com.cn/)
 Telpo:
@@ -29285,9 +29299,11 @@ Billion:
 
 # Tele2 (www.tele2.com) mobile operator
 Tele2:
-  regex: 'Tele2[ _]'
+  regex: 'Tele2[ _]|Tele2fon'
   device: 'smartphone'
   models:
+    - regex: 'Tele2fon[_ ]V6'
+      model: 'V6'
     - regex: 'Tele2[ _](Mi[dn]i)[ _]1.1(?:[);/ ]|$)'
       model: '$1 1.1'
     - regex: 'Tele2[ _]Midi[ _]2.0(?:[);/ ]|$)'
@@ -36061,11 +36077,16 @@ RelNAT:
   device: 'smartphone'
   model: '$1'
 
-# TeloSystems or TELO
+# TeloSystems or TELO or Telox (https://www.telox.com/)
 TeloSystems:
-  regex: 'TELO[_ ](TE6)(?:[);/ ]|$)'
+  regex: 'TELO[_ ](?:TE6|M5|TE580_CO)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'TELO[_ ](TE6|TE580_CO)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'TELO_M5'
+      device: 'peripheral'
+      model: 'M5'
 
 # Frunsi
 Frunsi:
@@ -36550,6 +36571,17 @@ MLAB:
   models:
     - regex: 'MLAB[ _-]GLOWY([78]|10)'
       model: 'Glowy $1'
+
+# Zeblaze
+Zeblaze:
+  regex: '(THOR 4 Plus|THOR S|THOR PRO)(?:[);/ ]|$)'
+  device: 'wearable'
+  models:
+    - regex: 'THOR (S|4 Plus)(?:[);/ ]|$)'
+      model: 'Thor $1'
+    - regex: 'THOR PRO'
+      model: 'Thor Pro'
+
 
 # Devices with undectable brand, but detectable model
 Unknown:
