@@ -13145,12 +13145,15 @@ Lephone:
 
 # lenco
 Lenco:
-  regex: 'Lenco ([^/);]*)(?: Build|[);])'
+  regex: 'Lenco (?:[^/);]*)(?: Build|[);])|(?:TDV900)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'LENCO Diverso-700'
       device: 'portable media player'
       model: 'Diverso 700'
+    - regex: 'TDV900'
+      model: 'TDV900'
+
     - regex: 'Lenco ([^/);]*)(?: Build|[);])'
       model: '$1'
 
@@ -22957,6 +22960,14 @@ Tecno Mobile:
     - regex: 'Tecno[ _-]?([a-z0-9_\-]+)'
       model: '$1'
 
+# TechSmart or Techmade
+TechSmart:
+  regex: 'TECHSMART[_ ]'
+  device: 'smartphone'
+  models:
+    - regex: 'TECHSMART[_ ]([^/;)]+)(?: Build|[);])'
+      model: '$1'
+
 # TechPad (techpad.mx)
 TechPad:
   regex: 'Tech[ _]?pad|XTAB[ _-]|(?:3G_16|Dual (?:C1081HD|C981HD)|S813G|NOTE[_ ]4CAM|M5(?:Go|Plus)|M6Plus|Android 8(?:[\d.]*);(?: [\w-]+;)? 816x?)(?:[);/ ]|$)'
@@ -22970,7 +22981,7 @@ TechPad:
       model: '10XX'
     - regex: 'TechPad703'
       model: '703'
-    - regex: 'Tech ?Pad[_ ](10Y|9x|i700|10Z)'
+    - regex: 'Tech ?Pad[_ ](10Y|9x|i700|10Z|7QC|10QC)'
       model: '$1'
     - regex: 'TechPad[_ ]3Gx'
       model: '3Gx'
@@ -23346,7 +23357,7 @@ Touchmate:
 
 # TrekStor (www.trekstor.de)
 TrekStor:
-  regex: '(?:TrekStor|Surftab) ([^/;]+)(?: Build|\))|Surftab[^;\)]*(?:[;\)]|$)|ST10216-2A|ST13416-1|VT10416-[12]|TFMTKAW01232|PEAQ PET 100|Xintroni10.1'
+  regex: '(?:TrekStor|Surftab) ([^/;]+)(?: Build|\))|Surftab[^;\)]*(?:[;\)]|$)|ST10216-2A|ST13416-1|VT10416-[12]|TFQCOAL01232|TFMTKAW01232|PEAQ PET 100|Xintroni10.1'
   device: 'tablet'
   models:
     - regex: 'ST10216-2A|VT10416-[12]'
@@ -23365,6 +23376,8 @@ TrekStor:
       model: 'SurfTab $1'
     - regex: 'TFMTKAW01232'
       model: 'SurfTab L15'
+    - regex: '(TFQCOAL01232)'
+      model: '$1'
     - regex: 'Xintroni10.1'
       model: 'SurfTab Xintron I 10.1"'
     - regex: '(PEAQ PET 100)'
@@ -32452,6 +32465,12 @@ AIRON:
   device: 'tablet'
   model: 'AirBook Pro 8S'
 
+# 5IVE
+5IVE:
+  regex: 'Tarzan F1(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: 'Tarzan F1'
+
 # GFive or G'Five (www.gfivepakistan.com)
 GFive:
   regex: 'GFIVE[_ ]|(?:PRESIDENT_GOLD_(9|10)|President Gpower 1|Stark(?![_ ]K1)|Gpad70[12])(?:[);/ ]|$)'
@@ -34910,7 +34929,7 @@ D-Tech:
 
 # nJoy or Njoy
 nJoy:
-  regex: '(?:nJoy[_ ])?(Deimos 7|Kali_8|Turnus_8|Tityos_10|Arcas_7)(?:[);/ ]|$)'
+  regex: '(?:nJoy[_ ])?(Deimos 7|Kali_8|Turnus_8|Tityos_10|Arcas_7|Theia_10)(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
 
@@ -36581,7 +36600,6 @@ Zeblaze:
       model: 'Thor $1'
     - regex: 'THOR PRO'
       model: 'Thor Pro'
-
 
 # Devices with undectable brand, but detectable model
 Unknown:
