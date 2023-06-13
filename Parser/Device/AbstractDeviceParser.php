@@ -805,6 +805,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'KV'  => 'Kivi',
         '64'  => 'Kvant',
         '0K'  => 'Klipad',
+        'KNM' => 'KN Mobile',
         'KC'  => 'Kocaso',
         'KK'  => 'Kodak',
         'KG'  => 'Kogan',
