@@ -11717,6 +11717,8 @@ Intex:
       model: 'Aqua Lions 4G'
     - regex: '(?:INTEX[_ ])?AQUA[_ ]PRIME[_ ]4G'
       model: 'Aqua Prime 4G'
+    - regex: '(?:INTEX[_ ])?AQUA[_ ]ZENITH'
+      model: 'Aqua Zenith'
     - regex: '(?:INTEX[ _])?AQUA[_ ]YOUNG[_ ]4G'
       model: 'Aqua Young 4G'
     - regex: '(?:INTEX[ _])?AQUA[_ ]TREND[_ ]LITE'
@@ -12390,14 +12392,12 @@ Kodak:
       device: 'tablet'
       model: 'Tablet $1'
 
-# KOPO
+# KOPO or JKOPO (http://www.jkopo.com/)
 KOPO:
-  regex: 'KOPO[ _-]'
+  regex: 'J?KOPO[ _-]'
   device: 'smartphone'
   models:
-    - regex: 'KOPO[ _\-]?([^/;]+) Build'
-      model: '$1'
-    - regex: 'KOPO[ _\-]?([^);/ ]+)'
+    - regex: 'J?KOPO[ _-]?([^/;)]+)(?: Build|[;)])'
       model: '$1'
 
 # Koridy
@@ -14653,7 +14653,7 @@ K-Lite:
 
 # Karbonn (karbonnmobiles.com)
 Karbonn:
-  regex: '(?:Browser-)?Karbonn|K9 Kavach 4G|K9[_ ](?:Viraat|Smart)[_ ]Plus|K9 Music 4G|K9 Smart|K9 VIRAAT 4G|Aura (?:Sleek Plus|Power 4G Plus|Note Play|Note 2)|Titanium[ _](?:3D-Plex|Octane Plus|Vista 4G|Jumbo|S360|S1[059]|S35|S20[13]|S22|S[15]|S200 HD|Frames S7|MOGHUL|S9)|MACHFIVE|MACHONE|Sparkle V|Alfa A114 Quad|Quattro[ _]L(?:45|5[025])[ _](?:HD|IPS|VR)|A(?:9|4[05])[ _]Indian|S2052GB|MACH SIX VR|K-Lite F3|Titanium Vista'
+  regex: '(?:Browser-)?Karbonn|K9 Kavach 4G|K9[_ ](?:Viraat|Smart)[_ ]Plus|K9 Music 4G|K9 Smart|K9 VIRAAT 4G|Aura (?:Sleek Plus|Power 4G Plus|Note Play|Note 2|Storm|Champ)|Titanium[ _](?:3D-Plex|Octane Plus|Vista 4G|Jumbo|S360|S1[059]|S35|S20[13]|S22|S[15]|S200 HD|Frames S7|MOGHUL|S9)|MACHFIVE|MACHONE|Sparkle V|Alfa A114 Quad|Quattro[ _]L(?:45|5[025])[ _](?:HD|IPS|VR)|A41 Power|A(?:[19]|4[05])[ _]Indian|S2052GB|MACH SIX VR|K-Lite F3|Titanium Vista'
   device: 'smartphone'
   models:
     - regex: 'K9 Kavach 4G'
@@ -14678,7 +14678,7 @@ Karbonn:
       model: 'K9 Smart'
     - regex: 'A40 Indian Plus'
       model: 'A40 Indian Plus'
-    - regex: 'A(9|4[05])[ _]Indian'
+    - regex: 'A([19]|4[05])[ _]Indian'
       model: 'A$1 Indian'
     - regex: 'K9[_ ]Viraat[_ ]Plus'
       model: 'K9 Viraat Plus'
@@ -14690,9 +14690,13 @@ Karbonn:
       model: 'Aura Note Play'
     - regex: 'Aura Note 2'
       model: 'Aura Note 2'
+    - regex: 'Aura Storm'
+      model: 'Aura Storm'
+    - regex: 'Aura Champ'
+      model: 'Aura Champ'
     - regex: 'Alfa A114 Quad'
       model: 'Alfa A114 Quad'
-    - regex: 'karbonnK9 Viraat 4G|K9 VIRAAT 4G'
+    - regex: '(?:karbonn)?K9 Viraat 4G'
       model: 'K9 Viraat 4G'
     - regex: 'MACHFIVE'
       model: 'Mach Five'
@@ -14726,6 +14730,8 @@ Karbonn:
       model: 'K-Lite F3'
     - regex: 'Sparkle V'
       model: 'Sparkle V'
+    - regex: 'A41 Power'
+      model: 'A41 Power'
     - regex: 'Quattro[ _]L(5[05])[ _]HD'
       model: 'Quattro L$1 HD'
     - regex: 'Quattro[ _]L(45)[ _]IPS'
@@ -30988,11 +30994,13 @@ Artizlee:
 
 # Mint or Mint Connect
 Mint:
-  regex: '(?:Pearl_Neo|M4CRD?)(?:[);/ ]|$)'
+  regex: '(?:Pearl_Neo|M4CRD?|Emerald_M55CR)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Pearl_(Neo)'
       model: 'Pearl $1'
+    - regex: 'Emerald[_ ]M55CR'
+      model: 'Emerald'
     - regex: 'M4CR'
       model: 'Clover'
 
@@ -36561,6 +36569,22 @@ KN Mobile:
   regex: 'knmobile[_ ]([^/;)]+)(?: Build|[);])'
   device: 'smartphone'
   model: '$1'
+
+# Green Orange
+Green Orange:
+  regex: '(?:GO 55303)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'GO 55303'
+      model: 'C5 GO'
+
+# UOOGOU
+UOOGOU:
+  regex: 'UOOGOU'
+  device: 'smartphone'
+  models:
+    - regex: 'UOOGOU[_ ]([^/;)]+)(?: Build|[);])'
+      model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
