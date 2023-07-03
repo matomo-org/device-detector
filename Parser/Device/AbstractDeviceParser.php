@@ -1866,7 +1866,7 @@ abstract class AbstractDeviceParser extends AbstractParser
             $osVersion = $this->clientHints->getOperatingSystemVersion();
             $this->setUserAgent(\preg_replace(
                 '(Android 10[.\d]*; K)',
-                \sprintf('Android %s; %s', '' !== $osVersion ?: '10', $deviceModel),
+                \sprintf('Android %s; %s', '' !== $osVersion ? $osVersion : '10', $deviceModel),
                 $this->userAgent
             ));
         }
