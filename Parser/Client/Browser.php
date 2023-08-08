@@ -307,6 +307,7 @@ class Browser extends AbstractClientParser
         'LH' => 'Light',
         'L1' => 'Lilo',
         'LI' => 'Links',
+        'LC' => 'LogicUI TV Browser',
         'IF' => 'Lolifox',
         'LO' => 'Lovense Browser',
         'LT' => 'LT Browser',
@@ -591,7 +592,7 @@ class Browser extends AbstractClientParser
             'HO', 'A5', 'X1', '18', 'B5', 'B6', 'TC', 'A6', '2X',
             'F4', 'YG', 'WR', 'NA', 'DM', '1M', 'A7', 'XN', 'XT',
             'XB', 'W1', 'HT', 'B8', 'F5', 'B9', 'WA', 'T0', 'HC',
-            'O6', 'P7', 'LJ',
+            'O6', 'P7', 'LJ', 'LC',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
