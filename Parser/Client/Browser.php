@@ -311,6 +311,7 @@ class Browser extends AbstractClientParser
         'LO' => 'Lovense Browser',
         'LT' => 'LT Browser',
         'LU' => 'LuaKit',
+        'LJ' => 'LUJO TV Browser',
         'LL' => 'Lulumi',
         'LS' => 'Lunascape',
         'LN' => 'Lunascape Lite',
@@ -590,7 +591,7 @@ class Browser extends AbstractClientParser
             'HO', 'A5', 'X1', '18', 'B5', 'B6', 'TC', 'A6', '2X',
             'F4', 'YG', 'WR', 'NA', 'DM', '1M', 'A7', 'XN', 'XT',
             'XB', 'W1', 'HT', 'B8', 'F5', 'B9', 'WA', 'T0', 'HC',
-            'O6', 'P7',
+            'O6', 'P7', 'LJ',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
