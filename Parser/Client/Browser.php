@@ -398,6 +398,7 @@ class Browser extends AbstractClientParser
         '2P' => 'Puffin Web Browser',
         'PW' => 'Palm WebPro',
         'PA' => 'Palmscape',
+        'P7' => 'Pawxy',
         'PE' => 'Perfect Browser',
         'P1' => 'Phantom.me',
         'PH' => 'Phantom Browser',
@@ -589,7 +590,7 @@ class Browser extends AbstractClientParser
             'HO', 'A5', 'X1', '18', 'B5', 'B6', 'TC', 'A6', '2X',
             'F4', 'YG', 'WR', 'NA', 'DM', '1M', 'A7', 'XN', 'XT',
             'XB', 'W1', 'HT', 'B8', 'F5', 'B9', 'WA', 'T0', 'HC',
-            'O6',
+            'O6', 'P7',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -627,7 +628,7 @@ class Browser extends AbstractClientParser
         'O4', 'XO', 'U0', 'B0', 'VA', 'X0', 'A5', 'X1', '18',
         'B5', 'B6', 'TC', 'A6', '2X', 'F4', 'YG', 'WR', 'NA',
         'DM', '1M', 'A7', 'XN', 'XT', 'XB', 'W1', 'HT', 'B7',
-        'B9', 'T0', 'I8', 'O6',
+        'B9', 'T0', 'I8', 'O6', 'P7',
     ];
 
     /**
