@@ -435,6 +435,7 @@ class Browser extends AbstractClientParser
         'RK' => 'Rekonq',
         'RM' => 'RockMelt',
         'SB' => 'Samsung Browser',
+        '3L' => 'Samsung Browser Lite',
         'SA' => 'Sailfish Browser',
         'S8' => 'Seewo Browser',
         'SC' => 'SEMC-Browser',
