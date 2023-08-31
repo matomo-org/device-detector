@@ -257,6 +257,11 @@ There are already a few ports of this tool to other languages:
 - **Elixir** https://github.com/elixir-inspector/ua_inspector
 - **Java** https://github.com/mngsk/device-detector
 
+## Icon packs
+
+If you are looking for icons to use alongside Device Detector, these repositories can be of use:
+- Official [Matomo](https://github.com/matomo-org/matomo-icons/) pack
+- Unofficial [Simbiat](https://github.com/matomo-org/matomo-icons/) pack
 
 ## What Device Detector is able to detect
 
