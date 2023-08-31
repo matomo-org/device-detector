@@ -261,7 +261,7 @@ There are already a few ports of this tool to other languages:
 
 If you are looking for icons to use alongside Device Detector, these repositories can be of use:
 - Official [Matomo](https://github.com/matomo-org/matomo-icons/) pack
-- Unofficial [Simbiat](https://github.com/matomo-org/matomo-icons/) pack
+- Unofficial [Simbiat](https://github.com/Simbiat/DeviceDetectorIcons) pack
 
 ## What Device Detector is able to detect
 
