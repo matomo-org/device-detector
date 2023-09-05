@@ -107,7 +107,7 @@ class Browser extends AbstractClientParser
         'A2' => 'Atlas',
         'AS' => 'Avast Secure Browser',
         'VG' => 'AVG Secure Browser',
-        'AC' => 'Avira Scout',
+        'AC' => 'Avira Secure Browser',
         'A1' => 'AwoX',
         'BA' => 'Beaker Browser',
         'BM' => 'Beamrise',
