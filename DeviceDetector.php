@@ -68,7 +68,7 @@ class DeviceDetector
     /**
      * Current version number of DeviceDetector
      */
-    public const VERSION = '6.1.3';
+    public const VERSION = '6.1.5';
 
     /**
      * Constant used as value for unknown browser / os
@@ -1029,7 +1029,7 @@ class DeviceDetector
         /**
          * All devices that contain Andr0id in string are assumed to be a tv
          */
-        if ($this->matchUserAgent('Andr0id|Android TV|\(lite\) TV')) {
+        if ($this->matchUserAgent('Andr0id|Android TV|\(lite\) TV|BRAVIA')) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
         }
 
@@ -1041,9 +1041,12 @@ class DeviceDetector
         }
 
         /**
-         * Devices running Kylo or Espital TV Browsers are assumed to be a TV
+         * Devices running Kylo or Espial TV Browsers are assumed to be a TV
          */
-        if (null === $this->device && \in_array($clientName, ['Kylo', 'Espial TV Browser'])) {
+        if (\in_array($clientName, [
+            'Kylo', 'Espial TV Browser', 'LUJO TV Browser', 'LogicUI TV Browser', 'Open TV Browser',
+        ])
+        ) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
         }
 
