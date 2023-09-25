@@ -267,7 +267,7 @@ If you are looking for icons to use alongside Device Detector, these repositorie
 
 The lists below are auto generated and updated from time to time. Some of them might not be complete.
 
-*Last update: 2023/09/10*
+*Last update: 2023/09/24*
 
 ### List of detected operating systems:
 
@@ -287,7 +287,7 @@ aiohttp, Akka HTTP, AnyEvent HTTP, Apache HTTP Client, Aria2, Artifactory, Axios
 
 ### List of detected media players:
 
-Audacious, Banshee, Boxee, Clementine, Deezer, Downcast, FlyCast, Foobar2000, foobar2000, Google Podcasts, HTC Streaming Player, iTunes, Kodi, MediaMonkey, Miro, MPlayer, mpv, Music Player Daemon, NexPlayer, Nightingale, QuickTime, Songbird, SONOS, Sony Media Go, Stagefright, StudioDisplay, SubStream, VLC, Winamp, Windows Media Player, XBMC
+Audacious, Banshee, Boxee, Clementine, Deezer, Downcast, FlyCast, Foobar2000, foobar2000, Google Podcasts, HTC Streaming Player, iTunes, JHelioviewer, Kodi, MediaMonkey, Miro, MPlayer, mpv, Music Player Daemon, NexPlayer, Nightingale, QuickTime, Songbird, SONOS, Sony Media Go, Stagefright, StudioDisplay, SubStream, VLC, Winamp, Windows Media Player, XBMC
 
 ### List of detected mobile apps:
 
