@@ -34,6 +34,8 @@ foreach ($parsedBots as $parsedBot) {
     if (in_array($parsedBot['name'], $bots)) {
         continue;
     }
+
+    $bots[] = $parsedBot['name'];
 }
 
 natcasesort($bots);
