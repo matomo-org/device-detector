@@ -1058,6 +1058,13 @@ class DeviceDetector
         }
 
         /**
+         * All devices containing VR fragment are assumed to be a wearable
+         */
+        if (null === $this->device && $this->matchUserAgent(' VR ')) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_WEARABLE;
+        }
+
+        /**
          * Set device type desktop if string ua contains desktop
          */
         $hasDesktop = AbstractDeviceParser::DEVICE_TYPE_DESKTOP !== $this->device
