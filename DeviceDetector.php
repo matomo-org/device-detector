@@ -932,6 +932,13 @@ class DeviceDetector
         }
 
         /**
+         * All devices containing VR fragment are assumed to be a wearable
+         */
+        if (null === $this->device && $this->matchUserAgent(' VR ')) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_WEARABLE;
+        }
+
+        /**
          * Chrome on Android passes the device type based on the keyword 'Mobile'
          * If it is present the device should be a smartphone, otherwise it's a tablet
          * See https://developer.chrome.com/multidevice/user-agent#chrome_for_android_user_agent
