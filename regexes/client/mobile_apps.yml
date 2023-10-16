@@ -1460,7 +1460,7 @@
   name: 'Agora'
   version: '$1'
 
-- regex: '^Airr(%20Beta)?/([\d\.]+)|^Airr \('
+- regex: '^Airr(?:%20Beta)?/([\d\.]+)|^Airr \('
   name: 'Airr'
   version: '$1'
 
@@ -1488,11 +1488,11 @@
   name: 'AnchorFM'
   version: '$1'
 
-- regex: 'Anghami/([\d\.]+)|^Anghami Android|^أنغامي/'
+- regex: '(?:^Anghami Android |^Anghami/|^أنغامي/)([\d\.]+)'
   name: 'Anghami'
   version: '$1'
 
-- regex: '(?:^AntennaPod/|^de\.danoeh\.antennapod/|antenna/)([\d\.a-z]+)?'
+- regex: '(?:^AntennaPod/|^de\.danoeh\.antennapod/|antenna/)([\d\.]+)?'
   name: 'AntennaPod'
   version: '$1'
 
@@ -1541,7 +1541,7 @@
   name: 'Audio Now'
   version: ''
 
-- regex: '^Awasu/(\d+\.[.\dA-Z]+)'
+- regex: '^Awasu/(\d+\.[.\d]+)'
   name: 'Awasu'
   version: '$1'
 
@@ -1690,7 +1690,7 @@
   name: 'Files'
   version: '$1'
 
-- regex: '^Fountain(:?app)/([\d\.]+)'
+- regex: '^Fountain(?:app)?/([\d\.]+)'
   name: 'Fountain'
   version: '$1'
 
@@ -1722,9 +1722,9 @@
   name: 'GoodReader'
   version: '$1'
 
-- regex: '\(Fuchsia\).* CrKey/(\d+\.[.\d]+)'
+- regex: '\(Fuchsia\).* CrKey/(:?\d+\.[.\d]+)'
   name: 'Google Nest Hub'
-  version: '$1'
+  version: ''
 
 - regex: '^Guacamole/([\d\.]+)'
   name: 'Guacamole'
@@ -1746,7 +1746,7 @@
   name: 'Heart'
   version: '$1'
 
-- regex: 'hermespod\.com/v?([\d\.a-z]+)'
+- regex: 'hermespod\.com/v?([\d\.]+)'
   name: 'HermesPod'
   version: '$1'
 
@@ -1769,7 +1769,7 @@
   version: '$1'
 
 - regex: '^IOSAudiobooks/([\d\.]+)'
-  name: 'IOSAudiobooks'
+  name: 'Audiobooks'
   version: '$1'
 
 - regex: '^iVoox(?:App|New)?[ /]?([\d\.]+)?'
@@ -1827,7 +1827,7 @@
   version: '$1'
 
 - regex: 'Listen5[ /]([\d\.]+)'
-  name: 'Listen5'
+  name: 'Just Listen'
   version: '$1'
 
 - regex: '^(?:Luminary(?:Preprod)?|luminary\.next)/([\d\.]+)'
@@ -1843,10 +1843,10 @@
   version: '$1'
 
 - regex: '^Messenger/([\d\.]+)'
-  name: 'Messenger'
+  name: 'MessengerX'
   version: '$1'
 
-- regex: '^Mimir(-macOS)?/([\d\.]+)'
+- regex: '^Mimir(?:-macOS)?/([\d\.]+)'
   name: 'Mimir'
   version: '$1'
 
@@ -1867,21 +1867,21 @@
   version: ''
 
 # NRC Audio
-- regex: '^NRC( |%20)Audio/([\d\.]+)'
+- regex: '^NRC(?: |%20)Audio/([\d\.]+)'
   name: 'NRC Audio'
   version: '$1'
 
 # The free NRC app offers you the latest news and the digital version of the paper newspaper.
-- regex: 'nl\.nrc\.nrcapp'
+- regex: '(?:NRC-Nieuws/|nl.nrc.nrcapp )([\d\.]+)'
   name: 'NRC'
-  version: ''
+  version: '$1'
 
 - regex: '^Outcast[/ ]?([\d\.]+)?'
   name: 'Outcast'
   version: '$1'
 
 - regex: '^Podcast Overhaul/(\d+\.[.\d]+)'
-  name: 'Overhaul'
+  name: 'Overhaul FM'
   version: '$1'
 
 - regex: '^Palco MP3/(\d+\.[.\d]+)'
@@ -1961,13 +1961,13 @@
   name: 'PodLP'
   version: '$1'
 
-- regex: '^(?:Podme android app|PodMe)/(\d+\.[.\d]+)'
+- regex: '^(?:Podme android app|PodMe)/(\d+\.[.\d]+)?'
   name: 'PodMe'
   version: '$1'
 
-- regex: '^PodMN/'
+- regex: '^PodMN/(?:iOS|Android) (\d+\.[.\d]+)'
   name: 'PodMN'
-  version: ''
+  version: '$1'
 
 - regex: '^PodNL/([\d\.]+)'
   name: 'PodNL'
@@ -2011,9 +2011,22 @@
   name: 'PugPig Bolt'
   version: '$1'
 
-# Radio.de is a radio and podcast app in Germany
-- regex: '^(?:radio\.[a-z]{2,3}|GetPodcast)[ /]([\d\.]+)'
-  name: 'radio.de'
+# Radio.de is a radio and podcast app in Germany, but they
+# have web sites and apps with various domain names
+# (at, de, dk, es, fr, it, pl, pt, se, net)
+- regex: '^radio\.([a-z]{2}|net)[ /]([\d\.]+)'
+  name: 'radio.$1'
+  version: '$2'
+
+
+# same developer as radio.de, different app
+- regex: '^GetPodcast[ /]([\d\.]+)'
+  name: 'GetPodcast'
+  version: '$1'
+
+# https://radio-next.tv/
+- regex: '^radio\.next[ /]([\d\.]+)'
+  name: 'Radio Next'
   version: '$1'
 
 - regex: '(?:^Radioline%202/(\d+\.[.\d]+)|^Radioline$)'
@@ -2044,7 +2057,7 @@
   version: '$1'
 
 - regex: '^Shadow(?:rocket)?/([\d\.]+)'
-  name: 'Shadow'
+  name: 'Shadowrocket'
   version: '$1'
 
 - regex: '^SiriusXM/([\d\.]+)'
@@ -2056,7 +2069,7 @@
   version: '$1'
 
 - regex: '^Sodes/([\d\.]+)'
-  name: 'Sodes'
+  name: "'sodes"
   version: '$1'
 
 # Sonnet is a simple, easy to use podcast app aimed at new listeners
@@ -2094,11 +2107,11 @@
   version: '$1'
 
 - regex: '^ThePodcastApp/(\d+\.[.\d]+)'
-  name: 'The Podcast App'
+  name: 'Podcast App'
   version: '$1'
 
 - regex: '^TREBLE/([\d\.]+)'
-  name: 'Treble'
+  name: 'Treble.fm'
   version: '$1'
 
 - regex: '^Turtlecast/(\d+\.[.\d]+)'
@@ -2110,8 +2123,20 @@
   name: 'Ubook Player'
   version: ''
 
-- regex: '^(?:VictorReader Stream|VictorReader_)'
-  name: 'VictorReader'
+
+# the second evolution of victor reader software
+- regex: '^VictorReader Stream Trek'
+  name: 'Victor Reader Stream Trek'
+  version: ''
+
+# third evolution
+- regex: '^VictorReader Stream V3'
+  name: 'Victor Reader Stream 3'
+  version: ''
+
+# fourth evolution
+- regex: '^(?:VictorReader Stream 503|VictorReader_)'
+  name: 'Victor Reader Stream New Generation'
   version: ''
 
 # Podcasts with deeper digital stories
@@ -2120,7 +2145,7 @@
   version: '$1'
 
 - regex: '^WynkMusic/(\d+\.[.\d]+)'
-  name: 'WynkMusic'
+  name: 'Wynk Music'
   version: '$1'
 
 # Xiao Yu Zhou, a podcast app
@@ -2137,7 +2162,7 @@
   version: '$1'
 
 - regex: '^Zeno$'
-  name: 'Zeno'
+  name: 'Radio Zeno'
   version: ''
 
 - regex: 'Zune/(\d+\.[.\d]+)'
@@ -2145,8 +2170,8 @@
   version: ''
 
 # podcast host https://libsyn.com
-- regex: '^Lybsyn4-peek$'
-  name: 'Libsyn'
+- regex: '^Libsyn4-?peek$'
+  name: 'The Feed - Libsyn Podcasting'
   version: ''
 
 - regex: 'UCast/([\d\.]+)'
@@ -2170,14 +2195,21 @@
   name: 'L.A. Times'
   version: ''
 
-- regex: '(?:NYT ?Audio|nytios)/([\d.]+)'
+# nyt has a couple apps, they asked to be identified as 'NYTimes'
+# and be distinct from their older app below.
+- regex: 'nytios/([\d.]+)'
   name: 'NYTimes'
   version: '$1'
 
-- regex: '^LiSTNR(?:[.\w]+)?/([\d.]+)'
-  name: 'LiSTNR App'
+- regex: '^NYT(?: |%20)?Audio/([\d.]+)'
+  name: 'NYT Audio'
+  version: '$1'
+
+
+- regex: '^LiSTNR[.\w]*/([\d.]+)'
+  name: 'LiSTNR'
   version: '$1'
 
 - regex: '^Podu_player$'
-  name: 'Podu'
+  name: 'podU'
   version: '$1'
