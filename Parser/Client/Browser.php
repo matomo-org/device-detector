@@ -84,6 +84,7 @@ class Browser extends AbstractClientParser
         'AG' => 'ANTGalio',
         'AL' => 'Aloha Browser',
         'AH' => 'Aloha Browser Lite',
+        'A8' => 'ALVA',
         'AM' => 'Amaya',
         'A3' => 'Amaze Browser',
         'A5' => 'Amerigo',
@@ -107,7 +108,7 @@ class Browser extends AbstractClientParser
         'A2' => 'Atlas',
         'AS' => 'Avast Secure Browser',
         'VG' => 'AVG Secure Browser',
-        'AC' => 'Avira Scout',
+        'AC' => 'Avira Secure Browser',
         'A1' => 'AwoX',
         'BA' => 'Beaker Browser',
         'BM' => 'Beamrise',
@@ -349,6 +350,7 @@ class Browser extends AbstractClientParser
         'NB' => 'Nokia Browser',
         'NO' => 'Nokia OSS Browser',
         'NV' => 'Nokia Ovi Browser',
+        'N2' => 'Norton Secure Browser',
         'NX' => 'Nox Browser',
         'N1' => 'NOMone VR Browser',
         'NE' => 'NetSurf',
@@ -409,6 +411,7 @@ class Browser extends AbstractClientParser
         'PH' => 'Phantom Browser',
         'PX' => 'Phoenix',
         'PB' => 'Phoenix Browser',
+        'P8' => 'PICO Browser',
         'PF' => 'PlayFree Browser',
         'PK' => 'PocketBook Browser',
         'PO' => 'Polaris',
@@ -596,7 +599,7 @@ class Browser extends AbstractClientParser
             'HO', 'A5', 'X1', '18', 'B5', 'B6', 'TC', 'A6', '2X',
             'F4', 'YG', 'WR', 'NA', 'DM', '1M', 'A7', 'XN', 'XT',
             'XB', 'W1', 'HT', 'B8', 'F5', 'B9', 'WA', 'T0', 'HC',
-            'O6', 'P7', 'LJ', 'LC', 'O7',
+            'O6', 'P7', 'LJ', 'LC', 'O7', 'N2', 'A8', 'P8',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -634,7 +637,7 @@ class Browser extends AbstractClientParser
         'O4', 'XO', 'U0', 'B0', 'VA', 'X0', 'A5', 'X1', '18',
         'B5', 'B6', 'TC', 'A6', '2X', 'F4', 'YG', 'WR', 'NA',
         'DM', '1M', 'A7', 'XN', 'XT', 'XB', 'W1', 'HT', 'B7',
-        'B9', 'T0', 'I8', 'O6', 'P7', 'O8', '4B',
+        'B9', 'T0', 'I8', 'O6', 'P7', 'O8', '4B', 'A8', 'P8',
     ];
 
     /**

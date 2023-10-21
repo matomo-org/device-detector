@@ -122,6 +122,7 @@ class OperatingSystem extends AbstractParser
         'ORD' => 'Ordissimo',
         'PAR' => 'Pardus',
         'PCL' => 'PCLinuxOS',
+        'PIC' => 'PICO OS',
         'PLA' => 'Plasma Mobile',
         'PSP' => 'PlayStation Portable',
         'PS3' => 'PlayStation',
@@ -183,7 +184,7 @@ class OperatingSystem extends AbstractParser
     protected static $osFamilies = [
         'Android'               => [
             'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
-            'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS', 'WER',
+            'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS', 'WER', 'PIC',
         ],
         'AmigaOS'               => ['AMG', 'MOR'],
         'BlackBerry'            => ['BLB', 'QNX'],
