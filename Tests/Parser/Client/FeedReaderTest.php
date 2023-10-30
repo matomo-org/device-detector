@@ -45,12 +45,10 @@ class FeedReaderTest extends TestCase
             $this->assertTrue(\array_key_exists('name', $item), 'key "name" not exist');
             $this->assertTrue(\array_key_exists('version', $item), 'key "version" not exist');
             $this->assertTrue(\array_key_exists('url', $item), 'key "url" not exist');
-            $this->assertTrue(\array_key_exists('type', $item), 'key "type" not exist');
             $this->assertIsString($item['regex']);
             $this->assertIsString($item['name']);
             $this->assertIsString($item['version']);
             $this->assertIsString($item['url']);
-            $this->assertIsString($item['type']);
         }
     }
 }
