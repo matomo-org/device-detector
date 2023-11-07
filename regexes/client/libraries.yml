@@ -5,10 +5,10 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
-# got (https://github.com/sindresorhus/got)
-- regex: '^got '
+# got - a nodejs library
+- regex: '^got(?:/(\d+\.[.\d]+))? \('
   name: 'got'
-  version: ''
+  version: '$1'
 
 # Typhoeus (https://github.com/typhoeus/typhoeus)
 - regex: 'Typhoeus'
@@ -83,6 +83,11 @@
   name: 'Guzzle (PHP HTTP Client)'
   version: '$1'
 
+# symphony php http client
+- regex: '^Symfony HttpClient/'
+  name: 'Symfony'
+  version: '$1'
+
 - regex: '(?:lib)?curl(?:/(\d+[\.\d]+))?'
   name: 'curl'
   version: '$1'
@@ -121,9 +126,11 @@
   version: '$1'
   url: 'https://github.com/grpc/grpc-java'
 
+# java library
 - regex: '(?:okhttp|network-okhttp3)/([\d\.]+)'
   name: 'OkHttp'
   version: '$1'
+
 - regex: 'okhttp3-([\d\.]+)'
   name: 'OkHttp'
   version: '$1'
@@ -193,7 +200,7 @@
   version: '$1'
   url: 'https://metacpan.org/pod/REST::Client'
 
-- regex: 'node-fetch/(\d+[\.\d]+)'
+- regex: 'node-fetch/?(\d+[\.\d]+)?'
   name: 'Node Fetch'
   version: '$1'
   url: 'https://github.com/node-fetch/node-fetch'
@@ -249,7 +256,7 @@
   name: 'Aria2'
   version: '$1'
 
-- regex: 'BTWebClient/'
+- regex: '(?:BTWebClient/|^uTorrent/)'
   name: 'uTorrent'
   version: ''
 
@@ -281,7 +288,7 @@
   name: 'jsdom'
   version: '$1'
 
-# hackney (https://github.com/benoitc/hackney)
+# hackney (https://github.com/benoitc/hackney) (elixir)
 - regex: 'hackney/([\.\d]+)'
   name: 'hackney'
   version: '$1'
@@ -372,3 +379,110 @@
 - regex: 'axios(?:/?(\d+[\.\d]+))?'
   name: Axios
   version: '$1'
+
+# Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
+- regex: '^CarrierWave/(\d+\.[.\d]+)'
+  name: 'CarrierWave'
+  version: '$1'
+
+- regex: '^Deno/(\d+\.[.\d]+)'
+  name: 'Deno'
+  version: '$1'
+
+# Streaming downloads using net/http, http.rb, HTTPX or wget (ruby)
+- regex: '^Down/(\d+\.[.\d]+)'
+  name: 'Down'
+  version: '$1'
+
+# various programs can use this, like vlc, but the underlying lib is ffmpeg
+- regex: '^Lavf/'
+  name: 'ffmpeg'
+  version: '$1'
+
+- regex: '^FileDownloader/(\d+\.[.\d]+)'
+  name: 'FileDownloader'
+  version: '$1'
+
+# Allows managing large files with git, without storing the file contents in git
+- regex: '^git-annex/(\d+\.[.\d]+)'
+  name: 'git-annex'
+  version: '$1'
+
+- regex: '^GStreamer(?: souphttpsrc)[ /](\d+\.[.\d]+)?'
+  name: 'GStreamer'
+  version: '$1'
+
+# A small, simple, correct HTTP/1.1 client (Perl)
+- regex: '^HTTP-Tiny/(\d+\.[.\d]+)'
+  name: 'HTTP:Tiny'
+  version: '$1'
+
+- regex: 'KaiOS Downloader'
+  name: 'KaiOS Downloader'
+  version: ''
+
+# HTTP client/server library for GNOME
+- regex: '^libsoup/(\d+\.[.\d]+)'
+  name: 'libsoup'
+  version: '$1'
+
+- regex: '^Android\.LVLDM$'
+  name: 'Android License Verification Library'
+  version: '$1'
+
+# A file downloader library for Android with pause and resume support
+- regex: '^PRDownloader$'
+  name: 'PRDownloader'
+  version: ''
+
+# a rust http library
+- regex: '^reqwest/(\d+\.[.\d]+)'
+  name: 'reqwest'
+  version: '$1'
+
+# lua http library
+- regex: '^resty-requests'
+  name: 'resty-requests'
+  version: ''
+
+# ruby core lib http download
+- regex: '^Ruby'
+  name: 'ruby'
+  version: ''
+
+# SFSafariViewController, some safari service
+- regex: '^SafariViewService/(\d+\.[.\d]+)'
+  name: 'Safari View Service'
+  version: '$1'
+
+# a nodejs lib
+- regex: '^undici$'
+  name: 'undici'
+  version: ''
+
+# URL, an emacs plugin
+- regex: '^URL/Emacs Emacs/(\d+\.[.\d]+)'
+  name: 'Emacs'
+  version: '$1'
+
+- regex: '^FDM[ /]([\d\.]+)'
+  name: 'Free Download Manager'
+  version: '$1'
+
+# 'https://github.com/lingochamp/okdownload'
+- regex: 'OkDownload/([\d\.]+)'
+  name: 'OKDownload Library'
+  version: '$1'
+
+# podcast host https://libsyn.com (probably an importer)
+- regex: '^Libsyn4-?(?:peek|download)$'
+  name: 'Libsyn'
+  version: ''
+
+# any ios application that uses apple core media but doesn't set its user
+# agent will default to this, always with 1.0.0 version.
+# there was a time when (not even that long ago) apple didn't let you set
+# a user agent so a ton of random applications still identify themselves this way.
+- regex: 'AppleCoreMedia/1\.0\.0'
+  name: 'iOS Application'
+  version: ''
