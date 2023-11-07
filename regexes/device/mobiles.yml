@@ -29009,9 +29009,13 @@ Vorke:
 
 # Wigor
 Wigor:
-  regex: 'Wigor (V4)(?:[);/ ]|$)'
+  regex: '(?:Wigor (?:V4))(?:[);/ ]|$)|Android 7(?:[\d.]*);(?: [\w-]+;)? V3(?: Build|[;)])'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'Wigor (V4)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: ' (V3)(?: Build|[;)])'
+      model: '$1'
 
 # NEXON (nexon.ua)
 NEXON:
