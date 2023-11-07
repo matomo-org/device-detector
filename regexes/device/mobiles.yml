@@ -573,6 +573,8 @@ Nokia:
       model: '$1 Classic'
     - regex: 'Nokia ?([0-9]{4})s(?:-)?'
       model: '$1 Slide'
+    - regex: 'Nokia ?([0-9]{4}) V Flip'
+      model: '$1 Flip'
     - regex: 'Nokia ?([0-9]{4})'
       model: '$1'
     - regex: '(?: )?Nokia([235][0-9]{2})(?: Build|[_);/])'
@@ -893,9 +895,9 @@ TiVo:
 
 # Apple
 Apple:
-  regex: '(?:iTunes-)?Apple[ _]?TV|Apple/|(?:Apple-|iTunes-)?(?<!like )(?:iPad|iPhone)(?!\: Build/)|iPh(?:[0-9]|1[0-4]),[0-9]|CFNetwork|HomePod|AirPlay|Watch ?OS|Watch1,[12]|MDCR_Mac|ICRU_iP(?:ad|hone)|Mac OS X[,;]|macOS,'
+  regex: '(?:iTunes-)?Apple[ _]?TV|Apple/|(?:Apple-|iTunes-)?(?<!like )(?:iPad|iPhone)(?!\: Build/)|iPh(?:[0-9]|1[0-4]),[0-9]|CFNetwork|HomePod|AirPlay|AirPodcasts/|Watch ?OS|Watch1,[12]|MDCR_Mac|ICRU_iP(?:ad|hone)|Mac OS X[,;]|macOS,|for Apple Watch'
   models:
-    - regex: 'HomePod'
+    - regex: '(?:HomePod|AirPodcasts/)'
       device: 'smart speaker'
       model: 'HomePod'
     - regex: 'AirPlay'
@@ -969,7 +971,7 @@ Apple:
     - regex: 'Watch7,[24]'
       device: 'wearable'
       model: 'Watch Series 9 45mm'
-    - regex: 'Watch'
+    - regex: 'Watch|for Apple Watch'
       device: 'wearable'
       model: 'Watch'
 
@@ -17536,7 +17538,7 @@ Olax:
 
 # Olympia (https://www.olympia-vertrieb.de/)
 Olympia:
-  regex: 'TREK(?:[);/ ]|$)'
+  regex: '(?<!Stream )TREK(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'TREK(?:[);/ ]|$)'
@@ -21010,7 +21012,7 @@ Samsung:
       model: '$1'
     - regex: 'SAMSUNG[ _/\-]?([a-z0-9\-]+)'
       model: '$1'
-    - regex: 'SAMSUNG;[ ]?([a-z0-9 ]+)'
+    - regex: 'SAMSUNG;(?! CPU OS)[ ]?([a-z0-9 ]+)'
       model: '$1'
     - regex: 'SEC_SC-([a-z0-9]+)'
       model: 'SC-$1' # NTT DoCoMo
@@ -35030,7 +35032,7 @@ Benesse:
 # Airtel
 Airtel:
   regex: 'Airtel[ _]'
-  model: 'smartphone'
+  device: 'smartphone'
   models:
     - regex: 'Airpad 7-s'
       device: 'tablet'
@@ -36092,7 +36094,7 @@ Carbon Mobile:
 # Chili Green (chiligreen.com)
 ChiliGreen:
   regex: 'E-Board[ -]MX05[45]'
-  model: 'tablet'
+  device: 'tablet'
   models:
     - regex: 'E-Board[ -](MX05[45])'
       model: 'E-Board $1'
