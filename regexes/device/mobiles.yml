@@ -9229,6 +9229,22 @@ Toshiba:
     - regex: 'portalmmm/[12].0 (TS[a-z0-9 ]+)'
       model: '$1'
 
+# AWOX (https://www.awox.com.tr/)
+AWOX:
+  regex: 'AWOX(?:[);/ ]|$)'
+  device: 'tv'
+  models:
+    - regex: 'AWOX;SmartTV;([a-z0-9_ \-]+);'
+      model: '$1'
+
+# UGINE (https://www.ugine.com.sa/ar)
+UGINE:
+  regex: 'UGINE(?:[);/ ]|$)'
+  device: 'tv'
+  models:
+    - regex: 'UGINE;SmartTV;([a-z0-9_ \-]+)V[ST];'
+      model: '$1'
+
 # Hisense (www.hisense-usa.com)
 Hisense:
   regex: '(?:HS-)?Hisense ([^;/]+) Build|Hisense|HS-(?:G|U|EG?|I|L|T|X)[0-9]+[a-z0-9\-]*|HNR55[01]T|E270BSA|HWCD100E|HITV300C|HITV205N|M470BS[AE]|EG98|E2281|EG680|I46D1G|HAT4KDTV|HITV10[12]C|HLTE([237]00T|229T|200M|203T|202N|21[023567][TM]|22[67]T|22[13]E|230E|103E|310[TM]|31[16]T|500T|501N|510[TM]|7[23]0T|M800)|KS(?:907|964)|U972|U601S Pro|U972_Pro|HNR320T|HiSmart [24]K ATV4|HiSmartTV A4|HLTE556N'
@@ -19591,7 +19607,7 @@ Soundmax:
 
 # Samsung
 Samsung:
-  regex: 'SAMSUNG(?! ?(?:Browser|Redmi))|FamilyHub|Maple (?!III)|Gear Live|(?:SEC_)?SC-(?:001|01[EFGHKLM]|02[CGHJKLMF]|03[EFJKL]|04[EFJLG]|05[GL]|(?:4[12]|5[1-4])A|5[1-5]B|5[1-5]C|56C|5[23]D)|N[57]100|N5110|N9100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|(<!Grundig )SMART-TV|GT-|(?<!GOG|GOG )Galaxy|(?:portalmmm|o2imode)/2\.0 [SZ]|sam[rua]|beyond[02]q?|crownq?lte|vollo Vi86(?:[);/ ]|$)|(?:lineage_|aokp_|rr_)?(?:serranoltexx|j5y17lte|Santos103G|fortuna3g)|(?:OTV-)?SMT-E5015|ISW11SC|40[34]SC|SC(?:G1[6789]|V3[1-9]|V4[0-9]|51Aa|-56B|T21|G0[1-9]|G1[0-5]|L2[234])(?:-[uj])?(?:[);/ ]|$)'
+  regex: 'SAMSUNG(?! ?(?:Browser|Redmi))|FamilyHub|Maple (?!III)|Maple2012|Gear Live|(?:SEC_)?SC-(?:001|01[EFGHKLM]|02[CGHJKLMF]|03[EFJKL]|04[EFJLG]|05[GL]|(?:4[12]|5[1-4])A|5[1-5]B|5[1-5]C|56C|5[23]D)|N[57]100|N5110|N9100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|GT-|(?<!GOG|GOG )Galaxy|(?:portalmmm|o2imode)/2\.0 [SZ]|sam[rua]|beyond[02]q?|crownq?lte|vollo Vi86(?:[);/ ]|$)|(?:lineage_|aokp_|rr_)?(?:serranoltexx|j5y17lte|Santos103G|fortuna3g)|(?:OTV-)?SMT-E5015|ISW11SC|40[34]SC|SC(?:G1[6789]|V3[1-9]|V4[0-9]|51Aa|-56B|T21|G0[1-9]|G1[0-5]|L2[234])(?:-[uj])?(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit tv models
@@ -19604,6 +19620,9 @@ Samsung:
     - regex: 'Maple '
       device: 'tv'
       model: ''
+    - regex: 'Maple2012'
+      device: 'tv'
+      model: 'Smart TV (2012)'
     - regex: 'Samsung, ([a-z0-9_ \-]+), (?:wired|wireless)'
       device: 'tv'
       model: '$1'
@@ -28549,14 +28568,6 @@ Sunvell:
     - regex: '(T95[KU])PRO'
       model: '$1 Pro'
 
-# UGINE (https://www.ugine.com.sa/ar)
-UGINE:
-  regex: 'UGINE(?:[);/ ]|$)'
-  device: 'tv'
-  models:
-    - regex: 'UGINE;SmartTV;([a-z0-9_ \-]+)V[ST];'
-      model: '$1'
-
 # Ugoos
 Ugoos:
   regex: 'UGOOS-|(?:Android 11;(?: [\w-]+;)? UT8|TOX3)(?:[);/ ]|$)'
@@ -34173,14 +34184,6 @@ Awow:
     - regex: '(?:AWOW_)?(UTBook|CreaPad_100[39])'
       model: '$1'
 
-# AWOX (https://www.awox.com.tr/)
-AWOX:
-  regex: 'AWOX(?:[);/ ]|$)'
-  device: 'tv'
-  models:
-    - regex: 'AWOX;SmartTV;([a-z0-9_ \-]+);'
-      model: '$1'
-
 # Mitsui (www.diamond-electronics.com)
 Mitsui:
   regex: '(MC32020)(?:[);/ ]|$)'
@@ -37629,7 +37632,7 @@ Arçelik:
 
 # Devices with undectable brand, but detectable model
 Unknown:
-  regex: 'Plasma Mobile|WebTV/(\d+\.\d+)|TV Bro|(?:M10 Ultra|FO-R15|TVBOX|Smart[ _]?TV|SmartATV|M8S\+ 4K|PCBox|rk(?:3128|322x|3368)(?:[_-]box)?|H10 PLAY|Smart AIO TV|TVBOX_L|L-BOX|TVBOX-5G|mips.+(?:Opera TV|wireless|wired)|smartbox|TV BOX|I12Pro Max|(?:audi_)?ks1280x480|AT&T TV|RealtekATV|AOSP on r33a0|hx322x_box|X98_S500)(?:[);/ ]|$)'
+  regex: 'Plasma Mobile|WebTV/(\d+\.\d+)|TV Bro|(?:M10 Ultra|FO-R15|TVBOX|Smart[ _-]?TV|SmartATV|M8S\+ 4K|PCBox|rk(?:3128|322x|3368)(?:[_-]box)?|H10 PLAY|Smart AIO TV|TVBOX_L|L-BOX|TVBOX-5G|mips.+(?:Opera TV|wireless|wired)|smartbox|TV BOX|I12Pro Max|(?:audi_)?ks1280x480|AT&T TV|RealtekATV|AOSP on r33a0|hx322x_box|X98_S500)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'WebTV/(\d+\.\d+)'
@@ -37641,7 +37644,7 @@ Unknown:
     - regex: '(FO-R15|X98_S500)(?:[);/ ]|$)'
       device: 'tv'
       model: '$1'
-    - regex: '(Smart[ _]?TV|SmartATV|PCBox|hx322x_box|rk(?:3128|322x|3368)(?:[_-]box)?|TVBOX|Smart AIO TV|TVBOX_L|L-BOX|TVBOX-5G|AT&T TV|RealtekATV|TV Bro|AOSP on r33a0)(?:[);/ ]|$)'
+    - regex: '(Smart[ _-]?TV|SmartATV|PCBox|hx322x_box|rk(?:3128|322x|3368)(?:[_-]box)?|TVBOX|Smart AIO TV|TVBOX_L|L-BOX|TVBOX-5G|AT&T TV|RealtekATV|TV Bro|AOSP on r33a0)(?:[);/ ]|$)'
       device: 'tv'
       model: ''
     - regex: 'M8S\+ 4K(?:[);/ ]|$)'
