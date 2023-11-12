@@ -1545,6 +1545,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '6T'  => 'Twoe',
         '15'  => 'Tymes',
         'UC'  => 'U.S. Cellular',
+        'UGI' => 'UGINE',
         'UG'  => 'Ugoos',
         'U1'  => 'Uhans',
         'UH'  => 'Uhappy',
