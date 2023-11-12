@@ -195,6 +195,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'AH'  => 'AVH',
         'AV'  => 'Avvio',
         'AVA' => 'Avaya',
+        'AXE' => 'AXEN',
         'AY'  => 'Axxion',
         'AXX' => 'AXXA',
         'YR'  => 'AYYA',
