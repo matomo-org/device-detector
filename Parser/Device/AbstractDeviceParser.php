@@ -160,6 +160,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'RW'  => 'Aoro',
         '9Y'  => 'Aocos',
         'AP'  => 'Apple',
+        'ARC' => 'Arçelik',
         'AR'  => 'Archos',
         'AB'  => 'Arian Space',
         'A6'  => 'Ark',
