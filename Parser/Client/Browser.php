@@ -599,7 +599,7 @@ class Browser extends AbstractClientParser
             'HO', 'A5', 'X1', '18', 'B5', 'B6', 'TC', 'A6', '2X',
             'F4', 'YG', 'WR', 'NA', 'DM', '1M', 'A7', 'XN', 'XT',
             'XB', 'W1', 'HT', 'B8', 'F5', 'B9', 'WA', 'T0', 'HC',
-            'O6', 'P7', 'LJ', 'LC', 'O7', 'N2', 'A8', 'P8', 'H1',
+            'O6', 'P7', 'LJ', 'LC', 'O7', 'N2', 'A8', 'P8',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
