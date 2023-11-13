@@ -881,6 +881,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'LEG' => 'Legend',
         'L4'  => 'Lemhoov',
         'W9'  => 'LEMFO',
+        'LEM' => 'Lemco',
         'LN'  => 'Lenco',
         'LE'  => 'Lenovo',
         'LT'  => 'Leotec',
