@@ -885,13 +885,15 @@ TiPhone:
 
 # TiVo (https://www.tivo.com/)
 TiVo:
-  regex: 'TIVO[ ,]'
+  regex: 'TIVO[ ,-]'
   device: 'tv'
   models:
     - regex: 'STREAM 4K'
       model: 'Stream 4K'
     - regex: 'TCD8F6000'
       model: 'TCD8F6000'
+    - regex: 'TiVo-([a-z0-9]+)-([a-z0-9]+)'
+      model: '$2'
 
 # Apple
 Apple:
@@ -32782,7 +32784,7 @@ Philips:
       model: 'Xenium $1'
     - regex: '(?:Philips[_ ])?(S397|W5510)(?:[);/ ]|$)'
       model: '$1'
-    - regex: 'AND1E(?: TV)?(?:[);/ ]|$)'
+    - regex: '(?:AND1E|Google)(?: TV)?(?:[);/ ]|$)'
       model: 'Android TV'
       device: 'tv'
     - regex: '(PI3210G)'
