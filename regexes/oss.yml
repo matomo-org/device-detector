@@ -6,6 +6,19 @@
 ###############
 
 ##########
+# Oracle Linux (https://www.oracle.com/linux/)
+##########
+- regex: 'Linux/(?:\d+\.[\d.-]+)\.el(\d+(?:[_.]\d+)*)uek'
+  name: 'Oracle Linux'
+  version: '$1'
+
+##########
+# Kali (https://www.kali.org/)
+##########
+- regex: '.+kali(\d)'
+  name: 'Kali'
+  version: '$1'
+
 # TiVo OS (https://business.tivo.com/products-solutions/tivo-os)
 ##########
 - regex: 'TiVoOS/(\d+[\.\d]+)'
@@ -64,7 +77,7 @@
 ##########
 # TencentOS (https://github.com/Tencent/TencentOS-kernel)
 ##########
-- regex: 'Linux/(\d+[\.\d]*).+tlinux'
+- regex: '.+tlinux(\d)'
   name: 'TencentOS'
   version: '$1'
 
@@ -824,6 +837,8 @@
 - regex: '^(?!com.apple.Safari.SearchHelper|Safari).*CFNetwork/.+ Darwin/(\d+[\.\d]+)(?!.*(?:x86_64|i386|PowerMac|Power%20Macintosh))'
   name: 'iOS'
   versions:
+    - regex: 'Darwin/23.2.0'
+      version: '17.2'
     - regex: 'Darwin/23.1.0'
       version: '17.1'
     - regex: 'Darwin/23.0.0'
@@ -1049,6 +1064,8 @@
 - regex: '(?:CFNetwork|StudioDisplay)/.+Darwin(?:/|; )(?:[\d\.]+).+(?:x86_64|i386|Power%20Macintosh)|(?:x86_64-apple-)?darwin(?:[\d\.]+)|PowerMac|com.apple.Safari.SearchHelper|^Safari'
   name: 'Mac'
   versions:
+    - regex: '(?:x86_64-apple-)?Darwin(?:/|; )?23.2.0'
+      version: '14.2'
     - regex: '(?:x86_64-apple-)?Darwin(?:/|; )?23.1.0'
       version: '14.1'
     - regex: '(?:x86_64-apple-)?Darwin(?:/|; )?23.0.0'
