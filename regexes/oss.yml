@@ -6,6 +6,33 @@
 ###############
 
 ##########
+# Oracle Linux (https://www.oracle.com/linux/)
+##########
+- regex: 'Linux/(?:\d+\.[\d.-]+)\.el(\d+(?:[_.]\d+)*)uek'
+  name: 'Oracle Linux'
+  version: '$1'
+
+##########
+# Kali (https://www.kali.org/)
+##########
+- regex: '.+kali(\d)'
+  name: 'Kali'
+  version: '$1'
+
+# TiVo OS (https://business.tivo.com/products-solutions/tivo-os)
+##########
+- regex: 'TiVoOS/(\d+[\.\d]+)'
+  name: 'TiVo OS'
+  version: '$1'
+
+##########
+# VIDAA (https://www.vidaa.com/vidaa-os/)
+##########
+- regex: 'VIDAA/(\d+[\.\d]+)'
+  name: 'VIDAA'
+  version: '$1'
+
+##########
 # PICO OS (https://www.picoxr.com/global/software/pico-os)
 ##########
 - regex: 'PICO.+OS(\d+[\.\d]*)'
@@ -50,7 +77,7 @@
 ##########
 # TencentOS (https://github.com/Tencent/TencentOS-kernel)
 ##########
-- regex: 'Linux/(\d+[\.\d]*).+tlinux'
+- regex: '.+tlinux(\d)'
   name: 'TencentOS'
   version: '$1'
 
@@ -99,6 +126,9 @@
 - regex: 'Linux (?:[^;]+); Opera TV(?: Store)?/|^Opera/\d+\.\d+ \(Linux mips'
   name: 'Opera TV'
   version: ''
+- regex: 'OPR/.+TV Store/(\d+[\.\d]+)'
+  name: 'Opera TV'
+  version: '$1'
 
 ##########
 # GridOS (https://web.archive.org/web/20111123141630/http://fusiongarage.com/grid-os/about)
@@ -284,7 +314,7 @@
   name: 'Android TV'
   version: '$1'
 
-- regex: 'Android[; ](\d+[\.\d]*).+(?:(?:Android|AT&T) TV|AOSP on r33a0|BRAVIA)'
+- regex: 'Android[; ](\d+[\.\d]*).+(?:(?:Android( UHD)?|AT&T|Google) TV|AOSP on r33a0|BRAVIA)'
   name: 'Android TV'
   version: '$1'
 
@@ -366,7 +396,7 @@
   name: 'Android'
   version: '$1'
 
-- regex: '(?:(?:Orca-)?(?<!like )Android|Adr|AOSP)[ /]?(?:[a-z]+ )?(\d+[\.\d]*)'
+- regex: '(?:(?:Orca-)?(?<!like |/|RadioPublic |Anghami )Android|Adr|AOSP)[ /]?(?:[a-z]+ )?(\d+[\.\d]*)'
   name: 'Android'
   version: '$1'
 
@@ -807,6 +837,8 @@
 - regex: '^(?!com.apple.Safari.SearchHelper|Safari).*CFNetwork/.+ Darwin/(\d+[\.\d]+)(?!.*(?:x86_64|i386|PowerMac|Power%20Macintosh))'
   name: 'iOS'
   versions:
+    - regex: 'Darwin/23.2.0'
+      version: '17.2'
     - regex: 'Darwin/23.1.0'
       version: '17.1'
     - regex: 'Darwin/23.0.0'
@@ -966,7 +998,7 @@
   name: 'iOS'
   version: '$1.$2.$3'
 
-- regex: '(?:CPU OS|iPh(?:one)?[ _]OS|iPhone.+ OS|iOS)[ _/](\d+(?:[_\.]\d+)*)'
+- regex: '(?:CPU OS|iPh(?:one)?[ _]OS|iPhone.+ OS|PodMN.+iPhone|iOS)[ _/](\d+(?:[_\.]\d+)*)'
   name: 'iOS'
   version: '$1'
 
@@ -1032,6 +1064,8 @@
 - regex: '(?:CFNetwork|StudioDisplay)/.+Darwin(?:/|; )(?:[\d\.]+).+(?:x86_64|i386|Power%20Macintosh)|(?:x86_64-apple-)?darwin(?:[\d\.]+)|PowerMac|com.apple.Safari.SearchHelper|^Safari'
   name: 'Mac'
   versions:
+    - regex: '(?:x86_64-apple-)?Darwin(?:/|; )?23.2.0'
+      version: '14.2'
     - regex: '(?:x86_64-apple-)?Darwin(?:/|; )?23.1.0'
       version: '14.1'
     - regex: '(?:x86_64-apple-)?Darwin(?:/|; )?23.0.0'

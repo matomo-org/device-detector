@@ -581,9 +581,14 @@
   engine:
     default: 'Blink'
 
-# T-Browser (https://play.google.com/store/apps/details?id=com.tcl.browser)
+# T-Browser and new BrowseHere (https://play.google.com/store/apps/details?id=com.tcl.browser)
 - regex: 'Tbrowser/(\d+[\.\d]+)'
   name: 'T-Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
+- regex: 'com.tcl.browser'
+  name: 'BrowseHere'
   version: '$1'
   engine:
     default: 'Blink'
@@ -1584,7 +1589,7 @@
     default: 'WebKit'
 
 #Opera
-- regex: '(?:Opera Tablet.*Version|Opera/.+Opera Mobi.+Version|Mobile.+OPR)/(\d+[\.\d]+)'
+- regex: '(?:Opera Tablet.*Version|Opera/.+(?<!SymbOS; )Opera Mobi.+Version|Mobile.+OPR)/(\d+[\.\d]+)'
   name: 'Opera Mobile'
   version: '$1'
   engine:
@@ -1616,7 +1621,7 @@
   version: '$1'
   engine:
     default: 'Blink'
-- regex: 'Opera/(\d+\.[\.\d]+) .*Opera Mobi'
+- regex: 'Opera/(\d+\.[\.\d]+) .*(?<!SymbOS; )Opera Mobi'
   name: 'Opera Mobile'
   version: '$1'
   engine:
@@ -2713,7 +2718,7 @@
   version: '$1'
   engine:
     default: 'WebKit'
-- regex: '(?:iPod|(?<!Apple TV; U; CPU )iPhone|iPad)'
+- regex: '(?!^AppleCoreMedia/1\.0\.0)(?:iPod|(?<!Apple TV; U; CPU )iPhone|iPad)'
   name: 'Mobile Safari'
   version: ''
   engine:
