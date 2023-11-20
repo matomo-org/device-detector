@@ -746,12 +746,14 @@ Telefunken:
 
 # TCL
 TCL:
-  regex: 'TCL'
+  regex: '(?:Amazon.+)?TCL'
   device: 'tv'
   models:
     - regex: '(32D1820|(?:39|55)D2900|32D2930|(?:32|43)S4900)'
       model: '$1'
     - regex: 'TCL[,;] ?((?! |HbbTV)[^),;/]+)'
+      model: '$1'
+    - regex: 'Amazon.+TCL-([a-z0-9_ \-]+)_Build_'
       model: '$1'
 
 # Thomson
