@@ -210,6 +210,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'BN'  => 'Barnes & Noble',
         'BAR' => 'BARTEC',
         'BAS' => 'BASE',
+        'BAU' => 'BAUHN',
         'BB'  => 'BBK',
         '0B'  => 'BB Mobile',
         'B6'  => 'BDF',
