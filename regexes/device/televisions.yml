@@ -356,11 +356,15 @@ ONVO:
 
 # Sunny (https://www.sunny.com.tr/)
 Sunny:
-  regex: 'LGE/ATMACA/SUNNY'
+  regex: '(?:ATMACA|XianYou)/SUNNY'
   device: 'tv'
   models:
-    - regex: 'LGE/ATMACA/SUNNY; ([a-z0-9]+)-'
+    - regex: '(?:ATMACA|XianYou)/SUNNY; ([a-z0-9]+)-'
       model: '$1'
+    - regex: '(?:ATMACA|XianYou)/SUNNY.+(2018)\)'
+      model: 'Smart TV ($1)'
+    - regex: '(?:ATMACA|XianYou)/SUNNY;'
+      model: 'Smart TV'
 
 # LG
 LG:
