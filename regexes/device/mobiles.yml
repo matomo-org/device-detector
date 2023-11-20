@@ -8999,12 +8999,14 @@ Gradiente:
 
 # Grundig
 Grundig:
-  regex: 'GR?-TB[0-9]+[a-z]*|(<!Arcelik )GRUNDIG|portalmmm/2\.0 G|AFTEU(?:011|014|FF014)'
+  regex: 'GR?-TB[0-9]+[a-z]*|(?<!Arcelik )GRUNDIG|portalmmm/2\.0 G|AFTEU(?:011|014|FF014)'
   device: 'tv'
   models:
     - regex: '(GR?-TB[0-9]+[a-z]*)'
       device: 'tablet'
       model: '$1'
+    - regex: 'GRUNDIG (?:Android TV|Google TV UHD\+)'
+      model: ''
     - regex: 'GRUNDIG ([a-z0-9]+)'
       model: '$1'
     - regex: 'portalmmm/2\.0 G([a-z0-9]+)'
