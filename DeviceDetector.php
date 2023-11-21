@@ -939,6 +939,13 @@ class DeviceDetector
         }
 
         /**
+         * All devices containing Tablet fragment are assumed to be tablets
+         */
+        if (null === $this->device && $this->matchUserAgent('tablet')) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_TABLET;
+        }
+
+        /**
          * Chrome on Android passes the device type based on the keyword 'Mobile'
          * If it is present the device should be a smartphone, otherwise it's a tablet
          * See https://developer.chrome.com/multidevice/user-agent#chrome_for_android_user_agent
