@@ -201,6 +201,7 @@ class Browser extends AbstractClientParser
         'DD' => 'DuckDuckGo Privacy Browser',
         'EC' => 'Ecosia',
         'EW' => 'Edge WebView',
+        'EV' => 'Every Browser',
         'EI' => 'Epic',
         'EL' => 'Elinks',
         'EN' => 'EinkBro',
@@ -538,6 +539,7 @@ class Browser extends AbstractClientParser
         'WH' => 'Whale Browser',
         'WO' => 'wOSBrowser',
         'WT' => 'WeTab Browser',
+        '1W' => 'World Browser - Fast & Simple',
         'WL' => 'Wolvic',
         'YG' => 'YAGI',
         'YJ' => 'Yahoo! Japan Browser',
@@ -601,6 +603,7 @@ class Browser extends AbstractClientParser
             'F4', 'YG', 'WR', 'NA', 'DM', '1M', 'A7', 'XN', 'XT',
             'XB', 'W1', 'HT', 'B8', 'F5', 'B9', 'WA', 'T0', 'HC',
             'O6', 'P7', 'LJ', 'LC', 'O7', 'N2', 'A8', 'P8', 'RB',
+            '1W', 'EV',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -639,6 +642,7 @@ class Browser extends AbstractClientParser
         'B5', 'B6', 'TC', 'A6', '2X', 'F4', 'YG', 'WR', 'NA',
         'DM', '1M', 'A7', 'XN', 'XT', 'XB', 'W1', 'HT', 'B7',
         'B9', 'T0', 'I8', 'O6', 'P7', 'O8', '4B', 'A8', 'P8',
+        '1W', 'EV',
     ];
 
     /**
@@ -876,6 +880,12 @@ class Browser extends AbstractClientParser
 
         // exclude Blink engine version for browsers
         if ('Blink' === $engine && 'Flow Browser' === $name) {
+            $engineVersion = '';
+        }
+        // the browser simulate ua for Android OS
+        if ('Every Browser' === $name) {
+            $family        = 'Chrome';
+            $engine        = 'Blink';
             $engineVersion = '';
         }
 
