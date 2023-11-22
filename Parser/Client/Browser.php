@@ -886,6 +886,7 @@ class Browser extends AbstractClientParser
         if ('Blink' === $engine && 'Flow Browser' === $name) {
             $engineVersion = '';
         }
+
         // the browser simulate ua for Android OS
         if ('Every Browser' === $name) {
             $family        = 'Chrome';

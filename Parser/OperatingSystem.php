@@ -336,7 +336,7 @@ class OperatingSystem extends AbstractParser
         $family      = self::getOsFamily($short);
         $androidApps = [
             'com.hisense.odinbrowser', 'com.seraphic.openinet.pre', 'com.appssppa.idesktoppcbrowser',
-            'every.browser.inc'
+            'every.browser.inc',
         ];
 
         if (null !== $this->clientHints) {
