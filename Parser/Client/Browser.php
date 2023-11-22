@@ -275,9 +275,11 @@ class Browser extends AbstractClientParser
         'I8' => 'IVVI Browser',
         'IW' => 'Iceweasel',
         'IN' => 'Inspect Browser',
+        'I9' => 'Insta Browser',
         'IE' => 'Internet Explorer',
         'I7' => 'Internet Browser Secure',
         'I5' => 'Indian UC Mini Browser',
+        'Z0' => 'InBrowser',
         'IM' => 'IE Mobile',
         'IR' => 'Iron',
         'JB' => 'Japan Browser',
@@ -528,6 +530,7 @@ class Browser extends AbstractClientParser
         'VV' => 'vivo Browser',
         'V2' => 'Vivid Browser Mini',
         'VB' => 'Vision Mobile Browser',
+        'V4' => 'Vertex Surf',
         'VM' => 'VMware AirWatch',
         'WI' => 'Wear Internet Browser',
         'WP' => 'Web Explorer',
@@ -603,7 +606,7 @@ class Browser extends AbstractClientParser
             'F4', 'YG', 'WR', 'NA', 'DM', '1M', 'A7', 'XN', 'XT',
             'XB', 'W1', 'HT', 'B8', 'F5', 'B9', 'WA', 'T0', 'HC',
             'O6', 'P7', 'LJ', 'LC', 'O7', 'N2', 'A8', 'P8', 'RB',
-            '1W', 'EV',
+            '1W', 'EV', 'I9', 'V4',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -642,7 +645,7 @@ class Browser extends AbstractClientParser
         'B5', 'B6', 'TC', 'A6', '2X', 'F4', 'YG', 'WR', 'NA',
         'DM', '1M', 'A7', 'XN', 'XT', 'XB', 'W1', 'HT', 'B7',
         'B9', 'T0', 'I8', 'O6', 'P7', 'O8', '4B', 'A8', 'P8',
-        '1W', 'EV',
+        '1W', 'EV', 'Z0', 'I9',
     ];
 
     /**
