@@ -68,6 +68,7 @@ class Browser extends AbstractClientParser
         '1D' => 'Dragon Browser',
         '1E' => 'Easy Browser',
         'DW' => 'Dark Web Browser',
+        'D6' => 'Dark Browser',
         '18' => '18+ Privacy Browser',
         '1B' => '115 Browser',
         'DM' => '1DM Browser',
@@ -143,6 +144,7 @@ class Browser extends AbstractClientParser
         'BF' => 'Byffox',
         'B4' => 'BF Browser',
         'CA' => 'Camino',
+        '0C' => 'Cave Browser',
         'CL' => 'CCleaner',
         'C8' => 'CG Browser',
         'CJ' => 'ChanjetCloud',
@@ -201,6 +203,7 @@ class Browser extends AbstractClientParser
         'DD' => 'DuckDuckGo Privacy Browser',
         'EC' => 'Ecosia',
         'EW' => 'Edge WebView',
+        'EV' => 'Every Browser',
         'EI' => 'Epic',
         'EL' => 'Elinks',
         'EN' => 'EinkBro',
@@ -236,6 +239,7 @@ class Browser extends AbstractClientParser
         'FS' => 'Flast',
         'F5' => 'Flyperlink',
         'FU' => 'FreeU',
+        'F6' => 'Freedom Browser',
         'F3' => 'Frost+',
         'FI' => 'Fulldive',
         'GA' => 'Galeon',
@@ -255,6 +259,7 @@ class Browser extends AbstractClientParser
         'HX' => 'Hexa Web Browser',
         'HI' => 'Hi Browser',
         'HO' => 'hola! Browser',
+        'H4' => 'Holla Web Browser',
         'HJ' => 'HotJava',
         'HT' => 'HTC Browser',
         'HU' => 'Huawei Browser Mobile',
@@ -274,9 +279,11 @@ class Browser extends AbstractClientParser
         'I8' => 'IVVI Browser',
         'IW' => 'Iceweasel',
         'IN' => 'Inspect Browser',
+        'I9' => 'Insta Browser',
         'IE' => 'Internet Explorer',
         'I7' => 'Internet Browser Secure',
         'I5' => 'Indian UC Mini Browser',
+        'Z0' => 'InBrowser',
         'IM' => 'IE Mobile',
         'IR' => 'Iron',
         'JB' => 'Japan Browser',
@@ -321,6 +328,7 @@ class Browser extends AbstractClientParser
         'LX' => 'Lynx',
         'L2' => 'Lynket Browser',
         'MD' => 'Mandarin',
+        'M5' => 'MarsLab Web Browser',
         'M1' => 'mCent',
         'MB' => 'MicroB',
         'MC' => 'NCSA Mosaic',
@@ -480,6 +488,7 @@ class Browser extends AbstractClientParser
         'S2' => 'Splash',
         'SI' => 'Sputnik Browser',
         'SR' => 'Sunrise',
+        '0S' => 'Sunflower Browser',
         'SP' => 'SuperBird',
         'SU' => 'Super Fast Browser',
         '5S' => 'SuperFast Browser',
@@ -498,6 +507,7 @@ class Browser extends AbstractClientParser
         'TR' => 'T-Browser',
         'TO' => 't-online.de Browser',
         'TA' => 'Tao Browser',
+        '1T' => 'Tor Browser',
         'TF' => 'TenFourFox',
         'TB' => 'Tenta Browser',
         'TE' => 'Tesla Browser',
@@ -527,6 +537,7 @@ class Browser extends AbstractClientParser
         'VV' => 'vivo Browser',
         'V2' => 'Vivid Browser Mini',
         'VB' => 'Vision Mobile Browser',
+        'V4' => 'Vertex Surf',
         'VM' => 'VMware AirWatch',
         'WI' => 'Wear Internet Browser',
         'WP' => 'Web Explorer',
@@ -538,6 +549,7 @@ class Browser extends AbstractClientParser
         'WH' => 'Whale Browser',
         'WO' => 'wOSBrowser',
         'WT' => 'WeTab Browser',
+        '1W' => 'World Browser',
         'WL' => 'Wolvic',
         'YG' => 'YAGI',
         'YJ' => 'Yahoo! Japan Browser',
@@ -561,6 +573,7 @@ class Browser extends AbstractClientParser
         'ZE' => 'Zetakey',
         'ZV' => 'Zvu',
         'ZI' => 'Zirco Browser',
+        'ZR' => 'Zordo Browser',
 
         // detected browsers in older versions
         // 'IA' => 'Iceape',  => pim
@@ -601,6 +614,8 @@ class Browser extends AbstractClientParser
             'F4', 'YG', 'WR', 'NA', 'DM', '1M', 'A7', 'XN', 'XT',
             'XB', 'W1', 'HT', 'B8', 'F5', 'B9', 'WA', 'T0', 'HC',
             'O6', 'P7', 'LJ', 'LC', 'O7', 'N2', 'A8', 'P8', 'RB',
+            '1W', 'EV', 'I9', 'V4', 'H4', '1T', 'M5', '0S', '0C',
+            'ZR', 'D6', 'F6',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -639,6 +654,8 @@ class Browser extends AbstractClientParser
         'B5', 'B6', 'TC', 'A6', '2X', 'F4', 'YG', 'WR', 'NA',
         'DM', '1M', 'A7', 'XN', 'XT', 'XB', 'W1', 'HT', 'B7',
         'B9', 'T0', 'I8', 'O6', 'P7', 'O8', '4B', 'A8', 'P8',
+        '1W', 'EV', 'Z0', 'I9', 'V4', 'H4', 'M5', '0S', '0C',
+        'ZR', 'D6', 'F6',
     ];
 
     /**
@@ -876,6 +893,13 @@ class Browser extends AbstractClientParser
 
         // exclude Blink engine version for browsers
         if ('Blink' === $engine && 'Flow Browser' === $name) {
+            $engineVersion = '';
+        }
+
+        // the browser simulate ua for Android OS
+        if ('Every Browser' === $name) {
+            $family        = 'Chrome';
+            $engine        = 'Blink';
             $engineVersion = '';
         }
 
