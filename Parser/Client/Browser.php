@@ -64,7 +64,6 @@ class Browser extends AbstractClientParser
         '2L' => 'Lark Browser',
         '3P' => 'Pluma',
         '1A' => 'Anka Browser',
-        '2A' => 'Anka Browser Video',
         'AZ' => 'Azka Browser',
         '1D' => 'Dragon Browser',
         '1E' => 'Easy Browser',
@@ -616,7 +615,7 @@ class Browser extends AbstractClientParser
             'XB', 'W1', 'HT', 'B8', 'F5', 'B9', 'WA', 'T0', 'HC',
             'O6', 'P7', 'LJ', 'LC', 'O7', 'N2', 'A8', 'P8', 'RB',
             '1W', 'EV', 'I9', 'V4', 'H4', '1T', 'M5', '0S', '0C',
-            'ZR', 'D6', 'F6', '2A',
+            'ZR', 'D6', 'F6',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -656,7 +655,7 @@ class Browser extends AbstractClientParser
         'DM', '1M', 'A7', 'XN', 'XT', 'XB', 'W1', 'HT', 'B7',
         'B9', 'T0', 'I8', 'O6', 'P7', 'O8', '4B', 'A8', 'P8',
         '1W', 'EV', 'Z0', 'I9', 'V4', 'H4', 'M5', '0S', '0C',
-        'ZR', 'D6', 'F6', '2A',
+        'ZR', 'D6', 'F6',
     ];
 
     /**
