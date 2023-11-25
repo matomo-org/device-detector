@@ -98,6 +98,7 @@ class OperatingSystem extends AbstractParser
         'LEN' => 'Lineage OS',
         'LBT' => 'Lubuntu',
         'LOS' => 'Lumin OS',
+        'LUN' => 'LuneOS',
         'VLN' => 'VectorLinux',
         'MAC' => 'Mac',
         'MAE' => 'Maemo',
@@ -212,7 +213,7 @@ class OperatingSystem extends AbstractParser
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
         'Real-time OS'          => ['MTK', 'TDX', 'MRE', 'JME', 'REX'],
-        'Other Mobile'          => ['WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE'],
+        'Other Mobile'          => ['WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE', 'LUN'],
         'Symbian'               => ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
         'Unix'                  => ['SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64', 'INF'],
         'WebTV'                 => ['WTV'],
@@ -334,7 +335,10 @@ class OperatingSystem extends AbstractParser
 
         $platform    = $this->parsePlatform();
         $family      = self::getOsFamily($short);
-        $androidApps = ['com.hisense.odinbrowser', 'com.seraphic.openinet.pre', 'com.appssppa.idesktoppcbrowser'];
+        $androidApps = [
+            'com.hisense.odinbrowser', 'com.seraphic.openinet.pre', 'com.appssppa.idesktoppcbrowser',
+            'every.browser.inc',
+        ];
 
         if (null !== $this->clientHints) {
             if (\in_array($this->clientHints->getApp(), $androidApps) && 'Android' !== $name) {

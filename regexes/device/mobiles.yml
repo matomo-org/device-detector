@@ -8999,12 +8999,14 @@ Gradiente:
 
 # Grundig
 Grundig:
-  regex: 'GR?-TB[0-9]+[a-z]*|(<!Arcelik )GRUNDIG|portalmmm/2\.0 G|AFTEU(?:011|014|FF014)'
+  regex: 'GR?-TB[0-9]+[a-z]*|(?<!Arcelik )GRUNDIG|portalmmm/2\.0 G|AFTEU(?:011|014|FF014)'
   device: 'tv'
   models:
     - regex: '(GR?-TB[0-9]+[a-z]*)'
       device: 'tablet'
       model: '$1'
+    - regex: 'GRUNDIG (?:Android TV|Google TV UHD\+)'
+      model: ''
     - regex: 'GRUNDIG ([a-z0-9]+)'
       model: '$1'
     - regex: 'portalmmm/2\.0 G([a-z0-9]+)'
@@ -9246,6 +9248,22 @@ UGINE:
   models:
     - regex: 'UGINE;SmartTV;([a-z0-9_ \-]+)V[ST];'
       model: '$1'
+
+# Sunny
+Sunny:
+  regex: '(?:SS4G9 Mira|SS4G7 Sole|SS4G1 Luna|SS4G8 Nora|SS4G6 Lola|SN7014S?|SN7016|SN10016|SUNNY (?:SS01|S52D)|SUNNY;SmartTV)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: '(SS4G9 Mira|SS4G7 Sole|SS4G1 Luna|SS4G8 Nora|SS4G6 Lola)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'SUNNY (SS01|S52D)'
+      model: '$1'
+    - regex: '(SN7014S?|SN7016|SN10016)(?:[);/ ]|$)'
+      device: 'tablet'
+      model: '$1'
+    - regex: 'SUNNY;SmartTV'
+      device: 'tv'
+      model: 'Smart TV'
 
 # Hisense (www.hisense-usa.com)
 Hisense:
@@ -13052,6 +13070,12 @@ AIS:
       model: 'LAVA PRO 4.5'
     - regex: 'Kingcomm C500'
       model: 'Super Smart Plus X3'
+
+# Beko (https://www.beko.com.tr/)
+Beko:
+  regex: 'Beko(?:[);/ ]|$)'
+  device: 'tv'
+  model: ''
 
 # Benco (www.bencomobile.com)
 Benco:
@@ -18917,6 +18941,9 @@ Panasonic:
     - regex: 'PANASONIC, ([a-z0-9_ \-]+), (?:wired|wireless)'
       model: ''
       device: 'tv'
+    - regex: 'PANASONIC,([a-z0-9_ \-]+),(?:wired|wireless)'
+      model: '$1'
+      device: 'tv'
     - regex: 'Panasonic[ _\-]?([a-z0-9]+)'
       model: '$1'
     - regex: 'portalmmm/2.0 (P[a-z0-9]+)'
@@ -19006,7 +19033,7 @@ Pentagram:
 
 # Tcl (tcl.com)
 TCL:
-  regex: 'TCL,|TCL[_ -][a-z0-9]+|(?:TCL[_ -][^;/]+ Build)|(?:TCLGalaG60(?:\(9108A\))?|4163D|4187[DMU]|4188[CLRSVO]|5004S|5087Z|5101A|5102[BKLMOP]|5107G|5124J|5130[JMEI]|5133A|5148A|5152D|5159[AJ]|5164D|5199I|6102[ADH]|6125[ADFH]|6127[AI]|6156[ADH]|6159[AK]|6165[AHS]|7040N|8491X|9048S|9060[GX]|9080G|9081X|9295G|9296[GQ]|A(?:50[2789]|600)DL|T(?:60[123]|701)DL|T(?:506D|671[EFGHO]|676[HJK]|766[AHJSU]|767[GHW]|770[BH]|771K|773O|774[BH]|775[BH]|776[HO]|779W|780H|781SPP|781S|781|782H|790[SY]|799[BH]|810[HS])|Percee TV|9317X1|9161G| 9061| 8182| 8167| 8095|BeyondTV\d?|T507U|T610[KE]|9132G|9166G|9137W|T430W|T431[DU]|T501[CL]|T768S)(?:_(?:RU|EEA|TR))?(?:[);/ ]|$)'
+  regex: 'TCL,|TCL[_ -][a-z0-9]+|(?:TCL[_ -][^;/]+ Build)|TCL72563C|(?:TCLGalaG60(?:\(9108A\))?|4163D|4187[DMU]|4188[CLRSVO]|5004S|5087Z|5101A|5102[BKLMOP]|5107G|5124J|5130[JMEI]|5133A|5148A|5152D|5159[AJ]|5164D|5199I|6102[ADH]|6125[ADFH]|6127[AI]|6156[ADH]|6159[AK]|6165[AHS]|7040N|8491X|9048S|9060[GX]|9080G|9081X|9295G|9296[GQ]|A(?:50[2789]|600)DL|T(?:60[123]|701)DL|T(?:506D|671[EFGHO]|676[HJK]|766[AHJSU]|767[GHW]|770[BH]|771K|773O|774[BH]|775[BH]|776[HO]|779W|780H|781SPP|781S|781|782H|790[SY]|799[BH]|810[HS])|Percee TV|9317X1|9161G| 9061| 8182| 8167| 8095|BeyondTV\d?|T507U|T610[KE]|9132G|9166G|9137W|T430W|T431[DU]|T501[CL]|T768S)(?:_(?:RU|EEA|TR))?(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'TCLGalaG60(?:\(9108A\))?(?:[);/ ]|$)'
@@ -19204,10 +19231,16 @@ TCL:
     - regex: '((?:43|55)S62FS|(?:43|50)P65US|U(?:43|60|65)P60|65P4USM|(?:40|49)S62|L32S6|55P610|50P8S|55S62|(?:43|50)P6US|55DP60)'
       device: 'tv'
       model: '$1'
+    - regex: 'TCL72563C'
+      device: 'tv'
+      model: '72563C'
+    - regex: 'TCL,([a-z0-9_ \-]+),(?:wired|wireless)'
+      device: 'tv'
+      model: '$1'
 
 # JVC
 JVC:
-  regex: 'JVC[;,]|AV-10NT310|AFTSO001'
+  regex: 'JVC[;, ]|AV-10NT310|AFTSO001'
   device: 'tv'
   models:
     - regex: 'JVC[;,](32D1290)'
@@ -22840,6 +22873,12 @@ Anker:
   device: 'tv'
   model: 'Nebula Soundbar'
 
+# Altus (https://www.altus.com.tr/)
+Altus:
+  regex: 'Altus(?:[);/ ]|$)'
+  device: 'tv'
+  model: ''
+
 # Kindle
 Amazon:
   regex: '(?:AFT[ABMNRST]|AFTSSS?|AFTKA|SD4930UR|AEO(?:BC|C[HW]|KN)|KF(?:OT|ONWI|TT|JWI|JWA|[DFS]OWI|A[PRSU]WI|T[BH]WI|TRP?WI|SAW[IA]|GIWI|KAWI|MAWI|MEWI|MUWI|SUWI))(?:[);/ ]|$)|Kindle|AlexaMediaPlayer|Amazon (?:Tate|Jem)|Silk/\d+\.\d+|Echo/1|.+FIRETVSTICK'
@@ -25013,19 +25052,6 @@ Smart:
     - regex: 'Smart PRIME II'
       model: 'Prime II'
     - regex: '(Coral 4|Slide Lite|Notrino|Smart PRIME II)'
-      model: '$1'
-
-# Sunny
-Sunny:
-  regex: '(?:SS4G9 Mira|SS4G7 Sole|SS4G1 Luna|SS4G8 Nora|SS4G6 Lola|SN7014S?|SN7016|SN10016|SUNNY (?:SS01|S52D))(?:[);/ ]|$)'
-  device: 'smartphone'
-  models:
-    - regex: '(SS4G9 Mira|SS4G7 Sole|SS4G1 Luna|SS4G8 Nora|SS4G6 Lola)(?:[);/ ]|$)'
-      model: '$1'
-    - regex: 'SUNNY (SS01|S52D)'
-      model: '$1'
-    - regex: '(SN7014S?|SN7016|SN10016)(?:[);/ ]|$)'
-      device: 'tablet'
       model: '$1'
 
 # Wiko (wikomobile.com)
@@ -27791,6 +27817,12 @@ Lemhoov:
     - regex: 'Lemhoov[ _-]([^/;]+) Build'
       model: '$1'
 
+# MStar
+MStar:
+  regex: 'MStar(?:[);/ ]|$)'
+  device: 'tv'
+  model: ''
+
 # MTC (MTS)
 MTC:
   regex: 'MTC[ _](968|97[82]|970|982[OT]?|1078)|(?:MTC[_ ])?SMART[ _]?(?:Race[2]?|Sprint|Run|Turbo|Surf[2]?)[ _]4G|MTC975|Smart Bit|Smart_(?:LINE|Light)|(?:MTC[ _])?SMART[ _](?:Run|Start[_ ][23])|Redbox Mini 5\(MTS\)|MTS TV|DV8235|DV8304-C|Osmartphona'
@@ -28625,6 +28657,12 @@ Yxtel:
   regex: 'YXTEL_([HU]1|U3)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
+
+# PROFiLO
+PROFiLO:
+  regex: 'PROFILO(?:[);/ ]|$)'
+  device: 'tv'
+  model: ''
 
 # Proline
 Proline:
@@ -36928,9 +36966,14 @@ Zamolxe:
 
 # REGAL
 REGAL:
-  regex: 'Regal (TAB 10\.1)'
+  regex: 'Regal (?:TAB 10\.1|Google TV)'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: 'Regal (TAB 10\.1)'
+      model: '$1'
+    - regex: 'Regal Google TV'
+      device: 'tv'
+      model: ''
 
 # Great Asia or GreatAsia (www.sz-tabletpc.com)
 Great Asia:
@@ -37350,7 +37393,7 @@ Bolva:
   device: 'tablet'
   model: 'B-TAB1021'
 
-# DIJITSU
+# DIJITSU (http://dijitsu.com.tr/)
 DIJITSU:
   regex: 'DIJITSU_'
   device: 'smartphone'
@@ -37655,6 +37698,12 @@ BASE:
   regex: 'BASE[_ ](Varia)'
   device: 'smartphone'
   model: '$1'
+
+# BAUHN (https://bauhn.com.au/)
+BAUHN:
+  regex: 'BAUHN(?:[);/ ]|$)'
+  device: 'tv'
+  model: ''
 
 # CKK Mobile
 CKK Mobile:
