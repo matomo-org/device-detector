@@ -103,7 +103,7 @@ Adronix:
 
 # Cherry Mobile (cherrymobile.com)
 'Cherry Mobile':
-  regex: 'Cherry|Superion[_ ](?:S2|Radar Deluxe|S1 DTV|S1 Plus DTV|Tab Pro)|Flare([ _])?(2.[01]|2X|4|A[123]|J[1235678]|P[13]|S[4-8]|X2|Y[3567]|S[ _]Play|HD|LITE|XL|X_V[23]|Y3s|Tab|INFINITY)(?:[ _](?:Pro|Plus|Max|LTE))?|Fusion Aura 3s|Radar Deluxe 2|Desire R[678]|Desire_R[67]_Lite|Fusion Bolt|Omega[_ ](?:Icon 2|Icon Lite 2|lite[_ ][243][Cs]?|HD [45]|HD_Duo|X)|Spin Max 2|Selfie_Two|Flare X Lite|Flare_5|Android 1.*Aqua S9|Omega_HD_4|MAIA PAD PLUS|COSMOS THREE| Revel 3G|Touch XL 2'
+  regex: 'Cherry|Superion[_ ](?:S2|Radar Deluxe|S1 DTV|S1 Plus DTV|Tab Pro)|Flare([ _])?(2.[01]|2X|4|A[123]|J[1235678]|P[13]|S[4-8]|X2|Y[3567]|S[ _]Play|HD|LITE|XL|X_V[23]|Y3s|Tab|INFINITY)(?:[ _](?:Pro|Plus|Max|LTE))?|Fusion Aura 3s|Radar Deluxe 2|Desire R[678]|Desire_R[67]_Lite|Fusion Bolt|Omega[_ ](?:Icon 2|Icon Lite 2|lite[_ ][243][Cs]?|HD [45]|HD_Duo|X)|Spin Max 2|Selfie_Two|Flare X Lite|Flare_5|Android 1.*Aqua S9|Omega_HD_4|MAIA PAD PLUS|COSMOS THREE| Revel 3G|Touch XL 2|DSR_(?:R8|R7P?)'
   device: 'smartphone'
   models:
     - regex: '(Flare2X|Aqua S9(?: (?:Max|Lite|Pro))?)'
@@ -187,6 +187,10 @@ Adronix:
       model: 'Desire R6 Plus'
     - regex: 'Desire R6'
       model: 'Desire R6'
+    - regex: 'DSR_R([78])P'
+      model: 'Desire R$1 Plus'
+    - regex: 'DSR_R([78])'
+      model: 'Desire R$1'
     - regex: 'Desire Eye'
       model: 'Desire Eye'
     - regex: 'COSMOS THREE'
@@ -4806,9 +4810,11 @@ Vinsoc:
 
 # Bird
 Bird:
-  regex: 'BIRD[\-. _]([^;/]+)'
+  regex: 'BIRD[-. _]([^;/]+)|(E5018)(?:[);/ ]|$)'
   device: 'feature phone'
   models:
+    - regex: '(E5018)(?:[);/ ]|$)'
+      model: '$1'
     - regex: 'BIRD[\-. _]([^;/]+) Build'
       model: '$1'
     - regex: 'BIRD[\-. _]([^;/]+)'
@@ -10802,7 +10808,7 @@ Huawei:
 
 # Hyundai
 Hyundai:
-  regex: 'Hyundai|(?:Ultra (?:Active|Air|Charm|Dream|Energy|Latitude|Link|Live|Shadow|Shine|Storm|Style|Sync|Trend|Vision|Wave)|Ultra_Vision_Plus|E(?:475|504|603)|G(?:24027|2552[34])K|W25042L|HP554O|Seoul (ECO|S8|MIX|5 Plus|9)|L503F Plus|HT0701L16|HT0703K16|HT0704K08|HT100(?:4LI?16|2W32|3X16|2W16)|Koral_8W2|HT0701W16|Eternity[_ ](?:G25|H6[578])|HYMI 5S Plus|7GB1|7WD1|(?:Android 9;(?: [\w-]+;)? [EL]553)|10LB1|L601F|10WB1|E601F|E503F|E465GO|H-LED(?:55GU7003|55EU1311|24BS5000|40GS5003|43FS5003|32FS5005)|H-DMP100|HT070[34]W08|Koral 7W4)(?:[);/ ]|$)'
+  regex: 'Hyundai|(?:Ultra (?:Active|Air|Charm|Dream|Energy|Latitude|Link|Live|Shadow|Shine|Storm|Style|Sync|Trend|Vision|Wave)|Ultra_Vision_Plus|E(?:475|504|603)|G(?:24027|2552[34])K|W25042L|HP554O|Seoul (ECO|S8|MIX|5 Plus|9)|L503F Plus|HT0701L16|HT0703K16|HT0704K08|HT100(?:4LI?16|2W32|3X16|2W16)|Koral_8W2|HT0701W16|Eternity[_ ](?:G25|H6[578])|HYMI 5S Plus|7GB1|7WD1|(?:Android 9;(?: [\w-]+;)? [EL]553)|10LB1|L601F|10WB1|E601F|E503F|E465GO|H-LED(?:55GU7003|55EU1311|24BS5000|40GS5003|43FS5003|32FS5005)|H-DMP100|HT070[34]W08|Koral 7W4|E435 Plus)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Ultra[_ ]Vision[_ ]Plus'
@@ -10843,7 +10849,7 @@ Hyundai:
       model: 'E$1'
     - regex: 'L(553|601F)(?:[);/ ]|$)'
       model: 'L$1'
-    - regex: '(?:Hyundai[_ ])?(Eternity[_ ](?:G57L?|G[56]0W?)|H7|Aero Plus)'
+    - regex: '(?:Hyundai[_ ])?(Eternity[_ ](?:G57L?|G[56]0W?)|H7|Aero Plus|E435 Plus)'
       model: '$1'
 
     - regex: '(H-LED\w+|H-DMP100)(?:[);/ ]|$)'
@@ -27397,7 +27403,7 @@ ZTE:
       model: 'Blade A$1 Lite'
     - regex: 'Blade (S6|A[35]1?) Plus'
       model: 'Blade $1 Plus'
-    - regex: 'BLADE A0622(?:[);/ ]|$)'
+    - regex: '(?:ZTE[ _])?BLADE[ _]A062[02](?:[);/ ]|$)'
       model: 'Blade A6'
     - regex: 'BLADE (?:A6 MAX|A0605)(?:[);/ ]|$)'
       model: 'Blade A6 Max'
@@ -27413,8 +27419,8 @@ ZTE:
       model: 'Blade S7'
     - regex: 'ZTE[ _]T617(?:[);/ ]|$)'
       model: 'Blade D Lux'
-    - regex: 'Blade L210'
-      model: 'Blade L210'
+    - regex: '(?:ZTE[ _])?Blade[ _]L(210|130)'
+      model: 'Blade L$1'
     - regex: '(?:ZTE_)?Blade_A5_2019'
       model: 'Blade A5'
     - regex: 'BLADE V Ultra(?:[);/ ]|$)'
@@ -29023,7 +29029,7 @@ iGet:
 
 # Phicomm
 Phicomm:
-  regex: '(PHICOMM)(?:[);/ ]|$)'
+  regex: '(PHICOMM|E5051)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'C630 \(CLUE L\)(?:[);/ ]|$)'
@@ -29032,8 +29038,8 @@ Phicomm:
       model: 'Energy L'
     - regex: 'PHICOMM ENERGY 3\+(?:[);/ ]|$)'
       model: 'Energy 3+'
-    - regex: 'CLUE (2S|M|C230)(?:[);/ ]|$)'
-      model: 'Clue $1'
+    - regex: 'E5051(?:[);/ ]|$)'
+      model: 'Energy 4S'
 
 # Huadoo
 Huadoo:
@@ -34705,10 +34711,12 @@ TAG Tech:
 
 # DUNNS Mobile or DUNNS
 DUNNS Mobile:
-  regex: 'DUNNS[ _]'
+  regex: 'DUNNS[ _]|DunnsExecutive'
   device: 'smartphone'
   models:
-    - regex: 'DUNNS[ _](?:MOBILE[ _])?(703GDC|AT1001)(?:[);/ ]|$)'
+    - regex: 'DUNNS[ _](Slinger)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'DUNNS[ _]?(?:MOBILE[ _])?(703GDC|AT1001|Executive)(?:[);/ ]|$)'
       device: 'tablet'
       model: '$1'
 
@@ -37739,9 +37747,15 @@ BAUHN:
 
 # CKK Mobile
 CKK Mobile:
-  regex: 'CKK (Inspire 1|Garnet)'
+  regex: 'CKK (Inspire 1|Garnet)|(?:DUKE8|DUKE 3|DUKE\s+II)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'DUKE ?([38])'
+      model: 'DUKE $1'
+    - regex: 'DUKE\s+II'
+      model: 'DUKE 2'
+    - regex: 'CKK (Inspire 1|Garnet)'
+      model: '$1'
 
 # SPURT
 SPURT:
