@@ -26,7 +26,7 @@ use DeviceDetector\Yaml\ParserInterface as YamlParser;
 class Browser extends AbstractClientParser
 {
     /**
-     * @var BrowserHints|null
+     * @var BrowserHints
      */
     private $browserHints;
 
