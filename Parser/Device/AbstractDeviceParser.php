@@ -724,7 +724,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '2K'  => 'IKI Mobile',
         'IK'  => 'iKoMo',
         '58'  => 'iKon',
-        '58'  => 'iKonia',
+        '588' => 'iKonia',
         'I7'  => 'iLA',
         '2I'  => 'iLife',
         '1I'  => 'iMars',
