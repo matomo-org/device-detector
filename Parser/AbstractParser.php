@@ -110,14 +110,14 @@ abstract class AbstractParser
     public const VERSION_TRUNCATION_NONE = -1;
 
     /**
-     * @var CacheInterface
+     * @var CacheInterface|null
      */
-    protected $cache;
+    protected $cache = null;
 
     /**
-     * @var YamlParser
+     * @var YamlParser|null
      */
-    protected $yamlParser;
+    protected $yamlParser = null;
 
     /**
      * parses the currently set useragents and returns possible results
@@ -244,14 +244,24 @@ abstract class AbstractParser
     protected function getRegexes(): array
     {
         if (empty($this->regexList)) {
-            $cacheKey        = 'DeviceDetector-' . DeviceDetector::VERSION . 'regexes-' . $this->getName();
-            $cacheKey        = (string) \preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
-            $this->regexList = $this->getCache()->fetch($cacheKey);
+            $cacheKey     = 'DeviceDetector-' . DeviceDetector::VERSION . 'regexes-' . $this->getName();
+            $cacheKey     = (string) \preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
+            $cacheContent = $this->getCache()->fetch($cacheKey);
+
+            if (\is_array($cacheContent)) {
+                $this->regexList = $cacheContent;
+            }
 
             if (empty($this->regexList)) {
-                $this->regexList = $this->getYamlParser()->parseFile(
+                $parsedContent = $this->getYamlParser()->parseFile(
                     $this->getRegexesDirectory() . DIRECTORY_SEPARATOR . $this->fixtureFile
                 );
+
+                if (!\is_array($parsedContent)) {
+                    $parsedContent = [];
+                }
+
+                $this->regexList = $parsedContent;
                 $this->getCache()->save($cacheKey, $this->regexList);
             }
         }
@@ -385,7 +395,11 @@ abstract class AbstractParser
         $cacheKey = (string) \preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
 
         if (empty($this->overAllMatch)) {
-            $this->overAllMatch = $this->getCache()->fetch($cacheKey);
+            $overAllMatch = $this->getCache()->fetch($cacheKey);
+
+            if (\is_string($overAllMatch)) {
+                $this->overAllMatch = $overAllMatch;
+            }
         }
 
         if (empty($this->overAllMatch)) {

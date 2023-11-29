@@ -1832,11 +1832,17 @@ abstract class AbstractDeviceParser extends AbstractParser
      *
      * @param int $deviceType one of the DEVICE_TYPE_* constants
      *
-     * @return mixed
+     * @return string
      */
-    public static function getDeviceName(int $deviceType)
+    public static function getDeviceName(int $deviceType): string
     {
-        return \array_search($deviceType, self::$deviceTypes);
+        $deviceName = \array_search($deviceType, self::$deviceTypes);
+
+        if (\is_string($deviceName)) {
+            return $deviceName;
+        }
+
+        return '';
     }
 
     /**
@@ -1910,8 +1916,8 @@ abstract class AbstractDeviceParser extends AbstractParser
 
         // is freeze user-agent then restoring the original UA for the device definition
         if ('' !== $deviceModel && \preg_match('~Android 10[.\d]*; K(?: Build/|[;)])~i', $this->userAgent)) {
-            $osVersion = $this->clientHints->getOperatingSystemVersion();
-            $this->setUserAgent(\preg_replace(
+            $osVersion = $this->clientHints ? $this->clientHints->getOperatingSystemVersion() : '';
+            $this->setUserAgent((string) \preg_replace(
                 '(Android 10[.\d]*; K)',
                 \sprintf('Android %s; %s', '' !== $osVersion ? $osVersion : '10', $deviceModel),
                 $this->userAgent

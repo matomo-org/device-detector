@@ -192,6 +192,7 @@ class ClientHints
             $versions = \array_column($this->fullVersionList, 'version');
 
             if (\count($brands) === \count($versions)) {
+                // @phpstan-ignore-next-line
                 return \array_combine($brands, $versions);
             }
         }
