@@ -25,7 +25,7 @@ use DeviceDetector\Yaml\ParserInterface as YamlParser;
 class MobileApp extends AbstractClientParser
 {
     /**
-     * @var AppHints|null
+     * @var AppHints
      */
     private $appHints;
 

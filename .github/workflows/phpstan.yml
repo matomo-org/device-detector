@@ -24,10 +24,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: "Checkout"
-        uses: actions/checkout@v4
-
-      - name: PHPStan
-        uses: docker://oskarstark/phpstan-ga
+      - uses: actions/checkout@v4
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
         with:
-          args: analyse -c phpstan.neon
+          php-version: 8.2
+          tools: composer:v2
+      - name: "Composer install"
+        run: |
+          composer install --ignore-platform-reqs
+      - name: PHPStan
+        run: |
+          php -v
+          ./vendor/bin/phpstan analyse -c phpstan.neon
