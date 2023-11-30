@@ -565,6 +565,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FJ'  => 'FOODO',
         'FOS' => 'FOSSiBOT',
         'FT'  => 'Freetel',
+        'FEY' => 'FreeYond',
         'FRU' => 'Frunsi',
         'F4'  => 'F&U',
         '1F'  => 'FMT',
