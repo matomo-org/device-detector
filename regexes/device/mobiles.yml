@@ -6648,11 +6648,13 @@ Digiland:
 
 # Digit4G (https://digit4g.com/p)
 Digit4G:
-  regex: 'Digit(?:4G|play1)'
+  regex: 'Digit4G|Digit(?:4G|play1)'
   device: 'smartphone'
   models:
     - regex: 'Digitplay1(?:[);/ ]|$)'
       model: 'Play1'
+    - regex: 'Digit4G E([23]) pro(?:[);/ ]|$)'
+      model: 'E$1 Pro'
     - regex: 'Digit4G[ -](Energy|Pro)'
       model: '$1'
 
@@ -6817,7 +6819,7 @@ Digma:
     - regex: 'RS1267PL'
       model: 'Pro 1480E 4G'
       device: 'tablet'
-    - regex: '((?:Optima|Platina|Plane)[ _](?:[EM])?(?:[0-9\.STNMEVCD]+|Prime(?:[ _][345])?)(?:[ _][43]G)?)'
+    - regex: '((?:Optima|Platina|Plane)[ _](?:[EM])?(?:[0-9\.BSTNMEVCD]+|Prime(?:[ _][345])?)(?:[ _][43]G)?)'
       model: '$1'
       device: 'tablet'
     - regex: 'Digma[_ ]([^;/]+) Build'
@@ -19280,7 +19282,7 @@ Pioneer Computers:
 
 # Pioneer
 Pioneer:
-  regex: 'Pioneer|.*; R1 Build|(?:dvr700pi|XDP-300R|F9212[AB]|SDA-835TAB|SDA-80TAB)(?:[);/ ]|$)'
+  regex: 'Pioneer|.*; R1 Build|(?:dvr700pi|XDP-300R|F9212[AB]|SDA-835TAB|SDA-80?TAB)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '.*; R1 Build'
@@ -19292,7 +19294,7 @@ Pioneer:
     - regex: '(XDP-300R)'
       device: 'portable media player'
       model: '$1'
-    - regex: '(F9212[AB]|SDA-835TAB|SDA-80TAB)'
+    - regex: '(F9212[AB]|SDA-835TAB|SDA-80?TAB)'
       device: 'car browser'
       model: '$1'
     - regex: 'BDP-160'
@@ -19674,7 +19676,7 @@ Siemens:
 
 # Soundmax
 Soundmax:
-  regex: '((?:SM-LED32M(?:11|04)S)|SM-LED40M04S)(?:_-Ver01)?(?:[);/ ]|$)'
+  regex: '((?:SM-LED32M(?:11|04)S)|SM-LED(?:40M04S|65M01SU))(?:_-Ver01)?(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
@@ -22331,8 +22333,8 @@ QMobile:
       model: 'i8i'
     - regex: 'i6 Metal ONE'
       model: 'i6 Metal One'
-    - regex: 'i6 Metal 2017'
-      model: 'i6 Metal (2017)'
+    - regex: 'i6 Metal (2018)'
+      model: 'i6 Metal ($1)'
     - regex: 'Smart HD Pro'
       model: 'Smart HD Pro'
     - regex: 'Rocket Pro'
