@@ -917,6 +917,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '1L'  => 'Logic',
         'LH'  => 'Logic Instrument',
         'LM'  => 'Logicom',
+        'LOG' => 'Logik',
         'GY'  => 'LOKMAT',
         'LPX' => 'LPX-G',
         '0L'  => 'Lumigon',
