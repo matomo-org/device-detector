@@ -8,9 +8,17 @@
 
     <!-- use MO4 coding standard as base -->
     <rule ref="MO4">
-       <exclude name="SlevomatCodingStandard.Commenting.UselessInheritDocComment"/>
-       <exclude name="SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter"/>
-       <exclude name="Squiz.PHP.DisallowMultipleAssignments.Found"/>
+        <exclude name="SlevomatCodingStandard.Classes.ForbiddenPublicProperty.ForbiddenPublicProperty"/>
+        <exclude name="SlevomatCodingStandard.Commenting.UselessInheritDocComment"/>
+        <exclude name="SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter"/>
+        <exclude name="Squiz.PHP.DisallowMultipleAssignments.Found"/>
+        <exclude name="SlevomatCodingStandard.ControlStructures.RequireTernaryOperator"/>
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.ControlStructures.RequireTernaryOperator">
+        <properties>
+            <property name="ignoreMultiLine" value="true"/>
+        </properties>
     </rule>
 
     <rule ref="Symfony.Commenting">
@@ -58,9 +66,9 @@
     <!-- Require strict types -->
     <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
         <properties>
-            <property name="newlinesCountBetweenOpenTagAndDeclare" value="0" />
+            <property name="linesCountBeforeDeclare" value="1" />
             <property name="spacesCountAroundEqualsSign" value="0" />
-            <property name="newlinesCountAfterDeclare" value="2" />
+            <property name="linesCountAfterDeclare" value="1" />
         </properties>
     </rule>
 
