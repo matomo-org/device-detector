@@ -868,6 +868,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '8K'  => 'Kult',
         'KU'  => 'Kumai',
         '6K'  => 'Kurio',
+        'KYD' => 'Kydos',
         'KY'  => 'Kyocera',
         'KQ'  => 'Kyowon',
         '1K'  => 'Kzen',
