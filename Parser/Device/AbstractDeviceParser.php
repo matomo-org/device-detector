@@ -1060,6 +1060,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'NEM' => 'Netmak',
         'NU'  => 'NeuImage',
         'NEU' => 'NeuTab',
+        'NEV' => 'NEVIR',
         'NW'  => 'Newgen',
         'N9'  => 'Newland',
         '0N'  => 'Newman',
