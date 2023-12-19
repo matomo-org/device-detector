@@ -1168,6 +1168,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'OPT' => 'Optoma',
         'OPH' => 'Ophone',
         'OR'  => 'Orange',
+        'ORA' => 'Orava',
         'O5'  => 'Orbic',
         'Y6'  => 'Orbita',
         'ORB' => 'Orbsmart',
