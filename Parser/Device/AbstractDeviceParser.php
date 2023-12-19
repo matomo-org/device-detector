@@ -634,6 +634,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'GOO' => 'GOODTEL',
         '8G'  => 'Gplus',
         'GR'  => 'Gradiente',
+        'GRE' => 'Graetz',
         'GP'  => 'Grape',
         'G6'  => 'Gree',
         'GRA' => 'Great Asia',
