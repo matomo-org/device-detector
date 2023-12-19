@@ -1698,6 +1698,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'WAF' => 'WAF',
         'WAL' => 'Waltter',
         'WHI' => 'White Mobile',
+        'WBL' => 'We. by Loewe.',
         'WM'  => 'Weimei',
         'WE'  => 'WellcoM',
         'W6'  => 'WELLINGTON',
