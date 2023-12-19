@@ -1488,6 +1488,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'U5'  => 'Taiga System',
         'TAL' => 'Talius',
         '7G'  => 'TAG Tech',
+        'TAU' => 'TAUBE',
         'T5'  => 'TB Touch',
         'TC'  => 'TCL',
         'T0'  => 'TD Systems',
