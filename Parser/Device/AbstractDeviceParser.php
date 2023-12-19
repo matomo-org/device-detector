@@ -1423,6 +1423,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'JL'  => 'SOLO',
         'SOS' => 'SOSH',
         'SOD' => 'Soda',
+        'SOL' => 'Solas',
         '16'  => 'Solone',
         'OI'  => 'Sonim',
         'SVE' => 'Sveon',
