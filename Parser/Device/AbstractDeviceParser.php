@@ -302,6 +302,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CJ'  => 'Cavion',
         '4D'  => 'Canal Digital',
         'CNG' => 'Canguro',
+        'CEC' => 'Cecotec',
         'CEI' => 'Ceibal',
         '02'  => 'Cell-C',
         'CEL' => 'Cellacom',
