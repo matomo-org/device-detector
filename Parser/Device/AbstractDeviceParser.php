@@ -1264,6 +1264,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'P6'  => 'Proline',
         '5O'  => 'Prology',
         'P1'  => 'ProScan',
+        'PRO' => 'PROSONIC',
         'P7'  => 'Protruly',
         'R0'  => 'ProVision',
         '7O'  => 'Polestar',
