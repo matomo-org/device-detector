@@ -1492,7 +1492,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'W8'  => 'SUNWIND',
         'SBX' => 'SuperBOX',
         'SBR' => 'Sber',
-        'GEN' => 'Super General',
+        'SGE' => 'Super General',
         'SU'  => 'SuperSonic',
         '79'  => 'SuperTab',
         'S5'  => 'Supra',
