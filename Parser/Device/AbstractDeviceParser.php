@@ -1372,6 +1372,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SCO' => 'Scosmos',
         'ZG'  => 'Schok',
         'G8'  => 'SEG',
+        'SEX' => 'SEHMAX',
         'SD'  => 'Sega',
         '0U'  => 'Selecline',
         '9G'  => 'Selenga',
