@@ -424,6 +424,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'DIM' => 'DIMO',
         '5D'  => 'DING DING',
         'DIN' => 'Dinax',
+        'DNA' => 'Dinalink',
         'DM'  => 'DMM',
         'DN'  => 'DNS',
         'DC'  => 'DoCoMo',
