@@ -1002,6 +1002,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '0E'  => 'Melrose',
         'MU'  => 'Memup',
         'ME'  => 'Metz',
+        'MEO' => 'MEO',
         'MX'  => 'MEU',
         'MI'  => 'MicroMax',
         'MS'  => 'Microsoft',
