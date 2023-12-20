@@ -485,6 +485,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '03'  => 'Electroneum',
         'Z8'  => 'ELECTRONIA',
         'EL1' => 'Elecson',
+        'ELK' => 'Elektroland',
         'L0'  => 'Element',
         'EG'  => 'Elenberg',
         'EL'  => 'Elephone',
