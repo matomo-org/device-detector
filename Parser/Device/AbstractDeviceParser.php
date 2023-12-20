@@ -143,7 +143,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'A5'  => 'altron',
         'ALT' => 'Altus',
         'KN'  => 'Amazon',
-        'AMZ' => 'AmazonBasics',
+        'AMZ' => 'Amazon Basics',
         'AMA' => 'AMA',
         'AG'  => 'AMGOO',
         '9A'  => 'Amigoo',
