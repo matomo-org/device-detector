@@ -1748,6 +1748,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'WL'  => 'Wolder',
         'WG'  => 'Wolfgang',
         'WQ'  => 'Wolki',
+        'WON' => 'WONDER',
         'WO'  => 'Wonu',
         'W1'  => 'Woo',
         'WR'  => 'Wortmann',
