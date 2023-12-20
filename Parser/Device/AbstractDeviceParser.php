@@ -249,6 +249,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ZB'  => 'Bittium',
         'BK'  => 'Bkav',
         '5B'  => 'Black Bear',
+        'BLK' => 'Black Box',
         'BF'  => 'Black Fox',
         'BPC' => 'Blackpcs',
         'B2'  => 'Blackview',
