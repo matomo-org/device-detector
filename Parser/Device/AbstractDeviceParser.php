@@ -1363,6 +1363,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SLF' => 'SAILF',
         'X1'  => 'Safaricom',
         'SG'  => 'Sagem',
+        'SAG' => 'Sagemcom',
         '4L'  => 'Salora',
         'SA'  => 'Samsung',
         'SAT' => 'Samtech',
