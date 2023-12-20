@@ -561,6 +561,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'F3'  => 'FireFly Mobile',
         'F8'  => 'FISE',
         'FIT' => 'FITCO',
+        'FLM' => 'Filimo',
         'FIL' => 'FILIX',
         'FL'  => 'Fly',
         'QC'  => 'FLYCAT',
