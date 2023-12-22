@@ -313,6 +313,27 @@ class OperatingSystem extends AbstractParser
                 if ('HarmonyOS' === $name) {
                     $version = '';
                 }
+
+                if ('Fire OS' === $osFromUserAgent['name']) {
+                        $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
+
+                        $fireOsVersionMapping = [
+                            '11'    => '8',
+                            '10'    => '8',
+                            '9'     => '7',
+                            '7'     => '6',
+                            '5'     => '5',
+                            '4.4.3' => '4.5.1',
+                            '4.4.2' => '4',
+                            '4.2.2' => '3',
+                            '4.0.3' => '3',
+                            '4.0.2' => '3',
+                            '4'     => '2',
+                            '2'     => '1',
+                        ];
+
+                        $version = $fireOsVersionMapping[$version] ?? $fireOsVersionMapping[$majorVersion] ?? $version;
+                }
             }
 
             $short = $osFromClientHints['short_name'];
