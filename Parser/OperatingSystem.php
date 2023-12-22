@@ -316,6 +316,7 @@ class OperatingSystem extends AbstractParser
 
                 if ('Fire OS' === $osFromUserAgent['name']) {
                         $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
+
                         $fireOsVersionMapping = [
                             '11'    => '8',
                             '10'    => '8',
