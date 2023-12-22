@@ -328,7 +328,7 @@ class OperatingSystem extends AbstractParser
                             '4.0.3' => '3',
                             '4.0.2' => '3',
                             '4'     => '2',
-                            '2'     => '1'
+                            '2'     => '1',
                         ];
 
                         $version = $fireOsVersionMapping[$version] ?? $fireOsVersionMapping[$majorVersion] ?? $version;
