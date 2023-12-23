@@ -7966,11 +7966,14 @@ Sony:
       device: 'portable media player'
 
     # general detections
-    - regex: 'SonyBDP|SonyDBV'
-      model: 'Blu-ray Player'
+    - regex: 'BDPlayer; ([0-9a-z\-_]+);'
+      model: '$1'
       device: 'tv'
-    - regex: 'BDP2015'
-      model: 'Blu-ray Player (2015)'
+    - regex: 'BDP(201[3-7])'
+      model: 'Blu-ray Player ($1)'
+      device: 'tv'
+    - regex: 'SonyBDP|SonyDBV|BDPlayer'
+      model: 'Blu-ray Player'
       device: 'tv'
     - regex: '(?:Sony-)?(KDL?-?[0-9a-z]+)'
       model: '$1'
