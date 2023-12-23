@@ -761,13 +761,21 @@ Panasonic:
   regex: 'Panasonic'
   device: 'tv'
   models:
+    - regex: 'TX-50JX700E'
+      model: 'TX-50JX700E'
     - regex: 'VIERA (201[1-9])'
       model: 'VIERA ($1)'
     - regex: '(DIGA [A-Z]{1}[0-9]{4})'
       model: '$1'
     - regex: 'DIGA Webkit ([A-Z]{1}[0-9]{4})'
       model: 'DIGA $1'
-    - regex: 'SmartTV(201[89]|202[0-1])'
+    - regex: 'SmartTV(201[89]|202[0-2])'
+      model: 'Smart TV ($1)'
+    - regex: 'Panasonic\..+\.([0-9]{4})(?:\.Mediatek|[);/ ]|$)'
+      model: 'Smart TV ($1)'
+    - regex: 'Panasonic;Viera([0-9]{4});'
+      model: 'Smart TV ($1)'
+    - regex: '_TV_[A-Z0-9_]+_([0-9]{4});'
       model: 'Smart TV ($1)'
 
 # PEAQ
