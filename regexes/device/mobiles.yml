@@ -34336,9 +34336,14 @@ SK Broadband:
 
 # Humax (https://automotive-en.humaxdigital.com/)
 Humax:
-  regex: '(AIVI-N3000RV)(?:[);/ ]|$)'
-  device: 'car browser'
-  model: '$1'
+  regex: 'Humax[;,]|(AIVI-N3000RV)(?:[);/ ]|$)'
+  device: 'tv'
+  models:
+    - regex: 'Humax[;,] ([a-z0-9]+)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: '(AIVI-N3000RV)(?:[);/ ]|$)'
+      device: 'car browser'
+      model: '$1'
 
 # Perfeo (perfeo.ru)
 Perfeo:
