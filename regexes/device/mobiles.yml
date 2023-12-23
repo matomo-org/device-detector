@@ -15463,7 +15463,7 @@ Karbonn:
 
 # Sagem (https://www.sagemcom.com/)
 Sagem:
-  regex: 'SAGEM|portalmmm/2.0 (?:SG|my)'
+  regex: 'SAGEM(?!com)|portalmmm/2.0 (?:SG|my)'
   device: 'smartphone'
   models:
     - regex: 'SAGEM-(my[a-z0-9\-]+)'
@@ -15475,12 +15475,6 @@ Sagem:
       model: '$1'
     - regex: 'portalmmm/2.0 ((?:SG|my)[a-z0-9]+)'
       model: '$1'
-    - regex: '(DI384|DIW350|DIW387)'
-      model: '$1'
-      device: 'tv'
-    - regex: 'Sagemcom_Broadband_SAS,([a-z0-9_ \-]+),(?:wired|wireless)'
-      model: '$1'
-      device: 'tv'
 
 # Coby Kyros
 Coby Kyros:
@@ -38437,9 +38431,17 @@ Hisense:
 
 # Sagemcom (https://www.sagemcom.com/)
 Sagemcom:
-  regex: '(DIW3930)(?:[);/ ]|$)'
+  regex: 'Sagemcom[;, \-_]|(DIW3930)(?:[);/ ]|$)'
   device: 'tv'
-  model: '$1'
+  models:
+    - regex: '(DI384|DIW350|DIW387|DIW3930)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'Sagemcom[;,] ([a-z0-9]+)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'Sagemcom\-OTT\-([a-z0-9]+)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'Sagemcom_Broadband_SAS,([a-z0-9_ \-]+),(?:wired|wireless)'
+      model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
