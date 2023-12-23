@@ -1778,6 +1778,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '96Q' => 'X96Q',
         'A95' => 'A95X',
         'XG'  => 'Xgody',
+        'XGE' => 'XGEM',
         'QX'  => 'XGIMI',
         'XL'  => 'Xiaolajiao',
         'XI'  => 'Xiaomi',
