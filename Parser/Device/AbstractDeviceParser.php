@@ -1176,6 +1176,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'O4'  => 'ONN',
         '9Q'  => 'Onkyo',
         'ONV' => 'ONVO',
+        'OOR' => 'Ooredoo',
         '2O'  => 'OpelMobile',
         'OH'  => 'Openbox',
         '7Y'  => 'Obabox',
