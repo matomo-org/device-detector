@@ -9422,7 +9422,7 @@ Toshiba:
     - regex: 'AFTKMST12'
       device: 'tv'
       model: '43LF711U20'
-    - regex: 'AFTDCT31'
+    - regex: 'AFTDCT31' # also Insignia 4K UHD (2020)
       device: 'tv'
       model: '4K UHD (2020)'
     - regex: 'AFTBAMR311'
@@ -38291,11 +38291,16 @@ Getnord:
   device: 'smartphone'
   model: '$1'
 
-# Onida
+# Onida (https://www.onida.com/)
 Onida:
-  regex: 'ONIDA[_ ](i4G1)'
+  regex: 'ONIDA[_ ](i4G1)|AFTLE(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'ONIDA[_ ](i4G1)'
+      model: '$1'
+    - regex: 'AFTLE(?:[);/ ]|$)'
+      model: 'Fire TV (2019)'
+      device: 'tv'
 
 # FreeYond (www.freeyond.com)
 FreeYond:
