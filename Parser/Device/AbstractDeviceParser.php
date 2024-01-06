@@ -291,6 +291,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'B1'  => 'Bush',
         '4Q'  => 'Bundy',
         'Y8'  => 'Bubblegum',
+        'BMW' => 'BMW',
         'C9'  => 'CAGI',
         'CT'  => 'Capitel',
         'G3'  => 'CG Mobile',
