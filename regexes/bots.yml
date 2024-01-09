@@ -744,21 +744,21 @@
     name: 'Visual Meta'
     url: 'https://www.shopalike.cz/'
 
-- regex: 'AdsBot-Google|Adwords-(DisplayAds|Express|Instant)|Google Web Preview|Google[ -]Publisher[ -]Plugin|Google-(Ads-Conversions|Ads-Qualify|Adwords|AMPHTML|Assess|HotelAdsVerifier|InspectionTool|Read-Aloud|Shopping-Quality|Site-Verification|speakr|Stale-Content-Probe|Test|Youtube-Links)|(APIs|DuplexWeb|Feedfetcher|Mediapartners)-Google|Googlebot|Google(?:AdSenseInfeed|AssociationService|Other|Prober|Producer)|Google.*/\+/web/snippet'
+- regex: 'Adwords-(?:DisplayAds|Express|Instant)|Google Web Preview|Google[ -]Publisher[ -]Plugin|Google-(?:Ads-Conversions|Ads-Qualify|Adwords|AMPHTML|Assess|Extended|HotelAdsVerifier|InspectionTool|Read-Aloud|Safety|Shopping-Quality|Site-Verification|speakr|Stale-Content-Probe|Test|Youtube-Links)|(?:AdsBot|APIs|DuplexWeb|Feedfetcher|Mediapartners)-Google|Google(?:AdSenseInfeed|AssociationService|bot|Other|Prober|Producer)|Google.*/\+/web/snippet'
   name: 'Googlebot'
   category: 'Search bot'
-  url: 'http://www.google.com/bot.html'
+  url: 'https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers'
   producer:
     name: 'Google Inc.'
-    url: 'http://www.google.com'
+    url: 'https://www.google.com/'
 
 - regex: '^Google$'
   name: 'Googlebot'
   category: 'Search bot'
-  url: 'http://www.google.com/bot.html'
+  url: 'https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers'
   producer:
     name: 'Google Inc.'
-    url: 'http://www.google.com'
+    url: 'https://www.google.com/'
 
 - regex: 'heritrix'
   name: 'Heritrix'
@@ -1638,10 +1638,18 @@
 - regex: 'vkShare; '
   name: 'VK Share Button'
   category: 'Crawler'
-  url: 'http://vk.com/dev/Share'
+  url: 'https://dev.vk.com/en/widgets/share'
   producer:
     name: 'VK'
-    url: 'http://vk.com/'
+    url: 'https://vk.com/'
+
+- regex: 'VKRobot'
+  name: 'VK Robot'
+  category: 'Crawler'
+  url: 'https://dev.vk.com/en/'
+  producer:
+    name: 'VK'
+    url: 'https://vk.com/'
 
 - regex: 'VSMCrawler'
   name: 'Visual Site Mapper Crawler'
@@ -2042,9 +2050,6 @@
 
 - regex: 'RSSRadio \(Push Notification Scanner;support@dorada\.co\.uk\)'
   name: 'RSSRadio Bot'
-
-- regex: '(A6-Indexer|nuhk|TsolCrawler|Yammybot|Openbot|Gulper Web Bot|grub-client|Download Demon|SearchExpress|Microsoft URL Control|borg|altavista|dataminr.com|tweetedtimes.com|TrendsmapResolver|teoma|blitzbot|oegp|furlbot|http%20client|polybot|htdig|mogimogi|larbin|scrubby|searchsight|seekbot|semanticdiscovery|snappy|vortex(?!(?: Build|Plus))|zeal(?!ot)|fast-webcrawler|converacrawler|dataparksearch|findlinks|BrowserMob|HttpMonitor|ThumbShotsBot|URL2PNG|ZooShot|GomezA|Google SketchUp|Read%20Later|RackspaceBot|robots|SeopultContentAnalyzer|7Siters|centuryb.o.t9|InterNaetBoten|EasyBib AutoCite|Bidtellect|tomnomnom/meg|My User Agent|cortex|CF-UC User Agent|Re-re Studio|adreview|AHC/|NameOfAgent|Request-Promise|ALittle Client|Hello,? world|wp_is_mobile|0xAbyssalDoesntExist|Anarchy99|^revolt|nvd0rz|xfa1|Hakai|gbrmss|fuck-your-hp|IDBTE4M CODE87|Antoine|Insomania|Hells-Net|b3astmode|Linux Gnu \(cow\)|custom_user_agent|Test Certificate Info|iplabel|Magellan|CustomUserAgent|TheSafex?Internetx?Search|kirkland-signature)'
-  name: 'Generic Bot'
 
 - regex: '^sentry'
   name: 'Sentry Bot'
@@ -3631,6 +3636,25 @@
     name: 'ООО «Регистратор доменных имен РЕГ.РУ»'
     url: 'https://statonline.ru/'
 
+- regex: 'Spawning-AI'
+  name: 'Spawning AI'
+  category: 'Crawler'
+  url: 'https://spawning.ai/'
+  producer:
+    name: 'Spawning, Inc'
+    url: 'https://spawning.ai/'
+
+- regex: 'domain research project'
+  name: 'Domain Research Project'
+  category: 'Crawler'
+  url: 'https://trentwil.es/domains.html'
+  producer:
+    name: 'Trent Wiles'
+    url: 'https://trentwil.es/'
+
 # Generic detections
+- regex: '(A6-Indexer|nuhk|TsolCrawler|Yammybot|Openbot|Gulper Web Bot|grub-client|Download Demon|SearchExpress|Microsoft URL Control|borg|altavista|dataminr.com|tweetedtimes.com|TrendsmapResolver|teoma|blitzbot|oegp|furlbot|http%20client|polybot|htdig|mogimogi|larbin|scrubby|searchsight|seekbot|semanticdiscovery|snappy|vortex(?!(?: Build|Plus))|zeal(?!ot)|fast-webcrawler|converacrawler|dataparksearch|findlinks|BrowserMob|HttpMonitor|ThumbShotsBot|URL2PNG|ZooShot|GomezA|Google SketchUp|Read%20Later|RackspaceBot|robots|SeopultContentAnalyzer|7Siters|centuryb.o.t9|InterNaetBoten|EasyBib AutoCite|Bidtellect|tomnomnom/meg|My User Agent|cortex|CF-UC User Agent|Re-re Studio|adreview|AHC/|NameOfAgent|Request-Promise|ALittle Client|Hello,? world|wp_is_mobile|0xAbyssalDoesntExist|Anarchy99|^revolt|nvd0rz|xfa1|Hakai|gbrmss|fuck-your-hp|IDBTE4M CODE87|Antoine|Insomania|Hells-Net|b3astmode|Linux Gnu \(cow\)|custom_user_agent|Test Certificate Info|iplabel|Magellan|CustomUserAgent|TheSafex?Internetx?Search|kirkland-signature|research|project(?!or))'
+  name: 'Generic Bot'
+
 - regex: '[a-z0-9\-_]*((?<!cu|power[ _]|m[ _])bot(?![ _]TAB|[ _]?5[0-9]|[ _]Senior|[ _]Junior)|crawler|crawl|checker|archiver|transcoder|spider|^firefox$|^chrome$)([^a-z]|$)'
   name: 'Generic Bot'
