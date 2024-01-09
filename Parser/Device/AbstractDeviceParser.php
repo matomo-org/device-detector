@@ -1316,7 +1316,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'RAY' => 'Raylandz',
         'RC'  => 'RCA Tablets',
         '2R'  => 'Reach',
-        'RED' => 'Redmi',
         'REL' => 'RelNAT',
         'RB'  => 'Readboy',
         'RE'  => 'Realme',
