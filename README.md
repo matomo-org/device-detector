@@ -260,6 +260,7 @@ There are already a few ports of this tool to other languages:
 - **Rust** https://github.com/simplecastapps/rust-device-detector
 - **Go** https://github.com/gamebtc/devicedetector
 - **Go** https://github.com/umutbasal/device-detector-go
+- **Go** https://github.com/robicode/device-detector
 
 ## Icon packs
 
