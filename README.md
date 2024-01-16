@@ -256,7 +256,8 @@ There are already a few ports of this tool to other languages:
 - **Crystal** https://github.com/creadone/device_detector
 - **Elixir** https://github.com/elixir-inspector/ua_inspector
 - **Java** https://github.com/mngsk/device-detector
-- **Rust** https://github.com/simplecastapps/rust-device-detector/
+- **Java** https://github.com/deevvicom/device-detector
+- **Rust** https://github.com/simplecastapps/rust-device-detector
 
 ## Icon packs
 
