@@ -831,6 +831,10 @@ class Browser extends AbstractClientParser
                 $version = $browserFromUserAgent['version'];
             }
 
+            if ('DuckDuckGo Privacy Browser' === $name) {
+                $version = '';
+            }
+
             if ('Vewd Browser' === $name) {
                 $engine        = $browserFromUserAgent['engine'] ?? '';
                 $engineVersion = $browserFromUserAgent['engine_version'] ?? '';
