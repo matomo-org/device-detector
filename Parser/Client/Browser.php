@@ -429,6 +429,7 @@ class Browser extends AbstractClientParser
         'LY' => 'PolyBrowser',
         'PI' => 'PrivacyWall',
         'P4' => 'Privacy Explorer Fast Safe',
+        'P3' => 'Private Internet Browser',
         'P2' => 'Pi Browser',
         'P0' => 'PronHub Browser',
         'PC' => 'PSI Secure Browser',
@@ -618,7 +619,7 @@ class Browser extends AbstractClientParser
             'XB', 'W1', 'HT', 'B8', 'F5', 'B9', 'WA', 'T0', 'HC',
             'O6', 'P7', 'LJ', 'LC', 'O7', 'N2', 'A8', 'P8', 'RB',
             '1W', 'EV', 'I9', 'V4', 'H4', '1T', 'M5', '0S', '0C',
-            'ZR', 'D6', 'F6', 'RC', 'WD',
+            'ZR', 'D6', 'F6', 'RC', 'WD', 'P3',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -658,7 +659,7 @@ class Browser extends AbstractClientParser
         'DM', '1M', 'A7', 'XN', 'XT', 'XB', 'W1', 'HT', 'B7',
         'B9', 'T0', 'I8', 'O6', 'P7', 'O8', '4B', 'A8', 'P8',
         '1W', 'EV', 'Z0', 'I9', 'V4', 'H4', 'M5', '0S', '0C',
-        'ZR', 'D6', 'F6',
+        'ZR', 'D6', 'F6', 'P3',
     ];
 
     /**
