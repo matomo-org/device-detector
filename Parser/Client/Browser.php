@@ -669,8 +669,9 @@ class Browser extends AbstractClientParser
      * @var array<string, array<string>>
      */
     protected static $clientHintMapping = [
-        'Chrome'       => ['Google Chrome'],
-        'Vewd Browser' => ['Vewd Core'],
+        'Chrome'                     => ['Google Chrome'],
+        'Vewd Browser'               => ['Vewd Core'],
+        'DuckDuckGo Privacy Browser' => ['DuckDuckGo'],
     ];
 
     /**
