@@ -533,6 +533,7 @@ class Browser extends AbstractClientParser
         'V0' => 'vBrowser',
         'VA' => 'Vast Browser',
         'VE' => 'Venus Browser',
+        'WD' => 'Vewd Browser',
         'N0' => 'Nova Video Downloader Pro',
         'VS' => 'Viasat Browser',
         'VI' => 'Vivaldi',
@@ -617,7 +618,7 @@ class Browser extends AbstractClientParser
             'XB', 'W1', 'HT', 'B8', 'F5', 'B9', 'WA', 'T0', 'HC',
             'O6', 'P7', 'LJ', 'LC', 'O7', 'N2', 'A8', 'P8', 'RB',
             '1W', 'EV', 'I9', 'V4', 'H4', '1T', 'M5', '0S', '0C',
-            'ZR', 'D6', 'F6', 'RC',
+            'ZR', 'D6', 'F6', 'RC', 'WD',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -667,6 +668,7 @@ class Browser extends AbstractClientParser
      */
     protected static $clientHintMapping = [
         'Chrome' => ['Google Chrome'],
+        'Vewd Browser' => ['Vewd Core'],
     ];
 
     /**
@@ -819,6 +821,11 @@ class Browser extends AbstractClientParser
 
             if ('Atom' === $name || 'Huawei Browser' === $name) {
                 $version = $browserFromUserAgent['version'];
+            }
+
+            if ('Vewd Browser' === $name) {
+                $engine        = $browserFromUserAgent['engine'] ?? '';
+                $engineVersion = $browserFromUserAgent['engine_version'] ?? '';
             }
 
             // If client hints report Chromium, but user agent detects a Chromium based browser, we favor this instead
