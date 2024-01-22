@@ -810,9 +810,14 @@ class Browser extends AbstractClientParser
             $engine        = '';
             $engineVersion = '';
 
-            // If version from client hints report 2022 or 2022.04, then is the Iridium browser
-            // https://iridiumbrowser.de/news/2022/05/16/version-2022-04-released
-            if ('2021.12' === $version || '2022' === $version || '2022.04' === $version) {
+            // If the version reported from the client hints is YYYY or YYYY.MM (e.g., 2022 or 2022.04),
+            // then it is the Iridium browser
+            // https://iridiumbrowser.de/news/
+            if (0 === \strpos($version, '2020')
+                || 0 === \strpos($version, '2021')
+                || 0 === \strpos($version, '2022')
+                || 0 === \strpos($version, '2023')
+            ) {
                 $name          = 'Iridium';
                 $short         = 'I1';
                 $engine        = $browserFromUserAgent['engine'];
