@@ -844,7 +844,7 @@ class Browser extends AbstractClientParser
                 $short = $browserFromUserAgent['short_name'];
             }
 
-            // If useragent detects another browser, but the family matches, we use the detected engine from useragent
+            // If user agent detects another browser, but the family matches, we use the detected engine from user agent
             if ($name !== $browserFromUserAgent['name']
                 && self::getBrowserFamily($name) === self::getBrowserFamily($browserFromUserAgent['name'])
             ) {
@@ -951,7 +951,7 @@ class Browser extends AbstractClientParser
                     }
                 }
 
-                // If we detected a brand, that is not chromium, we will use it, otherwise we will look further
+                // If we detected a brand, that is not Chromium, we will use it, otherwise we will look further
                 if ('' !== $name && 'Chromium' !== $name) {
                     break;
                 }
@@ -968,7 +968,7 @@ class Browser extends AbstractClientParser
     }
 
     /**
-     * Returns the browser that can be detected from useragent
+     * Returns the browser that can be detected from user agent
      *
      * @return array
      *
