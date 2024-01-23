@@ -177,6 +177,7 @@ class Browser extends AbstractClientParser
         'C5' => 'Chromium GOST',
         'CY' => 'Cyberfox',
         'CS' => 'Cheshire',
+        'RC' => 'Crow Browser',
         'CT' => 'Crusta',
         'CG' => 'Craving Explorer',
         'CZ' => 'Crazy Browser',
@@ -240,6 +241,7 @@ class Browser extends AbstractClientParser
         'F5' => 'Flyperlink',
         'FU' => 'FreeU',
         'F6' => 'Freedom Browser',
+        'FT' => 'Frost',
         'F3' => 'Frost+',
         'FI' => 'Fulldive',
         'GA' => 'Galeon',
@@ -428,6 +430,7 @@ class Browser extends AbstractClientParser
         'LY' => 'PolyBrowser',
         'PI' => 'PrivacyWall',
         'P4' => 'Privacy Explorer Fast Safe',
+        'P3' => 'Private Internet Browser',
         'P2' => 'Pi Browser',
         'P0' => 'PronHub Browser',
         'PC' => 'PSI Secure Browser',
@@ -532,6 +535,7 @@ class Browser extends AbstractClientParser
         'V0' => 'vBrowser',
         'VA' => 'Vast Browser',
         'VE' => 'Venus Browser',
+        'WD' => 'Vewd Browser',
         'N0' => 'Nova Video Downloader Pro',
         'VS' => 'Viasat Browser',
         'VI' => 'Vivaldi',
@@ -616,7 +620,7 @@ class Browser extends AbstractClientParser
             'XB', 'W1', 'HT', 'B8', 'F5', 'B9', 'WA', 'T0', 'HC',
             'O6', 'P7', 'LJ', 'LC', 'O7', 'N2', 'A8', 'P8', 'RB',
             '1W', 'EV', 'I9', 'V4', 'H4', '1T', 'M5', '0S', '0C',
-            'ZR', 'D6', 'F6',
+            'ZR', 'D6', 'F6', 'RC', 'WD', 'P3', 'FT',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -656,7 +660,7 @@ class Browser extends AbstractClientParser
         'DM', '1M', 'A7', 'XN', 'XT', 'XB', 'W1', 'HT', 'B7',
         'B9', 'T0', 'I8', 'O6', 'P7', 'O8', '4B', 'A8', 'P8',
         '1W', 'EV', 'Z0', 'I9', 'V4', 'H4', 'M5', '0S', '0C',
-        'ZR', 'D6', 'F6',
+        'ZR', 'D6', 'F6', 'P3', 'FT',
     ];
 
     /**
@@ -665,7 +669,9 @@ class Browser extends AbstractClientParser
      * @var array<string, array<string>>
      */
     protected static $clientHintMapping = [
-        'Chrome' => ['Google Chrome'],
+        'Chrome'                     => ['Google Chrome'],
+        'Vewd Browser'               => ['Vewd Core'],
+        'DuckDuckGo Privacy Browser' => ['DuckDuckGo'],
     ];
 
     /**
@@ -807,9 +813,14 @@ class Browser extends AbstractClientParser
             $engine        = '';
             $engineVersion = '';
 
-            // If version from client hints report 2022 or 2022.04, then is the Iridium browser
-            // https://iridiumbrowser.de/news/2022/05/16/version-2022-04-released
-            if ('2021.12' === $version || '2022' === $version || '2022.04' === $version) {
+            // If the version reported from the client hints is YYYY or YYYY.MM (e.g., 2022 or 2022.04),
+            // then it is the Iridium browser
+            // https://iridiumbrowser.de/news/
+            if (0 === \strpos($version, '2020')
+                || 0 === \strpos($version, '2021')
+                || 0 === \strpos($version, '2022')
+                || 0 === \strpos($version, '2023')
+            ) {
                 $name          = 'Iridium';
                 $short         = 'I1';
                 $engine        = $browserFromUserAgent['engine'];
@@ -818,6 +829,15 @@ class Browser extends AbstractClientParser
 
             if ('Atom' === $name || 'Huawei Browser' === $name) {
                 $version = $browserFromUserAgent['version'];
+            }
+
+            if ('DuckDuckGo Privacy Browser' === $name) {
+                $version = '';
+            }
+
+            if ('Vewd Browser' === $name) {
+                $engine        = $browserFromUserAgent['engine'] ?? '';
+                $engineVersion = $browserFromUserAgent['engine_version'] ?? '';
             }
 
             // If client hints report Chromium, but user agent detects a Chromium based browser, we favor this instead
@@ -836,7 +856,7 @@ class Browser extends AbstractClientParser
                 $short = $browserFromUserAgent['short_name'];
             }
 
-            // If useragent detects another browser, but the family matches, we use the detected engine from useragent
+            // If user agent detects another browser, but the family matches, we use the detected engine from user agent
             if ($name !== $browserFromUserAgent['name']
                 && self::getBrowserFamily($name) === self::getBrowserFamily($browserFromUserAgent['name'])
             ) {
@@ -943,7 +963,7 @@ class Browser extends AbstractClientParser
                     }
                 }
 
-                // If we detected a brand, that is not chromium, we will use it, otherwise we will look further
+                // If we detected a brand, that is not Chromium, we will use it, otherwise we will look further
                 if ('' !== $name && 'Chromium' !== $name) {
                     break;
                 }
@@ -960,7 +980,7 @@ class Browser extends AbstractClientParser
     }
 
     /**
-     * Returns the browser that can be detected from useragent
+     * Returns the browser that can be detected from user agent
      *
      * @return array
      *
