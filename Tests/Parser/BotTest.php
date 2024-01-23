@@ -22,10 +22,10 @@ class BotTest extends TestCase
         $expected  = [
             'name'     => 'Googlebot',
             'category' => 'Search bot',
-            'url'      => 'http://www.google.com/bot.html',
+            'url'      => 'https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers',
             'producer' => [
                 'name' => 'Google Inc.',
-                'url'  => 'http://www.google.com',
+                'url'  => 'https://www.google.com/',
             ],
         ];
         $botParser = new Bot();
