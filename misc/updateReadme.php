@@ -31,6 +31,10 @@ $ymlParser = new Spyc();
 $parsedBots = $ymlParser->loadFile(__DIR__ . '/../regexes/bots.yml');
 
 foreach ($parsedBots as $parsedBot) {
+    if (in_array($parsedBot['name'], $bots)) {
+        continue;
+    }
+
     $bots[] = $parsedBot['name'];
 }
 

@@ -68,7 +68,7 @@ class DeviceDetector
     /**
      * Current version number of DeviceDetector
      */
-    public const VERSION = '6.1.1';
+    public const VERSION = '6.2.1';
 
     /**
      * Constant used as value for unknown browser / os
@@ -149,13 +149,13 @@ class DeviceDetector
 
     /**
      * Holds the cache class used for caching the parsed yml-Files
-     * @var CacheInterface
+     * @var CacheInterface|null
      */
     protected $cache = null;
 
     /**
      * Holds the parser class used for parsing yml-Files
-     * @var YamlParser
+     * @var YamlParser|null
      */
     protected $yamlParser = null;
 
@@ -794,13 +794,13 @@ class DeviceDetector
     }
 
     /**
-     * Returns if the parsed UA contains the 'Desktop x64;' or 'Desktop x32;' or 'Desktop WOW64' fragment
+     * Returns if the parsed UA contains the 'Desktop;', 'Desktop x32;', 'Desktop x64;' or 'Desktop WOW64;' fragment
      *
      * @return bool
      */
     protected function hasDesktopFragment(): bool
     {
-        $regex = 'Desktop (x(?:32|64)|WOW64);';
+        $regex = 'Desktop(?: (x(?:32|64)|WOW64))?;';
 
         return !!$this->matchUserAgent($regex);
     }
@@ -932,6 +932,13 @@ class DeviceDetector
         }
 
         /**
+         * All devices containing VR fragment are assumed to be a wearable
+         */
+        if (null === $this->device && $this->matchUserAgent(' VR ')) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_WEARABLE;
+        }
+
+        /**
          * Chrome on Android passes the device type based on the keyword 'Mobile'
          * If it is present the device should be a smartphone, otherwise it's a tablet
          * See https://developer.chrome.com/multidevice/user-agent#chrome_for_android_user_agent
@@ -1029,7 +1036,7 @@ class DeviceDetector
         /**
          * All devices that contain Andr0id in string are assumed to be a tv
          */
-        if ($this->matchUserAgent('Andr0id|Android TV|\(lite\) TV')) {
+        if ($this->matchUserAgent('Andr0id|(?:Android(?: UHD)?|Google) TV|\(lite\) TV|BRAVIA')) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
         }
 
@@ -1041,9 +1048,13 @@ class DeviceDetector
         }
 
         /**
-         * Devices running Kylo or Espital TV Browsers are assumed to be a TV
+         * Devices running those browsers are assumed to be a TV
          */
-        if (null === $this->device && \in_array($clientName, ['Kylo', 'Espial TV Browser'])) {
+        if (\in_array($clientName, [
+            'Kylo', 'Espial TV Browser', 'LUJO TV Browser', 'LogicUI TV Browser', 'Open TV Browser', 'Seraphic Sraf',
+            'Opera Devices', 'Crow Browser', 'Vewd Browser',
+        ])
+        ) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
         }
 

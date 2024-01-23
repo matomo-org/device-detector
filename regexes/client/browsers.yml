@@ -5,6 +5,48 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
+# Nuanti Meta (http://meta.nuanti.com/)
+- regex: 'Nuanti(?:Meta)?/(\d+\.[\.\d]+)'
+  name: 'Nuanti Meta'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+
+# Roku Browser (https://www.roku.com/)
+- regex: 'RokuBrowser/(\d+\.[\.\d]+)'
+  name: 'Roku Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# PICO Browser (https://www.picoxr.com/)
+- regex: 'PicoBrowser/(\d+\.[\.\d]+)'
+  name: 'PICO Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# ALVA (https://oyealva.com/)
+- regex: 'Alva/(\d+\.[\.\d]+)'
+  name: 'ALVA'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# Norton Secure Browser (https://norton.com/products/norton-secure-browser)
+- regex: 'Norton/(\d+\.[\.\d]+)'
+  name: 'Norton Secure Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# Odd Browser (https://play.google.com/store/apps/details?id=com.corproxy.browser)
+- regex: 'Odd/(\d+\.[\.\d]+)'
+  name: 'Odd Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
 # APN Browser
 - regex: 'Safari/537.36 (?:Browser|Navegador)'
   name: 'APN Browser'
@@ -131,7 +173,7 @@
   version: ""
 
 # Hi Browser (https://play.google.com/store/apps/details?id=com.talpa.hibrowser)
-- regex: 'HiBrowser/(\d+[\.\d]+)'
+- regex: 'HiBrowser/v?(\d+[\.\d]+)'
   name: 'Hi Browser'
   version: '$1'
   engine:
@@ -427,9 +469,9 @@
   engine:
     default: 'Blink'
 
-# Avira Scout (http://www.avira.com/en/avira-scout)
-- regex: 'AviraScout/(\d+[\.\d]+)'
-  name: 'Avira Scout'
+# Avira Secure Browser (https://www.avira.com/en/avira-secure-browser)
+- regex: 'Avira(?:Scout)?/(\d+[\.\d]+)'
+  name: 'Avira Secure Browser'
   version: '$1'
   engine:
     default: 'Blink'
@@ -553,9 +595,14 @@
   engine:
     default: 'Blink'
 
-# T-Browser (https://play.google.com/store/apps/details?id=com.tcl.browser)
+# T-Browser and new BrowseHere (https://play.google.com/store/apps/details?id=com.tcl.browser)
 - regex: 'Tbrowser/(\d+[\.\d]+)'
   name: 'T-Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
+- regex: 'com.tcl.browser'
+  name: 'BrowseHere'
   version: '$1'
   engine:
     default: 'Blink'
@@ -803,7 +850,7 @@
   name: 'Firefox Reality'
   version: ''
 
-# AVG Secure Browser (https://www.avg.com/en-us/secure-browser)
+# AVG Secure Browser (https://www.avg.com/en-us/secure-browser | https://play.google.com/store/apps/details?id=com.avg.android.secure.browser)
 - regex: 'AVG(?:/(\d+[\.\d]+))?'
   name: 'AVG Secure Browser'
   version: '$1'
@@ -811,6 +858,11 @@
     default: 'WebKit'
     versions:
       28: 'Blink'
+- regex: 'AT/(\d+[\.\d]+)'
+  name: 'AVG Secure Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
 
 # START Internet Browser (https://play.google.com/store/apps/details?id=fyi.start.web.browser)
 - regex: 'Start/(?:(\d+[\.\d]+))?'
@@ -1168,6 +1220,13 @@
   version: '$1'
   engine:
     default: 'Gecko'
+
+# VertexSurf
+- regex: 'VertexSurf/(\d+\.[.\d]+)'
+  name: 'Vertex Surf'
+  version: '$1'
+  engine:
+    default: 'Blink'
 
 #AlohaBrowser
 - regex: 'Chrome/.+ AlohaBrowser(?:/(\d+[\.\d]+))?'
@@ -1556,7 +1615,7 @@
     default: 'WebKit'
 
 #Opera
-- regex: '(?:Opera Tablet.*Version|Opera/.+Opera Mobi.+Version|Mobile.+OPR)/(\d+[\.\d]+)'
+- regex: '(?:Opera Tablet.*Version|Opera/.+(?<!SymbOS; )Opera Mobi.+Version|Mobile.+OPR)/(\d+[\.\d]+)'
   name: 'Opera Mobile'
   version: '$1'
   engine:
@@ -1588,7 +1647,7 @@
   version: '$1'
   engine:
     default: 'Blink'
-- regex: 'Opera/(\d+\.[\.\d]+) .*Opera Mobi'
+- regex: 'Opera/(\d+\.[\.\d]+) .*(?<!SymbOS; )Opera Mobi'
   name: 'Opera Mobile'
   version: '$1'
   engine:
@@ -1665,7 +1724,7 @@
     default: '' # multi engine
 
 #Comodo Dragon
-- regex: '(?:Comodo[ _])?Dragon(?!fruit)(?:/(\d+[\.\d]+))?'
+- regex: '(?:Comodo[ _])?Dragon/(\d+[\.\d]+)'
   name: 'Comodo Dragon'
   version: '$1'
   engine:
@@ -1814,7 +1873,7 @@
     versions:
       28: 'Blink'
 
-- regex: 'Iron(?:/(\d+[\.\d]+))?'
+- regex: 'Iron/(\d+[\.\d]+)'
   name: 'Iron'
   version: '$1'
   engine:
@@ -1886,7 +1945,7 @@
     versions:
       28: 'Blink'
 
-- regex: '(?:DDG-Android-|DuckDuckGo/)(\d+[\.\d]*)'
+- regex: '(?:DDG-Android-|DuckDuckGo/|ddg_android/)(\d+[\.\d]*)'
   name: 'DuckDuckGo Privacy Browser'
   version: '$1'
   engine:
@@ -2231,6 +2290,13 @@
   engine:
     default: 'WebKit'
 - regex: 'Chromium(?:/(\d+[\.\d]+))?'
+  name: 'Chromium'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+    versions:
+      28: 'Blink'
+- regex: '.*Chromium(?:_(\d+[\.\d]+))?'
   name: 'Chromium'
   version: '$1'
   engine:
@@ -2685,7 +2751,7 @@
   version: '$1'
   engine:
     default: 'WebKit'
-- regex: '(?:iPod|(?<!Apple TV; U; CPU )iPhone|iPad)'
+- regex: '(?!^AppleCoreMedia/1\.0\.0)(?:iPod|(?<!Apple TV; U; CPU )iPhone|iPad)'
   name: 'Mobile Safari'
   version: ''
   engine:
@@ -2697,7 +2763,7 @@
     default: 'WebKit'
 
 # Dorado
-- regex: 'Dorado WAP-Browser(?:[/ ](\d+[\.\d]+))?'
+- regex: '(?:\w{1,5}[_ ])?Dorado WAP-Browser(?:[/ ](\d+[\.\d]+))?'
   name: 'Dorado'
   version: '$1'
 
