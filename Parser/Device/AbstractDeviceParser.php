@@ -1493,6 +1493,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '5S'  => 'Sunvell',
         '5Y'  => 'Sunny',
         'W8'  => 'SUNWIND',
+        'W81' => 'Sunwell',
         'SBX' => 'SuperBOX',
         'SBR' => 'Sber',
         'SGE' => 'Super General',
