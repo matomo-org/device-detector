@@ -820,6 +820,7 @@ class Browser extends AbstractClientParser
                 || 0 === \strpos($version, '2021')
                 || 0 === \strpos($version, '2022')
                 || 0 === \strpos($version, '2023')
+                || 0 === \strpos($version, '2024')
             ) {
                 $name          = 'Iridium';
                 $short         = 'I1';
