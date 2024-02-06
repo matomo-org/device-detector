@@ -1728,6 +1728,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VOL' => 'Völfen',
         'VO1' => 'Volt',
         'VOP' => 'Volla',
+        'V02' => 'VOLIA',
         'VH'  => 'Vsmart',
         'V9'  => 'Vsun',
         'VU'  => 'Vulcan',
