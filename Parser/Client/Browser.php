@@ -374,6 +374,7 @@ class Browser extends AbstractClientParser
         'WR' => 'NextWord Browser',
         'NT' => 'NTENT Browser',
         'NU' => 'Nuanti Meta',
+        'NI' => 'Nuviu',
         'OC' => 'Oculus Browser',
         'O6' => 'Odd Browser',
         'O1' => 'Opera Mini iOS',
@@ -664,7 +665,7 @@ class Browser extends AbstractClientParser
         'DM', '1M', 'A7', 'XN', 'XT', 'XB', 'W1', 'HT', 'B7',
         'B9', 'T0', 'I8', 'O6', 'P7', 'O8', '4B', 'A8', 'P8',
         '1W', 'EV', 'Z0', 'I9', 'V4', 'H4', 'M5', '0S', '0C',
-        'ZR', 'D6', 'F6', 'P3', 'FT', 'A9', 'X2',
+        'ZR', 'D6', 'F6', 'P3', 'FT', 'A9', 'X2', 'NI',
     ];
 
     /**
