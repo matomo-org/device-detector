@@ -816,15 +816,9 @@ class Browser extends AbstractClientParser
             // If the version reported from the client hints is YYYY or YYYY.MM (e.g., 2022 or 2022.04),
             // then it is the Iridium browser
             // https://iridiumbrowser.de/news/
-            if (0 === \strpos($version, '2020')
-                || 0 === \strpos($version, '2021')
-                || 0 === \strpos($version, '2022')
-                || 0 === \strpos($version, '2023')
-            ) {
-                $name          = 'Iridium';
-                $short         = 'I1';
-                $engine        = $browserFromUserAgent['engine'];
-                $engineVersion = $browserFromUserAgent['engine_version'];
+            if (\preg_match('/^202[0-4]/', $version)) {
+                $name  = 'Iridium';
+                $short = 'I1';
             }
 
             if ('Atom' === $name || 'Huawei Browser' === $name) {
