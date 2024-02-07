@@ -54,7 +54,7 @@ class OperatingSystem extends AbstractParser
         'QNX' => 'BlackBerry Tablet OS',
         'BOS' => 'Bliss OS',
         'BMP' => 'Brew',
-        'BSN' => 'BrightSign',
+        'BSN' => 'BrightSignOS',
         'CAI' => 'Caixa Mágica',
         'CES' => 'CentOS',
         'CST' => 'CentOS Stream',
