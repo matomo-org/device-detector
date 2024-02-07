@@ -378,6 +378,7 @@ class Browser extends AbstractClientParser
         'NT' => 'NTENT Browser',
         'NU' => 'Nuanti Meta',
         'NI' => 'Nuviu',
+        'O9' => 'Ocean Browser',
         'OC' => 'Oculus Browser',
         'O6' => 'Odd Browser',
         'O1' => 'Opera Mini iOS',
@@ -630,7 +631,7 @@ class Browser extends AbstractClientParser
             'O6', 'P7', 'LJ', 'LC', 'O7', 'N2', 'A8', 'P8', 'RB',
             '1W', 'EV', 'I9', 'V4', 'H4', '1T', 'M5', '0S', '0C',
             'ZR', 'D6', 'F6', 'RC', 'WD', 'P3', 'FT', 'A9', 'X2',
-            'N3', 'GD',
+            'N3', 'GD', 'O9',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -671,7 +672,7 @@ class Browser extends AbstractClientParser
         'B9', 'T0', 'I8', 'O6', 'P7', 'O8', '4B', 'A8', 'P8',
         '1W', 'EV', 'Z0', 'I9', 'V4', 'H4', 'M5', '0S', '0C',
         'ZR', 'D6', 'F6', 'P3', 'FT', 'A9', 'X2', 'NI', 'FG',
-        'TH', 'N3', 'GD',
+        'TH', 'N3', 'GD', 'O9',
     ];
 
     /**
