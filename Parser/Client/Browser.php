@@ -219,6 +219,7 @@ class Browser extends AbstractClientParser
         'EP' => 'GNOME Web',
         'G1' => 'G Browser',
         'ES' => 'Espial TV Browser',
+        'FG' => 'fGet',
         'FA' => 'Falkon',
         'FX' => 'Faux Browser',
         'F4' => 'Fiery Browser',
@@ -665,7 +666,7 @@ class Browser extends AbstractClientParser
         'DM', '1M', 'A7', 'XN', 'XT', 'XB', 'W1', 'HT', 'B7',
         'B9', 'T0', 'I8', 'O6', 'P7', 'O8', '4B', 'A8', 'P8',
         '1W', 'EV', 'Z0', 'I9', 'V4', 'H4', 'M5', '0S', '0C',
-        'ZR', 'D6', 'F6', 'P3', 'FT', 'A9', 'X2', 'NI',
+        'ZR', 'D6', 'F6', 'P3', 'FT', 'A9', 'X2', 'NI', 'FG',
     ];
 
     /**
