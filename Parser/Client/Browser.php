@@ -138,6 +138,7 @@ class Browser extends AbstractClientParser
         'BN' => 'Borealis Navigator',
         'BR' => 'Brave',
         'BK' => 'BriskBard',
+        'K2' => 'BroKeep Browser',
         'B3' => 'Browspeed Browser',
         'BX' => 'BrowseX',
         'BZ' => 'Browzar',
@@ -633,7 +634,7 @@ class Browser extends AbstractClientParser
             'O6', 'P7', 'LJ', 'LC', 'O7', 'N2', 'A8', 'P8', 'RB',
             '1W', 'EV', 'I9', 'V4', 'H4', '1T', 'M5', '0S', '0C',
             'ZR', 'D6', 'F6', 'RC', 'WD', 'P3', 'FT', 'A9', 'X2',
-            'N3', 'GD', 'O9', 'Q3', 'F7',
+            'N3', 'GD', 'O9', 'Q3', 'F7', 'K2',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -674,7 +675,7 @@ class Browser extends AbstractClientParser
         'B9', 'T0', 'I8', 'O6', 'P7', 'O8', '4B', 'A8', 'P8',
         '1W', 'EV', 'Z0', 'I9', 'V4', 'H4', 'M5', '0S', '0C',
         'ZR', 'D6', 'F6', 'P3', 'FT', 'A9', 'X2', 'NI', 'FG',
-        'TH', 'N3', 'GD', 'O9', 'Q3', 'F7',
+        'TH', 'N3', 'GD', 'O9', 'Q3', 'F7', 'K2',
     ];
 
     /**
