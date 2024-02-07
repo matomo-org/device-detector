@@ -146,7 +146,7 @@ class Browser extends AbstractClientParser
         '4B' => 'BrowsBit',
         'BY' => 'Biyubi',
         'BF' => 'Byffox',
-        'B4' => 'BF Browser',
+        'B4' => 'BXE Browser',
         'CA' => 'Camino',
         '0C' => 'Cave Browser',
         'CL' => 'CCleaner',
