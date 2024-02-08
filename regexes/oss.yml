@@ -5,6 +5,15 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
+# BrightSignOS (https://www.brightsign.biz/ecosystem/brightsign-os/)
+##########
+- regex: 'BrightSign/(?:[A-Z0-9]+)/(\d+[\.\d]+)'
+  name: 'BrightSignOS'
+  version: '$1'
+- regex: 'BrightSign/(\d+[\.\d]+)'
+  name: 'BrightSignOS'
+  version: '$1'
+
 ##########
 # LuneOS (https://www.webos-ports.org/)
 ##########
@@ -426,7 +435,7 @@
   name: 'Android'
   version: '$1'
 
-- regex: '(?:(?:Orca-)?(?<!like |/|RadioPublic |Anghami )Android|Adr|AOSP)[ /]?(?:[a-z]+ )?(\d+[\.\d]*)'
+- regex: '(?:(?:Orca-)?(?<!like |/|RadioPublic |Anghami |Callpod Keeper for )Android|Adr|AOSP)[ /]?(?:[a-z]+ )?(\d+[\.\d]*)'
   name: 'Android'
   version: '$1'
 
@@ -833,7 +842,7 @@
   name: 'iPadOS'
   version: '$1.$2'
 
-- regex: 'iPad(?:; (?:iOS|iPadOS|iPhone OS)|.+CPU OS) ((1[3-7])+(?:[_\.]\d+)*)'
+- regex: 'iPad(?:; (?:iOS|iPadOS|iPhone OS)|.+CPU (?:iPad )?OS) ((1[3-7])+(?:[_\.]\d+)*)'
   name: 'iPadOS'
   version: '$1'
 
@@ -868,7 +877,7 @@
   name: 'iOS'
   version: '$1'
 
-- regex: '^(?!com.apple.Safari.SearchHelper|Safari).*CFNetwork/.+ Darwin/(\d+[\.\d]+)(?!.*(?:x86_64|i386|PowerMac|Power%20Macintosh))'
+- regex: '^(?!com.apple.Safari.SearchHelper|Safari).*(?:CFNetwork|Mana)/.+ Darwin/(\d+[\.\d]+)(?!.*(?:x86_64|i386|PowerMac|Power%20Macintosh))'
   name: 'iOS'
   versions:
     - regex: 'Darwin/23.4.0'
@@ -1099,7 +1108,7 @@
 ##########
 # Mac
 ##########
-- regex: '(?:CFNetwork|StudioDisplay)/.+Darwin(?:/|; )(?:[\d\.]+).+(?:x86_64|i386|Power%20Macintosh)|(?:x86_64-apple-)?darwin(?:[\d\.]+)|PowerMac|com.apple.Safari.SearchHelper|^Safari'
+- regex: '(?:CFNetwork|Mana|StudioDisplay)/.+Darwin(?:/|; )(?:[\d\.]+).+(?:x86_64|i386|Power%20Macintosh)|(?:x86_64-apple-)?darwin(?:[\d\.]+)|PowerMac|com.apple.Safari.SearchHelper|^Safari'
   name: 'Mac'
   versions:
     - regex: '(?:x86_64-apple-)?Darwin(?:/|; )?23.4.0'
