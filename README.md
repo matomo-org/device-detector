@@ -257,7 +257,9 @@ There are already a few ports of this tool to other languages:
 - **Elixir** https://github.com/elixir-inspector/ua_inspector
 - **Java** https://github.com/mngsk/device-detector
 - **Java** https://github.com/deevvicom/device-detector
+- **Java** https://github.com/PaniniGelato/java-device-detector
 - **Rust** https://github.com/simplecastapps/rust-device-detector
+- **Rust** https://github.com/stry-rs/device-detector
 - **Go** https://github.com/gamebtc/devicedetector
 - **Go** https://github.com/umutbasal/device-detector-go
 - **Go** https://github.com/robicode/device-detector
