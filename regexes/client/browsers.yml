@@ -5,6 +5,35 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
+# fGet (https://apps.apple.com/us/app/fget-file-manager-browser/id1582654012)
+- regex: 'fGet/'
+  name: 'fGet'
+  version: ''
+
+# Nuviu (https://www.nuviu-browser.com/)
+- regex: 'Nuviu/(?:(\d+[\.\d]+))?'
+  name: 'Nuviu'
+  version: '$1'
+
+# DoCoMo (https://play.google.com/store/apps/details?id=com.airfind.browser)
+- regex: 'DoCoMo/(?:(\d+[\.\d]+))?'
+  name: 'DoCoMo'
+  version: '$1'
+
+# Airfind Secure Browser (https://play.google.com/store/apps/details?id=com.airfind.browser)
+- regex: 'com.airfind.browser/(?:(\d+[\.\d]+))?'
+  name: 'Airfind Secure Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# Arc (https://arc.net/)
+- regex: 'ArcMobile2/.+CFNetwork'
+  name: 'Arc'
+  version: ''
+  engine:
+    default: 'WebKit'
+
 # Nuanti Meta (http://meta.nuanti.com/)
 - regex: 'Nuanti(?:Meta)?/(\d+\.[\.\d]+)'
   name: 'Nuanti Meta'
@@ -119,6 +148,11 @@
   version: '$1'
   engine:
     default: 'Blink'
+- regex: 'Lilo/.+CFNetwork'
+  name: 'Lilo'
+  version: ''
+  engine:
+    default: 'WebKit'
 
 # Lexi Browser (https://play.google.com/store/apps/details?id=com.lexi.browser)
 - regex: 'lexi/(\d+[\.\d]+)'
@@ -850,7 +884,7 @@
   name: 'Firefox Reality'
   version: ''
 
-# AVG Secure Browser (https://www.avg.com/en-us/secure-browser)
+# AVG Secure Browser (https://www.avg.com/en-us/secure-browser | https://play.google.com/store/apps/details?id=com.avg.android.secure.browser)
 - regex: 'AVG(?:/(\d+[\.\d]+))?'
   name: 'AVG Secure Browser'
   version: '$1'
@@ -858,6 +892,11 @@
     default: 'WebKit'
     versions:
       28: 'Blink'
+- regex: 'AT/(\d+[\.\d]+)'
+  name: 'AVG Secure Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
 
 # START Internet Browser (https://play.google.com/store/apps/details?id=fyi.start.web.browser)
 - regex: 'Start/(?:(\d+[\.\d]+))?'
@@ -1111,11 +1150,16 @@
   version: '$1'
   engine:
     default: 'WebKit'
+- regex: 'Chrome/.*QwantMobile(?:/(\d+[\.\d]+))?'
+  name: 'Qwant Mobile'
+  version: '$1'
+  engine:
+    default: 'Blink'
 - regex: 'QwantMobile(?:/(\d+[\.\d]+))?'
   name: 'Qwant Mobile'
   version: '$1'
   engine:
-    default: 'Gecko'
+    default: '' # multiple (Gecko on Android, WebKit on iOS)
 - regex: 'Qwant/(\d+[\.\d]+)'
   name: 'Qwant Mobile'
   version: '$1'
@@ -1719,7 +1763,7 @@
     default: '' # multi engine
 
 #Comodo Dragon
-- regex: '(?:Comodo[ _])?Dragon(?!fruit)(?:/(\d+[\.\d]+))?'
+- regex: '(?:Comodo[ _])?Dragon/(\d+[\.\d]+)'
   name: 'Comodo Dragon'
   version: '$1'
   engine:
@@ -1868,7 +1912,7 @@
     versions:
       28: 'Blink'
 
-- regex: 'Iron(?:/(\d+[\.\d]+))?'
+- regex: 'Iron/(\d+[\.\d]+)'
   name: 'Iron'
   version: '$1'
   engine:

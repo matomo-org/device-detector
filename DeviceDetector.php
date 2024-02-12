@@ -948,9 +948,9 @@ class DeviceDetector
         if (null === $this->device && 'Android' === $osFamily
             && $this->matchUserAgent('Chrome/[\.0-9]*')
         ) {
-            if ($this->matchUserAgent('(?:Mobile|eliboM) Safari/')) {
+            if ($this->matchUserAgent('(?:Mobile|eliboM)')) {
                 $this->device = AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE;
-            } elseif ($this->matchUserAgent('(?!Mobile )Safari/')) {
+            } else {
                 $this->device = AbstractDeviceParser::DEVICE_TYPE_TABLET;
             }
         }
@@ -1052,7 +1052,7 @@ class DeviceDetector
          */
         if (\in_array($clientName, [
             'Kylo', 'Espial TV Browser', 'LUJO TV Browser', 'LogicUI TV Browser', 'Open TV Browser', 'Seraphic Sraf',
-            'Opera Devices',
+            'Opera Devices', 'Crow Browser', 'Vewd Browser',
         ])
         ) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
