@@ -916,9 +916,9 @@ class DeviceDetector
         $clientName = $this->getClientAttribute('name');
 
         /**
-         * if it's fake UA then it's best not to identify it as Apple running Android OS
+         * if it's fake UA then it's best not to identify it as Apple running Android OS or GNU/Linux
          */
-        if ('Android' === $osName && 'Apple' === $this->brand) {
+        if ('Apple' === $this->brand && \in_array($osName, ['Android', 'GNU/Linux'])) {
             $this->device = null;
             $this->brand  = '';
             $this->model  = '';
