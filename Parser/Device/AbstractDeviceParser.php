@@ -514,6 +514,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'EE'  => 'Essential',
         'E2'  => 'Essentielb',
         '6E'  => 'eSTAR',
+        'ETO' => 'ETOE',
         'EN'  => 'Eton',
         'ET'  => 'eTouch',
         '1E'  => 'Etuline',
