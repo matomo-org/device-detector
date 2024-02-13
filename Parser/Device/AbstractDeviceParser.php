@@ -773,6 +773,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'I0'  => 'InFocus',
         'IN1' => 'InFone',
         'II'  => 'Inkti',
+        'MIR' => 'Infomir',
         '81'  => 'InfoKit',
         'I5'  => 'InnJoo',
         '26'  => 'Innos',
