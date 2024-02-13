@@ -1048,11 +1048,11 @@ class DeviceDetector
         }
 
         /**
-         * Devices running those browsers are assumed to be a TV
+         * Devices running those clients are assumed to be a TV
          */
         if (\in_array($clientName, [
             'Kylo', 'Espial TV Browser', 'LUJO TV Browser', 'LogicUI TV Browser', 'Open TV Browser', 'Seraphic Sraf',
-            'Opera Devices', 'Crow Browser', 'Vewd Browser',
+            'Opera Devices', 'Crow Browser', 'Vewd Browser', 'TiviMate',
         ])
         ) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
