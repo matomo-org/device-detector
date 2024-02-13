@@ -910,15 +910,16 @@ class DeviceDetector
             $this->brand = $vendorParser->parse()['brand'] ?? '';
         }
 
-        $osName     = $this->getOsAttribute('name');
-        $osFamily   = $this->getOsAttribute('family');
-        $osVersion  = $this->getOsAttribute('version');
-        $clientName = $this->getClientAttribute('name');
+        $osName       = $this->getOsAttribute('name');
+        $osFamily     = $this->getOsAttribute('family');
+        $osVersion    = $this->getOsAttribute('version');
+        $clientName   = $this->getClientAttribute('name');
+        $appleOsNames = ['iPadOS', 'tvOS', 'watchOS', 'iOS', 'Mac'];
 
         /**
-         * if it's fake UA then it's best not to identify it as Apple running Android OS
+         * if it's fake UA then it's best not to identify it as Apple running Android OS or GNU/Linux
          */
-        if ('Android' === $osName && 'Apple' === $this->brand) {
+        if ('Apple' === $this->brand && !\in_array($osName, $appleOsNames)) {
             $this->device = null;
             $this->brand  = '';
             $this->model  = '';
@@ -927,7 +928,7 @@ class DeviceDetector
         /**
          * Assume all devices running iOS / Mac OS are from Apple
          */
-        if (empty($this->brand) && \in_array($osName, ['iPadOS', 'tvOS', 'watchOS', 'iOS', 'Mac'])) {
+        if (empty($this->brand) && \in_array($osName, $appleOsNames)) {
             $this->brand = 'Apple';
         }
 
