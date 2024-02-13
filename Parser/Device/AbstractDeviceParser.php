@@ -763,6 +763,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'U4'  => 'iMan',
         'ILE' => 'iLepo',
         'IL'  => 'IMO Mobile',
+        'IMA' => 'Imaq',
         'IM1' => 'Imose',
         'I3'  => 'Impression',
         'FC'  => 'INCAR',
