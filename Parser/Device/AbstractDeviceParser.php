@@ -2111,7 +2111,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         $regexExcludeDesktopFragment = \implode('|', [
             'CE-HTML',
             ' Mozilla/|Andr[o0]id|Tablet|Mobile|iPhone|Windows Phone|ricoh|OculusBrowser',
-            'PicoBrowser|Lenovo|compatible; MSIE|Trident/|Tesla/|XBOX|FBMD/|ARM; ?([^)]+)'
+            'PicoBrowser|Lenovo|compatible; MSIE|Trident/|Tesla/|XBOX|FBMD/|ARM; ?([^)]+)',
         ]);
 
         return
