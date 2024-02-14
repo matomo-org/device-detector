@@ -393,6 +393,7 @@ class Browser extends AbstractClientParser
         'O5' => 'Office Browser',
         'HH' => 'OhHai Browser',
         'OE' => 'ONE Browser',
+        'N4' => 'Onion Browser',
         'Y1' => 'Opera Crypto',
         'OX' => 'Opera GX',
         'OG' => 'Opera Neon',
@@ -675,7 +676,7 @@ class Browser extends AbstractClientParser
         'B9', 'T0', 'I8', 'O6', 'P7', 'O8', '4B', 'A8', 'P8',
         '1W', 'EV', 'Z0', 'I9', 'V4', 'H4', 'M5', '0S', '0C',
         'ZR', 'D6', 'F6', 'P3', 'FT', 'A9', 'X2', 'NI', 'FG',
-        'TH', 'N3', 'GD', 'O9', 'Q3', 'F7', 'K2',
+        'TH', 'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'N4',
     ];
 
     /**
