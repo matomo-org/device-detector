@@ -260,6 +260,7 @@ class Browser extends AbstractClientParser
         'GP' => 'Google Earth Pro',
         'GO' => 'GOG Galaxy',
         'GR' => 'GoBrowser',
+        'G2' => 'GO Browser',
         'HB' => 'Harman Browser',
         'HS' => 'HasBrowser',
         'HA' => 'Hawk Turbo Browser',
@@ -641,7 +642,7 @@ class Browser extends AbstractClientParser
             '1W', 'EV', 'I9', 'V4', 'H4', '1T', 'M5', '0S', '0C',
             'ZR', 'D6', 'F6', 'RC', 'WD', 'P3', 'FT', 'A9', 'X2',
             'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'P5', 'H5', 'V3',
-            'K3', 'Q4',
+            'K3', 'Q4', 'G2',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -683,7 +684,7 @@ class Browser extends AbstractClientParser
         '1W', 'EV', 'Z0', 'I9', 'V4', 'H4', 'M5', '0S', '0C',
         'ZR', 'D6', 'F6', 'P3', 'FT', 'A9', 'X2', 'NI', 'FG',
         'TH', 'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'N4', 'P5',
-        'H5', 'V3',
+        'H5', 'V3', 'G2',
     ];
 
     /**
