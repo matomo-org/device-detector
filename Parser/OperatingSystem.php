@@ -318,6 +318,10 @@ class OperatingSystem extends AbstractParser
                     $version = '';
                 }
 
+                if ('PICO OS' === $name) {
+                    $version = $osFromUserAgent['version'];
+                }
+
                 if ('Fire OS' === $osFromUserAgent['name']) {
                         $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
 
