@@ -85,10 +85,18 @@
     name: 'Alexa Internet'
     url: 'https://www.alexa.com'
 
-- regex: 'Amazonbot'
+- regex: 'Amazonbot/[\d.]+'
   name: 'Amazon Bot'
   category: 'Crawler'
   url: 'https://developer.amazon.com/support/amazonbot'
+  producer:
+    name: 'Amazon.com, Inc.'
+    url: 'https://www.amazon.com/'
+
+- regex: 'AmazonAdBot/[\d.]+'
+  name: 'Amazon AdBot'
+  category: 'Crawler'
+  url: 'https://adbot.amazon.com/'
   producer:
     name: 'Amazon.com, Inc.'
     url: 'https://www.amazon.com/'
@@ -1784,6 +1792,14 @@
     name: 'WPBeginner, LLC'
     url: 'https://www.wpbeginner.com/'
 
+- regex: 'Automattic Analytics Crawler/[\d.]+'
+  name: 'Automattic Analytics'
+  category: 'Crawler'
+  url: 'https://wordpress.com/crawler/'
+  producer:
+    name: 'Wordpress.org'
+    url: 'https://wordpress.org/'
+
 - regex: 'WordPress'
   name: 'WordPress'
   category: 'Service Agent'
@@ -2441,7 +2457,10 @@
 - regex: 'Project-Resonance'
   name: 'Project Resonance'
   category: 'Crawler'
-  url: 'http://project-resonance.com'
+  url: 'https://project-resonance.com/'
+  producer:
+    name: 'RedHunt Labs Limited'
+    url: 'https://redhuntlabs.com/'
 
 - regex: 'DataXu/[\d.]+'
   name: 'DataXu'
@@ -3909,10 +3928,18 @@
     name: 'Shareaholic, Inc.'
     url: 'https://www.shareaholic.com/'
 
-- regex: 'keycdn-tools'
+- regex: 'keycdn-tools:'
   name: 'KeyCDN Tools'
   category: 'Service Agent'
   url: 'https://tools.keycdn.com/geo'
+
+- regex: 'keycdn-tools/'
+  name: 'KeyCDN Tools'
+  category: 'Service Agent'
+  url: 'https://tools.keycdn.com/'
+  producer:
+    name: 'proinity LLC'
+    url: 'https://www.keycdn.com/'
 
 - regex: 'Arquivo-web-crawler'
   name: 'Arquivo.pt'
@@ -3922,9 +3949,54 @@
     name: 'FCT|FCCN'
     url: 'https://www.fct.pt/'
 
+- regex: 'WhatsMyIP\.org'
+  name: 'WhatsMyIP.org'
+  category: 'Service Agent'
+  url: 'https://www.whatsmyip.org/ua/'
+
+- regex: 'SenutoBot/[\d.]+'
+  name: 'Senuto'
+  category: 'Crawler'
+  url: 'https://www.senuto.com/'
+  producer:
+    name: 'Senuto Sp. z o.o.'
+    url: 'https://www.senuto.com/'
+
+- regex: 'spaziodati'
+  name: 'SpazioDati'
+  category: 'Crawler'
+  url: 'https://www.spaziodati.eu/'
+  producer:
+    name: 'SpazioDati s.r.l.'
+    url: 'https://www.spaziodati.eu/'
+
+- regex: 'GozleBot'
+  name: 'Gozle'
+  category: 'Crawler'
+  url: 'https://gozle.com.tm/en/blog/post/1'
+  producer:
+    name: 'Doly Horjun HJ'
+    url: 'https://gozle.com.tm/'
+
+- regex: 'Quantcastbot/[\d.]+'
+  name: 'Quantcast'
+  category: 'Crawler'
+  url: 'https://www.quantcast.com/bot/'
+  producer:
+    name: 'Quantcast Corp.'
+    url: 'https://www.quantcast.com/'
+
+- regex: 'FontRadar'
+  name: 'FontRadar'
+  category: 'Crawler'
+  url: 'https://www.fontradar.com/'
+  producer:
+    name: 'EMDASH SAS'
+    url: 'https://www.fontradar.com/'
+
 # Generic detections
 - regex: 'nuhk|grub-client|Download Demon|SearchExpress|Microsoft URL Control|borg|altavista|dataminr\.com|tweetedtimes\.com|teoma|oegp|http%20client|htdig|mogimogi|larbin|scrubby|searchsight|semanticdiscovery|snappy|vortex(?!(?: Build|Plus))|zeal(?!ot)|dataparksearch|findlinks|BrowserMob|URL2PNG|ZooShot|GomezA|Google SketchUp|Read%20Later|7Siters|centuryb\.o\.t9|InterNaetBoten|EasyBib AutoCite|Bidtellect|tomnomnom/meg|cortex|Re-re Studio|adreview|AHC/|NameOfAgent|Request-Promise|ALittle Client|Hello,? world|wp_is_mobile|0xAbyssalDoesntExist|Anarchy99|daumoa,damoa,daum,daumos,duamoa,duam,duamos|^revolt|nvd0rz|xfa1|Hakai|gbrmss|fuck-your-hp|IDBTE4M CODE87|Antoine|Insomania|Hells-Net|b3astmode|Linux Gnu \(cow\)|Test Certificate Info|iplabel|Magellan|TheSafex?Internetx?Search|kirkland-signature|^xenu|^ZmEu|^(?:chrome|firefox|Zeus)$'
   name: 'Generic Bot'
 
-- regex: '[a-z0-9_-]*(?:(?<!cu|power[ _]|m[ _])bot(?![ _]TAB|[ _]?5[0-9]|[ _]Senior|[ _]Junior)|analyzer|appengine|archiver|checker|collector|crawl|crawler|fetcher|indexer|monitor|project(?!or)|research|resolver|robots|scraper|spider|transcoder|uptime|user[ _]?agent|validator)(?:[^a-z]|$)'
+- regex: '[a-z0-9_-]*(?:(?<!cu|power[ _]|m[ _])bot(?![ _]TAB|[ _]?5[0-9]|[ _]Senior|[ _]Junior)|analyzer|appengine|archiver|checker|collector|crawl|crawler|fetcher|indexer|monitor|project(?!or)|research|resolver|robots|scraper|security|spider|study|transcoder|uptime|user[ _]?agent|validator)(?:[^a-z]|$)'
   name: 'Generic Bot'
