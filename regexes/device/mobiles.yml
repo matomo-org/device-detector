@@ -21987,9 +21987,14 @@ Supra:
 
 # Sumvision
 Sumvision:
-  regex: '(Cyclone [^/;]+) Build'
+  regex: 'Cyclone (?:Voyager|X8)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: '(Cyclone (?:Voyager 2|Voyager))(?:[);/ ]|$)'
+      model: '$1'
+    - regex: '(Cyclone X8)(?:[);/ ]|$)'
+      device: 'tv'
+      model: '$1'
 
 # SunVan
 SunVan:
