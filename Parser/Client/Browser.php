@@ -74,7 +74,7 @@ class Browser extends AbstractClientParser
         'DM' => '1DM Browser',
         '1M' => '1DM+ Browser',
         '2B' => '2345 Browser',
-        '3B' => '360 Browser',
+        '3B' => '360 Secure Browser',
         '36' => '360 Phone Browser',
         '7B' => '7654 Browser',
         'AA' => 'Avant Browser',
@@ -843,6 +843,14 @@ class Browser extends AbstractClientParser
             if (\preg_match('/^202[0-4]/', $version)) {
                 $name  = 'Iridium';
                 $short = 'I1';
+            }
+
+            // https://bbs.360.cn/thread-16096544-1-1.html
+            if (\preg_match('/^15/', $version) && \preg_match('/^114/', $browserFromUserAgent['version'])) {
+                $name          = '360 Secure Browser';
+                $short         = '3B';
+                $engine        = $browserFromUserAgent['engine'] ?? '';
+                $engineVersion = $browserFromUserAgent['engine_version'] ?? '';
             }
 
             if ('Atom' === $name || 'Huawei Browser' === $name) {
