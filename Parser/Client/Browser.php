@@ -370,7 +370,7 @@ class Browser extends AbstractClientParser
         'NB' => 'Nokia Browser',
         'NO' => 'Nokia OSS Browser',
         'NV' => 'Nokia Ovi Browser',
-        'N2' => 'Norton Secure Browser',
+        'N2' => 'Norton Private Browser',
         'NX' => 'Nox Browser',
         'N1' => 'NOMone VR Browser',
         'NE' => 'NetSurf',
@@ -697,6 +697,7 @@ class Browser extends AbstractClientParser
         'Chrome'                     => ['Google Chrome'],
         'Vewd Browser'               => ['Vewd Core'],
         'DuckDuckGo Privacy Browser' => ['DuckDuckGo'],
+        'Norton Private Browser'     => ['Norton Secure Browser'],
     ];
 
     /**
