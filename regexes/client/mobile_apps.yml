@@ -171,9 +171,39 @@
   name: '$1'
   version: '$2'
 
+# Signal uses WhatsApp user agent
+- regex: 'WhatsApp(?:/2)?$'
+  name: 'Signal'
+  version: ''
+
+# WhatsApp Business
+- regex: 'WhatsApp/([\d\.]+).+CloudAPI'
+  name: 'WhatsApp Business'
+  version: '$1'
+
 # WhatsApp
-- regex: 'WhatsApp(?:[ /]([\d\.]+))?'
+- regex: 'WhatsApp(?:Electron|\-app|\-linux-app)?(?:[ /]([\d\.]+))?'
   name: 'WhatsApp'
+  version: '$1'
+
+# WhatsApp+2
+- regex: 'YoWhatsApp2Plus(?:/(\d+[\.\d]+))?'
+  name: 'WhatsApp+2'
+  version: '$1'
+
+# FM WhatsApp
+- regex: 'YoFMWhatsApp(?:/(\d+[\.\d]+))?'
+  name: 'FM WhatsApp'
+  version: '$1'
+
+# GBWhatsApp
+- regex: '(?:Yo)?GBWhatsApp(?:/(\d+[\.\d]+))?'
+  name: 'GBWhatsApp'
+  version: '$1'
+
+# Yo WhatsApp
+- regex: 'YoYoWhatsApp(?:/(\d+[\.\d]+))?'
+  name: 'Yo WhatsApp'
   version: '$1'
 
 # Line
@@ -1378,20 +1408,9 @@
   name: 'Amazon Music'
   version: '$1'
 
-
 # Klarna (https://apps.apple.com/us/app/klarna-shop-now-pay-later/id1115120118)
 - regex: 'Klarna/(\d+\.[.\d]+)?'
   name: 'Klarna'
-  version: '$1'
-
-# WhatsApp+2
-- regex: 'YoWhatsApp2Plus(?:/(\d+[\.\d]+))?'
-  name: 'WhatsApp+2'
-  version: '$1'
-
-# GBWhatsApp
-- regex: 'GBWhatsApp(?:/(\d+[\.\d]+))?'
-  name: 'GBWhatsApp'
   version: '$1'
 
 # R (https://www.r-project.org/)
@@ -2258,3 +2277,8 @@
 - regex: 'twitch-desktop-electron-platform.*spotlight/(\d+[\.\d]+)'
   name: 'Twitch Studio'
   version: '$1'
+
+# Stream Master (https://www.lovense.com/stream-master)
+- regex: 'Stream Master$'
+  name: 'Stream Master'
+  version: ''
