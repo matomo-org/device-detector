@@ -1553,6 +1553,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'TB'  => 'Tecno Mobile',
         'TEC' => 'TecToy',
         '91'  => 'TEENO',
+        'TLK' => 'Telkom',
         '2L'  => 'Tele2',
         'TL'  => 'Telefunken',
         'TG'  => 'Telego',
