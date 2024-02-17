@@ -9414,7 +9414,7 @@ Hasee:
 
 # Toshiba
 Toshiba:
-  regex: 'Toshiba|TSBNetTV/|portalmmm/[12].0 TS|(?:T-01C|T-0[12]D|IS04|IS11T|AT1S0|AT300SE|AFTDCT31|AFTHA00[2-4]|AT(?:7-C|10-A|10[PL]E-A|100|200|270|300|330|374|400|470|500a?|503|570|703|830)|AFTKMST12|AFTBAMR311|SATELLITE (?:C655|L50-C|Pro L300|A100))(?:[);/ ]|$)'
+  regex: 'Toshiba|TSBNetTV/|portalmmm/[12].0 TS|(?:T-01C|T-0[12]D|IS04|IS11T|AT1S0|AT300SE|AFTBOXE1|AFTDCT31|AFTHA00[2-4]|AT(?:7-C|10-A|10[PL]E-A|100|200|270|300|330|374|400|470|500a?|503|570|703|830)|AFTKMST12|AFTBAMR311|SATELLITE (?:C655|L50-C|Pro L300|A100))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # explicit smartphone models
@@ -9459,6 +9459,9 @@ Toshiba:
       device: 'desktop'
       model: 'Satellite $1'
 
+    - regex: 'AFTBOXE1(?:[);/ ]|$)'
+      device: 'tv'
+      model: '65UF3D63DA'
     - regex: 'AFTKMST12'
       device: 'tv'
       model: '43LF711U20'
@@ -23321,6 +23324,9 @@ Amazon:
     - regex: '(?:smarttv_)?AFTANNA0(?:[);/ _]|$)'
       model: 'Fire TV (2021-2022)'
       device: 'tv'
+    - regex: '(?:smarttv_)?AFTALMO(?:[);/ _]|$)' # Insignia or Pioneer
+      model: 'Fire TV 2K (2022)'
+      device: 'tv'
     - regex: '(?:smarttv_)?AFTHA001(?:[);/ _]|$)' # Hisense or Toshiba
       model: 'Fire TV 4K (2021-2022)'
       device: 'tv'
@@ -23420,6 +23426,9 @@ Amazon:
 
     - regex: 'Echo/1|AEO(?:AT|BC|CN|KN|TA)(?:[);/ ]|$)'
       model: 'Echo'
+      device: 'smart speaker'
+    - regex: 'AEOBP(?:[);/ ]|$)'
+      model: 'Echo Show (Gen 2)'
       device: 'smart speaker'
     - regex: 'AEOC[HW](?:[);/ ]|$)'
       model: 'Echo Show 8'
