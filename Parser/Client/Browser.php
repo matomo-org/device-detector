@@ -352,6 +352,7 @@ class Browser extends AbstractClientParser
         'MF' => 'Mobile Safari',
         'MI' => 'Midori',
         'M3' => 'Midori Lite',
+        'M6' => 'MixerBox AI',
         'MO' => 'Mobicip',
         'MU' => 'MIUI Browser',
         'MS' => 'Mobile Silk',
@@ -686,7 +687,7 @@ class Browser extends AbstractClientParser
         '1W', 'EV', 'Z0', 'I9', 'V4', 'H4', 'M5', '0S', '0C',
         'ZR', 'D6', 'F6', 'P3', 'FT', 'A9', 'X2', 'NI', 'FG',
         'TH', 'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'N4', 'P5',
-        'H5', 'V3', 'G2',
+        'H5', 'V3', 'G2', 'M6',
     ];
 
     /**
