@@ -35492,9 +35492,14 @@ Eurocase:
 
 # VEON
 VEON:
-  regex: 'VEON[_ ](C8680)(?:[);/ ]|$)'
+  regex: 'VEON[_ ]|VEON[_ ](?:C8680)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'VEON[_ ](C8680)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'VEON 4K Smart TV(?:[);/ ]|$)'
+      device: 'tv'
+      model: '4K Smart TV'
 
 # FiGi (figi-mobile.com)
 FiGi:
