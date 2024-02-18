@@ -1223,6 +1223,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'OZ'  => 'OzoneHD',
         'OLL' => 'Ollee',
         '7P'  => 'P-UP',
+        'PRA' => 'Pacific Research Alliance',
         'YP'  => 'Paladin',
         'PM'  => 'Palm',
         'PN'  => 'Panacom',
