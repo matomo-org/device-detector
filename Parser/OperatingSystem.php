@@ -45,6 +45,7 @@ class OperatingSystem extends AbstractParser
         'ADR' => 'Android TV',
         'AMZ' => 'Amazon Linux',
         'AMG' => 'AmigaOS',
+        'ARM' => 'Armadillo OS',
         'ATV' => 'tvOS',
         'ARL' => 'Arch Linux',
         'BTR' => 'BackTrack',
@@ -190,7 +191,7 @@ class OperatingSystem extends AbstractParser
     protected static $osFamilies = [
         'Android'               => [
             'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
-            'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS', 'WER', 'PIC',
+            'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS', 'WER', 'PIC', 'ARM',
         ],
         'AmigaOS'               => ['AMG', 'MOR'],
         'BlackBerry'            => ['BLB', 'QNX'],
