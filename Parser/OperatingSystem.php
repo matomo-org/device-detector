@@ -85,6 +85,7 @@ class OperatingSystem extends AbstractParser
         'IPA' => 'iPadOS',
         'HAR' => 'HarmonyOS',
         'HAS' => 'HasCodingOS',
+        'HEL' => 'HELIX OS',
         'IRI' => 'IRIX',
         'INF' => 'Inferno',
         'JME' => 'Java ME',
@@ -192,6 +193,7 @@ class OperatingSystem extends AbstractParser
         'Android'               => [
             'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
             'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS', 'WER', 'PIC', 'ARM',
+            'HEL',
         ],
         'AmigaOS'               => ['AMG', 'MOR'],
         'BlackBerry'            => ['BLB', 'QNX'],
