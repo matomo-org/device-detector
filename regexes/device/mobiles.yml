@@ -19722,7 +19722,7 @@ Pioneer:
       model: 'BDP-160'
     - regex: 'Pioneer, ?([a-z0-9_ \-]+), ?(?:wired|wireless)'
       device: 'tv'
-      model: ''
+      model: '$1'
     - regex: 'Pioneer[ _-]?([^;/]+) Build'
       model: '$1'
     - regex: 'Pioneer[ _-]?([^;/)]+)(?:[;/)]|$)'
@@ -20017,6 +20017,8 @@ Safaricom:
   models:
     - regex: 'ET Kimem(?:[);/ ]|$)'
       model: 'ET Kimem'
+    - regex: 'Safaricom_Kimem_Kerefa_4G(?:[);/ ]|$)'
+      model: 'Kimem Kerefa 4G'
     - regex: 'NEON_RAY_PRO'
       model: 'Neon Ray Pro'
     - regex: 'Neon Ray Ultra'
@@ -25066,9 +25068,11 @@ Finlux:
 
 # Hitachi
 Hitachi:
-  regex: 'HITACHI[;,]|HITACHI, ([a-z0-9_ \-]+), (?:wired|wireless)'
+  regex: 'HITACHI[;,]'
   device: 'tv'
-  model: ''
+  models:
+    - regex: 'HITACHI, ?([a-z0-9_ \-]+), ?(?:wired|wireless)'
+      model: '$1'
 
 # Mitchell & Brown (https://www.mitchellandbrown.co.uk/)
 'Mitchell & Brown':
@@ -29350,6 +29354,10 @@ Daewoo:
       model: 'Archive 7P'
 
     - regex: 'Daewoo (Android TV 638)(?:[);/ ]|$)'
+      model: '$1'
+      device: 'tv'
+
+    - regex: 'Daewoo, ?([a-z0-9_ \-]+), ?(?:wired|wireless)'
       model: '$1'
       device: 'tv'
 
