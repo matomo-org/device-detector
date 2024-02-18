@@ -1618,6 +1618,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'J1'  => 'Trio',
         'THT' => 'Tsinghua Tongfang',
         '5C'  => 'TTEC',
+        'TTF' => 'TTfone',
         'TTK' => 'TTK-TV',
         'TU'  => 'Tunisie Telecom',
         '1T'  => 'Turbo',
