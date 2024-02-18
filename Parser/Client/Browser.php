@@ -344,6 +344,7 @@ class Browser extends AbstractClientParser
         'L2' => 'Lynket Browser',
         'MD' => 'Mandarin',
         'M5' => 'MarsLab Web Browser',
+        'M7' => 'MaxBrowser',
         'M1' => 'mCent',
         'MB' => 'MicroB',
         'MC' => 'NCSA Mosaic',
@@ -689,7 +690,7 @@ class Browser extends AbstractClientParser
         '1W', 'EV', 'Z0', 'I9', 'V4', 'H4', 'M5', '0S', '0C',
         'ZR', 'D6', 'F6', 'P3', 'FT', 'A9', 'X2', 'NI', 'FG',
         'TH', 'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'N4', 'P5',
-        'H5', 'V3', 'G2', 'M6', 'Y3', 'F8',
+        'H5', 'V3', 'G2', 'M6', 'Y3', 'F8', 'M7',
     ];
 
     /**
