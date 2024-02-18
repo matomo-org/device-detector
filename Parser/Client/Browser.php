@@ -587,6 +587,7 @@ class Browser extends AbstractClientParser
         'Y2' => 'Yo Browser',
         'YB' => 'Yolo Browser',
         'YO' => 'YouCare',
+        'Y3' => 'YouBrowser',
         'YZ' => 'Yuzu Browser',
         'XR' => 'xBrowser',
         'XB' => 'X Browser Lite',
@@ -687,7 +688,7 @@ class Browser extends AbstractClientParser
         '1W', 'EV', 'Z0', 'I9', 'V4', 'H4', 'M5', '0S', '0C',
         'ZR', 'D6', 'F6', 'P3', 'FT', 'A9', 'X2', 'NI', 'FG',
         'TH', 'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'N4', 'P5',
-        'H5', 'V3', 'G2', 'M6',
+        'H5', 'V3', 'G2', 'M6', 'Y3',
     ];
 
     /**
