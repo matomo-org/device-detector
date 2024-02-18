@@ -1227,6 +1227,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'PM'  => 'Palm',
         'PN'  => 'Panacom',
         'PA'  => 'Panasonic',
+        'PNV' => 'Panavox',
         'PT'  => 'Pantech',
         'PAN' => 'Pano',
         'PND' => 'Panodic',
