@@ -247,7 +247,6 @@ class Browser extends AbstractClientParser
         'FH' => 'Flash Browser',
         'FS' => 'Flast',
         'F5' => 'Flyperlink',
-        'F8' => 'Freespoke',
         'FU' => 'FreeU',
         'F6' => 'Freedom Browser',
         'FT' => 'Frost',
@@ -691,7 +690,7 @@ class Browser extends AbstractClientParser
         '1W', 'EV', 'Z0', 'I9', 'V4', 'H4', 'M5', '0S', '0C',
         'ZR', 'D6', 'F6', 'P3', 'FT', 'A9', 'X2', 'NI', 'FG',
         'TH', 'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'N4', 'P5',
-        'H5', 'V3', 'G2', 'M6', 'Y3', 'F8', 'M7',
+        'H5', 'V3', 'G2', 'M6', 'Y3', 'M7',
     ];
 
     /**
