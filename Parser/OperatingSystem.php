@@ -54,6 +54,7 @@ class OperatingSystem extends AbstractParser
         'QNX' => 'BlackBerry Tablet OS',
         'BOS' => 'Bliss OS',
         'BMP' => 'Brew',
+        'BSN' => 'BrightSignOS',
         'CAI' => 'Caixa Mágica',
         'CES' => 'CentOS',
         'CST' => 'CentOS Stream',
@@ -73,6 +74,7 @@ class OperatingSystem extends AbstractParser
         'FOR' => 'Foresight Linux',
         'FRE' => 'Freebox',
         'BSD' => 'FreeBSD',
+        'FRI' => 'FRITZ!OS',
         'FYD' => 'FydeOS',
         'FUC' => 'Fuchsia',
         'GNT' => 'Gentoo',
@@ -130,6 +132,8 @@ class OperatingSystem extends AbstractParser
         'PSP' => 'PlayStation Portable',
         'PS3' => 'PlayStation',
         'PUR' => 'PureOS',
+        'PIO' => 'Raspberry Pi OS',
+        'RAS' => 'Raspbian',
         'RHT' => 'Red Hat',
         'RED' => 'RedOS',
         'REV' => 'Revenge OS',
@@ -160,6 +164,7 @@ class OperatingSystem extends AbstractParser
         'TIV' => 'TiVo OS',
         'TOS' => 'TmaxOS',
         'UBT' => 'Ubuntu',
+        'UOS' => 'UOS',
         'VID' => 'VIDAA',
         'WAS' => 'watchOS',
         'WER' => 'Wear OS',
@@ -208,7 +213,8 @@ class OperatingSystem extends AbstractParser
             'ORD', 'TOS', 'RSO', 'DEE', 'FRE', 'MAG', 'FEN', 'CAI', 'PCL', 'HAS',
             'LOS', 'DVK', 'ROK', 'OWR', 'OTV', 'KTV', 'PUR', 'PLA', 'FUC', 'PAR',
             'FOR', 'MON', 'KAN', 'ZEN', 'LND', 'LNS', 'CHN', 'AMZ', 'TEN', 'CST',
-            'NOV', 'ROU', 'ZOR', 'RED', 'KAL', 'ORA', 'VID', 'TIV',
+            'NOV', 'ROU', 'ZOR', 'RED', 'KAL', 'ORA', 'VID', 'TIV', 'BSN', 'RAS',
+            'UOS', 'PIO', 'FRI',
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
@@ -312,6 +318,10 @@ class OperatingSystem extends AbstractParser
 
                 if ('HarmonyOS' === $name) {
                     $version = '';
+                }
+
+                if ('PICO OS' === $name) {
+                    $version = $osFromUserAgent['version'];
                 }
 
                 if ('Fire OS' === $osFromUserAgent['name']) {
@@ -563,6 +573,10 @@ class OperatingSystem extends AbstractParser
                 return 'SuperH';
             }
 
+            if (false !== \strpos($arch, 'sparc64')) {
+                return 'SPARC64';
+            }
+
             if (false !== \strpos($arch, 'x64')
                 || (false !== \strpos($arch, 'x86') && '64' === $this->clientHints->getBitness())
             ) {
@@ -584,6 +598,10 @@ class OperatingSystem extends AbstractParser
 
         if ($this->matchUserAgent('sh4')) {
             return 'SuperH';
+        }
+
+        if ($this->matchUserAgent('sparc64')) {
+            return 'SPARC64';
         }
 
         if ($this->matchUserAgent('64-?bit|WOW64|(?:Intel)?x64|WINDOWS_64|win64|amd64|x86_?64')) {
