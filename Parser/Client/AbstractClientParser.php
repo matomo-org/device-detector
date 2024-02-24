@@ -53,7 +53,7 @@ abstract class AbstractClientParser extends AbstractParser
                     $result = [
                         'type'    => $this->parserName,
                         'name'    => $this->buildByMatch($regex['name'], $matches),
-                        'version' => $this->buildVersion((string) $regex['version'], $matches),
+                        'version' => $this->truncateVersion($this->buildVersion((string) $regex['version'], $matches)),
                     ];
 
                     break;
