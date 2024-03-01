@@ -171,6 +171,7 @@ class Browser extends AbstractClientParser
         'CM' => 'Chrome Mobile',
         '3C' => 'Chowbo',
         'CN' => 'CoolNovo',
+        '4C' => 'Colom Browser',
         'CO' => 'CometBird',
         '2C' => 'Comfort Browser',
         'CB' => 'COS Browser',
