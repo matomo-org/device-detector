@@ -530,6 +530,7 @@ class Browser extends AbstractClientParser
         'TR' => 'T-Browser',
         'TO' => 't-online.de Browser',
         'TA' => 'Tao Browser',
+        'T2' => 'tararia',
         'TH' => 'Thor',
         '1T' => 'Tor Browser',
         'TF' => 'TenFourFox',
