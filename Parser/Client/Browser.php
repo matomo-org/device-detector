@@ -464,6 +464,7 @@ class Browser extends AbstractClientParser
         'QM' => 'Qwant Mobile',
         'QW' => 'QtWebEngine',
         'R3' => 'Rakuten Browser',
+        'R4' => 'Rakuten Web Search',
         'R2' => 'Raspbian Chromium',
         'RE' => 'Realme Browser',
         'RK' => 'Rekonq',
