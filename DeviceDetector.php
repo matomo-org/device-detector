@@ -794,6 +794,18 @@ class DeviceDetector
     }
 
     /**
+     * Returns if the parsed UA contains the 'Android; Mobile VR;' fragment
+     *
+     * @return bool
+     */
+    protected function hasAndroidVRFragment(): bool
+    {
+        $regex = 'Android( [\.0-9]+)?; Mobile VR;';
+
+        return !!$this->matchUserAgent($regex);
+    }
+
+    /**
      * Returns if the parsed UA contains the 'Desktop;', 'Desktop x32;', 'Desktop x64;' or 'Desktop WOW64;' fragment
      *
      * @return bool
@@ -935,7 +947,7 @@ class DeviceDetector
         /**
          * All devices containing VR fragment are assumed to be a wearable
          */
-        if (null === $this->device && $this->matchUserAgent(' VR ')) {
+        if (null === $this->device && ($this->hasAndroidVRFragment() || $this->matchUserAgent(' VR '))) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_WEARABLE;
         }
 
