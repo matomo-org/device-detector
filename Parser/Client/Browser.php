@@ -560,6 +560,7 @@ class Browser extends AbstractClientParser
         'V3' => 'VD Browser',
         'VE' => 'Venus Browser',
         'WD' => 'Vewd Browser',
+        'V5' => 'VibeMate',
         'N0' => 'Nova Video Downloader Pro',
         'VS' => 'Viasat Browser',
         'VI' => 'Vivaldi',
