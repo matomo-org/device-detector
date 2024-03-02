@@ -264,6 +264,7 @@ class Browser extends AbstractClientParser
         'GP' => 'Google Earth Pro',
         'GO' => 'GOG Galaxy',
         'GR' => 'GoBrowser',
+        'GK' => 'GoKu',
         'G2' => 'GO Browser',
         'HB' => 'Harman Browser',
         'HS' => 'HasBrowser',
