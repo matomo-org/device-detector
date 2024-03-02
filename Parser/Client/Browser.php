@@ -334,6 +334,7 @@ class Browser extends AbstractClientParser
         'LI' => 'Links',
         'LC' => 'LogicUI TV Browser',
         'IF' => 'Lolifox',
+        'L3' => 'Lotus',
         'LO' => 'Lovense Browser',
         'LT' => 'LT Browser',
         'LU' => 'LuaKit',
