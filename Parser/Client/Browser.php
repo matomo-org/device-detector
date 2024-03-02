@@ -309,6 +309,7 @@ class Browser extends AbstractClientParser
         'JP' => 'Jig Browser Plus',
         'JO' => 'Jio Browser',
         'J1' => 'JioPages',
+        'JZ' => 'JUZI Browser',
         'KB' => 'K.Browser',
         'KF' => 'Keepsafe Browser',
         'KS' => 'Kids Safe Browser',
