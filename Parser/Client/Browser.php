@@ -459,6 +459,7 @@ class Browser extends AbstractClientParser
         'RW' => 'Reqwireless WebViewer',
         'PS' => 'Microsoft Edge',
         'QA' => 'Qazweb',
+        'QJ' => 'QJY TV browser',
         'Q3' => 'Qmamu',
         'Q4' => 'Quick Search TV',
         'Q2' => 'QQ Browser Lite',
