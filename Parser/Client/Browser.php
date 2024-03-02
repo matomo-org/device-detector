@@ -149,6 +149,7 @@ class Browser extends AbstractClientParser
         'B4' => 'BXE Browser',
         'CA' => 'Camino',
         '5C' => 'Catalyst',
+        'XP' => 'Catsxp',
         '0C' => 'Cave Browser',
         'CL' => 'CCleaner',
         'C8' => 'CG Browser',
@@ -656,7 +657,7 @@ class Browser extends AbstractClientParser
             '1W', 'EV', 'I9', 'V4', 'H4', '1T', 'M5', '0S', '0C',
             'ZR', 'D6', 'F6', 'RC', 'WD', 'P3', 'FT', 'A9', 'X2',
             'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'P5', 'H5', 'V3',
-            'K3', 'Q4', 'G2', 'R2', 'TT', 'WX',
+            'K3', 'Q4', 'G2', 'R2', 'TT', 'WX', 'XP',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
