@@ -578,6 +578,7 @@ class Browser extends AbstractClientParser
         'WP' => 'Web Explorer',
         'W3' => 'Web Browser & Explorer',
         'WE' => 'WebPositive',
+        'WX' => 'Wexond',
         'WF' => 'Waterfox',
         'WB' => 'Wave Browser',
         'WA' => 'Wavebox',
@@ -652,7 +653,7 @@ class Browser extends AbstractClientParser
             '1W', 'EV', 'I9', 'V4', 'H4', '1T', 'M5', '0S', '0C',
             'ZR', 'D6', 'F6', 'RC', 'WD', 'P3', 'FT', 'A9', 'X2',
             'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'P5', 'H5', 'V3',
-            'K3', 'Q4', 'G2', 'R2', 'TT',
+            'K3', 'Q4', 'G2', 'R2', 'TT', 'WX',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
