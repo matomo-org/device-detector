@@ -148,6 +148,7 @@ class Browser extends AbstractClientParser
         'BF' => 'Byffox',
         'B4' => 'BXE Browser',
         'CA' => 'Camino',
+        '5C' => 'Catalyst',
         '0C' => 'Cave Browser',
         'CL' => 'CCleaner',
         'C8' => 'CG Browser',
