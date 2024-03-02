@@ -371,6 +371,7 @@ class Browser extends AbstractClientParser
         'NK' => 'Naked Browser',
         'NA' => 'Naked Browser Pro',
         'NR' => 'NFS Browser',
+        'N5' => 'Ninetails',
         'NB' => 'Nokia Browser',
         'NO' => 'Nokia OSS Browser',
         'NV' => 'Nokia Ovi Browser',
