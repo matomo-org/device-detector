@@ -158,6 +158,7 @@ class Browser extends AbstractClientParser
         'C6' => 'Chedot',
         'C9' => 'Cherry Browser',
         'C0' => 'Centaury',
+        'CQ' => 'Cliqz',
         'CC' => 'Coc Coc',
         'C4' => 'CoolBrowser',
         'C2' => 'Colibri',
