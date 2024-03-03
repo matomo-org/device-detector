@@ -117,6 +117,7 @@ class Browser extends AbstractClientParser
         'BM' => 'Beamrise',
         'F7' => 'BF Browser',
         'BB' => 'BlackBerry Browser',
+        '6B' => 'Bluefy',
         'H1' => 'BrowseHere',
         'B8' => 'Browser Hup Pro',
         'BD' => 'Baidu Browser',
