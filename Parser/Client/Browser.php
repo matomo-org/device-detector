@@ -325,6 +325,7 @@ class Browser extends AbstractClientParser
         'KP' => 'Kapiko',
         'KN' => 'Kinza',
         'KW' => 'Kiwi',
+        'KV' => 'KPN Veilig',
         'KD' => 'Kode Browser',
         'KT' => 'KUTO Mini Browser',
         'KY' => 'Kylo',
