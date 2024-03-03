@@ -533,6 +533,7 @@ class Browser extends AbstractClientParser
         'HR' => 'Sushi Browser',
         'S3' => 'surf',
         '4S' => 'Surf Browser',
+        'RY' => 'Surfy Browser',
         'SG' => 'Stargon',
         'S0' => 'START Internet Browser',
         'S4' => 'Steam In-Game Overlay',
