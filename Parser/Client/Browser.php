@@ -559,6 +559,7 @@ class Browser extends AbstractClientParser
         'TE' => 'Tesla Browser',
         'TZ' => 'Tizen Browser',
         'TI' => 'Tint Browser',
+        'TL' => 'TrueLocation Browser',
         'TT' => 'TTWebview',
         'TC' => 'TUC Mini Browser',
         'TU' => 'Tungsten',
@@ -711,7 +712,7 @@ class Browser extends AbstractClientParser
         '1W', 'EV', 'Z0', 'I9', 'V4', 'H4', 'M5', '0S', '0C',
         'ZR', 'D6', 'F6', 'P3', 'FT', 'A9', 'X2', 'NI', 'FG',
         'TH', 'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'N4', 'P5',
-        'H5', 'V3', 'G2', 'M8', 'BG', 'OL', 'II',
+        'H5', 'V3', 'G2', 'M8', 'BG', 'OL', 'II', 'TL',
     ];
 
     /**
