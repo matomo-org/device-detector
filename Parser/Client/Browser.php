@@ -306,8 +306,7 @@ class Browser extends AbstractClientParser
         'JL' => 'Jelly',
         'JI' => 'Jig Browser',
         'JP' => 'Jig Browser Plus',
-        'JO' => 'Jio Browser',
-        'J1' => 'JioPages',
+        'JO' => 'JioSphere',
         'KB' => 'K.Browser',
         'KF' => 'Keepsafe Browser',
         'KS' => 'Kids Safe Browser',
@@ -374,7 +373,7 @@ class Browser extends AbstractClientParser
         'NB' => 'Nokia Browser',
         'NO' => 'Nokia OSS Browser',
         'NV' => 'Nokia Ovi Browser',
-        'N2' => 'Norton Secure Browser',
+        'N2' => 'Norton Private Browser',
         'NX' => 'Nox Browser',
         'N1' => 'NOMone VR Browser',
         'NE' => 'NetSurf',
@@ -474,6 +473,7 @@ class Browser extends AbstractClientParser
         'SB' => 'Samsung Browser',
         '3L' => 'Samsung Browser Lite',
         'SA' => 'Sailfish Browser',
+        'R0' => 'SberBrowser',
         'S8' => 'Seewo Browser',
         'SC' => 'SEMC-Browser',
         'SE' => 'Sogou Explorer',
@@ -648,7 +648,7 @@ class Browser extends AbstractClientParser
             '1W', 'EV', 'I9', 'V4', 'H4', '1T', 'M5', '0S', '0C',
             'ZR', 'D6', 'F6', 'RC', 'WD', 'P3', 'FT', 'A9', 'X2',
             'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'P5', 'H5', 'V3',
-            'K3', 'Q4', 'G2', 'R2', '5B',
+            'K3', 'Q4', 'G2', 'R2', '5B', 'R0', 'JO',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -700,8 +700,10 @@ class Browser extends AbstractClientParser
      */
     protected static $clientHintMapping = [
         'Chrome'                     => ['Google Chrome'],
+        'Chrome Webview'             => ['Android WebView'],
         'Vewd Browser'               => ['Vewd Core'],
         'DuckDuckGo Privacy Browser' => ['DuckDuckGo'],
+        'Norton Private Browser'     => ['Norton Secure Browser'],
     ];
 
     /**
