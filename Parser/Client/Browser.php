@@ -721,6 +721,7 @@ class Browser extends AbstractClientParser
         'Chrome'                     => ['Google Chrome'],
         'Chrome Webview'             => ['Android WebView'],
         'DuckDuckGo Privacy Browser' => ['DuckDuckGo'],
+        'Edge WebView'               => ['Microsoft Edge WebView2'],
         'Microsoft Edge'             => ['Edge'],
         'Norton Private Browser'     => ['Norton Secure Browser'],
         'Vewd Browser'               => ['Vewd Core'],
@@ -1018,7 +1019,7 @@ class Browser extends AbstractClientParser
                 }
 
                 // If we detected a brand, that is not Chromium, we will use it, otherwise we will look further
-                if ('' !== $name && 'Chromium' !== $name) {
+                if ('' !== $name && 'Chromium' !== $name && 'Microsoft Edge' !== $name) {
                     break;
                 }
             }
