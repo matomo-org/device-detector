@@ -720,9 +720,9 @@ class Browser extends AbstractClientParser
     protected static $clientHintMapping = [
         'Chrome'                     => ['Google Chrome'],
         'Chrome Webview'             => ['Android WebView'],
-        'Vewd Browser'               => ['Vewd Core'],
         'DuckDuckGo Privacy Browser' => ['DuckDuckGo'],
         'Norton Private Browser'     => ['Norton Secure Browser'],
+        'Vewd Browser'               => ['Vewd Core'],
     ];
 
     /**
