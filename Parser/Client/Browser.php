@@ -408,6 +408,7 @@ class Browser extends AbstractClientParser
         'OF' => 'Off By One',
         'O5' => 'Office Browser',
         'HH' => 'OhHai Browser',
+        'OL' => 'OnBrowser Lite',
         'OE' => 'ONE Browser',
         'N4' => 'Onion Browser',
         'Y1' => 'Opera Crypto',
@@ -667,7 +668,7 @@ class Browser extends AbstractClientParser
             'ZR', 'D6', 'F6', 'RC', 'WD', 'P3', 'FT', 'A9', 'X2',
             'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'P5', 'H5', 'V3',
             'K3', 'Q4', 'G2', 'R2', 'TT', 'WX', 'XP', '3I', 'BG',
-            'R0', 'JO',
+            'R0', 'JO', 'OL',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -709,7 +710,7 @@ class Browser extends AbstractClientParser
         '1W', 'EV', 'Z0', 'I9', 'V4', 'H4', 'M5', '0S', '0C',
         'ZR', 'D6', 'F6', 'P3', 'FT', 'A9', 'X2', 'NI', 'FG',
         'TH', 'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'N4', 'P5',
-        'H5', 'V3', 'G2', 'M8', 'BG',
+        'H5', 'V3', 'G2', 'M8', 'BG', 'OL',
     ];
 
     /**
