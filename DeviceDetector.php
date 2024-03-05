@@ -800,7 +800,7 @@ class DeviceDetector
      */
     protected function hasAndroidVRFragment(): bool
     {
-        $regex = 'Android( [\.0-9]+)?; Mobile VR;';
+        $regex = 'Android( [\.0-9]+)?; Mobile VR;| VR ';
 
         return !!$this->matchUserAgent($regex);
     }
@@ -947,7 +947,7 @@ class DeviceDetector
         /**
          * All devices containing VR fragment are assumed to be a wearable
          */
-        if (null === $this->device && ($this->hasAndroidVRFragment() || $this->matchUserAgent(' VR '))) {
+        if (null === $this->device && $this->hasAndroidVRFragment()) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_WEARABLE;
         }
 
