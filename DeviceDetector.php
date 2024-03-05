@@ -774,7 +774,7 @@ class DeviceDetector
      *
      * @return bool
      */
-    protected function hasAndroidTabletFragment(): bool
+    protected function hasAndroidTableFragment(): bool
     {
         $regex = 'Android( [\.0-9]+)?; Tablet;';
 
@@ -978,7 +978,7 @@ class DeviceDetector
         /**
          * Some UA contain the fragment 'Android; Tablet;' or 'Opera Tablet', so we assume those devices as tablets
          */
-        if (null === $this->device && ($this->hasAndroidTabletFragment()
+        if (null === $this->device && ($this->hasAndroidTableFragment()
             || $this->matchUserAgent('Opera Tablet'))
         ) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TABLET;
