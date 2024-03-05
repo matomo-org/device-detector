@@ -721,6 +721,7 @@ class Browser extends AbstractClientParser
         'Chrome'                     => ['Google Chrome'],
         'Chrome Webview'             => ['Android WebView'],
         'DuckDuckGo Privacy Browser' => ['DuckDuckGo'],
+        'Microsoft Edge'             => ['Edge'],
         'Norton Private Browser'     => ['Norton Secure Browser'],
         'Vewd Browser'               => ['Vewd Core'],
     ];
