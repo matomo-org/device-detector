@@ -366,6 +366,7 @@ class Browser extends AbstractClientParser
         'MO' => 'Mobicip',
         'MU' => 'MIUI Browser',
         'MS' => 'Mobile Silk',
+        'MK' => 'Mogok Browser',
         'M8' => 'Moya Browser',
         'MN' => 'Minimo',
         'MT' => 'Mint Browser',
