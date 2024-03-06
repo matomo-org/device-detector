@@ -914,6 +914,14 @@
   name: 'iOS'
   version: '$1'
 
+- regex: 'iPhone OS ([0-9]{1})([0-9]{1})([0-9]{1})'
+  name: 'iOS'
+  version: '$1.$2.$3'
+
+- regex: '(?:CPU OS|iPh(?:one)?[ _]OS|iPhone.+ OS|PodMN.+iPhone|iOS)[ _/](\d+(?:[_\.]\d+)*)'
+  name: 'iOS'
+  version: '$1'
+
 - regex: '(?:iPhone ?OS|iOS(?: Version)?)(?:/|; |,)(\d+[\.\d]+)'
   name: 'iOS'
   version: '$1'
@@ -1081,14 +1089,6 @@
 - regex: 'iOS(\d+)\.(\d+)0'
   name: 'iOS'
   version: '$1.$2'
-
-- regex: 'iPhone OS ([0-9]{1})([0-9]{1})([0-9]{1})'
-  name: 'iOS'
-  version: '$1.$2.$3'
-
-- regex: '(?:CPU OS|iPh(?:one)?[ _]OS|iPhone.+ OS|PodMN.+iPhone|iOS)[ _/](\d+(?:[_\.]\d+)*)'
-  name: 'iOS'
-  version: '$1'
 
 - regex: 'FBMD/iPhone;.*FBSV/ ?(\d+[\.\d]+);'
   name: 'iOS'
