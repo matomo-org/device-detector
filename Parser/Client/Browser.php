@@ -228,7 +228,6 @@ class Browser extends AbstractClientParser
         'EP' => 'GNOME Web',
         'G1' => 'G Browser',
         'ES' => 'Espial TV Browser',
-        'F8' => 'F-Secure SAFE',
         'FG' => 'fGet',
         'FA' => 'Falkon',
         'FX' => 'Faux Browser',
