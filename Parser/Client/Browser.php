@@ -95,6 +95,7 @@ class Browser extends AbstractClientParser
         'AE' => 'AOL Desktop',
         'AD' => 'AOL Shield',
         'A4' => 'AOL Shield Pro',
+        '2A' => 'Aplix',
         'A6' => 'AppBrowzer',
         'AP' => 'APUS Browser',
         'AR' => 'Arora',
