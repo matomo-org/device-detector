@@ -93,7 +93,7 @@ class Browser extends AbstractClientParser
         'A5' => 'Amerigo',
         'AO' => 'Amigo',
         'AN' => 'Android Browser',
-        '3A' => 'AOL',
+        '3A' => 'AOL Browser',
         'AE' => 'AOL Desktop',
         'AD' => 'AOL Shield',
         'A4' => 'AOL Shield Pro',
