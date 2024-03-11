@@ -229,7 +229,7 @@ class Browser extends AbstractClientParser
         'EE' => 'Elements Browser',
         'EX' => 'Explore Browser',
         'EZ' => 'eZ Browser',
-        'E1' => 'EudoraWeb',
+        'E2' => 'EudoraWeb',
         'EU' => 'EUI Browser',
         'EP' => 'GNOME Web',
         'G1' => 'G Browser',
