@@ -184,6 +184,7 @@ class OperatingSystem extends AbstractParser
         'ZOR' => 'ZorinOS',
         'IOS' => 'iOS',
         'POS' => 'palmOS',
+        'WEB' => 'Webian',
         'WOS' => 'webOS',
     ];
 
@@ -215,7 +216,7 @@ class OperatingSystem extends AbstractParser
             'LOS', 'DVK', 'ROK', 'OWR', 'OTV', 'KTV', 'PUR', 'PLA', 'FUC', 'PAR',
             'FOR', 'MON', 'KAN', 'ZEN', 'LND', 'LNS', 'CHN', 'AMZ', 'TEN', 'CST',
             'NOV', 'ROU', 'ZOR', 'RED', 'KAL', 'ORA', 'VID', 'TIV', 'BSN', 'RAS',
-            'UOS', 'PIO', 'FRI', 'LIR',
+            'UOS', 'PIO', 'FRI', 'LIR', 'WEB',
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
