@@ -116,6 +116,11 @@
   name: 'Google Drive'
   version: '$1'
 
+# Google Assistant (https://assistant.google.com/)
+- regex: 'OPA/([\d\.]+)'
+  name: 'Google Assistant'
+  version: '$1'
+
 # WeChat
 - regex: 'MicroMessenger/([\d\.]+)'
   name: 'WeChat'
@@ -171,15 +176,9 @@
 - regex: 'Flipp-iOS/.+CFNetwork'
   name: 'Flipp'
   version: ''
-
 - regex: 'Flipp-iOS/(\d+[\.\d]+)'
   name: 'Flipp'
   version: '$1'
-
-# AFNetworking generic
-- regex: '(?!AlohaBrowser)([^/;]*)/(\d+\.[\d.]+) \((?:iPhone|iPad); (?:iOS|iPadOS) [0-9\.]+; Scale/[0-9\.]+\)'
-  name: '$1'
-  version: '$2'
 
 # Signal uses WhatsApp user agent
 - regex: 'WhatsApp(?:/2)?$'
@@ -272,9 +271,12 @@
 - regex: 'YelpApp/([\d\.]+)'
   name: 'Yelp Mobile'
   version: '$1'
-- regex: 'jp.co.yahoo.android.yjtop/([\d\.]+)'
+
+# Yahoo! Japan (https://play.google.com/store/apps/details?id=jp.co.yahoo.android.yjtop | https://apps.apple.com/jp/app/yahoo-japan/id299147843)
+- regex: 'jp\.co\.yahoo\.(?:android\.yjtop|ipn\.appli)/([\d\.]+)'
   name: 'Yahoo! Japan'
   version: '$1'
+
 - regex: 'RSSRadio/([\d]+)?'
   name: 'RSSRadio'
   version: '$1'
@@ -289,9 +291,6 @@
   version: '$1'
 - regex: 'com\.douban\.group/([\d\.]+)?'
   name: 'douban App'
-  version: '$1'
-- regex: 'BingWeb/([\d\.]+)?'
-  name: 'BingWebApp'
   version: '$1'
 - regex: '(?:com.google.GoogleMobile|GSA|GoogleApp)/([\d.]+)?'
   name: 'Google Search App'
@@ -318,7 +317,7 @@
   name: 'Baidu Input'
   version: '$1'
 - regex: 'PetalSearch/([\d\.]+)?'
-  name: 'Petal Search App'
+  name: 'Petal Search'
   version: '$1'
 - regex: 'Crosswalk(?!.*(?:Streamy|QwantMobile))/([\d\.]+)?'
   name: 'CrosswalkApp'
@@ -397,7 +396,7 @@
   name: 'Siri'
   version: '1.0'
 
-- regex: 'LinkedIn(?:App)?(?:/([\d\.]+))?'
+- regex: 'LinkedIn(?:App)?(?:\]?/([\d\.]+))?'
   name: 'LinkedIn'
   version: '$1'
 
@@ -610,6 +609,11 @@
 - regex: 'Yandex/([\d\.]+)'
   name: 'Yandex'
   version: ''
+
+# Zen (Дзен) (https://play.google.com/store/apps/details?id=ru.zen.android)
+- regex: 'ZenKit/([\d\.]+)'
+  name: 'Zen'
+  version: '$1'
 
 - regex: 'Zoho%20Chat/([\d\.]+)'
   name: 'Zoho Chat'
@@ -876,7 +880,6 @@
   name: 'Google Podcasts'
   version: '$1'
 
-
 # Windows CryptoAPI (https://www.microsoft.com/en-us/)
 - regex: 'Microsoft-CryptoAPI/(\d+[\.\d]+)'
   name: 'Windows CryptoAPI'
@@ -1048,13 +1051,9 @@
   version: '$1'
 
 # Blackboard (https://apps.apple.com/us/app/blackboard/id950424861)
-- regex: 'Blackboard/(\d+[\.\d]+)'
+- regex: 'Blackboard/(\d+[\.\d]+)?'
   name: 'Blackboard'
   version: '$1'
-
-- regex: 'Blackboard/unspecified'
-  name: 'Blackboard'
-  version: ''
 
 # QQMusic (https://apps.apple.com/cn/app/qq%E9%9F%B3%E4%B9%90-%E5%90%AC%E6%88%91%E6%83%B3%E5%90%AC/id414603431)
 - regex: 'QQMusic/(\d+[\.\d]+)'
@@ -1117,9 +1116,9 @@
   version: '$1'
 
 # Instabridge (https://instabridge.com/en/)
-- regex: 'Instabridge'
+- regex: 'Instabridge(?:/([\d\.]+))?'
   name: 'Instabridge'
-  version: ''
+  version: '$1'
 
 # Be Focused (https://apps.apple.com/app/id973130201)
 - regex: 'Be Focused/(\d+\.[\.\d]+)?'
@@ -1156,14 +1155,22 @@
   name: 'IMO International Calls & Chat'
   version: '$1'
 
-# Microsoft Bing Search (https://play.google.com/store/apps/details?id=com.microsoft.bing | https://apps.apple.com/us/app/microsoft-bing-search/id345323231)
+# Microsoft Bing (https://play.google.com/store/apps/details?id=com.microsoft.bing | https://apps.apple.com/us/app/bing-chat-with-ai-gpt-4/id345323231)
 - regex: '(?:Bing)?Sapphire/(\d+\.[\.\d]+)'
-  name: 'Microsoft Bing Search'
+  name: 'Microsoft Bing'
+  version: '$1'
+- regex: 'BingWeb(?:/([\d\.]+))?|bingipadclient'
+  name: 'Microsoft Bing'
   version: '$1'
 
 # Microsoft Start (https://play.google.com/store/apps/details?id=com.microsoft.amp.apps.bingnews | https://apps.apple.com/us/app/microsoft-start/id945416273)
 - regex: 'NewsSapphire/(\d+\.[\.\d]+)'
   name: 'Microsoft Start'
+  version: '$1'
+
+# Microsoft Copilot (https://play.google.com/store/apps/details?id=com.microsoft.copilot | https://apps.apple.com/us/app/microsoft-copilot/id6472538445)
+- regex: 'CopilotSapphire/(\d+\.[\.\d]+)'
+  name: 'Microsoft Copilot'
   version: '$1'
 
 # HiSearch
@@ -1305,8 +1312,8 @@
   name: 'SafeIP'
   version: ''
 
-# Surfshark (https://play.google.com/store/apps/details?id=com.surfshark.vpnclient.android)
-- regex: 'SurfsharkAndroid/(\d+\.[\.\d]+)'
+# Surfshark (https://play.google.com/store/apps/details?id=com.surfshark.vpnclient.android | https://apps.apple.com/app/apple-store/id1391782046)
+- regex: 'Surfshark(?:Android)?/([\d\.]+)'
   name: 'Surfshark'
   version: '$1'
 
@@ -1363,11 +1370,6 @@
   name: "Don't Waste My Time!"
   version: '$1'
 
-# Surfshark (https://apps.apple.com/app/apple-store/id1391782046)
-- regex: 'Surfshark/(\d+\.[\.\d]+)'
-  name: 'Surfshark'
-  version: '$1'
-
 # 1Password (https://apps.apple.com/us/app/1password-password-manager/id568903335)
 - regex: '1Password/(\d+\.[\.\d]+)'
   name: '1Password'
@@ -1388,14 +1390,14 @@
   name: 'Yahoo OneSearch'
   version: '$1'
 
-# Bing iPad
-- regex: 'bingipadclient'
-  name: 'Bing iPad'
-  version: ''
-
 # AntiBrowserSpy (https://www.abelssoft.de/en/windows/security-privacy/antibrowserspy)
 - regex: 'anonymized by Abelssoft'
   name: 'AntiBrowserSpy'
+  version: ''
+
+# Browser-Anonymizer (https://www.almisoft.de/)
+- regex: 'Anonymisiert durch AlMiSoft'
+  name: 'Browser-Anonymizer'
   version: ''
 
 # 다음 or Daum
@@ -2245,7 +2247,7 @@
   version: '$1'
 
 # MetaMask (https://apps.apple.com/us/app/metamask-blockchain-wallet/id1438144202)
-- regex: 'MetaMask/'
+- regex: 'MetaMask(?:Mobile)?'
   name: 'MetaMask'
   version: ''
 
@@ -2298,3 +2300,88 @@
 - regex: 'Stream Master$'
   name: 'Stream Master'
   version: ''
+
+# Whatplay (https://play.google.com/store/apps/details?id=com.repotools.whatplay)
+- regex: 'Whatplay'
+  name: 'Whatplay'
+  version: ''
+
+# Lark (https://www.larksuite.com/)
+- regex: 'Lark/(\d+[\.\d]+)'
+  name: 'Lark'
+  version: '$1'
+
+# SearchCraft (https://secr.baidu.com/)
+- regex: 'SearchCraft/(\d+[\.\d]+)'
+  name: 'SearchCraft'
+  version: '$1'
+
+# Crypto.com DeFi Wallet (https://apps.apple.com/us/app/crypto-com-l-defi-wallet/id1512048310)
+- regex: 'DeFiWallet/(\d+[\.\d]+)'
+  name: 'Crypto.com DeFi Wallet'
+  version: '$1'
+
+# Clipbox+ (https://clipbox-official.com/)
+- regex: 'Clipbox\+/(\d+[\.\d]+)'
+  name: 'Clipbox+'
+  version: '$1'
+
+# HideX (com.flatfish.cal.privacy)
+- regex: 'appname/HideX'
+  name: 'HideX'
+  version: ''
+
+# Huawei Mobile Services
+- regex: 'HMSCore(?:[ /]([\d\.]+))?(?!.*HuaweiBrowser)'
+  name: 'Huawei Mobile Services'
+  version: '$1'
+
+# PLAYit (https://play.google.com/store/apps/details?id=com.playit.videoplayer)
+- regex: 'appname/PLAYit'
+  name: 'PLAYit'
+  version: ''
+
+# Autoplius.lt
+- regex: 'Autopliuslt(?:/([\d\.]+))?'
+  name: 'Autoplius.lt'
+  version: '$1'
+
+# Hotels.com (https://play.google.com/store/apps/details?id=com.hcom.android)
+- regex: 'HCom(?:/([\d\.]+))?'
+  name: 'Hotels.com'
+  version: '$1'
+
+# Coinbase (https://apps.apple.com/us/app/coinbase-buy-bitcoin-ether/id886427730)
+- regex: 'CoinbaseRetail(?:/([\d\.]+))?'
+  name: 'Coinbase'
+  version: '$1'
+
+# De Telegraaf (https://play.google.com/store/apps/details?id=nl.telegraaf)
+- regex: 'De Telegraaf(?:/([\d\.]+))?'
+  name: 'De Telegraaf'
+  version: '$1'
+
+# waipu.tv (https://www.waipu.tv/)
+- regex: 'waipu/([\d\.]+)'
+  name: 'waipu.tv'
+  version: '$1'
+
+# Redditor (https://apps.apple.com/us/app/redditor-the-perfect-client/id596236434)
+- regex: 'Redditor'
+  name: 'Redditor'
+  version: ''
+
+# BuzzVideo
+- regex: 'com.topbuzz.videoen/([\d\.]+)'
+  name: 'BuzzVideo'
+  version: '$1'
+
+# Generic app
+- regex: 'appname/([^/; ]*)'
+  name: '$1'
+  version: ''
+
+# AFNetworking generic
+- regex: '(?!AlohaBrowser)([^/;]*)/(\d+\.[\d.]+) \((?:iPhone|iPad); (?:iOS|iPadOS) [0-9\.]+; Scale/[0-9\.]+\)'
+  name: '$1'
+  version: '$2'
