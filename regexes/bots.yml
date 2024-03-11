@@ -5,6 +5,11 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
+- regex: 'WireReaderBot(?:/([\d+.]+))?'
+  name: 'WireReaderBot'
+  category: 'Feed Fetcher'
+  url: 'https://wirereader.app/'
+
 - regex: 'monitoring360bot'
   name: '360 Monitoring'
   category: 'Site Monitor'
@@ -767,6 +772,14 @@
   producer:
     name: 'Visual Meta'
     url: 'https://www.shopalike.cz/'
+
+- regex: 'Googlebot-News'
+  name: 'Googlebot News'
+  category: 'Search bot'
+  url: 'https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers'
+  producer:
+    name: 'Google Inc.'
+    url: 'https://www.google.com/'
 
 - regex: 'Adwords-(?:DisplayAds|Express|Instant)|Google Web Preview|Google[ -]Publisher[ -]Plugin|Google-(?:Ads-Conversions|Ads-Qualify|Adwords|AMPHTML|Assess|Extended|HotelAdsVerifier|InspectionTool|Lens|PageRenderer|Read-Aloud|Safety|Shopping-Quality|Site-Verification|speakr|Stale-Content-Probe|Test|Youtube-Links)|(?:AdsBot|APIs|DuplexWeb|Feedfetcher|Mediapartners)-Google(?:-Mobile)?|Google(?:AdSenseInfeed|AssociationService|bot|Other|Prober|Producer)|Google.*/\+/web/snippet'
   name: 'Googlebot'
@@ -1912,6 +1925,22 @@
     name: 'Yahoo! Japan Corp.'
     url: 'https://www.yahoo.co.jp/'
 
+- regex: 'Y!J-ASR'
+  name: 'Yahoo! Japan ASR'
+  category: 'Crawler'
+  url: 'https://support.yahoo-net.jp/PccSearch/s/article/H000007955'
+  producer:
+    name: 'Yahoo! Japan Corp.'
+    url: 'https://www.yahoo.co.jp/'
+
+- regex: '^Y!J'
+  name: 'Yahoo! Japan'
+  category: 'Crawler'
+  url: 'https://support.yahoo-net.jp/PccSearch/s/article/H000007955'
+  producer:
+    name: 'Yahoo! Japan Corp.'
+    url: 'https://www.yahoo.co.jp/'
+
 - regex: 'Yandex(?:(?:\.Gazeta |Accessibility|Mobile|MobileScreenShot|RenderResources|Screenshot|Sprav)?Bot|(?:AdNet|Antivirus|Blogs|Calendar|Catalog|Direct|Favicons|ForDomain|ImageResizer|Images|Market|Media|Metrika|News|OntoDB(?:API)?|Pagechecker|Partner|RCA|SearchShop|(?:News|Site)links|Tracker|Turbo|Userproxy|Verticals|Vertis|Video|Webmaster))|YaDirectFetcher'
   name: 'Yandex Bot'
   category: 'Search bot'
@@ -2576,8 +2605,16 @@
   url: 'https://github.com/projectdiscovery/httpx'
   category: 'Crawler'
   producer:
-    name: ''
-    url: ''
+    name: 'ProjectDiscovery, Inc.'
+    url: 'https://projectdiscovery.io/'
+
+- regex: '.*\.oast\.'
+  name: 'Interactsh'
+  category: 'Security Checker'
+  url: 'https://github.com/projectdiscovery/interactsh'
+  producer:
+    name: 'ProjectDiscovery, Inc.'
+    url: 'https://projectdiscovery.io/'
 
 - regex: 'scaninfo@(?:expanseinc|paloaltonetworks)\.com'
   name: 'Expanse'
@@ -4237,10 +4274,52 @@
     name: 'Open Technologies Bulgaria, Ltd.'
     url: 'https://kiwitcms.org'
 
+- regex: 'webtru_crawler'
+  name: 'webtru'
+  category: 'Crawler'
+  url: 'https://webtru.io/'
+  producer:
+    name: 'DataSign Inc.'
+    url: 'https://datasign.jp/'
+
+- regex: 'URLSuMaBot'
+  name: 'URLSuMaBot'
+  category: 'Crawler'
+  url: 'https://www.urlsuma.de/'
+
+- regex: '360JK yunjiankong'
+  name: '360JK'
+  category: 'Site Monitor'
+  url: 'http://jk.cloud.360.cn/'
+  producer:
+    name: '360 Security Technology Inc.'
+    url: 'https://www.360.cn/'
+
+- regex: 'UCSBNetworkMeasurement'
+  name: 'UCSB Network Measurement'
+  category: 'Crawler'
+  url: 'https://www.it.ucsb.edu/'
+  producer:
+    name: 'University of California, Santa Barbara'
+    url: 'https://www.it.ucsb.edu/'
+
+- regex: 'Plesk screenshot bot'
+  name: 'Plesk Screenshot Service'
+  category: 'Service Agent'
+  url: 'https://support.plesk.com/hc/en-us/articles/13302778306199-What-is-Plesk-Screenshot-Service'
+  producer:
+    name: 'Plesk International GmbH'
+    url: 'https://www.plesk.com/'
+
+- regex: 'Who.is'
+  name: 'Who.is Bot'
+  category: 'Crawler'
+  url: 'https://who.is/'
+
 # Generic bots
-- regex: 'nuhk|grub-client|Download Demon|SearchExpress|Microsoft URL Control|borg|altavista|dataminr\.com|teoma|oegp|http%20client|htdig|mogimogi|larbin|scrubby|searchsight|semanticdiscovery|snappy|vortex(?!(?: Build|Plus))|zeal(?!ot)|dataparksearch|findlinks|BrowserMob|URL2PNG|ZooShot|GomezA|Google SketchUp|Read%20Later|7Siters|centuryb\.o\.t9|InterNaetBoten|EasyBib AutoCite|Bidtellect|tomnomnom/meg|cortex|Re-re Studio|adreview|AHC/|NameOfAgent|Request-Promise|ALittle Client|Hello,? world|wp_is_mobile|0xAbyssalDoesntExist|Anarchy99|^revolt|nvd0rz|xfa1|Hakai|gbrmss|fuck-your-hp|IDBTE4M CODE87|Antoine|Insomania|Hells-Net|b3astmode|Linux Gnu \(cow\)|Test Certificate Info|iplabel|Magellan|TheSafex?Internetx?Search|Searcherweb|kirkland-signature|^xenu|^ZmEu|^(?:chrome|firefox|Zeus)$'
+- regex: 'nuhk|grub-client|Download Demon|SearchExpress|Microsoft URL Control|borg|altavista|dataminr\.com|teoma|oegp|http%20client|htdig|mogimogi|larbin|scrubby|searchsight|semanticdiscovery|snappy|vortex(?!(?: Build|Plus))|zeal(?!ot)|dataparksearch|findlinks|BrowserMob|URL2PNG|ZooShot|GomezA|Google SketchUp|Read%20Later|7Siters|centuryb\.o\.t9|InterNaetBoten|EasyBib AutoCite|Bidtellect|tomnomnom/meg|cortex|Re-re Studio|adreview|AHC/|NameOfAgent|Request-Promise|ALittle Client|Hello,? world|wp_is_mobile|0xAbyssalDoesntExist|Anarchy99|^revolt|nvd0rz|xfa1|Hakai|gbrmss|fuck-your-hp|IDBTE4M CODE87|Antoine|Insomania|Hells-Net|b3astmode|Linux Gnu \(cow\)|Test Certificate Info|iplabel|Magellan|TheSafex?Internetx?Search|Searcherweb|kirkland-signature|LinkChain|^xenu|^ZmEu|^(?:chrome|firefox|Zeus)$'
   name: 'Generic Bot'
 
 # Generic detections
-- regex: '[a-z0-9_-]*(?:(?<!cu|power[ _]|m[ _])bot(?![ _]TAB|[ _]?5[0-9]|[ _]Senior|[ _]Junior)|analyzer|appengine|archiver|checker|collector|crawl|crawler|fetcher|indexer|inspector|monitor|project(?!or)|(?<!Google Wap )proxy|research|resolver|robots|scraper|script|searcher|(?<!dapper-)security|spider|study|transcoder|uptime|user[ _]?agent|validator)(?:[^a-z]|$)'
+- regex: '[a-z0-9_-]*(?:(?<!cu|power[ _]|m[ _])bot(?![ _]TAB|[ _]?5[0-9]|[ _]Senior|[ _]Junior)|analyzer|appengine|archiver|checker|collector|crawl|crawler|fetcher|indexer|inspector|monitor|project(?!or)|(?<!Google Wap )proxy|research|resolver|robots|scanner|scraper|script|searcher|(?<!dapper-)security|spider|study|transcoder|uptime|user[ _]?agent|validator)(?:[^a-z]|$)'
   name: 'Generic Bot'

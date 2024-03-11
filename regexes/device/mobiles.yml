@@ -9510,6 +9510,18 @@ AWOX:
     - regex: 'AWOX;SmartTV;([a-z0-9_ \-]+);'
       model: '$1'
 
+# UD (https://udtv.store/)
+UD:
+  regex: 'TV3[45]8_?(?:DVB|ISDB)(?:[);/ ]|$)'
+  device: 'tv'
+  models:
+    - regex: 'TV348_DVB(?:[);/ ]|$)'
+      model: 'TV348 DVB'
+    - regex: 'TV348_ISDB(?:[);/ ]|$)'
+      model: 'TV348 ISDB'
+    - regex: 'TV358DVB(?:[);/ ]|$)'
+      model: 'TV358 DVB'
+
 # UGINE (https://www.ugine.com.sa/ar)
 UGINE:
   regex: 'UGINE(?:[);/ ]|$)'
@@ -11210,7 +11222,7 @@ Hyundai:
     - regex: '(?:Hyundai[_ ])?(Eternity[_ ](?:G57L?|G[56]0W?)|H7|Aero Plus|E435 Plus)'
       model: '$1'
 
-    - regex: '(H-LED\w+|H-DMP100)(?:[);/ ]|$)'
+    - regex: '(H-LED\w+|H-DMP100|2K TV)(?:[);/ ]|$)'
       device: 'tv'
       model: '$1'
 
@@ -17471,7 +17483,7 @@ Noontec:
 
 # Nordmende
 Nordmende:
-  regex: 'NORDMENDE[ _]'
+  regex: 'NORDMENDE[ _;,]'
   device: 'tv'
   models:
     - regex: 'NORDMENDE_(43NM6000F)(?:[);/ ]|$)'
@@ -17782,6 +17794,9 @@ O2:
   regex: 'Xda|(?<!FBCR/)O2[ \-]|COCOON'
   device: 'smartphone'
   models:
+    - regex: 'O2 TV Box(?:[);/ ]|$)'
+      device: 'tv'
+      model: 'TV Box'
     - regex: '(Xda[ _][a-z0-9_]+)'
       model: '$1'
     - regex: '(COCOON)'
@@ -19109,6 +19124,9 @@ Orange:
     - regex: 'SC/IHD92'
       device: 'tv' # set top box
       model: 'Livebox Play'
+    - regex: 'Orange TV Box(?:[);/ ]|$)'
+      device: 'tv'
+      model: 'TV Box'
     - regex: 'Nola play'
       model: 'Nola Play'
     - regex: 'Nola fun'
@@ -30732,6 +30750,12 @@ Billion:
   device: 'smartphone'
   model: 'Capture Plus'
 
+# Telkom
+Telkom:
+  regex: '(TVB-100)(?:[);/ ]|$)'
+  device: 'tv'
+  model: '$1'
+
 # Tele2 (www.tele2.com) mobile operator
 Tele2:
   regex: 'Tele2[ _]|Tele2fon'
@@ -38857,7 +38881,7 @@ WeChip:
 
 # Devices with undectable brand, but detectable model
 Unknown:
-  regex: 'Plasma Mobile|WebTV/(\d+\.\d+)|TV Bro| BOX|BOX | BOX |roku|YouView|DirectFB|avdn/|wired|wireless|AndroidTV|cordova-amazon-fireos|wv-atv|(?:M10 Ultra|FO-R15|TVBOX|Smart[ _-]?TV|SmartATV|M8S\+ 4K|PCBox|rk(?:3128|322x|3368)(?:[_-]box)?|H10 PLAY|Smart AIO TV|TVBOX_L|L-BOX|TVBOX-5G|mips.+(?:Opera TV|wireless|wired)|smartbox|TV BOX|BOX TV|I12Pro Max|(?:audi_)?ks1280x480|AT&T TV|RealtekATV|AOSP on r33a0|hx322x_box|X98_S500|8K3528-T|MX10|V88|H8S|X92|AI PONT)(?:[);/ ]|$)'
+  regex: 'Plasma Mobile|WebTV/(\d+\.\d+)|TV Bro| BOX|BOX | BOX |roku|YouView|DirectFB|avdn/|wired|wireless|AndroidTV|cordova-amazon-fireos|wv-atv|(?:M10 Ultra|FO-R15|TVBOX|Smart[ _-]?TV|SmartATV|M8S\+ 4K|PCBox|rk(?:3128|322x|3368)(?:[_-]box)?|H10 PLAY|Smart AIO TV|TVBOX_L|L-BOX|TVBOX-5G|mips.+(?:Opera TV|wireless|wired)|smartbox|TV BOX|BOX TV|I12Pro Max|(?:audi_)?ks1280x480|AT&T TV|RealtekATV|AOSP on r33a0|tv001 on rtd289x|hx322x_box|X98_S500|8K3528-T|MX10|V88|H8S|X92|AI PONT|tv.plus)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'WebTV/(\d+\.\d+)'
@@ -38869,7 +38893,7 @@ Unknown:
     - regex: '(FO-R15|X98_S500|8K3528-T|MX10|V88|H8S|X92|AI PONT)(?:[);/ ]|$)'
       device: 'tv'
       model: '$1'
-    - regex: ' BOX|BOX | BOX |roku|YouView|DirectFB|avdn/|wired|wireless|AndroidTV|cordova-amazon-fireos|wv-atv|(Smart[ _-]?TV|SmartATV|PCBox|hx322x_box|rk(?:3128|322x|3368)(?:[_-]box)?|TVBOX|Smart AIO TV|TVBOX_L|L-BOX|TVBOX-5G|AT&T TV|RealtekATV|TV Bro|AOSP on r33a0)(?:[);/ ]|$)'
+    - regex: ' BOX|BOX | BOX |roku|YouView|DirectFB|avdn/|wired|wireless|AndroidTV|cordova-amazon-fireos|wv-atv|(Smart[ _-]?TV|SmartATV|PCBox|hx322x_box|rk(?:3128|322x|3368)(?:[_-]box)?|TVBOX|Smart AIO TV|TVBOX_L|L-BOX|TVBOX-5G|AT&T TV|RealtekATV|TV Bro|AOSP on r33a0|tv001 on rtd289x|tv.plus)(?:[);/ ]|$)'
       device: 'tv'
       model: ''
     - regex: 'M8S\+ 4K(?:[);/ ]|$)'
