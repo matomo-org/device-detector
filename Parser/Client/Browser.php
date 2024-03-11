@@ -166,6 +166,7 @@ class Browser extends AbstractClientParser
         'CC' => 'Coc Coc',
         'C4' => 'CoolBrowser',
         'C2' => 'Colibri',
+        '6C' => 'Columbus Browser',
         'CD' => 'Comodo Dragon',
         'C1' => 'Coast',
         'CX' => 'Charon',
