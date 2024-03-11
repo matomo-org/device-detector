@@ -45,6 +45,7 @@ class Engine extends AbstractClientParser
         'iCab',
         'Elektra',
         'Presto',
+        'Clecko',
         'Gecko',
         'KHTML',
         'NetFront',
