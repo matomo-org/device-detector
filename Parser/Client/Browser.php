@@ -228,6 +228,7 @@ class Browser extends AbstractClientParser
         'EN' => 'EinkBro',
         'EB' => 'Element Browser',
         'EE' => 'Elements Browser',
+        'EO' => 'Eolie',
         'EX' => 'Explore Browser',
         'EZ' => 'eZ Browser',
         'EU' => 'EUI Browser',
