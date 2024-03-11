@@ -886,10 +886,6 @@ class Browser extends AbstractClientParser
                 $version = $browserFromUserAgent['version'];
             }
 
-            if ('DuckDuckGo Privacy Browser' === $name) {
-                $version = '';
-            }
-
             if ('Vewd Browser' === $name) {
                 $engine        = $browserFromUserAgent['engine'] ?? '';
                 $engineVersion = $browserFromUserAgent['engine_version'] ?? '';
@@ -930,6 +926,10 @@ class Browser extends AbstractClientParser
                 && \version_compare($version, $browserFromUserAgent['version'], '<')
             ) {
                 $version = $browserFromUserAgent['version'];
+            }
+
+            if ('DuckDuckGo Privacy Browser' === $name) {
+                $version = '';
             }
 
             // If client hints report Opera or Opera Mobile, we use the version from useragent
