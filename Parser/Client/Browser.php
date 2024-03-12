@@ -116,6 +116,7 @@ class Browser extends AbstractClientParser
         'VG' => 'AVG Secure Browser',
         'AC' => 'Avira Secure Browser',
         'A1' => 'AwoX',
+        '5B' => 'Basic Web Browser',
         'BA' => 'Beaker Browser',
         'BM' => 'Beamrise',
         'F7' => 'BF Browser',
@@ -231,6 +232,7 @@ class Browser extends AbstractClientParser
         'EO' => 'Eolie',
         'EX' => 'Explore Browser',
         'EZ' => 'eZ Browser',
+        'E2' => 'EudoraWeb',
         'EU' => 'EUI Browser',
         'EP' => 'GNOME Web',
         'G1' => 'G Browser',
@@ -363,6 +365,7 @@ class Browser extends AbstractClientParser
         'L2' => 'Lynket Browser',
         'MD' => 'Mandarin',
         'M5' => 'MarsLab Web Browser',
+        'M7' => 'MaxBrowser',
         'M1' => 'mCent',
         'MB' => 'MicroB',
         'MC' => 'NCSA Mosaic',
@@ -372,6 +375,7 @@ class Browser extends AbstractClientParser
         'MF' => 'Mobile Safari',
         'MI' => 'Midori',
         'M3' => 'Midori Lite',
+        'M6' => 'MixerBox AI',
         'MO' => 'Mobicip',
         'MU' => 'MIUI Browser',
         'MS' => 'Mobile Silk',
@@ -627,6 +631,7 @@ class Browser extends AbstractClientParser
         'Y2' => 'Yo Browser',
         'YB' => 'Yolo Browser',
         'YO' => 'YouCare',
+        'Y3' => 'YouBrowser',
         'YZ' => 'Yuzu Browser',
         'XR' => 'xBrowser',
         'XB' => 'X Browser Lite',
@@ -686,7 +691,7 @@ class Browser extends AbstractClientParser
             'ZR', 'D6', 'F6', 'RC', 'WD', 'P3', 'FT', 'A9', 'X2',
             'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'P5', 'H5', 'V3',
             'K3', 'Q4', 'G2', 'R2', 'WX', 'XP', '3I', 'BG', 'R0',
-            'JO', 'OL', 'GN', 'W4', 'QI', 'E1', 'RI', '8B',
+            'JO', 'OL', 'GN', 'W4', 'QI', 'E1', 'RI', '8B', '5B',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -729,7 +734,8 @@ class Browser extends AbstractClientParser
         '1W', 'EV', 'Z0', 'I9', 'V4', 'H4', 'M5', '0S', '0C',
         'ZR', 'D6', 'F6', 'P3', 'FT', 'A9', 'X2', 'NI', 'FG',
         'TH', 'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'N4', 'P5',
-        'H5', 'V3', 'G2', 'BG', 'OL', 'II', 'TL', 'GN',
+        'H5', 'V3', 'G2', 'BG', 'OL', 'II', 'TL', 'M6', 'Y3',
+        'M7', 'GN',
     ];
 
     /**

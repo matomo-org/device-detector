@@ -3333,7 +3333,7 @@ AOC:
     - regex: '(Q10107L-ME)(?:[);/ ]|$)'
       device: 'tablet'
       model: '$1'
-    - regex: '(LE(?:32|43)S5970(?:s)?-20|LE55U7970-30|LE43S5977-20|U60856)'
+    - regex: '(LE(?:32|43)S5970(?:s)?-(?:20|28|30)|LE55U7970-30|LE43S5977-20|U60856)'
       model: '$1'
 
 # Assistant
@@ -5543,7 +5543,7 @@ bq:
 
 # Bush
 Bush:
-  regex: 'Bush[ ,_-]|Bush10Nou'
+  regex: 'Bush[ ;,_-]|Bush10Nou'
   device: 'smartphone'
   models:
     - regex: 'Bush10Nou'
@@ -5629,9 +5629,9 @@ Casper:
       model: 'VIA $1'
       device: 'tablet'
 
-# Cat (Caterpillar, Catphones)
+# Cat (Caterpillar, Catphones, Bullitt Group)
 Cat:
-  regex: 'B30_Dorado|Cat ?(tablet|stargate|nova)|(?:B15Q|CAT B35|CAT-B100|S62 Pro|S48c|Android 9;(?: [\w-]+;)? S52|Android 10;(?: [\w-]+;)? S42)(?:[);/ ]|$)'
+  regex: 'BULLITTGROUPLIMITED|B30_Dorado|Cat ?(tablet|stargate|nova)|(?:B15Q|CAT B35|CAT-B100|S62 Pro|S48c|Android 9;(?: [\w-]+;)? S52|Android 10;(?: [\w-]+;)? S42)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'B15Q'
@@ -5639,6 +5639,9 @@ Cat:
       device: 'smartphone'
     - regex: 'CAT B35'
       model: 'B35'
+      device: 'smartphone'
+    - regex: 'S61(?:[);/ ]|$)'
+      model: 'S61'
       device: 'smartphone'
     - regex: 'S62 Pro'
       model: 'S62 Pro'
@@ -19753,7 +19756,7 @@ Pioneer:
       model: 'BDP-160'
     - regex: 'Pioneer, ?([a-z0-9_ \-]+), ?(?:wired|wireless)'
       device: 'tv'
-      model: ''
+      model: '$1'
     - regex: 'Pioneer[ _-]?([^;/]+) Build'
       model: '$1'
     - regex: 'Pioneer[ _-]?([^;/)]+)(?:[;/)]|$)'
@@ -19887,8 +19890,8 @@ ProScan:
     - regex: 'PLT(777[045]|9774|1074|9999)G'
       model: 'PLT$1G'
 
-# RCA Tablets (RCA) (www.rca.com)
-'RCA Tablets':
+# RCA Tablets (RCA) ((https://www.rca.com/))
+RCA Tablets:
   regex: 'RCA-OEM[;,]|RCT([^;/]+) Build|RCA RLTP4028|RLTP5567|RLTP5573|RC7T3G21|RCT6B06P23|RCT6613W23P|RCT6513W87|DRP(?:29101|2091)|RCT6973W43(?:MD)?|RCT6703W12|RCT(?:6A06P22|6603W47M7|6303W87(?:DK|M)|6773W22B|6203W46L|6873W42B?M|6K03W13|6876Q22N|6A06Q22)'
   device: 'smartphone'
   models:
@@ -20043,9 +20046,13 @@ S-TELL:
 
 # Safaricom
 Safaricom:
-  regex: 'NEON[_ ]RAY|(?:NEON_NOVA|NEON PLUS|NEON PLUS|NEON LITE|Neon Storm|SFCSTB2LITE)(?:[);/ ]|$)'
+  regex: 'Safaricom|NEON[_ ]RAY|(?:NEON_NOVA|NEON PLUS|NEON PLUS|NEON LITE|Neon Storm|SFCSTB2LITE)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
+    - regex: 'ET Kimem(?:[);/ ]|$)'
+      model: 'ET Kimem'
+    - regex: 'Safaricom_Kimem_Kerefa_4G(?:[);/ ]|$)'
+      model: 'Kimem Kerefa 4G'
     - regex: 'NEON_RAY_PRO'
       model: 'Neon Ray Pro'
     - regex: 'Neon Ray Ultra'
@@ -22123,7 +22130,15 @@ Tanix:
     - regex: 'TX3 Mini|TX3MINI'
       model: 'TX3 Mini'
 
-# pantech
+# Panavox
+Panavox:
+  regex: 'Panavox'
+  device: 'tv'
+  models:
+    - regex: 'Panavox Android TV(?:[);/ ]|$)'
+      model: 'Smart TV'
+
+# Pantech
 Pantech:
   regex: 'Pantech|P[GN]-|PT-[a-z0-9]{3,}|(?<!Winmax )TX[T]?[0-9]+|IM-[a-z0-9]+(?:[);/ ]|$)|ADR910L'
   device: 'smartphone'
@@ -22822,13 +22837,15 @@ TOOGO:
 
 # Quantum
 Quantum:
-  regex: '(?:Quantum (?:Fit|Five|Fly|UP|MUV (?:PRO|UP)|Go|Mini|M|V|You [2E])|GO 2|Q20|LIO\+|Q-TITANO(_007i|-H2)?|Q-Pulse70M|Q-Wave(?:101|71M))(?:[);/ ]|$)'
+  regex: 'Qrash|(?:Quantum (?:Fit|Five|Fly|UP|MUV (?:PRO|UP)|Go|Mini|M|V|You [2E])|GO 2|Q20|LIO\+|Q-TITANO(_007i|-H2)?|Q-Pulse70M|Q-Wave(?:101|71M))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'LIO\+(?:[);/ ]|$)'
       model: 'Lio Plus'
     - regex: 'GO 2(?:[);/ ]|$)'
       model: 'Go 2'
+    - regex: 'Qrash(?:[);/ ]|$)'
+      model: 'Qrash'
     - regex: 'Quantum (Fit|Five|Go|Mini|[MV]|Fly|You [2E]|Q20)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'Quantum MUV PRO(?:[);/ ]|$)'
@@ -25095,15 +25112,19 @@ Verykool:
 
 # Finlux
 Finlux:
-  regex: 'FINLUX|FINLUX, ([a-z0-9_ \-]+), (?:wired|wireless)'
+  regex: 'FINLUX'
   device: 'tv'
-  model: ''
+  models:
+    - regex: 'FINLUX, ?([0-9]+[a-z0-9_ \-]+), ?(?:wired|wireless)'
+      model: '$1'
 
 # Hitachi
 Hitachi:
-  regex: 'HITACHI[;,]|HITACHI, ([a-z0-9_ \-]+), (?:wired|wireless)'
+  regex: 'HITACHI[;,]'
   device: 'tv'
-  model: ''
+  models:
+    - regex: 'HITACHI, ?([0-9]+[a-z0-9_ \-]+), ?(?:wired|wireless)'
+      model: '$1'
 
 # Mitchell & Brown (https://www.mitchellandbrown.co.uk/)
 'Mitchell & Brown':
@@ -25957,7 +25978,7 @@ Woxter:
 
 # X-View
 X-View:
-  regex: 'X-View|ZEN_U5\+|AMBER_KIDS|Proton_Amber_HD|Proton_Neon|PROTON_JADE_2_PRO'
+  regex: 'X-View|ZEN_U5\+|AMBER_KIDS|Proton_Amber_HD|Proton_Neon|PROTON_JADE_2_PRO|TitaniumGTColorsGO'
   device: 'smartphone'
   models:
     - regex: 'ZEN_U5\+'
@@ -25977,6 +25998,9 @@ X-View:
     - regex: 'X-ViewTablet'
       device: 'tablet'
       model: ''
+    - regex: 'TitaniumGTColorsGO'
+      device: 'tablet'
+      model: 'Titanium GT Colors GO'
 
 # POCO (sub brand Xiaomi)
 POCO:
@@ -29390,6 +29414,10 @@ Daewoo:
       model: '$1'
       device: 'tv'
 
+    - regex: 'Daewoo, ?([a-z0-9_ \-]+), ?(?:wired|wireless)'
+      model: '$1'
+      device: 'tv'
+
 # Vesta (vesta.md)
 Vesta:
   regex: 'VESTA_SMART|VESTA32LD86(?:[);/ ]|$)'
@@ -30397,7 +30425,7 @@ TD Systems:
 
 # Ravoz (https://www.ravoz.online/)
 Ravoz:
-  regex: 'RAVOZ[ _](Z[357] (?:Lite|Pro)|Z[3-7]|R[4789]|V[23])(?:[);/ ]|$)'
+  regex: 'RAVOZ[ _](Z[357] (?:Lite|Pro)|Z[3-7]|R[4789]|V[123])(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
 
@@ -31669,6 +31697,12 @@ P-UP:
       device: 'smartphone'
       model: 'Mode 1 MD-01P'
 
+# Pacific Research Alliance (https://www.pacificresearchalliance.com/)
+Pacific Research Alliance:
+  regex: 'Armadillo Phone'
+  device: 'smartphone'
+  model: 'Armadillo Phone'
+
 # Paladin (https://paladin.com.my/)
 Paladin:
   regex: 'Paladin TV'
@@ -31869,6 +31903,14 @@ TTEC:
   regex: '(Magictab (?:9GX|7GE|718))(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
+
+# TTfone (https://www.ttfone.com/)
+TTfone:
+  regex: 'TTfone'
+  device: 'smartphone'
+  models:
+    - regex: 'TT20(?:[);/ ]|$)'
+      model: 'TT20'
 
 # eSTAR
 eSTAR:
@@ -35423,11 +35465,14 @@ Orbita:
 
 # TAG Tech or TAG-Tech or Talal Abu-Ghazaleh Global (www.tagtech.global)
 TAG Tech:
-  regex: 'TAG[ -]TAB[ -]III?(?:[);/ ]|$)'
+  regex: '(?:TAG[ -]TAB[ -]III?|TAGPhone)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'TAG[ -]TAB[ -](III?)'
       model: 'Tab $1'
+    - regex: 'TAGPhone(?:[);/ ]|$)'
+      device: 'smartphone'
+      model: 'Phone'
 
 # DUNNS Mobile or DUNNS
 DUNNS Mobile:
@@ -35556,9 +35601,14 @@ Eurocase:
 
 # VEON
 VEON:
-  regex: 'VEON[_ ](C8680)(?:[);/ ]|$)'
+  regex: 'VEON[_ ]|VEON[_ ](?:C8680)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'VEON[_ ](C8680)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'VEON 4K Smart TV(?:[);/ ]|$)'
+      device: 'tv'
+      model: '4K Smart TV'
 
 # FiGi (figi-mobile.com)
 FiGi:
