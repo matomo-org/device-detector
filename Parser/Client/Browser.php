@@ -134,6 +134,7 @@ class Browser extends AbstractClientParser
         'BE' => 'Beonex',
         'B2' => 'Berry Browser',
         'BT' => 'Bitchute Browser',
+        '9B' => 'BizBrowser',
         'BH' => 'BlackHawk',
         'B0' => 'Bloket',
         'BJ' => 'Bunjalloo',
