@@ -390,6 +390,13 @@ class OperatingSystem extends AbstractParser
                 $short   = 'LEN';
                 $version = '';
             }
+
+            if ('org.mozilla.tv.firefox' === $this->clientHints->getApp() && 'Fire OS' !== $name) {
+                $name    = 'Fire OS';
+                $family  = 'Android';
+                $short   = 'FIR';
+                $version = '';
+            }
         }
 
         $return = [
