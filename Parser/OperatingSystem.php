@@ -320,6 +320,20 @@ class OperatingSystem extends AbstractParser
             '2'     => '1',
         ];
 
+        $lineageOsVersionMapping = [
+            '14'    => '21',
+            '13'    => '20',
+            '12.1'  => '19.1',
+            '12'    => '19',
+            '11'    => '18',
+            '10'    => '17',
+            '9'     => '16',
+            '8.1.0' => '15.1',
+            '7.1.2' => '14.1',
+            '7.1.1' => '14.1',
+            '6'     => '13',
+        ];
+
         if (!empty($osFromClientHints['name'])) {
             $name    = $osFromClientHints['name'];
             $version = $osFromClientHints['version'];
@@ -385,13 +399,15 @@ class OperatingSystem extends AbstractParser
             }
 
             if ('org.lineageos.jelly' === $this->clientHints->getApp() && 'Lineage OS' !== $name) {
+                $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
+
                 $name    = 'Lineage OS';
                 $family  = 'Android';
                 $short   = 'LEN';
-                $version = '';
+                $version = $lineageOsVersionMapping[$version] ?? $lineageOsVersionMapping[$majorVersion] ?? $version;
             }
 
-            if ('org.mozilla.tv.firefox' === $this->clientHints->getApp() && 'Fire OS' !== $name) {             
+            if ('org.mozilla.tv.firefox' === $this->clientHints->getApp() && 'Fire OS' !== $name) {
                 $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
 
                 $name    = 'Fire OS';
