@@ -305,6 +305,21 @@ class OperatingSystem extends AbstractParser
         $osFromClientHints = $this->parseOsFromClientHints();
         $osFromUserAgent   = $this->parseOsFromUserAgent();
 
+        $fireOsVersionMapping = [
+            '11'    => '8',
+            '10'    => '8',
+            '9'     => '7',
+            '7'     => '6',
+            '5'     => '5',
+            '4.4.3' => '4.5.1',
+            '4.4.2' => '4',
+            '4.2.2' => '3',
+            '4.0.3' => '3',
+            '4.0.2' => '3',
+            '4'     => '2',
+            '2'     => '1',
+        ];
+
         if (!empty($osFromClientHints['name'])) {
             $name    = $osFromClientHints['name'];
             $version = $osFromClientHints['version'];
@@ -331,21 +346,6 @@ class OperatingSystem extends AbstractParser
 
                 if ('Fire OS' === $osFromUserAgent['name']) {
                         $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
-
-                        $fireOsVersionMapping = [
-                            '11'    => '8',
-                            '10'    => '8',
-                            '9'     => '7',
-                            '7'     => '6',
-                            '5'     => '5',
-                            '4.4.3' => '4.5.1',
-                            '4.4.2' => '4',
-                            '4.2.2' => '3',
-                            '4.0.3' => '3',
-                            '4.0.2' => '3',
-                            '4'     => '2',
-                            '2'     => '1',
-                        ];
 
                         $version = $fireOsVersionMapping[$version] ?? $fireOsVersionMapping[$majorVersion] ?? $version;
                 }
@@ -391,11 +391,13 @@ class OperatingSystem extends AbstractParser
                 $version = '';
             }
 
-            if ('org.mozilla.tv.firefox' === $this->clientHints->getApp() && 'Fire OS' !== $name) {
+            if ('org.mozilla.tv.firefox' === $this->clientHints->getApp() && 'Fire OS' !== $name) {             
+                $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
+
                 $name    = 'Fire OS';
                 $family  = 'Android';
                 $short   = 'FIR';
-                $version = '';
+                $version = $fireOsVersionMapping[$version] ?? $fireOsVersionMapping[$majorVersion] ?? $version;
             }
         }
 
