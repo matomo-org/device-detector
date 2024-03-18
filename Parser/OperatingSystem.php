@@ -383,6 +383,13 @@ class OperatingSystem extends AbstractParser
                 $short   = 'ADR';
                 $version = '';
             }
+
+            if ('org.lineageos.jelly' === $this->clientHints->getApp() && 'Lineage OS' !== $name) {
+                $name    = 'Lineage OS';
+                $family  = 'Android';
+                $short   = 'LEN';
+                $version = '';
+            }
         }
 
         $return = [
