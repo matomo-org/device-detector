@@ -372,9 +372,33 @@
 ##########
 # Lineage OS
 ##########
-- regex: 'lineage_\w+'
+- regex: 'Lineage_(\d+[\.\d]*)'
   name: 'Lineage OS'
-  version: ''
+  version: '$1'
+
+- regex: '(?:Android (\d([\d.])*);? )?lineage_\w+'
+  name: 'Lineage OS'
+  versions:
+    - regex: 'Android 14'
+      version: '21'
+    - regex: 'Android 13'
+      version: '20'
+    - regex: 'Android 12\.1'
+      version: '19.1'
+    - regex: 'Android 12'
+      version: '19'
+    - regex: 'Android 11'
+      version: '18'
+    - regex: 'Android 10'
+      version: '17'
+    - regex: 'Android 9'
+      version: '16'
+    - regex: 'Android 8\.1'
+      version: '15.1'
+    - regex: 'Android 7\.1'
+      version: '14.1'
+    - regex: 'Android 6'
+      version: '13'
 
 #########
 # Resurrection Remix OS (https://resurrectionremix.com/)
