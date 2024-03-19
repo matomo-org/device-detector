@@ -361,7 +361,7 @@ class OperatingSystem extends AbstractParser
                 if ('Fire OS' === $osFromUserAgent['name']) {
                         $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
 
-                        $version = $fireOsVersionMapping[$version] ?? $fireOsVersionMapping[$majorVersion] ?? $version;
+                        $version = $fireOsVersionMapping[$version] ?? $fireOsVersionMapping[$majorVersion] ?? '';
                 }
             }
 
@@ -404,7 +404,7 @@ class OperatingSystem extends AbstractParser
                 $name    = 'Lineage OS';
                 $family  = 'Android';
                 $short   = 'LEN';
-                $version = $lineageOsVersionMapping[$version] ?? $lineageOsVersionMapping[$majorVersion] ?? $version;
+                $version = $lineageOsVersionMapping[$version] ?? $lineageOsVersionMapping[$majorVersion] ?? '';
             }
 
             if ('org.mozilla.tv.firefox' === $this->clientHints->getApp() && 'Fire OS' !== $name) {
@@ -413,7 +413,7 @@ class OperatingSystem extends AbstractParser
                 $name    = 'Fire OS';
                 $family  = 'Android';
                 $short   = 'FIR';
-                $version = $fireOsVersionMapping[$version] ?? $fireOsVersionMapping[$majorVersion] ?? $version;
+                $version = $fireOsVersionMapping[$version] ?? $fireOsVersionMapping[$majorVersion] ?? '';
             }
         }
 
