@@ -255,6 +255,55 @@ class OperatingSystem extends AbstractParser
     ];
 
     /**
+     * Fire OS version mapping
+     *
+     * @var array
+     */
+    private $fireOsVersionMapping = [
+        '11'    => '8',
+        '10'    => '8',
+        '9'     => '7',
+        '7'     => '6',
+        '5'     => '5',
+        '4.4.3' => '4.5.1',
+        '4.4.2' => '4',
+        '4.2.2' => '3',
+        '4.0.3' => '3',
+        '4.0.2' => '3',
+        '4'     => '2',
+        '2'     => '1',
+    ];
+
+    /**
+     * Lineage OS version mapping
+     *
+     * @var array
+     */
+    private $lineageOsVersionMapping = [
+        '14'    => '21.0',
+        '13'    => '20.0',
+        '12.1'  => '19.1',
+        '12'    => '19.0',
+        '11'    => '18.0',
+        '10'    => '17.0',
+        '9'     => '16.0',
+        '8.1.0' => '15.1',
+        '8.0.0' => '15.0',
+        '7.1.2' => '14.1',
+        '7.1.1' => '14.1',
+        '7.0'   => '14.0',
+        '6.0.1' => '13.0',
+        '6.0'   => '13.0',
+        '5.1.1' => '12.1',
+        '5.0.2' => '12.0',
+        '5.0'   => '12.0',
+        '4.4.4' => '11.0',
+        '4.3'   => '10.2',
+        '4.2.2' => '10.1',
+        '4.0.4' => '9.1.0',
+    ];
+
+    /**
      * Returns all available operating systems
      *
      * @return array
@@ -307,45 +356,6 @@ class OperatingSystem extends AbstractParser
         $osFromClientHints = $this->parseOsFromClientHints();
         $osFromUserAgent   = $this->parseOsFromUserAgent();
 
-        $fireOsVersionMapping = [
-            '11'    => '8',
-            '10'    => '8',
-            '9'     => '7',
-            '7'     => '6',
-            '5'     => '5',
-            '4.4.3' => '4.5.1',
-            '4.4.2' => '4',
-            '4.2.2' => '3',
-            '4.0.3' => '3',
-            '4.0.2' => '3',
-            '4'     => '2',
-            '2'     => '1',
-        ];
-
-        $lineageOsVersionMapping = [
-            '14'    => '21.0',
-            '13'    => '20.0',
-            '12.1'  => '19.1',
-            '12'    => '19.0',
-            '11'    => '18.0',
-            '10'    => '17.0',
-            '9'     => '16.0',
-            '8.1.0' => '15.1',
-            '8.0.0' => '15.0',
-            '7.1.2' => '14.1',
-            '7.1.1' => '14.1',
-            '7.0'   => '14.0',
-            '6.0.1' => '13.0',
-            '6.0'   => '13.0',
-            '5.1.1' => '12.1',
-            '5.0.2' => '12.0',
-            '5.0'   => '12.0',
-            '4.4.4' => '11.0',
-            '4.3'   => '10.2',
-            '4.2.2' => '10.1',
-            '4.0.4' => '9.1.0',
-        ];
-
         if (!empty($osFromClientHints['name'])) {
             $name    = $osFromClientHints['name'];
             $version = $osFromClientHints['version'];
@@ -373,7 +383,8 @@ class OperatingSystem extends AbstractParser
                 if ('Fire OS' === $osFromUserAgent['name']) {
                         $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
 
-                        $version = $fireOsVersionMapping[$version] ?? $fireOsVersionMapping[$majorVersion] ?? '';
+                        $version = $this->fireOsVersionMapping[$version]
+                            ?? $this->fireOsVersionMapping[$majorVersion] ?? '';
                 }
             }
 
@@ -416,7 +427,8 @@ class OperatingSystem extends AbstractParser
                 $name    = 'Lineage OS';
                 $family  = 'Android';
                 $short   = 'LEN';
-                $version = $lineageOsVersionMapping[$version] ?? $lineageOsVersionMapping[$majorVersion] ?? '';
+                $version = $this->lineageOsVersionMapping[$version]
+                    ?? $this->lineageOsVersionMapping[$majorVersion] ?? '';
             }
 
             if ('org.mozilla.tv.firefox' === $this->clientHints->getApp() && 'Fire OS' !== $name) {
@@ -425,7 +437,7 @@ class OperatingSystem extends AbstractParser
                 $name    = 'Fire OS';
                 $family  = 'Android';
                 $short   = 'FIR';
-                $version = $fireOsVersionMapping[$version] ?? $fireOsVersionMapping[$majorVersion] ?? '';
+                $version = $this->fireOsVersionMapping[$version] ?? $this->fireOsVersionMapping[$majorVersion] ?? '';
             }
         }
 
