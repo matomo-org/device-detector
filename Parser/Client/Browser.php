@@ -343,6 +343,7 @@ class Browser extends AbstractClientParser
         'KY' => 'Kylo',
         'KZ' => 'Kazehakase',
         'LB' => 'Cheetah Browser',
+        'LD' => 'Ladybird',
         'LA' => 'Lagatos Browser',
         'GN' => 'Legan Browser',
         'LR' => 'Lexi Browser',
