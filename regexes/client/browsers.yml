@@ -1833,6 +1833,58 @@
   engine:
     default: 'Gecko'
 
+# UC Browser HD
+- regex: 'UCBrowserHD/(\d[\d\.]+)'
+  name: 'UC Browser HD'
+  version: '$1'
+
+#UC Browser Mini
+- regex: 'UCMini(?:[ /]?(\d+[\.\d]+))?'
+  name: 'UC Browser Mini'
+  version: '$1'
+- regex: 'UC[ ]?Browser.* \(UCMini\)'
+  name: 'UC Browser Mini'
+  version: ''
+- regex: 'Chrome.+uc mini browser(\d+[\.\d]+)?'
+  name: 'UC Browser Mini'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# UC Browser Turbo
+- regex: 'UCTurbo(?:[ /]?(\d+[\.\d]+))?'
+  name: 'UC Browser Turbo'
+  version: '$1'
+- regex: 'UC[ ]?Browser.* \(UCTurbo\)'
+  name: 'UC Browser Turbo'
+  version: ''
+
+#UC Browser
+- regex: 'UC[ ]?Browser(?:[ /]?(\d+[\.\d]+))?'
+  name: 'UC Browser'
+  version: '$1'
+- regex: 'UCWEB(?:[ /]?(\d+[\.\d]+))?'
+  name: 'UC Browser'
+  version: '$1'
+- regex: 'UC AppleWebKit'
+  name: 'UC Browser'
+  version: ''
+- regex: 'UC%20Browser/(\d+[\.\d]+)? CFNetwork/.+Darwin/.+(?!.*x86_64)'
+  name: 'UC Browser'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+- regex: 'Chrome.+UC Browser(\d+[\.\d]+)'
+  name: 'UC Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
+- regex: 'Firefox.+UCKai/(\d+[\.\d]+)'
+  name: 'UC Browser'
+  version: '$1'
+  engine:
+    default: 'Gecko'
+
 #Firefox Mobile
 - regex: '(?:Mobile|Tablet).*Servo.*Firefox(?:/(\d+[\.\d]+))?'
   name: 'Firefox Mobile'
@@ -1934,32 +1986,6 @@
   version: '$1'
 - regex: 'Obigo|Teleca'
   name: 'Obigo'
-  version: ''
-
-# UC Browser HD
-- regex: 'UCBrowserHD/(\d[\d\.]+)'
-  name: 'UC Browser HD'
-  version: '$1'
-
-#UC Browser Mini
-- regex: 'UCMini(?:[ /]?(\d+[\.\d]+))?'
-  name: 'UC Browser Mini'
-  version: '$1'
-- regex: 'UC[ ]?Browser.* \(UCMini\)'
-  name: 'UC Browser Mini'
-  version: ''
-- regex: 'Chrome.+uc mini browser(\d+[\.\d]+)?'
-  name: 'UC Browser Mini'
-  version: '$1'
-  engine:
-    default: 'Blink'
-
-# UC Browser Turbo
-- regex: 'UCTurbo(?:[ /]?(\d+[\.\d]+))?'
-  name: 'UC Browser Turbo'
-  version: '$1'
-- regex: 'UC[ ]?Browser.* \(UCTurbo\)'
-  name: 'UC Browser Turbo'
   version: ''
 
 # Opera GX (https://www.opera.com/gx#start | http://ftp.opera.com/pub/opera_gx/)
@@ -2355,27 +2381,6 @@
   version: ''
   engine:
     default: ''
-
-#UC Browser
-- regex: 'UC[ ]?Browser(?:[ /]?(\d+[\.\d]+))?'
-  name: 'UC Browser'
-  version: '$1'
-- regex: 'UCWEB(?:[ /]?(\d+[\.\d]+))?'
-  name: 'UC Browser'
-  version: '$1'
-- regex: 'UC AppleWebKit'
-  name: 'UC Browser'
-  version: ''
-- regex: 'UC%20Browser/(\d+[\.\d]+)? CFNetwork/.+Darwin/.+(?!.*x86_64)'
-  name: 'UC Browser'
-  version: '$1'
-  engine:
-    default: 'WebKit'
-- regex: 'Chrome.+UC Browser(\d+[\.\d]+)'
-  name: 'UC Browser'
-  version: '$1'
-  engine:
-    default: 'Blink'
 
 #It should be checked before Chrome since the UA contains the Chrome
 
