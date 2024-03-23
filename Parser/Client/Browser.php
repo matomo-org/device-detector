@@ -273,6 +273,7 @@ class Browser extends AbstractClientParser
         'GI' => 'GinxDroid Browser',
         'GB' => 'Glass Browser',
         'GD' => 'Godzilla Browser',
+        'G3' => 'Good Browser',
         'GE' => 'Google Earth',
         'GP' => 'Google Earth Pro',
         'GO' => 'GOG Galaxy',
