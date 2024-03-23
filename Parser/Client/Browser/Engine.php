@@ -54,7 +54,7 @@ class Engine extends AbstractClientParser
         'Servo',
         'Goanna',
         'EkiohFlow',
-        'LibWeb+LibJs',
+        'LibWeb',
     ];
 
     /**
