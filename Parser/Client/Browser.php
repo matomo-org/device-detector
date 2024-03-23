@@ -483,6 +483,7 @@ class Browser extends AbstractClientParser
         'P4' => 'Privacy Explorer Fast Safe',
         'P3' => 'Private Internet Browser',
         'P5' => 'Proxy Browser',
+        '7P' => 'Proxyium',
         '6P' => 'Proxynet',
         'P2' => 'Pi Browser',
         'P0' => 'PronHub Browser',
@@ -747,7 +748,7 @@ class Browser extends AbstractClientParser
         'TH', 'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'N4', 'P5',
         'H5', 'V3', 'G2', 'BG', 'OL', 'II', 'TL', 'M6', 'Y3',
         'M7', 'GN', 'D3', 'IG', 'HW', '4O', 'OU', '5P', 'KE',
-        '5A', 'TT', '6P', 'G3',
+        '5A', 'TT', '6P', 'G3', '7P',
     ];
 
     /**
