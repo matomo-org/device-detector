@@ -203,6 +203,7 @@ class Browser extends AbstractClientParser
         'YC' => 'CyBrowser',
         'DB' => 'dbrowser',
         'PD' => 'Peeps dBrowser',
+        'DK' => 'Dark Web',
         'D1' => 'Debuggable Browser',
         'DC' => 'Decentr',
         'DE' => 'Deepnet Explorer',
@@ -753,6 +754,7 @@ class Browser extends AbstractClientParser
         'H5', 'V3', 'G2', 'BG', 'OL', 'II', 'TL', 'M6', 'Y3',
         'M7', 'GN', 'D3', 'IG', 'HW', '4O', 'OU', '5P', 'KE',
         '5A', 'TT', '6P', 'G3', '7P', 'VU', 'BQ', 'F8', 'L4',
+        'DK',
     ];
 
     /**
