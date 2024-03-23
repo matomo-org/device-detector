@@ -355,6 +355,7 @@ class Browser extends AbstractClientParser
         'LF' => 'LieBaoFast',
         'LG' => 'LG Browser',
         'LH' => 'Light',
+        'L4' => 'Lightning Browser Plus',
         'L1' => 'Lilo',
         'LI' => 'Links',
         'RI' => 'Liri Browser',
@@ -751,7 +752,7 @@ class Browser extends AbstractClientParser
         'TH', 'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'N4', 'P5',
         'H5', 'V3', 'G2', 'BG', 'OL', 'II', 'TL', 'M6', 'Y3',
         'M7', 'GN', 'D3', 'IG', 'HW', '4O', 'OU', '5P', 'KE',
-        '5A', 'TT', '6P', 'G3', '7P', 'VU', 'BQ', 'F8',
+        '5A', 'TT', '6P', 'G3', '7P', 'VU', 'BQ', 'F8', 'L4',
     ];
 
     /**
