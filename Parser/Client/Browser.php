@@ -210,6 +210,7 @@ class Browser extends AbstractClientParser
         'DT' => 'Delta Browser',
         'D0' => 'Desi Browser',
         'DS' => 'DeskBrowse',
+        'D3' => 'Dezor',
         'II' => 'Diigo Browser',
         'D2' => 'DoCoMo',
         'DF' => 'Dolphin',
