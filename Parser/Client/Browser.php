@@ -280,6 +280,7 @@ class Browser extends AbstractClientParser
         'GK' => 'GoKu',
         'G2' => 'GO Browser',
         'RN' => 'GreenBrowser',
+        'HW' => 'Habit Browser',
         'HB' => 'Harman Browser',
         'HS' => 'HasBrowser',
         'HA' => 'Hawk Turbo Browser',
