@@ -574,6 +574,7 @@ class Browser extends AbstractClientParser
         'TP' => 'T+Browser',
         'TR' => 'T-Browser',
         'TO' => 't-online.de Browser',
+        'TT' => 'TalkTo',
         'TA' => 'Tao Browser',
         'T2' => 'tararia',
         'TH' => 'Thor',
@@ -744,7 +745,7 @@ class Browser extends AbstractClientParser
         'TH', 'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'N4', 'P5',
         'H5', 'V3', 'G2', 'BG', 'OL', 'II', 'TL', 'M6', 'Y3',
         'M7', 'GN', 'D3', 'IG', 'HW', '4O', 'OU', '5P', 'KE',
-        '5A',
+        '5A', 'TT',
     ];
 
     /**
