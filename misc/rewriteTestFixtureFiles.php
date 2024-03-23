@@ -38,6 +38,7 @@ foreach ($fixtureFiles as $file) {
 
     file_put_contents($file, $content);
 
+    shell_exec("sed -i -e 's/^- /-/g' " . $file);
     shell_exec("sed -i -e 's/version: \\([^\"].*\\)/version: \"\\1\"/g' " . $file);
 }
 
