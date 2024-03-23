@@ -451,6 +451,7 @@ class Browser extends AbstractClientParser
         'O7' => 'Open TV Browser',
         'OW' => 'OmniWeb',
         'OT' => 'Otter Browser',
+        '4O' => 'Owl Browser',
         'PL' => 'Palm Blazer',
         'PM' => 'Pale Moon',
         'PY' => 'Polypane',
