@@ -337,6 +337,7 @@ class Browser extends AbstractClientParser
         'KJ' => 'K-Ninja',
         'KO' => 'Konqueror',
         'KP' => 'Kapiko',
+        'KE' => 'Keyboard Browser',
         'KN' => 'Kinza',
         'KW' => 'Kiwi',
         'KD' => 'Kode Browser',
