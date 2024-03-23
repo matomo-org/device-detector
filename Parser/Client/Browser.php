@@ -437,6 +437,7 @@ class Browser extends AbstractClientParser
         'OP' => 'Opera',
         'ON' => 'Opera Next',
         'OO' => 'Opera Touch',
+        'OU' => 'Orbitum',
         'OA' => 'Orca',
         'OS' => 'Ordissimo',
         'OR' => 'Oregano',
