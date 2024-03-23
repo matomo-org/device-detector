@@ -564,6 +564,7 @@ class Browser extends AbstractClientParser
         'RY' => 'Surfy Browser',
         'SG' => 'Stargon',
         'S0' => 'START Internet Browser',
+        '9B' => 'Stealth Browser',
         'S4' => 'Steam In-Game Overlay',
         'ST' => 'Streamy',
         'SX' => 'Swiftfox',
