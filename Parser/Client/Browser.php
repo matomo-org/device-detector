@@ -743,7 +743,8 @@ class Browser extends AbstractClientParser
         'ZR', 'D6', 'F6', 'P3', 'FT', 'A9', 'X2', 'NI', 'FG',
         'TH', 'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'N4', 'P5',
         'H5', 'V3', 'G2', 'BG', 'OL', 'II', 'TL', 'M6', 'Y3',
-        'M7', 'GN',
+        'M7', 'GN', 'D3', 'IG', 'HW', '4O', 'OU', '5P', 'KE',
+        '5A',
     ];
 
     /**
