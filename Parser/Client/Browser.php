@@ -317,6 +317,7 @@ class Browser extends AbstractClientParser
         '3I' => 'Intune Managed Browser',
         'I5' => 'Indian UC Mini Browser',
         'Z0' => 'InBrowser',
+        'IG' => 'Involta Go',
         'IM' => 'IE Mobile',
         'IR' => 'Iron',
         'JB' => 'Japan Browser',
