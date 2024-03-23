@@ -469,6 +469,7 @@ class Browser extends AbstractClientParser
         'PH' => 'Phantom Browser',
         'PX' => 'Phoenix',
         'PB' => 'Phoenix Browser',
+        '5P' => 'Photon',
         'P9' => 'PirateBrowser',
         'P8' => 'PICO Browser',
         'PF' => 'PlayFree Browser',
