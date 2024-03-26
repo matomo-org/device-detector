@@ -163,7 +163,7 @@
 ##########
 # Amazon Linux (https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html)
 ##########
-- regex: '.+.amzn(\d).x86_64'
+- regex: '.+.amzn(\d)(?:int)?.x86_64'
   name: 'Amazon Linux'
   version: '$1'
 
@@ -387,7 +387,7 @@
   name: 'Lineage OS'
   versions:
     - regex: 'Android 14'
-      version: '21.0'
+      version: '21'
     - regex: 'Android 13'
       version: '20.0'
     - regex: 'Android 12\.1'
@@ -456,6 +456,20 @@
 - regex: 'Chrome/(\d+\.[.\d]+) Odd/|SM-R(?:8[6-9]|9)'
   name: 'Wear OS'
   version: ''
+
+##########
+# SeewoOS
+##########
+- regex: 'SeewoOS x86_64 (\d+[\.\d]+)'
+  name: 'SeewoOS'
+  version: '$1'
+
+##########
+# ChromeOS
+##########
+- regex: 'CrOS [a-z0-9_]+ (\d+[\.\d]+)|Chromebook'
+  name: 'Chrome OS'
+  version: '$1'
 
 ##########
 # Android TV (https://android.com/tv/)
@@ -534,7 +548,7 @@
   name: 'Android'
   version: '$1'
 
-- regex: 'Pinterest for Android/.*; (\d(?:[\d\.]*))\)$'
+- regex: 'Pinterest for Android(?: Tablet)?/.*; (\d(?:[\d\.]*))\)$'
   name: 'Android'
   version: '$1'
 
@@ -1446,20 +1460,6 @@
   version: ''
 
 ##########
-# SeewoOS
-##########
-- regex: 'SeewoOS x86_64 (\d+[\.\d]+)'
-  name: 'SeewoOS'
-  version: '$1'
-
-##########
-# ChromeOS
-##########
-- regex: 'CrOS [a-z0-9_]+ (\d+[\.\d]+)'
-  name: 'Chrome OS'
-  version: '$1'
-
-##########
 # Fuchsia
 ##########
 - regex: 'Fuchsia'
@@ -1605,6 +1605,11 @@
 
 - regex: 'HP-UX(?:[/ ]?(\d+[\.\d]+))?'
   name: 'HP-UX'
+  version: '$1'
+
+# ElectroBSD (https://www.fabiankeil.de/gehacktes/electrobsd/)
+- regex: 'ElectroBSD(?:[/ ]?(\d+[\.\d]+))?'
+  name: 'ElectroBSD'
   version: '$1'
 
 - regex: 'FreeBSD(?:[/ ]?(\d+[\.\d]+))?'
