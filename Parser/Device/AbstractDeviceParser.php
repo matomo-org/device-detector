@@ -116,6 +116,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ARP' => 'Airpha',
         'AT'  => 'Airties',
         '7U'  => 'Airtel',
+        'AIT' => 'AirTouch',
         'U0'  => 'AIRON',
         '0A'  => 'AIS',
         'AW'  => 'Aiwa',
