@@ -5,6 +5,16 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
+# Ameba (https://ameblo.jp/ | https://play.google.com/store/apps/details?id=jp.ameba)
+- regex: 'jpameblo;(\d+\.[\.\d]+)'
+  name: 'Ameba'
+  version: '$1'
+
+# CSDN (https://apps.apple.com/us/app/csdn-%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91%E8%80%85%E7%A4%BE%E5%8C%BA/id1437086352)
+- regex: 'CSDNApp/(\d+\.[\.\d]+)'
+  name: 'CSDN'
+  version: '$1'
+
 # Moya (https://play.google.com/store/apps/details?id=nu.bi.moya | https://apps.apple.com/za/app/moya-app-datafree/id1623208355)
 - regex: 'binu(?:/(\d+[\.\d]+))?'
   name: 'Moya'
@@ -26,6 +36,11 @@
   version: '$1'
 - regex: 'NAVER\(inapp; search; .+; (\d+[\.\d]+)\)'
   name: 'Naver'
+  version: '$1'
+
+# NAVER Dictionary (https://apps.apple.com/us/app/naver-dictionary/id673085116)
+- regex: 'NAVER\(inapp; naverdicapp; .+; (\d+[\.\d]+)\)'
+  name: 'NAVER Dictionary'
   version: '$1'
 
 # Soldier
@@ -87,7 +102,7 @@
   version: ''
 
 # FeedR
-- regex: 'FeedR(?:/([\d\.]+))?'
+- regex: 'FeedR(?!eader)(?:/([\d\.]+))?'
   name: 'FeedR'
   version: '$1'
 
@@ -213,6 +228,11 @@
 # Yo WhatsApp
 - regex: 'YoYoWhatsApp(?:/(\d+[\.\d]+))?'
   name: 'Yo WhatsApp'
+  version: '$1'
+
+# https://music.youtube.com
+- regex: '(?:^com\.google\.android\.apps\.youtube\.music/|^YouTubeMusic(?:Dev)?/)([\d\.]+)?'
+  name: 'Youtube Music'
   version: '$1'
 
 # Line
@@ -632,10 +652,6 @@
 # Podbean (http://podbean.com | https://play.google.com/store/apps/details?id=com.podbean.app.podcast)
 - regex: '(?:Podbean/.+App |Podbean/Android generic |Podbean/iOS \([^)]+\) )(\d+[\.\d]+)'
   name: 'Podbean'
-  version: '$1'
-
-- regex: '(?:AlexaMediaPlayer/|^AlexaMediaPlayer/|^Echo/|^AlexaService/|^Alexa Mobile Voice/)([a-z\d]+\.[a-z.\d]+)?'
-  name: 'Alexa Media Player'
   version: '$1'
 
 - regex: 'TuneIn Radio Pro(?:[^/]*)/(\d+[\.\d]+)'
@@ -1678,9 +1694,9 @@
   name: 'Damus'
   version: '$1'
 
-- regex: 'be\.standaard\.audio'
+- regex: '(?:be\.standaard\.audio|^DS podcast/|DS%20Podcast/)([\d\.]+)?'
   name: 'De Standaard'
-  version: ''
+  version: '$1'
 
 - regex: '^DManager/([\d\.]+)'
   name: 'DManager'
@@ -1908,7 +1924,7 @@
   version: '$1'
 
 # The free NRC app offers you the latest news and the digital version of the paper newspaper.
-- regex: '(?:NRC-Nieuws/|nl\.nrc\.nrcapp )([\d\.]+)'
+- regex: '(?:NRC-Nieuws/|nl\.nrc\.nrcapp |com\.twipemobile\.nrc )([\d\.]+)'
   name: 'NRC'
   version: '$1'
 
@@ -2209,8 +2225,8 @@
   name: 'UCast'
   version: '$1'
 
-- regex: '(?:^NPROneAndroid$|^NPR%20One/([\d\.]+))'
-  name: 'NPR One'
+- regex: '(?:^NPROneAndroid$|(?:^NPR%20One|nprone_android)/([\d\.]+))'
+  name: 'NPR'
   version: '$1'
 
 - regex: 'Uforia/([\d\.]+)'
@@ -2244,6 +2260,30 @@
 # IPTV Pro (https://play.google.com/store/apps/details?id=ru.iptvremote.android.iptv.pro)
 - regex: 'IPTV Pro/([\d\.]+)'
   name: 'IPTV Pro'
+  version: '$1'
+
+- regex: '^com\.audials(?:\.paid)?/([\d\.]+)'
+  name: 'Audials'
+  version: '$1'
+
+- regex: '^CoolerFM/([\d\.]+)'
+  name: 'Cooler'
+  version: '$1'
+
+- regex: '^Metacast/([\d\.]+)'
+  name: 'Metacast'
+  version: '$1'
+
+- regex: '^mowPod/([\d\.]+)'
+  name: 'mowPod'
+  version: '$1'
+
+- regex: 'com\.meecel\.feedreader\.RssDemonAd'
+  name: 'RSSDemon'
+  version: ''
+
+- regex: '^Virgin(?:%20|\s)Radio/([\d\.]+)'
+  name: 'Virgin Radio'
   version: '$1'
 
 # MetaMask (https://apps.apple.com/us/app/metamask-blockchain-wallet/id1438144202)

@@ -66,6 +66,10 @@ class Version extends AbstractClientParser
             $engineToken = 'Arachne\/5\.';
         }
 
+        if ('LibWeb' === $this->engine) {
+            $engineToken = 'LibWeb\+LibJs';
+        }
+
         \preg_match(
             "~(?:{$engineToken})\s*/?\s*((?(?=\d+\.\d)\d+[.\d]*|\d{1,7}(?=(?:\D|$))))~i",
             $this->userAgent,
