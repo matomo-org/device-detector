@@ -62,6 +62,10 @@ class Version extends AbstractClientParser
             $engineToken = 'Chrome|Cronet';
         }
 
+        if ('Arachne' === $this->engine) {
+            $engineToken = 'Arachne\/5\.';
+        }
+
         if ('LibWeb' === $this->engine) {
             $engineToken = 'LibWeb\+LibJs';
         }
