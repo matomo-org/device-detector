@@ -134,6 +134,7 @@ class Browser extends AbstractClientParser
         'BE' => 'Beonex',
         'B2' => 'Berry Browser',
         'BT' => 'Bitchute Browser',
+        '9B' => 'BizBrowser',
         'BH' => 'BlackHawk',
         'B0' => 'Bloket',
         'BJ' => 'Bunjalloo',
@@ -335,12 +336,14 @@ class Browser extends AbstractClientParser
         'KO' => 'Konqueror',
         'KP' => 'Kapiko',
         'KN' => 'Kinza',
+        'K4' => 'Kitt',
         'KW' => 'Kiwi',
         'KD' => 'Kode Browser',
         'KT' => 'KUTO Mini Browser',
         'KY' => 'Kylo',
         'KZ' => 'Kazehakase',
         'LB' => 'Cheetah Browser',
+        'LD' => 'Ladybird',
         'LA' => 'Lagatos Browser',
         'GN' => 'Legan Browser',
         'LR' => 'Lexi Browser',
@@ -527,6 +530,7 @@ class Browser extends AbstractClientParser
         'SY' => 'Sizzy',
         'K3' => 'Skye',
         'SK' => 'Skyfire',
+        'KL' => 'SkyLeap',
         'SS' => 'Seraphic Sraf',
         'KK' => 'SiteKiosk',
         'SL' => 'Sleipnir',
@@ -692,6 +696,7 @@ class Browser extends AbstractClientParser
             'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'P5', 'H5', 'V3',
             'K3', 'Q4', 'G2', 'R2', 'WX', 'XP', '3I', 'BG', 'R0',
             'JO', 'OL', 'GN', 'W4', 'QI', 'E1', 'RI', '8B', '5B',
+            'K4',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -735,7 +740,7 @@ class Browser extends AbstractClientParser
         'ZR', 'D6', 'F6', 'P3', 'FT', 'A9', 'X2', 'NI', 'FG',
         'TH', 'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'N4', 'P5',
         'H5', 'V3', 'G2', 'BG', 'OL', 'II', 'TL', 'M6', 'Y3',
-        'M7', 'GN',
+        'M7', 'GN', 'KL', 'K4',
     ];
 
     /**
