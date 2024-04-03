@@ -4251,7 +4251,7 @@ Brondi:
 
 # VGO TEL (vgotel.com)
 VGO TEL:
-  regex: 'VGOTEL|(?:Venture V(?:[278]|12)|VentureV10|Ocean[_ ][689]|Ocean9L|NEW (?:1[125]|22|[57])|i_Smart)(?:[);/ ]|$)'
+  regex: 'VGOTEL|(?:Venture V(?:[278]|12)|VentureV10|Ocean[_ ][689]|Ocean9L|NEW (?:1[1256]|22|[57])|i_Smart)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Venture ?V([278]|1[02])(?:[);/ ]|$)'
@@ -5961,7 +5961,7 @@ ConCorde:
 
 # Condor (www.condor.dz)
 Condor:
-  regex: 'Allure (?:A55 Slim|M[123]|X)|Griffe T[235-9]|TFX71[12]G|TFX71[34]L|TMK715L|TRA-901G|TGW[-]?(710G|709|102L|801[GL])|(?:PGN\-?[456][012][0-9]|PHS\-601|PHQ519|PAM412|PHQ52[056]|TB105L|TB717G|PKT\-301|Plume (?:H1|L[1-68]|P8|P6 PRO LTE)|Infinity E5|Infinity a4|Infinity_i[45]|PKT411|SP413)(?:[);/ ]|$)|CTAB[^/;]+ Build'
+  regex: 'Allure (?:A55 Slim|M[123]|X)|Griffe T[235-9]|TFX71[12]G|TFX71[34]L|TMK715L|TRA-901G|TGW[-]?(710G|709|102L|801[GL])|(?:PGN\-?[456][012][0-9]|PHS\-601|PHQ519|PAM412|PHQ52[056]|TB105L|TB717G|PKT\-301|Plume (?:H1|L[1-68]|P8|P6 PRO LTE)|Infinity E5|Infinity a4|Infinity_i[45]|PKT411|SP413|PAM524)(?:[);/ ]|$)|CTAB[^/;]+ Build'
   device: 'smartphone'
   models:
     - regex: 'CTAB([^/;]+) Build'
@@ -6019,6 +6019,8 @@ Condor:
       model: 'Griffe G4S'
     - regex: 'PHQ520'
       model: 'Griffe G5'
+    - regex: 'PAM524'
+      model: 'Griffe G5 Plus'
     - regex: 'PHQ525'
       model: 'Griffe G6'
     - regex: 'PHQ526'
@@ -9124,7 +9126,7 @@ Explay:
 
 # General Mobile (www.generalmobile.com)
 General Mobile:
-  regex: 'General_Mobile_|GM 5 Plus|GM8 go|GM[ _][568][ _]d|GM [86]|General Mobile 4G|GM6_Tur|GM 9 (?:Pro|Plus)|(?: GM 5|e-tab 20|Android 1[012];(?: [\w-]+;)? (?:G[35]01|G[35]10|G702|(?<!Huawei )G700)|Discovery(?![_ ]XT) (?:Air|Elite(?: Plus)?)|GM Discovery II|GM Discovery tab 8|Discovery II Mini| GM6|G300|G008|android 4([\d.]*);(?: [\w-]+;)? Discovery|e-?tab5|G512|G31[26])(?:[);/ ]|$)'
+  regex: 'General_Mobile_|GM 5 Plus|GM8 go|GM[ _][568][ _]d|GM [86]|General Mobile 4G|GM6_Tur|GM 9 (?:Pro|Plus)|(?: GM 5|e-tab 20|Android 1[012];(?: [\w-]+;)? (?:G[35]01|G[35]10|G702|(?<!Huawei )G700)|Discovery(?![_ ]XT) (?:Air|Elite(?: Plus)?)|GM Discovery II|GM Discovery tab 8|Discovery II Mini| GM6|G300|G008|android 4([\d.]*);(?: [\w-]+;)? Discovery|e-?tab5|G512|G31[246])(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'GM 5 Plus'
@@ -9139,6 +9141,8 @@ General Mobile:
       model: 'GM 22'
     - regex: 'G316'
       model: 'GM 23'
+    - regex: 'G314'
+      model: 'GM 23 SE'
     - regex: 'G512'
       model: 'GM 22 Plus'
     - regex: 'G702'
@@ -16520,7 +16524,7 @@ Mobile Kingdom:
 
 # MSI (msi.com)
 MSI:
-  regex: 'Primo ?(?:9[13]|81|76)|Enjoy 7 Plus'
+  regex: 'Primo ?(?:9[13]|81|76)|(?:Enjoy 7 Plus|GP70 2OD)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     # explicit tablet models
@@ -16528,6 +16532,10 @@ MSI:
       model: 'Primo $1'
     - regex: 'Enjoy 7 Plus'
       model: 'Enjoy 7 Plus'
+    # explicit notebook models
+    - regex: '(GP70 2OD)'
+      device: 'desktop'
+      model: '$1'
 
 # MLLED
 MLLED:
@@ -17819,9 +17827,13 @@ Nomi:
 
 # NUU Mobile
 NUU Mobile:
-  regex: 'NUU_|(?:(?:N(570[24]|500[12])L|S5701L|S6001L|[SN]5501L)|A6L-[CG]|N5502L|S6501L|S6303L)(?:[);/ ]|$)'
+  regex: 'NUU_|(?:(?:N(570[24]|500[12])L|S5701L|S6001L|[SN]5501L)|A6L-[CG]|N5502L|S6501L|S6303L|T080[12]L)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
+    - regex: 'T080[12]L'
+      device: 'tablet'
+      model: 'Tab 8'
+
     - regex: 'NUU_A([13]L?)'
       model: 'A$1'
     - regex: 'NUU_M([32])(?:[);/ ]|$)'
@@ -32408,12 +32420,12 @@ Bluedot:
 
 # Planet Computers (https://www.www3.planetcom.co.uk/)
 Planet Computers:
-  regex: '(?:Cosmo_Communicator|Gemini_4G)(?:[);/ ]|$)'
+  regex: '(?:Cosmo_Communicator|Gemini[_ ]4G)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: '(Cosmo_Communicator)(?:[);/ ]|$)'
       model: '$1'
-    - regex: '(?:Gemini_4G)(?:[);/ ]|$)'
+    - regex: '(?:Gemini[_ ]4G)(?:[);/ ]|$)'
       model: 'Gemini 4G'
 
 # Play Now (https://www.play.pl/)
@@ -32707,17 +32719,17 @@ Spark:
     - regex: 'Plus 3'
       model: 'Plus 3'
 
-# Sparx (https://sparx.pk/)
+# Sparx or SparX (https://sparx.pk/)
 Sparx:
-  regex: 'Sparx[ _]|(?:NEO_6|NEO 5)(?: Build|[;)])'
+  regex: 'Sparx[ _]|(?:NEO_6|NEO 5|Neo_6_plus|Neo 5 Pro|Neo X)(?: Build|[;)])'
   device: 'smartphone'
   models:
     - regex: 'Neo 7 Ultra'
       model: 'Neo 7 Ultra'
-    - regex: 'Neo 7 Pro'
-      model: 'Neo 7 Pro'
-    - regex: 'Neo 5 Plus'
-      model: 'Neo 5 Plus'
+    - regex: 'Neo ([57]) Pro'
+      model: 'Neo $1 Pro'
+    - regex: 'Neo[ _]([56])[ _]Plus'
+      model: 'Neo $1 Plus'
     - regex: 'Neo[ _]([567])'
       model: 'Neo $1'
     - regex: 'Neo X'
@@ -39319,6 +39331,12 @@ PAGRAER:
   regex: 'PAGRAER (P50 Pro)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
+
+# DIALN
+DIALN:
+  regex: 'X8ULTRA(?:[);/ ]|$)'
+  device: 'tablet'
+  model: 'X8 Ultra'
 
 # Devices with undectable brand, but detectable model
 Unknown:

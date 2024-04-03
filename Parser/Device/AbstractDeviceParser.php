@@ -406,6 +406,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '8D'  => 'DF',
         'DGT' => 'DGTEC',
         'DG'  => 'Dialog',
+        'DIA' => 'DIALN',
         'DI'  => 'Dicam',
         'D4'  => 'Digi',
         'D3'  => 'Digicel',
