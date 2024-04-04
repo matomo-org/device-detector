@@ -196,6 +196,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'AX'  => 'Audiovox',
         'AJ'  => 'AURIS',
         'YZ'  => 'Autan',
+        'AUP' => 'AUPO',
         'ZA'  => 'Avenzo',
         'AH'  => 'AVH',
         'AV'  => 'Avvio',
