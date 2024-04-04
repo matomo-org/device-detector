@@ -310,6 +310,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CAN' => 'Canal+',
         '4D'  => 'Canal Digital',
         'CNG' => 'Canguro',
+        'CNT' => 'CCIT',
         'CEC' => 'Cecotec',
         'CEI' => 'Ceibal',
         '02'  => 'Cell-C',
