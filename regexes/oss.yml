@@ -806,6 +806,14 @@
   name: 'VectorLinux'
   version: '$1'
 
+- regex: '(?:rhel|Red Hat Enterprise Linux Server)/(\d+[\.\d]+)'
+  name: 'Red Hat'
+  version: '$1'
+
+- regex: '.+redhat-linux-gnu|rhel|Red Hat Enterprise Linux Server'
+  name: 'Red Hat'
+  version: ''
+
 - regex: 'CentOS Stream (\d)'
   name: 'CentOS Stream'
   version: '$1'
@@ -877,10 +885,6 @@
 - regex: '(Debian|Knoppix|Mint(?! Browser)|Ubuntu|Kubuntu|Xubuntu|Lubuntu|Fedora|Red Hat|Mandriva|Gentoo|Sabayon|Slackware|SUSE|CentOS|BackTrack|Freebox|ASPLinux)(?:(?: Enterprise)? Linux)?(?:[ /\-](\d+[\.\d]+))?'
   name: '$1'
   version: '$2'
-
-- regex: '.+redhat-linux-gnu'
-  name: 'Red Hat'
-  version: ''
 
 - regex: 'OS ROSA; Linux'
   name: 'Rosa'
