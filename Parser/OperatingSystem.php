@@ -630,6 +630,10 @@ class OperatingSystem extends AbstractParser
                 return 'ARM';
             }
 
+            if (false !== \strpos($arch, 'loongarch64')) {
+                return 'LoongArch64';
+            }
+
             if (false !== \strpos($arch, 'mips')) {
                 return 'MIPS';
             }
@@ -655,6 +659,10 @@ class OperatingSystem extends AbstractParser
 
         if ($this->matchUserAgent('arm|aarch64|Apple ?TV|Watch ?OS|Watch1,[12]')) {
             return 'ARM';
+        }
+
+        if ($this->matchUserAgent('loongarch64')) {
+            return 'LoongArch64';
         }
 
         if ($this->matchUserAgent('mips')) {
