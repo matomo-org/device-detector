@@ -69,6 +69,7 @@ class OperatingSystem extends AbstractParser
         'DEE' => 'Deepin',
         'DFB' => 'DragonFly',
         'DVK' => 'DVKBuntu',
+        'ELE' => 'ElectroBSD',
         'FED' => 'Fedora',
         'FEN' => 'Fenix',
         'FOS' => 'Firefox OS',
@@ -228,7 +229,10 @@ class OperatingSystem extends AbstractParser
         'Real-time OS'          => ['MTK', 'TDX', 'MRE', 'JME', 'REX'],
         'Other Mobile'          => ['WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE', 'LUN'],
         'Symbian'               => ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
-        'Unix'                  => ['SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64', 'INF'],
+        'Unix'                  => [
+            'SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64',
+            'INF', 'ELE',
+        ],
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
         'Windows Mobile'        => ['WPH', 'WMO', 'WCE', 'WRT', 'WIO'],
@@ -280,7 +284,7 @@ class OperatingSystem extends AbstractParser
      * @var array
      */
     private $lineageOsVersionMapping = [
-        '14'    => '21.0',
+        '14'    => '21',
         '13'    => '20.0',
         '12.1'  => '19.1',
         '12'    => '19.0',
