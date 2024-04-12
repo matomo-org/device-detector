@@ -43,11 +43,13 @@ class OperatingSystem extends AbstractParser
         'AIX' => 'AIX',
         'AND' => 'Android',
         'ADR' => 'Android TV',
+        'ALP' => 'Alpine Linux',
         'AMZ' => 'Amazon Linux',
         'AMG' => 'AmigaOS',
         'ARM' => 'Armadillo OS',
         'ATV' => 'tvOS',
         'ARL' => 'Arch Linux',
+        'AOS' => 'AOSC OS',
         'ASP' => 'ASPLinux',
         'BTR' => 'BackTrack',
         'SBA' => 'Bada',
@@ -60,6 +62,7 @@ class OperatingSystem extends AbstractParser
         'CAI' => 'Caixa Mágica',
         'CES' => 'CentOS',
         'CST' => 'CentOS Stream',
+        'CLO' => 'Clear Linux OS',
         'CLR' => 'ClearOS Mobile',
         'COS' => 'Chrome OS',
         'CRS' => 'Chromium OS',
@@ -70,6 +73,7 @@ class OperatingSystem extends AbstractParser
         'DFB' => 'DragonFly',
         'DVK' => 'DVKBuntu',
         'ELE' => 'ElectroBSD',
+        'EUL' => 'EulerOS',
         'FED' => 'Fedora',
         'FEN' => 'Fenix',
         'FOS' => 'Firefox OS',
@@ -103,6 +107,7 @@ class OperatingSystem extends AbstractParser
         'LNS' => 'Linspire',
         'LEN' => 'Lineage OS',
         'LIR' => 'Liri OS',
+        'LOO' => 'Loongnix',
         'LBT' => 'Lubuntu',
         'LOS' => 'Lumin OS',
         'LUN' => 'LuneOS',
@@ -145,6 +150,7 @@ class OperatingSystem extends AbstractParser
         'RED' => 'RedOS',
         'REV' => 'Revenge OS',
         'ROS' => 'RISC OS',
+        'ROC' => 'Rocky Linux',
         'ROK' => 'Roku OS',
         'RSO' => 'Rosa',
         'ROU' => 'RouterOS',
@@ -155,6 +161,7 @@ class OperatingSystem extends AbstractParser
         'SAB' => 'Sabayon',
         'SSE' => 'SUSE',
         'SAF' => 'Sailfish OS',
+        'SCI' => 'Scientific Linux',
         'SEE' => 'SeewoOS',
         'SER' => 'SerenityOS',
         'SIR' => 'Sirin OS',
@@ -224,7 +231,8 @@ class OperatingSystem extends AbstractParser
             'LOS', 'DVK', 'ROK', 'OWR', 'OTV', 'KTV', 'PUR', 'PLA', 'FUC', 'PAR',
             'FOR', 'MON', 'KAN', 'ZEN', 'LND', 'LNS', 'CHN', 'AMZ', 'TEN', 'CST',
             'NOV', 'ROU', 'ZOR', 'RED', 'KAL', 'ORA', 'VID', 'TIV', 'BSN', 'RAS',
-            'UOS', 'PIO', 'FRI', 'LIR', 'WEB', 'SER', 'ASP', 'OVZ', 'PVE',
+            'UOS', 'PIO', 'FRI', 'LIR', 'WEB', 'SER', 'ASP', 'AOS', 'LOO', 'EUL',
+            'SCI', 'ALP', 'CLO', 'ROC', 'OVZ', 'PVE',
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
@@ -632,6 +640,10 @@ class OperatingSystem extends AbstractParser
                 return 'ARM';
             }
 
+            if (false !== \strpos($arch, 'loongarch64')) {
+                return 'LoongArch64';
+            }
+
             if (false !== \strpos($arch, 'mips')) {
                 return 'MIPS';
             }
@@ -657,6 +669,10 @@ class OperatingSystem extends AbstractParser
 
         if ($this->matchUserAgent('arm|aarch64|Apple ?TV|Watch ?OS|Watch1,[12]')) {
             return 'ARM';
+        }
+
+        if ($this->matchUserAgent('loongarch64')) {
+            return 'LoongArch64';
         }
 
         if ($this->matchUserAgent('mips')) {

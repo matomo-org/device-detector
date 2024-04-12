@@ -19,6 +19,58 @@
   name: 'OpenVZ'
   version: ''
 
+# Rocky Linux (https://rockylinux.org/)
+##########
+- regex: 'rocky/(\d+[\.\d]+)'
+  name: 'Rocky Linux'
+  version: '$1'
+
+##########
+# Clear Linux OS (https://www.clearlinux.org/)
+##########
+- regex: 'clear-linux-os/(\d+[\.\d]+)'
+  name: 'Clear Linux OS'
+  version: '$1'
+
+##########
+# Alpine Linux (https://www.alpinelinux.org/)
+##########
+- regex: 'alpine/(\d+[\.\d]+)'
+  name: 'Alpine Linux'
+  version: '$1'
+
+##########
+# Scientific Linux (https://scientificlinux.org/)
+##########
+- regex: 'scientific/(\d+[\.\d]+)'
+  name: 'Scientific Linux'
+  version: '$1'
+
+##########
+# EulerOS (https://developer.huaweicloud.com/intl/en-us/euleros/index.html)
+##########
+- regex: 'eulerosv(\d)r(\d+)'
+  name: 'EulerOS'
+  version: '$1.$2'
+
+##########
+# Loongnix (https://www.loongson.cn/EN/system/loongnix)
+##########
+- regex: 'loongnix-server/(\d+[\.\d]+)'
+  name: 'Loongnix'
+  version: '$1'
+
+- regex: 'Linux/(?:\d+\.[\d.-]+)\.lns(\d+(?:[_.]\d+)*)\.loongarch64'
+  name: 'Loongnix'
+  version: '$1'
+
+##########
+# AOSC OS (https://aosc.io/)
+##########
+- regex: 'AOSC OS'
+  name: 'AOSC OS'
+  version: ''
+
 ##########
 # SerenityOS (https://github.com/SerenityOS/serenity)
 ##########
@@ -767,8 +819,24 @@
   name: 'VectorLinux'
   version: '$1'
 
+- regex: 'sles/(\d+[\.\d]+)'
+  name: 'SUSE'
+  version: '$1'
+
+- regex: '(?:rhel|Red Hat Enterprise Linux Server)/(\d+[\.\d]+)'
+  name: 'Red Hat'
+  version: '$1'
+
+- regex: '.+redhat-linux-gnu|rhel|Red Hat Enterprise Linux Server'
+  name: 'Red Hat'
+  version: ''
+
 - regex: 'CentOS Stream (\d)'
   name: 'CentOS Stream'
+  version: '$1'
+
+- regex: 'centos(?: Linux)?/(\d+[\.\d]+) '
+  name: 'CentOS'
   version: '$1'
 
 - regex: '.+.el(\d+(?:[_\.]\d+)*).(?:centos|x86_64)'
@@ -798,6 +866,10 @@
 - regex: 'Ubuntu[-/]hardy'
   name: 'Ubuntu'
   version: '8.04'
+
+- regex: 'debian/stretch'
+  name: 'Debian'
+  version: '9.13'
 
 - regex: 'Ubuntu[-/]feisty'
   name: 'Ubuntu'
@@ -830,10 +902,6 @@
 - regex: '(Debian|Knoppix|Mint(?! Browser)|Ubuntu|Kubuntu|Xubuntu|Lubuntu|Fedora|Red Hat|Mandriva|Gentoo|Sabayon|Slackware|SUSE|CentOS|BackTrack|Freebox|ASPLinux)(?:(?: Enterprise)? Linux)?(?:[ /\-](\d+[\.\d]+))?'
   name: '$1'
   version: '$2'
-
-- regex: '.+redhat-linux-gnu'
-  name: 'Red Hat'
-  version: ''
 
 - regex: 'OS ROSA; Linux'
   name: 'Rosa'
@@ -898,7 +966,7 @@
   name: 'Windows'
   version: '$1'
 
-- regex: 'CYGWIN_NT-10\.0|Windows NT 10\.0|Windows 10'
+- regex: 'CYGWIN_NT-10\.0|Windows NT 10\.0|Windows[ /]10'
   name: 'Windows'
   version: '10'
 
@@ -906,15 +974,27 @@
   name: 'Windows'
   version: '10'
 
-- regex: 'CYGWIN_NT-6\.3|Windows NT 6\.3|Windows 8\.1'
+- regex: 'Windows/2012ServerR2'
+  name: 'Windows'
+  version: 'Server 2012 R2'
+
+- regex: 'CYGWIN_NT-6\.3|Windows NT 6\.3|Windows[ /]8\.1'
   name: 'Windows'
   version: '8.1'
+
+- regex: 'Windows/2012Server'
+  name: 'Windows'
+  version: 'Server 2012'
 
 - regex: 'CYGWIN_NT-6\.2|Windows NT 6\.2|Windows 8|post2008Server'
   name: 'Windows'
   version: '8'
 
-- regex: 'CYGWIN_NT-6\.1|Windows NT 6\.1|Windows 7|win7|Windows \(6\.1'
+- regex: 'Windows/2008ServerR2'
+  name: 'Windows'
+  version: 'Server 2008 R2'
+
+- regex: 'CYGWIN_NT-6\.1|Windows NT 6\.1|Windows[ /]7|win7|Windows \(6\.1'
   name: 'Windows'
   version: '7'
 
@@ -922,7 +1002,7 @@
   name: 'Windows'
   version: 'Vista'
 
-- regex: 'CYGWIN_NT-5\.2|Windows NT 5\.2|Windows Server 2003 / XP x64'
+- regex: 'CYGWIN_NT-5\.2|Windows NT 5\.2|Windows Server 2003 / XP x64|Windows/2003Server'
   name: 'Windows'
   version: 'Server 2003'
 
@@ -1021,6 +1101,10 @@
   name: 'iPadOS'
   version: '$1.$2'
 
+- regex: 'Pinterest for iOS/.*iPad.*; (\d(?:[\d\.]*))[)]$'
+  name: 'iPadOS'
+  version: '$1'
+
 ##########
 # iOS
 ##########
@@ -1032,7 +1116,7 @@
   name: 'iOS'
   version: '$1'
 
-- regex: 'Pinterest for iOS/.*; (\d(?:[\d\.]*))[)]$'
+- regex: 'Pinterest for iOS/.*iPhone.*; (\d(?:[\d\.]*))[)]$'
   name: 'iOS'
   version: '$1'
 
@@ -1277,7 +1361,7 @@
 ##########
 # Mac
 ##########
-- regex: '(?:CFNetwork|Mana|StudioDisplay)/.+Darwin(?:/|; )(?:[\d\.]+).+(?:x86_64|i386|Power%20Macintosh)|(?:x86_64-apple-)?darwin(?:[\d\.]+)|PowerMac|com\.apple\.Safari\.SearchHelper|^Safari'
+- regex: '(?:CFNetwork|Mana|StudioDisplay)/.+Darwin(?:/|; )(?:[\d\.]+).+(?:x86_64|i386|Power%20Macintosh)|(?:x86_64-apple-)?darwin(?:[\d\.]+)|C?Python.*Darwin|PowerMac|com\.apple\.Safari\.SearchHelper|^Safari'
   name: 'Mac'
   versions:
     - regex: '(?:x86_64-apple-)?Darwin(?:/|; )?23\.5\.0'
@@ -1474,6 +1558,10 @@
   version: '$1'
 
 - regex: 'Macintosh; OS X (\d+[\.\d]+)'
+  name: 'Mac'
+  version: '$1'
+
+- regex: 'OSX/(\d+[\.\d]+)'
   name: 'Mac'
   version: '$1'
 
