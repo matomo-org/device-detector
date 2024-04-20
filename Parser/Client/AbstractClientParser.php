@@ -82,6 +82,31 @@ abstract class AbstractClientParser extends AbstractParser
                 continue;
             }
 
+            if ('Microsoft Office $1' === $regex['name']) {
+                $clients = [
+                    'Microsoft Office Access', 'Microsoft Office Excel', 'Microsoft Office OneDrive for Business',
+                    'Microsoft Office OneNote', 'Microsoft Office PowerPoint', 'Microsoft Office Project',
+                    'Microsoft Office Publisher', 'Microsoft Office Visio', 'Microsoft Office Word',
+                ];
+
+                $regex['name'] = \implode(', ', $clients);
+            }
+
+            if ('Podkicker$1' === $regex['name']) {
+                $clients = ['Podkicker', 'Podkicker Pro', 'Podkicker Classic'];
+
+                $regex['name'] = \implode(', ', $clients);
+            }
+
+            if ('radio.$1' === $regex['name']) {
+                $clients = [
+                    'radio.at', 'radio.de', 'radio.dk', 'radio.es', 'radio.fr', 'radio.it', 'radio.pl', 'radio.pt',
+                    'radio.se', 'radio.net',
+                ];
+
+                $regex['name'] = \implode(', ', $clients);
+            }
+
             $names[] = $regex['name'];
         }
 
