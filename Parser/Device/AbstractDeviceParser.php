@@ -1390,6 +1390,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'RY'  => 'Ryte',
         'X5'  => 'Saba',
         '8L'  => 'S-TELL',
+        '8L1' => 'S-Color',
         '4O'  => 'S2Tel',
         '89'  => 'Seatel',
         'SEW' => 'Sewoo',
