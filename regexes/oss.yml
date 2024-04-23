@@ -614,7 +614,7 @@
   name: 'Android'
   version: ''
 
-- regex: '(?:Android OS|OMDroid)[ /](\d+[\.\d]*)'
+- regex: '(?:Android OS|OMDroid|sdk_gphone64_arm64-userdebug)[ /](\d+[\.\d]*)'
   name: 'Android'
   version: '$1'
 
@@ -647,6 +647,10 @@
   version: '$1'
 
 - regex: '(?:TwitterAndroid).*[ /](?:[a-z]+ )?(\d+[\.\d]*)'
+  name: 'Android'
+  version: '$1'
+
+- regex: '\(Android:.*\); API (\d+[\.\d]*)'
   name: 'Android'
   version: '$1'
 
@@ -1056,11 +1060,19 @@
   name: 'tvOS'
   version: '$1'
 
+- regex: 'Apple TV; iOS ((?:9|1[0-7])[_\.]\d+(?:[_.]\d+)*)'
+  name: 'tvOS'
+  version: '$1'
+
 - regex: 'iOS(?:; |/)((?:9|1[0-7])\.\d+(?:[_\.]\d+)*) (?:model/)?AppleTV'
   name: 'tvOS'
   version: '$1'
 
 - regex: 'tvOS[ /]?((?:9|1[0-7])\.\d+(?:[_\.]\d+)*);?'
+  name: 'tvOS'
+  version: '$1'
+
+- regex: 'AppleTV(?:/?(\d+[\.\d]+))?'
   name: 'tvOS'
   version: '$1'
 
@@ -1694,10 +1706,6 @@
   name: 'Google TV'
   version: '$1'
 
-- regex: 'AppleTV(?:/?(\d+[\.\d]+))?'
-  name: 'tvOS'
-  version: '$1'
-
 - regex: 'WebTV/(\d+[\.\d]+)'
   name: 'WebTV'
   version: '$1'
@@ -1798,7 +1806,7 @@
   name: 'GNU/Linux'
   version: '$1'
 
-- regex: 'Linux(?:OS)?[^a-z]|Cinnamon/(?:\d+[\.\d]+)|.+(?:pc|unknown)-linux-gnu'
+- regex: 'Linux(?:OS)?[^a-z]|Cinnamon/(?:\d+[\.\d]+)|.+(?:pc|unknown)-linux-gnu|X11'
   name: 'GNU/Linux'
   version: ''
 
