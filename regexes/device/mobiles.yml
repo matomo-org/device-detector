@@ -17151,7 +17151,7 @@ MTN:
 
 # Hammer (hammerphones.com) sub brand MyPhone
 Hammer:
-  regex: '(?:Hammer[_ ](?:Construction|Explorer[_ ](?:Plus|Pro)|FORCE|Blade_[34]|Blade2_PRO|Blade_5G|IRON_[234](?:[_ ]LTE)?|IRON|Explorer|ENERGY(?:_18x9|_2_2022|_2)?|Titan 2|Active2?(?:_LTE)?)|Iron[_ ]2)(?:[);/ ]|$)'
+  regex: '(?:Hammer[_ ](?:Construction|Explorer[_ ](?:Plus|Pro)|FORCE|Blade_[34]|Blade2_PRO|Blade_5G|IRON_[234](?:[_ ]LTE)?|IRON|Explorer|ENERGY(?:_18x9|_2_2022|_[2X])?|Titan 2|Active2?(?:_LTE)?)|Iron[_ ]2)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Hammer[_ ]Construction'
@@ -17162,7 +17162,7 @@ Hammer:
       model: 'Explorer Pro'
     - regex: 'HAMMER[ _]ENERGY_2_2022'
       model: 'Energy 2 (2022)'
-    - regex: 'HAMMER[ _]ENERGY[ _](18x9|3G|\d+)'
+    - regex: 'HAMMER[ _]ENERGY[ _](18x9|3G|\d+|X)'
       model: 'Energy $1'
     - regex: 'HAMMER[ _]ENERGY'
       model: 'Energy'
@@ -19453,7 +19453,7 @@ Orange:
 
 # Oukitel
 Oukitel:
-  regex: 'OU[Kc]ITEL|(?:Android 10;(?: [\w-]+;)? (?:C19|C22)|Android 8(?:[\d.]*);(?: [\w-]+;)? (?:C11|U23)|Android 11(?:[\d.]*);(?: [\w-]+;)? (?:C25)|Android 12(?:[\d.]*);(?: [\w-]+;)? (?:C32)|Android 7(?:[\d.]*);(?: [\w-]+;)? (?:U1[78]|U22)|(?:C1[569]|K10000|K[46]000)(?:[ _]Pro)|K4000Pro|C1[18]_Pro|C1[0237] Pro|C2[13] Pro|C12 Plus|[UK]15 Pro|K15_Plus|U16 Max|C11_F|U7 Max|U7 Plus|U11[_ ]Plus|U20_Plus|C21 Plus|OK6000 Plus|WP5000|WP[58] Pro|K[46]000[ _](?:Plus|Lite)|K9 Pro|Y4800|K10000|K7 Power|K[4-8]000| RT[12356]| OT5| WP(?:[15-79]|1[02356789]|2[0123678]|3[023])|K[37]_Pro|K13_Pro|U25_Pro|OKT[13]|UniverseTap|RT7 TITAN(?: 5G)?)(?:[);/ ]|$)'
+  regex: 'OU[Kc]ITEL|(?:Android 10;(?: [\w-]+;)? (?:C19|C22)|Android 8(?:[\d.]*);(?: [\w-]+;)? (?:C11|U23)|Android 11(?:[\d.]*);(?: [\w-]+;)? (?:C25)|Android 12(?:[\d.]*);(?: [\w-]+;)? (?:C32)|Android 7(?:[\d.]*);(?: [\w-]+;)? (?:U1[78]|U22)|(?:C1[569]|K10000|K[46]000)(?:[ _]Pro)|K4000Pro|C1[18]_Pro|C1[0237] Pro|C2[13] Pro|C12 Plus|[UK]15 Pro|K15_Plus|U16 Max|C11_F|U7 Max|U7 Plus|U11[_ ]Plus|U20_Plus|C21 Plus|OK6000 Plus|WP5000|WP[58] Pro|K[46]000[ _](?:Plus|Lite)|K9 Pro|Y4800|K10000|K7 Power|K[4-8]000| RT[12356]| OT5| WP(?:[125-79]|1[02356789]|2[0123678]|3[023])|K[37]_Pro|K13_Pro|U25_Pro|OKT[13]|UniverseTap|RT7 TITAN(?: 5G)?)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'WP21 Ultra'
@@ -23324,6 +23324,20 @@ SGIN:
   regex: 'SGIN_X10(?:[);/ ]|$)'
   device: 'tablet'
   model: 'X10'
+
+# F+ or F-Plus (fplusmobile.ru)
+F+:
+  regex: '(?:(?:SH6[05]|SA50|SP65)_(?:2[13]|66)\d{3}|H166|P670|(?:SH65|SA55) \dGB/\d{2}GB \d{4}mAh GMS)(?:[);/ ]|$)'
+  device: 'smartphone'
+  models:
+    - regex: 'SA55 2GB'
+      model: 'SA55'
+    - regex: 'SH65 2GB'
+      model: 'SH65'
+    - regex: '(H166|P670)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: '(SH6[05]|SA50|SP65)_(?:2[13]|66)\d{3}'
+      model: '$1'
 
 # Sharp (jp.sharp)
 Sharp:
@@ -29296,13 +29310,13 @@ NEXBOX:
       model: 'ID TV HPH07'
 
 Yandex:
-  regex: '(?:YNDX-?(?:000SB|0007[12]|00091)|YandexModule2-00001)(?:[);/ ]|$)'
+  regex: '(?:YNDX-?(?:000SB|0007[12]|0009[12])|YandexModule2-00001)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'YandexModule2-00001'
       device: 'tv'
       model: 'Module'
-    - regex: 'YNDX-?(0007[12]|00091)'
+    - regex: 'YNDX-?(0007[12]|0009[12])'
       device: 'tv'
       model: 'YNDX-$1'
     - regex: 'YNDX-?000SB'
@@ -39105,18 +39119,6 @@ AMCV:
   regex: '(LE-3[29]ZTHS25)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
-
-# F+ or F-Plus (fplusmobile.ru)
-F+:
-  regex: '(?:(?:SH6[05]|SA50|SP65)_(?:2[13]|66)\d{3}|H166|P670|SA55 2GB/16GB 2400mAh GMS)(?:[);/ ]|$)'
-  device: 'smartphone'
-  models:
-    - regex: 'SA55 2GB'
-      model: 'SA55'
-    - regex: '(H166|P670)(?:[);/ ]|$)'
-      model: '$1'
-    - regex: '(SH6[05]|SA50|SP65)_(?:2[13]|66)\d{3}'
-      model: '$1'
 
 # Sber (sberdevices.ru)
 Sber:
