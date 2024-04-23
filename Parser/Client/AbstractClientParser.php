@@ -89,13 +89,21 @@ abstract class AbstractClientParser extends AbstractParser
                     'Microsoft Office Publisher', 'Microsoft Office Visio', 'Microsoft Office Word',
                 ];
 
-                $regex['name'] = \implode(', ', $clients);
+                foreach ($clients as $client) {
+                    $names[] = $client;
+                }
+
+                continue;
             }
 
             if ('Podkicker$1' === $regex['name']) {
                 $clients = ['Podkicker', 'Podkicker Pro', 'Podkicker Classic'];
 
-                $regex['name'] = \implode(', ', $clients);
+                foreach ($clients as $client) {
+                    $names[] = $client;
+                }
+
+                continue;
             }
 
             if ('radio.$1' === $regex['name']) {
@@ -104,7 +112,11 @@ abstract class AbstractClientParser extends AbstractParser
                     'radio.se', 'radio.net',
                 ];
 
-                $regex['name'] = \implode(', ', $clients);
+                foreach ($clients as $client) {
+                    $names[] = $client;
+                }
+
+                continue;
             }
 
             $names[] = $regex['name'];
