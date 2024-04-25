@@ -288,11 +288,17 @@ class DeviceDetectorTest extends TestCase
             );
         }
 
+        $messageError = \sprintf(
+            "Fixture:\n%s\nResult:\n%s",
+            \Spyc::YAMLDump($fixtureData, 2, 0),
+            \Spyc::YAMLDump($uaInfo, 2, 0)
+        );
+
         unset($fixtureData['headers']); // ignore headers in result
         unset($fixtureData['client']['family']);
 
-        $this->assertArrayNotHasKey('bot', $uaInfo);
-        $this->assertEquals($fixtureData['client'], $uaInfo['client']);
+        $this->assertArrayNotHasKey('bot', $uaInfo, $messageError);
+        $this->assertEquals($fixtureData['client'], $uaInfo['client'], $messageError);
     }
 
     public function getFixturesClient(): array
