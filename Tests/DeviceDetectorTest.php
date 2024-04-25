@@ -72,6 +72,13 @@ class DeviceDetectorTest extends TestCase
                     $regex['regex']
                 ));
 
+                $this->assertTrue($this->checkRegexRestrictionAndroidOsVersionCondition($regex['regex']), \sprintf(
+                    'Detect `Android \d;` in regex, file %s, brand %s, common regex %s',
+                    $file,
+                    $brand,
+                    $regex['regex']
+                ));
+
                 $this->assertTrue($this->checkRegexVerticalLineClosingGroup($regex['regex']), \sprintf(
                     'Detect `|)` in regex, file %s, brand %s, common regex %s',
                     $file,
@@ -699,6 +706,24 @@ class DeviceDetectorTest extends TestCase
     {
         if (false !== \strpos($regexString, '|)')) {
             return !\preg_match('#(?<!\\\)(\|\))#is', $regexString);
+        }
+
+        return true;
+    }
+
+    /**
+     * check the regular expression for regex `Android \d([\d.]*)? condition constraint
+     * (This needs to be checked since the version with client prompts is not trimmed)
+     *
+     * @param string $regexString
+     *
+     * @return bool
+     */
+    protected function checkRegexRestrictionAndroidOsVersionCondition(string $regexString): bool
+    {
+        // check regex is condition android \d
+        if (preg_match('~Android (\d|\[)~i', $regexString)) {
+            return !preg_match('~android (\d|\[\d+\]);~', $regexString);
         }
 
         return true;
