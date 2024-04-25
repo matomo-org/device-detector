@@ -722,8 +722,8 @@ class DeviceDetectorTest extends TestCase
     protected function checkRegexRestrictionAndroidOsVersionCondition(string $regexString): bool
     {
         // check regex is condition android \d
-        if (preg_match('~Android (\d|\[)~i', $regexString)) {
-            return !preg_match('~android (\d|\[\d+\]);~', $regexString);
+        if (\preg_match('~Android (\d|\[)~i', $regexString)) {
+            return !\preg_match('~android (\d|\[\d+\]);~', $regexString);
         }
 
         return true;
