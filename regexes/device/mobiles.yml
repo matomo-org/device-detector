@@ -1959,7 +1959,7 @@ Brigmton:
 
 # Acer (acer.com)
 Acer:
-  regex: 'acer|ACTAB|TravelMate|(?<!Satellite |ZTE BLADE |ImSmart |ERGO |X-Style Tab )(?<!Optima 7 )a(?:101|110|2[10]0(?! Pro)|211|50[10]|51[10]|70[10])(?:[);/ ]|$)|Android.*V3[67]0(?:[);/ ]|$)|Android.*Z1[23456]0 Build|Android.*Z5\d{2} Build|Android.*T0[234678] Build|Android 5(?:[\d.]*);(?: [\w-]+;)? S59|Android.*S55(?! Nova)(?:[);/ ]|$)|(?:A1-(713(HD)?|7[23]4|830|841|840(?:FHD)?|81[01])|A3-A[1-5][01]|B1-(7[1235-9][01](HD)?|7[23]3|7A0|8[1235]0|A71|860A)|TPA60W|B3-(A[125]0|A3[02]|A40FHD)|E39)(?:[);/ ]|$)|S5[12]0 Build|(DA[0-9]+HQ?L|Aspire (?:V5-121|XC-704G|V5-573G|4349)|Chromebook 14 \(CB3-431\)|Predator G9-793|GT-810|B1-870|B3-A20B|B3-A4[02]|android 4([\d.]*);(?: [\w-]+;)? Z500|B3-A50FHD|ET-108-11A|AC?TAB(?:721E?|1422E|821|1021(?:E|_A)|1022)|A3-A20FHD|E380|Swift SF113-31)(?:[);/ ]|$)'
+  regex: 'acer|ACTAB|TravelMate|(?<!Satellite |ZTE BLADE |ImSmart |ERGO |X-Style Tab )(?<!Optima 7 )a(?:101|110|2[10]0(?! Pro)|211|50[10]|51[10]|70[10])(?:[);/ ]|$)|Android.*V3[67]0(?:[);/ ]|$)|Android.*Z1[23456]0 Build|Android.*Z5\d{2} Build|Android.*T0[234678] Build|Android 5(?:[\d.]*);(?: [\w-]+;)? S59|Android.*S55(?! Nova)(?:[);/ ]|$)|(?:A1-(713(HD)?|7[23]4|830|841|840(?:FHD)?|81[01])|A3-A[1-5][01]|B1-(7[1235-9][01](HD)?|7[23]3|7A0|8[1235]0|A71|860A)|TPA60W|B3-(A[125]0|A3[02]|A40FHD)|E39)(?:[);/ ]|$)|S5[12]0 Build|(DA[0-9]+HQ?L|Aspire (?:V5-121|XC-704G|V5-573G|4349)|Chromebook 14 \(CB3-431\)|Predator G9-793|GT-810|B1-870|B3-A20B|M10-12(?:_EEA)?|B3-A4[02]|android 4([\d.]*);(?: [\w-]+;)? Z500|B3-A50FHD|ET-108-11A|AC?TAB(?:721E?|1422E|821|1021(?:E|_A)|1022)|A3-A20FHD|E380|Swift SF113-31)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     # smart displays
@@ -1974,6 +1974,9 @@ Acer:
       device: 'smart display'
 
     # explicit tablet models
+    - regex: 'M10-12(?:_EEA)?'
+      model: 'BattleZone LTE'
+      device: 'tablet'
     - regex: 'A1-81[01]'
       model: 'Iconia A'
       device: 'tablet'
@@ -3329,12 +3332,12 @@ Ask:
     - regex: 'ASK[_ ]([^/;]*) Build'
       model: '$1'
 
-# ANS
+# ANS or ANS Cell
 ANS:
-  regex: 'ANS/|UL40 Build'
+  regex: 'ANS/|(?: UL40)(?: Build|[;)])'
   device: 'smartphone'
   models:
-    - regex: 'UL40 Build'
+    - regex: ' UL40'
       model: 'UL40'
     - regex: 'ANS/L51'
       model: 'L51'
@@ -3717,6 +3720,8 @@ Asus:
       model: 'ROG Phone 7'
     - regex: '(?:ASUS_)?(?:AI2401)'
       model: 'ROG Phone 8'
+    - regex: '(?:ASUS_)?(?:I007D)'
+      model: 'Smartphone for Snapdragon Insiders'
 
     # desktop detections
     - regex: 'ZN220IC'
@@ -14192,7 +14197,7 @@ Aligator:
 
 # lenovo (lenovo.com)
 Lenovo:
-  regex: '(?:LNV-)?Lenovo|IdeaTab|IdeaPad|Thinkpad|Yoga Tablet|Tab2A[0-9]-[0-9]{2}[a-z]?|ZUK[ -_]|(?:TB2-X30L|TB3-710I|TB128FU|YT3-X50[MFL]|K50a40|TB-(?:X103F|8504F|X304F|X704V|X704A)|A5500-H|A2107A-H|A3500-HV|A2109A|S6000|Z2 Plus|Vibe[ _](?:P1|S6i Plus|S[23567]i|C|[ZX]2|K5(?: Plus)?|V7)|P2A42|L38011|L18011|[5-8]01LV|[67]02LV|Z2131|K350t|K31-t3|TAB 2 A8-50LC|S90-A|A101LV|P70-A|VR-1541F|d-42A|lineage_A6020|EveryPad2|A2010l36|F0CU0028RK|TB310XU|TB132FU|TB32(?:8[FX]U|0FC)|TB138FC|PB-6505Y|TB-X505[FL]|TB-8704V|TB3[05]0[FX]U|TB-X605[FL]|L38043|TB3-X70L|TB-X605[LF]C|A7600-HV?|YT-X703F|TB371FC|TB3[17]0FU|TB331FC|A397i)(?:[);/ ]|$)'
+  regex: '(?:LNV-)?Lenovo|IdeaTab|IdeaPad|Thinkpad|Yoga Tablet|Tab2A[0-9]-[0-9]{2}[a-z]?|ZUK[ -_]|(?:TB2-X30L|TB3-710I|TB128FU|YT3-X50[MFL]|K50a40|TB-(?:X103F|8504F|X304F|X704V|X704A)|A5500-H|A2107A-H|A3500-HV|A2109A|S6000|Z2 Plus|Vibe[ _](?:P1|S6i Plus|S[23567]i|C|[ZX]2|K5(?: Plus)?|V7)|P2A42|L38011|L18011|[5-8]01LV|[67]02LV|Z2131|K350t|K31-t3|Tab A1020|TAB 2 A8-50LC|S90-A|A101LV|P70-A|VR-1541F|d-42A|lineage_A6020|EveryPad2|A2010l36|F0CU0028RK|TB310XU|TB132FU|TB32(?:8[FX]U|0FC)|TB138FC|PB-6505Y|TB-X505[FL]|TB-8704V|TB3[05]0[FX]U|TB-X605[FL]|L38043|TB3-X70L|TB-X605[LF]C|A7600-HV?|YT-X703F|TB371FC|TB3[17]0FU|TB331FC|A397i)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Lenovo ?G780'
@@ -14200,6 +14205,9 @@ Lenovo:
       device: 'desktop'
     - regex: 'Lenovo ?A3500-FL'
       model: 'IdeaTab A7-40'
+      device: 'tablet'
+    - regex: 'Tab A1020'
+      model: 'IdeaTab A1020'
       device: 'tablet'
     - regex: '(?:Lenovo ?)?A3500-(?:H|HV|F)'
       model: 'IdeaTab A7-50'
@@ -15511,9 +15519,11 @@ Logic Instrument:
 
 # Logicom (logicom-europe.com)
 Logicom:
-  regex: 'LOGICOM[_ ]|(TAB950|TAB1062|E731|E812|E912|E1031|POWER BOT|La[ _]?Tab[ _]?(?:7[24]|10[57]|11[345]|12[4789]|292|Stand(?:RB)?)|(?:[BCM]|ID|VR)[ _]?BOT[ _]?(?:TAB[ _])?([0-9]+\+?)(?:PLUS)?|KT712A_4\.4|L-?IXIR[0-9]*|L_IXIR_TAB_1047HD|L-ITE|L-EGANTONE(?:-R)?|Le Fizz|L-?EMENT.+|Le[ _]?(?:Up|Connect|Omega|Hop|Hello|Lift|Pulse|Prime|Swipe|Wave|Hola|Moov[2]?|Must(?: 2)?|Starter L|Fit FR|Spark|Prime|Smooth(?: FR)?)|LeFit|logikids4)(?:[);/ ]|$|_)'
+  regex: 'LOGICOM[_ ]|(TAB950|TAB1062|E731|E812|E912|E1031|POWER BOT|La[ _]?Tab[ _]?(?:7[24]|10[57]|11[345]|12[4789]|292|Stand(?:RB)?)|(?:[BCM]|ID|VR)[ _]?BOT[ _]?(?:TAB[ _])?([0-9]+\+?)(?:PLUS)?|KT712A_4\.4|L-?IXIR[0-9]*|L_IXIR_TAB_1047HD|L-ITE|L-EGANTONE(?:-R)?|Le Fizz|L-?EMENT.+|Le[ _]?(?:Up|Connect|Omega|Hop|Hello|Lift|Pulse|Prime|Swipe|Wave|Hola|Moov[2]?|Must(?: 2)?|Starter L|Fit FR|Spark|Prime|Smooth(?: FR)?)|Tab_Stand_Pro|LeFit|logikids4)(?:[);/ ]|$|_)'
   device: 'tablet'
   models:
+    - regex: 'Tab_Stand_Pro'
+      model: 'La Tab Stand Pro'
     - regex: 'La[ _]?Tab[ _]?(7[24]|10[57]|11[345]|127 HD|12[89]|105_P|292|Stand)(?:[);/ ]|$)'
       model: 'La Tab $1'
     - regex: 'LaTabStandRB(?:[);/ ]|$)'
@@ -29956,7 +29966,7 @@ Spectrum:
 
 # Kivi
 Kivi:
-  regex: 'KIVI [24]K|(?:24H600G[RU]|24FR50WU|24HK30B|32HR55GU|32H700GU|32F700WU|4[39]UP50GU|40UR50G[RU]|40U600G[RU]|50U730GR|55U600(?:G[RU]|KD)|65UP50GU|55U[PC]50G[RU]|50U600G[RU]|50UX10S|55UR50G[RU]|40FK30G|40FR5[02]BR|43U(?:800B[RU]|600KD|K35G)|50FK30G|50UK35G|32HR50GR|32F700GR|55UC30G|55U730GR|32HK30G|40FK30G|32HR50GU|43UK30G|32FR50(?:WR|BU)|32FK3[02]G|32H600KD|40U600KD|32H600GR)(?:_-Ver0[0-9])?(?:[);/ ]|$)'
+  regex: 'KIVI [24]K|(?:24H600G[RU]|24FR50WU|24HK30B|32HR55GU|32H700GU|32F700WU|4[39]UP50GU|40UR50G[RU]|40U600G[RU]|50U730GR|55U600(?:G[RU]|KD)|65UP50GU|55U[PC]50G[RU]|50U600G[RU]|50UX10S|55UR50G[RU]|40FK30G|40FR5[02]BR|43U(?:800B[RU]|600KD|K35G)|50FK30G|50UK35G|32HR50GR|32F700GR|55UC30G|55U730GR|32HK30G|40FK30G|32HR50GU|43UK30G|32FR50(?:WR|BU)|32FK3[02]G|32H600KD|40U600KD|32H600G[RU])(?:_-Ver0[0-9])?(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: '(55UC30G|40FK30G|43UK30G|32HR50G[RU]|32HK30G|32FK32G)_-Ver0([0-9])(?:[);/ ]|$)'
@@ -39605,6 +39615,20 @@ S-Color:
       model: 'WO9'
     - regex: 'X9 CALL2'
       model: 'X9 Call 2'
+
+# Cuiud
+Cuiud:
+  regex: 'cuiud'
+  device: 'smartphone'
+  models:
+    - regex: 'Cuiud F7'
+      model: 'F7'
+
+# Cidea or C idea (http://cidealife.com/)
+Cidea:
+  regex: '(?:CM7800plus)(?:[);/ ]|$)'
+  device: 'tablet'
+  model: 'CM7800 Plus'
 
 # Devices with undectable brand, but detectable model
 Unknown:
