@@ -6893,6 +6893,8 @@ Digicel:
       model: 'DL$1'
     - regex: 'DL810'
       model: 'DL810'
+    - regex: 'DIGICELDL1plus'
+      model: 'DL1 Plus'
     - regex: 'DIGICEL[ _]([^/);]+)(?: Build|[;)])'
       model: '$1'
 
@@ -9418,9 +9420,11 @@ Grundig:
 
 # Gtel (https://gtel.co.zw/)
 Gtel:
-  regex: 'Gtel[ _]'
+  regex: 'Gtel[ _]|A727_Infinity_Pro(?:[);/ ]|$)'
   device: 'smartphone'
   models:
+    - regex: 'A727_Infinity_Pro'
+      model: 'A727 Infinity Pro'
     - regex: 'Infinity 8s(?:[);/ ]|$)'
       model: 'Infinity 8s'
     - regex: 'Infinity 9(?:[);/ ]|$)'
@@ -31163,7 +31167,7 @@ Virzo:
 
 # OzoneHD
 OzoneHD:
-  regex: 'Ozone HD|OzoneHD[ _](T2 WiFi|4K(?: TV)?|Fun|Neo)(?:[);/ ]|$)'
+  regex: 'Ozone HD|OzoneHD[ _]?(T2 WiFi|Nexo|4K(?: TV)?|Fun|Neo)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
@@ -36999,9 +37003,13 @@ Emporia:
 
 # BLISS
 BLISS:
-  regex: '(BPM9727)(?:[);/ ]|$)'
+  regex: 'BLISS-T6|(BPM9727)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: 'BLISS-T6'
+      model: 'T6'
+    - regex: '(BPM9727)'
+      model: '$1'
 
 # Entity
 Entity:
