@@ -298,6 +298,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'Y8'  => 'Bubblegum',
         'BMW' => 'BMW',
         'C9'  => 'CAGI',
+        'CAD' => 'CADENA',
         'CT'  => 'Capitel',
         'G3'  => 'CG Mobile',
         '37'  => 'CGV',
