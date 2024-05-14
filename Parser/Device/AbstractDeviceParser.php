@@ -729,6 +729,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'H1'  => 'Hoffmann',
         'HOM' => 'Homatics',
         'H0'  => 'Hometech',
+        'HLB' => 'HOLLEBERG',
         'HM'  => 'Homtom',
         'HZ'  => 'Hoozo',
         'H7'  => 'Horizon',
