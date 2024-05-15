@@ -1670,6 +1670,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '5T'  => 'TurboKids',
         'UR'  => 'Turkcell',
         '4U'  => 'TuCEL',
+        'TUV' => 'Tuvio',
         '2U'  => 'Türk Telekom',
         'TV'  => 'TVC',
         'TW'  => 'TWM',
@@ -1923,6 +1924,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'Z4'  => 'ZH&K',
         'OW'  => 'öwn',
         'WBF' => 'Webfleet',
+        'WSS' => 'WS',
         // legacy brands, might be removed in future versions
         'WB'  => 'Web TV',
         'XX'  => 'Unknown',
