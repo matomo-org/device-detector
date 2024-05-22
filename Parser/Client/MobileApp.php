@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Parser\Client;
 
 use DeviceDetector\Cache\CacheInterface;
@@ -45,7 +43,7 @@ class MobileApp extends AbstractClientParser
      * @param string           $ua
      * @param ClientHints|null $clientHints
      */
-    public function __construct(string $ua = '', ?ClientHints $clientHints = null)
+    public function __construct($ua = '', $clientHints = null)
     {
         $this->appHints = new AppHints($ua, $clientHints);
         parent::__construct($ua, $clientHints);
@@ -56,7 +54,7 @@ class MobileApp extends AbstractClientParser
      *
      * @param ?ClientHints $clientHints client hints
      */
-    public function setClientHints(?ClientHints $clientHints): void
+    public function setClientHints($clientHints)
     {
         parent::setClientHints($clientHints);
         $this->appHints->setClientHints($clientHints);
@@ -67,7 +65,7 @@ class MobileApp extends AbstractClientParser
      *
      * @param string $ua user agent
      */
-    public function setUserAgent(string $ua): void
+    public function setUserAgent($ua)
     {
         parent::setUserAgent($ua);
         $this->appHints->setUserAgent($ua);
@@ -78,7 +76,7 @@ class MobileApp extends AbstractClientParser
      *
      * @param CacheInterface $cache
      */
-    public function setCache(CacheInterface $cache): void
+    public function setCache(CacheInterface $cache)
     {
         parent::setCache($cache);
         $this->appHints->setCache($cache);
@@ -89,7 +87,7 @@ class MobileApp extends AbstractClientParser
      *
      * @param YamlParser $yamlParser
      */
-    public function setYamlParser(YamlParser $yamlParser): void
+    public function setYamlParser(YamlParser $yamlParser)
     {
         parent::setYamlParser($yamlParser);
         $this->appHints->setYamlParser($this->getYamlParser());
@@ -101,11 +99,11 @@ class MobileApp extends AbstractClientParser
      *
      * @return array|null
      */
-    public function parse(): ?array
+    public function parse()
     {
         $result  = parent::parse();
-        $name    = $result['name'] ?? '';
-        $version = $result['version'] ?? '';
+        $name    = isset($result['name']) ? $result['name'] : '';
+        $version = isset($result['version']) ? $result['version'] : '';
         $appHash = $this->appHints->parse();
 
         if (null !== $appHash && $appHash['name'] !== $name) {

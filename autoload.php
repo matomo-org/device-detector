@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * PSR-4 autoloader implementation for the DeviceDetector namespace.
  * First we define the 'dd_autoload' function, and then we register
@@ -16,7 +14,7 @@ declare(strict_types=1);
  *
  * @return void
  */
-function dd_autoload(string $class): void
+function dd_autoload($class)
 {
     if (false === strpos($class, 'DeviceDetector\\')) {
         return;

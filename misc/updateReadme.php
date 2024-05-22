@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 use DeviceDetector\Parser\Client\Browser;
 use DeviceDetector\Parser\Client\Browser\Engine;
 use DeviceDetector\Parser\Client\FeedReader;

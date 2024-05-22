@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Tests\Parser\Device;
 
 use DeviceDetector\Parser\Device\AbstractDeviceParser;
@@ -17,21 +15,21 @@ use PHPUnit\Framework\TestCase;
 
 class DeviceParserAbstractTest extends TestCase
 {
-    public function testGetAvailableDeviceTypes(): void
+    public function testGetAvailableDeviceTypes()
     {
         $available = AbstractDeviceParser::getAvailableDeviceTypes();
         $this->assertGreaterThan(5, \count($available));
         $this->assertContains('desktop', \array_keys($available));
     }
 
-    public function testGetAvailableDeviceTypeNames(): void
+    public function testGetAvailableDeviceTypeNames()
     {
         $available = AbstractDeviceParser::getAvailableDeviceTypeNames();
         $this->assertGreaterThan(5, \count($available));
         $this->assertContains('desktop', $available);
     }
 
-    public function testGetFullName(): void
+    public function testGetFullName()
     {
         $this->assertEquals('', AbstractDeviceParser::getFullName('Invalid'));
         $this->assertEquals('Asus', AbstractDeviceParser::getFullName('AU'));

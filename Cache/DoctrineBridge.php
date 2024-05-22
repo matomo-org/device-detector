@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Cache;
 
 use Doctrine\Common\Cache\CacheProvider;
@@ -32,7 +30,7 @@ class DoctrineBridge implements CacheInterface
     /**
      * @inheritDoc
      */
-    public function fetch(string $id)
+    public function fetch($id)
     {
         return $this->cache->fetch($id);
     }
@@ -40,7 +38,7 @@ class DoctrineBridge implements CacheInterface
     /**
      * @inheritDoc
      */
-    public function contains(string $id): bool
+    public function contains($id)
     {
         return $this->cache->contains($id);
     }
@@ -48,7 +46,7 @@ class DoctrineBridge implements CacheInterface
     /**
      * @inheritDoc
      */
-    public function save(string $id, $data, int $lifeTime = 0): bool
+    public function save($id, $data, $lifeTime = 0)
     {
         return $this->cache->save($id, $data, $lifeTime);
     }
@@ -56,7 +54,7 @@ class DoctrineBridge implements CacheInterface
     /**
      * @inheritDoc
      */
-    public function delete(string $id): bool
+    public function delete($id)
     {
         return $this->cache->delete($id);
     }
@@ -64,7 +62,7 @@ class DoctrineBridge implements CacheInterface
     /**
      * @inheritDoc
      */
-    public function flushAll(): bool
+    public function flushAll()
     {
         return $this->cache->flushAll();
     }

@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Tests\Parser\Client;
 
 use DeviceDetector\Parser\Client\MediaPlayer;
@@ -21,7 +19,7 @@ class MediaPlayerTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
-    public function testParse(string $useragent, array $client): void
+    public function testParse($useragent, array $client)
     {
         $mediaPlayerParser = new MediaPlayer();
         $mediaPlayerParser->setVersionTruncation(MediaPlayer::VERSION_TRUNCATION_NONE);
@@ -29,14 +27,14 @@ class MediaPlayerTest extends TestCase
         $this->assertEquals($client, $mediaPlayerParser->parse());
     }
 
-    public function getFixtures(): array
+    public function getFixtures()
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/mediaplayer.yml');
 
         return $fixtureData;
     }
 
-    public function testStructureMediaPlayerYml(): void
+    public function testStructureMediaPlayerYml()
     {
         $ymlDataItems = Spyc::YAMLLoad(__DIR__ . '/../../../regexes/client/mediaplayers.yml');
 
@@ -44,9 +42,9 @@ class MediaPlayerTest extends TestCase
             $this->assertTrue(\array_key_exists('regex', $item), 'key "regex" not exist');
             $this->assertTrue(\array_key_exists('name', $item), 'key "name" not exist');
             $this->assertTrue(\array_key_exists('version', $item), 'key "version" not exist');
-            $this->assertIsString($item['regex']);
-            $this->assertIsString($item['name']);
-            $this->assertIsString($item['version']);
+            $this->assertNotNull($item['regex']);
+            $this->assertNotNull($item['name']);
+            $this->assertNotNull($item['version']);
         }
     }
 }

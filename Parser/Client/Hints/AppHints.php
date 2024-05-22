@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Parser\Client\Hints;
 
 use DeviceDetector\Parser\AbstractParser;
@@ -31,14 +29,14 @@ class AppHints extends AbstractParser
      *
      * @return array|null
      */
-    public function parse(): ?array
+    public function parse()
     {
         if (null === $this->clientHints) {
             return null;
         }
 
         $appId = $this->clientHints->getApp();
-        $name  = $this->getRegexes()[$appId] ?? null;
+        $name  = isset($this->getRegexes()[$appId]) ? $this->getRegexes()[$appId] : null;
 
         if ('' === (string) $name) {
             return null;

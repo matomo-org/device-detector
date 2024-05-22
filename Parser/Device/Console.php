@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Parser\Device;
 
 /**
@@ -32,7 +30,7 @@ class Console extends AbstractDeviceParser
     /**
      * @inheritdoc
      */
-    public function parse(): ?array
+    public function parse()
     {
         if (!$this->preMatchOverall()) {
             return null;

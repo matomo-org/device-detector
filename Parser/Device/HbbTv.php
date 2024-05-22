@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Parser\Device;
 
 /**
@@ -36,7 +34,7 @@ class HbbTv extends AbstractDeviceParser
      *
      * @return array|null
      */
-    public function parse(): ?array
+    public function parse()
     {
         // only parse user agents containing fragments: hbbtv
         if (null === $this->isHbbTv()) {
@@ -56,11 +54,11 @@ class HbbTv extends AbstractDeviceParser
      *
      * @return string|null
      */
-    public function isHbbTv(): ?string
+    public function isHbbTv()
     {
         $regex = 'HbbTV/([1-9]{1}(?:\.[0-9]{1}){1,2})';
         $match = $this->matchUserAgent($regex);
 
-        return $match[1] ?? null;
+        return isset($match[1]) ? $match[1] : null;
     }
 }

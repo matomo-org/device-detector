@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Tests\Parser;
 
 use DeviceDetector\Parser\Bot;
@@ -17,7 +15,7 @@ use PHPUnit\Framework\TestCase;
 
 class BotTest extends TestCase
 {
-    public function testGetInfoFromUABot(): void
+    public function testGetInfoFromUABot()
     {
         $expected  = [
             'name'     => 'Googlebot',
@@ -33,7 +31,7 @@ class BotTest extends TestCase
         $this->assertEquals($expected, $botParser->parse());
     }
 
-    public function testParseNoDetails(): void
+    public function testParseNoDetails()
     {
         $botParser = new Bot();
         $botParser->discardDetails();
@@ -41,7 +39,7 @@ class BotTest extends TestCase
         $this->assertEquals([true], $botParser->parse());
     }
 
-    public function testParseNoBot(): void
+    public function testParseNoBot()
     {
         $botParser = new Bot();
         $botParser->setUserAgent('Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1; SV1; SE 2.x)');

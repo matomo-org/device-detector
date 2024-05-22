@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Parser;
 
 /**
@@ -37,7 +35,7 @@ class VendorFragment extends AbstractParser
     /**
      * @inheritdoc
      */
-    public function parse(): ?array
+    public function parse()
     {
         foreach ($this->getRegexes() as $brand => $regexes) {
             foreach ($regexes as $regex) {
@@ -55,7 +53,7 @@ class VendorFragment extends AbstractParser
     /**
      * @return string|null
      */
-    public function getMatchedRegex(): ?string
+    public function getMatchedRegex()
     {
         return $this->matchedRegex;
     }

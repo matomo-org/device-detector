@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Cache;
 
 interface CacheInterface
@@ -19,14 +17,14 @@ interface CacheInterface
      *
      * @return mixed
      */
-    public function fetch(string $id);
+    public function fetch($id);
 
     /**
      * @param string $id
      *
      * @return bool
      */
-    public function contains(string $id): bool;
+    public function contains($id);
 
     /**
      * @param string $id
@@ -35,17 +33,17 @@ interface CacheInterface
      *
      * @return bool
      */
-    public function save(string $id, $data, int $lifeTime = 0): bool;
+    public function save($id, $data, $lifeTime = 0);
 
     /**
      * @param string $id
      *
      * @return bool
      */
-    public function delete(string $id): bool;
+    public function delete($id);
 
     /**
      * @return bool
      */
-    public function flushAll(): bool;
+    public function flushAll();
 }

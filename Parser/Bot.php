@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Parser;
 
 /**
@@ -39,7 +37,7 @@ class Bot extends AbstractBotParser
     /**
      * Enables information discarding
      */
-    public function discardDetails(): void
+    public function discardDetails()
     {
         $this->discardDetails = true;
     }
@@ -62,7 +60,7 @@ class Bot extends AbstractBotParser
      *
      * @return array|null
      */
-    public function parse(): ?array
+    public function parse()
     {
         $result = null;
 

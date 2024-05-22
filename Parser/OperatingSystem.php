@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Parser;
 
 use DeviceDetector\ClientHints;
@@ -322,7 +320,7 @@ class OperatingSystem extends AbstractParser
      *
      * @return array
      */
-    public static function getAvailableOperatingSystems(): array
+    public static function getAvailableOperatingSystems()
     {
         return self::$operatingSystems;
     }
@@ -332,7 +330,7 @@ class OperatingSystem extends AbstractParser
      *
      * @return array
      */
-    public static function getAvailableOperatingSystemFamilies(): array
+    public static function getAvailableOperatingSystemFamilies()
     {
         return self::$osFamilies;
     }
@@ -344,7 +342,7 @@ class OperatingSystem extends AbstractParser
      *
      * @return array
      */
-    public static function getShortOsData(string $name): array
+    public static function getShortOsData($name)
     {
         $short = 'UNK';
 
@@ -365,7 +363,7 @@ class OperatingSystem extends AbstractParser
     /**
      * @inheritdoc
      */
-    public function parse(): ?array
+    public function parse()
     {
         $osFromClientHints = $this->parseOsFromClientHints();
         $osFromUserAgent   = $this->parseOsFromUserAgent();
@@ -395,10 +393,18 @@ class OperatingSystem extends AbstractParser
                 }
 
                 if ('Fire OS' === $osFromUserAgent['name']) {
-                        $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
+                        $majorVersion = (int) (isset(\explode('.', $version, 1)[0]) ? \explode('.', $version, 1)[0] : '0');
 
-                        $version = $this->fireOsVersionMapping[$version]
-                            ?? $this->fireOsVersionMapping[$majorVersion] ?? '';
+                    $isHaveVersion = isset($this->fireOsVersionMapping[$version]);
+                    $isHaveMajorVersion = isset($this->fireOsVersionMapping[$majorVersion]);
+
+                    if ($isHaveVersion) {
+                        $version = $this->fireOsVersionMapping[$version];
+                    } elseif ($isHaveMajorVersion) {
+                        $version = $this->fireOsVersionMapping[$majorVersion];
+                    } else {
+                        $version = '';
+                    }
                 }
             }
 
@@ -436,22 +442,41 @@ class OperatingSystem extends AbstractParser
             }
 
             if ('org.lineageos.jelly' === $this->clientHints->getApp() && 'Lineage OS' !== $name) {
-                $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
+                $majorVersion = (int) (isset(\explode('.', $version, 1)[0]) ? \explode('.', $version, 1)[0] : '0');
 
                 $name    = 'Lineage OS';
                 $family  = 'Android';
                 $short   = 'LEN';
-                $version = $this->lineageOsVersionMapping[$version]
-                    ?? $this->lineageOsVersionMapping[$majorVersion] ?? '';
+
+                $isHaveVersion = isset($this->lineageOsVersionMapping[$version]);
+                $isHaveMajorVersion = isset($this->lineageOsVersionMapping[$majorVersion]);
+
+                if ($isHaveVersion) {
+                    $version = $this->lineageOsVersionMapping[$version];
+                } elseif ($isHaveMajorVersion) {
+                    $version = $this->lineageOsVersionMapping[$majorVersion];
+                } else {
+                    $version = '';
+                }
             }
 
             if ('org.mozilla.tv.firefox' === $this->clientHints->getApp() && 'Fire OS' !== $name) {
-                $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
+                $majorVersion = (int) (isset(\explode('.', $version, 1)[0]) ? \explode('.', $version, 1)[0] : '0');
 
                 $name    = 'Fire OS';
                 $family  = 'Android';
                 $short   = 'FIR';
-                $version = $this->fireOsVersionMapping[$version] ?? $this->fireOsVersionMapping[$majorVersion] ?? '';
+
+                $isHaveVersion = isset($this->fireOsVersionMapping[$version]);
+                $isHaveMajorVersion = isset($this->fireOsVersionMapping[$majorVersion]);
+
+                if ($isHaveVersion) {
+                    $version = $this->fireOsVersionMapping[$version];
+                } elseif ($isHaveMajorVersion) {
+                    $version = $this->fireOsVersionMapping[$majorVersion];
+                } else {
+                    $version = '';
+                }
             }
         }
 
@@ -477,7 +502,7 @@ class OperatingSystem extends AbstractParser
      *
      * @return string|null If null, "Unknown"
      */
-    public static function getOsFamily(string $osLabel): ?string
+    public static function getOsFamily($osLabel)
     {
         if (\in_array($osLabel, self::$operatingSystems)) {
             $osLabel = \array_search($osLabel, self::$operatingSystems);
@@ -499,7 +524,7 @@ class OperatingSystem extends AbstractParser
      *
      * @return bool
      */
-    public static function isDesktopOs(string $osName): bool
+    public static function isDesktopOs($osName)
     {
         $osFamily = self::getOsFamily($osName);
 
@@ -514,7 +539,7 @@ class OperatingSystem extends AbstractParser
      *
      * @return ?string
      */
-    public static function getNameFromId(string $os, ?string $ver = null): ?string
+    public static function getNameFromId($os, $ver = null)
     {
         if (\array_key_exists($os, self::$operatingSystems)) {
             $osFullName = self::$operatingSystems[$os];
@@ -530,7 +555,7 @@ class OperatingSystem extends AbstractParser
      *
      * @return array
      */
-    protected function parseOsFromClientHints(): array
+    protected function parseOsFromClientHints()
     {
         $name = $version = $short = '';
 
@@ -549,7 +574,7 @@ class OperatingSystem extends AbstractParser
             $version = $this->clientHints->getOperatingSystemVersion();
 
             if ('Windows' === $name) {
-                $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
+                $majorVersion = (int) (isset(\explode('.', $version, 1)[0]) ? \explode('.', $version, 1)[0] : '0');
 
                 if ($majorVersion > 0 && $majorVersion < 11) {
                     $version = '10';
@@ -577,7 +602,7 @@ class OperatingSystem extends AbstractParser
      *
      * @throws \Exception
      */
-    protected function parseOsFromUserAgent(): array
+    protected function parseOsFromUserAgent()
     {
         $osRegex = $matches = [];
         $name    = $version = $short = '';
@@ -592,13 +617,16 @@ class OperatingSystem extends AbstractParser
 
         if (!empty($matches)) {
             $name                                = $this->buildByMatch($osRegex['name'], $matches);
-            ['name' => $name, 'short' => $short] = self::getShortOsData($name);
+            $shortData = self::getShortOsData($name);
+            $name = $shortData['name'];
+            $short = $shortData['short'];
 
             $version = \array_key_exists('version', $osRegex)
                 ? $this->buildVersion((string) $osRegex['version'], $matches)
                 : '';
 
-            foreach ($osRegex['versions'] ?? [] as $regex) {
+            $versions = isset($osRegex['versions']) && is_array($osRegex['versions']) ? $osRegex['versions'] : [];
+            foreach ($versions as $regex) {
                 $matches = $this->matchUserAgent($regex['regex']);
 
                 if (!$matches) {
@@ -607,7 +635,9 @@ class OperatingSystem extends AbstractParser
 
                 if (\array_key_exists('name', $regex)) {
                     $name                                = $this->buildByMatch($regex['name'], $matches);
-                    ['name' => $name, 'short' => $short] = self::getShortOsData($name);
+                    $shortData = self::getShortOsData($name);
+                    $name = $shortData['name'];
+                    $short = $shortData['short'];
                 }
 
                 if (\array_key_exists('version', $regex)) {
@@ -630,7 +660,7 @@ class OperatingSystem extends AbstractParser
      *
      * @return string
      */
-    protected function parsePlatform(): string
+    protected function parsePlatform()
     {
         // Use architecture from client hints if available
         if ($this->clientHints instanceof ClientHints && $this->clientHints->getArchitecture()) {

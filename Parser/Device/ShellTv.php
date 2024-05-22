@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Parser\Device;
 
 /**
@@ -34,7 +32,7 @@ class ShellTv extends AbstractDeviceParser
      *
      * @throws \Exception
      */
-    public function isShellTv(): bool
+    public function isShellTv()
     {
         $regex = '[a-z]+[ _]Shell[ _]\w{6}|tclwebkit(\d+[\.\d]*)';
         $match = $this->matchUserAgent($regex);
@@ -49,7 +47,7 @@ class ShellTv extends AbstractDeviceParser
      *
      * @return array|null
      */
-    public function parse(): ?array
+    public function parse()
     {
         // only parse user agents containing fragments: {brand} shell
         if (false === $this->isShellTv()) {

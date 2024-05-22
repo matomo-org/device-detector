@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Cache;
 
 use Psr\Cache\CacheItemPoolInterface;
@@ -33,7 +31,7 @@ class PSR6Bridge implements CacheInterface
     /**
      * @inheritDoc
      */
-    public function fetch(string $id)
+    public function fetch($id)
     {
         $item = $this->pool->getItem($id);
 
@@ -43,7 +41,7 @@ class PSR6Bridge implements CacheInterface
     /**
      * @inheritDoc
      */
-    public function contains(string $id): bool
+    public function contains($id)
     {
         return $this->pool->hasItem($id);
     }
@@ -51,7 +49,7 @@ class PSR6Bridge implements CacheInterface
     /**
      * @inheritDoc
      */
-    public function save(string $id, $data, int $lifeTime = 0): bool
+    public function save($id, $data, $lifeTime = 0)
     {
         $item = $this->pool->getItem($id);
         $item->set($data);
@@ -66,7 +64,7 @@ class PSR6Bridge implements CacheInterface
     /**
      * @inheritDoc
      */
-    public function delete(string $id): bool
+    public function delete($id)
     {
         return $this->pool->deleteItem($id);
     }
@@ -74,7 +72,7 @@ class PSR6Bridge implements CacheInterface
     /**
      * @inheritDoc
      */
-    public function flushAll(): bool
+    public function flushAll()
     {
         return $this->pool->clear();
     }

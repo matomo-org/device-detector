@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector;
 
 class ClientHints
@@ -89,7 +87,7 @@ class ClientHints
      * @param string $bitness         `Sec-CH-UA-Bitness`
      * @param string $app             `HTTP_X-REQUESTED-WITH`
      */
-    public function __construct(string $model = '', string $platform = '', string $platformVersion = '', string $uaFullVersion = '', array $fullVersionList = [], bool $mobile = false, string $architecture = '', string $bitness = '', string $app = '') // phpcs:ignore Generic.Files.LineLength
+    public function __construct($model = '', $platform = '', $platformVersion = '', $uaFullVersion = '', $fullVersionList = [], $mobile = false, $architecture = '', $bitness = '', $app = '') // phpcs:ignore Generic.Files.LineLength
     {
         $this->model           = $model;
         $this->platform        = $platform;
@@ -111,7 +109,7 @@ class ClientHints
      *
      * @throws \Exception
      */
-    public function __get(string $variable)
+    public function __get($variable)
     {
         if (\property_exists($this, $variable)) {
             return $this->$variable;
@@ -125,7 +123,7 @@ class ClientHints
      *
      * @return bool
      */
-    public function isMobile(): bool
+    public function isMobile()
     {
         return $this->mobile;
     }
@@ -135,7 +133,7 @@ class ClientHints
      *
      * @return string
      */
-    public function getArchitecture(): string
+    public function getArchitecture()
     {
         return $this->architecture;
     }
@@ -145,7 +143,7 @@ class ClientHints
      *
      * @return string
      */
-    public function getBitness(): string
+    public function getBitness()
     {
         return $this->bitness;
     }
@@ -155,7 +153,7 @@ class ClientHints
      *
      * @return string
      */
-    public function getModel(): string
+    public function getModel()
     {
         return $this->model;
     }
@@ -165,7 +163,7 @@ class ClientHints
      *
      * @return string
      */
-    public function getOperatingSystem(): string
+    public function getOperatingSystem()
     {
         return $this->platform;
     }
@@ -175,7 +173,7 @@ class ClientHints
      *
      * @return string
      */
-    public function getOperatingSystemVersion(): string
+    public function getOperatingSystemVersion()
     {
         return $this->platformVersion;
     }
@@ -185,14 +183,13 @@ class ClientHints
      *
      * @return array<string, string>
      */
-    public function getBrandList(): array
+    public function getBrandList()
     {
         if (\is_array($this->fullVersionList) && \count($this->fullVersionList)) {
             $brands   = \array_column($this->fullVersionList, 'brand');
             $versions = \array_column($this->fullVersionList, 'version');
 
             if (\count($brands) === \count($versions)) {
-                // @phpstan-ignore-next-line
                 return \array_combine($brands, $versions);
             }
         }
@@ -205,7 +202,7 @@ class ClientHints
      *
      * @return string
      */
-    public function getBrandVersion(): string
+    public function getBrandVersion()
     {
         if (!empty($this->uaFullVersion)) {
             return $this->uaFullVersion;
@@ -219,7 +216,7 @@ class ClientHints
      *
      * @return string
      */
-    public function getApp(): string
+    public function getApp()
     {
         return $this->app;
     }
@@ -231,7 +228,7 @@ class ClientHints
      *
      * @return ClientHints
      */
-    public static function factory(array $headers): ClientHints
+    public static function factory(array $headers)
     {
         $model           = $platform = $platformVersion = $uaFullVersion = $architecture = $bitness = '';
         $app             = '';

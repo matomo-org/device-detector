@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\Device\AbstractDeviceParser;
 
@@ -76,7 +74,7 @@ if ($handle) {
 
 $timeElapsed = microtime(true) - $startTime;
 
-function getPercentage(int $cur, int $max): string
+function getPercentage($cur, $max)
 {
     return format((int) round($cur * 100 / $max), '   ');
 }
@@ -86,7 +84,7 @@ function getPercentage(int $cur, int $max): string
  * @param int|string $length
  * @return string
  */
-function format($str, $length): string
+function format($str, $length)
 {
     return sprintf('%' . strlen((string) $length) . 'd', $str);
 }

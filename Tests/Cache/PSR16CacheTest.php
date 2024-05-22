@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Tests\Cache;
 
 use DeviceDetector\Cache\PSR16Bridge;
@@ -19,7 +17,7 @@ use PHPUnit\Framework\TestCase;
 
 class PSR16CacheTest extends TestCase
 {
-    protected function setUp(): void
+    protected function setUp()
     {
         if (!\class_exists('\MatthiasMullie\Scrapbook\Adapters\MemoryStore')) {
             $this->markTestSkipped('class \MatthiasMullie\Scrapbook\Adapters\MemoryStore required for tests');
@@ -31,13 +29,13 @@ class PSR16CacheTest extends TestCase
         $cache->flushAll();
     }
 
-    public function testSetNotPresent(): void
+    public function testSetNotPresent()
     {
         $cache = new PSR16Bridge(new SimpleCache(new MemoryStore()));
         $this->assertFalse($cache->fetch('NotExistingKey'));
     }
 
-    public function testSetAndGet(): void
+    public function testSetAndGet()
     {
         $cache = new PSR16Bridge(new SimpleCache(new MemoryStore()));
 

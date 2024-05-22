@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Tests\Parser\Client;
 
 use DeviceDetector\Parser\Client\MobileApp;
@@ -21,7 +19,7 @@ class MobileAppTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
-    public function testParse(string $useragent, array $client): void
+    public function testParse($useragent, array $client)
     {
         $mobileAppParser = new MobileApp();
         $mobileAppParser->setVersionTruncation(MobileApp::VERSION_TRUNCATION_NONE);
@@ -29,14 +27,14 @@ class MobileAppTest extends TestCase
         $this->assertEquals($client, $mobileAppParser->parse());
     }
 
-    public function getFixtures(): array
+    public function getFixtures()
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/mobile_app.yml');
 
         return $fixtureData;
     }
 
-    public function testStructureMobileAppYml(): void
+    public function testStructureMobileAppYml()
     {
         $ymlDataItems = Spyc::YAMLLoad(__DIR__ . '/../../../regexes/client/mobile_apps.yml');
 

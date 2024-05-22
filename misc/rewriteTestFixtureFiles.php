@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\AbstractParser;
 

@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Parser\Client\Browser\Engine;
 
 use DeviceDetector\Parser\Client\AbstractClientParser;
@@ -32,7 +30,7 @@ class Version extends AbstractClientParser
      * @param string $ua
      * @param string $engine
      */
-    public function __construct(string $ua, string $engine)
+    public function __construct($ua, $engine)
     {
         parent::__construct($ua);
 
@@ -42,7 +40,7 @@ class Version extends AbstractClientParser
     /**
      * @inheritdoc
      */
-    public function parse(): ?array
+    public function parse()
     {
         if (empty($this->engine)) {
             return null;

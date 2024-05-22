@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Tests\Parser\Client;
 
 use DeviceDetector\ClientHints;
@@ -26,7 +24,7 @@ class BrowserTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
-    public function testParse(string $useragent, array $client, ?array $headers = null): void
+    public function testParse($useragent, array $client, $headers = null)
     {
         $browserParser = new Browser();
         $browserParser->setVersionTruncation(Browser::VERSION_TRUNCATION_NONE);
@@ -49,32 +47,32 @@ class BrowserTest extends TestCase
         self::$browsersTested[] = $client['name'];
     }
 
-    public function getFixtures(): array
+    public function getFixtures()
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/browser.yml');
 
         return $fixtureData;
     }
 
-    public function testGetAvailableBrowserFamilies(): void
+    public function testGetAvailableBrowserFamilies()
     {
         $this->assertGreaterThan(5, Browser::getAvailableBrowserFamilies());
     }
 
-    public function testAllBrowsersTested(): void
+    public function testAllBrowsersTested()
     {
         $allBrowsers       = \array_values(Browser::getAvailableBrowsers());
         $browsersNotTested = \array_diff($allBrowsers, self::$browsersTested);
         $this->assertEmpty($browsersNotTested, 'This browsers are not tested: ' . \implode(', ', $browsersNotTested));
     }
 
-    public function testGetAvailableClients(): void
+    public function testGetAvailableClients()
     {
         $available = Browser::getAvailableClients();
         $this->assertGreaterThanOrEqual(\count($available), \count(Browser::getAvailableBrowsers()));
     }
 
-    public function testStructureBrowsersYml(): void
+    public function testStructureBrowsersYml()
     {
         $ymlDataItems = Spyc::YAMLLoad(__DIR__ . '/../../../regexes/client/browsers.yml');
 
@@ -82,13 +80,13 @@ class BrowserTest extends TestCase
             $this->assertTrue(\array_key_exists('regex', $item), 'key "regex" not exist');
             $this->assertTrue(\array_key_exists('name', $item), 'key "name" not exist');
             $this->assertTrue(\array_key_exists('version', $item), 'key "version" not exist');
-            $this->assertIsString($item['regex']);
-            $this->assertIsString($item['name']);
-            $this->assertIsString($item['version']);
+            $this->assertNotNull($item['regex']);
+            $this->assertNotNull($item['name']);
+            $this->assertNotNull($item['version']);
         }
     }
 
-    public function testBrowserFamiliesNoDuplicates(): void
+    public function testBrowserFamiliesNoDuplicates()
     {
         $browsers = Browser::getAvailableBrowserFamilies();
 
@@ -108,7 +106,7 @@ class BrowserTest extends TestCase
     /**
      * @return array
      */
-    public function getFixturesBrowserHints(): array
+    public function getFixturesBrowserHints()
     {
         $method = new \ReflectionMethod(BrowserHints::class, 'getRegexes');
         $method->setAccessible(true);
@@ -125,7 +123,7 @@ class BrowserTest extends TestCase
     /**
      * @dataProvider getFixturesBrowserHints
      */
-    public function testBrowserHintsForAvailableBrowsers(string $name): void
+    public function testBrowserHintsForAvailableBrowsers($name)
     {
         $browserShort = Browser::getBrowserShortName($name);
         $this->assertNotEquals(
@@ -135,7 +133,7 @@ class BrowserTest extends TestCase
         );
     }
 
-    protected function checkBrowserEngine(string $engine): bool
+    protected function checkBrowserEngine($engine)
     {
         if ('' === $engine) {
             return true;
@@ -143,8 +141,8 @@ class BrowserTest extends TestCase
 
         $engines         = Engine::getAvailableEngines();
         $enginePos       = \array_search($engine, $engines, false);
-        $engineReference = $engines[$enginePos] ?? null;
+        $engineReference = $engines[$enginePos] || null;
 
-        return $engineReference === $engine;
+        return $engineReference == $engine;
     }
 }

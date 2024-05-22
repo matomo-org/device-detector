@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\AbstractParser;
 use DeviceDetector\Parser\Device\AbstractDeviceParser;
@@ -52,22 +50,22 @@ foreach ($data as $deviceType => $fixtures) {
                                 return strtolower($a['user_agent']) < strtolower($b['user_agent']) ? -1 : 1;
                             }
 
-                            return ($a['client']['version'] ?? '') < ($b['client']['version'] ?? '') ? -1 : 1;
+                            return (isset($a['client']['version']) ? $a['client']['version'] : '') < (isset($b['client']['version']) ? $b['client']['version'] : '') ? -1 : 1;
                         }
 
-                        return ($a['client']['name'] ?? '') < ($b['client']['name'] ?? '') ? -1 : 1;
+                        return (isset($a['client']['name']) ? $a['client']['name'] : '') < (isset($b['client']['name']) ? $b['client']['name'] : '') ? -1 : 1;
                     }
 
-                    return ($a['os']['version'] ?? '') < ($b['os']['version'] ?? '') ? -1 : 1;
+                    return (isset($a['os']['version']) ? $a['os']['version'] : '') < (isset($b['os']['version']) ? $b['os']['version'] : '') ? -1 : 1;
                 }
 
-                return ($a['os']['name'] ?? '') < ($b['os']['name'] ?? '') ? -1 : 1;
+                return (isset($a['os']['name']) ? $a['os']['name'] : '') < (isset($b['os']['name']) ? $b['os']['name'] : '') ? -1 : 1;
             }
 
-            return ($a['device']['model'] ?? '') < ($b['device']['model'] ?? '') ? -1 : 1;
+            return (isset($a['device']['model']) ? $a['device']['model'] : '') < (isset($b['device']['model']) ? $b['device']['model'] : '') ? -1 : 1;
         }
 
-        return ($a['device']['brand'] ?? '') < ($b['device']['brand'] ?? '') ? -1 : 1;
+        return (isset($a['device']['brand']) ? $a['device']['brand'] : '') < (isset($b['device']['brand']) ? $b['device']['brand'] : '') ? -1 : 1;
     });
 
     $chunks = array_chunk($fixtures, 500);

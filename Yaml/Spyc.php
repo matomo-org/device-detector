@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Yaml;
 
 use Spyc as SpycParser;
@@ -23,7 +21,7 @@ class Spyc implements ParserInterface
      *
      * @return mixed
      */
-    public function parseFile(string $file)
+    public function parseFile($file)
     {
         return SpycParser::YAMLLoad($file);
     }

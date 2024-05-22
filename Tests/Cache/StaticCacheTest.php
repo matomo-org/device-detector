@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Tests\Cache;
 
 use DeviceDetector\Cache\StaticCache;
@@ -17,19 +15,19 @@ use PHPUnit\Framework\TestCase;
 
 class StaticCacheTest extends TestCase
 {
-    protected function setUp(): void
+    protected function setUp()
     {
         $cache = new StaticCache();
         $cache->flushAll();
     }
 
-    public function testSetNotPresent(): void
+    public function testSetNotPresent()
     {
         $cache = new StaticCache();
         $this->assertFalse($cache->fetch('NotExistingKey'));
     }
 
-    public function testSetAndGet(): void
+    public function testSetAndGet()
     {
         $cache = new StaticCache();
 

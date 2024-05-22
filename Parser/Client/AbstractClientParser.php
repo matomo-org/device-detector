@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Parser\Client;
 
 use DeviceDetector\Parser\AbstractParser;
@@ -41,7 +39,7 @@ abstract class AbstractClientParser extends AbstractParser
      *
      * @return array|null
      */
-    public function parse(): ?array
+    public function parse()
     {
         $result = null;
 
@@ -71,9 +69,9 @@ abstract class AbstractClientParser extends AbstractParser
      *
      * @return array
      */
-    public static function getAvailableClients(): array
+    public static function getAvailableClients()
     {
-        $instance = new static(); // @phpstan-ignore-line
+        $instance = new static();
         $regexes  = $instance->getRegexes();
         $names    = [];
 

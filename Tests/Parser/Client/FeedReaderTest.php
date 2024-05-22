@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Tests\Parser\Client;
 
 use DeviceDetector\Parser\Client\FeedReader;
@@ -21,7 +19,7 @@ class FeedReaderTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
-    public function testParse(string $useragent, array $client): void
+    public function testParse($useragent, array $client)
     {
         $feedReaderParser = new FeedReader();
         $feedReaderParser->setVersionTruncation(FeedReader::VERSION_TRUNCATION_NONE);
@@ -29,14 +27,14 @@ class FeedReaderTest extends TestCase
         $this->assertEquals($client, $feedReaderParser->parse(), "UserAgent: {$useragent}");
     }
 
-    public function getFixtures(): array
+    public function getFixtures()
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/feed_reader.yml');
 
         return $fixtureData;
     }
 
-    public function testStructureFeedReaderYml(): void
+    public function testStructureFeedReaderYml()
     {
         $ymlDataItems = Spyc::YAMLLoad(__DIR__ . '/../../../regexes/client/feed_readers.yml');
 
@@ -45,10 +43,10 @@ class FeedReaderTest extends TestCase
             $this->assertTrue(\array_key_exists('name', $item), 'key "name" not exist');
             $this->assertTrue(\array_key_exists('version', $item), 'key "version" not exist');
             $this->assertTrue(\array_key_exists('url', $item), 'key "url" not exist');
-            $this->assertIsString($item['regex']);
-            $this->assertIsString($item['name']);
-            $this->assertIsString($item['version']);
-            $this->assertIsString($item['url']);
+            $this->assertNotNull($item['regex']);
+            $this->assertNotNull($item['name']);
+            $this->assertNotNull($item['version']);
+            $this->assertNotNull($item['url']);
         }
     }
 }

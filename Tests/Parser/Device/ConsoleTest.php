@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 namespace DeviceDetector\Tests\Parser\Device;
 
 use DeviceDetector\Parser\Device\Console;
@@ -21,7 +19,7 @@ class ConsoleTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
-    public function testParse(string $useragent, array $device): void
+    public function testParse($useragent, array $device)
     {
         $consoleParser = new Console();
         $consoleParser->setUserAgent($useragent);
@@ -31,7 +29,7 @@ class ConsoleTest extends TestCase
         $this->assertEquals($device['model'], $consoleParser->getModel());
     }
 
-    public function getFixtures(): array
+    public function getFixtures()
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/console.yml');
 

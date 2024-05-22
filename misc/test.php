@@ -8,8 +8,6 @@
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
 
-declare(strict_types=1);
-
 require __DIR__ . '/../vendor/autoload.php';
 
 use DeviceDetector\DeviceDetector;
@@ -20,7 +18,7 @@ if ('cli' === php_sapi_name()) {
         $userAgent = $argv[1];
     }
 } else {
-    $userAgent = $_GET['ua'] ?? $_SERVER['HTTP_USER_AGENT'];
+    $userAgent = isset($_GET['ua']) ? $_GET['ua'] : $_SERVER['HTTP_USER_AGENT'];
 }
 
 AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
