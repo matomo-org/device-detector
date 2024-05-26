@@ -414,6 +414,7 @@ class Browser extends AbstractClientParser
         'N2' => 'Norton Private Browser',
         'NX' => 'Nox Browser',
         'N1' => 'NOMone VR Browser',
+        'N6' => 'NOOK Browser',
         'NE' => 'NetSurf',
         'NF' => 'NetFront',
         'NL' => 'NetFront Life',
@@ -761,7 +762,7 @@ class Browser extends AbstractClientParser
         'H5', 'V3', 'G2', 'BG', 'OL', 'II', 'TL', 'M6', 'Y3',
         'M7', 'GN', 'D3', 'IG', 'HW', '4O', 'OU', '5P', 'KE',
         '5A', 'TT', '6P', 'G3', '7P', 'VU', 'F8', 'L4', 'DK',
-        'DP', 'KL', 'K4',
+        'DP', 'KL', 'K4', 'N6',
     ];
 
     /**
