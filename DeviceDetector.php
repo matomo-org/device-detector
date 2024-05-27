@@ -776,7 +776,7 @@ class DeviceDetector
      */
     protected function hasAndroidTableFragment(): bool
     {
-        $regex = 'Android( [\.0-9]+)?; Tablet;|.*\-tablet$';
+        $regex = 'Android( [\.0-9]+)?; Tablet;|Tablet(?! PC)|.*\-tablet$';
 
         return !!$this->matchUserAgent($regex);
     }
