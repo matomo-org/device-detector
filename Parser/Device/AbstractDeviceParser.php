@@ -1313,7 +1313,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'PY'  => 'Ployer',
         'P4'  => 'Plum',
         'PLU' => 'PlusStyle',
-        'PLO' => 'Plusone',
         '22'  => 'Pluzz',
         'P8'  => 'PocketBook',
         '0P'  => 'POCO',
