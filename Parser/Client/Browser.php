@@ -500,6 +500,7 @@ class Browser extends AbstractClientParser
         'P0' => 'PronHub Browser',
         'PC' => 'PSI Secure Browser',
         'RW' => 'Reqwireless WebViewer',
+        'RO' => 'Roccat',
         'PS' => 'Microsoft Edge',
         'QA' => 'Qazweb',
         'QI' => 'Qiyu',
