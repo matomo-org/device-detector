@@ -117,6 +117,7 @@ class Browser extends AbstractClientParser
         'VG' => 'AVG Secure Browser',
         'AC' => 'Avira Secure Browser',
         'A1' => 'AwoX',
+        '7A' => 'Awesomium',
         '5B' => 'Basic Web Browser',
         'BA' => 'Beaker Browser',
         'BM' => 'Beamrise',
