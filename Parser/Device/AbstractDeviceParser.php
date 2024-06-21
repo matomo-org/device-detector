@@ -128,6 +128,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'Q3'  => 'AKIRA',
         '1A'  => 'Alba',
         'AL'  => 'Alcatel',
+        'AL0'  => 'Alienware',
         '20'  => 'Alcor',
         'XY'  => 'Alps',
         'XYA' => 'XY Auto',
