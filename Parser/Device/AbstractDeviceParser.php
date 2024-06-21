@@ -1146,6 +1146,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '7Q'  => 'Neon IQ',
         '8F'  => 'Neolix',
         'NET' => 'NetBox',
+        'NWT' => 'NETWIT',
         'NA'  => 'Netgear',
         'NEM' => 'Netmak',
         'NU'  => 'NeuImage',
