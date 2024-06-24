@@ -53,6 +53,7 @@ class OperatingSystem extends AbstractParser
         'ASP' => 'ASPLinux',
         'BTR' => 'BackTrack',
         'SBA' => 'Bada',
+        'BYI' => 'Baidu Yi',
         'BEO' => 'BeOS',
         'BLB' => 'BlackBerry OS',
         'QNX' => 'BlackBerry Tablet OS',
@@ -212,7 +213,7 @@ class OperatingSystem extends AbstractParser
         'Android'               => [
             'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
             'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS', 'WER', 'PIC', 'ARM',
-            'HEL',
+            'HEL', 'BYI',
         ],
         'AmigaOS'               => ['AMG', 'MOR'],
         'BlackBerry'            => ['BLB', 'QNX'],
