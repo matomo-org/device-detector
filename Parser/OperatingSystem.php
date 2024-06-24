@@ -86,6 +86,7 @@ class OperatingSystem extends AbstractParser
         'FYD' => 'FydeOS',
         'FUC' => 'Fuchsia',
         'GNT' => 'Gentoo',
+        'GNX' => 'GENIX',
         'GEO' => 'GEOS',
         'GNS' => 'gNewSense',
         'GRI' => 'GridOS',
@@ -246,7 +247,7 @@ class OperatingSystem extends AbstractParser
         'Symbian'               => ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
         'Unix'                  => [
             'SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64',
-            'INF', 'ELE',
+            'INF', 'ELE', 'GNX',
         ],
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
