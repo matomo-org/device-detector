@@ -86,6 +86,7 @@ class OperatingSystem extends AbstractParser
         'FYD' => 'FydeOS',
         'FUC' => 'Fuchsia',
         'GNT' => 'Gentoo',
+        'GEO' => 'GEOS',
         'GRI' => 'GridOS',
         'GTV' => 'Google TV',
         'HPX' => 'HP-UX',
@@ -240,7 +241,7 @@ class OperatingSystem extends AbstractParser
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
         'Real-time OS'          => ['MTK', 'TDX', 'MRE', 'JME', 'REX'],
-        'Other Mobile'          => ['WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE', 'LUN'],
+        'Other Mobile'          => ['WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE', 'LUN', 'GEO'],
         'Symbian'               => ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
         'Unix'                  => [
             'SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64',
