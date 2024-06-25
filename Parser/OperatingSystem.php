@@ -187,6 +187,7 @@ class OperatingSystem extends AbstractParser
         'TOS' => 'TmaxOS',
         'TUR' => 'Turbolinux',
         'UBT' => 'Ubuntu',
+        'ULT' => 'ULTRIX',
         'UOS' => 'UOS',
         'VID' => 'VIDAA',
         'WAS' => 'watchOS',
@@ -250,7 +251,7 @@ class OperatingSystem extends AbstractParser
         'Symbian'               => ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
         'Unix'                  => [
             'SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64',
-            'INF', 'ELE', 'GNX',
+            'INF', 'ELE', 'GNX', 'ULT',
         ],
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
