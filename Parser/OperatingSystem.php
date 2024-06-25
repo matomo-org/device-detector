@@ -131,6 +131,7 @@ class OperatingSystem extends AbstractParser
         'NBS' => 'NetBSD',
         'MTK' => 'MTK / Nucleus',
         'MRE' => 'MRE',
+        'NWS' => 'NEWS-OS',
         'WII' => 'Nintendo',
         'NDS' => 'Nintendo Mobile',
         'NOV' => 'Nova',
@@ -251,7 +252,7 @@ class OperatingSystem extends AbstractParser
         'Symbian'               => ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
         'Unix'                  => [
             'SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64',
-            'INF', 'ELE', 'GNX', 'ULT',
+            'INF', 'ELE', 'GNX', 'ULT', 'NWS',
         ],
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
