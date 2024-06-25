@@ -396,6 +396,7 @@ class Browser extends AbstractClientParser
         'MU' => 'MIUI Browser',
         'MS' => 'Mobile Silk',
         'MK' => 'Mogok Browser',
+        'M8' => 'Motorola Internet Browser',
         'MN' => 'Minimo',
         'MT' => 'Mint Browser',
         'MX' => 'Maxthon',
@@ -770,7 +771,7 @@ class Browser extends AbstractClientParser
         'H5', 'V3', 'G2', 'BG', 'OL', 'II', 'TL', 'M6', 'Y3',
         'M7', 'GN', 'D3', 'IG', 'HW', '4O', 'OU', '5P', 'KE',
         '5A', 'TT', '6P', 'G3', '7P', 'VU', 'F8', 'L4', 'DK',
-        'DP', 'KL', 'K4', 'N6', 'KU', 'WK',
+        'DP', 'KL', 'K4', 'N6', 'KU', 'WK', 'M8',
     ];
 
     /**
