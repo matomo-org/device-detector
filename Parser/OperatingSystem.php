@@ -179,6 +179,7 @@ class OperatingSystem extends AbstractParser
         'SIR' => 'Sirin OS',
         'SLW' => 'Slackware',
         'SOS' => 'Solaris',
+        'SBL' => 'Star-Blade OS',
         'SYL' => 'Syllable',
         'SYM' => 'Symbian',
         'SYS' => 'Symbian OS',
@@ -257,7 +258,7 @@ class OperatingSystem extends AbstractParser
         'Symbian'               => ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
         'Unix'                  => [
             'SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64',
-            'INF', 'ELE', 'GNX', 'ULT', 'NWS', 'NXT',
+            'INF', 'ELE', 'GNX', 'ULT', 'NWS', 'NXT', 'SBL',
         ],
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
