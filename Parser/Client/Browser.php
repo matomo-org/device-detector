@@ -636,6 +636,7 @@ class Browser extends AbstractClientParser
         'VB' => 'Vision Mobile Browser',
         'V4' => 'Vertex Surf',
         'VM' => 'VMware AirWatch',
+        'V6' => 'VMS Mosaic',
         'VK' => 'Vonkeror',
         'VU' => 'Vuhuv',
         'WI' => 'Wear Internet Browser',
