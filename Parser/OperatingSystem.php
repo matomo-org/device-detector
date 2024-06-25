@@ -105,6 +105,7 @@ class OperatingSystem extends AbstractParser
         'KOS' => 'KaiOS',
         'KAL' => 'Kali',
         'KAN' => 'Kanotix',
+        'KIN' => 'KIN OS',
         'KNO' => 'Knoppix',
         'KTV' => 'KreaTV',
         'KBT' => 'Kubuntu',
@@ -262,7 +263,7 @@ class OperatingSystem extends AbstractParser
         ],
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
-        'Windows Mobile'        => ['WPH', 'WMO', 'WCE', 'WRT', 'WIO'],
+        'Windows Mobile'        => ['WPH', 'WMO', 'WCE', 'WRT', 'WIO', 'KIN'],
         'Other Smart TV'        => ['WHS'],
     ];
 
