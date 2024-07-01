@@ -1090,7 +1090,7 @@ class Browser extends AbstractClientParser
         return [
             'name'       => $name,
             'short_name' => $short,
-            'version'    => $this->buildVersion($version, []),
+            'version'    => $this->truncateVersion($this->buildVersion($version, [])),
         ];
     }
 
@@ -1125,8 +1125,9 @@ class Browser extends AbstractClientParser
         $browserShort = self::getBrowserShortName($name);
 
         if (null !== $browserShort) {
-            $version       = $this->buildVersion((string) $regex['version'], $matches);
-            $engine        = $this->buildEngine($regex['engine'] ?? [], $version);
+            $fullVersion   = $this->buildVersion((string) $regex['version'], $matches);
+            $version       = $this->truncateVersion($fullVersion);
+            $engine        = $this->buildEngine($regex['engine'] ?? [], $fullVersion);
             $engineVersion = $this->buildEngineVersion($engine);
 
             return [
