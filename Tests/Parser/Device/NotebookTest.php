@@ -31,9 +31,13 @@ class NotebookTest extends TestCase
         $this->assertEquals($device['model'], $notebookParser->getModel());
     }
 
-    public function getFixtures(): array
+    public static function getFixtures(): array
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/notebook.yml');
+
+        $fixtureData = \array_map(static function (array $item): array {
+            return ['useragent' => $item['user_agent'], 'device' => $item['device']];
+        }, $fixtureData);
 
         return $fixtureData;
     }
