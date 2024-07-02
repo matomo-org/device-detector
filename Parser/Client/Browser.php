@@ -309,6 +309,7 @@ class Browser extends AbstractClientParser
         'I6' => 'iDesktop PC Browser',
         'IC' => 'iCab',
         'I2' => 'iCab Mobile',
+        '4I' => 'iNet Browser',
         'I1' => 'Iridium',
         'I3' => 'Iron Mobile',
         'I4' => 'IceCat',
@@ -395,6 +396,7 @@ class Browser extends AbstractClientParser
         'MU' => 'MIUI Browser',
         'MS' => 'Mobile Silk',
         'MK' => 'Mogok Browser',
+        'M8' => 'Motorola Internet Browser',
         'MN' => 'Minimo',
         'MT' => 'Mint Browser',
         'MX' => 'Maxthon',
@@ -616,6 +618,7 @@ class Browser extends AbstractClientParser
         'UM' => 'UC Browser Mini',
         'UT' => 'UC Browser Turbo',
         'UI' => 'Ui Browser Mini',
+        'UP' => 'UPhone Browser',
         'UR' => 'UR Browser',
         'UZ' => 'Uzbl',
         'UE' => 'Ume Browser',
@@ -633,6 +636,7 @@ class Browser extends AbstractClientParser
         'VB' => 'Vision Mobile Browser',
         'V4' => 'Vertex Surf',
         'VM' => 'VMware AirWatch',
+        'V6' => 'VMS Mosaic',
         'VK' => 'Vonkeror',
         'VU' => 'Vuhuv',
         'WI' => 'Wear Internet Browser',
@@ -769,7 +773,7 @@ class Browser extends AbstractClientParser
         'H5', 'V3', 'G2', 'BG', 'OL', 'II', 'TL', 'M6', 'Y3',
         'M7', 'GN', 'D3', 'IG', 'HW', '4O', 'OU', '5P', 'KE',
         '5A', 'TT', '6P', 'G3', '7P', 'VU', 'F8', 'L4', 'DK',
-        'DP', 'KL', 'K4', 'N6', 'KU', 'WK',
+        'DP', 'KL', 'K4', 'N6', 'KU', 'WK', 'M8', 'UP',
     ];
 
     /**
