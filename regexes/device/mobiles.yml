@@ -3764,6 +3764,11 @@ Asus:
       device: 'peripheral'
       model: 'Tinker Board$1'
 
+    # tv detections
+    - regex: 'asus_google_cube'
+      device: 'tv'
+      model: 'Cube'
+
     # watch detections
     - regex: '(?:ASUS_)?ZenWatch( 2)?'
       device: 'wearable'
@@ -4267,7 +4272,7 @@ Boway:
 
 # Brondi (https://www.brondi.it/)
 Brondi:
-  regex: 'Brondi[ _]|(?:CENTURION|GLADIATOR| GLORY|LUXURY|SENSUELLE|(?<!ODYSSEY[_ ])VICTORY|AMICO SMARTPHONE XL|AMICO_SMARTPHONE_4G|MIDNIGHT_SKY|501 SZ|850_4G)(?:[ _-]?[2-6])?(?:[);/ ]|$)|Surfing Tab'
+  regex: 'Brondi[ _]|(?:CENTURION|GLADIATOR| GLORY|LUXURY|SENSUELLE|(?<!ODYSSEY[_ ])VICTORY|AMICO[_ ]SMARTPHONE[_ ](?:4G|X[SL])|MIDNIGHT_SKY|501 SZ|850_4G)(?:[ _-]?[2-6])?(?:[);/ ]|$)|Surfing Tab'
   device: 'smartphone'
   models:
     - regex: '(?:Brondi[ _])?(620 SZ|730_4G_HD|501 SZ|850_4G)(?:[);/ ]|$)'
@@ -4288,8 +4293,8 @@ Brondi:
       model: 'VICTORY $1'
     - regex: 'AMICO_SMARTPHONE_4G'
       model: 'Amico Smartphone 4G'
-    - regex: 'AMICO SMARTPHONE XL'
-      model: 'Amico Smartphone XL'
+    - regex: 'AMICO SMARTPHONE (X[LS])'
+      model: 'Amico Smartphone $1'
 
     - regex: 'Surfing Tab ([^;/]+) Build'
       model: 'SURFING TAB $1'
@@ -18991,7 +18996,7 @@ OnePlus:
 
 # Realme (sub brand Oppo)
 Realme:
-  regex: 'Realme[ _]|(?:RMX(?:18(0[13579]|11|3[13]|2[1257]|[45]1|53|45)|19(03|4[1235]|19|9[23]|2[1579]|[01379]1|73)|20(?:[025-7]1|42|[0357]2|03|2[257]|63|7[56]|63L1|8[1356]|[2-5]0)|21(?:0[13]|1[27]|[12]1|4[24]|5[156]|6[13]|7[036]|8[0359]|9[345])|220[0125]|30(?:[3468]1|4[23]|9[23]|63|85)|31(?:15|2[125]|42|51|6[16]|71|9[1357])|32(?:0[13]|35|42|[346]1|6[0235689]|86)|33(?:[0157]0|[17]2|71|6[036]|[0186]1|57|88|9[12356])|34(?:30|78|[69]1|[67]2|7[145]|9[23])|35(?:0[1236]|1[12367]|21|[578]1|6[0123]|7[24])|36(?:1[0125789]|[39]0|36|2[347](?:_Natv_vf)?|8[67]|6[013])|37(?:0[0689]|6[125]|[14-7]0|[0457]1|8[025])|38(?:[39]0|2[03]|34|4[01234]|5[012]|6[78]|7[01]|88)|39(?:9[3789]|10))|(?:OPPO[ _]?)?CPH1861|RMP2204|RMP210[235-8]|4K Google TV Stick)(?:[);/ ]|$)'
+  regex: 'Realme[ _]|(?:RMX(?:18(0[13579]|11|3[13]|2[1257]|[45]1|53|45)|19(03|4[1235]|19|9[23]|2[1579]|[01379]1|73)|20(?:[025-7]1|42|[0357]2|03|2[257]|63|7[56]|63L1|8[1356]|[2-5]0)|21(?:0[13]|1[27]|[12]1|4[24]|5[156]|6[13]|7[036]|8[0359]|9[345])|220[0125]|30(?:[3468]1|4[23]|9[23]|63|85)|31(?:15|2[125]|42|51|6[16]|71|9[1357])|32(?:0[13]|35|42|[346]1|6[0235689]|86)|33(?:[0157]0|[17]2|71|6[036]|[0186]1|57|88|9[12356])|34(?:30|78|[69]1|[67]2|7[145]|9[23])|35(?:0[1236]|1[12367]|21|[578]1|6[0123]|7[24])|36(?:1[0125789]|[39]0|36|2[347](?:_Natv_vf)?|8[67]|6[013])|37(?:0[0689]|6[125]|[14-7]0|[0457]1|8[025])|38(?:[39]0|2[03]|34|4[01234]|5[0123]|6[78]|7[01]|88)|39(?:9[3789]|10))|(?:OPPO[ _]?)?CPH1861|RMP2204|RMP210[235-8]|4K Google TV Stick)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'RMX3844'
@@ -19006,6 +19011,8 @@ Realme:
       model: 'GT Neo 6'
     - regex: 'RMX3851'
       model: 'GT 6'
+    - regex: 'RMX3853'
+      model: 'GT 6T'
     - regex: 'RMX3850'
       model: 'GT Neo 6 SE'
     - regex: 'RMX3700'
@@ -38467,12 +38474,12 @@ NEXT:
 
 # iMuz (shop.imuz.com)
 iMuz:
-  regex: '(?:Revolution A8|muPAD[_ ][KT]10|muPAD104|muPADT7|muPAD 7S)(?:[);/ ]|$)'
+  regex: '(?:Revolution A8|muPAD[_ ][KT]10|muPAD10[24]|muPADT7|muPAD 7S)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: '(Revolution A8|muPAD[_ ][KT]10)'
       model: '$1'
-    - regex: 'muPAD[ _]?(104|T7|7S)'
+    - regex: 'muPAD[ _]?(10[24]|T7|7S)'
       model: 'muPAD $1'
 
 # ECOO
