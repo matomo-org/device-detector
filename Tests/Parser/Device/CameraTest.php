@@ -31,9 +31,13 @@ class CameraTest extends TestCase
         $this->assertEquals($device['model'], $consoleParser->getModel());
     }
 
-    public function getFixtures(): array
+    public static function getFixtures(): array
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/camera.yml');
+
+        $fixtureData = \array_map(static function (array $item): array {
+            return ['useragent' => $item['user_agent'], 'device' => $item['device']];
+        }, $fixtureData);
 
         return $fixtureData;
     }

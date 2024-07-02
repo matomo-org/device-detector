@@ -37,9 +37,13 @@ class OperatingSystemTest extends TestCase
         self::$osTested[] = $os['name'];
     }
 
-    public function getFixtures(): array
+    public static function getFixtures(): array
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/oss.yml');
+
+        $fixtureData = \array_map(static function (array $item): array {
+            return ['useragent' => $item['user_agent'], 'os' => $item['os'], 'headers' => $item['headers'] ?? null];
+        }, $fixtureData);
 
         return $fixtureData;
     }
@@ -53,7 +57,7 @@ class OperatingSystemTest extends TestCase
         $this->assertContains($os, $familyOs);
     }
 
-    public function getAllOs(): array
+    public static function getAllOs(): array
     {
         $allOs = \array_keys(OperatingSystem::getAvailableOperatingSystems());
         $allOs = \array_map(static function ($os) {
@@ -72,7 +76,7 @@ class OperatingSystemTest extends TestCase
         $this->assertContains($os, $allOs);
     }
 
-    public function getAllFamilyOs(): array
+    public static function getAllFamilyOs(): array
     {
         $allFamilyOs = \call_user_func_array('array_merge', \array_values(OperatingSystem::getAvailableOperatingSystemFamilies()));
         $allFamilyOs = \array_map(static function ($os) {
@@ -95,7 +99,7 @@ class OperatingSystemTest extends TestCase
         $this->assertEquals($expected, OperatingSystem::getNameFromId($os, $version));
     }
 
-    public function getNameFromIds(): array
+    public static function getNameFromIds(): array
     {
         return [
             ['DEB', '4.5', 'Debian 4.5'],
