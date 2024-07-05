@@ -686,7 +686,7 @@ class OperatingSystem extends AbstractParser
             }
         }
 
-        if ($this->matchUserAgent('arm|.*arm64|aarch64|Apple ?TV|Watch ?OS|Watch1,[12]')) {
+        if ($this->matchUserAgent('arm[ _;)ev]|.*arm$|.*arm64|aarch64|Apple ?TV|Watch ?OS|Watch1,[12]')) {
             return 'ARM';
         }
 
