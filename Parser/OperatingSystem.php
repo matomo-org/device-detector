@@ -585,7 +585,7 @@ class OperatingSystem extends AbstractParser
         return [
             'name'       => $name,
             'short_name' => $short,
-            'version'    => $this->buildVersion($version, []),
+            'version'    => $this->truncateVersion($this->buildVersion($version, [])),
         ];
     }
 
@@ -614,7 +614,7 @@ class OperatingSystem extends AbstractParser
             ['name' => $name, 'short' => $short] = self::getShortOsData($name);
 
             $version = \array_key_exists('version', $osRegex)
-                ? $this->buildVersion((string) $osRegex['version'], $matches)
+                ? $this->truncateVersion($this->buildVersion((string) $osRegex['version'], $matches))
                 : '';
 
             foreach ($osRegex['versions'] ?? [] as $regex) {
@@ -630,7 +630,7 @@ class OperatingSystem extends AbstractParser
                 }
 
                 if (\array_key_exists('version', $regex)) {
-                    $version = $this->buildVersion((string) $regex['version'], $matches);
+                    $version = $this->truncateVersion($this->buildVersion((string) $regex['version'], $matches));
                 }
 
                 break;
