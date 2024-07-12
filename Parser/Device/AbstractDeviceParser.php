@@ -758,6 +758,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'HW'  => 'How',
         'WH'  => 'Honeywell',
         'HON' => 'HongTop',
+        'HOG' => 'HONKUAHG',
         'HP'  => 'HP',
         'HDC' => 'HDC',
         'HT'  => 'HTC',
