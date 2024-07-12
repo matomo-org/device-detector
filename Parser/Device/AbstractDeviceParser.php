@@ -1587,6 +1587,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SWI' => 'Switel',
         'SS'  => 'SWISSMOBILITY',
         '1W'  => 'Swisstone',
+        'SWO' => 'SWOFY',
         'SSK' => 'SSKY',
         'SYC' => 'Syco',
         'SM'  => 'Symphony',
