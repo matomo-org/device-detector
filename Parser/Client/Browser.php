@@ -393,7 +393,7 @@ class Browser extends AbstractClientParser
         'M3' => 'Midori Lite',
         'M6' => 'MixerBox AI',
         'MO' => 'Mobicip',
-        'MU' => 'MIUI Browser',
+        'MU' => 'Mi Browser',
         'MS' => 'Mobile Silk',
         'MK' => 'Mogok Browser',
         'M8' => 'Motorola Internet Browser',
@@ -697,7 +697,7 @@ class Browser extends AbstractClientParser
      * @var array
      */
     protected static $browserFamilies = [
-        'Android Browser'    => ['AN', 'MU'],
+        'Android Browser'    => ['AN'],
         'BlackBerry Browser' => ['BB'],
         'Baidu'              => ['BD', 'BS'],
         'Amiga'              => ['AV', 'AW'],
@@ -730,7 +730,7 @@ class Browser extends AbstractClientParser
             'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'P5', 'H5', 'V3',
             'K3', 'Q4', 'G2', 'R2', 'WX', 'XP', '3I', 'BG', 'R0',
             'JO', 'OL', 'GN', 'W4', 'QI', 'E1', 'RI', '8B', '5B',
-            'K4', 'WK', 'T3', 'K5',
+            'K4', 'WK', 'T3', 'K5', 'MU',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -789,6 +789,7 @@ class Browser extends AbstractClientParser
         'Chrome Webview'             => ['Android WebView'],
         'DuckDuckGo Privacy Browser' => ['DuckDuckGo'],
         'Edge WebView'               => ['Microsoft Edge WebView2'],
+        'Mi Browser'                 => ['Miui Browser'],
         'Microsoft Edge'             => ['Edge'],
         'Norton Private Browser'     => ['Norton Secure Browser'],
         'Vewd Browser'               => ['Vewd Core'],
