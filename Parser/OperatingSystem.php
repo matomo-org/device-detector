@@ -43,14 +43,18 @@ class OperatingSystem extends AbstractParser
         'AIX' => 'AIX',
         'AND' => 'Android',
         'ADR' => 'Android TV',
+        'ALP' => 'Alpine Linux',
         'AMZ' => 'Amazon Linux',
         'AMG' => 'AmigaOS',
         'ARM' => 'Armadillo OS',
+        'ARO' => 'AROS',
         'ATV' => 'tvOS',
         'ARL' => 'Arch Linux',
+        'AOS' => 'AOSC OS',
         'ASP' => 'ASPLinux',
         'BTR' => 'BackTrack',
         'SBA' => 'Bada',
+        'BYI' => 'Baidu Yi',
         'BEO' => 'BeOS',
         'BLB' => 'BlackBerry OS',
         'QNX' => 'BlackBerry Tablet OS',
@@ -60,6 +64,7 @@ class OperatingSystem extends AbstractParser
         'CAI' => 'Caixa Mágica',
         'CES' => 'CentOS',
         'CST' => 'CentOS Stream',
+        'CLO' => 'Clear Linux OS',
         'CLR' => 'ClearOS Mobile',
         'COS' => 'Chrome OS',
         'CRS' => 'Chromium OS',
@@ -69,6 +74,8 @@ class OperatingSystem extends AbstractParser
         'DEE' => 'Deepin',
         'DFB' => 'DragonFly',
         'DVK' => 'DVKBuntu',
+        'ELE' => 'ElectroBSD',
+        'EUL' => 'EulerOS',
         'FED' => 'Fedora',
         'FEN' => 'Fenix',
         'FOS' => 'Firefox OS',
@@ -80,6 +87,9 @@ class OperatingSystem extends AbstractParser
         'FYD' => 'FydeOS',
         'FUC' => 'Fuchsia',
         'GNT' => 'Gentoo',
+        'GNX' => 'GENIX',
+        'GEO' => 'GEOS',
+        'GNS' => 'gNewSense',
         'GRI' => 'GridOS',
         'GTV' => 'Google TV',
         'HPX' => 'HP-UX',
@@ -91,9 +101,11 @@ class OperatingSystem extends AbstractParser
         'IRI' => 'IRIX',
         'INF' => 'Inferno',
         'JME' => 'Java ME',
+        'JOL' => 'Joli OS',
         'KOS' => 'KaiOS',
         'KAL' => 'Kali',
         'KAN' => 'Kanotix',
+        'KIN' => 'KIN OS',
         'KNO' => 'Knoppix',
         'KTV' => 'KreaTV',
         'KBT' => 'Kubuntu',
@@ -102,6 +114,7 @@ class OperatingSystem extends AbstractParser
         'LNS' => 'Linspire',
         'LEN' => 'Lineage OS',
         'LIR' => 'Liri OS',
+        'LOO' => 'Loongnix',
         'LBT' => 'Lubuntu',
         'LOS' => 'Lumin OS',
         'LUN' => 'LuneOS',
@@ -113,18 +126,23 @@ class OperatingSystem extends AbstractParser
         'SMG' => 'MeeGo',
         'MCD' => 'MocorDroid',
         'MON' => 'moonOS',
+        'EZX' => 'Motorola EZX',
         'MIN' => 'Mint',
         'MLD' => 'MildWild',
         'MOR' => 'MorphOS',
         'NBS' => 'NetBSD',
         'MTK' => 'MTK / Nucleus',
         'MRE' => 'MRE',
+        'NXT' => 'NeXTSTEP',
+        'NWS' => 'NEWS-OS',
         'WII' => 'Nintendo',
         'NDS' => 'Nintendo Mobile',
         'NOV' => 'Nova',
         'OS2' => 'OS/2',
         'T64' => 'OSF1',
         'OBS' => 'OpenBSD',
+        'OVS' => 'OpenVMS',
+        'OVZ' => 'OpenVZ',
         'OWR' => 'OpenWrt',
         'OTV' => 'Opera TV',
         'ORA' => 'Oracle Linux',
@@ -135,13 +153,17 @@ class OperatingSystem extends AbstractParser
         'PLA' => 'Plasma Mobile',
         'PSP' => 'PlayStation Portable',
         'PS3' => 'PlayStation',
+        'PVE' => 'Proxmox VE',
         'PUR' => 'PureOS',
+        'QTP' => 'Qtopia',
         'PIO' => 'Raspberry Pi OS',
         'RAS' => 'Raspbian',
         'RHT' => 'Red Hat',
+        'RST' => 'Red Star',
         'RED' => 'RedOS',
         'REV' => 'Revenge OS',
         'ROS' => 'RISC OS',
+        'ROC' => 'Rocky Linux',
         'ROK' => 'Roku OS',
         'RSO' => 'Rosa',
         'ROU' => 'RouterOS',
@@ -152,11 +174,13 @@ class OperatingSystem extends AbstractParser
         'SAB' => 'Sabayon',
         'SSE' => 'SUSE',
         'SAF' => 'Sailfish OS',
+        'SCI' => 'Scientific Linux',
         'SEE' => 'SeewoOS',
         'SER' => 'SerenityOS',
         'SIR' => 'Sirin OS',
         'SLW' => 'Slackware',
         'SOS' => 'Solaris',
+        'SBL' => 'Star-Blade OS',
         'SYL' => 'Syllable',
         'SYM' => 'Symbian',
         'SYS' => 'Symbian OS',
@@ -168,7 +192,9 @@ class OperatingSystem extends AbstractParser
         'TIZ' => 'Tizen',
         'TIV' => 'TiVo OS',
         'TOS' => 'TmaxOS',
+        'TUR' => 'Turbolinux',
         'UBT' => 'Ubuntu',
+        'ULT' => 'ULTRIX',
         'UOS' => 'UOS',
         'VID' => 'VIDAA',
         'WAS' => 'watchOS',
@@ -181,6 +207,7 @@ class OperatingSystem extends AbstractParser
         'WMO' => 'Windows Mobile',
         'WPH' => 'Windows Phone',
         'WRT' => 'Windows RT',
+        'WPO' => 'WoPhone',
         'XBX' => 'Xbox',
         'XBT' => 'Xubuntu',
         'YNS' => 'YunOS',
@@ -201,9 +228,9 @@ class OperatingSystem extends AbstractParser
         'Android'               => [
             'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
             'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS', 'WER', 'PIC', 'ARM',
-            'HEL',
+            'HEL', 'BYI',
         ],
-        'AmigaOS'               => ['AMG', 'MOR'],
+        'AmigaOS'               => ['AMG', 'MOR', 'ARO'],
         'BlackBerry'            => ['BLB', 'QNX'],
         'Brew'                  => ['BMP'],
         'BeOS'                  => ['BEO', 'HAI'],
@@ -221,17 +248,23 @@ class OperatingSystem extends AbstractParser
             'LOS', 'DVK', 'ROK', 'OWR', 'OTV', 'KTV', 'PUR', 'PLA', 'FUC', 'PAR',
             'FOR', 'MON', 'KAN', 'ZEN', 'LND', 'LNS', 'CHN', 'AMZ', 'TEN', 'CST',
             'NOV', 'ROU', 'ZOR', 'RED', 'KAL', 'ORA', 'VID', 'TIV', 'BSN', 'RAS',
-            'UOS', 'PIO', 'FRI', 'LIR', 'WEB', 'SER', 'ASP',
+            'UOS', 'PIO', 'FRI', 'LIR', 'WEB', 'SER', 'ASP', 'AOS', 'LOO', 'EUL',
+            'SCI', 'ALP', 'CLO', 'ROC', 'OVZ', 'PVE', 'RST', 'EZX', 'GNS', 'JOL',
+            'TUR', 'QTP', 'WPO',
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
+        'OpenVMS'               => ['OVS'],
         'Real-time OS'          => ['MTK', 'TDX', 'MRE', 'JME', 'REX'],
-        'Other Mobile'          => ['WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE', 'LUN'],
+        'Other Mobile'          => ['WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE', 'LUN', 'GEO'],
         'Symbian'               => ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
-        'Unix'                  => ['SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64', 'INF'],
+        'Unix'                  => [
+            'SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64',
+            'INF', 'ELE', 'GNX', 'ULT', 'NWS', 'NXT', 'SBL',
+        ],
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
-        'Windows Mobile'        => ['WPH', 'WMO', 'WCE', 'WRT', 'WIO'],
+        'Windows Mobile'        => ['WPH', 'WMO', 'WCE', 'WRT', 'WIO', 'KIN'],
         'Other Smart TV'        => ['WHS'],
     ];
 
@@ -280,7 +313,7 @@ class OperatingSystem extends AbstractParser
      * @var array
      */
     private $lineageOsVersionMapping = [
-        '14'    => '21.0',
+        '14'    => '21',
         '13'    => '20.0',
         '12.1'  => '19.1',
         '12'    => '19.0',
@@ -626,6 +659,10 @@ class OperatingSystem extends AbstractParser
                 return 'ARM';
             }
 
+            if (false !== \strpos($arch, 'loongarch64')) {
+                return 'LoongArch64';
+            }
+
             if (false !== \strpos($arch, 'mips')) {
                 return 'MIPS';
             }
@@ -649,8 +686,12 @@ class OperatingSystem extends AbstractParser
             }
         }
 
-        if ($this->matchUserAgent('arm|aarch64|Apple ?TV|Watch ?OS|Watch1,[12]')) {
+        if ($this->matchUserAgent('arm[ _;)ev]|.*arm$|.*arm64|aarch64|Apple ?TV|Watch ?OS|Watch1,[12]')) {
             return 'ARM';
+        }
+
+        if ($this->matchUserAgent('loongarch64')) {
+            return 'LoongArch64';
         }
 
         if ($this->matchUserAgent('mips')) {
@@ -669,7 +710,7 @@ class OperatingSystem extends AbstractParser
             return 'x64';
         }
 
-        if ($this->matchUserAgent('.+32bit|.+win32|(?:i[0-9]|x)86|i86pc')) {
+        if ($this->matchUserAgent('.*32bit|.*win32|(?:i[0-9]|x)86|i86pc')) {
             return 'x86';
         }
 
