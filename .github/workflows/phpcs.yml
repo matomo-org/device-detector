@@ -15,20 +15,27 @@ permissions:
 on:
   pull_request:
   push:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   phpcs:
     name: PHPCS
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [ubuntu-latest]
+        php-version: ['7.2']
     steps:
       - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: composer install --dev --prefer-dist --no-progress --no-suggest
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.2'
-          tools: cs2pr
-      - name: Run phpcs
-        run: ./vendor/bin/phpcs -q --report=checkstyle | cs2pr
+          php-version: ${{ matrix.php-version }}
+          tools: composer:v2, cs2pr
+      - name: "Composer install"
+        run: |
+          composer install --dev --prefer-dist --no-progress --no-suggest
+      - name: PHPCS / PHP ${{ matrix.php-version }}
+        run: |
+          php -v
+          ./vendor/bin/phpcs -q --report=checkstyle | cs2pr
