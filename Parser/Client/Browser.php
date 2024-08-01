@@ -954,10 +954,6 @@ class Browser extends AbstractClientParser
                 $version = $browserFromUserAgent['version'];
             }
 
-            if ('DuckDuckGo Privacy Browser' === $name) {
-                $version = '';
-            }
-
             if ('Vewd Browser' === $name) {
                 $engine        = $browserFromUserAgent['engine'] ?? '';
                 $engineVersion = $browserFromUserAgent['engine_version'] ?? '';
@@ -990,14 +986,25 @@ class Browser extends AbstractClientParser
             if ($name === $browserFromUserAgent['name']) {
                 $engine        = $browserFromUserAgent['engine'] ?? '';
                 $engineVersion = $browserFromUserAgent['engine_version'] ?? '';
+            }
 
-                // In case the user agent reports a more detailed version, we try to use this instead
-                if (!empty($browserFromUserAgent['version'])
-                    && 0 === \strpos($browserFromUserAgent['version'], $version)
-                    && \version_compare($version, $browserFromUserAgent['version'], '<')
-                ) {
-                    $version = $browserFromUserAgent['version'];
-                }
+            // In case the user agent reports a more detailed version, we try to use this instead
+            if (!empty($browserFromUserAgent['version'])
+                && 0 === \strpos($browserFromUserAgent['version'], $version)
+                && \version_compare($version, $browserFromUserAgent['version'], '<')
+            ) {
+                $version = $browserFromUserAgent['version'];
+            }
+
+            if ('DuckDuckGo Privacy Browser' === $name) {
+                $version = '';
+            }
+
+            // If client hints report the following browsers, we use the version from useragent
+            if (!empty($browserFromUserAgent['version'])
+                && \in_array($short, ['MU', 'OM', 'OP'])
+            ) {
+                $version = $browserFromUserAgent['version'];
             }
         } else {
             $name          = $browserFromUserAgent['name'];
