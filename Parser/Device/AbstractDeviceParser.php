@@ -1845,6 +1845,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'WBL' => 'We. by Loewe.',
         'WCP' => 'WeChip',
         'WM'  => 'Weimei',
+        'WM1' => 'Weiimi',
         'WE'  => 'WellcoM',
         'W6'  => 'WELLINGTON',
         'WD'  => 'Western Digital',
