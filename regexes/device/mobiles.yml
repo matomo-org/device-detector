@@ -5260,7 +5260,7 @@ BenQ:
 
 # Blaupunkt (blaupunkt.com)
 Blaupunkt:
-  regex: 'Blaupunkt|(?:Soundphone S2|Atlantis[_ ](?:1001A|1010A|A10[._]G40[23])|SLplus02|Discovery[_ ](?:A10_302|10[28]C|111C|1000C|1001A?)|Endeavour[_ ](?:785|101[GLM]|1000|1001|101[03]|1100)|Polaris[_ ]80[38](?:_BE)?|BP_(?:6010|6110)|B-STREAM|SL05|SM 02 2019|SF04 4G)(?:[);/ ]|$)'
+  regex: 'Blaupunkt|(?:Soundphone S2|Atlantis[_ ](?:1001A|1010A|A10[._]G40[23])|SLplus02|Discovery[_ ](?:A10_302|10[28]C|111C|1000C|1001A?)|Endeavour[_ ](?:785|101[GLM]|1000|1001|101[03]|1100)|Polaris[_ ]80[38](?:_BE)?|BP_(?:6010|6110)|B-STREAM|SL05|SM 02 2019|SF04 4G|A-STREAM)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'Discovery[_ ](1000|111|10[28])C'
@@ -5294,7 +5294,7 @@ Blaupunkt:
     - regex: 'SM 02 2019'
       device: 'smartphone'
       model: 'SM 02 (2019)'
-    - regex: '(4K Android TV)'
+    - regex: '(4K Android TV|A-STREAM)'
       device: 'tv'
       model: '$1'
     - regex: 'B-STREAM'
@@ -16439,13 +16439,13 @@ Talius:
   device: 'smartphone'
   model: '$1'
 
-# Maxwest
+# Maxwest (maxwesttelecom.com)
 Maxwest:
-  regex: '(?:Astro[_ ](?:Phablet_9|55?N[_ ]LTE|55R|5 PRO|5[sTX]|[45]P|X4|5_GO_LTE|X55s?|4\.5|4|X5|8R)|Astro6|Virtue Z5|Nitro[_ ](?:4S?|55[ARCMN]|5[XRPNM]|[45] GO|4[sN] LTE|55[ _]LTE|N62)|Gravity_(?:55?_GO|6P)|Gravity 5\.5 LTE|Nitro_Phablet_9s|Nitro Phablet 7N|Nitro 8|MX-A10R)(?:[);/ ]|$)'
+  regex: '(?:Astro[_ ](?:Phablet_9|55?N[_ ]LTE|55R|5 PRO|5[sTX]|[45]P|X4|5_GO_LTE|X55s?|4\.5|4|X5|8R)|Astro6|Virtue Z5|Nitro[_ ](?:4S?|55[ARCMN]|5[XRPNM]|[45] GO|4[sN] LTE|55[ _]LTE|N62)|Gravity_(?:55?_GO|6P)|Gravity 5\.5 LTE|Nitro_Phablet_9s|Nitro Phablet 7N|Nitro 8|MX-(?:A10R|A6[45]))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'MX-A10R'
-      model: 'Astro A10R'
+    - regex: 'MX-(A10R|A6[45])'
+      model: 'Astro $1'
     - regex: 'Astro[_ ](55?)N[_ ]LTE'
       model: 'Astro $1N LTE'
     - regex: 'Astro[_ ]X55[_ ]LTE'
@@ -39675,7 +39675,7 @@ iRobot:
 
 # BRAVE
 BRAVE:
-  regex: '(BT7X1|EX10SL4)(?:[);/ ]|$)'  # EXCEED EX10SL4
+  regex: '(BT7X1|EX10SL4|BTXS1)(?:[);/ ]|$)'  # EXCEED EX10SL4
   device: 'tablet'
   model: '$1'
 
@@ -41102,13 +41102,15 @@ VIKUSHA:
 
 # Atozee
 Atozee:
-  regex: '(?:YQ10S_(?:MAX|Gold))(?:[);/ ]|$)'
+  regex: '(?:YQ10S_(?:MAX|Gold)|AT81K)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'YQ10S_MAX'
       model: 'YQ10S Max'
     - regex: 'YQ10S_Gold'
       model: 'YQ10S Gold'
+    - regex: '(AT81K)'
+      model: '$1'
 
 # Relndoo
 Relndoo:
@@ -41181,6 +41183,13 @@ WOZIFAN:
   regex: 'W10_EEA(?:[);/ ]|$)'
   device: 'tablet'
   model: 'W10'
+
+# Newal (newal.com.tr)
+Newal:
+  regex: 'NEWAL[_ ]?([^;/)]+)( Build|[;)])'
+  device: 'tv'
+  model: '$1'
+
 
 # Devices with undectable brand, but detectable model
 Unknown:

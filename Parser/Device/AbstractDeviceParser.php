@@ -1167,6 +1167,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ND'  => 'Newsday',
         'HB'  => 'New Balance',
         'BRI' => 'New Bridge',
+        'NEW' => 'Newal',
         'XB'  => 'NEXBOX',
         'NX'  => 'Nexian',
         '7X'  => 'Nexa',
