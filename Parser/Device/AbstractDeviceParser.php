@@ -1318,6 +1318,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '8P'  => 'Pixelphone',
         '9O'  => 'Pixela',
         'PX'  => 'Pixus',
+        'PIX' => 'PIXPRO',
         'QP'  => 'Pico',
         'PIR' => 'PIRANHA',
         'PIN' => 'PINE',
