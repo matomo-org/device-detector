@@ -665,6 +665,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'GLB' => 'Globmall',
         '38'  => 'GLONYX',
         'U6'  => 'Glofiish',
+        'GLO' => 'Glory Star',
         'G7'  => 'GoGEN',
         'GC'  => 'GOCLEVER',
         '5G'  => 'Gocomma',
