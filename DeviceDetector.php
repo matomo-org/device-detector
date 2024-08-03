@@ -199,8 +199,8 @@ class DeviceDetector
         $this->addClientParser(new MobileApp());
         $this->addClientParser(new MediaPlayer());
         $this->addClientParser(new PIM());
-        $this->addClientParser(new Browser());
         $this->addClientParser(new Library());
+        $this->addClientParser(new Browser());
 
         $this->addDeviceParser(new HbbTv());
         $this->addDeviceParser(new ShellTv());
