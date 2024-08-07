@@ -519,6 +519,7 @@ class Browser extends AbstractClientParser
         'QU' => 'Quark',
         'QZ' => 'QupZilla',
         'QM' => 'Qwant Mobile',
+        'Q5' => 'QtWeb',
         'QW' => 'QtWebEngine',
         'R3' => 'Rakuten Browser',
         'R4' => 'Rakuten Web Search',
