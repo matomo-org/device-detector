@@ -426,6 +426,7 @@ class Browser extends AbstractClientParser
         'NP' => 'NetPositive',
         'NS' => 'Netscape',
         'WR' => 'NextWord Browser',
+        'N8' => 'Ninesky',
         'NT' => 'NTENT Browser',
         'NU' => 'Nuanti Meta',
         'NI' => 'Nuviu',
@@ -781,7 +782,7 @@ class Browser extends AbstractClientParser
         'M7', 'GN', 'D3', 'IG', 'HW', '4O', 'OU', '5P', 'KE',
         '5A', 'TT', '6P', 'G3', '7P', 'VU', 'F8', 'L4', 'DK',
         'DP', 'KL', 'K4', 'N6', 'KU', 'WK', 'M8', 'UP', 'ZT',
-        '9P',
+        '9P', 'N8',
     ];
 
     /**
