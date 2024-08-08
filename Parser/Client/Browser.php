@@ -426,6 +426,7 @@ class Browser extends AbstractClientParser
         'NP' => 'NetPositive',
         'NS' => 'Netscape',
         'WR' => 'NextWord Browser',
+        'N8' => 'Ninesky',
         'NT' => 'NTENT Browser',
         'NU' => 'Nuanti Meta',
         'NI' => 'Nuviu',
@@ -482,6 +483,7 @@ class Browser extends AbstractClientParser
         'PA' => 'Palmscape',
         'P7' => 'Pawxy',
         'PE' => 'Perfect Browser',
+        'K6' => 'Perk',
         'P1' => 'Phantom.me',
         'PH' => 'Phantom Browser',
         'PX' => 'Phoenix',
@@ -494,6 +496,7 @@ class Browser extends AbstractClientParser
         'PO' => 'Polaris',
         'PT' => 'Polarity',
         'LY' => 'PolyBrowser',
+        '9P' => 'Presearch',
         'PI' => 'PrivacyWall',
         'P4' => 'Privacy Explorer Fast Safe',
         'P3' => 'Private Internet Browser',
@@ -519,6 +522,7 @@ class Browser extends AbstractClientParser
         'QU' => 'Quark',
         'QZ' => 'QupZilla',
         'QM' => 'Qwant Mobile',
+        'Q5' => 'QtWeb',
         'QW' => 'QtWebEngine',
         'R3' => 'Rakuten Browser',
         'R4' => 'Rakuten Web Search',
@@ -731,7 +735,7 @@ class Browser extends AbstractClientParser
             'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'P5', 'H5', 'V3',
             'K3', 'Q4', 'G2', 'R2', 'WX', 'XP', '3I', 'BG', 'R0',
             'JO', 'OL', 'GN', 'W4', 'QI', 'E1', 'RI', '8B', '5B',
-            'K4', 'WK', 'T3', 'K5', 'MU',
+            'K4', 'WK', 'T3', 'K5', 'MU', '9P', 'K6',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -778,6 +782,7 @@ class Browser extends AbstractClientParser
         'M7', 'GN', 'D3', 'IG', 'HW', '4O', 'OU', '5P', 'KE',
         '5A', 'TT', '6P', 'G3', '7P', 'VU', 'F8', 'L4', 'DK',
         'DP', 'KL', 'K4', 'N6', 'KU', 'WK', 'M8', 'UP', 'ZT',
+        '9P', 'N8',
     ];
 
     /**
