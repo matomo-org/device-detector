@@ -563,6 +563,7 @@ class Browser extends AbstractClientParser
         'KK' => 'SiteKiosk',
         'SL' => 'Sleipnir',
         '8B' => 'SlimBoat',
+        'J0' => 'SlimerJS',
         'S6' => 'Slimjet',
         'S7' => 'SP Browser',
         '9S' => 'Sony Small Browser',
