@@ -1665,6 +1665,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'TF'  => 'Tinmo',
         'TH'  => 'TiPhone',
         'YV'  => 'TiVo',
+        'TIV' => 'Tivax',
         'TIB' => 'Tibuta',
         'Y3'  => 'TOKYO',
         'TOX' => 'TOX',
