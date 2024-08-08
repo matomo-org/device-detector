@@ -486,6 +486,7 @@ class Browser extends AbstractClientParser
         'K6' => 'Perk',
         'P1' => 'Phantom.me',
         'PH' => 'Phantom Browser',
+        'J1' => 'PhantomJS',
         'PX' => 'Phoenix',
         'PB' => 'Phoenix Browser',
         '5P' => 'Photon',
