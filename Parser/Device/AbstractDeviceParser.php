@@ -1123,7 +1123,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MPS' => 'MultiPOS',
         '1M'  => 'MYFON',
         'MY1' => 'myPhone (PL)',
-        'MY'  => 'MyPhone',
+        'MY'  => 'MyPhone (PH)',
         '51'  => 'Myros',
         'M8'  => 'Myria',
         '6M'  => 'Mystery',
