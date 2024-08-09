@@ -17841,9 +17841,50 @@ Rombica:
     - regex: '(55MT-UDG54G|Infinity K8|Smart Box (?:Q1|v00[3-9]|Quad|Ultra HD v002|4K V001|[ABCDXYZ]1|[AGDFQL]2|[AFG]3|H4)|TV (?:Ultima|Fly)|Smart Stick Pro|TV Mercury|TV Air)(?:[);/ ]|$)'
       model: '$1'
 
+# MyPhone or my|phone, or MyPhone Pilipinas (myphone.com.ph)
+MyPhone:
+  regex: 'MyPad[ _][^;/)]+( Build|[);])|MyPhone ?(?:A888|A919 Duo|Agua (?:Infinity|Rio ?(?:Fun|Lite)?)|MY27|Rio (?:2 ?(?:Fun|Lite)?|Pixie)|UNO)|my(?:A(?:10|[789])|T[356]) DTV|myWX1 Plus|myXI1(?:[ _](?:Plus|Pro))?|my(?:G1|XI3|NX1|X12|X[23589]|A1[0-35-8]|29S|807)|Brown [12]|A898 DUO'
+  device: 'smartphone'
+  models:
+    # explicit table models
+    - regex: 'myT([356]) DTV'
+      model: 'myT$1 DTV'
+      device: 'tablet'
+
+    # explicit smartphones models
+    - regex: 'myA([789]|10) DTV'
+      model: 'myA$1 DTV'
+    - regex: 'A898 DUO'
+      model: 'A898 Duo'
+    - regex: 'MyPhoneMY27'
+      model: 'my27'
+    - regex: 'MY807'
+      model: 'myX1'
+    - regex: 'myXI1 Plus(?:[);/ ]|$)'
+      model: 'myXI1 Plus'
+    - regex: 'myXI1 Pro(?:[);/ ]|$)'
+      model: 'myXI1 Pro'
+    - regex: 'myXI([13])(?:[);/ ]|$)'
+      model: 'myXI$1'
+    - regex: 'my(A1[0-35-8]i?|G1|NX1|X[23589]|X12|29S)(?:[);/ ]|$)'
+      model: 'my$1'
+    - regex: 'myWX1 Plus(?:[);/ ]|$)'
+      model: 'myWX1 Plus'
+    - regex: 'Brown 1(?:[);/ ]|$)' # ARK Brown 1
+      model: 'Brown 1'
+    - regex: 'brown 2(?:[);/ ]|$)' # ARK Brown 1
+      model: 'Brown 2'
+
+    # general detections
+    - regex: 'MyPhone[ _]([^;/)]+)( Build|[;)])'
+      model: '$1'
+    - regex: 'MyPad[ _]([^;/(]+)(?: Build|[;)])'
+      model: 'MyPad $1'
+      device: 'tablet'
+
 # myPhone (PL) (https://www.myphone.pl/)
 myPhone (PL):
-  regex: 'myPhone (?:AXE 3G|Cube 16GB|FUN4|INFINITY 3G|INFINITY LTE)|myPhone_(?:Fun6Lite|Fun_7_LTE|Fun_8|FUN_18x9_EEA|INFINITY_II_LTE|Pocket_18x9|Pocket_Pro|Q-Smart_III)|(?:myTab)_?[^;/)]+( Build|[);])|Pocket_18x9|Prime_18x9|Prime3Lite|Prime_4_Lite|Q-Smart_III_Plus|FUN_18x9|Q_Smart_BE|Q-Smart_Plus|(?:HAMMER_)?AXE[_ ]M[_ ]LTE|Hammer[_ ](?:Axe)|Cube_LTE|C-Smart_pix|SmartView_9\.6_3G|SmartView_(?:[78]|9_6)_(?:LTE|[34]G)|Android 6(?:[\d.]*);(?: [\w-]+;)? Pocket|Pocket_2|LUNA_II'
+  regex: '(?:myPhone|myTab)_?[^;/)]+( Build|[);])|myPhone (?:AXE 3G|Cube 16GB|FUN4|INFINITY 3G|INFINITY LTE)|myPhone_(?:Fun6Lite|Fun_7_LTE|Fun_8|FUN_18x9_EEA|INFINITY_II_LTE|Pocket_18x9|Pocket_Pro|Q-Smart_III)|Pocket_18x9|Prime_18x9|Prime3Lite|Prime_4_Lite|Q-Smart_III_Plus|FUN_18x9|Q_Smart_BE|Q-Smart_Plus|(?:HAMMER_)?AXE[_ ]M[_ ]LTE|Hammer[_ ](?:Axe)|Cube_LTE|C-Smart_pix|SmartView_9\.6_3G|SmartView_(?:[78]|9_6)_(?:LTE|[34]G)|Android 6(?:[\d.]*);(?: [\w-]+;)? Pocket|Pocket_2|LUNA_II'
   device: 'smartphone'
   models:
     # explicit smartphones models
@@ -17910,50 +17951,6 @@ myPhone (PL):
       model: '$1'
     - regex: 'myTab[ _]?([^;/]+)(?: Build|[;)])'
       model: 'myTab $1'
-      device: 'tablet'
-
-# MyPhone or my|phone, or MyPhone Pilipinas (myphone.com.ph)
-MyPhone:
-  regex: '(?:MyPhone|MyPad)[ _][^;/)]+( Build|[);])|MyPhoneMY27|myX12|myG1|myA(10|[789]) DTV|myT[356] DTV|myWX1 Plus|myXI1(?:[ _](?:Plus|Pro))?|my(?:XI[3]|NX1|X[23589]|A1[0-35-8]|29S|807)|Brown [12]|A898 DUO'
-  device: 'smartphone'
-  models:
-    # explicit table models
-    - regex: 'myT([356]) DTV'
-      model: 'myT$1 DTV'
-      device: 'tablet'
-
-    # explicit smartphones models
-    - regex: 'myA([789]|10) DTV'
-      model: 'myA$1 DTV'
-    - regex: 'A898 DUO'
-      model: 'A898 Duo'
-    - regex: 'MyPhoneMY27'
-      model: 'my27'
-    - regex: 'MY807'
-      model: 'myX1'
-    - regex: 'myXI1 Plus(?:[);/ ]|$)'
-      model: 'myXI1 Plus'
-    - regex: 'myXI1 Pro(?:[);/ ]|$)'
-      model: 'myXI1 Pro'
-    - regex: 'myXI([13])(?:[);/ ]|$)'
-      model: 'myXI$1'
-    - regex: 'my(A1[0-35-8]i?|G1|NX1|X[23589]|X12|29S)(?:[);/ ]|$)'
-      model: 'my$1'
-    - regex: 'myWX1 Plus(?:[);/ ]|$)'
-      model: 'myWX1 Plus'
-    - regex: 'Brown 1(?:[);/ ]|$)' # ARK Brown 1
-      model: 'Brown 1'
-    - regex: 'brown 2(?:[);/ ]|$)' # ARK Brown 1
-      model: 'Brown 2'
-
-    # general detections
-    - regex: 'MyPhone[ _]([^;/)]+)( Build|[;)])'
-      model: '$1'
-    - regex: 'MyPad[ _]([^;/(]+)(?: Build|[;)])'
-      model: 'MyPad $1'
-      device: 'tablet'
-    - regex: 'MyTab[ _]([^;/]+)(?: Build|[;)])'
-      model: 'MyTab $1'
       device: 'tablet'
 
 # MyWigo
