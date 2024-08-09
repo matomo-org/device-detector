@@ -3,7 +3,7 @@ name: PHPUnit
 on:
   pull_request:
   push:
-    branches: [ master ]
+    branches: [master]
 
 permissions:
   actions: read
@@ -46,8 +46,8 @@ jobs:
           extensions: memcached
       - name: "Composer install"
         run: |
-          composer install --ignore-platform-reqs
-          composer require doctrine/cache ~1.2 --ignore-platform-reqs
+          composer install
+          composer require doctrine/cache ~1.2
       - name: PHPUnit / PHP ${{ matrix.php-version }}
         run: |
           php -v
@@ -59,7 +59,7 @@ jobs:
     strategy:
       matrix:
         operating-system: [macOS-latest]
-        php-version: [ '7.2', '8.3' ]
+        php-version: ['7.2', '8.3']
     steps:
       - uses: actions/checkout@v2
       - name: Install PHP
@@ -70,8 +70,8 @@ jobs:
           extensions: memcached
       - name: "Composer install"
         run: |
-          composer install --ignore-platform-reqs
-          composer require doctrine/cache ~1.2 --ignore-platform-reqs
+          composer install
+          composer require doctrine/cache ~1.2
       - name: PHPUnit / PHP ${{ matrix.php-version }}
         run: |
           php -v
