@@ -756,7 +756,7 @@ class DeviceDetectorTest extends TestCase
      */
     public function testDuplicateBrands(): void
     {
-        $brands     = AbstractDeviceParser::$deviceBrands;
+        $brands     = \array_map('strtolower', AbstractDeviceParser::$deviceBrands);
         $unique     = \array_unique($brands);
         $duplicates = \array_diff_assoc($brands, $unique);
 
