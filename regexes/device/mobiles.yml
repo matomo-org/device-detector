@@ -31402,9 +31402,13 @@ ONN:
 
 # EXO S.A (exo.com.ar)
 EXO:
-  regex: '(?:Tablet)?(?:EXO_)?(Wave[_-]i101[GLR]|Wave[_ ]i007[BT]?|Wave i101[Hb]|Wave i007Kids)(?:[);/ ]|$)'
+  regex: '(?:Tablet)?EXO_|(?:Wave[_-]i101[GLRS]|Wave[_ ]i007[BT]?|Wave i101[Hb]|Wave i007Kids)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: 'Wave i007Kids(?:[);/ ]|$)'
+      model: 'Wave i007 Kids'
+    - regex: '(?:Tablet)?(?:EXO_)?(Wave[_-]i101[GLRS]|Wave[_ ]i007[BT]?|Wave i101[Hb])(?:[);/ ]|$)'
+      model: '$1'
 
 # Q.Bell (qbell.it)
 'Q.Bell':
