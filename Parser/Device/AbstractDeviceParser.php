@@ -1437,6 +1437,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'RQ'  => 'RoyQueen',
         'RJ'  => 'Royole',
         'RT'  => 'RT Project',
+        'RTK' => 'RTK',
         'RG'  => 'RugGear',
         'RUG' => 'Ruggex',
         'RUT' => 'RuggeTech',
