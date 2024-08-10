@@ -1076,6 +1076,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MIP' => 'mipo',
         'MS'  => 'Microsoft',
         '6Q'  => 'Microtech',
+        'MIG' => 'Mightier',
         '1X'  => 'Minix',
         'OM'  => 'Mintt',
         'MIN' => 'Mint',
