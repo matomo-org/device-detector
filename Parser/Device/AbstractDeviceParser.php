@@ -1279,6 +1279,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '30'  => 'Ovvi',
         'O2'  => 'Owwo',
         'OSC' => 'OSCAL',
+        'OXT' => 'OX TAB',
         'OY'  => 'Oysters',
         'QF'  => 'OYSIN',
         'O6'  => 'Oyyu',
