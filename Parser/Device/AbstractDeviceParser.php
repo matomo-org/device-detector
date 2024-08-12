@@ -1209,6 +1209,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '2N'  => 'Nomu',
         '6H'  => 'Noontec',
         'NR'  => 'Nordmende',
+        'NRD' => 'Nordfrost',
         'NOR' => 'NORMANDE',
         '7N'  => 'NorthTech',
         'NOT' => 'Nothing Phone',
