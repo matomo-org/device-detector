@@ -1191,6 +1191,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'NN'  => 'Nikon',
         'NI'  => 'Nintendo',
         'NIN' => 'NINETEC',
+        'NI1' => 'NINETOLOGY',
         'N5'  => 'NOA',
         'N1'  => 'Noain',
         'N6'  => 'Nobby',
