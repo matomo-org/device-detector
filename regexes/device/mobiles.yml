@@ -9272,9 +9272,9 @@ Vizio:
       device: 'tablet'
       model: '$1'
 
-# Timovi
+# Timovi (https://web.archive.org/web/20181129055129/https://www.timovi.mx/)
 Timovi:
-  regex: 'Tmovi[ _]|(?:Infinit[ _](?:Lite[_ ]2|X[_ ]CAM)|Infinit MX(?: Pro)?|Vision_PRO|VISION ULTRA|Epix|Yeah_Go|Insignia Delta 2|Insignia_(?:Delta3|Lab))(?:[);/ ]|$)'
+  regex: 'Tmovi[ _]|(?:Infinit[ _](?:Lite[_ ]2|X[_ ]CAM)|Infinit (?:MX(?: Pro)?|2)|Vision_PRO|VISION ULTRA|Epix|Yeah_Go|Insignia Delta 2|Insignia_(?:Delta3|Lab))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Tmovi[ _]Prime'
@@ -9289,6 +9289,8 @@ Timovi:
       model: 'Infinit MX Pro'
     - regex: 'Infinit MX'
       model: 'Infinit MX'
+    - regex: 'Infinit 2'
+      model: 'Infinit 2'
     - regex: 'Infinit[_ ]Lite([_ ]2)?'
       model: 'Infinit Lite$1'
     - regex: 'Vision_PRO'
@@ -17785,7 +17787,7 @@ MTN:
     - regex: 'MTN-([a-z0-9_\-]+)'
       model: 'MTN-$1'
 
-# Hammer (hammerphones.com) sub brand MyPhone
+# Hammer (hammerphones.com) sub brand myPhone (PL)
 Hammer:
   regex: '(?:Hammer[_ ](?:Construction|Explorer[_ ](?:Plus|Pro)|FORCE|Blade_[34]|Blade2_PRO|Blade_5G|IRON_[234](?:[_ ]LTE)?|IRON|Explorer|ENERGY(?:_18x9|_2_2022|_[2X])?|Titan 2|Active2?(?:_LTE)?)|Iron[_ ]2)(?:[);/ ]|$)'
   device: 'smartphone'
@@ -17840,29 +17842,14 @@ Rombica:
     - regex: '(55MT-UDG54G|Infinity K8|Smart Box (?:Q1|v00[3-9]|Quad|Ultra HD v002|4K V001|[ABCDXYZ]1|[AGDFQL]2|[AFG]3|H4)|TV (?:Ultima|Fly)|Smart Stick Pro|TV Mercury|TV Air)(?:[);/ ]|$)'
       model: '$1'
 
-# myphone (myphone.com.ph)
-MyPhone:
-  regex: '(?:MyPhone|MyPad|MyTab)[ _][^;/)]+( Build|[);])|(?:HAMMER_)?AXE[_ ]M[_ ]LTE|Hammer[_ ](?:Axe)|Cube_LTE|myTab10II|LUNA_II|C-Smart_pix|myPhone_Fun_8|FUN_18x9|MyPhoneMY27|Prime_4_Lite|myA1[78]|myX12|Pocket_2|Prime_18x9|Prime3Lite|myG1|myA10|myA(10|[789]) DTV|myT[356] DTV|myWX1 Plus|myXI1(?:[ _](?:Plus|Pro))?|my(?:XI[3]|NX1|X[23589]|A1[12356]|29S|807)|Q_Smart_BE|Brown [12]|Q-Smart_Plus|Q-Smart_III_Plus|SmartView_(?:[78]|9_6)_(?:LTE|[34]G)|Android 6(?:[\d.]*);(?: [\w-]+;)? Pocket|Infinit 2|SmartView_9\.6_3G|A898 DUO'
+# MyPhone or my|phone, or MyPhone Pilipinas (myphone.com.ph)
+MyPhone (PH):
+  regex: 'MyPad[ _][^;/)]+( Build|[);])|MyPhone ?(?:A888|A919 Duo|Agua (?:Infinity|Rio ?(?:Fun|Lite)?)|MY27|Rio (?:2 ?(?:Fun|Lite)?|Pixie)|UNO)|my(?:A(?:10|[789])|T[356]) DTV|myWX1 Plus|myXI1(?:[ _](?:Plus|Pro))?|my(?:G1|XI3|NX1|X12|X[23589]|A1[0-35-8]|29S|807)|Brown [12]|A898 DUO'
   device: 'smartphone'
   models:
     # explicit table models
-    - regex: 'myTab_10III'
-      model: 'MyTab 10 III'
-      device: 'tablet'
-    - regex: 'myTab10II'
-      model: 'MyTab 10 II'
-      device: 'tablet'
     - regex: 'myT([356]) DTV'
       model: 'myT$1 DTV'
-      device: 'tablet'
-    - regex: 'SmartView_7_3G'
-      model: 'SmartView 7" 3G'
-      device: 'tablet'
-    - regex: 'SmartView_8_LTE'
-      model: 'SmartView 8" LTE'
-      device: 'tablet'
-    - regex: 'SmartView_9[_.]6_3G'
-      model: 'SmartView 9.6" 3G'
       device: 'tablet'
 
     # explicit smartphones models
@@ -17870,20 +17857,42 @@ MyPhone:
       model: 'myA$1 DTV'
     - regex: 'A898 DUO'
       model: 'A898 Duo'
-    - regex: 'Cube_LTE|Cube 16GB'
-      model: 'Cube LTE'
-    - regex: 'INFINITY (LTE|3G)'
-      model: 'Infinity $1'
-    - regex: 'Infinit 2'
-      model: 'Infinit 2'
-    - regex: 'Prime_4_Lite'
-      model: 'Prime 4 Lite'
+    - regex: 'MyPhoneMY27'
+      model: 'my27'
+    - regex: 'MY807'
+      model: 'myX1'
+    - regex: 'myXI1 Plus(?:[);/ ]|$)'
+      model: 'myXI1 Plus'
+    - regex: 'myXI1 Pro(?:[);/ ]|$)'
+      model: 'myXI1 Pro'
+    - regex: 'myXI([13])(?:[);/ ]|$)'
+      model: 'myXI$1'
+    - regex: 'my(A1[0-35-8]i?|G1|NX1|X[23589]|X12|29S)(?:[);/ ]|$)'
+      model: 'my$1'
+    - regex: 'myWX1 Plus(?:[);/ ]|$)'
+      model: 'myWX1 Plus'
+    - regex: 'Brown 1(?:[);/ ]|$)' # ARK Brown 1
+      model: 'Brown 1'
+    - regex: 'brown 2(?:[);/ ]|$)' # ARK Brown 1
+      model: 'Brown 2'
+
+    # general detections
+    - regex: 'MyPhone[ _]([^;/)]+)( Build|[;)])'
+      model: '$1'
+    - regex: 'MyPad[ _]([^;/(]+)(?: Build|[;)])'
+      model: 'MyPad $1'
+      device: 'tablet'
+
+# myPhone (https://www.myphone.pl/)
+myPhone (PL):
+  regex: '(?:myPhone|myTab)_?[^;/)]+( Build|[);])|(?:FUN|Pocket|Prime)_18x9|Prime3Lite|Prime_4_Lite|Q-Smart_Plus|Q-Smart_III_Plus|Q_Smart_BE|(?:HAMMER_)?AXE[_ ]M[_ ]LTE|Hammer[_ ](?:Axe)|Cube_LTE|C-Smart_pix|SmartView_9\.6_3G|SmartView_(?:[78]|9_6)_(?:LTE|[34]G)|Android 6(?:[\d.]*);(?: [\w-]+;)? Pocket|Pocket_2|LUNA_II'
+  device: 'smartphone'
+  models:
+    # explicit smartphones models
     - regex: 'C-Smart_pix'
       model: 'C-Smart Pix'
-    - regex: 'Pocket_2(?:[);/ ]|$)'
-      model: 'Pocket 2'
-    - regex: 'Pocket(?:[);/ ]|$)'
-      model: 'Pocket'
+    - regex: 'Cube_LTE|Cube 16GB'
+      model: 'Cube LTE'
     - regex: '(?:myPhone_)?Fun[_ ]?(\d)[_ ]?Lite'
       model: 'FUN $1 Lite'
     - regex: '(?:myPhone_)?Fun[_ ]?(\d)[_ ]?LTE'
@@ -17896,47 +17905,53 @@ MyPhone:
       model: 'Hammer Axe 3G'
     - regex: '(?:HAMMER_)?AXE[_ ]M[_ ]LTE'
       model: 'Hammer Axe M LTE'
-    - regex: 'MyPhoneMY27'
-      model: 'my27'
-    - regex: 'MY807'
-      model: 'myX1'
-    - regex: 'myXI1 Plus(?:[);/ ]|$)'
-      model: 'myXI1 Plus'
-    - regex: 'myXI1 Pro(?:[);/ ]|$)'
-      model: 'myXI1 Pro'
-    - regex: 'myXI([13])(?:[);/ ]|$)'
-      model: 'myXI$1'
-    - regex: 'my(X[23589]|NX1|A1[12356]i?|29S|G1|X12|A1[078])(?:[);/ ]|$)'
-      model: 'my$1'
-    - regex: 'myWX1 Plus(?:[);/ ]|$)'
-      model: 'myWX1 Plus'
+    - regex: 'INFINITY (LTE|3G)'
+      model: 'Infinity $1'
+    - regex: 'LUNA_II'
+      model: 'Luna II'
+    - regex: 'Pocket_2(?:[);/ ]|$)'
+      model: 'Pocket 2'
+    - regex: 'Pocket(?:[);/ ]|$)'
+      model: 'Pocket'
+    - regex: 'myPhone[_ ]Pocket[_ ]Pro'
+      model: 'Pocket Pro'
+    - regex: 'Pocket_18x9'
+      model: 'Pocket 18x9'
+    - regex: 'Prime3Lite(?:[);/ ]|$)'
+      model: 'Prime 3 Lite'
+    - regex: 'Prime_4_Lite'
+      model: 'Prime 4 Lite'
+    - regex: 'Prime_18x9(_LTE)?(?:[);/ ]|$)'
+      model: 'Prime 18x9$1'
     - regex: 'Q_Smart_BE(?:[);/ ]|$)'
       model: 'Q-Smart BE'
     - regex: 'Q-Smart_Plus(?:[);/ ]|$)'
       model: 'Q-Smart Plus'
-    - regex: 'Prime_18x9(_LTE)?(?:[);/ ]|$)'
-      model: 'Prime 18x9$1'
-    - regex: 'Prime3Lite(?:[);/ ]|$)'
-      model: 'Prime 3 Lite'
-    - regex: 'Brown 1(?:[);/ ]|$)' # ARK Brown 1
-      model: 'Brown 1'
-    - regex: 'brown 2(?:[);/ ]|$)' # ARK Brown 1
-      model: 'Brown 2'
-    - regex: 'myPhone[_ ]Pocket[_ ]Pro'
-      model: 'Pocket Pro'
     - regex: 'Q-Smart_III_Plus'
       model: 'Q-Smart III Plus'
-    - regex: 'LUNA_II'
-      model: 'Luna II'
+
+    # explicit table models
+    - regex: 'myTab10II'
+      model: 'myTab 10 II'
+      device: 'tablet'
+    - regex: 'myTab_10III'
+      model: 'myTab 10 III'
+      device: 'tablet'
+    - regex: 'SmartView_7_3G'
+      model: 'SmartView 7" 3G'
+      device: 'tablet'
+    - regex: 'SmartView_8_LTE'
+      model: 'SmartView 8" LTE'
+      device: 'tablet'
+    - regex: 'SmartView_9[_.]6_3G'
+      model: 'SmartView 9.6" 3G'
+      device: 'tablet'
 
     # general detections
-    - regex: 'MyPhone[ _]([^;/)]+)( Build|[;)])'
+    - regex: 'myPhone[ _]([^;/)]+)( Build|[;)])'
       model: '$1'
-    - regex: 'MyPad[ _]([^;/(]+)(?: Build|[;)])'
-      model: 'MyPad $1'
-      device: 'tablet'
-    - regex: 'MyTab[ _]([^;/]+)(?: Build|[;)])'
-      model: 'MyTab $1'
+    - regex: 'myTab[ _]?([^;/]+)(?: Build|[;)])'
+      model: 'myTab $1'
       device: 'tablet'
 
 # MyWigo
