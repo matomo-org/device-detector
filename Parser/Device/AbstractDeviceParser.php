@@ -1956,6 +1956,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '0Z'  => 'Zatec',
         '2Z'  => 'Zaith',
         'ZAM' => 'Zamolxe',
+        'ZZB' => 'ZZB',
         'ZEA' => 'Zealot',
         'PZ'  => 'Zebra',
         'ZE1' => 'Zeblaze',
