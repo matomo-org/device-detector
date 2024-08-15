@@ -34,7 +34,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 if ('cli' !== php_sapi_name()) {
     echo 'web not supported';
-    exit;
+    exit(0);
 }
 
 if (count($argv) < 2) {
@@ -63,7 +63,7 @@ function printHelpAndExit(): void
 
     echo "<report mode> `yml` report yml fixture string\n";
     echo "<report mode> `useragent` report useragent string\n\n";
-    exit;
+    exit(0);
 }
 
 if (!is_file($file)) {
