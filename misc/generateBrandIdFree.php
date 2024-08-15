@@ -9,7 +9,7 @@ use DeviceDetector\Parser\Device\AbstractDeviceParser;
 
 if ('cli' !== php_sapi_name()) {
     echo 'web not supported';
-    exit;
+    exit(0);
 }
 
 $mapIds = [];
