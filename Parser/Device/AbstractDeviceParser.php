@@ -1361,6 +1361,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'PS'  => 'Positivo',
         '3P'  => 'Positivo BGH',
         '3F'  => 'Porsche',
+        'PRT' => 'Portfolio',
         'P3'  => 'PPTV',
         'FP'  => 'Premio',
         'PR1' => 'Premier',
