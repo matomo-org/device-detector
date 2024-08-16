@@ -218,6 +218,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'XA'  => 'Axioo',
         'AM'  => 'Azumi Mobile',
         'AZE' => 'Azeyou',
+        'AZU' => 'Azupik',
         'WW'  => 'Awow',
         'AWO' => 'AWOX',
         'XU'  => 'AUX',
