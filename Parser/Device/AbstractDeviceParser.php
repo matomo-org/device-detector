@@ -1521,6 +1521,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SIM' => 'simfer',
         '52'  => 'Singtech',
         '31'  => 'Siragon',
+        'SIS' => 'Siswoo',
         '83'  => 'Sirin Labs',
         '5Z'  => 'SK Broadband',
         'GK'  => 'SKG',
