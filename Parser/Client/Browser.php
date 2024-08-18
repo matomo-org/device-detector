@@ -631,6 +631,7 @@ class Browser extends AbstractClientParser
         'V0' => 'vBrowser',
         'VA' => 'Vast Browser',
         'V3' => 'VD Browser',
+        'VR' => 'Veera',
         'VE' => 'Venus Browser',
         'WD' => 'Vewd Browser',
         'V5' => 'VibeMate',
@@ -735,7 +736,7 @@ class Browser extends AbstractClientParser
             'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'P5', 'H5', 'V3',
             'K3', 'Q4', 'G2', 'R2', 'WX', 'XP', '3I', 'BG', 'R0',
             'JO', 'OL', 'GN', 'W4', 'QI', 'E1', 'RI', '8B', '5B',
-            'K4', 'WK', 'T3', 'K5', 'MU', '9P', 'K6',
+            'K4', 'WK', 'T3', 'K5', 'MU', '9P', 'K6', 'VR',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -782,7 +783,7 @@ class Browser extends AbstractClientParser
         'M7', 'GN', 'D3', 'IG', 'HW', '4O', 'OU', '5P', 'KE',
         '5A', 'TT', '6P', 'G3', '7P', 'VU', 'F8', 'L4', 'DK',
         'DP', 'KL', 'K4', 'N6', 'KU', 'WK', 'M8', 'UP', 'ZT',
-        '9P', 'N8',
+        '9P', 'N8', 'VR',
     ];
 
     /**
@@ -1008,7 +1009,7 @@ class Browser extends AbstractClientParser
 
             // If client hints report the following browsers, we use the version from useragent
             if (!empty($browserFromUserAgent['version'])
-                && \in_array($short, ['MU', 'OM', 'OP'])
+                && \in_array($short, ['MU', 'OM', 'OP', 'VR'])
             ) {
                 $version = $browserFromUserAgent['version'];
             }
