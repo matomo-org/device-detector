@@ -796,7 +796,7 @@ class Browser extends AbstractClientParser
         'Chrome Webview'             => ['Android WebView'],
         'DuckDuckGo Privacy Browser' => ['DuckDuckGo'],
         'Edge WebView'               => ['Microsoft Edge WebView2'],
-        'Mi Browser'                 => ['Miui Browser'],
+        'Mi Browser'                 => ['Miui Browser', 'XiaoMiBrowser'],
         'Microsoft Edge'             => ['Edge'],
         'Norton Private Browser'     => ['Norton Secure Browser'],
         'Vewd Browser'               => ['Vewd Core'],
