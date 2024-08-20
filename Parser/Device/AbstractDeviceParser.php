@@ -1834,6 +1834,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VIS' => 'Vision Technology',
         'VIL' => 'Visual Land',
         'VI1' => 'VILLAON',
+        'VIM' => 'VIMOQ',
         'VK'  => 'VK Mobile',
         'JM'  => 'v-mobile',
         'VHO' => 'V-HOPE',
