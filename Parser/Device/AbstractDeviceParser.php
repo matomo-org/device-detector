@@ -618,6 +618,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'F5'  => 'Formuler',
         'FR'  => 'Forstar',
         'RF'  => 'Fortis',
+        'FRT' => 'FortuneShip',
         'FO'  => 'Foxconn',
         'FOD' => 'FoxxD',
         'FJ'  => 'FOODO',
