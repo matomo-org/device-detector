@@ -923,6 +923,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'KND' => 'Kendo',
         'KZG' => 'KZG',
         'K1'  => 'Kiano',
+        'KID' => 'kidiby',
         '5W'  => 'Kingbox',
         'KI'  => 'Kingsun',
         'KIS' => 'Kinstone',
