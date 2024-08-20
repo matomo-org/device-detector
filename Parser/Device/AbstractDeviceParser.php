@@ -322,6 +322,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CA'  => 'Cat',
         'BC'  => 'Camfone',
         'CJ'  => 'Cavion',
+        'CNM' => 'Canaima',
         'CAN' => 'Canal+',
         '4D'  => 'Canal Digital',
         'CNG' => 'Canguro',
