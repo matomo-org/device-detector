@@ -474,6 +474,7 @@ class Browser extends AbstractClientParser
         'OW' => 'OmniWeb',
         'OT' => 'Otter Browser',
         '4O' => 'Owl Browser',
+        'JR' => 'OJR Browser',
         'PL' => 'Palm Blazer',
         'PM' => 'Pale Moon',
         'PY' => 'Polypane',
@@ -743,7 +744,7 @@ class Browser extends AbstractClientParser
             'K3', 'Q4', 'G2', 'R2', 'WX', 'XP', '3I', 'BG', 'R0',
             'JO', 'OL', 'GN', 'W4', 'QI', 'E1', 'RI', '8B', '5B',
             'K4', 'WK', 'T3', 'K5', 'MU', '9P', 'K6', 'VR', 'N9',
-            'M9', 'F9', '0P', '0A',
+            'M9', 'F9', '0P', '0A', 'JR',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -790,7 +791,7 @@ class Browser extends AbstractClientParser
         'M7', 'GN', 'D3', 'IG', 'HW', '4O', 'OU', '5P', 'KE',
         '5A', 'TT', '6P', 'G3', '7P', 'VU', 'F8', 'L4', 'DK',
         'DP', 'KL', 'K4', 'N6', 'KU', 'WK', 'M8', 'UP', 'ZT',
-        '9P', 'N8', 'VR', 'N9', 'M9', 'F9', '0P', '0A',
+        '9P', 'N8', 'VR', 'N9', 'M9', 'F9', '0P', '0A', 'JR',
     ];
 
     /**
@@ -1016,7 +1017,7 @@ class Browser extends AbstractClientParser
 
             // If client hints report the following browsers, we use the version from useragent
             if (!empty($browserFromUserAgent['version'])
-                && \in_array($short, ['MU', 'OM', 'OP', 'VR'])
+                && \in_array($short, ['JR', 'MU', 'OM', 'OP', 'VR'])
             ) {
                 $version = $browserFromUserAgent['version'];
             }
