@@ -299,6 +299,7 @@ class Browser extends AbstractClientParser
         'H4' => 'Holla Web Browser',
         'H5' => 'HotBrowser',
         'HJ' => 'HotJava',
+        'H6' => 'HONOR Browser',
         'HT' => 'HTC Browser',
         'HU' => 'Huawei Browser Mobile',
         'HP' => 'Huawei Browser',
@@ -705,7 +706,7 @@ class Browser extends AbstractClientParser
     protected static $browserFamilies = [
         'Android Browser'    => ['AN'],
         'BlackBerry Browser' => ['BB'],
-        'Baidu'              => ['BD', 'BS'],
+        'Baidu'              => ['BD', 'BS', 'H6'],
         'Amiga'              => ['AV', 'AW'],
         'Chrome'             => [
             'CH', '2B', '7S', 'A0', 'AC', 'A4', 'AE', 'AH', 'AI',
