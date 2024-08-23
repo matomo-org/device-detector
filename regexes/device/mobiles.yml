@@ -6098,9 +6098,12 @@ China Mobile:
 
 # CHCNAV (https://chcnav.com/)
 CHCNAV:
-  regex: 'CHCNAV'
+  regex: 'CHCNAV|(?:HCE600)(?:[);/ ]|$)'
   device: 'smartphone'
-  model: ''
+  models:
+    - regex: '(HCE600)'
+      device: 'peripheral'
+      model: '$1'
 
 # Comio
 Comio:
@@ -17490,7 +17493,7 @@ Torque:
 
 # motorola
 Motorola:
-  regex: 'MOT(?!TO)|(?<!AN)DROID ?(?:Build|[a-z0-9]+)|portalmmm/2\.0 (?:E378i|L6|L7|v3)|XOOM [^;/]*Build|XT1941-2|XT1924-9|XT1925-10|XT1965-6|XT1970-5|XT1799-2|XT1021|XT2171-[23]|XT2071-4|XT2201-[126]|XT-2201|XT2113-2|XT2115-1|XT2175-2|XT2141-1|XT2125-4|XT2127-2|XT2129-[123]|XT2143-1|XT2153-1|XT2158-6|XT2215-[124]|XT2221-[12]|XT2225-[12]|XT2233-2|XT2251-1|XT2243-2|XT2241-1|XT2169-1|XT2137-[12]|XT1710-08|XT180[3-5]|XT2315-1|XT2335-[23]|XT2131(?:-[14]|DL)|XT2303-2|XT2301-5|XT2321-[23]|XT2323-3|XT2343-3|XT194[23]-1|XT1929-15|XT2083-9|XT2081-1|XT2093DL|XT2093-[37]|(?<!Xtreme )(?:XT|MZ|MB|ME)[0-9]{3,4}[a-z]?(?:\(Defy\)|-0[1-5])?(?:[;]? Build|\))|lineage_osprey|ATRIX HD|PAMR00(?:0[28]|10)IN|PANB0001IN|PANB001[35]IN|PANV000[59]IN'
+  regex: 'MOT(?!TO)|(?<!AN)DROID ?(?:Build|[a-z0-9]+)|portalmmm/2\.0 (?:E378i|L6|L7|v3)|XOOM [^;/]*Build|XT1941-2|XT1924-9|XT1925-10|XT1965-6|XT1970-5|XT1799-2|XT1021|XT2171-[23]|XT2013-[124]|XT2061-3|XT2071-4|XT2201-[126]|XT-2201|XT2113-2|XT2115-1|XT2175-2|XT2141-1|XT2125-4|XT2127-2|XT2129-[123]|XT2143-1|XT2153-1|XT2158-6|XT2215-[124]|XT2221-[12]|XT2225-[12]|XT2233-2|XT2251-1|XT2243-2|XT2241-1|XT2169-1|XT2137-[12]|XT1710-08|XT180[3-5]|XT2315-1|XT2335-[23]|XT2131(?:-[14]|DL)|XT2303-2|XT2301-5|XT2321-[23]|XT2323-3|XT2343-3|XT194[23]-1|XT1929-15|XT2083-9|XT2081-1|XT2093DL|XT2093-[37]|(?<!Xtreme )(?:XT|MZ|MB|ME)[0-9]{3,4}[a-z]?(?:\(Defy\)|-0[1-5])?(?:[;]? Build|\))|lineage_osprey|ATRIX HD|PAMR00(?:0[28]|10)IN|PANB0001IN|PANB001[35]IN|PANV000[59]IN'
   device: 'smartphone'
   models:
     # Explicit feature phone models
@@ -17752,7 +17755,7 @@ Motorola:
       model: 'Edge Plus 5G UW (2022)'
     - regex: '(?:MOT-|Motorola-)?edge plus \(?(202[23])\)?'
       model: 'Edge Plus ($1)'
-    - regex: '(?:MOT-|Motorola-)?edge plus'
+    - regex: '(?:MOT-|Motorola-)?edge plus|XT2061-3'
       model: 'Edge Plus'
     - regex: 'XT2201-2'
       model: 'Edge X30'
@@ -17790,7 +17793,7 @@ Motorola:
       model: 'One Fusion Plus'
     - regex: '(?:MOT-|Motorola-)?one fusion'
       model: 'One Fusion'
-    - regex: 'motorola one action'
+    - regex: 'motorola one action|XT2013-[124]'
       model: 'One Action'
     - regex: 'motorola one macro'
       model: 'One Macro'
@@ -39135,7 +39138,7 @@ Chainway:
 
 # Harper (https://harper.ru/)
 Harper:
-  regex: 'HARPER|(?:HARPER[_ ])?(?:ABX-332|ABX-[12]10|32R750TS|32R670TS|40F660TS|40F750TS|43U750TS|24R490TS|65U660TS|50U660TS|32R751TS|43F750TS|85U750TS)(?:[);/ ]|$)'
+  regex: 'HARPER|(?:HARPER[_ ])?(?:ABX-332|ABX-[12]10|32R750TS|32R670TS|40F660TS|40F750TS|43U750TS|24R490TS|65U660TS|43F660TS|50U660TS|32R751TS|43F750TS|85U750TS)(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: '(?:HARPER[_ ])?(ABX-332|ABX-[12]10|32R751TS|40F660TS|24R490TS|65U660TS|50U660TS)'
@@ -39920,7 +39923,7 @@ Samtech:
 
 # Samtron (samtron.ru)
 Samtron:
-  regex: '(?:SAMTRON_W_)?(43SA70[15]|55SA703)(?:[);/ ]|$)'
+  regex: '(?:SAMTRON_W_)?(43SA70[15]|50SA707|55SA703)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
@@ -40313,7 +40316,7 @@ Kinstone:
 
 # HIPER (hiper-power.com)
 HIPER:
-  regex: 'HIPER[ -](?:MEDIA|[MS]-Pad)|(?:U(?:43|50|65)YQ2200GR|H32YQ2200GR)(?:[);/ ]|$)'
+  regex: 'HIPER[ -](?:MEDIA|[MS]-Pad)|(?:U(?:43|50|65)YQ2200GR|H32YQ2200GR|MEDIA TV M5)(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: 'HIPER[ -]([SM])-Pad'
@@ -40321,7 +40324,7 @@ HIPER:
       model: '$1-Pad'
     - regex: 'MEDIA STICK 4K'
       model: 'Media Stick 4K'
-    - regex: 'MEDIA TV (i4 Pro|i4|[46]K)'
+    - regex: 'MEDIA TV (i4 Pro|i4|[46]K|M5)'
       model: 'Media TV $1'
     - regex: '(U(?:43|50|65)YQ2200GR|H32YQ2200GR)'
       model: '$1'
@@ -41464,7 +41467,7 @@ GOLDBERG:
 
 # Tuvio
 Tuvio:
-  regex: '(STV-32DHBK2R-T9|TQ55UFBTV1|TD86UFBTV1|TQ50UFBCV1|TD32HF[GW]EV1|TD43FFGTV1|TD50UFGEV1|TD55UFGEV1|TD(?:[67]5|43)UFGCV1)(?:[);/ ]|$)'
+  regex: '(STV-32DHBK2R-T9|TQ55UFBTV1|TD86UFBTV1|TQ50UFBCV1|TD32HF[GW]EV1|TD43FFGTV1|TD50UFGEV1|TD55UFBHV1|TD55UFGEV1|TD(?:[67]5|43)UFGCV1)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
@@ -41796,6 +41799,12 @@ BYD:
   regex: 'For BYD AUTO'
   device: 'car browser'
   model: 'CarPad'
+
+# ROCH
+ROCH:
+  regex: '(RH-LE\d{2}DSY-C)(?:[);/ ]|$)'
+  device: 'tv'
+  model: '$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
