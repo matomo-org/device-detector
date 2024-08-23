@@ -164,6 +164,7 @@ class OperatingSystem extends AbstractParser
         'RST' => 'Red Star',
         'RED' => 'RedOS',
         'REV' => 'Revenge OS',
+        'RIS' => 'risingOS',
         'ROS' => 'RISC OS',
         'ROC' => 'Rocky Linux',
         'ROK' => 'Roku OS',
@@ -231,7 +232,7 @@ class OperatingSystem extends AbstractParser
         'Android'               => [
             'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
             'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS', 'WER', 'PIC', 'ARM',
-            'HEL', 'BYI',
+            'HEL', 'BYI', 'RIS',
         ],
         'AmigaOS'               => ['AMG', 'MOR', 'ARO'],
         'BlackBerry'            => ['BLB', 'QNX'],

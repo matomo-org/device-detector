@@ -13,8 +13,8 @@ DeviceDetector
 ![YAML Lint](https://github.com/matomo-org/device-detector/workflows/YAML%20Lint/badge.svg?branch=master)
 [![Validate regular Expressions](https://github.com/matomo-org/device-detector/actions/workflows/regular_expressions.yml/badge.svg)](https://github.com/matomo-org/device-detector/actions/workflows/regular_expressions.yml)
 
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/matomo-org/device-detector.svg)](http://isitmaintained.com/project/matomo-org/device-detector "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/matomo-org/device-detector.svg)](http://isitmaintained.com/project/matomo-org/device-detector "Percentage of issues still open")
+[![Average time to resolve an issue](https://www.isitmaintained.com/badge/resolution/matomo-org/device-detector.svg)](https://www.isitmaintained.com/project/matomo-org/device-detector "Average time to resolve an issue")
+[![Percentage of issues still open](https://www.isitmaintained.com/badge/open/matomo-org/device-detector.svg)](https://www.isitmaintained.com/project/matomo-org/device-detector "Percentage of issues still open")
 
 ## Description
 
@@ -178,7 +178,7 @@ $dd = new DeviceDetector($userAgent, $clientHints);
 By default, DeviceDetector uses a built-in array cache. To get better performance, you can use your own caching solution:
 
 * You can create a class that implement `DeviceDetector\Cache\CacheInterface`
-* Or if your project uses a [PSR-6](http://www.php-fig.org/psr/psr-6/) or [PSR-16](http://www.php-fig.org/psr/psr-16/) compliant caching system (like [symfony/cache](https://github.com/symfony/cache) or [matthiasmullie/scrapbook](https://github.com/matthiasmullie/scrapbook)), you can inject them the following way:
+* Or if your project uses a [PSR-6](https://www.php-fig.org/psr/psr-6/) or [PSR-16](https://www.php-fig.org/psr/psr-16/) compliant caching system (like [symfony/cache](https://github.com/symfony/cache) or [matthiasmullie/scrapbook](https://github.com/matthiasmullie/scrapbook)), you can inject them the following way:
 
 ```php
 // Example with PSR-6 and Symfony
@@ -224,7 +224,7 @@ zcat ~/path/to/access/logs* | awk -F'"' '{print $6}' | sort | uniq -c | sort -rn
 ```
 
 ### Contributors
-Created by the [Matomo team](http://matomo.org/team/), Stefan Giehl, Matthieu Aubry, Michał Gaździk,
+Created by the [Matomo team](https://matomo.org/team/), Stefan Giehl, Matthieu Aubry, Michał Gaździk,
 Tomasz Majczak, Grzegorz Kaszuba, Piotr Banaszczyk and contributors.
 
 Together we can build the best Device Detection library.
@@ -233,7 +233,7 @@ We are looking forward to your contributions and pull requests!
 
 ## Tests
 
-See also: [QA at Matomo](http://matomo.org/qa/)
+See also: [QA at Matomo](https://developer.matomo.org/guides/tests)
 
 ### Running tests
 
