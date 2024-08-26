@@ -68,7 +68,7 @@ class DeviceDetector
     /**
      * Current version number of DeviceDetector
      */
-    public const VERSION = '6.3.1';
+    public const VERSION = '6.3.2';
 
     /**
      * Constant used as value for unknown browser / os
@@ -776,7 +776,7 @@ class DeviceDetector
      */
     protected function hasAndroidTableFragment(): bool
     {
-        $regex = 'Android( [\.0-9]+)?; Tablet;|.*\-tablet$';
+        $regex = 'Android( [\.0-9]+)?; Tablet;|Tablet(?! PC)|.*\-tablet$';
 
         return !!$this->matchUserAgent($regex);
     }
@@ -1049,7 +1049,7 @@ class DeviceDetector
         /**
          * All devices that contain Andr0id in string are assumed to be a tv
          */
-        if ($this->matchUserAgent('Andr0id|(?:Android(?: UHD)?|Google) TV|\(lite\) TV|BRAVIA')) {
+        if ($this->matchUserAgent('Andr0id|(?:Android(?: UHD)?|Google) TV|\(lite\) TV|BRAVIA| TV$')) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
         }
 

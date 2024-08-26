@@ -72,6 +72,13 @@ class DeviceDetectorTest extends TestCase
                     $regex['regex']
                 ));
 
+                $this->assertTrue($this->checkRegexRestrictionAndroidOsVersionCondition($regex['regex']), \sprintf(
+                    'Detect `Android \d;` in regex, file %s, brand %s, common regex %s',
+                    $file,
+                    $brand,
+                    $regex['regex']
+                ));
+
                 $this->assertTrue($this->checkRegexVerticalLineClosingGroup($regex['regex']), \sprintf(
                     'Detect `|)` in regex, file %s, brand %s, common regex %s',
                     $file,
@@ -252,6 +259,95 @@ class DeviceDetectorTest extends TestCase
             if ('bots' === $deviceType) {
                 continue;
             }
+
+            $fixtures = \array_merge(\array_map(static function ($elem) {
+                return [$elem];
+            }, $typeFixtures), $fixtures);
+        }
+
+        return $fixtures;
+    }
+
+    /**
+     * @dataProvider getFixturesClient
+     */
+    public function testParseClient(array $fixtureData): void
+    {
+        $ua          = $fixtureData['user_agent'];
+        $clientHints = !empty($fixtureData['headers']) ? ClientHints::factory($fixtureData['headers']) : null;
+
+        AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
+
+        try {
+            $uaInfo = DeviceDetector::getInfoFromUserAgent($ua, $clientHints);
+        } catch (\Exception $exception) {
+            throw new \Exception(
+                \sprintf('Error: %s from useragent %s', $exception->getMessage(), $ua),
+                $exception->getCode(),
+                $exception
+            );
+        }
+
+        $messageError = \sprintf(
+            "Fixture:\n%s\nResult:\n%s",
+            \Spyc::YAMLDump($fixtureData, 2, 0),
+            \Spyc::YAMLDump($uaInfo, 2, 0)
+        );
+
+        unset($fixtureData['headers']); // ignore headers in result
+        unset($fixtureData['client']['family']);
+
+        $this->assertArrayNotHasKey('bot', $uaInfo, $messageError);
+        $this->assertEquals($fixtureData['client'], $uaInfo['client'], $messageError);
+    }
+
+    public function getFixturesClient(): array
+    {
+        $fixtures     = [];
+        $fixtureFiles = \glob(\realpath(__DIR__) . '/Parser/Client/fixtures/*.yml');
+
+        foreach ($fixtureFiles as $fixturesPath) {
+            $typeFixtures = \Spyc::YAMLLoad($fixturesPath);
+
+            $fixtures = \array_merge(\array_map(static function ($elem) {
+                return [$elem];
+            }, $typeFixtures), $fixtures);
+        }
+
+        return $fixtures;
+    }
+
+    /**
+     * @dataProvider getFixturesDevice
+     */
+    public function testParseDevice(array $fixtureData): void
+    {
+        $ua          = $fixtureData['user_agent'];
+        $clientHints = !empty($fixtureData['headers']) ? ClientHints::factory($fixtureData['headers']) : null;
+
+        AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
+
+        try {
+            $uaInfo = DeviceDetector::getInfoFromUserAgent($ua, $clientHints);
+        } catch (\Exception $exception) {
+            throw new \Exception(
+                \sprintf('Error: %s from useragent %s', $exception->getMessage(), $ua),
+                $exception->getCode(),
+                $exception
+            );
+        }
+
+        $this->assertArrayNotHasKey('bot', $uaInfo);
+        $this->assertEquals($fixtureData['device'], $uaInfo['device']);
+    }
+
+    public function getFixturesDevice(): array
+    {
+        $fixtures     = [];
+        $fixtureFiles = \glob(\realpath(__DIR__) . '/Parser/Device/fixtures/*.yml');
+
+        foreach ($fixtureFiles as $fixturesPath) {
+            $typeFixtures = \Spyc::YAMLLoad($fixturesPath);
 
             $fixtures = \array_merge(\array_map(static function ($elem) {
                 return [$elem];
@@ -699,6 +795,24 @@ class DeviceDetectorTest extends TestCase
     {
         if (false !== \strpos($regexString, '|)')) {
             return !\preg_match('#(?<!\\\)(\|\))#is', $regexString);
+        }
+
+        return true;
+    }
+
+    /**
+     * check the regular expression for regex `Android \d([\d.]*)? condition constraint
+     * (This needs to be checked since the version with client prompts is not trimmed)
+     *
+     * @param string $regexString
+     *
+     * @return bool
+     */
+    protected function checkRegexRestrictionAndroidOsVersionCondition(string $regexString): bool
+    {
+        // check regex is condition android \d
+        if (\preg_match('~Android (\d|\[)~i', $regexString)) {
+            return !\preg_match('~android (\d|\[\d+\]);~', $regexString);
         }
 
         return true;

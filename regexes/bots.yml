@@ -132,10 +132,18 @@
 - regex: 'Applebot'
   name: 'Applebot'
   category: 'Crawler'
-  url: 'https://support.apple.com/en-us/HT204683'
+  url: 'https://support.apple.com/en-us/119829'
   producer:
     name: 'Apple Inc'
-    url: 'https://www.apple.com'
+    url: 'https://www.apple.com/'
+
+- regex: 'iTMS'
+  name: 'iTMS'
+  category: 'Crawler'
+  url: 'https://support.apple.com/en-us/119829'
+  producer:
+    name: 'Apple Inc'
+    url: 'https://www.apple.com/'
 
 - regex: 'AppSignalBot'
   name: 'AppSignalBot'
@@ -384,6 +392,22 @@
     name: 'CloudFlare'
     url: 'https://www.cloudflare.com/'
 
+- regex: 'Cloudflare-Smart-Transit'
+  name: 'Cloudflare Smart Transit'
+  category: 'Site Monitor'
+  url: 'https://developers.cloudflare.com/fundamentals/reference/cloudflare-site-crawling/'
+  producer:
+    name: 'CloudFlare'
+    url: 'https://www.cloudflare.com/'
+
+- regex: 'CloudflareObservatory'
+  name: 'Cloudflare Observatory'
+  category: 'Site Monitor'
+  url: 'https://developers.cloudflare.com/speed/speed-test/run-speed-test'
+  producer:
+    name: 'CloudFlare'
+    url: 'https://www.cloudflare.com/'
+
 - regex: 'https://developers\.cloudflare\.com/security-center/'
   name: 'Cloudflare Security Insights'
   category: 'Site Monitor'
@@ -489,9 +513,17 @@
     url: 'http://moz.com/'
 
 - regex: 'DuckDuck(?:Go-Favicons-)?Bot'
-  name: 'DuckDuckGo Bot'
+  name: 'DuckDuckBot'
   category: 'Search bot'
-  url: 'https://duckduckgo.com/duckduckbot'
+  url: 'https://duckduckgo.com/duckduckgo-help-pages/results/duckduckbot/'
+  producer:
+    name: 'DuckDuckGo'
+    url: 'https://duckduckgo.com/'
+
+- regex: 'DuckAssistBot'
+  name: 'DuckAssistBot'
+  category: 'Search bot'
+  url: 'https://duckduckgo.com/duckduckgo-help-pages/results/duckassistbot/'
   producer:
     name: 'DuckDuckGo'
     url: 'https://duckduckgo.com/'
@@ -551,7 +583,7 @@
     name: 'SEOmoz, Inc.'
     url: 'http://moz.com/'
 
-- regex: 'facebookexternalhit|facebookplatform|facebookexternalua|facebookcatalog'
+- regex: 'facebook(?:catalog|externalhit|externalua|platform|scraper)'
   name: 'Facebook Crawler'
   category: 'Social Media Agent'
   url: 'https://developers.facebook.com/docs/sharing/webmasters/crawler/'
@@ -773,6 +805,14 @@
     name: 'Visual Meta'
     url: 'https://www.shopalike.cz/'
 
+- regex: 'deepcrawl\.com'
+  name: 'Lumar'
+  category: 'Crawler'
+  url: 'https://deepcrawl.com/bot'
+  producer:
+    name: 'Lumar'
+    url: 'https://www.lumar.io/'
+
 - regex: 'Googlebot-News'
   name: 'Googlebot News'
   category: 'Search bot'
@@ -804,14 +844,6 @@
   producer:
     name: 'Google Inc.'
     url: 'https://www.google.com/'
-
-- regex: 'heritrix'
-  name: 'Heritrix'
-  category: 'Crawler'
-  url: 'https://webarchive.jira.com/wiki/display/Heritrix/Heritrix'
-  producer:
-    name: 'The Internet Archive'
-    url: 'https://archive.org'
 
 - regex: 'HubSpot '
   name: 'HubSpot'
@@ -961,7 +993,7 @@
     name: 'BIZON, OOO'
     url: 'https://bi.zone/'
 
-- regex: 'masscan'
+- regex: '.*masscan'
   name: 'masscan'
   url: 'https://github.com/robertdavidgraham/masscan'
   category: 'Crawler'
@@ -1116,6 +1148,14 @@
     name: 'Nuzzel'
     url: 'https://www.nuzzel.com/'
 
+- regex: 'NodePing'
+  name: 'NodePing'
+  category: 'Site Monitor'
+  url: 'https://nodeping.com'
+  producer:
+    name: 'NodePing'
+    url: 'https://nodeping.com'
+
 - regex: 'Octopus [0-9]'
   name: 'Octopus'
 
@@ -1260,10 +1300,10 @@
     name: 'QueryEye Inc.'
     url: 'http://queryeye.com'
 
-- regex: 'Qwantify'
-  name: 'Qwantify'
+- regex: 'Qwantify|Qwantbot'
+  name: 'Qwantbot'
   category: 'Crawler'
-  url: 'https://www.qwant.com/'
+  url: 'https://help.qwant.com/bot/'
   producer:
     name: 'Qwant Corporation'
     url: 'https://www.qwant.com/'
@@ -1845,6 +1885,22 @@
     name: 'Wordpress.org'
     url: 'https://wordpress.org/'
 
+- regex: 'WordPress\.com mShots'
+  name: 'WordPress.com mShots'
+  category: 'Service Agent'
+  url: 'https://wordpress.org/'
+  producer:
+    name: 'Wordpress.org'
+    url: 'https://wordpress.org/'
+
+- regex: 'wp\.com feedbot'
+  name: 'wp.com feedbot'
+  category: 'Feed Fetcher'
+  url: 'https://wordpress.com/'
+  producer:
+    name: 'Automattic, Inc.'
+    url: 'https://automattic.com/'
+
 - regex: 'WordPress'
   name: 'WordPress'
   category: 'Service Agent'
@@ -2155,6 +2211,11 @@
 
 - regex: 'PagePeeker'
   name: 'PagePeeker'
+  category: 'Crawler'
+  url: 'https://pagepeeker.com/robots/'
+  producer:
+    name: 'PAGEPEEKER SRL'
+    url: 'https://pagepeeker.com/'
 
 - regex: 'WebThumbnail'
   name: 'WebThumbnail'
@@ -2377,6 +2438,14 @@
     name: 'Carbon60 Operating Co. Ltd.'
     url: 'https://www.carbon60.com/'
 
+- regex: 'CyberFind ?Crawler'
+  name: 'CyberFind Crawler'
+  category: 'Crawler'
+  url: 'https://www.cyberfind.net/bot.html'
+  producer:
+    name: 'Find.tf'
+    url: 'https://find.tf/'
+
 - regex: 'Nutch'
   name: 'Nutch-based Bot'
   category: 'Crawler'
@@ -2455,7 +2524,7 @@
     name: 'PPC Labs LLC'
     url: 'https://www.adbeat.com/'
 
-- regex: 'BW/[\d.]+'
+- regex: '(?:BuiltWith|BW)/[\d.]+'
   name: 'BuiltWith'
   category: 'Crawler'
   url: 'https://builtwith.com/biup'
@@ -2832,6 +2901,14 @@
     name: 'Komodia Inc.'
     url: 'https://www.komodia.com/'
 
+- regex: 'KStandBot/[\d.]+'
+  name: 'KStandBot'
+  category: 'Crawler'
+  url: 'https://url-classification.io/wiki/index.php?title=URL_server_crawler'
+  producer:
+    name: 'Komodia Inc.'
+    url: 'https://www.komodia.com/'
+
 - regex: 'Neevabot/[\d.]+'
   name: 'Neevabot'
   category: 'Search bot'
@@ -2976,7 +3053,7 @@
     name: 'Newslit, LLC.'
     url: 'https://www.newslit.co/'
 
-- regex: 'um-LN/[\d.]+'
+- regex: 'um-(?:ANS|CC|FC|IC|LN)/[\d.]+'
   name: 'uMBot'
   category: 'Crawler'
   url: 'https://www.ubermetrics-technologies.com/'
@@ -3142,6 +3219,14 @@
   name: 'MaCoCu'
   category: 'Crawler'
   url: 'https://www.clarin.si/info/macocu-massive-collection-and-curation-of-monolingual-and-bilingual-data/'
+  producer:
+    name: 'Jožef Stefan Institute'
+    url: 'https://www.ijs.si/ijsw/JSI'
+
+- regex: 'CLASSLA'
+  name: 'CLASSLA-web'
+  category: 'Crawler'
+  url: 'https://www.clarin.si/info/classla-web-crawler/'
   producer:
     name: 'Jožef Stefan Institute'
     url: 'https://www.ijs.si/ijsw/JSI'
@@ -3337,7 +3422,7 @@
     name: 'Comodo Security Solutions, Inc.'
     url: 'https://www.comodo.com/'
 
-- regex: 'Sectigo DCV'
+- regex: 'Sectigo DCV|acme\.sectigo\.com'
   name: 'Sectigo DCV'
   category: 'Service Agent'
   url: 'https://sectigo.com/'
@@ -3516,10 +3601,26 @@
   category: 'Site Monitor'
   url: 'https://github.com/louislam/uptime-kuma'
 
-- regex: 'ChatGPT-User'
-  name: 'ChatGPT'
+- regex: 'OAI-SearchBot'
+  name: 'OAI-SearchBot'
   category: 'Crawler'
-  url: 'https://platform.openai.com/docs/plugins/bot'
+  url: 'https://platform.openai.com/docs/bots'
+  producer:
+    name: 'OpenAI OpCo, LLC'
+    url: 'https://openai.com/'
+
+- regex: 'GPTBot/[\d.]+'
+  name: 'GPTBot'
+  category: 'Crawler'
+  url: 'https://platform.openai.com/docs/bots'
+  producer:
+    name: 'OpenAI OpCo, LLC'
+    url: 'https://openai.com/'
+
+- regex: 'ChatGPT-User'
+  name: 'ChatGPT-User'
+  category: 'Crawler'
+  url: 'https://platform.openai.com/docs/bots'
   producer:
     name: 'OpenAI OpCo, LLC'
     url: 'https://openai.com/'
@@ -3545,14 +3646,6 @@
     name: 'DGC Verwaltungs GmbH'
     url: 'https://dgc.org/'
 
-- regex: 'deepcrawl\.com'
-  name: 'Lumar'
-  category: 'Crawler'
-  url: 'https://deepcrawl.com/bot'
-  producer:
-    name: 'Lumar'
-    url: 'https://www.lumar.io/'
-
 - regex: 'researchscan\.comsys\.rwth-aachen\.de'
   name: 'Research Scan'
   category: 'Crawler'
@@ -3568,14 +3661,6 @@
   producer:
     name: 'Sprious LLC'
     url: 'https://sprious.com/'
-
-- regex: 'GPTBot/[\d.]+'
-  name: 'GPTBot'
-  category: 'Crawler'
-  url: 'https://platform.openai.com/docs/gptbot'
-  producer:
-    name: 'OpenAI OpCo, LLC'
-    url: 'https://openai.com/'
 
 - regex: 'Ant(?:\.com beta|Bot)(?:/([\d+.]+))?'
   name: 'Ant'
@@ -3634,7 +3719,7 @@
     name: 'Meltwater Deutschland GmbH'
     url: 'https://www.meltwater.com/'
 
-- regex: '(?:Owler@ows\.eu|OWLer)/[\d.]+'
+- regex: 'owler'
   name: 'OWLer'
   category: 'Crawler'
   url: 'https://openwebsearch.eu/owler/'
@@ -3706,6 +3791,11 @@
   name: 'GeedoBot'
   category: 'Crawler'
   url: 'https://geedo.com/bot/'
+
+- regex: 'GeedoProductSearch'
+  name: 'GeedoProductSearch'
+  category: 'Crawler'
+  url: 'https://geedo.com/product-search/'
 
 - regex: 'BackupLand(?:/([\d+.]+))?'
   name: 'BackupLand'
@@ -4427,10 +4517,254 @@
   category: 'Crawler'
   url: 'https://www.castopod.org/'
 
+- regex: 'Elastic/Synthetics'
+  name: 'Elastic Synthetics'
+  category: 'Site Monitor'
+  url: 'https://github.com/elastic/synthetics'
+  producer:
+    name: 'Elasticsearch B.V.'
+    url: 'https://www.elastic.co/'
+
+- regex: 'WDG_Validator/[\d.]+'
+  name: 'WDG HTML Validator'
+  category: 'Validator'
+  url: 'http://www.htmlhelp.com/tools/validator/'
+
+- regex: 'scan@aegis.network'
+  name: 'Aegis'
+  category: 'Crawler'
+  url: 'https://web.archive.org/web/20180910002802/http://www.aegis.network/'
+
+- regex: 'CrawlyProjectCrawler/[\d.]+'
+  name: 'Crawly Project'
+  category: 'Crawler'
+  url: 'https://web.archive.org/web/20240326141952/https://crawlyproject.digitaldragon.dev/'
+
+- regex: 'BDFetch'
+  name: 'BDFetch'
+  category: 'Crawler'
+  url: 'https://web.archive.org/web/20130821043949/http://www.branddimensions.com/'
+
+- regex: 'PunkMap'
+  name: 'Punk Map'
+  category: 'Security Checker'
+  url: 'https://github.com/openeasm/punkmap'
+
+- regex: 'GenomeCrawlerd/[\d.]+'
+  name: 'Deepfield Genome'
+  category: 'Crawler'
+  url: 'https://www.nokia.com/networks/ip-networks/deepfield/genome/'
+  producer:
+    name: 'Nokia Corporation'
+    url: 'https://www.nokia.com/'
+
+- regex: 'Gaisbot/[\d.]+'
+  name: 'Gaisbot'
+  category: 'Crawler'
+  url: 'https://web.archive.org/web/20090604121511/https://gais.cs.ccu.edu.tw/robot.php'
+
+- regex: 'FAST-WebCrawler/[\d.]+'
+  name: 'AlltheWeb'
+  category: 'Crawler'
+  url: 'https://web.archive.org/web/20041020050801/http://www.alltheweb.com/help/webmaster/crawler'
+
+- regex: 'ducks\.party'
+  name: 'ducks.party'
+  category: 'Security Checker'
+  url: 'https://ducks.party/'
+
+- regex: 'DepSpid/[\d.]+'
+  name: 'DepSpid'
+  category: 'Crawler'
+  url: 'https://web.archive.org/web/20080321224033/http://about.depspid.net/'
+
+- regex: 'Website-info\.net'
+  name: 'Website-info'
+  category: 'Crawler'
+  url: 'https://website-info.net/robot'
+  producer:
+    name: 'Meins und Vogel GmbH'
+    url: 'https://muv.com/'
+
+- regex: 'RedekenBot'
+  name: 'RedekenBot'
+  category: 'Crawler'
+  url: 'https://www.redeken.com/en/help/bot.html'
+  producer:
+    name: 'Redeken'
+    url: 'https://www.redeken.com/'
+
+- regex: 'semaltbot'
+  name: 'semaltbot'
+  category: 'Crawler'
+  url: 'https://semalt.net/'
+  producer:
+    name: 'Semalt LP'
+    url: 'https://semalt.net/'
+
+- regex: 'MakeMerryBot'
+  name: 'MakeMerryBot'
+  category: 'Crawler'
+  url: 'https://makemerry.app/bots'
+
+- regex: 'Timpibot'
+  name: 'Timpibot'
+  category: 'Crawler'
+  url: 'https://timpi.io/'
+  producer:
+    name: 'Timpi Inc.'
+    url: 'https://timpi.io/'
+
+- regex: 'Validbot'
+  name: 'ValidBot'
+  category: 'Crawler'
+  url: 'https://www.validbot.com/'
+  producer:
+    name: 'Jake Olefsky LLC'
+    url: 'https://www.validbot.com/'
+
+- regex: 'NPBot'
+  name: 'NameProtectBot'
+  category: 'Crawler'
+  url: 'https://www.cscglobal.com/cscglobal/home/'
+  producer:
+    name: 'NameProtect, Inc.'
+    url: 'https://www.cscglobal.com/'
+
+- regex: 'domaincodex\.com'
+  name: 'Domain Codex'
+  category: 'Crawler'
+  url: 'https://www.domaincodex.com/'
+  producer:
+    name: 'Erie Data Systems, LLC'
+    url: 'https://www.eriedatasys.com/'
+
+- regex: 'Swisscows Favicons'
+  name: 'Swisscows Favicons'
+  category: 'Crawler'
+  url: 'https://swisscows.com/'
+  producer:
+    name: 'Swisscows AG'
+    url: 'https://swisscows.com/'
+
+- regex: 'leak\.info'
+  name: 'leak.info'
+  category: 'Crawler'
+  url: 'http://www.leak.info/'
+
+- regex: 'workona'
+  name: 'Workona'
+  category: 'Crawler'
+  url: 'https://workona.com/'
+  producer:
+    name: 'Workona, Inc.'
+    url: 'https://workona.com/'
+
+- regex: 'Bloglines'
+  name: 'Bloglines'
+  category: 'Crawler'
+  url: 'https://web.archive.org/web/20140309033202/http://www.bloglines.com/'
+  producer:
+    name: 'Reply!, Inc.'
+    url: 'https://www.reply.com/'
+
+- regex: 'heritrix'
+  name: 'Heritrix'
+  category: 'Crawler'
+  url: 'https://webarchive.jira.com/wiki/display/Heritrix/Heritrix'
+  producer:
+    name: 'The Internet Archive'
+    url: 'https://archive.org'
+
+- regex: 'search\.marginalia\.nu'
+  name: 'Marginalia'
+  category: 'Crawler'
+  url: 'https://www.marginalia.nu/marginalia-search/for-webmasters/'
+  producer:
+    name: 'Marginalia'
+    url: 'https://www.marginalia.nu/'
+
+- regex: 'vu-server-health-scanner/[\d.]+'
+  name: 'VU Server Health Scanner'
+  category: 'Security Checker'
+  url: 'https://130.37.198.75/index.html'
+  producer:
+    name: 'VU Amsterdam'
+    url: 'https://vu.nl/en'
+
+- regex: 'Functionize'
+  name: 'Functionize'
+  category: 'Crawler'
+  url: 'https://www.functionize.com/'
+  producer:
+    name: 'Functionize, Inc.'
+    url: 'https://www.functionize.com/'
+
+- regex: 'Prerender'
+  name: 'Prerender'
+  category: 'Crawler'
+  url: 'https://docs.prerender.io/docs/33-overview-of-prerender-crawlers'
+  producer:
+    name: 'saas.group Inc.'
+    url: 'https://saas.group/'
+
+- regex: 'bl\.uk_ldfc_bot'
+  name: 'The British Library Legal Deposit Bot'
+  category: 'Crawler'
+  url: 'https://www.bl.uk/'
+  producer:
+    name: 'The British Library'
+    url: 'https://www.bl.uk/'
+
+- regex: 'Miniature\.io'
+  name: 'Miniature.io'
+  category: 'Service Agent'
+  url: 'https://miniature.io/'
+  producer:
+    name: 'LCX Ventures Ltd'
+    url: 'https://www.lcxventures.com/'
+
+- regex: 'Convertify'
+  name: 'Convertify'
+  category: 'Service Agent'
+  url: 'https://www.convertify.app/'
+  producer:
+    name: 'Convertify'
+    url: 'https://www.convertify.app/'
+
+- regex: 'ZoteroTranslationServer'
+  name: 'Zotero Translation Server'
+  category: 'Service Agent'
+  url: 'https://github.com/wikimedia/mediawiki-services-zotero'
+  producer:
+    name: 'The Wikimedia Foundation, Inc.'
+    url: 'https://www.wikimedia.org/'
+
+- regex: 'MuckRack'
+  name: 'MuckRack'
+  category: 'Crawler'
+  url: 'https://muckrack.com/'
+  producer:
+    name: 'Muck Rack, LLC'
+    url: 'https://muckrack.com/'
+
+- regex: 'Golfe'
+  name: 'Golfe'
+  category: 'Crawler'
+  url: 'http://www.goo-olfe.ae/bot.html'
+
+- regex: 'SpiderLing'
+  name: 'SpiderLing'
+  category: 'Crawler'
+  url: 'https://nlp.fi.muni.cz/projects/biwec/'
+  producer:
+    name: 'Natural Language Processing Centre'
+    url: 'https://nlp.fi.muni.cz/'
+
 # Generic bots
-- regex: 'nuhk|grub-client|Download Demon|SearchExpress|Microsoft URL Control|borg|altavista|dataminr\.com|teoma|oegp|http%20client|htdig|mogimogi|larbin|scrubby|searchsight|semanticdiscovery|snappy|vortex(?!(?: Build|Plus))|zeal(?!ot)|dataparksearch|findlinks|BrowserMob|URL2PNG|ZooShot|GomezA|Google SketchUp|Read%20Later|7Siters|centuryb\.o\.t9|InterNaetBoten|EasyBib AutoCite|Bidtellect|tomnomnom/meg|cortex|Re-re Studio|adreview|AHC/|NameOfAgent|Request-Promise|ALittle Client|Hello,? world|wp_is_mobile|0xAbyssalDoesntExist|Anarchy99|^revolt|nvd0rz|xfa1|Hakai|gbrmss|fuck-your-hp|IDBTE4M CODE87|Antoine|Insomania|Hells-Net|b3astmode|Linux Gnu \(cow\)|Test Certificate Info|iplabel|Magellan|TheSafex?Internetx?Search|Searcherweb|kirkland-signature|LinkChain|survey-security-dot-txt|infrawatch|^xenu|^(?:chrome|firefox|KvshClient|Zeus|ZmEu)$'
+- regex: 'nuhk|grub-client|Download Demon|SearchExpress|Microsoft URL Control|borg|altavista|dataminr\.com|teoma|oegp|http%20client|htdig|mogimogi|larbin|scrubby|searchsight|semanticdiscovery|snappy|vortex(?!(?: Build|Plus| CM62| HD65))|zeal(?!ot)|dataparksearch|findlinks|BrowserMob|URL2PNG|ZooShot|GomezA|Google SketchUp|Read%20Later|7Siters|centuryb\.o\.t9|InterNaetBoten|EasyBib AutoCite|Bidtellect|tomnomnom/meg|cortex|Re-re Studio|adreview|AHC/|NameOfAgent|Request-Promise|ALittle Client|Hello,? world|wp_is_mobile|0xAbyssalDoesntExist|Anarchy99|^revolt|nvd0rz|xfa1|Hakai|gbrmss|fuck-your-hp|IDBTE4M CODE87|Antoine|Insomania|Hells-Net|b3astmode|Linux Gnu \(cow\)|Test Certificate Info|iplabel|Magellan|TheSafex?Internetx?Search|Searcherx?web|kirkland-signature|LinkChain|survey-security-dot-txt|infrawatch|Time/|r00ts3c-owned-you|nvdorz|Root Slut|NiggaBalls|BotPoke|GlobalWebSearch|xx032_bo9vs83_2a|sslshed|geckotrail|Wordup|^xenu|^(?:chrome|firefox|Abcd|Dark|KvshClient|Node.js|Report Runner|url|Zeus|ZmEu)$'
   name: 'Generic Bot'
 
 # Generic detections
-- regex: '[a-z0-9_-]*(?:(?<!cu|power[ _]|m[ _])bot(?![ _]TAB|[ _]?5[0-9]|[ _]Senior|[ _]Junior)|analyzer|appengine|archiver?|checker|collector|crawl|crawler|fetch(?:er)?|indexer|inspector|monitor|project(?!or)|(?<!Google Wap )proxy|research|resolver|robots|scanner|scraper|script|searcher|(?<!-)security|spider|study|transcoder|uptime|user[ _]?agent|validator)(?:[^a-z]|$)'
+- regex: '[a-z0-9_-]*(?:(?<!cu|power[ _]|m[ _])bot(?![ _]TAB|[ _]?5[0-9]|[ _]Senior|[ _]Junior)|analyzer|appengine|archiver?|checker|collector|crawl|crawler|(?<!node-|uclient-|Mikrotik/\d\.[x\d] |electron-)fetch(?:er)?|indexer|inspector|monitor|(?<!Microsoft |banshee-)project(?!or)|(?<!Google Wap |Blue |SpeedMode; )proxy|(?<!P)research|resolver|robots|(?<!Cam)scanner|scraper|script|searcher|(?<!-)security|spider(?! 8)|study|transcoder|uptime|user[ _]?agent|validator)(?:[^a-z]|$)'
   name: 'Generic Bot'

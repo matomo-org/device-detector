@@ -12,7 +12,8 @@ AbstractParser::setVersionTruncation(AbstractParser::VERSION_TRUNCATION_NONE);
 $fixtureFiles = array_merge(
     glob(__DIR__ . '/../Tests/fixtures/*.yml'),
     glob(__DIR__ . '/../Tests/Parser/Client/fixtures/*.yml'),
-    glob(__DIR__ . '/../Tests/Parser/Device/fixtures/*.yml')
+    glob(__DIR__ . '/../Tests/Parser/Device/fixtures/*.yml'),
+    glob(__DIR__ . '/../Tests/Parser/fixtures/oss.yml')
 );
 
 $overwrite = !empty($argv[1]) && '--f' === $argv[1];

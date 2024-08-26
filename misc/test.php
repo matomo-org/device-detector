@@ -29,7 +29,7 @@ $result = DeviceDetector::getInfoFromUserAgent($userAgent);
 
 if ('cli' === php_sapi_name()) {
     echo Spyc::YAMLDump($result, 2, 0);
-    exit;
+    exit(0);
 }
 
 echo '<form><input type="text" name="ua" /><input type="submit" /></form>';
