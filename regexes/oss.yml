@@ -6,6 +6,19 @@
 ###############
 
 ##########
+# risingOS (https://github.com/RisingTechOSS/android)
+##########
+- regex: 'RisingOS'
+  name: 'risingOS'
+  version: ''
+
+##########
+# Azure Linux (https://github.com/microsoft/azurelinux)
+##########
+- regex: 'Linux/.+-Microsoft'
+  name: 'Azure Linux'
+  version: ''
+
 # ViziOS
 ##########
 - regex: 'ViziOS/(\d+[\.\d]+)'
@@ -362,9 +375,13 @@
 ##########
 # Amazon Linux (https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html)
 ##########
-- regex: '.+.amzn(\d)(?:int)?.x86_64'
+- regex: '.+.amzn(\d)(?:int)?.x86_64|Linux/.+aws'
   name: 'Amazon Linux'
   version: '$1'
+
+- regex: 'Linux/.+-c9$'
+  name: 'Amazon Linux'
+  version: '2023' # https://aws.amazon.com/about-aws/whats-new/2023/12/aws-cloud9-amazon-linux-2023/
 
 ##########
 # COS (China Operating System - https://web.archive.org/web/20170825001023/http://www.china-cos.com/)
@@ -749,7 +766,7 @@
   name: 'Android'
   version: ''
 
-- regex: '(?:Android OS|OMDroid|sdk_gphone64_arm64-userdebug)[ /](\d+[\.\d]*)'
+- regex: '(?:Android OS|OMDroid|sdk_gphone64_arm64-userdebug|StarOS)[ /](\d+[\.\d]*)'
   name: 'Android'
   version: '$1'
 
@@ -1294,6 +1311,8 @@
 - regex: '^(?!com\.apple\.Safari\.SearchHelper|Safari).*(?:CFNetwork|Mana)/.+ Darwin/(\d+[\.\d]+)(?!.*(?:x86_64|i386|PowerMac|Power%20Macintosh))'
   name: 'iOS'
   versions:
+    - regex: 'Darwin/24\.1\.0'
+      version: '18.1'
     - regex: 'Darwin/24\.0\.0'
       version: '18.0'
     - regex: 'Darwin/23\.5\.0'
@@ -1521,6 +1540,8 @@
 - regex: '(?:CFNetwork|Mana|StudioDisplay)/.+Darwin(?:/|; )(?:[\d\.]+).+(?:x86_64|i386|Power%20Macintosh)|(?:x86_64-apple-)?darwin(?:[\d\.]+)|C?Python.*Darwin|PowerMac|com\.apple\.Safari\.SearchHelper|^Safari'
   name: 'Mac'
   versions:
+    - regex: '(?:x86_64-apple-)?Darwin(?:/|; )?24\.1\.0'
+      version: '15.1'
     - regex: '(?:x86_64-apple-)?Darwin(?:/|; )?24\.0\.0'
       version: '15.0'
     - regex: '(?:x86_64-apple-)?Darwin(?:/|; )?23\.5\.0'
