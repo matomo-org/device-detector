@@ -3998,6 +3998,8 @@ Blu:
       model: 'Studio X10 (2022)'
     - regex: 'Studio Mini 2023'
       model: 'Studio Mini (2023)'
+    - regex: 'STUDIO G PLUS'
+      model: 'Studio G Plus'
     - regex: '(?:BLU[_ ])?Studio[ _](G3|J8M|5\.0 C|5\.5|C 5\+5 LTE|View(?: XL)?|Mega(?: LTE)?|C 8\+8|G HD LTE|[CG][ _]HD|C|G|Touch|M HD|G2 HD|M[45] Plus|J[1258]|X[89] HD|X5|X10\+?|XL(?: 2)?|X|G4)(?:[);/ ]|$)'
       model: 'Studio $1'
     - regex: '(?:BLU[_ ])?Studio[ _]5\.0 ?K(?:[);/ ]|$)'
@@ -6098,10 +6100,10 @@ China Mobile:
 
 # CHCNAV (https://chcnav.com/)
 CHCNAV:
-  regex: 'CHCNAV|(?:HCE600)(?:[);/ ]|$)'
+  regex: 'CHCNAV|(?:HCE[67]00)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: '(HCE600)'
+    - regex: '(HCE[67]00)'
       device: 'peripheral'
       model: '$1'
 
@@ -12143,9 +12145,9 @@ iHunt:
   regex: 'iHunt|One_ Love_|TIT?AN[_ ]P\d+|Like_(3|4U|3_Pro)|X300 Elite|S10_Tank_2019|S10 Tank PRO 2020|S60 Discovery Plus|S60_Discovery_2019|AlienXLite2020|Alien X (?:Lite|Pro)|Alien_X|(?:Titan ?P6000|S[23]0 Ultra ApeX 2021|S21 Ultra 4G 2021|P11000 Pro|Strong Tablet P15000 Pro|Like 11 Panda Pro|Like_Hi10_2021|Like Hi5|S21 Plus 2021|Like_[78]|Cyber DOG 4G|S10 Tank 2020|(?:S100|S90_)Apex|Tablet PC 10 PRO)(?:_EEA)?(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'Strong Tablet P15000 Pro'
+    - regex: 'Strong Tablet (P15000|X) Pro'
       device: 'tablet'
-      model: 'Strong Tablet P15000 Pro'
+      model: 'Strong Tablet $1 Pro'
     - regex: 'Tablet PC 10 PRO'
       device: 'tablet'
       model: 'Tablet PC 10 Pro'
@@ -14472,6 +14474,8 @@ Lava:
       model: 'X2'
     - regex: 'LE000Z93P(?:[);/ ]|$)'
       model: 'Z2'
+    - regex: 'LZG403[ _]25(?:[);/ ]|$)'
+      model: 'Z3 Pro'
     - regex: 'LZG403(?:[);/ ]|$)'
       model: 'Z3'
     - regex: 'LZG401(?:[);/ ]|$)'
@@ -14532,6 +14536,8 @@ Lava:
       model: 'P7 Plus'
     - regex: 'LZX414'
       model: 'Yuva 3 Pro'
+    - regex: 'LZX408'
+      model: 'Yuva 2 Pro'
     - regex: 'LIX402'
       model: 'Yuva Pro'
     - regex: 'LXX508'
@@ -26494,10 +26500,10 @@ UTOK:
 
 # Vastking
 Vastking:
-  regex: '(?:M910A|M783K|M783K-16G|M1072R-3G|KingPad_(?:[KM]10|SA10|SA8)(?:Pro)?)(?:_EEA)?(?:[);/ ]|$)'
+  regex: '(?:M910A|M783K|M783K-16G|M1072R-3G|KingPad[_ ](?:[KM]10|SA10|SA8|Z10)(?:Pro)?)(?:_EEA)?(?:[);/ ]|$)'
   device: 'tablet'
   models:
-    - regex: 'KingPad_([KM]10|SA10|SA8)(Pro)?'
+    - regex: 'KingPad[_ ]([KM]10|SA10|SA8|Z10)(Pro)?'
       model: 'KingPad $1 $2'
     - regex: '(M910A|M783K|M783K-16G|M1072R-3G)(?:[);/ ]|$)'
       model: '$1'
@@ -33799,9 +33805,11 @@ Selecline:
 
 # Selenga (selenga-t2.ru)
 Selenga:
-  regex: 'Selenga|Selenga[ _](A[1345])(?:[);/ ]|$)'
+  regex: 'Selenga'
   device: 'tv'
-  model: '$1'
+  models:
+    - regex: 'Selenga[ _](A[1345])(?:[);/ ]|$)'
+      model: '$1'
 
 # Starlight
 Starlight:
@@ -34868,7 +34876,7 @@ IKU Mobile:
   models:
     - regex: '(Powerful_K55i|Curvy C50L)(?:[);/ ]|$)'
       model: '$1'
-    - regex: 'IKU[_ ](A22|A[45]0|X[23]|K3|i[34])(?:[);/ ]|$)'
+    - regex: 'IKU[_ ](A22|A[457]0|X[23]|K3|i[34])(?:[);/ ]|$)'
       model: '$1'
     - regex: 'IKU[_ ](T[123])(?:[);/ ]|$)'
       device: 'tablet'
@@ -41829,6 +41837,18 @@ DMOAO:
   models:
     - regex: '(D3)_EEA(?:[);/ ]|$)'
       model: '$1'
+
+# Hyatta (hyatta.cn)
+Hyatta:
+  regex: 'Model[ _](5|6s)(?:[);/ ]|$)'
+  device: 'smartphone'
+  model: 'Model $1'
+
+# PVBox
+PVBox:
+  regex: 'PVBOX_P5_PRO'
+  device: 'tv'
+  model: 'P5 Pro'
 
 # Devices with undectable brand, but detectable model
 Unknown:
