@@ -78,7 +78,7 @@ abstract class AbstractClientParser extends AbstractParser
         $names    = [];
 
         foreach ($regexes as $regex) {
-            if (\strpos($regex['name'], '$1') !== false) {
+            if (false !== \strpos($regex['name'], '$1')) {
                 continue;
             }
 
