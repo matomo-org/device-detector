@@ -85,7 +85,7 @@ abstract class AbstractClientParser extends AbstractParser
             $names[] = $regex['name'];
         }
 
-        if (static::class === MobileApp::class) {
+        if (MobileApp::class === static::class) {
             $names = \array_merge($names, [
                 // Microsoft Office $1
                 'Microsoft Office Access', 'Microsoft Office Excel', 'Microsoft Office OneDrive for Business',
