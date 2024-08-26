@@ -99,6 +99,7 @@ class Browser extends AbstractClientParser
         'A4' => 'AOL Shield Pro',
         '2A' => 'Aplix',
         'A6' => 'AppBrowzer',
+        '0A' => 'AppTec Secure Browser',
         'AP' => 'APUS Browser',
         'AR' => 'Arora',
         'AX' => 'Arctic Fox',
@@ -152,6 +153,7 @@ class Browser extends AbstractClientParser
         'BX' => 'BrowseX',
         'BZ' => 'Browzar',
         'B7' => 'Browlser',
+        'M9' => 'Browser Mini',
         '4B' => 'BrowsBit',
         'BY' => 'Biyubi',
         'BF' => 'Byffox',
@@ -268,6 +270,7 @@ class Browser extends AbstractClientParser
         'FH' => 'Flash Browser',
         'FS' => 'Flast',
         'F5' => 'Flyperlink',
+        'F9' => 'FOSS Browser',
         'FU' => 'FreeU',
         'F6' => 'Freedom Browser',
         'FT' => 'Frost',
@@ -299,6 +302,7 @@ class Browser extends AbstractClientParser
         'H4' => 'Holla Web Browser',
         'H5' => 'HotBrowser',
         'HJ' => 'HotJava',
+        'H6' => 'HONOR Browser',
         'HT' => 'HTC Browser',
         'HU' => 'Huawei Browser Mobile',
         'HP' => 'Huawei Browser',
@@ -470,6 +474,7 @@ class Browser extends AbstractClientParser
         'OW' => 'OmniWeb',
         'OT' => 'Otter Browser',
         '4O' => 'Owl Browser',
+        'JR' => 'OJR Browser',
         'PL' => 'Palm Blazer',
         'PM' => 'Pale Moon',
         'PY' => 'Polypane',
@@ -482,6 +487,7 @@ class Browser extends AbstractClientParser
         'PW' => 'Palm WebPro',
         'PA' => 'Palmscape',
         'P7' => 'Pawxy',
+        '0P' => 'Peach Browser',
         'PE' => 'Perfect Browser',
         'K6' => 'Perk',
         'P1' => 'Phantom.me',
@@ -489,6 +495,7 @@ class Browser extends AbstractClientParser
         'PX' => 'Phoenix',
         'PB' => 'Phoenix Browser',
         '5P' => 'Photon',
+        'N9' => 'Pintar Browser',
         'P9' => 'PirateBrowser',
         'P8' => 'PICO Browser',
         'PF' => 'PlayFree Browser',
@@ -705,7 +712,7 @@ class Browser extends AbstractClientParser
     protected static $browserFamilies = [
         'Android Browser'    => ['AN'],
         'BlackBerry Browser' => ['BB'],
-        'Baidu'              => ['BD', 'BS'],
+        'Baidu'              => ['BD', 'BS', 'H6'],
         'Amiga'              => ['AV', 'AW'],
         'Chrome'             => [
             'CH', '2B', '7S', 'A0', 'AC', 'A4', 'AE', 'AH', 'AI',
@@ -736,7 +743,8 @@ class Browser extends AbstractClientParser
             'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'P5', 'H5', 'V3',
             'K3', 'Q4', 'G2', 'R2', 'WX', 'XP', '3I', 'BG', 'R0',
             'JO', 'OL', 'GN', 'W4', 'QI', 'E1', 'RI', '8B', '5B',
-            'K4', 'WK', 'T3', 'K5', 'MU', '9P', 'K6', 'VR',
+            'K4', 'WK', 'T3', 'K5', 'MU', '9P', 'K6', 'VR', 'N9',
+            'M9', 'F9', '0P', '0A', 'JR',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -783,7 +791,7 @@ class Browser extends AbstractClientParser
         'M7', 'GN', 'D3', 'IG', 'HW', '4O', 'OU', '5P', 'KE',
         '5A', 'TT', '6P', 'G3', '7P', 'VU', 'F8', 'L4', 'DK',
         'DP', 'KL', 'K4', 'N6', 'KU', 'WK', 'M8', 'UP', 'ZT',
-        '9P', 'N8', 'VR',
+        '9P', 'N8', 'VR', 'N9', 'M9', 'F9', '0P', '0A', 'JR',
     ];
 
     /**
@@ -1009,7 +1017,7 @@ class Browser extends AbstractClientParser
 
             // If client hints report the following browsers, we use the version from useragent
             if (!empty($browserFromUserAgent['version'])
-                && \in_array($short, ['MU', 'OM', 'OP', 'VR'])
+                && \in_array($short, ['JR', 'MU', 'OM', 'OP', 'VR'])
             ) {
                 $version = $browserFromUserAgent['version'];
             }
