@@ -78,48 +78,25 @@ abstract class AbstractClientParser extends AbstractParser
         $names    = [];
 
         foreach ($regexes as $regex) {
-            if ('$1' === $regex['name']) {
-                continue;
-            }
-
-            if ('Microsoft Office $1' === $regex['name']) {
-                $clients = [
-                    'Microsoft Office Access', 'Microsoft Office Excel', 'Microsoft Office OneDrive for Business',
-                    'Microsoft Office OneNote', 'Microsoft Office PowerPoint', 'Microsoft Office Project',
-                    'Microsoft Office Publisher', 'Microsoft Office Visio', 'Microsoft Office Word',
-                ];
-
-                foreach ($clients as $client) {
-                    $names[] = $client;
-                }
-
-                continue;
-            }
-
-            if ('Podkicker$1' === $regex['name']) {
-                $clients = ['Podkicker', 'Podkicker Pro', 'Podkicker Classic'];
-
-                foreach ($clients as $client) {
-                    $names[] = $client;
-                }
-
-                continue;
-            }
-
-            if ('radio.$1' === $regex['name']) {
-                $clients = [
-                    'radio.at', 'radio.de', 'radio.dk', 'radio.es', 'radio.fr', 'radio.it', 'radio.pl', 'radio.pt',
-                    'radio.se', 'radio.net',
-                ];
-
-                foreach ($clients as $client) {
-                    $names[] = $client;
-                }
-
+            if (\strpos($regex['name'], '$1') !== false) {
                 continue;
             }
 
             $names[] = $regex['name'];
+        }
+
+        if (static::class === MobileApp::class) {
+            $names = \array_merge($names, [
+                // Microsoft Office $1
+                'Microsoft Office Access', 'Microsoft Office Excel', 'Microsoft Office OneDrive for Business',
+                'Microsoft Office OneNote', 'Microsoft Office PowerPoint', 'Microsoft Office Project',
+                'Microsoft Office Publisher', 'Microsoft Office Visio', 'Microsoft Office Word',
+                // Podkicker$1
+                'Podkicker', 'Podkicker Pro', 'Podkicker Classic',
+                // radio.$1
+                'radio.at', 'radio.de', 'radio.dk', 'radio.es', 'radio.fr',
+                'radio.it',  'radio.pl', 'radio.pt', 'radio.se',  'radio.net',
+            ]);
         }
 
         \natcasesort($names);
