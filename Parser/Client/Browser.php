@@ -744,7 +744,7 @@ class Browser extends AbstractClientParser
             'K3', 'Q4', 'G2', 'R2', 'WX', 'XP', '3I', 'BG', 'R0',
             'JO', 'OL', 'GN', 'W4', 'QI', 'E1', 'RI', '8B', '5B',
             'K4', 'WK', 'T3', 'K5', 'MU', '9P', 'K6', 'VR', 'N9',
-            'M9', 'F9', '0P', '0A', 'JR',
+            'M9', 'F9', '0P', '0A', 'JR', 'D3',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -788,10 +788,10 @@ class Browser extends AbstractClientParser
         'ZR', 'D6', 'F6', 'P3', 'FT', 'A9', 'X2', 'NI', 'FG',
         'TH', 'N3', 'GD', 'O9', 'Q3', 'F7', 'K2', 'N4', 'P5',
         'H5', 'V3', 'G2', 'BG', 'OL', 'II', 'TL', 'M6', 'Y3',
-        'M7', 'GN', 'D3', 'IG', 'HW', '4O', 'OU', '5P', 'KE',
+        'M7', 'GN', 'JR', 'IG', 'HW', '4O', 'OU', '5P', 'KE',
         '5A', 'TT', '6P', 'G3', '7P', 'VU', 'F8', 'L4', 'DK',
         'DP', 'KL', 'K4', 'N6', 'KU', 'WK', 'M8', 'UP', 'ZT',
-        '9P', 'N8', 'VR', 'N9', 'M9', 'F9', '0P', '0A', 'JR',
+        '9P', 'N8', 'VR', 'N9', 'M9', 'F9', '0P', '0A',
     ];
 
     /**
