@@ -197,6 +197,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ATE' => 'Atlantic Electrics',
         '5Q'  => 'Atmaca Elektronik',
         'YH'  => 'ATMAN',
+        'ATM' => 'ATMPC',
         '2A'  => 'Atom',
         'AT1' => 'Atozee',
         'ATO' => 'ATOL',
