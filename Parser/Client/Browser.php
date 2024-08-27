@@ -343,6 +343,7 @@ class Browser extends AbstractClientParser
         'JZ' => 'JUZI Browser',
         'KB' => 'K.Browser',
         'KF' => 'Keepsafe Browser',
+        'K7' => 'KeepSolid Browser',
         'KS' => 'Kids Safe Browser',
         'KI' => 'Kindle Browser',
         'KM' => 'K-meleon',
@@ -749,7 +750,7 @@ class Browser extends AbstractClientParser
             'JO', 'OL', 'GN', 'W4', 'QI', 'E1', 'RI', '8B', '5B',
             'K4', 'WK', 'T3', 'K5', 'MU', '9P', 'K6', 'VR', 'N9',
             'M9', 'F9', '0P', '0A', 'JR', 'D3', 'TK', 'BP', '2F',
-            '2M',
+            '2M', 'K7',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -797,7 +798,7 @@ class Browser extends AbstractClientParser
         '5A', 'TT', '6P', 'G3', '7P', 'VU', 'F8', 'L4', 'DK',
         'DP', 'KL', 'K4', 'N6', 'KU', 'WK', 'M8', 'UP', 'ZT',
         '9P', 'N8', 'VR', 'N9', 'M9', 'F9', '0P', '0A', '2F',
-        '2M',
+        '2M', 'K7',
     ];
 
     /**
