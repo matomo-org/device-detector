@@ -328,6 +328,7 @@ class Browser extends AbstractClientParser
         'I9' => 'Insta Browser',
         'IE' => 'Internet Explorer',
         'I7' => 'Internet Browser Secure',
+        '5I' => 'Internet Webbrowser',
         '3I' => 'Intune Managed Browser',
         'I5' => 'Indian UC Mini Browser',
         'Z0' => 'InBrowser',
