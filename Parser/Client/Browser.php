@@ -504,6 +504,7 @@ class Browser extends AbstractClientParser
         'PT' => 'Polarity',
         'LY' => 'PolyBrowser',
         '9P' => 'Presearch',
+        'BP' => 'Privacy Browser',
         'PI' => 'PrivacyWall',
         'P4' => 'Privacy Explorer Fast Safe',
         'P3' => 'Private Internet Browser',
@@ -745,7 +746,7 @@ class Browser extends AbstractClientParser
             'K3', 'Q4', 'G2', 'R2', 'WX', 'XP', '3I', 'BG', 'R0',
             'JO', 'OL', 'GN', 'W4', 'QI', 'E1', 'RI', '8B', '5B',
             'K4', 'WK', 'T3', 'K5', 'MU', '9P', 'K6', 'VR', 'N9',
-            'M9', 'F9', '0P', '0A', 'JR', 'D3', 'TK',
+            'M9', 'F9', '0P', '0A', 'JR', 'D3', 'TK', 'BP',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
