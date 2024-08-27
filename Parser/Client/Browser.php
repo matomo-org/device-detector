@@ -633,6 +633,7 @@ class Browser extends AbstractClientParser
         'T3' => 'Total Browser',
         'TS' => 'TweakStyle',
         'TV' => 'TV Bro',
+        'T4' => 'TV-Browser Internet',
         'U0' => 'U Browser',
         'UB' => 'UBrowser',
         'UC' => 'UC Browser',
@@ -755,7 +756,7 @@ class Browser extends AbstractClientParser
             'JO', 'OL', 'GN', 'W4', 'QI', 'E1', 'RI', '8B', '5B',
             'K4', 'WK', 'T3', 'K5', 'MU', '9P', 'K6', 'VR', 'N9',
             'M9', 'F9', '0P', '0A', 'JR', 'D3', 'TK', 'BP', '2F',
-            '2M', 'K7', '1N', '8A', 'H7', 'X3',
+            '2M', 'K7', '1N', '8A', 'H7', 'X3', 'T4',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
