@@ -453,7 +453,7 @@ class Browser extends AbstractClientParser
         'OL' => 'OnBrowser Lite',
         'OE' => 'ONE Browser',
         'N4' => 'Onion Browser',
-        '1N' => 'ONION Browser',
+        '1N' => 'ONIONBrowser',
         'Y1' => 'Opera Crypto',
         'OX' => 'Opera GX',
         'OG' => 'Opera Neon',
