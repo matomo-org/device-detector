@@ -1032,7 +1032,7 @@ class Browser extends AbstractClientParser
 
             // If client hints report the following browsers, we use the version from useragent
             if (!empty($browserFromUserAgent['version'])
-                && \in_array($short, ['JR', 'MU', 'OM', 'OP', 'VR'])
+                && \in_array($short, ['AL', 'JR', 'MU', 'OM', 'OP', 'VR'])
             ) {
                 $version = $browserFromUserAgent['version'];
             }
