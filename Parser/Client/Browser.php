@@ -619,6 +619,7 @@ class Browser extends AbstractClientParser
         'TI' => 'Tint Browser',
         'TL' => 'TrueLocation Browser',
         'TC' => 'TUC Mini Browser',
+        'TK' => 'TUSK',
         'TU' => 'Tungsten',
         'TG' => 'ToGate',
         'T3' => 'Total Browser',
@@ -744,7 +745,7 @@ class Browser extends AbstractClientParser
             'K3', 'Q4', 'G2', 'R2', 'WX', 'XP', '3I', 'BG', 'R0',
             'JO', 'OL', 'GN', 'W4', 'QI', 'E1', 'RI', '8B', '5B',
             'K4', 'WK', 'T3', 'K5', 'MU', '9P', 'K6', 'VR', 'N9',
-            'M9', 'F9', '0P', '0A', 'JR', 'D3',
+            'M9', 'F9', '0P', '0A', 'JR', 'D3', 'TK',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
