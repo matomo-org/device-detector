@@ -702,6 +702,7 @@ class Browser extends AbstractClientParser
         'XT' => 'XtremeCast',
         'XS' => 'xStand',
         'XI' => 'Xiino',
+        'X4' => 'XnBrowse',
         'XO' => 'Xooloo Internet',
         'XV' => 'Xvast',
         'ZE' => 'Zetakey',
@@ -756,7 +757,7 @@ class Browser extends AbstractClientParser
             'JO', 'OL', 'GN', 'W4', 'QI', 'E1', 'RI', '8B', '5B',
             'K4', 'WK', 'T3', 'K5', 'MU', '9P', 'K6', 'VR', 'N9',
             'M9', 'F9', '0P', '0A', 'JR', 'D3', 'TK', 'BP', '2F',
-            '2M', 'K7', '1N', '8A', 'H7', 'X3', 'T4',
+            '2M', 'K7', '1N', '8A', 'H7', 'X3', 'T4', 'X4',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -804,7 +805,7 @@ class Browser extends AbstractClientParser
         '5A', 'TT', '6P', 'G3', '7P', 'VU', 'F8', 'L4', 'DK',
         'DP', 'KL', 'K4', 'N6', 'KU', 'WK', 'M8', 'UP', 'ZT',
         '9P', 'N8', 'VR', 'N9', 'M9', 'F9', '0P', '0A', '2F',
-        '2M', 'K7', '1N', '8A', 'H7', 'X3',
+        '2M', 'K7', '1N', '8A', 'H7', 'X3', 'X4',
     ];
 
     /**
