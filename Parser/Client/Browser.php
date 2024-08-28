@@ -632,6 +632,7 @@ class Browser extends AbstractClientParser
         'TU' => 'Tungsten',
         'TG' => 'ToGate',
         'T3' => 'Total Browser',
+        'TQ' => 'TQ Browser',
         'TS' => 'TweakStyle',
         'TV' => 'TV Bro',
         'T4' => 'TV-Browser Internet',
