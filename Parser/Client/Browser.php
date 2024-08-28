@@ -543,6 +543,7 @@ class Browser extends AbstractClientParser
         'R3' => 'Rakuten Browser',
         'R4' => 'Rakuten Web Search',
         'R2' => 'Raspbian Chromium',
+        'RT' => 'RCA Tor Explorer',
         'RE' => 'Realme Browser',
         'RK' => 'Rekonq',
         'RM' => 'RockMelt',
