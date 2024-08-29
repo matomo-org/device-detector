@@ -983,7 +983,10 @@ class Browser extends AbstractClientParser
                 $engineVersion = $browserFromUserAgent['engine_version'] ?? '';
             }
 
-            if ('Atom' === $name || 'Huawei Browser' === $name) {
+            // If client hints report the following browsers, we use the version from useragent
+            if (!empty($browserFromUserAgent['version'])
+                && \in_array($short, ['A0', 'AL', 'HP', 'JR', 'MU', 'OM', 'OP', 'VR'])
+            ) {
                 $version = $browserFromUserAgent['version'];
             }
 
@@ -1031,13 +1034,6 @@ class Browser extends AbstractClientParser
 
             if ('DuckDuckGo Privacy Browser' === $name) {
                 $version = '';
-            }
-
-            // If client hints report the following browsers, we use the version from useragent
-            if (!empty($browserFromUserAgent['version'])
-                && \in_array($short, ['AL', 'JR', 'MU', 'OM', 'OP', 'VR'])
-            ) {
-                $version = $browserFromUserAgent['version'];
             }
         } else {
             $name          = $browserFromUserAgent['name'];
