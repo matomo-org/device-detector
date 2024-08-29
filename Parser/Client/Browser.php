@@ -1087,6 +1087,13 @@ class Browser extends AbstractClientParser
             $engineVersion = '';
         }
 
+        // This browser simulates user-agent of Firefox
+        if ('TV-Browser Internet' === $name && 'Gecko' === $engine) {
+            $family        = 'Chrome';
+            $engine        = 'Blink';
+            $engineVersion = '';
+        }
+
         return [
             'type'           => 'browser',
             'name'           => $name,
