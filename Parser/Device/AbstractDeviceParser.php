@@ -2013,6 +2013,16 @@ abstract class AbstractDeviceParser extends AbstractParser
         'XX'  => 'Unknown',
     ];
 
+    protected static $clientHintFormFactorsMapping = [
+       'desktop'    => self::DEVICE_TYPE_DESKTOP,
+       'automotive' => self::DEVICE_TYPE_CAR_BROWSER,
+       'mobile'     => self::DEVICE_TYPE_SMARTPHONE,
+       'tablet'     => self::DEVICE_TYPE_TABLET,
+       'xr'         => self::DEVICE_TYPE_WEARABLE,
+       'eink'       => self::DEVICE_TYPE_TABLET,
+       'watch'      => self::DEVICE_TYPE_WEARABLE,
+    ];
+
     /**
      * Returns the device type represented by one of the DEVICE_TYPE_* constants
      *
@@ -2239,9 +2249,20 @@ abstract class AbstractDeviceParser extends AbstractParser
      */
     protected function parseClientHints(): ?array
     {
-        if ($this->clientHints && $this->clientHints->getModel()) {
+        if ($this->clientHints) {
+            $formFactors = $this->clientHints->getFormFactors();
+            $deviceType  = self::$clientHintFormFactorsMapping[$formFactors] ?? null;
+
+            if (null !== $deviceType ) {
+                $deviceType = self::getDeviceName($deviceType);
+            }
+
+            if (null === $deviceType && $this->clientHints->isMobile()) {
+                $deviceType = self::getDeviceName(self::DEVICE_TYPE_SMARTPHONE);
+            }
+
             return [
-                'deviceType' => null,
+                'deviceType' => $deviceType,
                 'model'      => $this->clientHints->getModel(),
                 'brand'      => '',
             ];
@@ -2249,6 +2270,7 @@ abstract class AbstractDeviceParser extends AbstractParser
 
         return null;
     }
+
 
     /**
      * Returns if the parsed UA contains the 'Windows NT;' or 'X11; Linux x86_64' fragments

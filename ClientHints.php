@@ -77,6 +77,13 @@ class ClientHints
     protected $app = '';
 
     /**
+     * Represents `Sec-CH-UA-Form-Factors` header field: form factor device type name
+     *
+     * @var array
+     */
+    protected $formFactors = '';
+
+    /**
      * Constructor
      *
      * @param string $model           `Sec-CH-UA-Model` header field
@@ -88,8 +95,9 @@ class ClientHints
      * @param string $architecture    `Sec-CH-UA-Arch` header field
      * @param string $bitness         `Sec-CH-UA-Bitness`
      * @param string $app             `HTTP_X-REQUESTED-WITH`
+     * @param string $formFactors     `Sec-CH-UA-Form-Factors` header field
      */
-    public function __construct(string $model = '', string $platform = '', string $platformVersion = '', string $uaFullVersion = '', array $fullVersionList = [], bool $mobile = false, string $architecture = '', string $bitness = '', string $app = '') // phpcs:ignore Generic.Files.LineLength
+    public function __construct(string $model = '', string $platform = '', string $platformVersion = '', string $uaFullVersion = '', array $fullVersionList = [], bool $mobile = false, string $architecture = '', string $bitness = '', string $app = '', string $formFactors) // phpcs:ignore Generic.Files.LineLength
     {
         $this->model           = $model;
         $this->platform        = $platform;
@@ -100,6 +108,7 @@ class ClientHints
         $this->architecture    = $architecture;
         $this->bitness         = $bitness;
         $this->app             = $app;
+        $this->formFactors     = $formFactors;
     }
 
     /**
@@ -225,6 +234,16 @@ class ClientHints
     }
 
     /**
+     * Returns the formFactor device type name
+     *
+     * @return string
+     */
+    public function getFormFactors(): string
+    {
+        return $this->formFactors;
+    }
+
+    /**
      * Factory method to easily instantiate this class using an array containing all available (client hint) headers
      *
      * @param array $headers
@@ -237,6 +256,7 @@ class ClientHints
         $app             = '';
         $mobile          = false;
         $fullVersionList = [];
+        $formFactors     = '';
 
         foreach ($headers as $name => $value) {
             switch (\str_replace('_', '-', \strtolower((string) $name))) {
@@ -320,6 +340,16 @@ class ClientHints
                     }
 
                     break;
+                case 'http-sec-ch-ua-form-factors':
+                case 'sec-ch-ua-form-factors':
+                case 'formFactors':
+                    if (is_array($value)) {
+                        $formFactors = \strtolower($value[0]);
+                    } else {
+                        $formFactors = \strtolower($value);
+                    }
+                    $formFactors = \trim($formFactors, '"');
+                    break;
             }
         }
 
@@ -332,7 +362,8 @@ class ClientHints
             $mobile,
             $architecture,
             $bitness,
-            $app
+            $app,
+            $formFactors
         );
     }
 }
