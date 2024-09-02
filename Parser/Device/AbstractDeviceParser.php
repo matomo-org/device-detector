@@ -1482,6 +1482,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SEW' => 'Sewoo',
         'SE1' => 'SEEWO',
         'SEN' => 'SENNA',
+        'SER' => 'SERVO',
         'Y7'  => 'Saiet',
         'SLF' => 'SAILF',
         'X1'  => 'Safaricom',
