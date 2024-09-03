@@ -71,9 +71,7 @@ class ClientHintsTest extends TestCase
                 ['brand' => 'Chromium', 'version' => '99.0.4844.51'],
                 ['brand' => 'Google Chrome', 'version' => '99.0.4844.51'],
             ],
-            'formFactors'     => [
-                'Desktop'
-            ],
+            'formFactors'     => ['Desktop'],
             'mobile'          => false,
             'model'           => '',
             'platform'        => 'Windows',
@@ -91,7 +89,6 @@ class ClientHintsTest extends TestCase
         ], $ch->getBrandList());
         self::assertSame('', $ch->getModel());
         self::assertEquals('desktop', $ch->formFactors);
-
     }
 
     public function testIncorrectVersionListIsDiscarded(): void

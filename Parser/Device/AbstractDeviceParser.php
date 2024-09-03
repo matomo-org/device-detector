@@ -2013,6 +2013,11 @@ abstract class AbstractDeviceParser extends AbstractParser
         'XX'  => 'Unknown',
     ];
 
+    /**
+     * Mapping formFactor types to parser device types
+     *
+     * @var array
+     */
     protected static $clientHintFormFactorsMapping = [
        'desktop'    => self::DEVICE_TYPE_DESKTOP,
        'automotive' => self::DEVICE_TYPE_CAR_BROWSER,
