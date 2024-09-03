@@ -12,6 +12,18 @@ declare(strict_types=1);
 
 namespace DeviceDetector;
 
+/**
+ * @property-read string $architecture
+ * @property-read string $bitness
+ * @property-read string $model
+ * @property-read bool   $mobile
+ * @property-read string $platform
+ * @property-read string $platformVersion
+ * @property-read string $uaFullVersion
+ * @property-read array  $fullVersionList
+ * @property-read string $app
+ * @property-read string $formFactors
+ */
 class ClientHints
 {
     /**
@@ -79,7 +91,7 @@ class ClientHints
     /**
      * Represents `Sec-CH-UA-Form-Factors` header field: form factor device type name
      *
-     * @var array
+     * @var string
      */
     protected $formFactors = '';
 
@@ -340,14 +352,13 @@ class ClientHints
                     }
 
                     break;
+                case 'formfactors':
+                    $formFactors = \strtolower($value[0] ?? '');
+                    $formFactors = \trim($formFactors, '"');
+                break;
                 case 'http-sec-ch-ua-form-factors':
                 case 'sec-ch-ua-form-factors':
-                case 'formFactors':
-                    if (is_array($value)) {
-                        $formFactors = \strtolower($value[0]);
-                    } else {
-                        $formFactors = \strtolower($value);
-                    }
+                    $formFactors = \strtolower($value);
                     $formFactors = \trim($formFactors, '"');
                     break;
             }

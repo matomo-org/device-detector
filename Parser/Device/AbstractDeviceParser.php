@@ -2253,7 +2253,7 @@ abstract class AbstractDeviceParser extends AbstractParser
             $formFactors = $this->clientHints->getFormFactors();
             $deviceType  = self::$clientHintFormFactorsMapping[$formFactors] ?? null;
 
-            if (null !== $deviceType ) {
+            if (null !== $deviceType) {
                 $deviceType = self::getDeviceName($deviceType);
             }
 

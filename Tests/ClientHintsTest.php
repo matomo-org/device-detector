@@ -60,7 +60,7 @@ class ClientHintsTest extends TestCase
             'Opera'        => '98.0.4758.82',
         ], $ch->getBrandList());
         self::assertSame('DN2103', $ch->getModel());
-        self::assertSame('desktop', $ch->getFormFactors());
+        self::assertEquals('desktop', $ch->getFormFactors());
     }
 
     public function testHeadersJavascript(): void
@@ -90,7 +90,8 @@ class ClientHintsTest extends TestCase
             'Google Chrome' => '99.0.4844.51',
         ], $ch->getBrandList());
         self::assertSame('', $ch->getModel());
-        self::assertSame('desktop', $ch->getFormFactors());
+        self::assertEquals('desktop', $ch->formFactors);
+
     }
 
     public function testIncorrectVersionListIsDiscarded(): void
