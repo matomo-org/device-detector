@@ -2019,13 +2019,13 @@ abstract class AbstractDeviceParser extends AbstractParser
      * @var array
      */
     protected static $clientHintFormFactorsMapping = [
-       'desktop'    => self::DEVICE_TYPE_DESKTOP,
-       'automotive' => self::DEVICE_TYPE_CAR_BROWSER,
-       'mobile'     => self::DEVICE_TYPE_SMARTPHONE,
-       'tablet'     => self::DEVICE_TYPE_TABLET,
-       'xr'         => self::DEVICE_TYPE_WEARABLE,
-       'eink'       => self::DEVICE_TYPE_TABLET,
-       'watch'      => self::DEVICE_TYPE_WEARABLE,
+        'desktop'    => self::DEVICE_TYPE_DESKTOP,
+        'automotive' => self::DEVICE_TYPE_CAR_BROWSER,
+        'mobile'     => self::DEVICE_TYPE_SMARTPHONE,
+        'tablet'     => self::DEVICE_TYPE_TABLET,
+        'xr'         => self::DEVICE_TYPE_WEARABLE,
+        'eink'       => self::DEVICE_TYPE_TABLET,
+        'watch'      => self::DEVICE_TYPE_WEARABLE,
     ];
 
     /**
@@ -2271,7 +2271,6 @@ abstract class AbstractDeviceParser extends AbstractParser
 
         return null;
     }
-
 
     /**
      * Returns if the parsed UA contains the 'Windows NT;' or 'X11; Linux x86_64' fragments
