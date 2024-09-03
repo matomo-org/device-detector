@@ -344,7 +344,7 @@ class ClientHints
                     $formFactors = \strtolower($value[0] ?? '');
                     $formFactors = \trim($formFactors, '"');
 
-                break;
+                    break;
                 case 'http-sec-ch-ua-form-factors':
                 case 'sec-ch-ua-form-factors':
                     $formFactors = \strtolower($value);
