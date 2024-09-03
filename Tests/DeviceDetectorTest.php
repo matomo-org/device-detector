@@ -449,7 +449,7 @@ class DeviceDetectorTest extends TestCase
         ));
 
         $this->assertEquals($dd->parse(), [
-            'deviceType' => 'smartphone',
+            'deviceType' => null,
             'model'      => 'Galaxy 4',
             'brand'      => '',
         ]);

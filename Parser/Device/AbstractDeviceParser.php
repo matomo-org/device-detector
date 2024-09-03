@@ -2257,10 +2257,6 @@ abstract class AbstractDeviceParser extends AbstractParser
                 $deviceType = self::getDeviceName($deviceType);
             }
 
-            if (null === $deviceType && $this->clientHints->isMobile()) {
-                $deviceType = self::getDeviceName(self::DEVICE_TYPE_SMARTPHONE);
-            }
-
             return [
                 'deviceType' => $deviceType,
                 'model'      => $this->clientHints->getModel(),
