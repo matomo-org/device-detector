@@ -10389,13 +10389,16 @@ Huagan:
 
 # Stream or Stream System
 Stream:
-  regex: '(B3 (?:Maxi|Simply)|B3Pro|Android 8(?:[\d.]*);(?: [\w-]+;)? (?:B1s|HT28|HT16))(?:[);/ ]|$)'
+  regex: 'LGE; (?:WSTR[0-9a-z]+);|(B3 (?:Maxi|Simply)|B3Pro|Android 8(?:[\d.]*);(?: [\w-]+;)? (?:B1s|HT28|HT16))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(B3 (?:Maxi|Simply)|B1s|HT28|HT16)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'B3Pro(?:[);/ ]|$)'
       model: 'B3 Pro'
+    - regex: 'LGE; (WSTR[0-9a-z]+);'
+      model: '$1'
+      device: 'tv'
 
 # Homtom
 Homtom:
