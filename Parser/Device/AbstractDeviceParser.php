@@ -710,6 +710,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'GU'  => 'Grundig',
         'GV'  => 'Gtel',
         'CUO' => 'Guophone',
+        'GVC' => 'GVC Pro',
         'H13' => 'H133',
         '9Z'  => 'H96',
         'HF'  => 'Hafury',
