@@ -40145,9 +40145,13 @@ Energy Sistem:
 
 # WANSA
 WANSA:
-  regex: '(WUD55H7762SN|WUD55G7762S)(?:[);/ ]|$)'
+  regex: 'LGE; (?:WLE[0-9a-z]+);|(?:WUD55H7762SN|WUD55G7762S)(?:[);/ ]|$)'
   device: 'tv'
-  model: '$1'
+  models:
+    - regex: '(WUD55H7762SN|WUD55G7762S)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'LGE; (WLE(?:[0-9a-z]+));'
+      model: '$1'
 
 # XElectron
 XElectron:
