@@ -2358,7 +2358,7 @@ Aiwa:
 
 # Akai
 Akai:
-  regex: 'Akai[ _\-,]|Eco[ _]E2|Glory[ _](?:G[1235]|L[123]|O[125])|(?:TAB-[79]8[03]0Q?|X[56] METAL|AKTB-703MZ|FZ70[13]|X5_PRO|X3[_ ]PRO[_ ]SLIM|iLike U5 Pro)(?:[);/ ]|$)'
+  regex: 'Akai[ _\-,]|LGE; (?:ALT|AK)[a-z0-9]+;|Eco[ _]E2|Glory[ _](?:G[1235]|L[123]|O[125])|(?:TAB-[79]8[03]0Q?|X[56] METAL|AKTB-703MZ|FZ70[13]|X5_PRO|X3[_ ]PRO[_ ]SLIM|iLike U5 Pro)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'TAB-([79]8[03]0Q?)'
@@ -2390,6 +2390,9 @@ Akai:
       model: '$1'
 
     - regex: 'AKAI,(AK3219NF)'
+      device: 'tv'
+      model: '$1'
+    - regex: 'LGE; ((?:ALT|AK)[a-z0-9]+);'
       device: 'tv'
       model: '$1'
     - regex: 'Si2157LG32'
@@ -10083,10 +10086,12 @@ Toshiba:
 
 # AWOX (https://www.awox.com.tr/)
 AWOX:
-  regex: 'AWOX(?:[);/ ]|$)'
+  regex: '(?:AWOX|B213900SW)(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: 'AWOX;SmartTV;([a-z0-9_ \-]+);'
+      model: '$1'
+    - regex: '(B213900SW)(?:[);/ ]|$)'
       model: '$1'
 
 # UD (https://udtv.store/)
@@ -10111,7 +10116,7 @@ UGINE:
 
 # Sunny
 Sunny:
-  regex: '(?:SS4G9 Mira|SS4G7 Sole|SS4G1 Luna|SS4G8 Nora|SS4G6 Lola|SN7014S?|SN7016|SN10016|SN01DNGL300|SUNNY (?:SS01|S52D)|SUNNY;SmartTV)(?:[);/ ]|$)'
+  regex: 'LGE; SNY?[0-9]{2}[0-9a-z]+(?:-[0-9]+)?;|(?:SS4G9 Mira|SS4G7 Sole|SS4G1 Luna|SS4G8 Nora|SS4G6 Lola|SN7014S?|SN7016|SN10016|SN01DNGL300|SUNNY (?:SS01|S52D)|SUNNY;SmartTV)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(SS4G9 Mira|SS4G7 Sole|SS4G1 Luna|SS4G8 Nora|SS4G6 Lola)(?:[);/ ]|$)'
@@ -10127,6 +10132,9 @@ Sunny:
     - regex: 'SN01DNGL300(?:[);/ ]|$)'
       device: 'tv'
       model: 'Prime TV Stick'
+    - regex: 'LGE; (SNY?[0-9]{2}[0-9a-z]+)(?:-[0-9]+)?;'
+      device: 'tv'
+      model: '$1'
 
 # Qilive
 Qilive:
@@ -10384,13 +10392,16 @@ Huagan:
 
 # Stream or Stream System
 Stream:
-  regex: '(B3 (?:Maxi|Simply)|B3Pro|Android 8(?:[\d.]*);(?: [\w-]+;)? (?:B1s|HT28|HT16))(?:[);/ ]|$)'
+  regex: 'LGE; WSTR[0-9a-z]+;|(B3 (?:Maxi|Simply)|B3Pro|Android 8(?:[\d.]*);(?: [\w-]+;)? (?:B1s|HT28|HT16))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(B3 (?:Maxi|Simply)|B1s|HT28|HT16)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'B3Pro(?:[);/ ]|$)'
       model: 'B3 Pro'
+    - regex: 'LGE; (WSTR[0-9a-z]+);'
+      model: '$1'
+      device: 'tv'
 
 # Homtom
 Homtom:
@@ -15510,7 +15521,7 @@ Vargo:
 
 # LG or LGE (lg.com)
 LG:
-  regex: '(?<!TECNO Mobile |TECNO )LG|Web0S; Linux/SmartTV|portalmmm/2\.0 (?:KE|KG|KP|L3)|(?:(?!VX20|VX19)VX[0-9]+|L-0[12]D|L-07C|P713|(LM-[A-Z][0-9]{3}[A-Z]{0,3}(?:\(FGN?\)|\(G\)|\.FN|\.F(?:GN?)?)?)|LM-(X625N1|G820QM[0127])|G Watch|lucye)(?:[);/ ]|$)|NetCast|RS98[78]|RS500|VS(?:50[01]|835|876|880|98[05-8]|99[056]|(410|415|425|500|880)PP)|VS820|VS870 4G|Nexsus 5|10A30Q|LML(41[34]D|211B|713D|212V)L|VK810 4G|VK815|X5-LG|L-05[DE]|L-03K|L-01[LJK]|L-52A|L-[45]1A|901LG|A001LG|80[12]LG|402LG|LGT32|L-02K|L-01F|LM-V40|DM-01K|DM-02H|LMX130IM|LMG820UM1|VS810PP|VS425|VM670|VS930 4G|US215'
+  regex: '(?<!TECNO Mobile |TECNO )LG(?!(?: Browser/8| NetCast\.TV| WebOS|E[;,]))|NetCast(?!\.TV)|WebAppManager|portalmmm/2\.0 (?:KE|KG|KP|L3)|(?:(?!VX20|VX19)VX[0-9]+|L-0[12]D|L-07C|P713|(LM-[A-Z][0-9]{3}[A-Z]{0,3}(?:\(FGN?\)|\(G\)|\.FN|\.F(?:GN?)?)?)|LM-(X625N1|G820QM[0127])|G Watch|lucye)(?:[);/ ]|$)|RS98[78]|RS500|VS(?:50[01]|835|876|880|98[05-8]|99[056]|(410|415|425|500|880)PP)|VS820|VS870 4G|Nexsus 5|10A30Q|LML(41[34]D|211B|713D|212V)L|VK810 4G|VK815|X5-LG|L-05[DE]|L-03K|L-01[LJK]|L-52A|L-[45]1A|901LG|A001LG|80[12]LG|402LG|LGT32|L-02K|L-01F|LM-V40|DM-01K|DM-02H|LMX130IM|LMG820UM1|VS810PP|VS425|VM670|VS930 4G|US215|32LH590U-ZE'
   device: 'smartphone'
   models:
     - regex: 'DM-(01K|02H)'
@@ -39378,7 +39389,7 @@ NEXT:
 
 # Next & NextStar (https://www.next.com.tr/)
 Next & NextStar:
-  regex: '^NEXT |MyBox(?:[);/ ]|$)'
+  regex: '^NEXT |LGE; YE-[0-9a-z]+(?:-4K)?;|MyBox(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: '2000 WiFi'
@@ -39389,6 +39400,10 @@ Next & NextStar:
       model: '2071'
     - regex: 'MyBox(?:[);/ ]|$)'
       model: 'MyBox'
+    - regex: 'LGE; (YE-[0-9a-z]+)-4K;'
+      model: '$1 4K'
+    - regex: 'LGE; (YE-[0-9a-z]+);'
+      model: '$1'
 
 # iMuz (shop.imuz.com)
 iMuz:
@@ -40094,6 +40109,14 @@ Guophone:
   device: 'smartphone'
   model: '$1'
 
+# GVC Pro
+GVC Pro:
+  regex: 'LGE; [0-9]{2}GW[0-9]{4}+;'
+  device: 'tv'
+  models:
+    - regex: 'LGE; ([0-9]{2}GW[0-9]{4}+);'
+      model: '$1'
+
 # Unitech (ute.com)
 Unitech:
   regex: '(?:EA500Plus|EA630)(?:[);/ ]|$)'
@@ -40129,9 +40152,13 @@ Energy Sistem:
 
 # WANSA
 WANSA:
-  regex: '(WUD55H7762SN|WUD55G7762S)(?:[);/ ]|$)'
+  regex: 'LGE; WLE[0-9a-z]+;|(?:WUD55H7762SN|WUD55G7762S)(?:[);/ ]|$)'
   device: 'tv'
-  model: '$1'
+  models:
+    - regex: '(WUD55H7762SN|WUD55G7762S)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'LGE; (WLE[0-9a-z]+);'
+      model: '$1'
 
 # XElectron
 XElectron:
@@ -40668,6 +40695,14 @@ SkyStream:
     - regex: 'SKYSTREAM[_ ]One'
       model: 'One'
 
+# Skytech (https://skytech.com.tr/)
+Skytech:
+  regex: 'LGE; ST-[0-9a-z]+;'
+  device: 'tv'
+  models:
+    - regex: 'LGE; (ST-[0-9a-z]+);'
+      model: '$1'
+
 # Supraim
 Supraim:
   regex: '(SN10)(?:[);/ ]|$)'
@@ -40682,13 +40717,16 @@ Bolva:
 
 # DIJITSU (http://dijitsu.com.tr/)
 DIJITSU:
-  regex: 'DIJITSU_|(?:DCT 90)(?:[);/ ]|$)'
+  regex: 'DIJITSU_|LGE; [0-9]{2}DW[0-9]{4}+;|(?:DCT 90)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'DCT 90'
       model: 'DCT 90'
     - regex: 'DIJITSU[_ ]Smart[_ ]A11s'
       model: 'Smart A11s'
+    - regex: 'LGE; ([0-9]{2}DW[0-9]{4}+);'
+      model: '$1'
+      device: 'tv'
 
 # Hathway
 Hathway:
@@ -41817,9 +41855,13 @@ Moondrop:
 
 # Vision Technology (vision-ma.com)
 Vision Technology:
-  regex: 'XS100MINI(?:[);/ ]|$)'
+  regex: 'LGE; VS-[0-9a-z]+;|XS100MINI(?:[);/ ]|$)'
   device: 'tv'
-  model: 'XS100 Mini'
+  models:
+    - regex: 'XS100MINI(?:[);/ ]|$)'
+      model: 'XS100 Mini'
+    - regex: 'LGE; (VS-[0-9a-z]+);'
+      model: '$1'
 
 # WOZIFAN (Ruzava/WOZIFAN)
 WOZIFAN:
@@ -41957,7 +41999,7 @@ LYOTECH LABS:
   device: 'smartphone'
   model: 'LFi One'
 
-# MESWAO
+# MESWAO (https://meswao.com/)
 MESWAO:
   regex: '(MES-B1)(?:[);/ ]|$)'
   device: 'tablet'
@@ -41974,6 +42016,9 @@ Unknown:
   regex: 'Plasma Mobile|WebTV/(\d+\.\d+)|TV Bro| BOX|BOX | BOX |roku|YouView|DirectFB|avdn/|wired|wireless|AndroidTV|cordova-amazon-fireos|wv-atv|SDSTB|SDOTT|(?:M10 Ultra|FO-R15|TVBOX|Smart[ _-]?TV|SmartATV|M8S\+ 4K|PCBox|rk(?:3128|322x|3368)(?:[_-]box)?|H10 PLAY|Smart AIO TV|TVBOX_L|L-BOX|TVBOX-5G|mips.+(?:Opera TV|wireless|wired)|smartbox|TV BOX|BOX TV|I12Pro Max|(?:audi_)?ks1280x480|AT&T TV|RealtekATV|AOSP on r33a0|tv001 on rtd289x|hx322x_box|X98_S500|8K3528-T|MX10|V88|H8S|X92|AI PONT|tv\.plus|WayDroid x86_64 Device|MediaBox)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
+    - regex: 'LGE; ([a-z0-9]+);'
+      device: 'tv'
+      model: '$1'
     - regex: 'WebTV/(\d+\.\d+)'
       device: 'tv'
       model: 'Web TV'
