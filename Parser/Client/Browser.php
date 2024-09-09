@@ -200,6 +200,7 @@ class Browser extends AbstractClientParser
         'C5' => 'Chromium GOST',
         'CY' => 'Cyberfox',
         'CS' => 'Cheshire',
+        '8C' => 'Cromite',
         'RC' => 'Crow Browser',
         'CT' => 'Crusta',
         'CG' => 'Craving Explorer',
@@ -411,6 +412,7 @@ class Browser extends AbstractClientParser
         'MX' => 'Maxthon',
         'M4' => 'MaxTube Browser',
         'MA' => 'Maelstrom',
+        '3M' => 'Mises',
         'MM' => 'Mmx Browser',
         'NM' => 'MxNitro',
         'MY' => 'Mypal',
@@ -762,6 +764,7 @@ class Browser extends AbstractClientParser
             'K4', 'WK', 'T3', 'K5', 'MU', '9P', 'K6', 'VR', 'N9',
             'M9', 'F9', '0P', '0A', 'JR', 'D3', 'TK', 'BP', '2F',
             '2M', 'K7', '1N', '8A', 'H7', 'X3', 'T4', 'X4', '5O',
+            '8C', '3M',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -809,7 +812,7 @@ class Browser extends AbstractClientParser
         '5A', 'TT', '6P', 'G3', '7P', 'VU', 'F8', 'L4', 'DK',
         'DP', 'KL', 'K4', 'N6', 'KU', 'WK', 'M8', 'UP', 'ZT',
         '9P', 'N8', 'VR', 'N9', 'M9', 'F9', '0P', '0A', '2F',
-        '2M', 'K7', '1N', '8A', 'H7', 'X3', 'X4', '5O',
+        '2M', 'K7', '1N', '8A', 'H7', 'X3', 'X4', '5O', '3M',
     ];
 
     /**
@@ -983,7 +986,10 @@ class Browser extends AbstractClientParser
                 $engineVersion = $browserFromUserAgent['engine_version'] ?? '';
             }
 
-            if ('Atom' === $name || 'Huawei Browser' === $name) {
+            // If client hints report the following browsers, we use the version from useragent
+            if (!empty($browserFromUserAgent['version'])
+                && \in_array($short, ['A0', 'AL', 'HP', 'JR', 'MU', 'OM', 'OP', 'VR'])
+            ) {
                 $version = $browserFromUserAgent['version'];
             }
 
@@ -1031,13 +1037,6 @@ class Browser extends AbstractClientParser
 
             if ('DuckDuckGo Privacy Browser' === $name) {
                 $version = '';
-            }
-
-            // If client hints report the following browsers, we use the version from useragent
-            if (!empty($browserFromUserAgent['version'])
-                && \in_array($short, ['AL', 'JR', 'MU', 'OM', 'OP', 'VR'])
-            ) {
-                $version = $browserFromUserAgent['version'];
             }
         } else {
             $name          = $browserFromUserAgent['name'];
