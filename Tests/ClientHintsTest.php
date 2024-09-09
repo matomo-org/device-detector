@@ -47,7 +47,7 @@ class ClientHintsTest extends TestCase
             'HTTP_SEC_CH_UA_PLATFORM'          => 'Ubuntu',
             'HTTP_SEC_CH_UA_PLATFORM_VERSION'  => '3.7',
             'HTTP_SEC_CH_UA_FULL_VERSION'      => '98.0.14335.105',
-            'HTTP_SEC-CH-UA-FORM-FACTORS'      => '"Desktop"',
+            'HTTP_SEC_CH_UA_FORM_FACTORS'      => '"Desktop"',
         ];
 
         $ch = ClientHints::factory($headers);
