@@ -79,9 +79,9 @@ class ClientHints
     /**
      * Represents `Sec-CH-UA-Form-Factors` header field: form factor device type name
      *
-     * @var string
+     * @var array
      */
-    protected $formFactors = '';
+    protected $formFactors = [];
 
     /**
      * Constructor
@@ -95,9 +95,9 @@ class ClientHints
      * @param string $architecture    `Sec-CH-UA-Arch` header field
      * @param string $bitness         `Sec-CH-UA-Bitness`
      * @param string $app             `HTTP_X-REQUESTED-WITH`
-     * @param string $formFactors     `Sec-CH-UA-Form-Factors` header field
+     * @param array  $formFactors     `Sec-CH-UA-Form-Factors` header field
      */
-    public function __construct(string $model = '', string $platform = '', string $platformVersion = '', string $uaFullVersion = '', array $fullVersionList = [], bool $mobile = false, string $architecture = '', string $bitness = '', string $app = '', string $formFactors = '') // phpcs:ignore Generic.Files.LineLength
+    public function __construct(string $model = '', string $platform = '', string $platformVersion = '', string $uaFullVersion = '', array $fullVersionList = [], bool $mobile = false, string $architecture = '', string $bitness = '', string $app = '', array $formFactors = []) // phpcs:ignore Generic.Files.LineLength
     {
         $this->model           = $model;
         $this->platform        = $platform;
@@ -236,9 +236,9 @@ class ClientHints
     /**
      * Returns the formFactor device type name
      *
-     * @return string
+     * @return array
      */
-    public function getFormFactors(): string
+    public function getFormFactors(): array
     {
         return $this->formFactors;
     }
@@ -256,7 +256,7 @@ class ClientHints
         $app             = '';
         $mobile          = false;
         $fullVersionList = [];
-        $formFactors     = '';
+        $formFactors     = [];
 
         foreach ($headers as $name => $value) {
             switch (\str_replace('_', '-', \strtolower((string) $name))) {
@@ -341,14 +341,13 @@ class ClientHints
 
                     break;
                 case 'formfactors':
-                    $formFactors = \strtolower($value[0] ?? '');
-                    $formFactors = \trim($formFactors, '"');
-
-                    break;
                 case 'http-sec-ch-ua-form-factors':
                 case 'sec-ch-ua-form-factors':
-                    $formFactors = \strtolower($value);
-                    $formFactors = \trim($formFactors, '"');
+                    if (\is_array($value)) {
+                        $formFactors = \array_map('\strtolower', $value);
+                    } elseif (\preg_match_all('~"([a-z]+)"~i', \strtolower($value), $matches)) {
+                        $formFactors = $matches[1];
+                    }
 
                     break;
             }

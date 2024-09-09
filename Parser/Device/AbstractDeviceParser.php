@@ -2015,17 +2015,17 @@ abstract class AbstractDeviceParser extends AbstractParser
 
     /**
      * Mapping formFactor types to parser device types
-     *
+     * (not sort array the array priority result device type)
      * @var array
      */
     protected static $clientHintFormFactorsMapping = [
-        'desktop'    => self::DEVICE_TYPE_DESKTOP,
         'automotive' => self::DEVICE_TYPE_CAR_BROWSER,
-        'mobile'     => self::DEVICE_TYPE_SMARTPHONE,
-        'tablet'     => self::DEVICE_TYPE_TABLET,
         'xr'         => self::DEVICE_TYPE_WEARABLE,
         'eink'       => self::DEVICE_TYPE_TABLET,
         'watch'      => self::DEVICE_TYPE_WEARABLE,
+        'mobile'     => self::DEVICE_TYPE_SMARTPHONE,
+        'tablet'     => self::DEVICE_TYPE_TABLET,
+        'desktop'    => self::DEVICE_TYPE_DESKTOP,
     ];
 
     /**
@@ -2255,11 +2255,19 @@ abstract class AbstractDeviceParser extends AbstractParser
     protected function parseClientHints(): ?array
     {
         if ($this->clientHints) {
+            $deviceType  = null;
             $formFactors = $this->clientHints->getFormFactors();
-            $deviceType  = self::$clientHintFormFactorsMapping[$formFactors] ?? null;
 
-            if (null !== $deviceType) {
-                $deviceType = self::getDeviceName($deviceType);
+            if (\count($formFactors) > 0) {
+                foreach (self::$clientHintFormFactorsMapping as $formFactor) {
+                    $deviceType = $formFactors[$formFactor] ?? null;
+
+                    if (null !== $deviceType) {
+                        $deviceType = self::getDeviceName($deviceType);
+
+                        break;
+                    }
+                }
             }
 
             return [
