@@ -791,7 +791,7 @@ class Browser extends AbstractClientParser
      */
     protected static $mobileOnlyBrowsers = [
         '36', 'AH', 'AI', 'BL', 'C1', 'C4', 'CB', 'CW', 'DB',
-        'DD', 'DT', 'EU', 'EZ', 'FK', 'FM', 'FR', 'FX', 'GH',
+        '3M', 'DT', 'EU', 'EZ', 'FK', 'FM', 'FR', 'FX', 'GH',
         'GI', 'GR', 'HA', 'HU', 'IV', 'JB', 'KD', 'M1', 'MF',
         'MN', 'MZ', 'NX', 'OC', 'OI', 'OM', 'OZ', 'PU', 'PI',
         'PE', 'QU', 'RE', 'S0', 'S7', 'SA', 'SB', 'SG', 'SK',
@@ -812,7 +812,7 @@ class Browser extends AbstractClientParser
         '5A', 'TT', '6P', 'G3', '7P', 'VU', 'F8', 'L4', 'DK',
         'DP', 'KL', 'K4', 'N6', 'KU', 'WK', 'M8', 'UP', 'ZT',
         '9P', 'N8', 'VR', 'N9', 'M9', 'F9', '0P', '0A', '2F',
-        '2M', 'K7', '1N', '8A', 'H7', 'X3', 'X4', '5O', '3M',
+        '2M', 'K7', '1N', '8A', 'H7', 'X3', 'X4', '5O',
     ];
 
     /**
