@@ -444,7 +444,8 @@ class DeviceDetectorTest extends TestCase
             true,
             '',
             '',
-            ''
+            '',
+            []
         ));
 
         $this->assertEquals($dd->parse(), [
@@ -471,7 +472,8 @@ class DeviceDetectorTest extends TestCase
             true,
             '',
             '',
-            ''
+            '',
+            []
         ));
         $dd->parse();
         $this->assertEquals('8.0', $dd->getOs('version'));

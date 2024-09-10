@@ -197,6 +197,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ATE' => 'Atlantic Electrics',
         '5Q'  => 'Atmaca Elektronik',
         'YH'  => 'ATMAN',
+        'ATM' => 'ATMPC',
         '2A'  => 'Atom',
         'AT1' => 'Atozee',
         'ATO' => 'ATOL',
@@ -709,6 +710,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'GU'  => 'Grundig',
         'GV'  => 'Gtel',
         'CUO' => 'Guophone',
+        'GVC' => 'GVC Pro',
         'H13' => 'H133',
         '9Z'  => 'H96',
         'HF'  => 'Hafury',
@@ -881,6 +883,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'IXT' => 'iXTech',
         'IOT' => 'IOTWE',
         'JA'  => 'JAY-Tech',
+        'JAM' => 'Jambo',
         'KJ'  => 'Jiake',
         'JD'  => 'Jedi',
         'JEE' => 'Jeep',
@@ -1025,6 +1028,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'LR'  => 'Luxor',
         'LY'  => 'LYF',
         'LL'  => 'Leader Phone',
+        'LTL' => 'LYOTECH LABS',
         'QL'  => 'LT Mobile',
         'LW1' => 'LW',
         'MQ'  => 'M.T.T.',
@@ -1088,6 +1092,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ME'  => 'Metz',
         'MEO' => 'MEO',
         'MX'  => 'MEU',
+        'MES' => 'MESWAO',
         'MI'  => 'MicroMax',
         'MIP' => 'mipo',
         'MS'  => 'Microsoft',
@@ -1477,6 +1482,8 @@ abstract class AbstractDeviceParser extends AbstractParser
         '89'  => 'Seatel',
         'SEW' => 'Sewoo',
         'SE1' => 'SEEWO',
+        'SEN' => 'SENNA',
+        'SER' => 'SERVO',
         'Y7'  => 'Saiet',
         'SLF' => 'SAILF',
         'X1'  => 'Safaricom',
@@ -1938,6 +1945,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'XN'  => 'Xion',
         'XO'  => 'Xolo',
         'XR'  => 'Xoro',
+        'XRL' => 'XREAL',
         'XS'  => 'Xshitou',
         'XSM' => 'Xsmart',
         '4X'  => 'Xtouch',
@@ -2008,6 +2016,21 @@ abstract class AbstractDeviceParser extends AbstractParser
         // legacy brands, might be removed in future versions
         'WB'  => 'Web TV',
         'XX'  => 'Unknown',
+    ];
+
+    /**
+     * Mapping formFactor types to parser device types
+     * (not sort array the array priority result device type)
+     * @var array
+     */
+    protected static $clientHintFormFactorsMapping = [
+        'automotive' => self::DEVICE_TYPE_CAR_BROWSER,
+        'xr'         => self::DEVICE_TYPE_WEARABLE,
+        'eink'       => self::DEVICE_TYPE_TABLET,
+        'watch'      => self::DEVICE_TYPE_WEARABLE,
+        'mobile'     => self::DEVICE_TYPE_SMARTPHONE,
+        'tablet'     => self::DEVICE_TYPE_TABLET,
+        'desktop'    => self::DEVICE_TYPE_DESKTOP,
     ];
 
     /**
@@ -2236,9 +2259,24 @@ abstract class AbstractDeviceParser extends AbstractParser
      */
     protected function parseClientHints(): ?array
     {
-        if ($this->clientHints && $this->clientHints->getModel()) {
+        if ($this->clientHints) {
+            $deviceType  = null;
+            $formFactors = $this->clientHints->getFormFactors();
+
+            if (\count($formFactors) > 0) {
+                foreach (self::$clientHintFormFactorsMapping as $formFactor) {
+                    $deviceType = $formFactors[$formFactor] ?? null;
+
+                    if (null !== $deviceType) {
+                        $deviceType = self::getDeviceName($deviceType);
+
+                        break;
+                    }
+                }
+            }
+
             return [
-                'deviceType' => null,
+                'deviceType' => $deviceType,
                 'model'      => $this->clientHints->getModel(),
                 'brand'      => '',
             ];
