@@ -1056,7 +1056,7 @@ class DeviceDetector
         /**
          * All devices running Puffin Web Browser that contain letter 'T' are assumed to be tablets
          */
-        if (null === $this->device && $this->matchUserAgent('Puffin/.*[AIFLW]T')) {
+        if (null === $this->device && $this->matchUserAgent('Puffin/.*[AILW]T')) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TABLET;
         }
 
