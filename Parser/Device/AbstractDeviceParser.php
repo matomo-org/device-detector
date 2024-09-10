@@ -52,6 +52,11 @@ abstract class AbstractDeviceParser extends AbstractParser
     public const DEVICE_TYPE_PERIPHERAL           = 13; // including portable terminal, portable projector
 
     /**
+     * @var bool
+     */
+    protected $deviceIndexes = false;
+
+    /**
      * Detectable device types
      *
      * @var array
@@ -2145,6 +2150,18 @@ abstract class AbstractDeviceParser extends AbstractParser
     }
 
     /**
+     * This method tells the class to use regex position indexes
+     *
+     * @param bool $stage
+     *
+     * @return void
+     */
+    public function setDeviceIndexer(bool $stage): void
+    {
+        $this->deviceIndexes = $stage;
+    }
+
+    /**
      * @inheritdoc
      */
     public function parse(): ?array
@@ -2166,14 +2183,22 @@ abstract class AbstractDeviceParser extends AbstractParser
             return $this->getResult();
         }
 
+        // is use device indexes
+        if ($this->deviceIndexes) {
+
+        }
+
+        $matches = null;
         $brand   = '';
-        $regexes = $this->getRegexes();
 
-        foreach ($regexes as $brand => $regex) {
-            $matches = $this->matchUserAgent($regex['regex']);
+        if ('' === $brand) {
+            $regexes = $this->getRegexes();
+            foreach ($regexes as $brand => $regex) {
+                $matches = $this->matchUserAgent($regex['regex']);
 
-            if ($matches) {
-                break;
+                if ($matches) {
+                    break;
+                }
             }
         }
 
@@ -2324,4 +2349,5 @@ abstract class AbstractDeviceParser extends AbstractParser
             'brand'      => $this->brand,
         ];
     }
+
 }

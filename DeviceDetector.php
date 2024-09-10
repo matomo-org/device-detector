@@ -154,6 +154,18 @@ class DeviceDetector
     protected $cache = null;
 
     /**
+     * Using indexes for faster client search (support browser and apps)
+     * @var bool
+     */
+    protected $clientIndexes = false;
+
+    /**
+     * Using indexes for faster device search
+     * @var bool
+     */
+    protected $deviceIndexes = false;
+
+    /**
      * Holds the parser class used for parsing yml-Files
      * @var YamlParser|null
      */
@@ -631,20 +643,24 @@ class DeviceDetector
      *
      * @param string       $ua          UserAgent to parse
      * @param ?ClientHints $clientHints Client Hints to parse
+     * @param ?array       $config      Settings $deviceDetector
      *
      * @return array
      *
      * @deprecated
      *
      * @internal
-     *
      */
-    public static function getInfoFromUserAgent(string $ua, ?ClientHints $clientHints = null): array
+    public static function getInfoFromUserAgent(string $ua, ?ClientHints $clientHints = null, array $config = []): array
     {
         static $deviceDetector;
 
         if (!($deviceDetector instanceof DeviceDetector)) {
             $deviceDetector = new DeviceDetector();
+        }
+
+        if (\array_key_exists('clientIndexes', $config)) {
+            $deviceDetector->clientIndexes = $config['clientIndexes'];
         }
 
         $deviceDetector->setUserAgent($ua);
@@ -869,6 +885,7 @@ class DeviceDetector
         $parsers = $this->getClientParsers();
 
         foreach ($parsers as $parser) {
+            $parser->setClientIndexer($this->clientIndexes);
             $parser->setYamlParser($this->getYamlParser());
             $parser->setCache($this->getCache());
             $parser->setUserAgent($this->getUserAgent());
@@ -891,6 +908,7 @@ class DeviceDetector
         $parsers = $this->getDeviceParsers();
 
         foreach ($parsers as $parser) {
+            $parser->setDeviceIndexer($this->deviceIndexes);
             $parser->setYamlParser($this->getYamlParser());
             $parser->setCache($this->getCache());
             $parser->setUserAgent($this->getUserAgent());

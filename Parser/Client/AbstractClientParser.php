@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace DeviceDetector\Parser\Client;
 
 use DeviceDetector\Parser\AbstractParser;
+use DeviceDetector\Parser\IndexerClient;
 
 abstract class AbstractClientParser extends AbstractParser
 {
@@ -25,6 +26,11 @@ abstract class AbstractClientParser extends AbstractParser
      * @var string
      */
     protected $parserName = '';
+
+    /**
+     * @var bool
+     */
+    protected $clientIndexes = false;
 
     /**
      * Parses the current UA and checks whether it contains any client information
@@ -45,23 +51,69 @@ abstract class AbstractClientParser extends AbstractParser
     {
         $result = null;
 
-        if ($this->preMatchOverall()) {
+        if ($this->clientIndexes) {
+            $result = $this->parseByPosition();
+        }
+
+        if (null === $result && $this->preMatchOverall()) {
             foreach ($this->getRegexes() as $regex) {
-                $matches = $this->matchUserAgent($regex['regex']);
+                $result = $this->parseByRegex($regex);
 
-                if ($matches) {
-                    $result = [
-                        'type'    => $this->parserName,
-                        'name'    => $this->buildByMatch($regex['name'], $matches),
-                        'version' => $this->buildVersion((string) $regex['version'], $matches),
-                    ];
-
-                    break;
+                if (null !== $result) {
+                    return $result;
                 }
             }
         }
 
         return $result;
+    }
+
+    /**
+     * Parse the current UA by Indexes positions
+     * @return array|null
+     */
+    public function parseByPosition(): ?array
+    {
+        $indexer   = new IndexerClient($this->userAgent);
+        $dataId    = $indexer->getDataId($this->parserName);
+        $dataIndex = $indexer->parse();
+
+        if (null !== $dataId && !empty($dataIndex['data'][$dataId])) {
+            $positions = $dataIndex['data'][$dataId];
+
+            foreach ($positions as $position) {
+                $regex  = $this->regexList[$position] ?? null;
+                $result = null !== $regex ? $this->parseByRegex($regex) : null;
+
+                if (null !== $result) {
+                    return $result;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Parse the current UA by regex data from $this->regexList
+     *
+     * @param array $regex
+     *
+     * @return array|null
+     */
+    public function parseByRegex(array $regex): ?array
+    {
+        $matches = $this->matchUserAgent($regex['regex']);
+
+        if (!$matches) {
+            return null;
+        }
+
+        return  [
+            'type'    => $this->parserName,
+            'name'    => $this->buildByMatch($regex['name'], $matches),
+            'version' => $this->buildVersion((string) $regex['version'], $matches),
+        ];
     }
 
     /**
@@ -88,5 +140,17 @@ abstract class AbstractClientParser extends AbstractParser
         \natcasesort($names);
 
         return \array_unique($names);
+    }
+
+    /**
+     * This method tells the class to use regex position indexes
+     *
+     * @param bool $stage
+     *
+     * @return void
+     */
+    public function setClientIndexer(bool $stage): void
+    {
+        $this->clientIndexes = $stage;
     }
 }

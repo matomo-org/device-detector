@@ -219,15 +219,48 @@ class DeviceDetectorTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
+    public function testParseIndexes(array $fixtureData): void
+    {
+        $ua          = $fixtureData['user_agent'];
+        $headers     = !empty($fixtureData['headers']) ? $fixtureData['headers'] : null;
+        $clientHints = $headers ? ClientHints::factory($headers) : null;
+
+        AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
+
+        $errorMessage = \sprintf(
+            "UserAgent: %s\nHeaders: %s\nClientIndexes:true",
+            $ua,
+            \print_r($headers ?? null, true)
+        );
+
+        try {
+            $uaInfo = DeviceDetector::getInfoFromUserAgent($ua, $clientHints, ['clientIndexes' => true]);
+        } catch (\Exception $exception) {
+            throw new \Exception(
+                \sprintf('Error: %s from useragent %s', $exception->getMessage(), $ua),
+                $exception->getCode(),
+                $exception
+            );
+        }
+
+        unset($fixtureData['headers']); // ignore headers in result
+
+        $this->assertEquals($fixtureData, $uaInfo, $errorMessage);
+    }
+
+    /**
+     * @dataProvider getFixtures
+     */
     public function testParse(array $fixtureData): void
     {
         $ua          = $fixtureData['user_agent'];
-        $clientHints = !empty($fixtureData['headers']) ? ClientHints::factory($fixtureData['headers']) : null;
+        $headers     = !empty($fixtureData['headers']) ? $fixtureData['headers'] : null;
+        $clientHints = $headers ? ClientHints::factory($headers) : null;
 
         AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
 
         try {
-            $uaInfo = DeviceDetector::getInfoFromUserAgent($ua, $clientHints);
+            $uaInfo = DeviceDetector::getInfoFromUserAgent($ua, $clientHints, ['clientIndexes' => false]);
         } catch (\Exception $exception) {
             throw new \Exception(
                 \sprintf('Error: %s from useragent %s', $exception->getMessage(), $ua),
@@ -237,9 +270,9 @@ class DeviceDetectorTest extends TestCase
         }
 
         $errorMessage = \sprintf(
-            "UserAgent: %s\nHeaders: %s",
+            "UserAgent: %s\nHeaders: %s\nClientIndexes:false",
             $ua,
-            \print_r($fixtureData['headers'] ?? null, true)
+            \print_r($headers ?? null, true)
         );
 
         unset($fixtureData['headers']); // ignore headers in result
@@ -279,7 +312,7 @@ class DeviceDetectorTest extends TestCase
         AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
 
         try {
-            $uaInfo = DeviceDetector::getInfoFromUserAgent($ua, $clientHints);
+            $uaInfo = DeviceDetector::getInfoFromUserAgent($ua, $clientHints, ['clientIndexes' => false]);
         } catch (\Exception $exception) {
             throw new \Exception(
                 \sprintf('Error: %s from useragent %s', $exception->getMessage(), $ua),
@@ -328,7 +361,7 @@ class DeviceDetectorTest extends TestCase
         AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
 
         try {
-            $uaInfo = DeviceDetector::getInfoFromUserAgent($ua, $clientHints);
+            $uaInfo = DeviceDetector::getInfoFromUserAgent($ua, $clientHints, ['clientIndexes' => false]);
         } catch (\Exception $exception) {
             throw new \Exception(
                 \sprintf('Error: %s from useragent %s', $exception->getMessage(), $ua),
@@ -554,7 +587,7 @@ class DeviceDetectorTest extends TestCase
                 ],
             ],
         ];
-        $this->assertEquals($expected, DeviceDetector::getInfoFromUserAgent($expected['user_agent']));
+        $this->assertEquals($expected, DeviceDetector::getInfoFromUserAgent($expected['user_agent'], null, ['clientIndexes' => false]));
     }
 
     public function testParseNoDetails(): void
