@@ -491,6 +491,7 @@ class Browser extends AbstractClientParser
         'PP' => 'Oppo Browser',
         'P6' => 'Opus Browser',
         'PR' => 'Palm Pre',
+        '6I' => 'Puffin Incognito Browser',
         'PU' => 'Puffin Secure Browser',
         '2P' => 'Puffin Web Browser',
         'PW' => 'Palm WebPro',
@@ -764,7 +765,7 @@ class Browser extends AbstractClientParser
             'K4', 'WK', 'T3', 'K5', 'MU', '9P', 'K6', 'VR', 'N9',
             'M9', 'F9', '0P', '0A', 'JR', 'D3', 'TK', 'BP', '2F',
             '2M', 'K7', '1N', '8A', 'H7', 'X3', 'T4', 'X4', '5O',
-            '8C', '3M',
+            '8C', '3M', '6I',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -812,7 +813,7 @@ class Browser extends AbstractClientParser
         '5A', 'TT', '6P', 'G3', '7P', 'VU', 'F8', 'L4', 'DK',
         'DP', 'KL', 'K4', 'N6', 'KU', 'WK', 'M8', 'UP', 'ZT',
         '9P', 'N8', 'VR', 'N9', 'M9', 'F9', '0P', '0A', '2F',
-        '2M', 'K7', '1N', '8A', 'H7', 'X3', 'X4', '5O',
+        '2M', 'K7', '1N', '8A', 'H7', 'X3', 'X4', '5O', '6I',
     ];
 
     /**
