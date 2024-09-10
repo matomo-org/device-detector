@@ -491,7 +491,7 @@ class Browser extends AbstractClientParser
         'PP' => 'Oppo Browser',
         'P6' => 'Opus Browser',
         'PR' => 'Palm Pre',
-        'PU' => 'Puffin',
+        'PU' => 'Puffin Secure Browser',
         '2P' => 'Puffin Web Browser',
         'PW' => 'Palm WebPro',
         'PA' => 'Palmscape',
