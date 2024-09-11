@@ -2264,10 +2264,10 @@ abstract class AbstractDeviceParser extends AbstractParser
             $formFactors = $this->clientHints->getFormFactors();
 
             if (\count($formFactors) > 0) {
-                foreach (self::$clientHintFormFactorsMapping as $formFactor) {
-                    $deviceType = $formFactors[$formFactor] ?? null;
+                foreach (self::$clientHintFormFactorsMapping as $formFactor => $deviceType) {
+                    $hasDeviceType = $formFactors[$formFactor] ?? null;
 
-                    if (null !== $deviceType) {
+                    if (null !== $hasDeviceType) {
                         $deviceType = self::getDeviceName($deviceType);
 
                         break;
