@@ -1042,21 +1042,21 @@ class DeviceDetector
         /**
          * All devices running Puffin Secure Browser that contain letter 'D' are assumed to be desktops
          */
-        if (null === $this->device && $this->matchUserAgent('Puffin/.*[LMW]D')) {
+        if (null === $this->device && $this->matchUserAgent('Puffin/(?:\d+[.\d]+)[LMW]D')) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_DESKTOP;
         }
 
         /**
          * All devices running Puffin Web Browser that contain letter 'P' are assumed to be smartphones
          */
-        if (null === $this->device && $this->matchUserAgent('Puffin/.*[AIFLW]P')) {
+        if (null === $this->device && $this->matchUserAgent('Puffin/(?:\d+[.\d]+)[AIFLW]P')) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE;
         }
 
         /**
          * All devices running Puffin Web Browser that contain letter 'T' are assumed to be tablets
          */
-        if (null === $this->device && $this->matchUserAgent('Puffin/.*[AILW]T')) {
+        if (null === $this->device && $this->matchUserAgent('Puffin/(?:\d+[.\d]+)[AILW]T')) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TABLET;
         }
 
