@@ -113,8 +113,11 @@ class AliasDevice extends AbstractParser
      */
     protected function createUserAgentRegex(string $regex): string
     {
-        $regex = \preg_replace('/\//', '\\/', $regex);
-        $regex = \preg_replace('/\+\+/', '+', $regex);
+        $replace = \preg_replace(['/\//', '/\+\+/'], ['\\/', '+'], $regex);
+
+        if (\is_string($replace)) {
+            $regex = $replace;
+        }
 
         return \sprintf('~(?:%s)~i', $regex);
     }

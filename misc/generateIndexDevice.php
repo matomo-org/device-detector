@@ -26,17 +26,20 @@ $output        = [];
 $shorts        = [];
 $positions     = [];
 $mobileRegexes = Yaml::parseFile(__DIR__ . '/../regexes/device/mobiles.yml');
+
 // get short brands
 foreach (AbstractDeviceParser::$deviceBrands as $short => $brand) {
     $shorts[(string) $brand] = (string) $short;
 }
+
 // create fixture positions
 foreach ($mobileRegexes as $brand => $regex) {
-    $short = $shorts[$brand] ?? null;
+    $short             = $shorts[$brand] ?? null;
     $positions[$short] = $iterator++;
 }
+
 // create sort function
-$sort = function (string $a, string $b) use ($positions) {
+$sort = static function (string $a, string $b) use ($positions) {
     return $positions[$a] - $positions[$b];
 };
 
@@ -93,10 +96,11 @@ foreach ($fixtureFiles as $file) {
 
         $output[$model][] = (string) $short;
 
-        if (count($output[$model]) > 1) {
-            usort($output[$model], $sort);
+        if (count($output[$model]) <= 1) {
+            continue;
         }
 
+        usort($output[$model], $sort);
     }
 }
 

@@ -643,7 +643,7 @@ class DeviceDetector
      *
      * @param string       $ua          UserAgent to parse
      * @param ?ClientHints $clientHints Client Hints to parse
-     * @param ?array       $config      Settings $deviceDetector
+     * @param array        $config      Settings $deviceDetector
      *
      * @return array
      *

@@ -35,7 +35,7 @@ class IndexerDevice extends AbstractParser
     /**
      * Find brands lists
      *
-     * @return array|null
+     * @return array
      */
     public function parse(): array
     {

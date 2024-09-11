@@ -152,7 +152,11 @@ class IndexerClient extends AbstractParser
 
             if (!empty($data)) {
                 $groupIndex++;
-                $group["#{$groupIndex}"] = \preg_split('/[;,] /', $data[1]);
+                $groupData = \preg_split('/[;,] /', $data[1]);
+
+                if (!empty($groupData)) {
+                    $group["#{$groupIndex}"] = $groupData;  // @phpstan-ignore-line
+                }
 
                 return $group;
             }
@@ -160,13 +164,14 @@ class IndexerClient extends AbstractParser
             $rowSlash = \explode('/', $token);
 
             if (2 === \count($rowSlash)) {
-                $group[$rowSlash[0]] = $rowSlash[1];
+                $group[$rowSlash[0]] = $rowSlash[1]; // @phpstan-ignore-line
 
                 return $group;
             }
 
             $groupIndex++;
-            $group["#{$groupIndex}"] = $token;
+
+            $group["#{$groupIndex}"] = $token; // @phpstan-ignore-line
 
             return $group;
         }, []);
