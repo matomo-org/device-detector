@@ -35,7 +35,9 @@ foreach (AbstractDeviceParser::$deviceBrands as $short => $brand) {
 // create fixture positions
 foreach ($mobileRegexes as $brand => $regex) {
     $short             = $shorts[$brand] ?? null;
-    $positions[$short] = $iterator++;
+    $positions[$short] = $iterator;
+
+    $iterator++;
 }
 
 // create sort function
