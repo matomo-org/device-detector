@@ -336,6 +336,7 @@ abstract class AbstractParser
     /**
      * Create base regex pattern
      * @param string $regex
+     *
      * @return string
      */
     protected function createUserAgentRegex(string $regex): string

@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace DeviceDetector\Parser\Device;
 
 use DeviceDetector\Parser\AbstractParser;
+use DeviceDetector\Parser\IndexerDevice;
 
 /**
  * Class AbstractDeviceParser
@@ -2183,16 +2184,37 @@ abstract class AbstractDeviceParser extends AbstractParser
             return $this->getResult();
         }
 
-        // is use device indexes
-        if ($this->deviceIndexes) {
-
-        }
-
+        $regexes = $this->getRegexes();
         $matches = null;
         $brand   = '';
 
+        // is use device indexes
+        if ($this->deviceIndexes) {
+            $indexer = new IndexerDevice();
+            $indexer->setUserAgent($this->userAgent);
+            $indexer->setClientHints($this->clientHints);
+
+            $brands = $indexer->parse();
+
+            foreach ($brands as $brandName) {
+                $regex = $regexes[$brandName] ?? null;
+
+                if (null === $regex) {
+                    continue;
+                }
+
+                $matches = $this->matchUserAgent($regex['regex']);
+
+                if ($matches) {
+                    $brand = $brandName;
+
+                    break;
+                }
+            }
+        }
+
+        // is not use indexes
         if ('' === $brand) {
-            $regexes = $this->getRegexes();
             foreach ($regexes as $brand => $regex) {
                 $matches = $this->matchUserAgent($regex['regex']);
 
@@ -2349,5 +2371,4 @@ abstract class AbstractDeviceParser extends AbstractParser
             'brand'      => $this->brand,
         ];
     }
-
 }

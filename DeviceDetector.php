@@ -663,6 +663,10 @@ class DeviceDetector
             $deviceDetector->clientIndexes = $config['clientIndexes'];
         }
 
+        if (\array_key_exists('deviceIndexes', $config)) {
+            $deviceDetector->deviceIndexes = $config['deviceIndexes'];
+        }
+
         $deviceDetector->setUserAgent($ua);
         $deviceDetector->setClientHints($clientHints);
 

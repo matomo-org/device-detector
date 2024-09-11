@@ -12,6 +12,9 @@ declare(strict_types=1);
 
 namespace DeviceDetector\Parser;
 
+use DeviceDetector\Parser\Device\AbstractDeviceParser;
+use DeviceDetector\Parser\Device\AliasDevice;
+
 /**
  * Class IndexerDevice
  * This is an auxiliary class that allows you to find the device brand of regular expression,
@@ -30,12 +33,32 @@ class IndexerDevice extends AbstractParser
     protected $fixtureFile = 'regexes/device/indexes.yml';
 
     /**
-     * Find brand position
+     * Find brands lists
      *
      * @return array|null
      */
-    public function parse(): ?array
+    public function parse(): array
     {
-        return null;
+        if (false === \is_file($this->getRegexesFilePath())) {
+            return [];
+        }
+
+        $brands      = [];
+        $aliasDevice = new AliasDevice();
+        $aliasDevice->setReplaceBrand(false);
+        $aliasDevice->setUserAgent($this->userAgent);
+        $aliasDevice->setClientHints($this->clientHints);
+        $model = $aliasDevice->parse()['name'] ?? null;
+
+        if (null !== $model) {
+            $model  = \strtolower($model);
+            $shorts = $this->getRegexes()[$model] ?? [];
+
+            foreach ($shorts as $short) {
+                $brands[] = AbstractDeviceParser::$deviceBrands[$short] ?? '';
+            }
+        }
+
+        return \array_filter($brands);
     }
 }

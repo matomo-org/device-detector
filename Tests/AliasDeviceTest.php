@@ -1,17 +1,15 @@
 <?php
 
-
 declare(strict_types=1);
 
 namespace DeviceDetector\Tests;
 
+use DeviceDetector\ClientHints;
 use DeviceDetector\Parser\Device\AliasDevice;
-use DeviceDetector\Parser\IndexerClient;
 use PHPUnit\Framework\TestCase;
 
 class AliasDeviceTest extends TestCase
 {
-
     /**
      * @dataProvider getFixtures
      * @return void
@@ -19,10 +17,15 @@ class AliasDeviceTest extends TestCase
     public function testParse(array $fixtureData): void
     {
         $useragent = $fixtureData['user_agent'];
+        $headers   = $fixtureData['headers'] ?? [];
         $alias     = $fixtureData['alias'];
 
+        $clientHints = [] !== $headers ? ClientHints::factory($headers) : null;
         $deviceAlias = new AliasDevice();
+        $deviceAlias->setReplaceBrand(true);
         $deviceAlias->setUserAgent($useragent);
+        $deviceAlias->setClientHints($clientHints);
+
         $result = $deviceAlias->parse();
 
         $this->assertEquals($result, $alias);

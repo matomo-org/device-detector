@@ -29,31 +29,43 @@ class AliasDevice extends AbstractParser
     /**
      * @var bool
      */
-    protected $replaceBrand = true;
-
+    protected $replaceBrand = false;
 
     /**
-     * @return array|null
+     * Parse current the UA to extract device code
+     *
+     * @return array
      */
-    public function parse(): ?array
+    public function parse(): array
     {
-        $name = null;
+        $name            = null;
         $this->userAgent = $this->restoreUserAgent($this->userAgent);
+        $model           = $this->clientHints ? $this->clientHints->getModel() : '';
 
-        foreach ($this->getRegexes() as $regex) {
-            $matches = $this->matchUserAgent($regex['regex']);
+        if ('' !== $model) {
+            $name = $model;
+        }
 
-            if ($matches) {
-                $name = $this->buildByMatch($regex['name'], $matches);
+        if (null === $name) {
+            foreach ($this->getRegexes() as $regex) {
+                $matches = $this->matchUserAgent($regex['regex']);
 
-                break;
+                if ($matches) {
+                    $name = $this->buildByMatch($regex['name'], $matches);
+
+                    break;
+                }
             }
         }
 
-        if (null !== $name && $this->replaceBrand) {
-            $customBrands = ['HUAWEI HUAWEI',  'viv-vivo'];
-            $brands       = \array_merge($customBrands, array_values(AbstractDeviceParser::$deviceBrands));
-            $replaceRegex = '~(?:^|[^A-Z0-9-_]|[^A-Z0-9-]_|sprd-)(' . \implode('|', $brands) . ')[ _]~is';
+        if (null !== $name) {
+            $customBrands = ['HUAWEI HUAWEI', 'viv-vivo', 'SAMSUNG', 'YUHO', 'ZTE', 'HUAWEI'];
+            $replaceBrand = $this->replaceBrand ? \array_values(AbstractDeviceParser::$deviceBrands) : [];
+            $brands       = \array_merge($customBrands, $replaceBrand);
+            $replaceRegex = \sprintf(
+                '~(?:^|[^A-Z0-9-_]|[^A-Z0-9-]_|sprd-)(%s)[ _]~is',
+                \implode('|', $brands)
+            );
             $name         = \preg_replace($replaceRegex, '', $name);
         }
 
@@ -61,23 +73,42 @@ class AliasDevice extends AbstractParser
     }
 
     /**
+     * @param bool $stage
+     *
+     * @return void
+     */
+    public function setReplaceBrand(bool $stage): void
+    {
+        $this->replaceBrand = $stage;
+    }
+
+    /**
+     * Restore UserAgent for suitable condition
      * @param string $userAgent
+     *
      * @return string
      */
     protected function restoreUserAgent(string $userAgent): string
     {
-        $userAgent  = rawurldecode($userAgent);
-        $hasReplace = preg_match('~ip(?:ad|hone): build/~i', $userAgent) && preg_match('~android ~i', $userAgent);
+        $userAgent    = \rawurldecode($userAgent);
+        $regexIphone  = '~ip(?:ad|hone): build/~i';
+        $regexAndroid = '~android ~i';
 
-        if ($hasReplace) {
-            $userAgent = preg_replace('~;ip(?:ad|hone):~i', '', $userAgent);
+        if (\preg_match($regexIphone, $userAgent) && \preg_match($regexAndroid, $userAgent)) {
+            $replaceUserAgent = \preg_replace('~;ip(?:ad|hone):~i', '', $userAgent);
+
+            if ($replaceUserAgent) {
+                return $replaceUserAgent;
+            }
         }
 
         return $userAgent;
     }
 
     /**
+     * Overwrite base regex
      * @param string $regex
+     *
      * @return string
      */
     protected function createUserAgentRegex(string $regex): string
@@ -85,6 +116,6 @@ class AliasDevice extends AbstractParser
         $regex = \preg_replace('/\//', '\\/', $regex);
         $regex = \preg_replace('/\+\+/', '+', $regex);
 
-        return '~(?:' . $regex . ')~i';
+        return \sprintf('~(?:%s)~i', $regex);
     }
 }

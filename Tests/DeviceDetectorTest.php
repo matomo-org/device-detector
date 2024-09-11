@@ -47,6 +47,10 @@ class DeviceDetectorTest extends TestCase
         $fixtureFiles = \glob(\realpath(__DIR__) . '/../regexes/device/*.yml');
 
         foreach ($fixtureFiles as $file) {
+            if (\preg_match('~alias-device|indexes~', $file)) {
+                continue;
+            }
+
             $ymlData = \Spyc::YAMLLoad($file);
 
             $availableDeviceTypeNames = AbstractDeviceParser::getAvailableDeviceTypeNames();
@@ -228,13 +232,16 @@ class DeviceDetectorTest extends TestCase
         AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
 
         $errorMessage = \sprintf(
-            "UserAgent: %s\nHeaders: %s\nClientIndexes:true",
+            "UserAgent: %s\nHeaders: %s\nclientIndexes:true\ndeviceIndexes:true",
             $ua,
             \print_r($headers ?? null, true)
         );
 
         try {
-            $uaInfo = DeviceDetector::getInfoFromUserAgent($ua, $clientHints, ['clientIndexes' => true]);
+            $uaInfo = DeviceDetector::getInfoFromUserAgent($ua, $clientHints, [
+                'clientIndexes' => true,
+                'deviceIndexes' => true,
+            ]);
         } catch (\Exception $exception) {
             throw new \Exception(
                 \sprintf('Error: %s from useragent %s', $exception->getMessage(), $ua),
@@ -260,7 +267,10 @@ class DeviceDetectorTest extends TestCase
         AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
 
         try {
-            $uaInfo = DeviceDetector::getInfoFromUserAgent($ua, $clientHints, ['clientIndexes' => false]);
+            $uaInfo = DeviceDetector::getInfoFromUserAgent($ua, $clientHints, [
+                'clientIndexes' => false,
+                'deviceIndexes' => false,
+            ]);
         } catch (\Exception $exception) {
             throw new \Exception(
                 \sprintf('Error: %s from useragent %s', $exception->getMessage(), $ua),
@@ -270,7 +280,7 @@ class DeviceDetectorTest extends TestCase
         }
 
         $errorMessage = \sprintf(
-            "UserAgent: %s\nHeaders: %s\nClientIndexes:false",
+            "UserAgent: %s\nHeaders: %s\nclientIndexes:false\ndeviceIndexes:false",
             $ua,
             \print_r($headers ?? null, true)
         );
@@ -289,7 +299,7 @@ class DeviceDetectorTest extends TestCase
             $typeFixtures = \Spyc::YAMLLoad($fixturesPath);
             $deviceType   = \str_replace('_', ' ', \substr(\basename($fixturesPath), 0, -4));
 
-            if ('bots' === $deviceType) {
+            if (\in_array($deviceType, ['alias devices', 'bots'])) {
                 continue;
             }
 

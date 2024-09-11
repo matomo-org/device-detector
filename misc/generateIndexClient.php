@@ -10,6 +10,7 @@ if ('cli' !== php_sapi_name()) {
 require __DIR__ . '/../vendor/autoload.php';
 
 use DeviceDetector\Parser\IndexerClient;
+use Symfony\Component\Yaml\Yaml;
 
 function findDataIndex(string $userAgent, array $regexes): ?int
 {
@@ -123,5 +124,6 @@ foreach ($fixtureFiles as $file) {
 }
 
 if (!empty($output)) {
-    file_put_contents(__DIR__ . '/../regexes/client/indexes.yml', Spyc::YAMLDump($output, 2, 0));
+    $content = Yaml::dump($output);
+    file_put_contents(__DIR__ . '/../regexes/client/indexes.yml', $content);
 }
