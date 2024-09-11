@@ -2268,7 +2268,7 @@ abstract class AbstractDeviceParser extends AbstractParser
                     $deviceType = $formFactors[$formFactor] ?? null;
 
                     if (null !== $deviceType) {
-                        $deviceType = self::getDeviceName($deviceType);
+                        $deviceType = self::getDeviceName($formFactor);
 
                         break;
                     }
