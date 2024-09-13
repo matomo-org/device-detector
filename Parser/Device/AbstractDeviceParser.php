@@ -2153,13 +2153,17 @@ abstract class AbstractDeviceParser extends AbstractParser
         $deviceModel      = $resultClientHint['model'] ?? '';
 
         // is freeze user-agent then restoring the original UA for the device definition
-        if ('' !== $deviceModel && \preg_match('~Android 10[.\d]*; K(?: Build/|[;)])~i', $this->userAgent)) {
+        if ('' !== $deviceModel && $this->hasUserAgentClientHintsFragment()) {
             $osVersion = $this->clientHints ? $this->clientHints->getOperatingSystemVersion() : '';
             $this->setUserAgent((string) \preg_replace(
                 '(Android 10[.\d]*; K)',
                 \sprintf('Android %s; %s', '' !== $osVersion ? $osVersion : '10', $deviceModel),
                 $this->userAgent
             ));
+        }
+
+        if ('' === $deviceModel && $this->hasUserAgentClientHintsFragment()) {
+            return $this->getResult();
         }
 
         if ('' === $deviceModel && $this->hasDesktopFragment()) {
@@ -2264,11 +2268,9 @@ abstract class AbstractDeviceParser extends AbstractParser
             $formFactors = $this->clientHints->getFormFactors();
 
             if (\count($formFactors) > 0) {
-                foreach (self::$clientHintFormFactorsMapping as $formFactor => $deviceType) {
-                    $hasDeviceType = $formFactors[$formFactor] ?? null;
-
-                    if (null !== $hasDeviceType) {
-                        $deviceType = self::getDeviceName($deviceType);
+                foreach (self::$clientHintFormFactorsMapping as $formFactor => $deviceTypeId) {
+                    if (\array_key_exists($formFactor, $formFactors)) {
+                        $deviceType = self::getDeviceName($deviceTypeId);
 
                         break;
                     }
@@ -2301,6 +2303,16 @@ abstract class AbstractDeviceParser extends AbstractParser
         return
             $this->matchUserAgent('(?:Windows (?:NT|IoT)|X11; Linux x86_64)') &&
             !$this->matchUserAgent($regexExcludeDesktopFragment);
+    }
+
+    /**
+     * Returns if the parsed UA contains the 'Android 10 K;' or Android 10 K Build/` fragment
+     *
+     * @return bool
+     */
+    protected function hasUserAgentClientHintsFragment(): bool
+    {
+        return (bool) \preg_match('~Android 10[.\d]*; K(?: Build/|[;)])~i', $this->userAgent);
     }
 
     /**
