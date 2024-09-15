@@ -1738,6 +1738,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'TRI' => 'TriaPlay',
         'TJ'  => 'Trifone',
         'Q5'  => 'Trident',
+        'TRB' => 'Trimble',
         '4T'  => 'Tronsmart',
         '11'  => 'True',
         'JT'  => 'True Slim',
