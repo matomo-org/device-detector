@@ -1148,6 +1148,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'N4'  => 'MTN',
         '72'  => 'M-Tech',
         '9H'  => 'M-Horse',
+        'MKP' => 'M-KOPA',
         '1R'  => 'Multilaser',
         'MPS' => 'MultiPOS',
         '1M'  => 'MYFON',
