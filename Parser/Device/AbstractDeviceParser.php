@@ -2263,7 +2263,7 @@ abstract class AbstractDeviceParser extends AbstractParser
      */
     protected function parseClientHints(): ?array
     {
-        if ($this->clientHints) {
+        if ($this->clientHints && $this->clientHints->getModel()) {
             $deviceType  = null;
             $formFactors = $this->clientHints->getFormFactors();
 
