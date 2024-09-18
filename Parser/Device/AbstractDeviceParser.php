@@ -2162,6 +2162,15 @@ abstract class AbstractDeviceParser extends AbstractParser
             ));
         }
 
+        // is freeze user-agent then restoring the original UA for the device definition
+        if ('' !== $deviceModel && $this->hasDesktopFragment()) {
+            $this->setUserAgent((string) \preg_replace(
+                '(X11; Linux x86_64)',
+                \sprintf('X11; Linux x86_64; %s', $deviceModel),
+                $this->userAgent
+            ));
+        }
+
         if ('' === $deviceModel && $this->hasUserAgentClientHintsFragment()) {
             return $this->getResult();
         }
