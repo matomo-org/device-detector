@@ -800,6 +800,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'HYT' => 'Hytera',
         'HYK' => 'Hykker',
         'HYA' => 'Hyatta',
+        'IKL' => 'I KALL',
         '3I'  => 'i-Cherry',
         'IJ'  => 'i-Joy',
         'IM'  => 'i-mate',
