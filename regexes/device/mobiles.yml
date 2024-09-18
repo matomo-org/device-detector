@@ -35757,9 +35757,13 @@ Jiake:
 
 # iQ&T or iQandT (iqandt.com)
 iQ&T:
-  regex: '(IFoo (?:U200|H55|S50))(?:[);/ ]|$)'
+  regex: 'iQ&T|iQ&amp;T|(?:IFoo (?:U200|H55|S50))(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: '(?:iQ&T|iQ&amp;T) (N8)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: '(IFoo (?:U200|H55|S50))(?:[);/ ]|$)'
+      model: '$1'
 
 # Mantra (mantratec.com)
 Mantra:
