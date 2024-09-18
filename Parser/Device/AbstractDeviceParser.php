@@ -679,6 +679,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'GIR' => 'GIRASOLE',
         'G4'  => 'Globex',
         'GLB' => 'Globmall',
+        'GME' => 'GlocalMe',
         '38'  => 'GLONYX',
         'U6'  => 'Glofiish',
         'GLO' => 'Glory Star',
