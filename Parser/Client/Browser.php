@@ -200,6 +200,7 @@ class Browser extends AbstractClientParser
         'C5' => 'Chromium GOST',
         'CY' => 'Cyberfox',
         'CS' => 'Cheshire',
+        '8C' => 'Cromite',
         'RC' => 'Crow Browser',
         'CT' => 'Crusta',
         'CG' => 'Craving Explorer',
@@ -411,6 +412,7 @@ class Browser extends AbstractClientParser
         'MX' => 'Maxthon',
         'M4' => 'MaxTube Browser',
         'MA' => 'Maelstrom',
+        '3M' => 'Mises',
         'MM' => 'Mmx Browser',
         'NM' => 'MxNitro',
         'MY' => 'Mypal',
@@ -489,7 +491,9 @@ class Browser extends AbstractClientParser
         'PP' => 'Oppo Browser',
         'P6' => 'Opus Browser',
         'PR' => 'Palm Pre',
-        'PU' => 'Puffin',
+        '7I' => 'Puffin Cloud Browser',
+        '6I' => 'Puffin Incognito Browser',
+        'PU' => 'Puffin Secure Browser',
         '2P' => 'Puffin Web Browser',
         'PW' => 'Palm WebPro',
         'PA' => 'Palmscape',
@@ -762,6 +766,7 @@ class Browser extends AbstractClientParser
             'K4', 'WK', 'T3', 'K5', 'MU', '9P', 'K6', 'VR', 'N9',
             'M9', 'F9', '0P', '0A', 'JR', 'D3', 'TK', 'BP', '2F',
             '2M', 'K7', '1N', '8A', 'H7', 'X3', 'T4', 'X4', '5O',
+            '8C', '3M', '6I', '2P', 'PU', '7I',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -788,9 +793,9 @@ class Browser extends AbstractClientParser
      */
     protected static $mobileOnlyBrowsers = [
         '36', 'AH', 'AI', 'BL', 'C1', 'C4', 'CB', 'CW', 'DB',
-        'DD', 'DT', 'EU', 'EZ', 'FK', 'FM', 'FR', 'FX', 'GH',
+        '3M', 'DT', 'EU', 'EZ', 'FK', 'FM', 'FR', 'FX', 'GH',
         'GI', 'GR', 'HA', 'HU', 'IV', 'JB', 'KD', 'M1', 'MF',
-        'MN', 'MZ', 'NX', 'OC', 'OI', 'OM', 'OZ', 'PU', 'PI',
+        'MN', 'MZ', 'NX', 'OC', 'OI', 'OM', 'OZ', '2P', 'PI',
         'PE', 'QU', 'RE', 'S0', 'S7', 'SA', 'SB', 'SG', 'SK',
         'ST', 'SU', 'T1', 'UH', 'UM', 'UT', 'VE', 'VV', 'WI',
         'WP', 'YN', 'IO', 'IS', 'HQ', 'RW', 'HI', 'PN', 'BW',
@@ -809,7 +814,8 @@ class Browser extends AbstractClientParser
         '5A', 'TT', '6P', 'G3', '7P', 'VU', 'F8', 'L4', 'DK',
         'DP', 'KL', 'K4', 'N6', 'KU', 'WK', 'M8', 'UP', 'ZT',
         '9P', 'N8', 'VR', 'N9', 'M9', 'F9', '0P', '0A', '2F',
-        '2M', 'K7', '1N', '8A', 'H7', 'X3', 'X4', '5O',
+        '2M', 'K7', '1N', '8A', 'H7', 'X3', 'X4', '5O', '6I',
+        '7I',
     ];
 
     /**
@@ -983,7 +989,10 @@ class Browser extends AbstractClientParser
                 $engineVersion = $browserFromUserAgent['engine_version'] ?? '';
             }
 
-            if ('Atom' === $name || 'Huawei Browser' === $name) {
+            // If client hints report the following browsers, we use the version from useragent
+            if (!empty($browserFromUserAgent['version'])
+                && \in_array($short, ['A0', 'AL', 'HP', 'JR', 'MU', 'OM', 'OP', 'VR'])
+            ) {
                 $version = $browserFromUserAgent['version'];
             }
 
@@ -1031,13 +1040,6 @@ class Browser extends AbstractClientParser
 
             if ('DuckDuckGo Privacy Browser' === $name) {
                 $version = '';
-            }
-
-            // If client hints report the following browsers, we use the version from useragent
-            if (!empty($browserFromUserAgent['version'])
-                && \in_array($short, ['AL', 'JR', 'MU', 'OM', 'OP', 'VR'])
-            ) {
-                $version = $browserFromUserAgent['version'];
             }
         } else {
             $name          = $browserFromUserAgent['name'];

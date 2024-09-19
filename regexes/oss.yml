@@ -6,6 +6,13 @@
 ###############
 
 ##########
+# Puffin OS (https://www.puffin.com/os/help/faq/)
+##########
+- regex: 'Cloud Phone'
+  name: 'Puffin OS'
+  version: ''
+
+##########
 # risingOS (https://github.com/RisingTechOSS/android)
 ##########
 - regex: 'RisingOS'
@@ -683,7 +690,7 @@
 ##########
 # ChromeOS
 ##########
-- regex: 'CrOS [a-z0-9_]+ (\d+[\.\d]+)|Chromebook'
+- regex: '(?:CrOS [a-z0-9_]+ |Chromebook.*Build/R\d+-)(\d+[\.\d]+)|Chromebook'
   name: 'Chrome OS'
   version: '$1'
 
@@ -1466,7 +1473,7 @@
     - regex: 'CFNetwork/459'
       version: '3.1'
 
-- regex: '(?:iPhone|iPod_touch)/(\d+[\.\d]*) hw/'
+- regex: '(?:iPhone|iPod_touch)/(\d+[\.\d]*)(?: hw)?/'
   name: 'iOS'
   version: '$1'
 
@@ -1530,7 +1537,7 @@
   name: 'iOS'
   version: ''
 
-- regex: 'CaptiveNetworkSupport|AirPlay|.*[ \.\-/]iOS'
+- regex: 'CaptiveNetworkSupport|AirPlay|.*[ \.\-/]iOS(?!@)'
   name: 'iOS'
   version: ''
 

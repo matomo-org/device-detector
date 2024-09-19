@@ -418,7 +418,7 @@ class DeviceDetectorTest extends TestCase
     {
         $dd = $this->createPartialMock(Mobile::class, ['hasDesktopFragment']);
 
-        $dd->expects($this->once())->method('hasDesktopFragment')->willReturn(true);
+        $dd->expects($this->exactly(2))->method('hasDesktopFragment')->willReturn(true);
 
         // simulate work not use clienthints
         $dd->setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36');
@@ -444,7 +444,8 @@ class DeviceDetectorTest extends TestCase
             true,
             '',
             '',
-            ''
+            '',
+            []
         ));
 
         $this->assertEquals($dd->parse(), [
@@ -471,7 +472,8 @@ class DeviceDetectorTest extends TestCase
             true,
             '',
             '',
-            ''
+            '',
+            []
         ));
         $dd->parse();
         $this->assertEquals('8.0', $dd->getOs('version'));

@@ -47,6 +47,7 @@ class ClientHintsTest extends TestCase
             'HTTP_SEC_CH_UA_PLATFORM'          => 'Ubuntu',
             'HTTP_SEC_CH_UA_PLATFORM_VERSION'  => '3.7',
             'HTTP_SEC_CH_UA_FULL_VERSION'      => '98.0.14335.105',
+            'HTTP_SEC_CH_UA_FORM_FACTORS'      => '"Desktop"',
         ];
 
         $ch = ClientHints::factory($headers);
@@ -59,6 +60,7 @@ class ClientHintsTest extends TestCase
             'Opera'        => '98.0.4758.82',
         ], $ch->getBrandList());
         self::assertSame('DN2103', $ch->getModel());
+        self::assertEquals(['desktop'], $ch->getFormFactors());
     }
 
     public function testHeadersJavascript(): void
@@ -69,6 +71,7 @@ class ClientHintsTest extends TestCase
                 ['brand' => 'Chromium', 'version' => '99.0.4844.51'],
                 ['brand' => 'Google Chrome', 'version' => '99.0.4844.51'],
             ],
+            'formFactors'     => ['Desktop'],
             'mobile'          => false,
             'model'           => '',
             'platform'        => 'Windows',
@@ -85,6 +88,7 @@ class ClientHintsTest extends TestCase
             'Google Chrome' => '99.0.4844.51',
         ], $ch->getBrandList());
         self::assertSame('', $ch->getModel());
+        self::assertEquals(['desktop'], $ch->formFactors);
     }
 
     public function testIncorrectVersionListIsDiscarded(): void

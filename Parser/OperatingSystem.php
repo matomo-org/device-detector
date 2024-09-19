@@ -156,6 +156,7 @@ class OperatingSystem extends AbstractParser
         'PSP' => 'PlayStation Portable',
         'PS3' => 'PlayStation',
         'PVE' => 'Proxmox VE',
+        'PUF' => 'Puffin OS',
         'PUR' => 'PureOS',
         'QTP' => 'Qtopia',
         'PIO' => 'Raspberry Pi OS',
@@ -232,7 +233,7 @@ class OperatingSystem extends AbstractParser
         'Android'               => [
             'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
             'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS', 'WER', 'PIC', 'ARM',
-            'HEL', 'BYI', 'RIS',
+            'HEL', 'BYI', 'RIS', 'PUF',
         ],
         'AmigaOS'               => ['AMG', 'MOR', 'ARO'],
         'BlackBerry'            => ['BLB', 'QNX'],
