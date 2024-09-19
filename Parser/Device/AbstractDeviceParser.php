@@ -1814,6 +1814,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VAN' => 'VANGUARD',
         'VAW' => 'VANWIN',
         'VB'  => 'VC',
+        'VEI' => 'Veidoo',
         'VN'  => 'Venso',
         'VNP' => 'VNPT Technology',
         'VEN' => 'Venstar',
