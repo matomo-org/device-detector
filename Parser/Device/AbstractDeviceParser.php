@@ -251,6 +251,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'YB'  => 'Beista',
         'BY'  => 'BS Mobile',
         'BZ'  => 'Bezkam',
+        'BEL' => 'Bell',
         '9B'  => 'Bellphone',
         '63'  => 'Beyond',
         'BG'  => 'BGH',
