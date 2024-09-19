@@ -818,6 +818,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'IDI' => 'iDino',
         '6Z'  => 'iData',
         'IG'  => 'iGet',
+        'IHL' => 'iHome Life',
         'IH'  => 'iHunt',
         'IA'  => 'Ikea',
         'IYO' => 'iYou',
