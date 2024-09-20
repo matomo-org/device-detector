@@ -78,11 +78,25 @@ abstract class AbstractClientParser extends AbstractParser
         $names    = [];
 
         foreach ($regexes as $regex) {
-            if ('$1' === $regex['name']) {
+            if (false !== \strpos($regex['name'], '$1')) {
                 continue;
             }
 
             $names[] = $regex['name'];
+        }
+
+        if (static::class === MobileApp::class) {
+            $names = \array_merge($names, [
+                // Microsoft Office $1
+                'Microsoft Office Access', 'Microsoft Office Excel', 'Microsoft Office OneDrive for Business',
+                'Microsoft Office OneNote', 'Microsoft Office PowerPoint', 'Microsoft Office Project',
+                'Microsoft Office Publisher', 'Microsoft Office Visio', 'Microsoft Office Word',
+                // Podkicker$1
+                'Podkicker', 'Podkicker Pro', 'Podkicker Classic',
+                // radio.$1
+                'radio.at', 'radio.de', 'radio.dk', 'radio.es', 'radio.fr',
+                'radio.it',  'radio.pl', 'radio.pt', 'radio.se',  'radio.net',
+            ]);
         }
 
         \natcasesort($names);
