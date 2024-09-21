@@ -2212,6 +2212,8 @@ abstract class AbstractDeviceParser extends AbstractParser
         }
 
         if (empty($matches)) {
+            $this->deviceType = $resultClientHint['deviceType'] ?? null;
+
             return $resultClientHint;
         }
 
@@ -2294,21 +2296,19 @@ abstract class AbstractDeviceParser extends AbstractParser
     protected function parseClientHints(): ?array
     {
         if ($this->clientHints && $this->clientHints->getModel()) {
-            $deviceType  = null;
-            $formFactors = $this->clientHints->getFormFactors();
+            $deviceTypeByFormFactor = null;
+            $formFactors            = $this->clientHints->getFormFactors();
 
-            if (\count($formFactors) > 0) {
-                foreach (self::$clientHintFormFactorsMapping as $formFactor => $deviceTypeId) {
-                    if (\array_key_exists($formFactor, $formFactors)) {
-                        $deviceType = self::getDeviceName($deviceTypeId);
+            foreach ($formFactors as $formFactor) {
+                if (isset(self::$clientHintFormFactorsMapping[$formFactor])) {
+                    $deviceTypeByFormFactor = self::$clientHintFormFactorsMapping[$formFactor];
 
-                        break;
-                    }
+                    break;
                 }
             }
 
             return [
-                'deviceType' => $deviceType,
+                'deviceType' => $deviceTypeByFormFactor,
                 'model'      => $this->clientHints->getModel(),
                 'brand'      => '',
             ];
