@@ -2296,19 +2296,19 @@ abstract class AbstractDeviceParser extends AbstractParser
     protected function parseClientHints(): ?array
     {
         if ($this->clientHints && $this->clientHints->getModel()) {
-            $deviceTypeByFormFactor = null;
-            $formFactors            = $this->clientHints->getFormFactors();
+            $deviceType  = null;
+            $formFactors = $this->clientHints->getFormFactors();
 
             foreach ($formFactors as $formFactor) {
                 if (isset(self::$clientHintFormFactorsMapping[$formFactor])) {
-                    $deviceTypeByFormFactor = self::$clientHintFormFactorsMapping[$formFactor];
+                    $deviceType = self::$clientHintFormFactorsMapping[$formFactor];
 
                     break;
                 }
             }
 
             return [
-                'deviceType' => $deviceTypeByFormFactor,
+                'deviceType' => $deviceType,
                 'model'      => $this->clientHints->getModel(),
                 'brand'      => '',
             ];
