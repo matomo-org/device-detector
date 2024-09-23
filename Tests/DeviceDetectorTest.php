@@ -357,6 +357,89 @@ class DeviceDetectorTest extends TestCase
         return $fixtures;
     }
 
+    public function getFixturesDeviceTypeFromClientHints(): array
+    {
+        $useragent  = 'Some Unknown UA';
+        $deviceName = '"Some Unknown Model"';
+
+        return [
+            [
+                'useragent' => $useragent,
+                'headers'   => [
+                    'sec-ch-ua-form-factors' => '"EInk", "Watch"',
+                    'sec-ch-ua-model'        => $deviceName,
+                ],
+                'device'    => AbstractDeviceParser::DEVICE_TYPE_WEARABLE,
+            ], [
+                'useragent' => $useragent,
+                'headers'   => [
+                    'sec-ch-ua-form-factors' => '"EInk"',
+                    'sec-ch-ua-model'        => $deviceName,
+                ],
+                'device'    => AbstractDeviceParser::DEVICE_TYPE_TABLET,
+            ], [
+                'useragent' => $useragent,
+                'headers'   => [
+                    'sec-ch-ua-form-factors' => '"Desktop", "Mobile"',
+                    'sec-ch-ua-model'        => $deviceName,
+                ],
+                'device'    => AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE,
+            ], [
+                'useragent' => $useragent,
+                'headers'   => [
+                    'sec-ch-ua-form-factors' => '"Unknown Type", "Mobile"',
+                    'sec-ch-ua-model'        => $deviceName,
+                ],
+                'device'    => AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE,
+            ], [
+                'useragent' => $useragent,
+                'headers'   => [
+                    'sec-ch-ua-form-factors' => '"Tablet", "Mobile"',
+                    'sec-ch-ua-model'        => $deviceName,
+                ],
+                'device'    => AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE,
+            ], [
+                'useragent' => $useragent,
+                'headers'   => [
+                    'sec-ch-ua-form-factors' => '"EInk", "Tablet"',
+                    'sec-ch-ua-model'        => $deviceName,
+                ],
+                'device'    => AbstractDeviceParser::DEVICE_TYPE_TABLET,
+            ], [
+                'useragent' => $useragent,
+                'headers'   => [
+                    'sec-ch-ua-form-factors' => '"Tablet", "Automotive"',
+                    'sec-ch-ua-model'        => $deviceName,
+                ],
+                'device'    => AbstractDeviceParser::DEVICE_TYPE_CAR_BROWSER,
+            ], [
+                'useragent' => $useragent,
+                'headers'   => [
+                    'sec-ch-ua-form-factors' => '"EInk", "Xr"',
+                    'sec-ch-ua-model'        => $deviceName,
+                ],
+                'device'    => AbstractDeviceParser::DEVICE_TYPE_WEARABLE,
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider getFixturesDeviceTypeFromClientHints
+     */
+    public function testDetectDeviceTypeFromClientHints(string $useragent, array $headers, int $device): void
+    {
+        $clientHints    = ClientHints::factory($headers);
+        $deviceDetector = new DeviceDetector();
+        $deviceDetector->setClientHints($clientHints);
+        $deviceDetector->setUserAgent($useragent);
+        $deviceDetector->parse();
+
+        $this->assertEquals($device, $deviceDetector->getDevice());
+        $this->assertEquals('Some Unknown Model', $deviceDetector->getModel());
+        $this->assertEquals('', $deviceDetector->getBrandName());
+        $this->assertEquals(AbstractDeviceParser::getDeviceName($device), $deviceDetector->getDeviceName());
+    }
+
     public function testInstanceReusage(): void
     {
         $userAgents = [
