@@ -2047,11 +2047,11 @@ abstract class AbstractDeviceParser extends AbstractParser
     protected static $clientHintFormFactorsMapping = [
         'automotive' => self::DEVICE_TYPE_CAR_BROWSER,
         'xr'         => self::DEVICE_TYPE_WEARABLE,
-        'eink'       => self::DEVICE_TYPE_TABLET,
         'watch'      => self::DEVICE_TYPE_WEARABLE,
         'mobile'     => self::DEVICE_TYPE_SMARTPHONE,
         'tablet'     => self::DEVICE_TYPE_TABLET,
         'desktop'    => self::DEVICE_TYPE_DESKTOP,
+        'eink'       => self::DEVICE_TYPE_TABLET,
     ];
 
     /**
@@ -2296,19 +2296,19 @@ abstract class AbstractDeviceParser extends AbstractParser
     protected function parseClientHints(): ?array
     {
         if ($this->clientHints && $this->clientHints->getModel()) {
-            $deviceType  = null;
-            $formFactors = $this->clientHints->getFormFactors();
+            $detectedDeviceType = null;
+            $formFactors        = $this->clientHints->getFormFactors();
 
-            foreach ($formFactors as $formFactor) {
-                if (isset(self::$clientHintFormFactorsMapping[$formFactor])) {
-                    $deviceType = self::$clientHintFormFactorsMapping[$formFactor];
+            foreach (self::$clientHintFormFactorsMapping as $formFactor => $deviceType) {
+                if (\in_array($formFactor, $formFactors)) {
+                    $detectedDeviceType = $deviceType;
 
                     break;
                 }
             }
 
             return [
-                'deviceType' => $deviceType,
+                'deviceType' => $detectedDeviceType,
                 'model'      => $this->clientHints->getModel(),
                 'brand'      => '',
             ];
