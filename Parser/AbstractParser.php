@@ -253,9 +253,7 @@ abstract class AbstractParser
             }
 
             if (empty($this->regexList)) {
-                $parsedContent = $this->getYamlParser()->parseFile(
-                    $this->getRegexesDirectory() . DIRECTORY_SEPARATOR . $this->fixtureFile
-                );
+                $parsedContent = $this->getYamlParser()->parseFile($this->getRegexesFilePath());
 
                 if (!\is_array($parsedContent)) {
                     $parsedContent = [];
@@ -299,6 +297,14 @@ abstract class AbstractParser
     }
 
     /**
+     * @return string
+     */
+    protected function getRegexesFilePath(): string
+    {
+        return $this->getRegexesDirectory() . DIRECTORY_SEPARATOR . $this->fixtureFile;
+    }
+
+    /**
      * Matches the useragent against the given regex
      *
      * @param string $regex
@@ -310,9 +316,7 @@ abstract class AbstractParser
     protected function matchUserAgent(string $regex): ?array
     {
         $matches = [];
-
-        // only match if useragent begins with given regex or there is no letter before it
-        $regex = '/(?:^|[^A-Z0-9_-]|[^A-Z0-9-]_|sprd-|MZ-)(?:' . \str_replace('/', '\/', $regex) . ')/i';
+        $regex   = $this->createUserAgentRegex($regex);
 
         try {
             if (\preg_match($regex, $this->userAgent, $matches)) {
@@ -327,6 +331,18 @@ abstract class AbstractParser
         }
 
         return null;
+    }
+
+    /**
+     * Create base regex pattern
+     * @param string $regex
+     *
+     * @return string
+     */
+    protected function createUserAgentRegex(string $regex): string
+    {
+        // only match if useragent begins with given regex or there is no letter before it
+        return '/(?:^|[^A-Z0-9_-]|[^A-Z0-9-]_|sprd-|MZ-)(?:' . \str_replace('/', '\/', $regex) . ')/i';
     }
 
     /**

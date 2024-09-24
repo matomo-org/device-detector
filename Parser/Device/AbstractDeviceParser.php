@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace DeviceDetector\Parser\Device;
 
 use DeviceDetector\Parser\AbstractParser;
+use DeviceDetector\Parser\IndexerDevice;
 
 /**
  * Class AbstractDeviceParser
@@ -50,6 +51,11 @@ abstract class AbstractDeviceParser extends AbstractParser
     public const DEVICE_TYPE_SMART_SPEAKER        = 11;
     public const DEVICE_TYPE_WEARABLE             = 12; // including set watches, headsets
     public const DEVICE_TYPE_PERIPHERAL           = 13; // including portable terminal, portable projector
+
+    /**
+     * @var bool
+     */
+    protected $deviceIndexes = false;
 
     /**
      * Detectable device types
@@ -2166,6 +2172,18 @@ abstract class AbstractDeviceParser extends AbstractParser
     }
 
     /**
+     * This method tells the class to use regex position indexes
+     *
+     * @param bool $stage
+     *
+     * @return void
+     */
+    public function setDeviceIndexer(bool $stage): void
+    {
+        $this->deviceIndexes = $stage;
+    }
+
+    /**
      * @inheritdoc
      */
     public function parse(): ?array
@@ -2200,14 +2218,43 @@ abstract class AbstractDeviceParser extends AbstractParser
             return $this->getResult();
         }
 
-        $brand   = '';
         $regexes = $this->getRegexes();
+        $matches = null;
+        $brand   = '';
 
-        foreach ($regexes as $brand => $regex) {
-            $matches = $this->matchUserAgent($regex['regex']);
+        // is use device indexes
+        if ($this->deviceIndexes) {
+            $indexer = new IndexerDevice();
+            $indexer->setUserAgent($this->userAgent);
+            $indexer->setClientHints($this->clientHints);
 
-            if ($matches) {
-                break;
+            $brands = $indexer->parse();
+
+            foreach ($brands as $brandName) {
+                $regex = $regexes[$brandName] ?? null;
+
+                if (null === $regex) {
+                    continue;
+                }
+
+                $matches = $this->matchUserAgent($regex['regex']);
+
+                if ($matches) {
+                    $brand = $brandName;
+
+                    break;
+                }
+            }
+        }
+
+        // is not use indexes
+        if ('' === $brand) {
+            foreach ($regexes as $brand => $regex) {
+                $matches = $this->matchUserAgent($regex['regex']);
+
+                if ($matches) {
+                    break;
+                }
             }
         }
 
