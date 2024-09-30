@@ -502,6 +502,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ENI' => 'ENIE',
         '2E'  => 'E-Ceros',
         'E8'  => 'E-tel',
+        'ETH' => 'E-TACHI',
         'EAS' => 'EAS Electric',
         'EP'  => 'Easypix',
         'EQ'  => 'Eagle',
