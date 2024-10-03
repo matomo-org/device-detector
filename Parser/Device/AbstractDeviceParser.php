@@ -318,6 +318,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'G3'  => 'CG Mobile',
         '37'  => 'CGV',
         'CP'  => 'Captiva',
+        'CPD' => 'CPDEVICE',
         'CF'  => 'Carrefour',
         'CA1' => 'Carbon Mobile',
         'CS'  => 'Casio',
