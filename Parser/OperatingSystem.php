@@ -391,6 +391,19 @@ class OperatingSystem extends AbstractParser
      */
     public function parse(): ?array
     {
+        // is freeze user-agent then restoring the original UA for the device definition
+        if (
+            null !== $this->clientHints
+            && '' !== $this->clientHints->getModel()
+            && $this->matchUserAgent('X11; Linux x86_64')
+        ) {
+            $this->setUserAgent((string) \preg_replace(
+                '(X11; Linux x86_64)',
+                \sprintf('X11; Linux x86_64; %s', $this->clientHints->getModel()),
+                $this->userAgent
+            ));
+        }
+
         $osFromClientHints = $this->parseOsFromClientHints();
         $osFromUserAgent   = $this->parseOsFromUserAgent();
 
@@ -435,6 +448,15 @@ class OperatingSystem extends AbstractParser
             ) {
                 $name  = $osFromUserAgent['name'];
                 $short = $osFromUserAgent['short_name'];
+            }
+
+            // Chrome OS is in some cases reported as Android in client hints
+            if ('Android' === $name
+                && 'Chrome OS' === $osFromUserAgent['name']
+            ) {
+                $name    = $osFromUserAgent['name'];
+                $version = '';
+                $short   = $osFromUserAgent['short_name'];
             }
         } elseif (!empty($osFromUserAgent['name'])) {
             $name    = $osFromUserAgent['name'];
