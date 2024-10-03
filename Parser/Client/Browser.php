@@ -774,7 +774,7 @@ class Browser extends AbstractClientParser
             'FB', 'FE', 'AX', 'FM', 'FR', 'FY', 'GZ', 'I4', 'IF',
             'IW', 'LH', 'LY', 'MB', 'MN', 'MO', 'MY', 'OA', 'OS',
             'PI', 'PX', 'QA', 'S5', 'SX', 'TF', 'TO', 'WF', 'ZV',
-            'FP', 'AD', 'WL', '2I', 'P9', 'KJ', 'WY', 'VK', 'W5',
+            'FP', 'AD', '2I', 'P9', 'KJ', 'WY', 'VK', 'W5',
             '7C', 'N7', 'W7', '8P',
         ],
         'Internet Explorer'  => ['IE', 'CZ', 'BZ', 'IM', 'PS', '3A', '4A', 'RN'],
@@ -1095,6 +1095,14 @@ class Browser extends AbstractClientParser
             $family        = 'Chrome';
             $engine        = 'Blink';
             $engineVersion = '';
+        }
+
+        if ('Wolvic' === $name && 'Blink' === $engine) {
+            $family = 'Chrome';
+        }
+
+        if ('Wolvic' === $name && 'Gecko' === $engine) {
+            $family = 'Firefox';
         }
 
         return [
