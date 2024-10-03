@@ -392,8 +392,7 @@ class OperatingSystem extends AbstractParser
     public function parse(): ?array
     {
         // is freeze user-agent then restoring the original UA for the device definition
-        if (
-            null !== $this->clientHints
+        if (null !== $this->clientHints
             && '' !== $this->clientHints->getModel()
             && $this->matchUserAgent('X11; Linux x86_64')
         ) {
