@@ -2180,7 +2180,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         if ('' !== $deviceModel && $this->hasUserAgentClientHintsFragment()) {
             $osVersion = $this->clientHints ? $this->clientHints->getOperatingSystemVersion() : '';
             $this->setUserAgent((string) \preg_replace(
-                '(Android 10[.\d]*; K)',
+                '(Android (?:10[.\d]*; K|1[1-5]))',
                 \sprintf('Android %s; %s', '' !== $osVersion ? $osVersion : '10', $deviceModel),
                 $this->userAgent
             ));
@@ -2345,7 +2345,7 @@ abstract class AbstractDeviceParser extends AbstractParser
      */
     protected function hasUserAgentClientHintsFragment(): bool
     {
-        return (bool) \preg_match('~Android 10[.\d]*; K(?: Build/|[;)])~i', $this->userAgent);
+        return (bool) \preg_match('~Android (?:10[.\d]*; K(?: Build/|[;)])|1[1-5]\)) AppleWebKit~i', $this->userAgent);
     }
 
     /**
