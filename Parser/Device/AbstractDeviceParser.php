@@ -1467,6 +1467,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'REV' => 'Revomovil',
         '8R'  => 'Retroid Pocket',
         'REN' => 'Renova',
+        'RE3' => 'RENSO',
         'REP' => 'rephone',
         'RHI' => 'Rhino',
         'RIC' => 'Ricoh',
