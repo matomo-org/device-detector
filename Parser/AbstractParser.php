@@ -139,6 +139,37 @@ abstract class AbstractParser
     }
 
     /**
+     * @inheritdoc
+     */
+    public function restoreUserAgentFromClientHints(): void
+    {
+        $deviceModel = $this->clientHints?->getModel() ?? '';
+
+        if ('' === $deviceModel) {
+            return;
+        }
+
+        // Restore Android User Agent
+        if ($this->hasUserAgentClientHintsFragment()) {
+            $osVersion = $this->clientHints->getOperatingSystemVersion();
+            $this->setUserAgent((string) \preg_replace(
+                '(Android (?:10[.\d]*; K|1[1-5]))',
+                \sprintf('Android %s; %s', '' !== $osVersion ? $osVersion : '10', $deviceModel),
+                $this->userAgent
+            ));
+        }
+
+        // Restore Desktop User Agent
+        if ($this->hasDesktopFragment()) {
+            $this->setUserAgent((string) \preg_replace(
+                '(X11; Linux x86_64)',
+                \sprintf('X11; Linux x86_64; %s', $deviceModel),
+                $this->userAgent
+            ));
+        }
+    }
+
+    /**
      * Set how DeviceDetector should return versions
      * @param int $type Any of the VERSION_TRUNCATION_* constants
      */

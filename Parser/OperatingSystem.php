@@ -392,6 +392,8 @@ class OperatingSystem extends AbstractParser
      */
     public function parse(): ?array
     {
+        $this->restoreUserAgentFromClientHints();
+
         $osFromClientHints = $this->parseOsFromClientHints();
         $osFromUserAgent   = $this->parseOsFromUserAgent();
 
