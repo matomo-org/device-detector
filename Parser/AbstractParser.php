@@ -160,13 +160,15 @@ abstract class AbstractParser
         }
 
         // Restore Desktop User Agent
-        if ($this->hasDesktopFragment()) {
-            $this->setUserAgent((string) \preg_replace(
-                '(X11; Linux x86_64)',
-                \sprintf('X11; Linux x86_64; %s', $deviceModel),
-                $this->userAgent
-            ));
+        if (!$this->hasDesktopFragment()) {
+            return;
         }
+
+        $this->setUserAgent((string) \preg_replace(
+            '(X11; Linux x86_64)',
+            \sprintf('X11; Linux x86_64; %s', $deviceModel),
+            $this->userAgent
+        ));
     }
 
     /**
