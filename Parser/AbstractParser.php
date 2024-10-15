@@ -143,7 +143,11 @@ abstract class AbstractParser
      */
     public function restoreUserAgentFromClientHints(): void
     {
-        $deviceModel = $this->clientHints?->getModel() ?? '';
+        if (null === $this->clientHints) {
+            return;
+        }
+
+        $deviceModel = $this->clientHints->getModel();
 
         if ('' === $deviceModel) {
             return;
@@ -151,7 +155,7 @@ abstract class AbstractParser
 
         // Restore Android User Agent
         if ($this->hasUserAgentClientHintsFragment()) {
-            $osVersion = $this->clientHints?->getOperatingSystemVersion();
+            $osVersion = $this->clientHints->getOperatingSystemVersion();
             $this->setUserAgent((string) \preg_replace(
                 '(Android (?:10[.\d]*; K|1[1-5]))',
                 \sprintf('Android %s; %s', '' !== $osVersion ? $osVersion : '10', $deviceModel),
