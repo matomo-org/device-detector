@@ -413,7 +413,7 @@ class OperatingSystem extends AbstractParser
             if (self::getOsFamily($osFromUserAgent['name']) === $name && $osFromUserAgent['name'] !== $name) {
                 $name = $osFromUserAgent['name'];
 
-                if ('HarmonyOS' === $name) {
+                if ('LeafOS' === $name || 'HarmonyOS' === $name) {
                     $version = '';
                 }
 
