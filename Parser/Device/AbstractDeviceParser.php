@@ -2183,24 +2183,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         $resultClientHint = $this->parseClientHints();
         $deviceModel      = $resultClientHint['model'] ?? '';
 
-        // is freeze user-agent then restoring the original UA for the device definition
-        if ('' !== $deviceModel && $this->hasUserAgentClientHintsFragment()) {
-            $osVersion = $this->clientHints ? $this->clientHints->getOperatingSystemVersion() : '';
-            $this->setUserAgent((string) \preg_replace(
-                '(Android (?:10[.\d]*; K|1[1-5]))',
-                \sprintf('Android %s; %s', '' !== $osVersion ? $osVersion : '10', $deviceModel),
-                $this->userAgent
-            ));
-        }
-
-        // is freeze user-agent then restoring the original UA for the device definition
-        if ('' !== $deviceModel && $this->hasDesktopFragment()) {
-            $this->setUserAgent((string) \preg_replace(
-                '(X11; Linux x86_64)',
-                \sprintf('X11; Linux x86_64; %s', $deviceModel),
-                $this->userAgent
-            ));
-        }
+        $this->restoreUserAgentFromClientHints();
 
         if ('' === $deviceModel && $this->hasUserAgentClientHintsFragment()) {
             return $this->getResult();
