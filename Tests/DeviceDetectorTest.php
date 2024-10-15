@@ -237,7 +237,7 @@ class DeviceDetectorTest extends TestCase
         }
 
         $errorMessage = \sprintf(
-            "UserAgent: %s\nHeaders: %s",
+            "UserAgent: %s\nHeaders: %s\nVersion truncation: none",
             $ua,
             \print_r($fixtureData['headers'] ?? null, true)
         );
@@ -245,6 +245,48 @@ class DeviceDetectorTest extends TestCase
         unset($fixtureData['headers']); // ignore headers in result
 
         $this->assertEquals($fixtureData, $uaInfo, $errorMessage);
+    }
+
+    /**
+     * @dataProvider getFixtures
+     */
+    public function testParseWithVersionTruncationMajor(array $fixtureData): void
+    {
+        $ua          = $fixtureData['user_agent'];
+        $clientHints = !empty($fixtureData['headers']) ? ClientHints::factory($fixtureData['headers']) : null;
+
+        AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_MAJOR);
+
+        try {
+            $uaInfo = DeviceDetector::getInfoFromUserAgent($ua, $clientHints);
+        } catch (\Exception $exception) {
+            throw new \Exception(
+                \sprintf('Error: %s from useragent %s', $exception->getMessage(), $ua),
+                $exception->getCode(),
+                $exception
+            );
+        }
+
+        $errorMessage = \sprintf(
+            "UserAgent: %s\nHeaders: %s\nVersion truncation: major",
+            $ua,
+            \print_r($fixtureData['headers'] ?? null, true)
+        );
+
+        unset($fixtureData['headers']); // ignore headers in result
+
+        // truncate versions
+        if (\array_key_exists('version', $fixtureData['os'] ?? [])) {
+            $fixtureData['os']['version'] = self::truncateVersion($fixtureData['os']['version']);
+        }
+
+        if (\array_key_exists('version', $fixtureData['client'] ?? [])) {
+            $fixtureData['client']['version'] = self::truncateVersion($fixtureData['client']['version']);
+        }
+
+        $this->assertEquals($fixtureData, $uaInfo, $errorMessage);
+
+        AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
     }
 
     public function getFixtures(): array
@@ -794,7 +836,7 @@ class DeviceDetectorTest extends TestCase
     public function testSetYamlParser(): void
     {
         $reader = function & ($object, $property) {
-            $value = & Closure::bind(function & () use ($property) {
+            $value = &Closure::bind(function & () use ($property) {
                 return $this->$property;
             }, $object, $object)->__invoke();
 
@@ -811,7 +853,7 @@ class DeviceDetectorTest extends TestCase
 
         foreach ($dd->getClientParsers() as $parser) {
             if ($parser instanceof MobileApp) {
-                $appHints = & $reader($parser, 'appHints');
+                $appHints = &$reader($parser, 'appHints');
                 $this->assertInstanceOf(Symfony::class, $appHints->getYamlParser());
             }
 
@@ -819,7 +861,7 @@ class DeviceDetectorTest extends TestCase
                 continue;
             }
 
-            $browserHints = & $reader($parser, 'browserHints');
+            $browserHints = &$reader($parser, 'browserHints');
             $this->assertInstanceOf(Symfony::class, $browserHints->getYamlParser());
         }
     }
@@ -939,5 +981,20 @@ class DeviceDetectorTest extends TestCase
         }
 
         return $dd;
+    }
+
+    private static function truncateVersion(?string $versionString): ?string
+    {
+        if (null === $versionString) {
+            return null;
+        }
+
+        if (\substr_count($versionString, '.') > 0) {
+            $versionParts  = \explode('.', $versionString);
+            $versionParts  = \array_slice($versionParts, 0, 1);
+            $versionString = \implode('.', $versionParts);
+        }
+
+        return \trim($versionString, ' .');
     }
 }
