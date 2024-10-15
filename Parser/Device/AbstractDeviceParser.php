@@ -2328,34 +2328,6 @@ abstract class AbstractDeviceParser extends AbstractParser
     }
 
     /**
-     * Returns if the parsed UA contains the 'Windows NT;' or 'X11; Linux x86_64' fragments
-     *
-     * @return bool
-     */
-    protected function hasDesktopFragment(): bool
-    {
-        $regexExcludeDesktopFragment = \implode('|', [
-            'CE-HTML',
-            ' Mozilla/|Andr[o0]id|Tablet|Mobile|iPhone|Windows Phone|ricoh|OculusBrowser',
-            'PicoBrowser|Lenovo|compatible; MSIE|Trident/|Tesla/|XBOX|FBMD/|ARM; ?([^)]+)',
-        ]);
-
-        return
-            $this->matchUserAgent('(?:Windows (?:NT|IoT)|X11; Linux x86_64)') &&
-            !$this->matchUserAgent($regexExcludeDesktopFragment);
-    }
-
-    /**
-     * Returns if the parsed UA contains the 'Android 10 K;' or Android 10 K Build/` fragment
-     *
-     * @return bool
-     */
-    protected function hasUserAgentClientHintsFragment(): bool
-    {
-        return (bool) \preg_match('~Android (?:10[.\d]*; K(?: Build/|[;)])|1[1-5]\)) AppleWebKit~i', $this->userAgent);
-    }
-
-    /**
      * Resets the stored values
      */
     protected function reset(): void
