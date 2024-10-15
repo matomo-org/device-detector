@@ -439,6 +439,13 @@ class OperatingSystem extends AbstractParser
                 $name  = $osFromUserAgent['name'];
                 $short = $osFromUserAgent['short_name'];
             }
+
+            // Chrome OS is in some cases reported as Android in client hints
+            if ('Android' === $name && 'Chrome OS' === $osFromUserAgent['name']) {
+                $name    = $osFromUserAgent['name'];
+                $version = '';
+                $short   = $osFromUserAgent['short_name'];
+            }
         } elseif (!empty($osFromUserAgent['name'])) {
             $name    = $osFromUserAgent['name'];
             $version = $osFromUserAgent['version'];
