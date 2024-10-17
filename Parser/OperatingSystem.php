@@ -112,6 +112,7 @@ class OperatingSystem extends AbstractParser
         'KTV' => 'KreaTV',
         'KBT' => 'Kubuntu',
         'LIN' => 'GNU/Linux',
+        'LEA' => 'LeafOS',
         'LND' => 'LindowsOS',
         'LNS' => 'Linspire',
         'LEN' => 'Lineage OS',
@@ -233,7 +234,7 @@ class OperatingSystem extends AbstractParser
         'Android'               => [
             'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
             'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS', 'WER', 'PIC', 'ARM',
-            'HEL', 'BYI', 'RIS', 'PUF',
+            'HEL', 'BYI', 'RIS', 'PUF', 'LEA',
         ],
         'AmigaOS'               => ['AMG', 'MOR', 'ARO'],
         'BlackBerry'            => ['BLB', 'QNX'],
