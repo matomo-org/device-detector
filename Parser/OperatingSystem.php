@@ -574,9 +574,18 @@ class OperatingSystem extends AbstractParser
             $version = $this->clientHints->getOperatingSystemVersion();
 
             if ('Windows' === $name) {
-                $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
+                $majorVersion = (int) (\explode('.', $version)[0] ?? '0');
+                $minorVersion = (int) (\explode('.', $version)[1] ?? '0');
 
-                if ($majorVersion > 0 && $majorVersion < 11) {
+                if (0 === $majorVersion) {
+                    if (1 === $minorVersion) {
+                        $version = '7';
+                    } elseif (2 === $minorVersion) {
+                        $version = '8';
+                    } elseif (3 === $minorVersion) {
+                        $version = '8.1';
+                    }
+                } elseif ($majorVersion > 0 && $majorVersion < 11) {
                     $version = '10';
                 } elseif ($majorVersion > 10) {
                     $version = '11';
