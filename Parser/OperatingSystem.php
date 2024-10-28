@@ -406,6 +406,11 @@ class OperatingSystem extends AbstractParser
                 $version = $osFromUserAgent['version'];
             }
 
+            // On Windows, version 0.0.0 can be either 7, 8 or 8.1
+            if ('Windows' === $name && '0.0.0' === $version) {
+                $version = ('10' === $osFromUserAgent['version']) ? '' : $osFromUserAgent['version'];
+            }
+
             // If the OS name detected from client hints matches the OS family from user agent
             // but the os name is another, we use the one from user agent, as it might be more detailed
             if (self::getOsFamily($osFromUserAgent['name']) === $name && $osFromUserAgent['name'] !== $name) {
@@ -592,7 +597,8 @@ class OperatingSystem extends AbstractParser
                 }
             }
 
-            if (0 === (int) $version) {
+            // On Windows, version 0.0.0 can be either 7, 8 or 8.1, so we return 0.0.0
+            if ('Windows' !== $name && '0.0.0' !== $version && 0 === (int) $version) {
                 $version = '';
             }
         }
