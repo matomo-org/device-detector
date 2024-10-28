@@ -583,8 +583,8 @@ class OperatingSystem extends AbstractParser
                 $minorVersion = (int) (\explode('.', $version, 2)[1] ?? '0');
 
                 if (0 === $majorVersion) {
-                    $minorVersionMapping = [1 => '7',  2 => '8',  3 => '8.1'];
-                    $version = $minorVersionMapping[$minorVersion] ?? $version;
+                    $minorVersionMapping = [1 => '7', 2 => '8', 3 => '8.1'];
+                    $version             = $minorVersionMapping[$minorVersion] ?? $version;
                 } elseif ($majorVersion > 0 && $majorVersion < 11) {
                     $version = '10';
                 } elseif ($majorVersion > 10) {
