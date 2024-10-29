@@ -3460,13 +3460,15 @@ ANS:
 
 # AOC (https://www.aoc.com/)
 AOC:
-  regex: 'AOC,|(?:Q10107L-ME)(?:[);/ ]|$)'
+  regex: 'AOC[;,]|(?:Q10107L-ME)(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: '(Q10107L-ME)(?:[);/ ]|$)'
       device: 'tablet'
       model: '$1'
     - regex: '(LE(?:32|43)S5970(?:s)?-(?:20|28|30)|LE55U7970-30|LE43S5977-20|U60856)'
+      model: '$1'
+    - regex: 'AOC;([a-z0-9_ \-/]+);'
       model: '$1'
 
 # Assistant
