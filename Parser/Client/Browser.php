@@ -684,7 +684,7 @@ class Browser extends AbstractClientParser
         'WB' => 'Wave Browser',
         'WA' => 'Wavebox',
         'WH' => 'Whale Browser',
-        'W2' => 'WhaleBrowser',
+        'W2' => 'Whale TV Browser',
         'WO' => 'wOSBrowser',
         '3W' => 'w3m',
         'WT' => 'WeTab Browser',
