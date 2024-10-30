@@ -2184,24 +2184,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         $resultClientHint = $this->parseClientHints();
         $deviceModel      = $resultClientHint['model'] ?? '';
 
-        // is freeze user-agent then restoring the original UA for the device definition
-        if ('' !== $deviceModel && $this->hasUserAgentClientHintsFragment()) {
-            $osVersion = $this->clientHints ? $this->clientHints->getOperatingSystemVersion() : '';
-            $this->setUserAgent((string) \preg_replace(
-                '(Android (?:10[.\d]*; K|1[1-5]))',
-                \sprintf('Android %s; %s', '' !== $osVersion ? $osVersion : '10', $deviceModel),
-                $this->userAgent
-            ));
-        }
-
-        // is freeze user-agent then restoring the original UA for the device definition
-        if ('' !== $deviceModel && $this->hasDesktopFragment()) {
-            $this->setUserAgent((string) \preg_replace(
-                '(X11; Linux x86_64)',
-                \sprintf('X11; Linux x86_64; %s', $deviceModel),
-                $this->userAgent
-            ));
-        }
+        $this->restoreUserAgentFromClientHints();
 
         if ('' === $deviceModel && $this->hasUserAgentClientHintsFragment()) {
             return $this->getResult();
@@ -2326,34 +2309,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         }
 
         return null;
-    }
-
-    /**
-     * Returns if the parsed UA contains the 'Windows NT;' or 'X11; Linux x86_64' fragments
-     *
-     * @return bool
-     */
-    protected function hasDesktopFragment(): bool
-    {
-        $regexExcludeDesktopFragment = \implode('|', [
-            'CE-HTML',
-            ' Mozilla/|Andr[o0]id|Tablet|Mobile|iPhone|Windows Phone|ricoh|OculusBrowser',
-            'PicoBrowser|Lenovo|compatible; MSIE|Trident/|Tesla/|XBOX|FBMD/|ARM; ?([^)]+)',
-        ]);
-
-        return
-            $this->matchUserAgent('(?:Windows (?:NT|IoT)|X11; Linux x86_64)') &&
-            !$this->matchUserAgent($regexExcludeDesktopFragment);
-    }
-
-    /**
-     * Returns if the parsed UA contains the 'Android 10 K;' or Android 10 K Build/` fragment
-     *
-     * @return bool
-     */
-    protected function hasUserAgentClientHintsFragment(): bool
-    {
-        return (bool) \preg_match('~Android (?:10[.\d]*; K(?: Build/|[;)])|1[1-5]\)) AppleWebKit~i', $this->userAgent);
     }
 
     /**
