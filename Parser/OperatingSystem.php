@@ -112,6 +112,7 @@ class OperatingSystem extends AbstractParser
         'KTV' => 'KreaTV',
         'KBT' => 'Kubuntu',
         'LIN' => 'GNU/Linux',
+        'LEA' => 'LeafOS',
         'LND' => 'LindowsOS',
         'LNS' => 'Linspire',
         'LEN' => 'Lineage OS',
@@ -156,6 +157,7 @@ class OperatingSystem extends AbstractParser
         'PSP' => 'PlayStation Portable',
         'PS3' => 'PlayStation',
         'PVE' => 'Proxmox VE',
+        'PUF' => 'Puffin OS',
         'PUR' => 'PureOS',
         'QTP' => 'Qtopia',
         'PIO' => 'Raspberry Pi OS',
@@ -232,7 +234,7 @@ class OperatingSystem extends AbstractParser
         'Android'               => [
             'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
             'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS', 'WER', 'PIC', 'ARM',
-            'HEL', 'BYI', 'RIS',
+            'HEL', 'BYI', 'RIS', 'PUF', 'LEA',
         ],
         'AmigaOS'               => ['AMG', 'MOR', 'ARO'],
         'BlackBerry'            => ['BLB', 'QNX'],
@@ -404,6 +406,11 @@ class OperatingSystem extends AbstractParser
                 $version = $osFromUserAgent['version'];
             }
 
+            // On Windows, version 0.0.0 can be either 7, 8 or 8.1
+            if ('Windows' === $name && '0.0.0' === $version) {
+                $version = ('10' === $osFromUserAgent['version']) ? '' : $osFromUserAgent['version'];
+            }
+
             // If the OS name detected from client hints matches the OS family from user agent
             // but the os name is another, we use the one from user agent, as it might be more detailed
             if (self::getOsFamily($osFromUserAgent['name']) === $name && $osFromUserAgent['name'] !== $name) {
@@ -573,15 +580,20 @@ class OperatingSystem extends AbstractParser
 
             if ('Windows' === $name) {
                 $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
+                $minorVersion = (int) (\explode('.', $version, 2)[1] ?? '0');
 
-                if ($majorVersion > 0 && $majorVersion < 11) {
+                if (0 === $majorVersion) {
+                    $minorVersionMapping = [1 => '7', 2 => '8', 3 => '8.1'];
+                    $version             = $minorVersionMapping[$minorVersion] ?? $version;
+                } elseif ($majorVersion > 0 && $majorVersion < 11) {
                     $version = '10';
                 } elseif ($majorVersion > 10) {
                     $version = '11';
                 }
             }
 
-            if (0 === (int) $version) {
+            // On Windows, version 0.0.0 can be either 7, 8 or 8.1, so we return 0.0.0
+            if ('Windows' !== $name && '0.0.0' !== $version && 0 === (int) $version) {
                 $version = '';
             }
         }
@@ -710,7 +722,7 @@ class OperatingSystem extends AbstractParser
             return 'SPARC64';
         }
 
-        if ($this->matchUserAgent('64-?bit|WOW64|(?:Intel)?x64|WINDOWS_64|win64|amd64|x86_?64')) {
+        if ($this->matchUserAgent('64-?bit|WOW64|(?:Intel)?x64|WINDOWS_64|win64|.*amd64|x86_?64')) {
             return 'x64';
         }
 
