@@ -426,11 +426,11 @@ class OperatingSystem extends AbstractParser
                     $version = $osFromUserAgent['version'];
                 }
 
-                if ('Fire OS' === $osFromUserAgent['name']) {
-                        $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
+                if ('Fire OS' === $name && !empty($osFromClientHints['version'])) {
+                    $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
 
-                        $version = $this->fireOsVersionMapping[$version]
-                            ?? $this->fireOsVersionMapping[$majorVersion] ?? '';
+                    $version = $this->fireOsVersionMapping[$version]
+                        ?? $this->fireOsVersionMapping[$majorVersion] ?? '';
                 }
             }
 
