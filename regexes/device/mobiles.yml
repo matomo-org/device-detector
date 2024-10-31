@@ -3460,13 +3460,15 @@ ANS:
 
 # AOC (https://www.aoc.com/)
 AOC:
-  regex: 'AOC,|(?:Q10107L-ME)(?:[);/ ]|$)'
+  regex: 'AOC[;,]|(?:Q10107L-ME)(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: '(Q10107L-ME)(?:[);/ ]|$)'
       device: 'tablet'
       model: '$1'
     - regex: '(LE(?:32|43)S5970(?:s)?-(?:20|28|30)|LE55U7970-30|LE43S5977-20|U60856)'
+      model: '$1'
+    - regex: 'AOC;([a-z0-9_ \-/]+);'
       model: '$1'
 
 # Assistant
@@ -8032,7 +8034,7 @@ Eton:
 
 # Essentielb
 Essentielb:
-  regex: '(?:Wooze[_ ]?(?:I55?|I45|X?L)|HEYOU(?:[135]|20PLUS|[1-7]0))(?:[);/ ]|$)'
+  regex: 'ESSENTIEL B[;,]|(?:Wooze[_ ]?(?:I55?|I45|X?L)|HEYOU(?:[135]|20PLUS|[1-7]0))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'HEYOU20PLUS(?:[);/ ]|$)'
@@ -8041,6 +8043,9 @@ Essentielb:
       model: 'HEYou $1'
     - regex: 'Wooze[_ ]?((?:I55?|I45|X?L))(?:[);/ ]|$)'
       model: 'Wooze $1'
+    - regex: 'ESSENTIEL B,([a-z0-9_ \-]+),(?:wired|wireless)'
+      device: 'tv'
+      model: '$1'
 
 # Facebook
 Facebook:
@@ -8917,6 +8922,14 @@ EVPAD:
       model: '$1'
     - regex: 'EVPAD-PRO-MAX'
       model: 'EVBox Pro Max'
+
+# evvoli (https://evvoli.com/)
+evvoli:
+  regex: 'EVVOLI[;,]'
+  device: 'tv'
+  models:
+    - regex: 'EVVOLI,([a-z0-9_ \-]+),(?:wired|wireless)'
+      model: '$1'
 
 # EvroMedia
 EvroMedia:
@@ -16786,7 +16799,7 @@ Mpman:
 
 # Manta Multimedia or Manta
 Manta Multimedia:
-  regex: 'MSP950(1[245]|2[01])|MSP96017|MSP94501|MSP95009|MSP96002|MSP450[79]|((?<!/)MID713|MID(?:06[SN]|08[S]?|12|13|14|15|701|702|703|704|705(?:DC)?|706[AS]?|707|708|709|711|712|714|717|781|801|802|901|1001|1002|1003|1004(?: 3G)?|1005|1009|1010|7802|9701|9702))(?:[);/ ]|$)'
+  regex: 'MANTA[;,]|MSP950(1[245]|2[01])|MSP96017|MSP94501|MSP95009|MSP96002|MSP450[79]|((?<!/)MID713|MID(?:06[SN]|08[S]?|12|13|14|15|701|702|703|704|705(?:DC)?|706[AS]?|707|708|709|711|712|714|717|781|801|802|901|1001|1002|1003|1004(?: 3G)?|1005|1009|1010|7802|9701|9702))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '((?<!/)MID713|MID(?:06[SN]|08[S]?|12|13|14|15|701|702|703|704|705(?:DC)?|706[AS]?|707|708|709|711|712|714|717|781|801|802|901|1001|1002|1003|1004(?: 3G)?|1005|1009|1010|7802|9701|9702))(?:[);/ ]|$)'
@@ -16809,6 +16822,9 @@ Manta Multimedia:
     - regex: 'MSP94501'
       model: 'Easy Selfie'
     - regex: '(MSP450[79]|MSP95009)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'MANTA,([a-z0-9_ \-]+),(?:wired|wireless)'
+      device: 'tv'
       model: '$1'
 
 # Masstel (masstel.vn)
@@ -17254,7 +17270,7 @@ Mio:
 
 # Miray
 Miray:
-  regex: 'MIDM[_-]|MPM[_-]|TPM4G_WT8'
+  regex: 'MIRAY[;,]|MIDM[_-]|MPM[_-]|TPM4G_WT8'
   device: 'smartphone'
   models:
     - regex: 'TPM4G_WT8'
@@ -17265,6 +17281,9 @@ Miray:
       device: 'tablet'
     - regex: 'MPM[_-]([a-z0-9]+)'
       model: 'MPM $1'
+    - regex: 'MIRAY,([a-z0-9_ \-]+),(?:wired|wireless)'
+      device: 'tv'
+      model: '$1'
 
 # mitsubishi
 Mitsubishi:
@@ -21047,7 +21066,7 @@ Pentagram:
 
 # Tcl (tcl.com)
 TCL:
-  regex: 'TCL,|smarttv_AFTMM-TCL|AFTMD002|AFTSHN02|AFTMD001|TCL[_ -][a-z0-9]+|(?:TCL[_ -][^;/]+ Build)|TCL72563C|(?:TCLGalaG60(?:\(9108A\))?|4163D|4187[DMU]|4188[CLRSVO]|5004S|5033TP|5087Z|5101A|5102[BKLMOP]|5107G|5124J|5130[JMEI]|5133MP|5133A|5148A|5152D|5159[AJ]|5164[AD]|5199I|6102[ADH]|6125[ADFH]|6127[AI]|6156[ADH]|6159[AK]|6165[AHS]|7040N|8491X|9048S|9060[GX]|9080G|9081X|9295G|9296[GQ]|A(?:50[2789]|600)DL|T(?:60[123]|701)DL|T(?:506D|671[EFGHO]|676[HJK]|766[AHJSU]|767[GHW]|770[BH]|771K|773O|774[BH]|775[BH]|776[HO]|779W|780H|781SPP|781S|781|782H|790[SY]|799[BH]|810[HS])|Percee TV|9183W|9198S|9309X2|9317X1|8[14]96G|916[016]G| 9061| 8182| 8167| 8095|BeyondTV\d?|UnionTV|T507U|5131[AG]|T610[KE]|T612B|9132[GS]|9137W|T430W|T431[DUQ]|T501[CL]|T768S|9494G|9460G|9466X|T60[79]DL)(?:_(?:RU|EEA|TR))?(?:[);/ ]|$)'
+  regex: 'TCL,|TCL[a-z0-9]+;|smarttv_AFTMM-TCL|AFTMD002|AFTSHN02|AFTMD001|TCL[_ -][a-z0-9]+|(?:TCL[_ -][^;/]+ Build)|(?:TCLGalaG60(?:\(9108A\))?|4163D|4187[DMU]|4188[CLRSVO]|5004S|5033TP|5087Z|5101A|5102[BKLMOP]|5107G|5124J|5130[JMEI]|5133MP|5133A|5148A|5152D|5159[AJ]|5164[AD]|5199I|6102[ADH]|6125[ADFH]|6127[AI]|6156[ADH]|6159[AK]|6165[AHS]|7040N|8491X|9048S|9060[GX]|9080G|9081X|9295G|9296[GQ]|A(?:50[2789]|600)DL|T(?:60[123]|701)DL|T(?:506D|671[EFGHO]|676[HJK]|766[AHJSU]|767[GHW]|770[BH]|771K|773O|774[BH]|775[BH]|776[HO]|779W|780H|781SPP|781S|781|782H|790[SY]|799[BH]|810[HS])|Percee TV|9183W|9198S|9309X2|9317X1|8[14]96G|916[016]G| 9061| 8182| 8167| 8095|BeyondTV\d?|UnionTV|T507U|5131[AG]|T610[KE]|T612B|9132[GS]|9137W|T430W|T431[DUQ]|T501[CL]|T768S|9494G|9460G|9466X|T60[79]DL)(?:_(?:RU|EEA|TR))?(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'TCLGalaG60(?:\(9108A\))?(?:[);/ ]|$)'
@@ -21284,9 +21303,8 @@ TCL:
     - regex: '((?:43|55)S62FS|(?:43|50)P65US|U(?:43|60|65)P60|65P4USM|(?:40|49)S62|L32S6|55P610|50P8S|55S62|(?:43|50)P6US|55DP60)'
       device: 'tv'
       model: '$1'
-    - regex: 'TCL72563C'
-      device: 'tv'
-      model: '72563C'
+    - regex: '_TV_[A-Z0-9]+_Tbrowser_2k20'
+      model: 'Smart TV (2020)'
     - regex: 'smarttv_AFTMM-TCL-TS8011'
       device: 'tv'
       model: 'TS8011'
@@ -23563,7 +23581,7 @@ Sky:
 
 # Skyworth or SWTV
 Skyworth:
-  regex: 'Sky_?worth|SWTV-|(?:FlowBox-F1|SWTV|SW-22AE NF)(?:[);/ ]|$)'
+  regex: 'Sky_?worth|SWTV-|SKW690|(?:FlowBox-F1|SWTV|SW-22AE NF)(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: 'FlowBox-F1'
@@ -23574,6 +23592,8 @@ Skyworth:
       model: '$1'
     - regex: 'Sky_?worth ([^;/)]+)(?: Build|[;)])'
       model: '$1'
+    - regex: 'LaTivu_(?:\d+[\.\d]+)_([0-9]{4})'
+      model: 'Smart TV ($1)'
 
 # Smartfren
 Smartfren:
@@ -23828,7 +23848,7 @@ Thomson:
     - regex: 'THOMSON[ _]SEREA500'
       device: 'smartphone'
       model: 'Serea 500'
-    - regex: '((?:49|55)UC6306|55UC63|32HD55|40FD54|55UD63)'
+    - regex: 'THOMSON,([a-z0-9_ \-]+)(?:\*[0-9])?,(?:wired|wireless)'
       device: 'tv'
       model: '$1'
 
@@ -26299,6 +26319,14 @@ Tolino:
   regex: 'Tolino Tab ([^/);]+)(?: Build|[);])'
   device: 'tablet'
   model: 'Tolino Tab $1'
+
+# Top-Tech
+Top-Tech:
+  regex: 'Toptech690[;,]'
+  device: 'tv'
+  models:
+    - regex: 'LaTivu_(?:\d+[\.\d]+)_([0-9]{4})'
+      model: 'Smart TV ($1)'
 
 # Top House
 Top House:
@@ -36084,11 +36112,25 @@ NEVIR:
   device: 'tv'
   model: '$1'
 
+# Master-G
+Master-G:
+  regex: 'MASTER-G[;,]|NEOQC4G(?:[);/ ]|$)'
+  device: 'tablet'
+  models:
+    - regex: 'NEOQC4G'
+      model: 'GPad Neo QC 4G'
+    - regex: 'MASTER-G,([a-z0-9_ \-]+),(?:wired|wireless)'
+      device: 'tv'
+      model: '$1'
+
 # philips
 Philips:
   regex: 'Philips|NETTV/|2020/2021 UHD Android|10BDL4151T|Xenium S[25]66|(?:PI3210G|TPM1[79]1E|70PUH6774_96|QM152E|QM16[134]E|TLE(?:821L|722G)|AND1E|S397|W5510|S410J)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
+    - regex: 'Philips;([a-z0-9_ \-/]+);'
+      model: '$1'
+      device: 'tv'
     - regex: '(10BDL4151T)'
       device: 'smart display'
       model: '$1'
@@ -40229,12 +40271,6 @@ iYou:
   device: 'smartphone'
   model: '$1'
 
-# Master-G
-Master-G:
-  regex: 'NEOQC4G(?:[);/ ]|$)'
-  device: 'tablet'
-  model: 'GPad Neo QC 4G'
-
 # Sewoo post terminals
 Sewoo:
   regex: '(NBP-60)(?:[);/ ]|$)'
@@ -41905,6 +41941,14 @@ Cuiud:
   models:
     - regex: 'Cuiud F7'
       model: 'F7'
+
+# Cultraview (http://www.cultraview.com/)
+Cultraview:
+  regex: 'Cultraview690[;,]'
+  device: 'tv'
+  models:
+    - regex: 'LaTivu_(?:\d+[\.\d]+)_([0-9]{4})'
+      model: 'Smart TV ($1)'
 
 # Cidea or C idea (http://cidealife.com/ or https://www.cideatablet.com/)
 C Idea:

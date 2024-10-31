@@ -684,6 +684,7 @@ class Browser extends AbstractClientParser
         'WB' => 'Wave Browser',
         'WA' => 'Wavebox',
         'WH' => 'Whale Browser',
+        'W2' => 'Whale TV Browser',
         'WO' => 'wOSBrowser',
         '3W' => 'w3m',
         'WT' => 'WeTab Browser',
@@ -768,6 +769,7 @@ class Browser extends AbstractClientParser
             'M9', 'F9', '0P', '0A', 'JR', 'D3', 'TK', 'BP', '2F',
             '2M', 'K7', '1N', '8A', 'H7', 'X3', 'T4', 'X4', '5O',
             '8C', '3M', '6I', '2P', 'PU', '7I', 'X5', 'AL', '3P',
+            'W2',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
