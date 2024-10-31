@@ -59,7 +59,7 @@ class Version extends AbstractClientParser
         $engineToken = $this->engine;
 
         if ('Blink' === $this->engine) {
-            $engineToken = 'Chrome|Cronet';
+            $engineToken = 'Chr[o0]me|Cronet';
         }
 
         if ('Arachne' === $this->engine) {

@@ -6,6 +6,20 @@
 ###############
 
 ##########
+# LeafOS (https://www.leafos.org/)
+##########
+- regex: 'LeafOS'
+  name: 'LeafOS'
+  version: ''
+
+##########
+# Puffin OS (https://www.puffin.com/os/help/faq/)
+##########
+- regex: 'Cloud Phone'
+  name: 'Puffin OS'
+  version: ''
+
+##########
 # risingOS (https://github.com/RisingTechOSS/android)
 ##########
 - regex: 'RisingOS'
@@ -449,7 +463,7 @@
 ##########
 # Whale OS (https://www.zeasn.com/)
 ##########
-- regex: '(?:WH|WhaleTV/)(\d+[\.\d]+)'
+- regex: '(?:WH|WhaleTV)/?(\d+[\.\d]+)'
   name: 'Whale OS'
   version: '$1'
 
@@ -683,9 +697,14 @@
 ##########
 # ChromeOS
 ##########
-- regex: 'CrOS [a-z0-9_]+ (\d+[\.\d]+)|Chromebook'
+- regex: '(?:CrOS [a-z0-9_]+ |.*Build/R\d+-)(\d+[\.\d]+)|Chromebook'
   name: 'Chrome OS'
   version: '$1'
+
+# https://chromiumdash.appspot.com/serving-builds?deviceCategory=ChromeOS
+- regex: '(?:Android (?:9|1[0-5])[.\d]*|Linux x86_64); (?:asurada|atlas|brask|brya|cherry|coral|corsola|dedede|drallion|elm|eve|fizz|geralt|grunt|guybrush|hana|hatch|jacuzzi|kalista|kukui|nami|nautilus|nissa|nocturne|octopus|puff|pyro|rammus|reef|rex|sand|sarien|skyrim|snappy|soraka|staryu|strongbad|trogdor|volteer|zork)\)'
+  name: 'Chrome OS'
+  version: ''
 
 ##########
 # Android TV (https://android.com/tv/)
@@ -1122,7 +1141,7 @@
   name: 'Windows'
   version: '$1'
 
-- regex: 'CYGWIN_NT-10\.0|Windows NT 10\.0|Windows[ /]10'
+- regex: 'CYGWIN_NT-10\.0|Win(?:dows )?NT 10\.0|Windows[ /]10'
   name: 'Windows'
   version: '10'
 
@@ -1170,7 +1189,7 @@
   name: 'Windows'
   version: '2000'
 
-- regex: 'CYGWIN_NT-4\.0|Windows NT 4\.0|WinNT|Windows NT'
+- regex: 'CYGWIN_NT-4\.0|Windows NT 4\.0|WinNT(?! 10)|Windows NT'
   name: 'Windows'
   version: 'NT'
 
@@ -1311,6 +1330,8 @@
 - regex: '^(?!com\.apple\.Safari\.SearchHelper|Safari).*(?:CFNetwork|Mana)/.+ Darwin/(\d+[\.\d]+)(?!.*(?:x86_64|i386|PowerMac|Power%20Macintosh))'
   name: 'iOS'
   versions:
+    - regex: 'Darwin/24\.2\.0'
+      version: '18.2'
     - regex: 'Darwin/24\.1\.0'
       version: '18.1'
     - regex: 'Darwin/24\.0\.0'
@@ -1466,7 +1487,7 @@
     - regex: 'CFNetwork/459'
       version: '3.1'
 
-- regex: '(?:iPhone|iPod_touch)/(\d+[\.\d]*) hw/'
+- regex: '(?:iPhone|iPod_touch)/(\d+[\.\d]*)(?: hw)?/'
   name: 'iOS'
   version: '$1'
 
@@ -1530,7 +1551,7 @@
   name: 'iOS'
   version: ''
 
-- regex: 'CaptiveNetworkSupport|AirPlay|.*[ \.\-/]iOS'
+- regex: 'CaptiveNetworkSupport|AirPlay|.*[ \.\-/]iOS(?!@)'
   name: 'iOS'
   version: ''
 
@@ -1540,6 +1561,8 @@
 - regex: '(?:CFNetwork|Mana|StudioDisplay)/.+Darwin(?:/|; )(?:[\d\.]+).+(?:x86_64|i386|Power%20Macintosh)|(?:x86_64-apple-)?darwin(?:[\d\.]+)|C?Python.*Darwin|PowerMac|com\.apple\.Safari\.SearchHelper|^Safari'
   name: 'Mac'
   versions:
+    - regex: '(?:x86_64-apple-)?Darwin(?:/|; )?24\.2\.0'
+      version: '15.2'
     - regex: '(?:x86_64-apple-)?Darwin(?:/|; )?24\.1\.0'
       version: '15.1'
     - regex: '(?:x86_64-apple-)?Darwin(?:/|; )?24\.0\.0'
