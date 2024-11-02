@@ -776,7 +776,7 @@ class DeviceDetector
      */
     protected function hasAndroidTableFragment(): bool
     {
-        $regex = 'Android( [\.0-9]+)?; Tablet;|Tablet(?! PC)|.*\-tablet$';
+        $regex = 'Android( [.0-9]+)?; Tablet;|Tablet(?! PC)|.*\-tablet$';
 
         return !!$this->matchUserAgent($regex);
     }
@@ -788,7 +788,7 @@ class DeviceDetector
      */
     protected function hasAndroidMobileFragment(): bool
     {
-        $regex = 'Android( [\.0-9]+)?; Mobile;|.*\-mobile$';
+        $regex = 'Android( [.0-9]+)?; Mobile;|.*\-mobile$';
 
         return !!$this->matchUserAgent($regex);
     }
@@ -800,7 +800,7 @@ class DeviceDetector
      */
     protected function hasAndroidVRFragment(): bool
     {
-        $regex = 'Android( [\.0-9]+)?; Mobile VR;| VR ';
+        $regex = 'Android( [.0-9]+)?; Mobile VR;| VR ';
 
         return !!$this->matchUserAgent($regex);
     }
@@ -959,7 +959,7 @@ class DeviceDetector
          *       a detected browser, but can still be detected. So we check the useragent for Chrome instead.
          */
         if (null === $this->device && 'Android' === $osFamily
-            && $this->matchUserAgent('Chrome/[\.0-9]*')
+            && $this->matchUserAgent('Chrome/[.0-9]*')
         ) {
             if ($this->matchUserAgent('(?:Mobile|eliboM)')) {
                 $this->device = AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE;

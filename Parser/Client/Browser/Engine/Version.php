@@ -49,7 +49,7 @@ class Version extends AbstractClientParser
         }
 
         if ('Gecko' === $this->engine || 'Clecko' === $this->engine) {
-            $pattern = '~[ ](?:rv[: ]([0-9\.]+)).*(?:g|cl)ecko/[0-9]{8,10}~i';
+            $pattern = '~[ ](?:rv[: ]([0-9.]+)).*(?:g|cl)ecko/[0-9]{8,10}~i';
 
             if (\preg_match($pattern, $this->userAgent, $matches)) {
                 return ['version' => \array_pop($matches)];
