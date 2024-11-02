@@ -319,6 +319,7 @@ class OperatingSystem extends AbstractParser
      * @var array
      */
     private $lineageOsVersionMapping = [
+        '15'    => '22',
         '14'    => '21',
         '13'    => '20.0',
         '12.1'  => '19.1',
