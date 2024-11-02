@@ -59,7 +59,7 @@ class Version extends AbstractClientParser
         $engineToken = $this->engine;
 
         if ('Blink' === $this->engine) {
-            $engineToken = 'Chr[o0]me|Cronet';
+            $engineToken = 'Chr[o0]me|Chromium|Cronet';
         }
 
         if ('Arachne' === $this->engine) {
@@ -71,7 +71,7 @@ class Version extends AbstractClientParser
         }
 
         \preg_match(
-            "~(?:{$engineToken})\s*/?\s*((?(?=\d+\.\d)\d+[.\d]*|\d{1,7}(?=(?:\D|$))))~i",
+            "~(?:{$engineToken})\s*[/_]?\s*((?(?=\d+\.\d)\d+[.\d]*|\d{1,7}(?=(?:\D|$))))~i",
             $this->userAgent,
             $matches
         );
