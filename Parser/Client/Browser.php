@@ -1044,6 +1044,13 @@ class Browser extends AbstractClientParser
             if ('DuckDuckGo Privacy Browser' === $name) {
                 $version = '';
             }
+
+            // In case client hints report a more detailed engine version, we try to use this instead
+            if ('Blink' === $engine && 'Iridium' !== $name
+                && \version_compare($engineVersion, $browserFromClientHints['version'], '<')
+            ) {
+                $engineVersion = $browserFromClientHints['version'];
+            }
         } else {
             $name          = $browserFromUserAgent['name'];
             $version       = $browserFromUserAgent['version'];
