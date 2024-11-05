@@ -29,7 +29,7 @@ Airties:
   regex: 'ALDISUED[;,]'
   device: 'tv'
   models:
-    - regex: 'ALDISUED, ([a-z0-9_ \-]+), (?:wired|wireless)'
+    - regex: 'ALDISUED, ([a-z0-9_ -]+), (?:wired|wireless)'
       model: ''
 
 # Altech UEC
@@ -51,7 +51,7 @@ Amazon:
   regex: 'Amazon.+AMZ'
   device: 'tv'
   models:
-    - regex: 'Amazon.+AMZ-([a-z0-9_ \-]+)_Build_'
+    - regex: 'Amazon.+AMZ-([a-z0-9_ -]+)_Build_'
       model: '$1'
 
 # AOC
@@ -291,7 +291,7 @@ Grundig:
   models:
     - regex: 'G7'
       model: 'G7'
-    - regex: 'Amazon.+Grundig-([a-z0-9_ \-]+)_Build_'
+    - regex: 'Amazon.+Grundig-([a-z0-9_ -]+)_Build_'
       model: '$1'
 
 # Haier
@@ -585,7 +585,7 @@ LG:
       model: '$1'
     - regex: '(OLED[0-9]{2}[A-Z0-9]{3}[A-Z]{2})'
       model: '$1'
-    - regex: '(OLED[0-9]{2}[A-Z][0-9][A-Z])'
+    - regex: '(OLED[0-9]{2}[A-Z][0-9][A-Z](?:-Z)?)'
       model: '$1'
     - regex: '(OLED[0-9]{2}[A-Z0-9]{2})'
       model: '$1'
@@ -667,7 +667,7 @@ Medion:
   regex: 'Medion'
   device: 'tv'
   models:
-    - regex: 'MEDION, ([a-z0-9_ \-]+), (?:wired|wireless)'
+    - regex: 'MEDION, ([a-z0-9_ -]+), (?:wired|wireless)'
       model: ''
 
 # MEGA VISION
@@ -814,6 +814,18 @@ PEAQ:
   device: 'tv'
   model: ''
 
+# TCL SCBC
+TCL SCBC:
+  regex: 'SCBC[;,]|_TV_[A-Z0-9_]+_TCL_SCBC'
+  device: 'tv'
+  models:
+    - regex: 'SCBC586'
+      model: 'SCBC586'
+    - regex: '43D1850'
+      model: '43D1850'
+    - regex: '_TV_[A-Z0-9]+_TCL_SCBC_Tbrowser_2k20'
+      model: 'Smart TV (2020)'
+
 # Philips
 Philips:
   regex: 'Philips|NETTV/'
@@ -821,7 +833,7 @@ Philips:
   models:
     - regex: '(?:Philips|TPVision)[,;](?: |Philips;)?((?! )[^),;/]+)'
       model: '$1'
-    - regex: 'NETTV/[0-9\.]{5}'
+    - regex: 'NETTV/[0-9.]{5}'
       model: 'NetTV Series'
 
 # Polaroid
@@ -890,16 +902,6 @@ Samsung:
     - regex: 'Maple_2011'
       model: 'Smart TV (2011)'
 
-# SCBC
-SCBC:
-  regex: 'SCBC[;,]'
-  device: 'tv'
-  models:
-    - regex: 'SCBC586'
-      model: 'SCBC586'
-    - regex: '43D1850'
-      model: '43D1850'
-
 # SEG
 SEG:
   regex: 'SEG[;,]'
@@ -931,7 +933,7 @@ Sharp:
   regex: '(?:UMC-)?Sharp'
   device: 'tv'
   models:
-    - regex: 'SHARP, ([a-z0-9_ \-]+), (?:wired|wireless)'
+    - regex: 'SHARP, ([a-z0-9_ -]+), (?:wired|wireless)'
       model: ''
     - regex: 'Sharp[,;] ?((?! |HbbTV|MB130)[^),;/]+)'
       model: '$1'
@@ -1055,7 +1057,7 @@ TCL:
       model: '$1'
     - regex: 'TCL[,;] ?((?! |HbbTV|MB130)[^),;/]+)'
       model: '$1'
-    - regex: 'Amazon.+TCL-([a-z0-9_ \-]+)_Build_'
+    - regex: 'Amazon.+TCL-([a-z0-9_ -]+)_Build_'
       model: '$1'
 
 # Thomson
@@ -1103,7 +1105,7 @@ Toshiba:
       model: '40L2600'
     - regex: '(([0-9]{2}|DTV_)[A-Z]{2}[0-9]{1,3})'
       model: '$1'
-    - regex: 'Amazon.+Toshiba-([a-z0-9_ \-]+)_Build_'
+    - regex: 'Amazon.+Toshiba-([a-z0-9_ -]+)_Build_'
       model: '$1'
 
 # Tsinghua Tongfang
@@ -1211,12 +1213,12 @@ Xiaomi:
   models:
     - regex: 'AFTANNA0'
       model: 'F2 4K (2022)'
-    - regex: 'Amazon.+Xiaomi-([a-z0-9_ \-]+)_Build_'
+    - regex: 'Amazon.+Xiaomi-([a-z0-9_ -]+)_Build_'
       model: '$1'
 
 # Unknown
 Unknown:
-  regex: 'OEM, ([a-z0-9_ \-]+), (?:wired|wireless)|_TV_[A-Z0-9]+_([0-9]{4});'
+  regex: 'OEM, ([a-z0-9_ -]+), (?:wired|wireless)|_TV_[A-Z0-9]+_([0-9]{4});'
   device: 'tv'
   models:
     - regex: '_TV_[A-Z0-9]+_([0-9]{4});'
