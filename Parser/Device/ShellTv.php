@@ -36,7 +36,7 @@ class ShellTv extends AbstractDeviceParser
      */
     public function isShellTv(): bool
     {
-        $regex = '[a-z]+[ _]Shell[ _]\w{6}|tclwebkit(\d+[\.\d]*)';
+        $regex = '[a-z]+[ _]Shell[ _]\w{6}|tclwebkit(\d+[.\d]*)';
         $match = $this->matchUserAgent($regex);
 
         return null !== $match;
