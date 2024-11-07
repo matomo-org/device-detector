@@ -493,6 +493,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'UD'  => 'DUNNS Mobile',
         'DUU' => 'Duubee',
         'DUR' => 'Durabook',
+        'DUD' => 'DUDU AUTO',
         'DYO' => 'Dyon',
         'DYM' => 'Dykemann',
         'DTE' => 'D-Tech',

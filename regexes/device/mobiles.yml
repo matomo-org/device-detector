@@ -25742,6 +25742,10 @@ Tecno Mobile:
       model: 'Camon 30 5G'
     - regex: 'Tecno[ _-]CL8(?:[);/ ]|$)'
       model: 'Camon 30 Pro 5G'
+    - regex: 'Tecno[ _-]CLA6(?:[);/ ]|$)'
+      model: 'Camon 30S Pro'
+    - regex: 'Tecno[ _-]CLA5(?:[);/ ]|$)'
+      model: 'Camon 30S'
     - regex: 'Tecno[ _-]CA6S?(?:[);/ ]|$)'
       model: 'Camon CM'
     - regex: 'Tecno[ _-]CA7(?:[);/ ]|$)'
@@ -31156,13 +31160,13 @@ NEXBOX:
       model: 'ID TV HPH07'
 
 Yandex:
-  regex: '(?:YNDX-?00(?:0SB|10[12]|055|07[1235]|09[12])|YandexModule2-00001)(?:[);/ ]|$)'
+  regex: '(?:YNDX-?00(?:0SB|10[12]|055|07[1-6]|09[12])|YandexModule2-00001)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'YandexModule2-00001'
       device: 'tv'
       model: 'Module'
-    - regex: 'YNDX-?(0007[1235]|0009[12]|0010[12])'
+    - regex: 'YNDX-?(0007[1-6]|0009[12]|0010[12])'
       device: 'tv'
       model: 'YNDX-$1'
     - regex: 'YNDX-?000SB'
@@ -32892,7 +32896,7 @@ Winds:
 
 # Asano
 Asano:
-  regex: '(?:32LH7010T|32LH8030S|43L[FU]8120T|43LU8030S|43LU8130S|32LH8[10]10T|32LH7030S|32LF7130S|28LH701[10]T|43LU8010T|24LH7011T|24L[HF]7020T|24LH8010T|40LF7030S|5[05]LU8120T|42LF7110T|32LF7120T|32LF8120T|50LU8110T|50LU8130S|40LF8120T|50LF7010T|43LF7010T|32LH8011T|32LF7111T)(?:[);/ ]|$)'
+  regex: '(?:32LH7010T|32LH8030S|43L[FU]8120T|43LU8030S|43LU8130S|32LH8[10]10T|32LH7030S|32LF7130S|28LH701[10]T|43LU8010T|24LH7011T|24L[HF]7020T|24LH8010T|28LH81[12]0T|40LF7030S|5[05]LU8120T|42LF7110T|32LF7120T|32LF8120T|50LU8110T|50LU8130S|40LF8120T|50LF7010T|43LF7010T|32LH8011T|32LF7111T)(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: '(\d{2})(L[FHU]\d+[ST])(?:[);/ ]|$)'
@@ -41809,9 +41813,11 @@ VOLIA:
 
 # Sagemcom (https://www.sagemcom.com/)
 Sagemcom:
-  regex: 'Sagemcom[;, \-_]|(DIW3930)(?:[);/ ]|$)'
+  regex: 'Sagemcom[;, \-_]|(DIW3930|DCTIW362_PLAY)(?:[);/ ]|$)'
   device: 'tv'
   models:
+    - regex: 'DCTIW362_PLAY'
+      model: 'DCTIW362 Play'
     - regex: '(DI384|DIW350|DIW387|DIW3930)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'Sagemcom[;,] ([a-z0-9]+)(?:[);/ ]|$)'
@@ -41979,9 +41985,12 @@ S-Color:
 
 # W&O
 W&O:
-  regex: '(?:X9 CALL2| WO [89])(?: Build|[);])'
+  regex: '(?:X9 CALL2| WO [89]|WO Pad Max)(?: Build|[);])'
   device: 'wearable'
   models:
+    - regex: 'WO Pad Max'
+      device: 'tablet'
+      model: 'WO Pad Max'
     - regex: 'WO ([89])'
       device: 'tablet'
       model: 'WO$1'
@@ -42070,7 +42079,7 @@ Lville:
 
 # KENSHI
 KENSHI:
-  regex: '(?:Android 13(?:[\d.]*);(?: [\w-]+;)? (?:E1[1278]|E28|E38|H38|H21|H19|H11)|Armor_C1w|Armor P1s)(?:[);/ ]|$)'
+  regex: '(?:Android 13(?:[\d.]*);(?: [\w-]+;)? (?:E1[1278]|E28|E38|H38|H21|H19|H11)|Armor_C1w|Armor P1s|Kenshi[_ ]K10)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'Armor_C1w'
@@ -42079,6 +42088,8 @@ KENSHI:
     - regex: 'Armor P1s'
       device: 'smartphone'
       model: 'Armor P1s'
+    - regex: 'Kenshi[_ ](K10)(?:[);/ ]|$)'
+      model: '$1'
     - regex: 'Android 13(?:[\d.]*);(?: [\w-]+;)? (E1[1278]|E28|E38|H38|H21|H19|H11)(?:[);/ ]|$)'
       model: '$1'
 
@@ -42631,6 +42642,12 @@ AZOM:
   models:
     - regex: 'River 1'
       model: 'River 1'
+
+# DUDU AUTO (http://www.duduauto.top/)
+DUDU AUTO:
+  regex: 'DUDU(\d)'
+  device: 'car browser'
+  model: 'DUDU$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
