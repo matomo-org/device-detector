@@ -44,7 +44,11 @@ use DeviceDetector\Parser\Device\AbstractDeviceParser;
 AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
 
 $userAgent = $_SERVER['HTTP_USER_AGENT']; // change this to the useragent you want to parse
-$clientHints = ClientHints::factory($_SERVER); // client hints are optional
+
+// Client Hints are optional
+// If you want to use them your server must announce that it supports client hints, using the Accept-CH header to specify the hints that it is interested in receiving.
+// See e.g. https://developer.mozilla.org/en-US/docs/Web/HTTP/Client_hints
+$clientHints = ClientHints::factory($_SERVER);
 
 $dd = new DeviceDetector($userAgent, $clientHints);
 
