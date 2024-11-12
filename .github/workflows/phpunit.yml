@@ -24,7 +24,20 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        php-version: ['7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3', '8.4']
+        php-version: ['7.2', '8.4']
+        include:
+          - php-version: 7.3
+            os: ubuntu-latest
+          - php-version: 7.4
+            os: ubuntu-latest
+          - php-version: 8.0
+            os: ubuntu-latest
+          - php-version: 8.1
+            os: ubuntu-latest
+          - php-version: 8.2
+            os: ubuntu-latest
+          - php-version: 8.3
+            os: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Install PHP
