@@ -7843,6 +7843,16 @@ ECS:
     - regex: 'TM105(?:[);/ ]|$)'
       model: 'TM105'
 
+# Edenwood
+Edenwood:
+  regex: 'EDENWOOD[;,]'
+  device: 'tv'
+  models:
+    - regex: '_TV_[A-Z0-9]+_([0-9]{4});'
+      model: 'Smart TV ($1)'
+    - regex: 'SmartTV;'
+      model: 'Smart TV'
+
 # EE
 EE:
   regex: '(?:Harrier(?: Tab)?|Hawk|Rook)[_ ]from[_ ]EE'
@@ -31914,14 +31924,14 @@ Ruggex:
 
 # Maxcom (maxcom.pl)
 Maxcom:
-  regex: '(?:MS(?:45[036]|505|507_STRONG|514|651)|MS457(?:PLUS)?|RS-401|Neva Rise S1)(?:[);/ ]|$)'
+  regex: '(?:MS(?:45[036]|505|507_STRONG|514|57[12]|651)|MS457(?:PLUS)?|RS-401|Neva Rise S1)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(MS457)PLUS(?:[);/ ]|$)'
       model: '$1 Plus'
     - regex: '(MS507)_STRONG(?:[);/ ]|$)'
       model: '$1 Strong'
-    - regex: 'MS(45[0367]|505|514|651)(?:[);/ ]|$)'
+    - regex: 'MS(45[0367]|505|514|57[12]|651)(?:[);/ ]|$)'
       model: 'MS$1'
     - regex: 'RS-401(?:[);/ ]|$)'
       model: 'RS-401'
@@ -36331,7 +36341,7 @@ Genesis:
 
 # Infomir (https://www.infomir.us/)
 Infomir:
-  regex: '(MAG425A)(?:[);/ ]|$)'
+  regex: '(MAG(?:200|[23]50|425A))(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
@@ -40437,9 +40447,15 @@ Khadas:
 
 # Sunmax or sunmax mobile (sunmaxmobile.com)
 Sunmax:
-  regex: '(Model Y)(?:[);/ ]|$)'
+  regex: 'Model[ _][6ADSY](?:[ _]pro)?(?:[ _]4G)?(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'Model_6_pro_4G'
+      model: 'Model 6 Pro 4G'
+    - regex: '(Model S 4G)'
+      model: '$1'
+    - regex: '(Model [6ADSY])'
+      model: '$1'
 
 # Kapsys (kapsys.com)
 Kapsys:
@@ -40858,7 +40874,7 @@ BluSlate:
 
 # Lectrus
 Lectrus:
-  regex: 'LECT-TAB(1011|0711)(?:[);/ ]|$)'
+  regex: 'LECT-TAB(1011H?|0711)(?:[);/ ]|$)'
   device: 'tablet'
   model: 'LECT-TAB$1'
 
@@ -41632,6 +41648,16 @@ SAILF:
   regex: '(?:20220728MT)(?:[);/ ]|$)'
   device: 'smartphone'
   model: 'I13 Pro'
+
+# Salora
+Salora:
+  regex: 'Salora(?:_cx)?[;,]'
+  device: 'tv'
+  models:
+    - regex: '_TV_[A-Z0-9]+_([0-9]{4});'
+      model: 'Smart TV ($1)'
+    - regex: 'SmartTV;'
+      model: 'Smart TV'
 
 # Hisense (https://www.hisense-usa.com/)
 Hisense:

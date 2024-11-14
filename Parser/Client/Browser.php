@@ -108,7 +108,7 @@ class Browser extends AbstractClientParser
         'AW' => 'Amiga Aweb',
         'PN' => 'APN Browser',
         '6A' => 'Arachne',
-        'RA' => 'Arc',
+        'RA' => 'Arc Search',
         'R5' => 'Armorfly Browser',
         'AI' => 'Arvin',
         'AK' => 'Ask.com',
