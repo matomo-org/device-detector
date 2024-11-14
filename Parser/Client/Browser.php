@@ -1084,7 +1084,7 @@ class Browser extends AbstractClientParser
             }
         }
 
-        if (empty($name)) {
+        if (empty($name) || 1 === \preg_match('/Cypress|PhantomJS/', $this->userAgent)) {
             return [];
         }
 
