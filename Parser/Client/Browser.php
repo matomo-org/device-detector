@@ -774,11 +774,11 @@ class Browser extends AbstractClientParser
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
-            'FB', 'FE', 'AX', 'FM', 'FR', 'FY', 'GZ', 'I4', 'IF',
+            'FB', 'FE', 'AX', 'FM', 'FR', 'FY', 'I4', 'IF', '8P',
             'IW', 'LH', 'LY', 'MB', 'MN', 'MO', 'MY', 'OA', 'OS',
             'PI', 'PX', 'QA', 'S5', 'SX', 'TF', 'TO', 'WF', 'ZV',
             'FP', 'AD', '2I', 'P9', 'KJ', 'WY', 'VK', 'W5',
-            '7C', 'N7', 'W7', '8P',
+            '7C', 'N7', 'W7',
         ],
         'Internet Explorer'  => ['IE', 'CZ', 'BZ', 'IM', 'PS', '3A', '4A', 'RN'],
         'Konqueror'          => ['KO'],

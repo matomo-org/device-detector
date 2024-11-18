@@ -105,6 +105,31 @@ class BrowserTest extends TestCase
         }
     }
 
+    public function testShortCodesComparisonWithBrowsers(): void
+    {
+        $reflectionClass = new \ReflectionClass(Browser::class);
+        $browserProperty = $reflectionClass->getProperty('availableBrowsers');
+        $browserProperty->setAccessible(true);
+        $availableBrowsers = $browserProperty->getValue();
+
+        $browserFamilyProperty = $reflectionClass->getProperty('browserFamilies');
+        $browserFamilyProperty->setAccessible(true);
+        $browserFamilies = $browserFamilyProperty->getValue();
+        $result          = [];
+
+        foreach ($browserFamilies as $codes) {
+            foreach ($codes as $code) {
+                if (isset($availableBrowsers[$code])) {
+                    continue;
+                }
+
+                $result[] = $code;
+            }
+        }
+
+        $this->assertEquals([], $result, 'These shortcode does not match the list of browsers');
+    }
+
     /**
      * @return array
      */
