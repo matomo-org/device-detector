@@ -20,7 +20,7 @@ Ace:
       model: 'Buzz 5 Pro+'
     - regex: 'BUZZ ([45]) ?Pro'
       model: 'Buzz $1 Pro'
-    - regex: 'BUZZ ([124]) ?Lite'
+    - regex: 'BUZZ ([1245]) ?Lite'
       model: 'Buzz $1 Lite'
     - regex: 'BUZZ ([123]) Plus'
       model: 'Buzz $1 Plus'
@@ -16405,11 +16405,19 @@ Lifemaxx:
 
 # Lingbo
 Lingbo:
-  regex: '(?:Venus Pad14)(?:[);/ ]|$)'
-  device: 'tablet'
+  regex: '(?:Venus Pad1[456]|L24 Ultra|G15 Pro Max|G24_mini|G15_mini)(?:[);/ ]|$)'
+  device: 'smartphone'
   models:
-    - regex: 'Venus Pad14'
-      model: 'Venus Pad 14'
+    - regex: 'Venus Pad(1[456])'
+      device: 'tablet'
+      model: 'Venus Pad $1'
+    - regex: 'L24 Ultra'
+      model: 'L24 Ultra'
+    - regex: 'G15 Pro Max'
+      model: 'G15 Pro Max'
+    - regex: 'G(15|24)_mini'
+      model: 'G$1 Mini'
+
 
 # Lingwin
 Lingwin:
@@ -17734,7 +17742,7 @@ Torque:
 
 # motorola
 Motorola:
-  regex: 'MOT(?!TO)|(?<!AN)DROID ?(?:Build|[a-z0-9]+)|portalmmm/2\.0 (?:E378i|L6|L7|v3)|XOOM [^;/]*Build|XT1941-2|XT1924-9|XT1925-10|XT1965-6|XT1970-[25]|XT1799-2|XT1021|XT2171-[23]|XT2013-[124]|XT2061-3|XT2071-4|XT2201-[126]|XT-2201|XT2113-2|XT2115-1|XT2175-2|XT2141-1|XT2125-4|XT2127-2|XT2129-[123]|XT2143-1|XT2153-1|XT2158-6|XT2215-[124]|XT2221-[12]|XT2225-[12]|XT2233-2|XT2251-1|XT2243-2|XT2241-1|XT2169-1|XT2137-[12]|XT1710-(?:08|10)|XT180[3-5]|XT2315-1|XT2261-1|XT2333-1|XT2335-[23]|XT2131(?:-[134]|DL)|XT2303-2|XT2301-5|XT2307-1|XT2321-[23]|XT2323-3|XT2343-[1236]|XT2363-2| XT2401-2|XT194[23]-1|XT1929-15|XT2083-9|XT2081-1|XT2093DL|XT2093-[37]|(?<!Xtreme )(?:XT|MZ|MB|ME)[0-9]{3,4}[a-z]?(?:\(Defy\)|-0[1-5])?(?:[;]? Build|\))|lineage_osprey|ATRIX HD|PAMR00(?:0[28]|10)IN|PANB0001IN|PANB001[35]IN|PANV000[59]IN'
+  regex: 'MOT(?!TO)|(?<!AN)DROID ?(?:Build|[a-z0-9]+)|portalmmm/2\.0 (?:E378i|L6|L7|v3)|XOOM [^;/]*Build|XT1941-2|XT1924-9|XT1925-10|XT1965-6|XT1970-[25]|XT1799-2|XT1021|XT2171-[23]|XT2013-[124]|XT2015-2|XT2061-3|XT2071-4|XT2201-[126]|XT-2201|XT2113-2|XT2115-1|XT2175-2|XT2141-1|XT2125-4|XT2127-2|XT2129-[123]|XT2143-1|XT2153-1|XT2158-6|XT2215-[124]|XT2221-[12]|XT2225-[12]|XT2233-2|XT2251-1|XT2243-2|XT2241-1|XT2169-1|XT2137-[12]|XT1710-(?:08|10)|XT180[3-5]|XT2315-1|XT2261-1|XT2333-1|XT2335-[23]|XT2131(?:-[134]|DL)|XT2303-2|XT2301-5|XT2307-1|XT2321-[23]|XT2323-3|XT2343-[1236]|XT2363-2| XT2401-2|XT2409-5|XT194[23]-1|XT1929-15|XT2083-9|XT2081-1|XT2093DL|XT2093-[37]|(?<!Xtreme )(?:XT|MZ|MB|ME)[0-9]{3,4}[a-z]?(?:\(Defy\)|-0[1-5])?(?:[;]? Build|\))|lineage_osprey|ATRIX HD|PAMR00(?:0[28]|10)IN|PANB0001IN|PANB001[35]IN|PANV000[59]IN'
   device: 'smartphone'
   models:
     # Explicit feature phone models
@@ -17871,6 +17879,8 @@ Motorola:
       model: 'Moto G10'
     - regex: 'Moto G8 Power'
       model: 'Moto G8 Power'
+    - regex: 'XT2015-2'
+      model: 'Moto G8 Play'
     - regex: '(?:MOT-|Motorola-)?(?:XT102[12]|XT830C|XT15[12]4|XT152[67])' # 2015
       model: 'Moto E'
     - regex: 'Moto E \(XT2052DL\)'
@@ -17991,6 +18001,8 @@ Motorola:
       model: 'Moto X30 Pro'
     - regex: '(?:MOT-|Motorola-)?XT2243-2'
       model: 'Moto S30'
+    - regex: '(?:MOT-|Motorola-)?XT2409-5'
+      model: 'Moto S50'
     - regex: '(?:MOT-|Motorola-)?XT2201-6'
       model: 'Moto X30'
     - regex: '(?:MOT-|Motorola-)?XT-2201'
@@ -22022,6 +22034,9 @@ Samsung:
     - regex: '(?:SAMSUNG-)?SM-T111'
       device: 'tablet'
       model: 'Galaxy Tab 3 Lite 7.0"'
+    - regex: '(?:SAMSUNG-)?SM-X926'
+      device: 'tablet'
+      model: 'Galaxy Tab S10 Ultra 14.6" 5G'
     - regex: '(?:SAMSUNG-)?SM-T116(?:BU|NU|NY)?'
       device: 'tablet'
       model: 'Galaxy Tab 3 V'
@@ -23127,6 +23142,8 @@ Samsung:
       model: 'Galaxy M62'
     - regex: '(?:SAMSUNG-)?SM-M546'
       model: 'Galaxy M54 5G'
+    - regex: '(?:SAMSUNG-)?SM-M556'
+      model: 'Galaxy M55 5G'
     - regex: '(?:SAMSUNG-)?SM-W201([689])'
       model: 'Galaxy W201$1'
     - regex: '(?:SAMSUNG-)?SM-W2022'
@@ -23887,7 +23904,7 @@ Tanix:
       model: 'TX$1 Max'
     - regex: 'TX5 Pro'
       model: 'TX5 Pro'
-    - regex: 'TX3 Mini|TX3MINI'
+    - regex: '(?:Tanix_)?(?:TX3[ _]?Mini)'
       model: 'TX3 Mini'
 
 # Panavox
@@ -37856,6 +37873,8 @@ Meizu:
     - regex: '(?:MZ-|Meizu-)?m([1-6])[_ ]note(?:[);/ ]|$)'
       device: 'phablet'
       model: 'M$1 Note'
+    - regex: '20 Inf'
+      model: '20 Infinity'
     - regex: '(?:MZ-)?M1 E(?:[);/ ]|$)'
       model: 'M1E'
     - regex: 'M2 E(?:[);/ ]|$)'
@@ -41991,13 +42010,13 @@ S-Color:
 
 # W&O
 W&O:
-  regex: '(?:X9 CALL2| WO [89]|WO Pad Max)(?: Build|[);])'
+  regex: '(?:X9 CALL2| WO [789]|WO Pad Max)(?: Build|[);])'
   device: 'wearable'
   models:
     - regex: 'WO Pad Max'
       device: 'tablet'
       model: 'WO Pad Max'
-    - regex: 'WO ([89])'
+    - regex: 'WO ([789])'
       device: 'tablet'
       model: 'WO$1'
     - regex: 'X9 CALL2'
@@ -42654,6 +42673,12 @@ DUDU AUTO:
   regex: 'DUDU(\d)'
   device: 'car browser'
   model: 'DUDU$1'
+
+# Temigereev
+Temigereev:
+  regex: 'TG ?(15|30)(?:[);/ ]|$)'
+  device: 'tablet'
+  model: 'TG $1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
