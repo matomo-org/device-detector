@@ -29,7 +29,11 @@
 ##########
 # Azure Linux (https://github.com/microsoft/azurelinux)
 ##########
-- regex: 'Linux/.+-Microsoft'
+- regex: '.+.cm(\d).x86_64'
+  name: 'Azure Linux'
+  version: '$1'
+
+- regex: 'Linux[/-].+-(azure|Microsoft)'
   name: 'Azure Linux'
   version: ''
 
@@ -1149,6 +1153,10 @@
   name: 'Windows'
   version: '$1'
 
+- regex: 'Windows-(1[01])-'
+  name: 'Windows'
+  version: '$1'
+
 - regex: 'CYGWIN_NT-10\.0|Win(?:dows )?NT 10\.0|Windows[ /]10'
   name: 'Windows'
   version: '10'
@@ -1156,6 +1164,10 @@
 - regex: 'CYGWIN_NT-6\.4|Windows NT 6\.4|Windows 10|win10'
   name: 'Windows'
   version: '10'
+
+- regex: 'Windows[/-](2016|2019|2022|2025)Server'
+  name: 'Windows'
+  version: 'Server $1'
 
 - regex: 'Windows/2012ServerR2'
   name: 'Windows'
@@ -1764,7 +1776,7 @@
   name: 'Mac'
   version: '$1'
 
-- regex: '(?:macOS(?:\(Catalyst\))?[ /,]|Mac-)(\d+[.\d]+)'
+- regex: '(?:macOS(?:\(Catalyst\))?[ /,]|Mac(?:os)?-)(\d+[.\d]+)'
   name: 'Mac'
   version: '$1'
 
