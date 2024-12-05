@@ -26584,11 +26584,14 @@ Touchmate:
 
 # PEAQ (peaq-online.com)
 PEAQ:
-  regex: 'PEAQ[ _]|PET \d{3}'
+  regex: 'PEAQ[ _]|PET \d{3}|LGE; (?:PQ[a-z0-9-]+);'
   device: 'tablet'
   models:
     - regex: 'PET ([^/;)]+)(?: Build|[;)])'
       model: 'PET $1'
+    - regex: 'LGE; (PQ[a-z0-9-]+);'
+      device: 'tv'
+      model: '$1'
 
 # TrekStor (www.trekstor.de)
 TrekStor:
