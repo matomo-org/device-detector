@@ -1789,6 +1789,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'UR'  => 'Turkcell',
         '4U'  => 'TuCEL',
         'TUV' => 'Tuvio',
+        'TUC' => 'TUCSON',
         '2U'  => 'Türk Telekom',
         'TV'  => 'TVC',
         'TW'  => 'TWM',
