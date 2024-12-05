@@ -653,6 +653,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '1F'  => 'FMT',
         'FPT' => 'FPT',
         'FG'  => 'Fuego',
+        'FUJ' => 'FUJICOM',
         'FU'  => 'Fujitsu',
         '4F'  => 'Funai',
         '5J'  => 'Fusion5',
