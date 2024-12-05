@@ -40841,10 +40841,12 @@ Guophone:
 
 # GVC Pro
 GVC Pro:
-  regex: 'LGE; [0-9]{2}GW[0-9]{4}\d*;'
+  regex: 'LGE; (?:GVC-[a-z0-9]+|[0-9]{2}GW[0-9]{4}\d*);'
   device: 'tv'
   models:
     - regex: 'LGE; ([0-9]{2}GW\d+);'
+      model: '$1'
+    - regex: 'LGE; GVC-([a-z0-9]+);'
       model: '$1'
 
 # Unitech (ute.com)
