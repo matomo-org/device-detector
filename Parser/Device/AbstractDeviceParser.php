@@ -1592,6 +1592,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '19'  => 'Smailo',
         'SR'  => 'Smart Electronic',
         'SMA' => 'Smart Kassel',
+        'STE' => 'Smart Tech',
         '49'  => 'Smart',
         '47'  => 'SmartBook',
         '3B'  => 'Smartab',
