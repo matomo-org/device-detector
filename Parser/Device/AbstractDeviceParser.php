@@ -1108,7 +1108,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         '0M'  => 'Mecool',
         'MEM' => 'MeMobile',
         'MC'  => 'Mediacom',
-        'MK'  => 'MediaTek',
         'MD'  => 'Medion',
         'M2'  => 'MEEG',
         'MEG' => 'MEGA VISION',
