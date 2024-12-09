@@ -177,6 +177,7 @@ class OperatingSystem extends AbstractParser
         'RRS' => 'Resurrection Remix OS',
         'REX' => 'REX',
         'RZD' => 'RazoDroiD',
+        'RXT' => 'RTOS & Next',
         'SAB' => 'Sabayon',
         'SSE' => 'SUSE',
         'SAF' => 'Sailfish OS',
@@ -262,7 +263,7 @@ class OperatingSystem extends AbstractParser
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
         'OpenVMS'               => ['OVS'],
-        'Real-time OS'          => ['MTK', 'TDX', 'MRE', 'JME', 'REX'],
+        'Real-time OS'          => ['MTK', 'TDX', 'MRE', 'JME', 'REX', 'RXT'],
         'Other Mobile'          => ['WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE', 'LUN', 'GEO'],
         'Symbian'               => ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
         'Unix'                  => [
