@@ -259,6 +259,10 @@ class ClientHints
         $formFactors     = [];
 
         foreach ($headers as $name => $value) {
+            if (empty($value)) {
+                continue;
+            }
+
             switch (\str_replace('_', '-', \strtolower((string) $name))) {
                 case 'http-sec-ch-ua-arch':
                 case 'sec-ch-ua-arch':
