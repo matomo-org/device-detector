@@ -127,6 +127,7 @@ class OperatingSystem extends AbstractParser
         'MAG' => 'Mageia',
         'MDR' => 'Mandriva',
         'SMG' => 'MeeGo',
+        'MET' => 'Meta Horizon',
         'MCD' => 'MocorDroid',
         'MON' => 'moonOS',
         'EZX' => 'Motorola EZX',
@@ -176,6 +177,7 @@ class OperatingSystem extends AbstractParser
         'RRS' => 'Resurrection Remix OS',
         'REX' => 'REX',
         'RZD' => 'RazoDroiD',
+        'RXT' => 'RTOS & Next',
         'SAB' => 'Sabayon',
         'SSE' => 'SUSE',
         'SAF' => 'Sailfish OS',
@@ -234,7 +236,7 @@ class OperatingSystem extends AbstractParser
         'Android'               => [
             'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
             'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS', 'WER', 'PIC', 'ARM',
-            'HEL', 'BYI', 'RIS', 'PUF', 'LEA',
+            'HEL', 'BYI', 'RIS', 'PUF', 'LEA', 'MET',
         ],
         'AmigaOS'               => ['AMG', 'MOR', 'ARO'],
         'BlackBerry'            => ['BLB', 'QNX'],
@@ -261,7 +263,7 @@ class OperatingSystem extends AbstractParser
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
         'OpenVMS'               => ['OVS'],
-        'Real-time OS'          => ['MTK', 'TDX', 'MRE', 'JME', 'REX'],
+        'Real-time OS'          => ['MTK', 'TDX', 'MRE', 'JME', 'REX', 'RXT'],
         'Other Mobile'          => ['WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE', 'LUN', 'GEO'],
         'Symbian'               => ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
         'Unix'                  => [
@@ -451,6 +453,12 @@ class OperatingSystem extends AbstractParser
                 $name    = $osFromUserAgent['name'];
                 $version = '';
                 $short   = $osFromUserAgent['short_name'];
+            }
+
+            // Meta Horizon is reported as Linux in client hints
+            if ('GNU/Linux' === $name && 'Meta Horizon' === $osFromUserAgent['name']) {
+                $name  = $osFromUserAgent['name'];
+                $short = $osFromUserAgent['short_name'];
             }
         } elseif (!empty($osFromUserAgent['name'])) {
             $name    = $osFromUserAgent['name'];
