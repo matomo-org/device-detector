@@ -1113,6 +1113,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MEG' => 'MEGA VISION',
         'MCA' => 'Megacable',
         'MP'  => 'MegaFon',
+        'MGX' => 'MEGAMAX',
         'X0'  => 'mPhone',
         '3M'  => 'Meitu',
         'M1'  => 'Meizu',
