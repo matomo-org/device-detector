@@ -1110,6 +1110,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'M3'  => 'Mecer',
         'M3M' => 'M3 Mobile',
         '0M'  => 'Mecool',
+        'MEC' => 'MECHEN',
         'MEM' => 'MeMobile',
         'MC'  => 'Mediacom',
         'MD'  => 'Medion',
