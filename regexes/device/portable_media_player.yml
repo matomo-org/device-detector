@@ -125,9 +125,13 @@ Surfans:
 
 # Oilsky (oilsky.com.cn)
 Oilsky:
-  regex: 'Oilsky (M501)(?:[);/ ]|$)'
+  regex: 'Oilsky (M501|M303)(?:-Pro)?(?:[);/ ]|$)'
   device: 'portable media player'
-  model: '$1'
+  models:
+    - regex: 'M303-Pro'
+      model: 'M303 Pro'
+    - regex: '(M501|M303)'
+      model: '$1'
 
 Diofox:
   regex: 'Diofox[ _](M8)(?:[);/ ]|$)'
