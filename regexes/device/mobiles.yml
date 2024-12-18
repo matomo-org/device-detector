@@ -9018,6 +9018,7 @@ EvroMedia:
       model: 'Play Pad 3G Tab XL'
     - regex: '3G NOTE XL'
       model: 'Play Pad 3G Note XL'
+
 # EKO
 EKO:
   regex: 'EKO|Star (?:\d\.\d) (?:G65|G5[05]|G40)'
@@ -15783,7 +15784,7 @@ Vargo:
 
 # LG or LGE (lg.com)
 LG:
-  regex: '(?<!TECNO Mobile |TECNO )LG(?!(?: Browser/8| NetCast\.TV| WebOS|E[;,]))|NetCast(?!\.TV)|WebAppManager|portalmmm/2\.0 (?:KE|KG|KP|L3)|(?:(?!VX20|VX19)VX[0-9]+|L-0[12]D|L-07C|P713|(LM-[A-Z][0-9]{3}[A-Z]{0,3}(?:\(FGN?\)|\(G\)|\.FN|\.F(?:GN?)?)?)|LM-(X625N1|G820QM[0127])|G Watch|lucye)(?:[);/ ]|$)|RS98[78]|RS500|VS(?:50[01]|835|876|880|98[05-8]|99[056]|(410|415|425|500|880)PP)|VS820|VS870 4G|Nexsus 5|10A30Q|LML(41[34]D|211B|713D|212V)L|VK810 4G|VK815|X5-LG|L-05[DE]|L-03K|L-01[LJK]|L-52A|L-[45]1A|901LG|A001LG|80[12]LG|402LG|LGT32|L-02K|L-01F|LM-V40|DM-01K|DM-02H|LMX130IM|LMG820UM1|VS810PP|VS425|VM670|VS930 4G|US215|LGE[;,] (?:[0-9]{2}[ELSTUP][ABCFGHJ-NP-TWX][a-z0-9]{4,7}(?:\-[a-z]{2})?|[0-9]{2}NANO[a-z0-9]+|OLED[0-9]{2}[a-z0-9-]+)|(?:27ART10AKPL|28MT49S-PSS|HF60LS-EU)(?:[);/ ]|$)'
+  regex: '(?<!TECNO Mobile |TECNO )LG(?!(?: Browser/8| NetCast\.TV| WebOS|E[;,]))|NetCast(?!\.TV)|WebAppManager|portalmmm/2\.0 (?:KE|KG|KP|L3)|(?:(?!VX20|VX19)VX[0-9]+|L-0[12]D|L-07C|P713|(LM-[A-Z][0-9]{3}[A-Z]{0,3}(?:\(FGN?\)|\(G\)|\.FN|\.F(?:GN?)?)?)|LM-(X625N1|G820QM[0127])|G Watch|lucye)(?:[);/ ]|$)|RS98[78]|RS500|VS(?:50[01]|835|876|880|98[05-8]|99[056]|(410|415|425|500|880)PP)|VS820|VS870 4G|Nexsus 5|10A30Q|LML(41[34]D|211B|713D|212V)L|VK810 4G|VK815|X5-LG|L-05[DE]|L-03K|L-01[LJK]|L-52A|L-[45]1A|901LG|A001LG|80[12]LG|402LG|LGT32|L-02K|L-01F|LM-V40|DM-01K|DM-02H|LMX130IM|LMG820UM1|VS810PP|VS425|VM670|VS930 4G|US215|LGE[;,] (?!50ST3204|43SFSW4M)(?:[0-9]{2}[ELSTUP][ABCFGHJ-NP-TWX][a-z0-9]{4,7}(?:\-[a-z]{2})?|[0-9]{2}NANO[a-z0-9]+|OLED[0-9]{2}[a-z0-9-]+)|(?:27ART10AKPL|28MT49S-PSS|HF60LS-EU)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'DM-(01K|02H)'
@@ -21689,9 +21690,9 @@ ProScan:
     - regex: 'PLT(777[045]|9774|107[47]|9999)G'
       model: 'PLT$1G'
 
-# RCA Tablets (RCA) (https://www.rca.com/)
+# RCA Tablets (RCA) (https://www.rca.com/ https://rca-televisions.com/)
 RCA Tablets:
-  regex: 'RCA-OEM[;,]|RC[AT]([^;/]+)(?: Build|[;)]|$)|RCA RLTP4028|RLTP5567|RLTP5573|RC7T3G21|DRP(?:29101|2091)'
+  regex: 'RCA-OEM[;,]|RC[AT]([^;/]+)(?: Build|[;)]|$)|RWOSU6547|RCA RLTP4028|RLTP5567|RLTP5573|RC7T3G21|DRP(?:29101|2091)'
   device: 'smartphone'
   models:
     - regex: 'RCARENO5011619'
@@ -21731,6 +21732,10 @@ RCA Tablets:
     # tablet + dvd player
     - regex: '(DRP29101|DRP2091)'
       device: 'portable media player'
+      model: '$1'
+    # tv
+    - regex: '(RWOSU6547)'
+      device: 'tv'
       model: '$1'
     # general detections
     - regex: 'RCT([^;/)]+)(?: Build|[;)])'
@@ -41497,9 +41502,11 @@ SkyStream:
 
 # Skytech (https://skytech.com.tr/)
 Skytech:
-  regex: 'LGE; ST-[0-9a-z]+;'
+  regex: 'LGE; ST-[0-9a-z]+;|(?:50ST3204)(?:[);/ ]|$)'
   device: 'tv'
   models:
+    - regex: '(50ST3204)(?:[);/ ]|$)'
+      model: '$1'
     - regex: 'LGE; (ST-[0-9a-z]+);'
       model: '$1'
 
@@ -43053,6 +43060,18 @@ Dora:
 # Weston (weston.com.tr)
 Weston:
   regex: '(65WS3205)(?:[);/ ]|$)'
+  device: 'tv'
+  model: '$1'
+
+# Viendo
+Viendo:
+  regex: '(V65G2)(?:[);/ ]|$)'
+  device: 'tv'
+  model: '$1'
+
+# simfer (https://www.simfer.com.tr/)
+simfer:
+  regex: '(43SFSW4M)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 

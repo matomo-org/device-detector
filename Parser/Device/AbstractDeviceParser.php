@@ -1879,6 +1879,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VD'  => 'Videocon',
         'VW'  => 'Videoweb',
         'VS'  => 'ViewSonic',
+        'VIE' => 'Viendo',
         'VIK' => 'VIKUSHA',
         'V7'  => 'Vinga',
         'V3'  => 'Vinsoc',
