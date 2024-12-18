@@ -21118,6 +21118,8 @@ Panasonic:
     - regex: 'P902i(?:[);/ ]|$)'
       device: 'feature phone'
       model: 'P902i'
+    - regex: 'Panasonic G00gle TV'
+      model: 'Smart TV'
     - regex: 'Panasonic\..+\.([0-9]{4})(?:[);/ ]|$)'
       device: 'tv'
       model: 'Smart TV ($1)'
@@ -21833,9 +21835,11 @@ RT Project:
 
 # Saba
 Saba:
-  regex: 'Saba '
+  regex: 'Saba[_ ]|(?:32SB6000H|42SB6000F)(?:[);/ ]|$)'
   device: 'tv'
   models:
+    - regex: '(?:Saba[_ ])?(\d{2}SB\d{4}[HF])(?:[);/ ]|$)'
+      model: '$1'
     - regex: 'SMART TV(?:[);/ ]|$)'
       model: 'Smart TV'
 
@@ -34850,7 +34854,7 @@ iSWAG:
 
 # Reeder (reeder.com.tr)
 Reeder:
-  regex: '(?:reeder[_ ](?:3G_Tablet|A7iC|A[78]i[_ ]Quad|A8i Q2|M8 Plus|[TM]8|M10 Plus|P11SE|M7_Go)|M8_Go|M8Go2020|M10SPlus|P12Curve|M10 Pro LTE|M10 Blue Max|P13[ _]Blue[ _]Plus(?:[ _]2022)?|P13_Max_Blue|P13[_ ]Blue[_ ]Ma(?:ks|x|xL)|P13_Blue|P13[ _]Blue[ _]202[12]|M7Plus|A8i-Q2|M7Go_2019|S19 Max(?: Pro S(?: Zoom)?| \d{2}GB|L 128GB| Pro)|M10 GO|S23 Pro Max|S19 Max|P11SE_Art)(?:[);/ ]|$)'
+  regex: '(?:reeder[_ ](?:3G_Tablet|A7iC|A[78]i[_ ]Quad|A8i Q2|M8 Plus|[TM]8|M10 Plus|P11SE|M7_Go|TV)|M8_Go|M8Go2020|M10SPlus|P12Curve|M10 Pro LTE|M10 Blue Max|P13[ _]Blue[ _]Plus(?:[ _]2022)?|P13_Max_Blue|P13[_ ]Blue[_ ]Ma(?:ks|x|xL)|P13_Blue|P13[ _]Blue[ _]202[12]|M7Plus|A8i-Q2|M7Go_2019|S19 Max(?: Pro S(?: Zoom)?| \d{2}GB|L 128GB| Pro)|M10 GO|S23 Pro Max|S19 Max|P11SE_Art)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'A8i-Q2'
@@ -34933,6 +34937,10 @@ Reeder:
     - regex: 'S23 Pro Max'
       device: 'smartphone'
       model: 'S23 Pro Max'
+    - regex: 'REEDER TV'
+      device: 'tv'
+      model: 'Smart TV'
+
 
 # ELARI (elari.net)
 ELARI:
@@ -38097,7 +38105,7 @@ Bubblegum:
 
 # Erisson
 Erisson:
-  regex: '(24LM8002CT2|42FLEA73T2SM|40FLES900T2SM|43FLES90[12]T2SM|42FLX9060T2|32LX9000CT|39LES80T2SM|32LX9051T2|43ULX9060T2|32LX9050T2|55ULES92T2SM|32LEA73T2SM|32LES90[24]T2SM|42FLES904T2SM|32LES90[13]T2SM)(?:[);/ ]|$)'
+  regex: '(24LM8002CT2|42FLEA73T2SM|40FLES900T2SM|43FLES90[12]T2SM|42FLX9060T2|32LX9000CT|39LES80T2SM|32LX9051T2|43ULX9060T2|32LX9050T2|32LES905T2SM|55ULES92T2SM|32LEA73T2SM|32LES90[24]T2SM|42FLES904T2SM|32LES90[13]T2SM)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
@@ -41054,14 +41062,14 @@ Zamolxe:
 
 # REGAL (https://www.regal-tr.com/)
 REGAL:
-  regex: 'Regal (?:TAB 10\.1|Google TV)|REGAL, ([a-z0-9_ -]+), (?:wired|wireless)'
+  regex: 'Regal (?:TAB 10\.1|G[o0][o0]gle TV)|REGAL, ([a-z0-9_ -]+), (?:wired|wireless)'
   device: 'tablet'
   models:
     - regex: 'Regal (TAB 10\.1)'
       model: '$1'
-    - regex: 'Regal Google TV'
+    - regex: 'Regal G[o0][o0]gle TV'
       device: 'tv'
-      model: ''
+      model: 'Smart TV'
     - regex: 'REGAL, ([a-z0-9_ -]+), (?:wired|wireless)'
       device: 'tv'
       model: ''
@@ -43083,6 +43091,12 @@ Stilevs:
   regex: '(ST65SMWOS4K)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
+
+# TV+ (https://tvplus.com.tr/)
+TV+:
+  regex: '(?:TVPLUS BOX)(?:[);/ ]|$)'
+  device: 'tv'
+  model: 'Smart TV'
 
 # Devices with undectable brand, but detectable model
 Unknown:
