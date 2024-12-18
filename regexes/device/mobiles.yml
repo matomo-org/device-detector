@@ -10287,7 +10287,7 @@ UGINE:
 
 # Sunny
 Sunny:
-  regex: 'LGE; SNY?[0-9]{2}[0-9a-z]+(?:-[0-9]+)?;|(?:SS4G9 Mira|SS4G7 Sole|SS4G1 Luna|SS4G8 Nora|SS4G6 Lola|SN7014S?|SN7016|SN10016|SN01DNGL300|SUNNY (?:SS01|S52D)|SUNNY;SmartTV)(?:[);/ ]|$)'
+  regex: 'LGE; SNY?[0-9]{2}[0-9a-z]+(?:-[0-9]+)?;|(?:SS4G9 Mira|SS4G7 Sole|SS4G1 Luna|SS4G8 Nora|SS4G6 Lola|SN7014S?|SN7016|SN10016|SN01DNGL300|SUNNY ?(?:SS01|S52D|SN55UAL253-?)|SUNNY;SmartTV)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(SS4G9 Mira|SS4G7 Sole|SS4G1 Luna|SS4G8 Nora|SS4G6 Lola)(?:[);/ ]|$)'
@@ -10303,6 +10303,9 @@ Sunny:
     - regex: 'SN01DNGL300(?:[);/ ]|$)'
       device: 'tv'
       model: 'Prime TV Stick'
+    - regex: '(?:SUNNY[_ ]?)?(SN55UAL253)'
+      device: 'tv'
+      model: '$1'
     - regex: 'LGE; (SNY?[0-9]{2}[0-9a-z]+)(?:-[0-9]+)?;'
       device: 'tv'
       model: '$1'
@@ -35369,11 +35372,13 @@ Zentality:
     - regex: 'C-(\d+) ?Ultra'
       model: 'C-$1 Ultra'
 
-# ONVO
+# ONVO (onvo.com.tr)
 ONVO:
-  regex: 'ONVO[ _]|\d{2}OV|Apollo Premium4K TV(?:[);/ ]|$)'
+  regex: 'ONVO[ _]|\d{2}OV|(?:Apollo Premium4K TV|0V50500|OV43400)(?:[);/ ]|$)'
   device: 'tv'
   models:
+    - regex: '(0V50500|OV43400)[,;]?'
+      model: '$1'
     - regex: '(?:ONVO[_ ])?(\d{2}OV[a-z0-9]+)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'Apollo Premium4K TV(?:[);/ ]|$)'
@@ -38585,7 +38590,7 @@ Eurocase:
 
 # VEON
 VEON:
-  regex: 'VEON[_ ]|VEON[_ ](?:C8680)(?:[);/ ]|$)'
+  regex: 'VEON[_ ]|(?:VEON[_ ](?:C8680)|VN50WOS2021)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'VEON[_ ](C8680)(?:[);/ ]|$)'
@@ -38593,6 +38598,9 @@ VEON:
     - regex: 'VEON 4K Smart TV(?:[);/ ]|$)'
       device: 'tv'
       model: '4K Smart TV'
+    - regex: '(VN50WOS2021)'
+      device: 'tv'
+      model: '$1'
 
 # FiGi (figi-mobile.com)
 FiGi:
@@ -42994,7 +43002,7 @@ MEGAMAX:
   device: 'tv'
   model: '$1'
 
-# PrismPlus (https://prismplus.sg)
+# PrismPlus (prismplus.sg)
 PRISM+:
   regex: 'PrismPlus'
   device: 'tv'
@@ -43002,7 +43010,7 @@ PRISM+:
     - regex: '(\d)K Pro Android TV'
       model: '$1K Pro Smart TV'
 
-# SINGER (https://www.singersl.com)
+# SINGER (www.singersl.com)
 SINGER:
   regex: 'SINGER'
   device: 'tv'
@@ -43018,15 +43026,33 @@ Everfine:
   device: 'tv'
   model: '$1'
 
-# Elista (https://www.elistaworld.com)
+# Elista (www.elistaworld.com)
 Elista:
   regex: '(B50UHD4EKC)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
-# Horion (https://global.horion.com)
+# Horion (global.horion.com)
 Horion:
   regex: '(WEE5-75EU-FDVB)(?:[);/ ]|$)'
+  device: 'tv'
+  model: '$1'
+
+# ZIFFLER (ziffler.uz)
+ZIFFLER:
+  regex: '(65W600U)(?:[);/ ]|$)'
+  device: 'tv'
+  model: '$1'
+
+# Dora
+Dora:
+  regex: '(65DYW60)(?:[);/ ]|$)'
+  device: 'tv'
+  model: '$1'
+
+# Weston (weston.com.tr)
+Weston:
+  regex: '(65WS3205)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
