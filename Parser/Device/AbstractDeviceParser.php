@@ -323,7 +323,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'C9'  => 'CAGI',
         'CAD' => 'CADENA',
         'CT'  => 'Capitel',
-        'GRD' => 'G Guard',
+        'GRD' => 'G-Guard',
         'G3'  => 'CG Mobile',
         '37'  => 'CGV',
         'CP'  => 'Captiva',
