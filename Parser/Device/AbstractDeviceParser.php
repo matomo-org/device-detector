@@ -148,6 +148,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'A1'  => 'Altech UEC',
         '66'  => 'Altice',
         'ALM' => 'Altimo',
+        'A5'  => 'altron',
         'ALB' => 'Altibox',
         'ALT' => 'Altus',
         'KN'  => 'Amazon',
