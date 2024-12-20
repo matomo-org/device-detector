@@ -247,9 +247,8 @@ class DeviceDetectorTest extends TestCase
         $this->assertEquals($fixtureData, $uaInfo, $errorMessage);
     }
 
-    public function getFixtures(): array
+    public function getFixtures(): \Generator
     {
-        $fixtures     = [];
         $fixtureFiles = \glob(\realpath(__DIR__) . '/fixtures/*.yml');
 
         foreach ($fixtureFiles as $fixturesPath) {
@@ -260,12 +259,10 @@ class DeviceDetectorTest extends TestCase
                 continue;
             }
 
-            $fixtures = \array_merge(\array_map(static function ($elem) {
-                return [$elem];
-            }, $typeFixtures), $fixtures);
+            foreach ($typeFixtures as $fixture) {
+                yield [$fixture];
+            }
         }
-
-        return $fixtures;
     }
 
     /**
@@ -301,20 +298,17 @@ class DeviceDetectorTest extends TestCase
         $this->assertEquals($fixtureData['client'], $uaInfo['client'], $messageError);
     }
 
-    public function getFixturesClient(): array
+    public function getFixturesClient(): \Generator
     {
-        $fixtures     = [];
         $fixtureFiles = \glob(\realpath(__DIR__) . '/Parser/Client/fixtures/*.yml');
 
         foreach ($fixtureFiles as $fixturesPath) {
             $typeFixtures = \Spyc::YAMLLoad($fixturesPath);
 
-            $fixtures = \array_merge(\array_map(static function ($elem) {
-                return [$elem];
-            }, $typeFixtures), $fixtures);
+            foreach ($typeFixtures as $fixture) {
+                yield [$fixture];
+            }
         }
-
-        return $fixtures;
     }
 
     /**
@@ -341,20 +335,17 @@ class DeviceDetectorTest extends TestCase
         $this->assertEquals($fixtureData['device'], $uaInfo['device']);
     }
 
-    public function getFixturesDevice(): array
+    public function getFixturesDevice(): \Generator
     {
-        $fixtures     = [];
         $fixtureFiles = \glob(\realpath(__DIR__) . '/Parser/Device/fixtures/*.yml');
 
         foreach ($fixtureFiles as $fixturesPath) {
             $typeFixtures = \Spyc::YAMLLoad($fixturesPath);
 
-            $fixtures = \array_merge(\array_map(static function ($elem) {
-                return [$elem];
-            }, $typeFixtures), $fixtures);
+            foreach ($typeFixtures as $fixture) {
+                yield [$fixture];
+            }
         }
-
-        return $fixtures;
     }
 
     public function getFixturesDeviceTypeFromClientHints(): array
