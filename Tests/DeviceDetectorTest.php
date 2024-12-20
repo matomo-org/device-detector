@@ -247,9 +247,8 @@ class DeviceDetectorTest extends TestCase
         $this->assertEquals($fixtureData, $uaInfo, $errorMessage);
     }
 
-    public function getFixtures(): array
+    public function getFixtures(): \Generator
     {
-        $fixtures     = [];
         $fixtureFiles = \glob(\realpath(__DIR__) . '/fixtures/*.yml');
 
         foreach ($fixtureFiles as $fixturesPath) {
@@ -260,12 +259,10 @@ class DeviceDetectorTest extends TestCase
                 continue;
             }
 
-            $fixtures = \array_merge(\array_map(static function ($elem) {
-                return [$elem];
-            }, $typeFixtures), $fixtures);
+            foreach ($typeFixtures as $fixture) {
+                yield [$fixture];
+            }
         }
-
-        return $fixtures;
     }
 
     /**
@@ -301,20 +298,17 @@ class DeviceDetectorTest extends TestCase
         $this->assertEquals($fixtureData['client'], $uaInfo['client'], $messageError);
     }
 
-    public function getFixturesClient(): array
+    public function getFixturesClient(): \Generator
     {
-        $fixtures     = [];
         $fixtureFiles = \glob(\realpath(__DIR__) . '/Parser/Client/fixtures/*.yml');
 
         foreach ($fixtureFiles as $fixturesPath) {
             $typeFixtures = \Spyc::YAMLLoad($fixturesPath);
 
-            $fixtures = \array_merge(\array_map(static function ($elem) {
-                return [$elem];
-            }, $typeFixtures), $fixtures);
+            foreach ($typeFixtures as $fixture) {
+                yield [$fixture];
+            }
         }
-
-        return $fixtures;
     }
 
     /**
@@ -341,20 +335,100 @@ class DeviceDetectorTest extends TestCase
         $this->assertEquals($fixtureData['device'], $uaInfo['device']);
     }
 
-    public function getFixturesDevice(): array
+    public function getFixturesDevice(): \Generator
     {
-        $fixtures     = [];
         $fixtureFiles = \glob(\realpath(__DIR__) . '/Parser/Device/fixtures/*.yml');
 
         foreach ($fixtureFiles as $fixturesPath) {
             $typeFixtures = \Spyc::YAMLLoad($fixturesPath);
 
-            $fixtures = \array_merge(\array_map(static function ($elem) {
-                return [$elem];
-            }, $typeFixtures), $fixtures);
+            foreach ($typeFixtures as $fixture) {
+                yield [$fixture];
+            }
         }
+    }
 
-        return $fixtures;
+    public function getFixturesDeviceTypeFromClientHints(): array
+    {
+        $useragent  = 'Some Unknown UA';
+        $deviceName = '"Some Unknown Model"';
+
+        return [
+            [
+                'useragent' => $useragent,
+                'headers'   => [
+                    'sec-ch-ua-form-factors' => '"EInk", "Watch"',
+                    'sec-ch-ua-model'        => $deviceName,
+                ],
+                'device'    => AbstractDeviceParser::DEVICE_TYPE_WEARABLE,
+            ], [
+                'useragent' => $useragent,
+                'headers'   => [
+                    'sec-ch-ua-form-factors' => '"EInk"',
+                    'sec-ch-ua-model'        => $deviceName,
+                ],
+                'device'    => AbstractDeviceParser::DEVICE_TYPE_TABLET,
+            ], [
+                'useragent' => $useragent,
+                'headers'   => [
+                    'sec-ch-ua-form-factors' => '"Desktop", "Mobile"',
+                    'sec-ch-ua-model'        => $deviceName,
+                ],
+                'device'    => AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE,
+            ], [
+                'useragent' => $useragent,
+                'headers'   => [
+                    'sec-ch-ua-form-factors' => '"Unknown Type", "Mobile"',
+                    'sec-ch-ua-model'        => $deviceName,
+                ],
+                'device'    => AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE,
+            ], [
+                'useragent' => $useragent,
+                'headers'   => [
+                    'sec-ch-ua-form-factors' => '"Tablet", "Mobile"',
+                    'sec-ch-ua-model'        => $deviceName,
+                ],
+                'device'    => AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE,
+            ], [
+                'useragent' => $useragent,
+                'headers'   => [
+                    'sec-ch-ua-form-factors' => '"EInk", "Tablet"',
+                    'sec-ch-ua-model'        => $deviceName,
+                ],
+                'device'    => AbstractDeviceParser::DEVICE_TYPE_TABLET,
+            ], [
+                'useragent' => $useragent,
+                'headers'   => [
+                    'sec-ch-ua-form-factors' => '"Tablet", "Automotive"',
+                    'sec-ch-ua-model'        => $deviceName,
+                ],
+                'device'    => AbstractDeviceParser::DEVICE_TYPE_CAR_BROWSER,
+            ], [
+                'useragent' => $useragent,
+                'headers'   => [
+                    'sec-ch-ua-form-factors' => '"EInk", "Xr"',
+                    'sec-ch-ua-model'        => $deviceName,
+                ],
+                'device'    => AbstractDeviceParser::DEVICE_TYPE_WEARABLE,
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider getFixturesDeviceTypeFromClientHints
+     */
+    public function testDetectDeviceTypeFromClientHints(string $useragent, array $headers, int $device): void
+    {
+        $clientHints    = ClientHints::factory($headers);
+        $deviceDetector = new DeviceDetector();
+        $deviceDetector->setClientHints($clientHints);
+        $deviceDetector->setUserAgent($useragent);
+        $deviceDetector->parse();
+
+        $this->assertEquals($device, $deviceDetector->getDevice());
+        $this->assertEquals('Some Unknown Model', $deviceDetector->getModel());
+        $this->assertEquals('', $deviceDetector->getBrandName());
+        $this->assertEquals(AbstractDeviceParser::getDeviceName($device), $deviceDetector->getDeviceName());
     }
 
     public function testInstanceReusage(): void
@@ -418,7 +492,7 @@ class DeviceDetectorTest extends TestCase
     {
         $dd = $this->createPartialMock(Mobile::class, ['hasDesktopFragment']);
 
-        $dd->expects($this->once())->method('hasDesktopFragment')->willReturn(true);
+        $dd->expects($this->exactly(2))->method('hasDesktopFragment')->willReturn(true);
 
         // simulate work not use clienthints
         $dd->setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36');

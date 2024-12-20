@@ -49,7 +49,7 @@ class Version extends AbstractClientParser
         }
 
         if ('Gecko' === $this->engine || 'Clecko' === $this->engine) {
-            $pattern = '~[ ](?:rv[: ]([0-9\.]+)).*(?:g|cl)ecko/[0-9]{8,10}~i';
+            $pattern = '~[ ](?:rv[: ]([0-9.]+)).*(?:g|cl)ecko/[0-9]{8,10}~i';
 
             if (\preg_match($pattern, $this->userAgent, $matches)) {
                 return ['version' => \array_pop($matches)];
@@ -59,7 +59,7 @@ class Version extends AbstractClientParser
         $engineToken = $this->engine;
 
         if ('Blink' === $this->engine) {
-            $engineToken = 'Chr[o0]me|Cronet';
+            $engineToken = 'Chr[o0]me|Chromium|Cronet';
         }
 
         if ('Arachne' === $this->engine) {
@@ -71,7 +71,7 @@ class Version extends AbstractClientParser
         }
 
         \preg_match(
-            "~(?:{$engineToken})\s*/?\s*((?(?=\d+\.\d)\d+[.\d]*|\d{1,7}(?=(?:\D|$))))~i",
+            "~(?:{$engineToken})\s*[/_]?\s*((?(?=\d+\.\d)\d+[.\d]*|\d{1,7}(?=(?:\D|$))))~i",
             $this->userAgent,
             $matches
         );

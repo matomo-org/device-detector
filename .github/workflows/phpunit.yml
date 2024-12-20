@@ -20,48 +20,26 @@ permissions:
 jobs:
   build:
     name: PHPUnit
-    runs-on: ${{ matrix.operating-system }}
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        operating-system: [ubuntu-latest, windows-latest]
-        php-version: ['7.2', '8.3']
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        php-version: ['7.2', '8.4']
         include:
           - php-version: 7.3
-            operating-system: ubuntu-latest
+            os: ubuntu-latest
           - php-version: 7.4
-            operating-system: ubuntu-latest
+            os: ubuntu-latest
           - php-version: 8.0
-            operating-system: ubuntu-latest
+            os: ubuntu-latest
           - php-version: 8.1
-            operating-system: ubuntu-latest
+            os: ubuntu-latest
           - php-version: 8.2
-            operating-system: ubuntu-latest
+            os: ubuntu-latest
+          - php-version: 8.3
+            os: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Install PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php-version }}
-          tools: composer:v2
-          extensions: memcached
-      - name: "Composer install"
-        run: |
-          composer install
-          composer require doctrine/cache ~1.2
-      - name: PHPUnit / PHP ${{ matrix.php-version }}
-        run: |
-          php -v
-          ./vendor/bin/phpunit
-
-  build2:
-    name: PHPUnit
-    runs-on: ${{ matrix.operating-system }}
-    strategy:
-      matrix:
-        operating-system: [macOS-latest]
-        php-version: ['7.2', '8.3']
-    steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:

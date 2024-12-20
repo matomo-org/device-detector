@@ -68,7 +68,7 @@ class DeviceDetector
     /**
      * Current version number of DeviceDetector
      */
-    public const VERSION = '6.4.0';
+    public const VERSION = '6.4.2';
 
     /**
      * Constant used as value for unknown browser / os
@@ -776,7 +776,7 @@ class DeviceDetector
      */
     protected function hasAndroidTableFragment(): bool
     {
-        $regex = 'Android( [\.0-9]+)?; Tablet;|Tablet(?! PC)|.*\-tablet$';
+        $regex = 'Android( [.0-9]+)?; Tablet;|Tablet(?! PC)|.*\-tablet$';
 
         return !!$this->matchUserAgent($regex);
     }
@@ -788,7 +788,7 @@ class DeviceDetector
      */
     protected function hasAndroidMobileFragment(): bool
     {
-        $regex = 'Android( [\.0-9]+)?; Mobile;|.*\-mobile$';
+        $regex = 'Android( [.0-9]+)?; Mobile;|.*\-mobile$';
 
         return !!$this->matchUserAgent($regex);
     }
@@ -800,7 +800,7 @@ class DeviceDetector
      */
     protected function hasAndroidVRFragment(): bool
     {
-        $regex = 'Android( [\.0-9]+)?; Mobile VR;| VR ';
+        $regex = 'Android( [.0-9]+)?; Mobile VR;| VR ';
 
         return !!$this->matchUserAgent($regex);
     }
@@ -959,7 +959,7 @@ class DeviceDetector
          *       a detected browser, but can still be detected. So we check the useragent for Chrome instead.
          */
         if (null === $this->device && 'Android' === $osFamily
-            && $this->matchUserAgent('Chrome/[\.0-9]*')
+            && $this->matchUserAgent('Chrome/[.0-9]*')
         ) {
             if ($this->matchUserAgent('(?:Mobile|eliboM)')) {
                 $this->device = AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE;
@@ -1036,6 +1036,27 @@ class DeviceDetector
         if (null === $this->device && ('Windows RT' === $osName || ('Windows' === $osName
             && \version_compare($osVersion, '8') >= 0)) && $this->isTouchEnabled()
         ) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_TABLET;
+        }
+
+        /**
+         * All devices running Puffin Secure Browser that contain letter 'D' are assumed to be desktops
+         */
+        if (null === $this->device && $this->matchUserAgent('Puffin/(?:\d+[.\d]+)[LMW]D')) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_DESKTOP;
+        }
+
+        /**
+         * All devices running Puffin Web Browser that contain letter 'P' are assumed to be smartphones
+         */
+        if (null === $this->device && $this->matchUserAgent('Puffin/(?:\d+[.\d]+)[AIFLW]P')) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE;
+        }
+
+        /**
+         * All devices running Puffin Web Browser that contain letter 'T' are assumed to be tablets
+         */
+        if (null === $this->device && $this->matchUserAgent('Puffin/(?:\d+[.\d]+)[AILW]T')) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TABLET;
         }
 
