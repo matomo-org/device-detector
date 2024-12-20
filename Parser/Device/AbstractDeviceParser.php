@@ -790,6 +790,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'HMD' => 'HMD',
         '8W'  => 'HKPro',
         'HOF' => 'HOFER',
+        'HOC' => 'hoco',
         'H1'  => 'Hoffmann',
         'HOM' => 'Homatics',
         'H0'  => 'Hometech',
