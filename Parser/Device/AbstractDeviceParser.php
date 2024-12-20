@@ -1065,6 +1065,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'LU'  => 'Lumus',
         'LUM' => 'Lumitel',
         'L9'  => 'Luna',
+        'LUO' => 'LUO',
         'LR'  => 'Luxor',
         'LY'  => 'LYF',
         'LL'  => 'Leader Phone',
