@@ -20,14 +20,14 @@ on:
 jobs:
   phpcs:
     name: PHPCS
-    runs-on: ${{ matrix.operating-system }}
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        operating-system: [ubuntu-latest]
+        os: [ubuntu-latest]
         php-version: ['7.2']
     steps:
       - uses: actions/checkout@v4
-      - name: Setup PHP
+      - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
