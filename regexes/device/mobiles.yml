@@ -19635,12 +19635,6 @@ Obi:
     - regex: 'Obi[ _-]([^;/)]+)(?:[;/)]|$)'
       model: '$1'
 
-# ok. (https://www.ok-online.com/)
-ok.:
-  regex: 'OK Google TV(?:[);/ ]|$)'
-  device: 'tv'
-  model: 'Smart TV'
-
 # Okapi (https://www.okapius.com/)
 Okapi:
   regex: 'Okapi(?!a)'
@@ -25382,11 +25376,15 @@ Starmobile:
       device: 'tablet'
       model: 'Engage 7 Plus'
 
-# Ok
-Ok:
-  regex: 'AFTWI001(?:[);/ ]|$)'
+# ok. (https://www.ok-online.com/)
+ok.:
+  regex: '(?:AFTWI001|OK Google TV)(?:[);/ ]|$)'
   device: 'tv'
-  model: '4K (2020)'
+  models:
+    - regex: 'AFTWI001'
+      model: '4K (2020)'
+    - regex: 'OK Google TV'
+      model: 'Smart TV'
 
 # Anker (https://www.anker.com/)
 Anker:
