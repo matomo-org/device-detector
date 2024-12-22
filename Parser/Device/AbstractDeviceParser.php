@@ -376,6 +376,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CY'  => 'Coby Kyros',
         'XC'  => 'Cobalt',
         'C6'  => 'Comio',
+        'COM' => 'CommScope',
         'CL'  => 'Compal',
         'CQ'  => 'Compaq',
         'C7'  => 'ComTrade Tesla',
