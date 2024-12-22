@@ -647,6 +647,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '44'  => 'Four Mobile',
         'F0'  => 'Fonos',
         'F2'  => 'FORME',
+        'FRM' => 'Formovie',
         'F5'  => 'Formuler',
         'FR'  => 'Forstar',
         'RF'  => 'Fortis',
