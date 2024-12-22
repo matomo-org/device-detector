@@ -142,6 +142,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ALS' => 'All Star',
         'AA'  => 'AllCall',
         '3A'  => 'AllDocube',
+        'ALL' => 'allente',
         'A2'  => 'Allview',
         'ALI' => 'ALLINmobile',
         'A7'  => 'Allwinner',
