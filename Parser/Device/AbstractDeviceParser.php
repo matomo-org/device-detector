@@ -1303,7 +1303,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'OQ'  => 'Meta',
         'O1'  => 'Odys',
         'ODP' => 'Odotpad',
-        'O9'  => 'Ok',
+        'O9'  => 'ok.',
         'OKA' => 'Okapi',
         'OA'  => 'Okapia',
         'OKI' => 'Oking',
