@@ -1070,8 +1070,15 @@ class DeviceDetector
         /**
          * All devices that contain Andr0id in string are assumed to be a tv
          */
-        if ($this->matchUserAgent('Andr0id|(?:Android(?: UHD)?|(?<!Xming )Google) TV|\(lite\) TV|BRAVIA| TV$')) {
+        if ($this->matchUserAgent('Andr0id|(?:Android(?: UHD)?|Google) TV|\(lite\) TV|BRAVIA| TV$')) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
+        }
+
+        /**
+         * All devices that contain these fragments are assumed to be a peripheral
+         */
+        if ($this->matchUserAgent('STI6110|Xming')) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_PERIPHERAL;
         }
 
         /**
