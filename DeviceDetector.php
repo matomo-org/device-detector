@@ -1026,7 +1026,7 @@ class DeviceDetector
         /**
          * All smartphones running KaiOS are more likely features phones
          */
-        if ('KaiOS' === $osName && AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE === $this->device) {
+        if ('KaiOS' === $osName) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_FEATURE_PHONE;
         }
 
