@@ -691,6 +691,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'GD'  => 'Gemini',
         'GN'  => 'General Mobile',
         '2G'  => 'Genesis',
+        'GEP' => 'Geo Phone',
         'G2'  => 'GEOFOX',
         'GE'  => 'Geotel',
         'Q4'  => 'Geotex',
