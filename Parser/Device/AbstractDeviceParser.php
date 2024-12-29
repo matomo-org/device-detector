@@ -1473,6 +1473,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'WJ'  => 'Qware',
         'QWT' => 'QWATT',
         'R2'  => 'R-TV',
+        'R3D' => 'R3Di',
         'RA'  => 'Ramos',
         '0R'  => 'Raspberry',
         'R9'  => 'Ravoz',
