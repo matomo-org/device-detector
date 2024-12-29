@@ -851,6 +851,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'IC'  => 'iDroid',
         'IDI' => 'iDino',
         '6Z'  => 'iData',
+        'IDC' => 'IDC',
         'IG'  => 'iGet',
         'IHL' => 'iHome Life',
         'IH'  => 'iHunt',
