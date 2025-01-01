@@ -1686,6 +1686,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SGE' => 'Super General',
         'SU'  => 'SuperSonic',
         '79'  => 'SuperTab',
+        'STV' => 'SuperTV',
         'S5'  => 'Supra',
         'SUP' => 'Supraim',
         'ZS'  => 'Suzuki',
