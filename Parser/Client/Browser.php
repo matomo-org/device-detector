@@ -391,6 +391,7 @@ class Browser extends AbstractClientParser
         'LX' => 'Lynx',
         'L2' => 'Lynket Browser',
         'MD' => 'Mandarin',
+        'MP' => 'Maple',
         'M5' => 'MarsLab Web Browser',
         'M7' => 'MaxBrowser',
         'M1' => 'mCent',
