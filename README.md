@@ -7,11 +7,11 @@ DeviceDetector
 
 ## Code Status
 
-![PHPUnit](https://github.com/matomo-org/device-detector/workflows/PHPUnit/badge.svg?branch=master)
-![PHPStan](https://github.com/matomo-org/device-detector/workflows/PHPStan%20check/badge.svg?branch=master)
-![PHPCS](https://github.com/matomo-org/device-detector/workflows/PHPCS%20check/badge.svg?branch=master)
-![YAML Lint](https://github.com/matomo-org/device-detector/workflows/YAML%20Lint/badge.svg?branch=master)
-[![Validate regular Expressions](https://github.com/matomo-org/device-detector/actions/workflows/regular_expressions.yml/badge.svg)](https://github.com/matomo-org/device-detector/actions/workflows/regular_expressions.yml)
+[![PHPUnit](https://github.com/matomo-org/device-detector/actions/workflows/phpunit.yml/badge.svg?branch=master)](https://github.com/matomo-org/device-detector/actions/workflows/phpunit.yml?branch=master "PHPUnit")
+[![PHPStan](https://github.com/matomo-org/device-detector/actions/workflows/phpstan.yml/badge.svg?branch=master)](https://github.com/matomo-org/device-detector/actions/workflows/phpstan.yml?branch=master "PHPStan")
+[![PHPCS](https://github.com/matomo-org/device-detector/actions/workflows/phpcs.yml/badge.svg?branch=master)](https://github.com/matomo-org/device-detector/actions/workflows/phpcs.yml?branch=master "PHPCS")
+[![YAML Lint](https://github.com/matomo-org/device-detector/actions/workflows/yamllint.yml/badge.svg?branch=master)](https://github.com/matomo-org/device-detector/actions/workflows/yamllint.yml?branch=master "YAML Lint")
+[![Validate regular Expressions](https://github.com/matomo-org/device-detector/actions/workflows/regular_expressions.yml/badge.svg?branch=master)](https://github.com/matomo-org/device-detector/actions/workflows/regular_expressions.yml?branch=master "Validate regular Expressions")
 
 [![Average time to resolve an issue](https://www.isitmaintained.com/badge/resolution/matomo-org/device-detector.svg)](https://www.isitmaintained.com/project/matomo-org/device-detector "Average time to resolve an issue")
 [![Percentage of issues still open](https://www.isitmaintained.com/badge/open/matomo-org/device-detector.svg)](https://www.isitmaintained.com/project/matomo-org/device-detector "Percentage of issues still open")
