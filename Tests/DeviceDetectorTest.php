@@ -247,7 +247,7 @@ class DeviceDetectorTest extends TestCase
         $this->assertEquals($fixtureData, $uaInfo, $errorMessage);
     }
 
-    public function getFixtures(): \Generator
+    public static function getFixtures(): \Generator
     {
         $fixtureFiles = \glob(\realpath(__DIR__) . '/fixtures/*.yml');
 
@@ -298,7 +298,7 @@ class DeviceDetectorTest extends TestCase
         $this->assertEquals($fixtureData['client'], $uaInfo['client'], $messageError);
     }
 
-    public function getFixturesClient(): \Generator
+    public static function getFixturesClient(): \Generator
     {
         $fixtureFiles = \glob(\realpath(__DIR__) . '/Parser/Client/fixtures/*.yml');
 
@@ -335,7 +335,7 @@ class DeviceDetectorTest extends TestCase
         $this->assertEquals($fixtureData['device'], $uaInfo['device']);
     }
 
-    public function getFixturesDevice(): \Generator
+    public static function getFixturesDevice(): \Generator
     {
         $fixtureFiles = \glob(\realpath(__DIR__) . '/Parser/Device/fixtures/*.yml');
 
@@ -348,7 +348,7 @@ class DeviceDetectorTest extends TestCase
         }
     }
 
-    public function getFixturesDeviceTypeFromClientHints(): array
+    public static function getFixturesDeviceTypeFromClientHints(): array
     {
         $useragent  = 'Some Unknown UA';
         $deviceName = '"Some Unknown Model"';
@@ -477,7 +477,7 @@ class DeviceDetectorTest extends TestCase
         AbstractParser::setVersionTruncation(AbstractParser::VERSION_TRUNCATION_NONE);
     }
 
-    public function getVersionTruncationFixtures(): array
+    public static function getVersionTruncationFixtures(): array
     {
         return [
             ['Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', AbstractParser::VERSION_TRUNCATION_NONE, '4.2.2', '34.0.1847.114'],
@@ -604,7 +604,7 @@ class DeviceDetectorTest extends TestCase
         );
     }
 
-    public function getBotFixtures(): array
+    public static function getBotFixtures(): array
     {
         $fixturesPath = \realpath(__DIR__ . '/fixtures/bots.yml');
         $fixtures     = \Spyc::YAMLLoad($fixturesPath);
@@ -704,11 +704,15 @@ class DeviceDetectorTest extends TestCase
         $this->assertEquals($expected, $dd->getClient());
     }
 
-    public function getTypeMethodFixtures(): array
+    public static function getTypeMethodFixtures(): array
     {
-        $fixturePath = \realpath(__DIR__ . '/Parser/fixtures/type-methods.yml');
+        $fixtureData = \Spyc::YAMLLoad(\realpath(__DIR__ . '/Parser/fixtures/type-methods.yml'));
 
-        return \Spyc::YAMLLoad($fixturePath);
+        $fixtureData = \array_map(static function (array $item): array {
+            return ['ua' => $item['user_agent'], 'checkTypes' => $item['check']];
+        }, $fixtureData);
+
+        return $fixtureData;
     }
 
     /**
