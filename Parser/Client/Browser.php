@@ -89,6 +89,7 @@ class Browser extends AbstractClientParser
         'AL' => 'Aloha Browser',
         'AH' => 'Aloha Browser Lite',
         'A8' => 'ALVA',
+        '9A' => 'AltiBrowser',
         'AM' => 'Amaya',
         'A3' => 'Amaze Browser',
         'A5' => 'Amerigo',
