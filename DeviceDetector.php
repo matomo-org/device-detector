@@ -1017,9 +1017,16 @@ class DeviceDetector
         }
 
         /**
-         * All unknown devices under running Java ME are more likely a features phones
+         * All unknown devices under running Java ME are more likely features phones
          */
         if ('Java ME' === $osName && null === $this->device) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_FEATURE_PHONE;
+        }
+
+        /**
+         * All devices running KaiOS are more likely features phones
+         */
+        if ('KaiOS' === $osName) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_FEATURE_PHONE;
         }
 
