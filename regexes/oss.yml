@@ -726,7 +726,7 @@
   version: '$1'
 
 # https://chromiumdash.appspot.com/serving-builds?deviceCategory=ChromeOS
-- regex: '(?:Android (?:9|1[0-5])[.\d]*|Linux x86_64); (?:asurada|atlas|brask|brya|cherry|coral|corsola|dedede|drallion|elm|eve|fizz|geralt|grunt|guybrush|hana|hatch|jacuzzi|kalista|kukui|nami|nautilus|nissa|nocturne|octopus|puff|pyro|rammus|reef|rex|sand|sarien|skyrim|snappy|soraka|staryu|strongbad|trogdor|volteer|zork)\)'
+- regex: '(?:Android (?:9|1[0-6])[.\d]*|Linux x86_64); (?:asurada|atlas|brask|brya|cherry|coral|corsola|dedede|drallion|elm|eve|fizz|geralt|grunt|guybrush|hana|hatch|jacuzzi|kalista|kukui|nami|nautilus|nissa|nocturne|octopus|puff|pyro|rammus|reef|rex|sand|sarien|skyrim|snappy|soraka|staryu|strongbad|trogdor|volteer|zork)\)'
   name: 'Chrome OS'
   version: ''
 
@@ -748,9 +748,11 @@
 ##########
 # Android SDK Level Api
 ##########
-- regex: '(?:Android API \d+|\d+/tclwebkit(?:\d+[.\d]*)|(?:(?<!\d )Android/\d{2}|(?<!; |\d{4}/)Android (?!1[0-5])\d{2})(?![^ ]))'
+- regex: '(?:Android API \d+|\d+/tclwebkit(?:\d+[.\d]*)|(?:(?<!\d )Android/\d{2}|(?<!; |\d{4}/)Android (?!1[0-6])\d{2})(?![^ ]))'
   name: 'Android'
   versions:
+    - regex: 'Android API 36|36/tclwebkit|Android[ /]36'
+      version: '16'
     - regex: 'Android API 35|35/tclwebkit|Android[ /]35'
       version: '15'
     - regex: 'Android API 34|34/tclwebkit|Android[ /]34'
