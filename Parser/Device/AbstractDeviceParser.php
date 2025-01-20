@@ -1651,6 +1651,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '77'  => 'SONOS',
         '68'  => 'Soho Style',
         'SOB' => 'SobieTech',
+        'SOW' => 'SOWLY',
         'PK'  => 'Spark',
         'SPX' => 'Sparx',
         'FS'  => 'SPC',
