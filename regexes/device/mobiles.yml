@@ -6445,7 +6445,7 @@ ConCorde:
 
 # Condor (www.condor.dz)
 Condor:
-  regex: 'Allure (?:A8 Pro|A55 Slim|M[123]|X)|Griffe T[235-9]|TFX71[12]G|TFX71[34]L|TMK715L|TRA-901G|TGW[-]?(710G|709|102L|801[GL])|(?:PGN\-?[456][012][0-9]|PHS\-601|PHQ519|PAM412|PHQ52[056]|TB105L|TB717G|PKT\-301|Plume (?:H1|L[1-68]|P8|P6 PRO LTE)|Infinity E5|Infinity a4|Infinity_i[45]|PKT411|SP413|PAM524|GT60 PRO|GT60|NOVA60)(?:[);/ ]|$)|CTAB[^/;]+ Build'
+  regex: 'Condor|Allure (?:A8 Pro|A55 Slim|M[123]|X)|Griffe T[235-9]|TFX71[12]G|TFX71[34]L|TMK715L|TRA-901G|TGW[-]?(710G|709|102L|801[GL])|(?:PGN\-?[456][012][0-9]|PHS\-601|PHQ519|PAM412|PHQ52[056]|TB105L|TB717G|PKT\-301|Plume (?:H1|L[1-68]|P8|P6 PRO LTE)|Infinity E5|Infinity a4|Infinity_i[45]|PKT411|SP413|PAM524|GT60 PRO|GT60|NOVA60)(?:[);/ ]|$)|CTAB[^/;]+ Build'
   device: 'smartphone'
   models:
     - regex: 'CTAB([^/;]+) Build'
@@ -6460,6 +6460,10 @@ Condor:
     - regex: '(TRA)-(901G)(?:[);/ ]|$)'
       device: 'tablet'
       model: '$1 $2'
+
+    - regex: '(?:Condor_)(FP216L)(?:[);/ ]|$)'
+      device: 'feature phone'
+      model: '$1'
 
     - regex: 'NOVA60'
       model: 'Nova 60'
@@ -32397,7 +32401,7 @@ Ruggex:
 
 # Maxcom (maxcom.pl)
 Maxcom:
-  regex: '(?:MS(?:45[036]|505|507_STRONG|514|57[12]|651)|MS457(?:PLUS)?|RS-401|Neva Rise S1)(?:[);/ ]|$)'
+  regex: 'MAXCOM|(?:MS(?:45[036]|505|507_STRONG|514|57[12]|651)|MS457(?:PLUS)?|RS-401|Neva Rise S1)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(MS457)PLUS(?:[);/ ]|$)'
@@ -32406,6 +32410,8 @@ Maxcom:
       model: '$1 Strong'
     - regex: 'MS(45[0367]|505|514|57[12]|651)(?:[);/ ]|$)'
       model: 'MS$1'
+    - regex: '(?:MAXCOM )(MK241)(?:[);/ ]|$)'
+      model: '$1'
     - regex: 'RS-401(?:[);/ ]|$)'
       model: 'RS-401'
     - regex: 'Neva Rise S1' # Orange
@@ -37011,7 +37017,7 @@ Aspera:
   regex: 'ASPERA|(?:Wren|Jazz 2)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'ASPERA[ _](R5h|R9|RT3|A4[02]|A50)(?:[);/ ]|$)'
+    - regex: 'ASPERA[ _](R5h|R9|RT3|A4[02]|A50|F30|R40)(?:_4G)?(?:[);/ ]|$)'
       model: '$1'
     - regex: 'Wren(?:[);/ ]|$)'
       model: 'Wren'
@@ -40251,6 +40257,12 @@ COOD-E:
 Lovme:
   regex: 'Lovme[-_ ]([^/;)]+)(?: Build|[);])'
   device: 'smartphone'
+  model: '$1'
+
+# LOGAN or LOGAN Unlimited (https://www.loganunlimited.com/)
+LOGAN:
+  regex: 'LOGAN_(Panita)_3G(?:[);/ ]|$)'
+  device: 'feature phone'
   model: '$1'
 
 # DASS
