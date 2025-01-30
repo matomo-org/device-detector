@@ -1063,6 +1063,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'LNG' => 'LongTV',
         'YL'  => 'Loview',
         'LOV' => 'Lovme',
+        'LGN' => 'LOGAN',
         '1L'  => 'Logic',
         'LH'  => 'Logic Instrument',
         'LM'  => 'Logicom',
