@@ -411,7 +411,6 @@ class Browser extends AbstractClientParser
         'MS' => 'Mobile Silk',
         'MK' => 'Mogok Browser',
         'M8' => 'Motorola Internet Browser',
-        '4M' => 'Motorola WebKit',
         'MN' => 'Minimo',
         'MT' => 'Mint Browser',
         'MX' => 'Maxthon',
@@ -792,7 +791,7 @@ class Browser extends AbstractClientParser
         'NetSurf'            => ['NE'],
         'Nokia Browser'      => ['NB', 'DO', 'NO', 'NV'],
         'Opera'              => ['OP', 'OG', 'OH', 'OI', 'OM', 'ON', 'OO', 'O1', 'OX', 'Y1'],
-        'Safari'             => ['SF', 'S7', 'MF', 'SO', 'PV', 'AY', '4M'],
+        'Safari'             => ['SF', 'S7', 'MF', 'SO', 'PV', 'AY'],
         'Sailfish Browser'   => ['SA'],
     ];
 
@@ -825,7 +824,7 @@ class Browser extends AbstractClientParser
         'DP', 'KL', 'K4', 'N6', 'KU', 'WK', 'M8', 'UP', 'ZT',
         '9P', 'N8', 'VR', 'N9', 'M9', 'F9', '0P', '0A', '2F',
         '2M', 'K7', '1N', '8A', 'H7', 'X3', 'X4', '5O', '6I',
-        '7I', 'X5', '3P', 'AY', '4M', '2E',
+        '7I', 'X5', '3P', 'AY', '2E',
     ];
 
     /**
