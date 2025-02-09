@@ -29,9 +29,13 @@ class MobileAppTest extends TestCase
         $this->assertEquals($client, $mobileAppParser->parse());
     }
 
-    public function getFixtures(): array
+    public static function getFixtures(): array
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/mobile_app.yml');
+
+        $fixtureData = \array_map(static function (array $item): array {
+            return ['useragent' => $item['user_agent'], 'client' => $item['client']];
+        }, $fixtureData);
 
         return $fixtureData;
     }
