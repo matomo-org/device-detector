@@ -30,7 +30,7 @@ class HbbTv extends AbstractDeviceParser
     protected $parserName = 'tv';
 
     /**
-     * Parses the current UA and checks whether it contains HbbTv information
+     * Parses the current UA and checks whether it contains HbbTv or SmartTvA information
      *
      * @see televisions.yml for list of detected televisions
      *
@@ -38,7 +38,7 @@ class HbbTv extends AbstractDeviceParser
      */
     public function parse(): ?array
     {
-        // only parse user agents containing fragments: hbbtv
+        // only parse user agents containing fragments: hbbtv or SmartTvA
         if (null === $this->isHbbTv()) {
             return null;
         }
@@ -58,7 +58,7 @@ class HbbTv extends AbstractDeviceParser
      */
     public function isHbbTv(): ?string
     {
-        $regex = 'HbbTV/([1-9]{1}(?:\.[0-9]{1}){1,2})';
+        $regex = '(?:HbbTV|SmartTvA)/([1-9]{1}(?:\.[0-9]{1}){1,2})';
         $match = $this->matchUserAgent($regex);
 
         return $match[1] ?? null;
