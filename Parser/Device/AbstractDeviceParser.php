@@ -396,6 +396,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CED' => 'Continental Edison',
         '9C'  => 'Colors',
         'COL' => 'COLORROOM',
+        'CAA' => 'coocaa',
         'CO'  => 'Coolpad',
         'COO' => 'Coopers',
         'CDE' => 'COOD-E',
