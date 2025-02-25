@@ -1803,6 +1803,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'TO2' => 'TOPSHOWS',
         '7T'  => 'Torex',
         'TOR' => 'Torque',
+        'TRN' => 'TORNADO',
         '6O'  => 'TOSCIDO',
         'TO1' => 'Topsion',
         'TS'  => 'Toshiba',
