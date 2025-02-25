@@ -561,6 +561,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'JE'  => 'Elekta',
         'ELE' => 'Elevate',
         'ELS' => 'Elista',
+        'ELT' => 'elit',
         '4E'  => 'Eltex',
         'ELM' => 'Elong Mobile',
         'ED'  => 'Energizer',
