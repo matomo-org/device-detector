@@ -1942,6 +1942,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VIT' => 'Vityaz',
         '9V'  => 'Vision Touch',
         'VIS' => 'Vision Technology',
+        'VST' => 'Visitech',
         'VIL' => 'Visual Land',
         'VI1' => 'VILLAON',
         'VIM' => 'VIMOQ',
