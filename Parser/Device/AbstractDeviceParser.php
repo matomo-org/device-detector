@@ -1979,6 +1979,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'WA'  => 'Walton',
         'WAF' => 'WAF',
         'WAO' => 'W&O',
+        'WLT' => 'Waltham',
         'WAL' => 'Waltter',
         'WAI' => 'Wainyok',
         'WHI' => 'White Mobile',
