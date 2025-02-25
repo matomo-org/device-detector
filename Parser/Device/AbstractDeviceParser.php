@@ -1579,6 +1579,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SAN' => 'SANY',
         'S9'  => 'Savio',
         'Y4'  => 'TCL SCBC',
+        'SCH' => 'SCHAUB LORENZ',
         'CZ'  => 'Schneider',
         'SCO' => 'Scosmos',
         'SC1' => 'Scoole',
