@@ -1277,6 +1277,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'NZ'  => 'NG Optics',
         'NZP' => 'NGpon',
         'NN'  => 'Nikon',
+        'NIL' => 'NILAIT',
         'NI'  => 'Nintendo',
         'NIN' => 'NINETEC',
         'NI1' => 'NINETOLOGY',
