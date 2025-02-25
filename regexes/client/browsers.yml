@@ -110,7 +110,7 @@
   version: '$1'
 
 # Motorola Internet Browser
-- regex: 'MIB/(\d+[.\d]+)'
+- regex: '(?:MIB|MotorolaWebKit.*Version)/(\d+[.\d]+)'
   name: 'Motorola Internet Browser'
   version: '$1'
 
@@ -3172,6 +3172,12 @@
   version: '$1'
   engine:
     default: 'Trident'
+# Pocket Internet Explorer
+- regex: '(?:MSPIE|Pocket Internet Explorer)[ /](\d+[.\d]+)'
+  name: 'Pocket Internet Explorer'
+  version: '$1'
+  engine:
+    default: 'Trident'
 
 #Kindle Browser
 - regex: 'Kindle/(\d+[.\d]+)'
@@ -3363,6 +3369,11 @@
 - regex: 'NetworkingExtension/(\d+[.\d]+).+ CFNetwork'
   name: 'Safari'
   version: '$1'
+  engine:
+    default: 'WebKit'
+- regex: 'Macintosh'
+  name: 'Safari'
+  version: ''
   engine:
     default: 'WebKit'
 
