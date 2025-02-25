@@ -1075,6 +1075,13 @@ class DeviceDetector
         }
 
         /**
+         * All devices running Coolita OS are assumed to be a tv
+         */
+        if ('Coolita OS' === $osName) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
+        }
+
+        /**
          * All devices that contain Andr0id in string are assumed to be a tv
          */
         $hasDeviceTvType = false === \in_array($this->device, [
