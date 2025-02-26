@@ -1079,6 +1079,7 @@ class DeviceDetector
          */
         if ('Coolita OS' === $osName) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
+            $this->brand  = 'coocaa';
         }
 
         /**
