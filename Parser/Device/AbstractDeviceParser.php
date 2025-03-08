@@ -411,6 +411,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '33'  => 'Clementoni',
         'CR'  => 'CreNova',
         'CX'  => 'Crescent',
+        'CRE' => 'Crestron',
         'CK'  => 'Cricket',
         'CM'  => 'Crius Mea',
         'CMF' => 'CMF',
