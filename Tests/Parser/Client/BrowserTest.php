@@ -16,6 +16,7 @@ use DeviceDetector\ClientHints;
 use DeviceDetector\Parser\Client\Browser;
 use DeviceDetector\Parser\Client\Browser\Engine;
 use DeviceDetector\Parser\Client\Hints\BrowserHints;
+use DeviceDetector\Parser\OperatingSystem;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
@@ -31,6 +32,13 @@ class BrowserTest extends TestCase
         $browserParser = new Browser();
         $browserParser->setVersionTruncation(Browser::VERSION_TRUNCATION_NONE);
         $browserParser->setUserAgent($useragent);
+
+        $osParser = new OperatingSystem();
+        $osParser->setUserAgent($useragent);
+        $os = $osParser->parse();
+
+        $browserParser->setOsName($os['name'] ?? '');
+        $browserParser->setOsVersion($os['version'] ?? '');
 
         if (null !== $headers) {
             $browserParser->setClientHints(ClientHints::factory($headers));

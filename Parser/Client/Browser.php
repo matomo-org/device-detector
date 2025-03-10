@@ -41,6 +41,16 @@ class Browser extends AbstractClientParser
     protected $parserName = 'browser';
 
     /**
+     * @var string
+     */
+    protected $osName = '';
+
+    /**
+     * @var string
+     */
+    protected $osVersion = '';
+
+    /**
      * Known browsers mapped to their internal short codes
      *
      * @var array
@@ -877,6 +887,26 @@ class Browser extends AbstractClientParser
     }
 
     /**
+     * Sets the os name
+     *
+     * @param string $osName os name
+     */
+    public function setOsName(string $osName = ''): void
+    {
+        $this->osName = $osName;
+    }
+
+    /**
+     * Sets the os version
+     *
+     * @param string $osVersion os version
+     */
+    public function setOsVersion(string $osVersion = ''): void
+    {
+        $this->osVersion = $osVersion;
+    }
+
+    /**
      * Sets the Cache class
      *
      * @param CacheInterface $cache
@@ -1117,6 +1147,14 @@ class Browser extends AbstractClientParser
 
         if ('Wolvic' === $name && 'Gecko' === $engine) {
             $family = 'Firefox';
+        }
+
+        /**
+         * Mobile Safari version is always the iOS / iPadOS version
+         * See https://developer.apple.com/documentation/safari-release-notes
+         */
+        if (\in_array($this->osName, ['iOS', 'iPadOS']) && '' !== $this->osVersion && 'Mobile Safari' === $name) {
+            $version = $this->osVersion;
         }
 
         return [
