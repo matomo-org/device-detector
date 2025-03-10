@@ -1079,6 +1079,7 @@ class DeviceDetector
          */
         if ('Coolita OS' === $osName) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
+            $this->brand  = 'coocaa';
         }
 
         /**
@@ -1087,7 +1088,7 @@ class DeviceDetector
         $hasDeviceTvType = false === \in_array($this->device, [
             AbstractDeviceParser::DEVICE_TYPE_TV,
             AbstractDeviceParser::DEVICE_TYPE_PERIPHERAL,
-        ]) && $this->matchUserAgent('Andr0id|(?:Android(?: UHD)?|Google) TV|\(lite\) TV|BRAVIA| TV$');
+        ]) && $this->matchUserAgent('Andr0id|(?:Android(?: UHD)?|Google) TV|\(lite\) TV|BRAVIA|Firebolt| TV$');
 
         if ($hasDeviceTvType) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
