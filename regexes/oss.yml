@@ -520,6 +520,10 @@
 ##########
 # YunOS (Android based)
 ##########
+- regex: 'Android (\d+[.\d]+)-RT'
+  name: 'YunOS'
+  version: '$1'
+
 - regex: '(?:Ali)?YunOS[ /]?(\d+[.\d]+)?'
   name: 'YunOS'
   version: '$1'
@@ -1234,7 +1238,7 @@
   name: 'Windows'
   version: 'Server 2003'
 
-- regex: 'CYGWIN_NT-5\.1|Windows NT 5\.1|Windows XP'
+- regex: 'CYGWIN_NT-5\.1|Windows NT 5\.1|(?:Microsoft-)?Windows[ -]XP'
   name: 'Windows'
   version: 'XP'
 
@@ -1383,6 +1387,8 @@
 - regex: '^(?!com\.apple\.Safari\.SearchHelper|Safari|NetworkingExtension).*(?:CFNetwork|Mana)/.+ Darwin/(\d+[.\d]+)(?!.*(?:x86_64|i386|PowerMac|Power%20Macintosh))'
   name: 'iOS'
   versions:
+    - regex: 'Darwin/24\.4\.0'
+      version: '18.4'
     - regex: 'Darwin/24\.3\.0'
       version: '18.3'
     - regex: 'Darwin/24\.2\.0'
@@ -1618,6 +1624,8 @@
 - regex: '(?:CFNetwork|Mana|StudioDisplay)/.+Darwin(?:/|; )(?:[\d.]+).+(?:x86_64|i386|Power%20Macintosh)|(?:x86_64-apple-)?darwin(?:[\d.]+)|C?Python.*Darwin|PowerMac|com\.apple\.Safari\.SearchHelper|^(?:NetworkingExtension|Safari)'
   name: 'Mac'
   versions:
+    - regex: '(?:x86_64-apple-)?Darwin(?:/|; )?24\.4\.0'
+      version: '15.4'
     - regex: '(?:x86_64-apple-)?Darwin(?:/|; )?24\.3\.0'
       version: '15.3'
     - regex: '(?:x86_64-apple-)?Darwin(?:/|; )?24\.2\.0'

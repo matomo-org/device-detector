@@ -937,7 +937,7 @@ TiVo:
 
 # Apple
 Apple:
-  regex: '(?:iTunes-)?Apple[ _]?TV|Apple/|(?:Apple-|iTunes-)?(?<!like )(?:iPad|iPhone)(?!\: Build/)|iPh(?:[0-9]|1[0-7]),[0-9]|CFNetwork|HomePod|AirPlay|AirPodcasts/|Watch ?OS|Watch1,[12]|MDCR_Mac|ICRU_iP(?:ad|hone)|Mac OS X[,;]|OSX/|macOS,|for Apple Watch'
+  regex: '(?:iTunes-)?Apple[ _]?TV|Apple/|(?:Apple-|iTunes-)?(?<!like )(?:iPad|iPhone)(?!\: Build/)|iPh(?:[0-9]|1[0-7]),[0-9]|CFNetwork|HomePod|AirPlay|AirPodcasts/|Watch ?OS|Watch1,[12]|MDCR_i?Mac|ICRU_iP(?:ad|hone)|Mac OS X[,;]|OSX/|macOS,|for Apple Watch'
   models:
     - regex: '(?:HomePod|AirPodcasts/)'
       device: 'smart speaker'
@@ -1195,6 +1195,9 @@ Apple:
     - regex: '(?:MDCR_|ICRU_|Apple-)?Mac14(?:%2C|,)15'
       device: 'desktop'
       model: 'MacBook Air 15" (2023)'
+    - regex: '(?:MDCR_|ICRU_|Apple-)?Mac15(?:%2C|,)12'
+      device: 'desktop'
+      model: 'MacBook Air 13" (2024)'
     - regex: '(?:MDCR_|ICRU_|Apple-)?MacBookPro1(?:%2C|,)1'
       device: 'desktop'
       model: 'MacBook Pro 15" (2006)'
@@ -7135,6 +7138,12 @@ Crescent:
       model: 'Wing 9'
     - regex: 'Venus[ _]([14])'
       model: 'Venus $1'
+
+# Crestron (https://www.crestron.com/)
+Crestron:
+  regex: 'Crestron'
+  device: 'smart display'
+  model: ''
 
 # Cwowdefu (cwowdefu.com)
 Cwowdefu:
@@ -25782,6 +25791,32 @@ Amazon:
       model: ''
       device: 'tv'
 
+# Sonos (sonos.com)
+SONOS:
+  regex: '(?:Sonos/.+\((?:(?:BR|ZP).+)\)|Sonos;|Sonos/.+\(?:Arc|ANVIL|Play:\d\))'
+  device: 'smart speaker'
+  models:
+    - regex: '\((ZPS(?:[13569]|1[1-9]|2[0-467]|3[013-9]|4[1345]|5[45])|ZP(?:90|120))\)'
+      model: '$1'
+    - regex: 'Sonos;Beam;'
+      model: 'Beam'
+    - regex: 'BR200'
+      model: 'BOOST'
+    - regex: 'Sonos;Roam;'
+      model: 'Roam'
+    - regex: 'Sonos;Bookshelf;'
+      model: 'Bookshelf'
+    - regex: 'Sonos;Move;'
+      model: 'Move'
+    - regex: 'Play:?(\d)'
+      model: 'Play:$1'
+    - regex: 'Sonos;One;'
+      model: 'One'
+    - regex: 'Sonos;OneSL'
+      model: 'OneSL'
+    - regex: '\(ANVIL\)'
+      model: 'Sub'
+
 # Syco (https://www.sycomobiles.be/)
 Syco:
   regex: 'SYCO[ _]|RS-4(?:03|42)(?:[);/ ]|$)'
@@ -43587,7 +43622,6 @@ FONTEL:
   regex: '(FT1000|FT800)(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
-
 
 # Romsat (romsat.ua)
 Romsat:
