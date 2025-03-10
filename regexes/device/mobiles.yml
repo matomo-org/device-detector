@@ -25789,6 +25789,32 @@ Amazon:
       model: ''
       device: 'tv'
 
+# Sonos (sonos.com)
+SONOS:
+  regex: '(?:Sonos/.+\((?:(?:BR|ZP).+)\)|Sonos;|Sonos/.+\(?:Arc|ANVIL|Play:\d\))'
+  device: 'smart speaker'
+  models:
+    - regex: '\((ZPS(?:[13569]|1[1-9]|2[0-467]|3[013-9]|4[1345]|5[45])|ZP(?:90|120))\)'
+      model: '$1'
+    - regex: 'Sonos;Beam;'
+      model: 'Beam'
+    - regex: 'BR200'
+      model: 'BOOST'
+    - regex: 'Sonos;Roam;'
+      model: 'Roam'
+    - regex: 'Sonos;Bookshelf;'
+      model: 'Bookshelf'
+    - regex: 'Sonos;Move;'
+      model: 'Move'
+    - regex: 'Play:?(\d)'
+      model: 'Play:$1'
+    - regex: 'Sonos;One;'
+      model: 'One'
+    - regex: 'Sonos;OneSL'
+      model: 'OneSL'
+    - regex: '\(ANVIL\)'
+      model: 'Sub'
+
 # Syco (https://www.sycomobiles.be/)
 Syco:
   regex: 'SYCO[ _]|RS-4(?:03|42)(?:[);/ ]|$)'
@@ -43594,7 +43620,6 @@ FONTEL:
   regex: '(FT1000|FT800)(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
-
 
 # Romsat (romsat.ua)
 Romsat:
