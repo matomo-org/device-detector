@@ -682,6 +682,7 @@ class Browser extends AbstractClientParser
         'W3' => 'Web Browser & Explorer',
         'W5' => 'Webian Shell',
         'W4' => 'WebDiscover',
+        'WC' => 'WeChat',
         'WE' => 'WebPositive',
         'W6' => 'Weltweitimnetz Browser',
         'WX' => 'Wexond',
