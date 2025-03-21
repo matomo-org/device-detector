@@ -364,6 +364,12 @@ FUJICOM:
     - regex: '_TV_[A-Z0-9]+_([0-9]{4});'
       model: 'Smart TV ($1)'
 
+# Funai (https://www2.funai.co.jp/)
+Funai:
+  regex: 'FUNAI[;,)]'
+  device: 'tv'
+  model: ''
+
 # GN Electronics (https://www.gnelectronics.in/)
 GN Electronics:
   regex: 'GN_ELECTRONICS[;,)]'
@@ -1000,9 +1006,15 @@ TCL SCBC:
     - regex: '_TV_[A-Z0-9]+_TCL_SCBC_Tbrowser_2k20'
       model: 'Smart TV (2020)'
 
+# PPDS (sub brand of Philips for large displays https://www.ppds.com/en-us)
+PPDS:
+  regex: 'Philips.+([0-9]{2}H[FHOU][HKLST][0-9]{4}[^),;]+)'
+  device: 'tv'
+  model: '$1'
+
 # Philips
 Philips:
-  regex: 'Philips|NETTV/'
+  regex: '(?:Philips|TPVision)|NETTV/'
   device: 'tv'
   models:
     - regex: '(?:Philips|TPVision)[,;](?: |Philips;)?((?! )[^),;]+)'
@@ -1135,6 +1147,8 @@ Sharp:
   models:
     - regex: 'SHARP, ([a-z0-9_ -]+), (?:wired|wireless)'
       model: ''
+    - regex: 'Sharp-([^);/]+)'
+      model: '$1'
     - regex: 'Sharp[,;] ?((?! |HbbTV|MB130)[^),;/]+)'
       model: '$1'
     - regex: '(LE[0-9]{3}[A-Z]{0,3})'
@@ -1203,6 +1217,12 @@ Sony:
       model: '$1'
     - regex: '(K[DM]L?-?[0-9]{2}[A-Z]{1,2}[0-9]{1,5})'
       model: '$1'
+
+# Star-Light
+Star-Light:
+  regex: 'STAR LIGHT[;,)]'
+  device: 'tv'
+  model: ''
 
 # SULPICE TV (https://sulpicetv.com/)
 SULPICE TV:
