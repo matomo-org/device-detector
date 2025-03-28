@@ -31,7 +31,7 @@ class VendorFragmentTest extends TestCase
         self::$regexesTested[] = $vfParser->getMatchedRegex();
     }
 
-    public function getFixtures(): array
+    public static function getFixtures(): array
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/vendorfragments.yml');
 
