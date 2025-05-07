@@ -907,6 +907,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'IW'  => 'iNew',
         'IF'  => 'Infinix',
         'INF' => 'Infiniton',
+        'IPR' => 'InfinityPro',
         'I0'  => 'InFocus',
         'IN1' => 'InFone',
         'II'  => 'Inkti',
