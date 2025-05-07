@@ -7756,6 +7756,12 @@ DoCoMo:
     - regex: 'KGT/1\.0 ([a-z0-9]+)'
       model: '$1'
 
+# Bqeel
+Bqeel:
+  regex: 'Y8 MAX S905X3'
+  device: 'tv'
+  model: 'Y8 Max'
+
 # Doogee
 Doogee:
   regex: 'DOOGEE[/ _-]|Valencia2_Y100(?:_?(?:pro|plus))?|Y100_Plus|X5max(?:[_ ]PRO)?|Shoot_[12]|x5_doogee|(KISSME|BIGBOY|COLLO[23]?|DAGGER|DISCOVERY2?|FIND|HOTWIND|LATTE|MAX|MINT|MOON|PIXELS|RAINBOX|TURBO|VALENCIA|VOYAGER2?|TITANS2?)[ -_](DG[0-9]+C?)(?:[);/ ]|$)|(?:BL12000|BL5500[_ ]Lite| Y6C|X9 Mini|LEO_DG280|Y9Plus|Y8 Plus|Hitman_DG850|S(?:4[01]|[568]8|9[05678]|59|61|8[69])Pro|X9[567]Pro|S[478]0Lite|S88Plus|BL[579]000|N[24]0Pro| S118|(?<!Lenovo )S90C|Ibiza_F2|S55_Lite|T5_Lite|S60 ?Lite|Iron-bone DG750|X10S|X[569]0L|MIX2|Y6 Max|Y6_Piano(?:_black)?|S100Pro|X[679]pro|V20Pro|S96GT|android 10(?:[\d.]*);(?: [\w-]+;)? (?:S59|S35|X95i?|X93|N30)|android 12(?:[\d.]*);(?: [\w-]+;)? (?:S98|S61|S89|V Max|S100|V30T?|S51)|V Max Plus|Y7Plus|S35T|V31GT|Smini|T[23]0Ultra|T10E|[TV]20S|V30Pro|android 14(?:[\d.]*);(?: [\w-]+;)? (?:N55|Fire 6)|android 13(?:[\d.]*);(?: [\w-]+;)? (?:R[12]0)|Android 9(?:[\d.]*);(?: [\w-]+;)? (?:N100|N20|Y8|S95)|S41T|N50S|D60 Pro|DK10|Turbo_mini_F1|Y100X|T30Pro|T10S|T10Plus|T20Mini|S41 Max|S41 Plus|N55 Pro|N55 Plus|S punk|S cyber|Blade GT|Blade10(?: Ultra|Pro)?|V Max Pro|(?<!Titanium[_ ])S200|S200 X)(?:[);/ ]|$)'
@@ -33201,18 +33207,19 @@ Orbic:
       device: 'tablet'
       model: 'Tab8 5G'
 
-# RedLine (https://redline.com.tr/)
+# RedLine (redline.com.tr)
 RedLine:
-  regex: '(?:Space_M10|S[678]00[ _]MAX|IP-[678]0 MAX)(?:[);/ ]|$)'
-  device: 'tablet'
+  regex: '(?:Space_M10|S[678]00[ _]MAX|IP-[678]0 MAX|RED360 Air 8K)(?:[);/ ]|$)'
+  device: 'tv'
   models:
     - regex: '(Space_M10)'
+      device: 'tablet'
       model: '$1'
+    - regex: 'RED360 Air 8K'
+      model: 'RED360 Air 8K'
     - regex: 'S([678]00)[ _]MAX'
-      device: 'tv'
       model: 'S$1 Max'
     - regex: 'IP-([678]0) MAX'
-      device: 'tv'
       model: 'IP-$1 Max'
 
 # RED
@@ -35754,9 +35761,9 @@ Brandt:
   regex: 'Brandt|(?:BPRIME|BSTAR\+?|BPRIMES|B-ONE)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: 'BRANDT FHD TV'
+    - regex: 'BRANDT ([UF]HD) TV'
       device: 'tv'
-      model: 'FHD TV'
+      model: '$1 TV'
     - regex: '(BPRIME|BSTAR\+?|BPRIMES|B-ONE)(?:[);/ ]|$)'
       model: '$1'
 
@@ -41101,11 +41108,13 @@ Hiberg:
 
 # Hartens
 Hartens:
-  regex: '(HTY[_-]\d{2}\w+-(?:S2|H[ACK]22|S2-T9|V[DNZS])|HTY-32HDR06G|HTY_43FHD06B|HTY-43F06B-VZ|HTY-50UHD05B|HTY-24H06W-VZ|HTV-55U11B-VS|43F01)(?:[);/ ]|$)'
+  regex: '(HTY[_-]\d{2}\w+-(?:S2|H[ACK]22|S2-T9|V[DNZS])|HTY-32HDR06G|HTY_43FHD06B|HTY-43F06B-VZ|HTY-50UHD05B|HTY-24H06W-VZ(?:-M)?|HTV-55U11B-VS|43F01)(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: '43F01(?:[);/ ]|$)'
       model: 'HTV-43F01-T2C'
+    - regex: 'HTY-24H06W-VZ-M'
+      model: 'HTY-24H06W-VZ'
     - regex: 'HT([YV])[_-](\d{2}(?:[^/;)]+))(?: Build|[);])'
       model: 'HT$1-$2'
 
@@ -43863,7 +43872,7 @@ CUD:
 
 # RAZZ (sub brand wildberries.ru market)
 RAZZ:
-  regex: '(C50USY24F)(?:[);/ ]|$)'
+  regex: '(C50USY24F|K55USY23)(?:[);/ ]|$)'
   device: 'tv'
   model: '$1'
 
@@ -43966,6 +43975,42 @@ andersson:
   regex: '(TBX11)(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
+
+# AileTV
+AileTV:
+  regex: 'AILETV'
+  device: 'tv'
+  model: 'Smart TV'
+
+# DuoTV
+DuoTV:
+  regex: 'duoTV'
+  device: 'tv'
+  model: 'Smart TV'
+
+# INDURAMA (indurama.com)
+Indurama:
+  regex: 'INDURAMA'
+  device: 'tv'
+  model: 'Smart TV'
+
+# Magenta (magenta.at)
+Magenta:
+  regex: 'MagentaTV'
+  device: 'tv'
+  models:
+    - regex: 'MagentaTV ONE \(2'
+      model: 'TV One (Gen 2)'
+    - regex: 'MagentaTV ONE'
+      model: 'TV One'
+    - regex: 'MagentaTV Box'
+      model: 'TV Box'
+
+# Nexar
+Nexar:
+  regex: 'NTV[-_](U50C614S|H43C612N)(?:[);/ ]|$)'
+  device: 'tv'
+  model: 'NTV-$1'
 
 # Devices with undectable brand, but detectable model
 Unknown:
