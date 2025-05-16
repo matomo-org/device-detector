@@ -32,7 +32,7 @@ function dd_autoload(string $class): void
         /* and finally, add the PHP file extension to the result. */
         $path .= '.php';
         /* $path should now contain the path to a PHP file defining $class */
-        @include $path;
+        require $path;
     }
 }
 
