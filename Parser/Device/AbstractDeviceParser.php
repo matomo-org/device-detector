@@ -1928,6 +1928,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '5V'  => 'VAIO',
         'WV'  => 'VAVA',
         'VA'  => 'Vastking',
+        'VAS' => 'VASOUN',
         'VP'  => 'Vargo',
         'VC'  => 'Vankyo',
         'VAL' => 'VALEM',
