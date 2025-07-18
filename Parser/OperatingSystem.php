@@ -109,6 +109,7 @@ class OperatingSystem extends AbstractParser
         'KAL' => 'Kali',
         'KAN' => 'Kanotix',
         'KIN' => 'KIN OS',
+        'KOL' => 'KolibriOS',
         'KNO' => 'Knoppix',
         'KTV' => 'KreaTV',
         'KBT' => 'Kubuntu',
@@ -264,7 +265,7 @@ class OperatingSystem extends AbstractParser
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
         'OpenVMS'               => ['OVS'],
-        'Real-time OS'          => ['MTK', 'TDX', 'MRE', 'JME', 'REX', 'RXT'],
+        'Real-time OS'          => ['MTK', 'TDX', 'MRE', 'JME', 'REX', 'RXT', 'KOL'],
         'Other Mobile'          => ['WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE', 'LUN', 'GEO'],
         'Symbian'               => ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
         'Unix'                  => [
