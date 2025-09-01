@@ -147,6 +147,7 @@ class OperatingSystem extends AbstractParser
         'OS2' => 'OS/2',
         'T64' => 'OSF1',
         'OBS' => 'OpenBSD',
+        'OHS' => 'OpenHarmony',
         'OVS' => 'OpenVMS',
         'OVZ' => 'OpenVZ',
         'OWR' => 'OpenWrt',
@@ -238,7 +239,7 @@ class OperatingSystem extends AbstractParser
         'Android'               => [
             'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
             'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS', 'WER', 'PIC', 'ARM',
-            'HEL', 'BYI', 'RIS', 'PUF', 'LEA', 'MET',
+            'HEL', 'BYI', 'RIS', 'PUF', 'LEA', 'MET', 'OHS',
         ],
         'AmigaOS'               => ['AMG', 'MOR', 'ARO'],
         'BlackBerry'            => ['BLB', 'QNX'],
