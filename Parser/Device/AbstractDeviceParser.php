@@ -1861,7 +1861,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'TO1' => 'Topsion',
         'TS'  => 'Toshiba',
         'T8'  => 'Touchmate',
-        'TOU' => 'Touch Plus',
+        'TOU' => 'Touch+',
         '5R'  => 'Transpeed',
         'T6'  => 'TrekStor',
         'TRP' => 'Trecfone',
