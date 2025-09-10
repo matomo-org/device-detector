@@ -2167,7 +2167,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ZOO' => 'ZoomSmart',
         'ZO1' => 'Zoom',
         'ZT'  => 'ZTE',
-        'ZU'  => 'Zuum',
+        'ZU'  => 'Zuum México',
         'ZY'  => 'Zync',
         'ZR'  => 'Zyrex',
         'ZQ'  => 'ZYQ',
