@@ -1736,6 +1736,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ST'  => 'Storex',
         'STR' => 'Stream',
         '71'  => 'StrawBerry',
+        'STM'  => 'Strawberry Mobile',
         '96'  => 'STRONG',
         '69'  => 'Stylo',
         'STI' => 'Stilevs',
