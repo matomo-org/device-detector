@@ -2144,7 +2144,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ZAL' => 'ZALA',
         'ZZB' => 'ZZB',
         'ZEA' => 'Zealot',
-        'PZ'  => 'Zebra',
+        'PZ'  => 'Zebra Technologies',
         'ZE1' => 'Zeblaze',
         'ZE'  => 'Zeemi',
         'WZ'  => 'Zeeker',
