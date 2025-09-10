@@ -1992,7 +1992,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VID' => 'VIDA',
         'VZ'  => 'Vizio',
         'VIZ' => 'Vizmo',
-        'VIT' => 'Vityaz',
+        'VIT' => 'Vityas',
         'VTM' => 'Vitumi',
         '9V'  => 'Vision Touch',
         'VIS' => 'Vision Technology',
