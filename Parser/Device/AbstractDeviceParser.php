@@ -1894,7 +1894,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'TVP' => 'TV+',
         'TW'  => 'TWM',
         'Z1'  => 'TWZ Corporation',
-        '6T'  => 'Twoe',
         'TWN' => 'TwinMOS',
         '15'  => 'Tymes Mobiles',
         'UC'  => 'U.S. Cellular',
