@@ -1893,7 +1893,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'TV'  => 'TVC',
         'TVP' => 'TV+',
         'TW'  => 'TWM',
-        'Z1'  => 'TWZ',
+        'Z1'  => 'TWZ Corporation',
         '6T'  => 'Twoe',
         'TWN' => 'TwinMOS',
         '15'  => 'Tymes',
