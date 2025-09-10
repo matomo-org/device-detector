@@ -1770,7 +1770,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SSK' => 'SSKY',
         'SYC' => 'Syco Mobiles',
         'SM'  => 'Symphony Mobile',
-        '4S'  => 'Syrox',
+        '4S'  => 'Syrox Technologies',
         'SYS' => 'System76',
         'TM'  => 'T-Mobile',
         'T96' => 'T96',
