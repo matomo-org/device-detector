@@ -1814,7 +1814,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'TLY' => 'Telly',
         'TEL' => 'Telma',
         'PW'  => 'Telpo',
-        'TLS' => 'TeloSystems',
+        'TLS' => 'Telo Systems',
         'TER' => 'Teracube',
         'TD'  => 'Tesco',
         'TA'  => 'Tesla',
