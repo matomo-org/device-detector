@@ -1616,7 +1616,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SAB' => 'Sambox',
         'SNA' => 'SNAMI',
         'S0'  => 'Sanei',
-        '12'  => 'Sansui',
+        '12'  => 'Sansui Electric',
         'SAK' => 'Sankey',
         'SQ'  => 'Santin',
         'SY'  => 'Sanyo',
