@@ -2022,7 +2022,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VO'  => 'Voxtel',
         'VY'  => 'Voyo',
         'VOL' => 'Völfen',
-        'VO1' => 'Volt',
+        'VO1' => 'Volt Mobile',
         'VOP' => 'Volla',
         'V02' => 'VOLIA',
         'VH'  => 'Vsmart',
