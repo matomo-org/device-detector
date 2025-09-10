@@ -1892,7 +1892,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '2U'  => 'Türk Telekom',
         'TV'  => 'TVC',
         'TVP' => 'TV+',
-        'TW'  => 'TWM',
+        'TW'  => 'Taiwan Mobile',
         'Z1'  => 'TWZ Corporation',
         'TWN' => 'TwinMOS',
         '15'  => 'Tymes Mobiles',
