@@ -1729,7 +1729,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '18'  => 'Starmobile',
         '2S'  => 'Starway',
         '45'  => 'Starwind',
-        'SB'  => 'STF Mobile',
+        'SB'  => 'STF',
         'S8'  => 'STK',
         'GQ'  => 'STG Telecom',
         'S2'  => 'Stonex',
