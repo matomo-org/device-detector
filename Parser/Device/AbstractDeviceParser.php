@@ -1721,7 +1721,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SP'  => 'Spice Mobiles',
         'SPD' => 'Spider',
         '84'  => 'Sprint',
-        'SPU' => 'SPURT',
+        'SPU' => 'SPURT Mobile',
         'QS'  => 'SQOOL',
         'S4'  => 'Star',
         'OL'  => 'Starlight',
