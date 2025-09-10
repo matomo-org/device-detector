@@ -330,7 +330,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'BYD' => 'BYD',
         'C9'  => 'CAGI',
         'CAD' => 'CADENA',
-        'CAL' => 'CALME',
+        'CAL' => 'Calme Mobiles',
         'CAI' => 'Caixun',
         'CT'  => 'Capitel',
         'GRD' => 'G-Guard',
