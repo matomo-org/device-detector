@@ -1759,7 +1759,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'STV' => 'SuperTV',
         'S5'  => 'Supra',
         'SUP' => 'Supraim',
-        'ZS'  => 'Suzuki',
+        'ZS'  => 'Suzuki Corporation',
         '2J'  => 'Sunmi',
         'SUN' => 'Sunmax',
         '0W'  => 'Swipe',
