@@ -1958,7 +1958,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VET' => 'VETAS',
         'VL'  => 'Verykool',
         'QV'  => 'Verssed',
-        'VER' => 'Versus',
+        'VER' => 'Versus Mobility',
         'V8'  => 'Vesta',
         'VEK' => 'Vekta',
         'VT'  => 'Vestel',
