@@ -1775,7 +1775,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'TM'  => 'T-Mobile',
         'T96' => 'T96',
         'TAD' => 'TADAAM',
-        'TK'  => 'Takara',
+        'TK'  => 'Takara Multimédia',
         '73'  => 'Tambo',
         '9N'  => 'Tanix',
         'U5'  => 'Taiga System',
