@@ -2148,7 +2148,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ZE1' => 'Zeblaze',
         'ZE'  => 'Zeemi',
         'WZ'  => 'Zeeker',
-        'ZN'  => 'Zen',
+        'ZN'  => 'Zen Mobile',
         'ZK'  => 'Zenek',
         'ZL'  => 'Zentality',
         'ZF'  => 'Zfiner',
