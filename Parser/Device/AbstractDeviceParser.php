@@ -1656,7 +1656,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '3S'  => 'Shuttle',
         '13'  => 'Sico',
         'SI'  => 'Siemens',
-        '1S'  => 'Sigma',
+        '1S'  => 'Sigma Mobile',
         '70'  => 'Silelis',
         'SJ'  => 'Silent Circle',
         'SIL' => 'Silva Schneider',
