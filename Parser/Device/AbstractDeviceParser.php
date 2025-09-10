@@ -1740,7 +1740,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '69'  => 'Stylo',
         'STI' => 'Stilevs',
         '9S'  => 'Sugar',
-        'SUR' => 'Surge',
+        'SUR' => 'SurgePhone Wireless',
         'SUF' => 'Surfans',
         '06'  => 'Subor',
         'SUT' => 'SULPICE TV',
