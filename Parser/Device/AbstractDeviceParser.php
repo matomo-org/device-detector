@@ -1718,7 +1718,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FS'  => 'SPC',
         '6S'  => 'Spectrum',
         '43'  => 'Spectralink',
-        'SP'  => 'Spice',
+        'SP'  => 'Spice Mobiles',
         'SPD' => 'Spider',
         '84'  => 'Sprint',
         'SPU' => 'SPURT',
