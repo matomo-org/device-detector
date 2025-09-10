@@ -1895,7 +1895,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'Z1'  => 'TWZ',
         '6T'  => 'Twoe',
         'TWN' => 'TwinMOS',
-        '15'  => 'Tymes',
+        '15'  => 'Tymes Mobiles',
         'UC'  => 'U.S. Cellular',
         'UD1' => 'UD',
         'UGI' => 'UGINE',
