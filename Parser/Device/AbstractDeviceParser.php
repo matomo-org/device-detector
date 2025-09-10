@@ -1976,7 +1976,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'V3'  => 'Vinsoc',
         'XD'  => 'Vinabox',
         'FV'  => 'Vios',
-        '0V'  => 'Vipro',
+        '0V'  => 'Vipro Mobile',
         'ZV'  => 'Virzo',
         'VIP' => 'Viper',
         'VI'  => 'Vitelcom',
