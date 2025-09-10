@@ -2110,7 +2110,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'X8'  => 'Xtratech',
         'XCR' => 'Xcruiser',
         'XCO' => 'XCOM',
-        'XCL' => 'Xcell',
+        'XCL' => 'Xcell Mobile',
         'XWA' => 'Xwave',
         'YD'  => 'Yandex',
         'YA'  => 'Yarvik',
