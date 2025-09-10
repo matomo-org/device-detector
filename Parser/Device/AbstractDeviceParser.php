@@ -2171,7 +2171,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ZY'  => 'Zync',
         'ZR'  => 'Zyrex',
         'ZQ'  => 'ZYQ',
-        'Z4'  => 'ZH&K',
+        'Z4'  => 'ZH&K Mobile',
         'OW'  => 'öwn',
         'WBF' => 'Webfleet',
         'WSS' => 'WS',
