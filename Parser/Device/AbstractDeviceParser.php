@@ -2000,7 +2000,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VIL' => 'Visual Land',
         'VI1' => 'VILLAON',
         'VIM' => 'VIMOQ',
-        'VK'  => 'VK Mobile',
+        'VK'  => 'Viable Korea',
         'JM'  => 'v-mobile',
         'VHO' => 'V-HOPE',
         'VHM' => 'V-HOME',
