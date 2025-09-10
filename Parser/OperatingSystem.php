@@ -189,6 +189,7 @@ class OperatingSystem extends AbstractParser
         'SER' => 'SerenityOS',
         'SIR' => 'Sirin OS',
         'SLW' => 'Slackware',
+        'SMA' => 'Smartisan OS',
         'SOS' => 'Solaris',
         'SBL' => 'Star-Blade OS',
         'SYL' => 'Syllable',
