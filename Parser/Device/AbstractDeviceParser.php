@@ -2088,7 +2088,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'XMO' => 'X-Mobile',
         'XT'  => 'X-TIGI',
         'XV'  => 'X-View',
-        'X4'  => 'X.Vision',
+        'X4'  => 'XVISION',
         'X88' => 'X88',
         'X96' => 'X96',
         '96Q' => 'X96Q',
