@@ -1691,7 +1691,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SMU' => 'SMUX',
         'SMT' => 'SMT Telecom',
         'JR'  => 'Sylvania',
-        'SYH' => 'SYH',
+        'SYH' => 'SYH Mobile',
         '3Y'  => 'Smarty',
         'HH'  => 'Smooth Mobile',
         '1Q'  => 'Smotreshka',
