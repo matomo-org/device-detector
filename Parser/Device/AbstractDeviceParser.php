@@ -1940,7 +1940,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VC'  => 'Vankyo',
         'VAL' => 'VALEM',
         'VA2' => 'VALE',
-        'VAT' => 'VALTECH',
+        'VAT' => 'Valtech Mobility',
         'VAN' => 'VANGUARD',
         'VAW' => 'VANWIN',
         'VB'  => 'VC',
