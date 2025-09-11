@@ -34046,9 +34046,14 @@ SEMP TCL:
 
 # Newman
 Newman:
-  regex: 'Newman[ _](P308|K1|G5i)(?:[);/ ]|$)'
+  regex: '(?:(?:Newman[ _])(P308|K1|G5i|)|(UE Pad 1))(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
+  models:
+    - regex: 'Newman[ _](P308|K1|G5i)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'UE Pad 1'
+      model: 'UE 1 PAD'
 
 # Swipe
 Swipe:
@@ -41790,12 +41795,6 @@ OSCAL:
     - regex: 'Spider 8'
       device: 'tablet'
       model: 'Spider 8'
-
-# UE or United Education (www.ue.cn)
-UE:
-  regex: 'UE Pad 1'
-  device: 'tablet'
-  model: 'Pad 1'
 
 # Hykker (www.hykker.com)
 Hykker:
