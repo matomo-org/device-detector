@@ -2031,7 +2031,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '3V'  => 'VVETIME',
         'ZC'  => 'VUCATIMES',
         'VO2' => 'VOLKANO',
-        'VUE' => 'Vue Micro',
+        'VUE' => 'VUE',
         'WAK' => 'Walker',
         'WA'  => 'Walton',
         'WAF' => 'WAF',
