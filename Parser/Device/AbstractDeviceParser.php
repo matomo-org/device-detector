@@ -1563,7 +1563,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'RIC' => 'Ricoh',
         'RI'  => 'Rikomagic',
         'RM'  => 'Research In Motion',
-        'RN'  => 'Rinno',
+        'RN'  => 'Rinno Telecom',
         'RNB' => 'Ringing Bells',
         'RX'  => 'Ritmix',
         'R7'  => 'Ritzviva',
