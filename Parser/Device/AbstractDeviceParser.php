@@ -1545,7 +1545,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'RB'  => 'Readboy',
         'RE'  => 'Realme',
         'RE1' => 'Redbean',
-        'R8'  => 'RED',
+        'R8'  => 'RED Digital Cinema',
         'RDX' => 'RED-X',
         'REW' => 'Redway',
         '6F'  => 'Redfox',
