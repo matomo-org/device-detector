@@ -1919,7 +1919,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'UGR' => 'United Group',
         'UO'  => 'Unnecto',
         'UNN' => 'Unnion Technologies',
-        'UNP' => 'UnoPhone',
+        'UNP' => 'UNO',
         'UU'  => 'Unonu Mobile',
         'UN'  => 'Unowhy',
         'UY'  => 'UNNO',
