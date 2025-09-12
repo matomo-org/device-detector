@@ -2176,7 +2176,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'WBF' => 'Webfleet',
         'WSS' => 'WS',
         // legacy brands, might be removed in future versions
-        'WB'  => 'Web TV',
         'XX'  => 'Unknown',
     ];
 
