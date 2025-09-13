@@ -290,7 +290,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '2Y'  => 'b2m',
         'BP'  => 'Blaupunkt',
         'BU'  => 'Blu',
-        'BUS' => 'BluSlate',
+        'BUS' => 'Bluslate',
         'BUZ' => 'BuzzTV',
         'B3'  => 'Bluboo',
         '2B'  => 'Bluedot',
