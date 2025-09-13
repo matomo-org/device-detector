@@ -352,7 +352,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CNG' => 'Canguro',
         'CNT' => 'CCIT',
         'CEC' => 'Cecotec',
-        'CEP' => 'CEPTER',
+        'CEP' => 'Cepter',
         'CEI' => 'Ceibal',
         '02'  => 'Cell-C',
         'CEL' => 'Cellacom',
