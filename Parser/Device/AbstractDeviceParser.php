@@ -962,7 +962,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'UI'  => 'ivvi',
         'QW'  => 'iWaylink',
         'I9'  => 'iZotron',
-        'IXT' => 'iXTech',
+        'IXT' => 'i-Xtech',
         'IOT' => 'IOTWE',
         'JA'  => 'JAY-Tech',
         'JAM' => 'Jambo',
