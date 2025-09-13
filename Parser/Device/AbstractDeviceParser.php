@@ -1489,7 +1489,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'PR1' => 'Premier',
         'PR'  => 'Prestigio',
         'P9'  => 'Primepad',
-        'PRM' => 'PRIME',
+        'PRM' => 'Prime Phones',
         '6P'  => 'Primux',
         '2P'  => 'Prixton',
         'PRI' => 'Pritom',
