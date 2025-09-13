@@ -3431,9 +3431,14 @@ MEO:
 
 # Ooredoo (https://www.ooredoo.qa/)
 Ooredoo:
-  regex: 'Sagemcom DIW387_UHD_OOR(?:[);/ ]|$)' # Sagemcom DIW387
+  regex: 'Sagemcom DIW387_UHD_OOR|(Q7A\+?)(?:[);/ ]|$)' # Sagemcom DIW387
   device: 'tv'
-  model: 'TV Box'
+  models:
+    - regex: 'Sagemcom DIW387_UHD_OOR(?:[);/ ]|$)'
+      model: 'TV Box'
+    - regex: '(Q7A\+?)(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'Crius Mea $1'
 
 # Meu
 MEU:
@@ -6924,12 +6929,6 @@ Cricket:
     - regex: 'Cricket-([a-z0-9]+)'
       device: 'feature phone'
       model: '$1'
-
-# Crius
-Crius Mea:
-  regex: '(Q7A\+?)(?:[);/ ]|$)'
-  device: 'tablet'
-  model: '$1'
 
 # Crosscall
 Crosscall:
