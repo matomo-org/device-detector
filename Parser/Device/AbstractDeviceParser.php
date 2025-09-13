@@ -1210,7 +1210,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '1Z'  => 'MiXzo',
         'MIW' => 'MIWANG',
         'ML'  => 'MLLED',
-        'LS'  => 'MLS',
+        'LS'  => 'MLS Innovation',
         'MLA' => 'MLAB',
         '4M'  => 'Mobicel',
         'M6'  => 'Mobiistar',
