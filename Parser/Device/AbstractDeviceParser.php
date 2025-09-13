@@ -380,7 +380,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CD'  => 'Cloudfone',
         'C0'  => 'Clout',
         'CN'  => 'CnM',
-        'CY'  => 'Coby Kyros',
+        'CY'  => 'Coby',
         'XC'  => 'Cobalt',
         'C6'  => 'Comio',
         'COM' => 'CommScope',
