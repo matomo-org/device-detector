@@ -444,7 +444,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'DAS' => 'DASS',
         'DAW' => 'Dawlance',
         'DB'  => 'Dbtel',
-        'DBP' => 'DbPhone',
+        'DBP' => 'dbPhone',
         'DCO' => 'Dcode',
         'DL'  => 'Dell',
         'DL0' => 'DL',
