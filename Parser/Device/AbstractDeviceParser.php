@@ -826,6 +826,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '8X'  => 'Hi Nova',
         'HKC' => 'HKC',
         'HMD' => 'HMD',
+        'HMR'  => 'HMR Networks',
         '8W'  => 'HKPro',
         'HOF' => 'HOFER',
         'HOC' => 'hoco',
