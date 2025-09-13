@@ -1548,7 +1548,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'RDX' => 'RED-X',
         'REW' => 'Redway',
         '6F'  => 'Redfox',
-        'RE2' => 'RedLine',
+        'RE2' => 'Redline',
         'RD'  => 'Reeder',
         'Z9'  => 'REGAL',
         'RH'  => 'Remdun',
