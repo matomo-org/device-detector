@@ -382,7 +382,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '6C'  => 'Cloudpad',
         'C0'  => 'Clout',
         'CN'  => 'CnM',
-        'CY'  => 'Coby Kyros',
+        'CY'  => 'Coby',
         'XC'  => 'Cobalt',
         'C6'  => 'Comio',
         'COM' => 'CommScope',
