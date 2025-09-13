@@ -1203,7 +1203,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'X7'  => 'Mione',
         'M7'  => 'Miray',
         'MIT' => 'Mitchell & Brown',
-        '8M'  => 'Mito',
+        '8M'  => 'MITO Electronic',
         'MT'  => 'Mitsubishi',
         '0Y'  => 'Mitsui',
         'M5'  => 'The MixC',
