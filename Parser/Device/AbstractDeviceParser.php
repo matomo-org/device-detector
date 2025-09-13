@@ -1165,7 +1165,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '28'  => 'MBOX',
         'FK'  => 'MBI',
         'MBK' => 'MBK',
-        '3D'  => 'MDC Store',
+        '3D'  => 'MDC',
         '09'  => 'meanIT',
         'M3'  => 'Mecer',
         'M3M' => 'M3 Mobile',
