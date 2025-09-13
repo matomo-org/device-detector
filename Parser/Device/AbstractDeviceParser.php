@@ -1263,7 +1263,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'NEO' => 'neoCore',
         'NER' => 'Neoregent',
         '08'  => 'Nabi',
-        'N7'  => 'National',
+        'N7'  => 'National Electronic Corporation',
         'NC'  => 'Navcity',
         '6N'  => 'Navitech',
         '7V'  => 'Navitel',
