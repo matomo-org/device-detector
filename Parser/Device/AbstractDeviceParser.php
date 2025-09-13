@@ -267,7 +267,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'BEL' => 'Bell',
         '9B'  => 'Bellphone',
         '63'  => 'Beyond',
-        'BG'  => 'BGH',
         '6B'  => 'Bigben',
         'B8'  => 'BIHEE',
         '1B'  => 'Billion',
