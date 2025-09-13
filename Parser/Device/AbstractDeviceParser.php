@@ -1270,7 +1270,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '7R'  => 'NavRoad',
         'NAB' => 'NABO',
         'NAS' => 'NASCO Electronics',
-        'NP'  => 'Naomi Phone',
+        'NP'  => 'NaomiPhone',
         'NAN' => 'Nanho',
         'NE'  => 'NEC',
         'NDP' => 'Nedaphone',
