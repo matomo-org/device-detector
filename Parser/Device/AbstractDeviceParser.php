@@ -742,7 +742,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '38'  => 'GLONYX',
         'U6'  => 'Glofiish',
         'GLO' => 'Glory Star',
-        'GNE' => 'GN Electronics',
+        'GNE' => 'G N Electronics',
         'G7'  => 'GoGEN',
         'GC'  => 'GOCLEVER',
         '5G'  => 'Gocomma',
