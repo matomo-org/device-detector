@@ -1707,7 +1707,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SO'  => 'Sony',
         'SE'  => 'Sony Ericsson',
         'X2'  => 'Soundmax',
-        'SUL' => 'SoulLink',
+        'SUL' => 'SOULLINK',
         '8S'  => 'Soyes',
         '77'  => 'SONOS',
         '68'  => 'Soho Style',
