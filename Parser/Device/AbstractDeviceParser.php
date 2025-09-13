@@ -934,7 +934,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'INT' => 'Intel',
         'IX'  => 'Intex',
         'IV'  => 'Inverto',
-        '32'  => 'Invens',
+        '32'  => 'Invens Mobile',
         '4I'  => 'Invin',
         'IFT' => 'iFIT',
         'INA' => 'iNavi',
