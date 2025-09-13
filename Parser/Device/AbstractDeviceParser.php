@@ -1130,7 +1130,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '92'  => 'MAC AUDIO',
         'MJ'  => 'Majestic',
         'FQ'  => 'Mafe',
-        'MAG' => 'MAG',
+        'MAG' => 'MAG InnoVision',
         'MA2' => 'MAGCH',
         '6Y'  => 'Magicsee',
         'MA4' => 'Magenta',
