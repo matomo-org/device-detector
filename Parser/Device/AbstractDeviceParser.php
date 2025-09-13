@@ -1135,7 +1135,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '6Y'  => 'Magicsee',
         'MA4' => 'Magenta',
         '23'  => 'Magnus',
-        'NH'  => 'Manhattan',
+        'NH'  => 'Manhattan TV',
         'MAN' => 'Mango',
         '5M'  => 'Mann',
         'MA'  => 'Manta Multimedia',
