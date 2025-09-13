@@ -1350,7 +1350,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'NV'  => 'Nvidia',
         'NY'  => 'NYX Mobile',
         'NON' => 'N-one',
-        'O3'  => 'O+',
+        'O3'  => 'O+ USA',
         'OT'  => 'O2',
         'O7'  => 'Oale',
         'OC'  => 'OASYS Cybernetics',
