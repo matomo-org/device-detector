@@ -955,7 +955,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '86'  => 'IT',
         'IZ'  => 'iTel',
         '0I'  => 'iTruck',
-        'I8'  => 'iVA',
+        'I8'  => 'iVA Mobile',
         'IE'  => 'iView',
         '0J'  => 'iVOOMi Energy',
         'UI'  => 'ivvi',
