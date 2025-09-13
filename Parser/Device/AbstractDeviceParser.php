@@ -1846,7 +1846,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'TY'  => 'Tooky',
         'TYD' => 'TYD',
         'TOO' => 'TOOGO',
-        'TPT' => 'Top-Tech',
+        'TPT' => 'TopTech',
         'T9'  => 'Top House',
         'DK'  => 'Topelotek',
         '42'  => 'Topway',
