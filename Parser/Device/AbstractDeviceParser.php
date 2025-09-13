@@ -2029,7 +2029,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VU'  => 'Vulcan',
         '3V'  => 'VVETIME',
         'ZC'  => 'VUCATIMES',
-        'VO2' => 'VOLKANO',
+        'VO2' => 'Volkano',
         'VUE' => 'VUE',
         'WAK' => 'Walker',
         'WA'  => 'Walton',
