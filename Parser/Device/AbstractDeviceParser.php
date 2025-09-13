@@ -967,7 +967,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'JA'  => 'JAY-Tech',
         'JAM' => 'Jambo',
         'KJ'  => 'Jiake',
-        'JD'  => 'Jedi',
+        'JD'  => 'Jide Technology',
         'JEE' => 'Jeep',
         'J6'  => 'Jeka',
         'JF'  => 'JFone',
