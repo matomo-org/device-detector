@@ -1124,7 +1124,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'LTL' => 'LYOTECH LABS',
         'QL'  => 'LT Mobile',
         'LW1' => 'LW',
-        'MQ'  => 'M.T.T.',
+        'MQ'  => 'Mobile Tout Terrain',
         'MN'  => 'M4tel',
         'XM'  => 'Macoox',
         '92'  => 'MAC AUDIO',
