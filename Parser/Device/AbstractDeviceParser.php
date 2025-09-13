@@ -1558,7 +1558,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'REN' => 'Renova',
         'RE3' => 'RENSO',
         'REP' => 'rephone',
-        'RHI' => 'Rhino',
+        'RHI' => 'Rhino Mobility',
         'RIC' => 'Ricoh',
         'RI'  => 'Rikomagic',
         'RM'  => 'Research In Motion',
