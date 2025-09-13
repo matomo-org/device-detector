@@ -1419,7 +1419,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'PRA' => 'Pacific Research Alliance',
         'PAG' => 'PAGRAER',
         'PAD' => '7Ke tree',
-        'YP'  => 'Paladin',
+        'YP'  => 'Paladin TV',
         'PM'  => 'Palm',
         'PN'  => 'Panacom',
         'PA'  => 'Panasonic',
