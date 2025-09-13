@@ -2071,7 +2071,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'W0'  => 'Wiseasy',
         '2W'  => 'Wizz',
         'W4'  => 'WIWA',
-        'WIZ' => 'WizarPos',
+        'WIZ' => 'WizarPOS',
         'WL'  => 'Wolder',
         'WG'  => 'Wolfgang',
         'WQ'  => 'Wolki',
