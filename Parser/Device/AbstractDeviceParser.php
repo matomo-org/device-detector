@@ -2039,7 +2039,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'WAL' => 'Waltter',
         'WAI' => 'Wainyok',
         'WAT' => 'waipu.tv',
-        'WHI' => 'White Mobile',
         'WHO' => 'Whoop',
         'WBL' => 'We. by Loewe',
         'WCP' => 'WeChip',
