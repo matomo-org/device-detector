@@ -314,7 +314,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '8B'  => 'Brandt',
         'BRA' => 'BrandCode',
         'BV'  => 'Bravis',
-        'BRV' => 'BRAVE',
+        'BRV' => 'Brave Techs',
         'BRG' => 'Brigmton',
         'BR'  => 'Brondi',
         'XF'  => 'BROR',
