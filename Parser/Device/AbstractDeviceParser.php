@@ -1302,7 +1302,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'NX'  => 'Nexian',
         '7X'  => 'Nexa',
         '7XR' => 'Nexar',
-        'N8'  => 'NEXON',
+        'N8'  => 'NEXON.UA',
         'N2'  => 'Nextbit',
         'NT'  => 'NextBook',
         'NTT' => 'NTT West',
