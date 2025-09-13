@@ -1196,7 +1196,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MIG' => 'Mightier',
         '1X'  => 'Minix',
         'OM'  => 'Mintt',
-        'MIN' => 'Mint',
+        'MIN' => 'MINT Connect',
         'MO'  => 'Mio',
         'MOD' => 'Moondrop',
         'MOR' => 'MORTAL',
