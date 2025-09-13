@@ -2170,7 +2170,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'Z4'  => 'ZH&K Mobile',
         'OW'  => 'öwn',
         'WBF' => 'Webfleet',
-        'WSS' => 'WS',
+        'WSS' => 'WS Education Electronics',
         // legacy brands, might be removed in future versions
         'XX'  => 'Unknown',
     ];
