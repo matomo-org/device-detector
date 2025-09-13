@@ -1141,7 +1141,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MA'  => 'Manta Multimedia',
         'Z0'  => 'Mantra',
         'J4'  => 'Mara',
-        'MAR' => 'Marshal',
+        'MAR' => 'Marshal Electronic',
         '8Y'  => 'Massgo',
         'MA1' => 'Mascom',
         '2M'  => 'Masstel',
