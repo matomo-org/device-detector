@@ -2136,7 +2136,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'YIK' => 'YIKEMI',
         'YU'  => 'Yuandao',
         'YS'  => 'Yusun',
-        'YJ'  => 'YASIN',
+        'YJ'  => 'Yasin',
         'YX'  => 'Yxtel',
         '0Z'  => 'Zatec',
         '2Z'  => 'Zaith',
