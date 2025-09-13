@@ -3511,12 +3511,14 @@ Arnova:
 
 # ARRIS
 ARRIS:
-  regex: 'ARRIS'
+  regex: 'ARRIS|MMI, ([a-z0-9_ -]+), (?:wired|wireless)'
   device: 'tv'
   models:
     - regex: 'Arris_liberty,([a-z0-9-]+),(?:wired|wireless)'
       model: '$1'
     - regex: 'ARRIS[,;] ([^),;/]+)'
+      model: '$1'
+    - regex: 'MMI, ([a-z0-9_ -]+), (?:wired|wireless)'
       model: '$1'
 
 # Ask
@@ -30739,12 +30741,6 @@ MLS:
       model: 'T8 Fingerprint 4G'
     - regex: 'iQF ?200(?:[);/ ]|$)'
       model: 'iQF200'
-
-# MMI
-MMI:
-  regex: 'MMI, ([a-z0-9_ -]+), (?:wired|wireless)'
-  device: 'tv'
-  model: '$1'
 
 # FLYCAT
 FLYCAT:
