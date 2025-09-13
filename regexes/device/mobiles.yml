@@ -35239,10 +35239,15 @@ MDC:
       model: 'M5'
 
 # OTT (previously MDTV, but it looks to be a model line from OTT based on branding on the cardboard boxes, for example https://www.madridcenter.com/produto/tv-box-mdtv-pro-8k-32-256gb-android-11-1-5g-preto-749749.html)
+# Also cover "LPX-G" which was previously treated as a separate brand, but is also a model of OTT based on listings like https://prom.ua/p705060188-boks-ott-box.html
 OTT:
-  regex: 'MDTV(?:[);/ ]|$)'
+  regex: 'MDTV|LPX-G BOX'
   device: 'tv'
-  model: ''
+  models:
+    - regex: 'MDTV'
+      model: 'MDTV'
+    - regex: 'LPX-G Box Max'
+      model: 'LPX-G Box Max'
 
 # meanIT (meanit.hr)
 meanIT:
@@ -42039,14 +42044,6 @@ Waltter:
   regex: 'Waltter NEO 10\.1'
   device: 'tablet'
   model: 'Neo 10.1"'
-
-# LPX-G
-LPX-G:
-  regex: 'LPX-G BOX'
-  device: 'tv'
-  models:
-    - regex: 'LPX-G Box Max'
-      model: 'Box Max'
 
 # Valtech Mobility (most likely, since can't find details on the tablet itself, but https://valtech-mobility.de/en/about-us/ deal with automotive things)
 Valtech Mobility:

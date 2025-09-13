@@ -1111,7 +1111,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'LOG' => 'Logik',
         'LGT' => 'Logitech',
         'GY'  => 'LOKMAT',
-        'LPX' => 'LPX-G',
         '0L'  => 'Lumigon',
         'LU'  => 'Lumus',
         'LUM' => 'Lumitel',
