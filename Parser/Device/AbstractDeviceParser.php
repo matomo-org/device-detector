@@ -443,7 +443,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         '7D'  => 'Datamini',
         '6D'  => 'Datalogic',
         'D1'  => 'Datsun',
-        'DZ'  => 'Dazen',
         'DAS' => 'DASS',
         'DAW' => 'Dawlance',
         'DB'  => 'Dbtel',
