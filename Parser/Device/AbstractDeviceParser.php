@@ -1461,7 +1461,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'PIR' => 'PIRANHA',
         'PIN' => 'PINE',
         '9P'  => 'Planet Computers',
-        'PLA' => 'Play Now',
+        'PLA' => 'Play',
         'PY'  => 'Ployer',
         'P4'  => 'Plum',
         'PLU' => 'PlusStyle',
