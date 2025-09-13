@@ -166,7 +166,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '60'  => 'Andowl',
         'ANX' => 'ANXONIT',
         'ANL' => 'ANCEL',
-        'ANC' => 'ANBERNIC',
+        'ANC' => 'Anbernic',
         'AND' => 'andersson',
         '6J'  => 'Angelcare',
         'ANG' => 'AngelTech',
