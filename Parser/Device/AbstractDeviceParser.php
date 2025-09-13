@@ -1418,7 +1418,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '7P'  => 'P-UP',
         'PRA' => 'Pacific Research Alliance',
         'PAG' => 'PAGRAER',
-        'PAD' => 'Padpro',
+        'PAD' => '7Ke tree',
         'YP'  => 'Paladin',
         'PM'  => 'Palm',
         'PN'  => 'Panacom',
