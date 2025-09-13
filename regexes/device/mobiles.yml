@@ -32474,29 +32474,31 @@ HiHi:
 
 # Hi or Hi TFG (https://www.hi-online.co.za/)
 Hi:
-  regex: '(?:(?<!Thrill )Boost(?:[ _](?:Hypa|Max|Ultra))?(?: Build|[;)])|HMR(?:5012|5450)|Crusader|(?:VHIX-)?VHIX-\w+(?:-[A-Z])?|HX-(?:\d{2}[FHU]\d{2}FB)|43FSY112X[bcd]?|32HSY119X|39HSY111X|55USY151X|50USY151X|65USY151X)(?:[);/ ]|$)'
+  regex: '(?:(?:VHIX-)?VHIX-\w+(?:-[A-Z])?|HX-(?:\d{2}[FHU]\d{2}FB)|43FSY112X[bcd]?|32HSY119X|39HSY111X|55USY151X|50USY151X|65USY151X)(?:[);/ ]|$)'
+  device: 'tv'
+  models:
+    - regex: 'VHIX-40F152MSYb'
+      model: 'VHIX-40F152MSY'
+    - regex: 'HX-(\d{2}[FHU]\d{2}FB)'
+      model: 'HX-$1'
+    - regex: '(?:VHIX-)?VHIX-(\w+)'
+      model: 'VHIX-$1'
+    - regex: '(32HSY119X|39HSY111X|55USY151X|43FSY112X[bcd]?|50USY151X|65USY151X)(?:[);/ ]|$)'
+      model: '$1'
+
+# HMR Networks (https://hmr.co.za/)
+HMR Networks:
+  regex: '(?:(?<!Thrill )Boost(?:[ _](?:Hypa|Max|Ultra))?(?: Build|[;)])|HMR(?:5012|5450)|Crusader)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Boost[ _](Hypa|Max|Ultra)(?:[);/ ]|$)'
-      model: 'Boost $1'
+      model: 'Hi Boost $1'
     - regex: 'Boost(?:[);/ ]|$)'
-      model: 'Boost'
+      model: 'Hi Boost'
     - regex: 'HMR5012(?:[);/ ]|$)'
-      model: 'Boost Go'
+      model: 'Hi Boost Go'
     - regex: '(HMR5450|Crusader)(?:[);/ ]|$)'
-      model: '$1'
-    - regex: 'VHIX-40F152MSYb'
-      device: 'tv'
-      model: 'VHIX-40F152MSY'
-    - regex: 'HX-(\d{2}[FHU]\d{2}FB)'
-      device: 'tv'
-      model: 'HX-$1'
-    - regex: '(?:VHIX-)?VHIX-(\w+)'
-      device: 'tv'
-      model: 'VHIX-$1'
-    - regex: '(32HSY119X|39HSY111X|55USY151X|43FSY112X[bcd]?|50USY151X|65USY151X)(?:[);/ ]|$)'
-      device: 'tv'
-      model: '$1'
+      model: 'Hi $1'
 
 # Boost
 Boost:
