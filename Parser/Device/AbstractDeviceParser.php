@@ -424,7 +424,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CMF' => 'CMF',
         '0C'  => 'Crony',
         'C1'  => 'Crosscall',
-        '4W'  => 'Crown',
+        '4W'  => 'Crown Micro',
         'CTR' => 'Ctroniq',
         'CU'  => 'Cube',
         'CB'  => 'CUBOT',
