@@ -2049,7 +2049,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'WD'  => 'Western Digital',
         'WST' => 'Weston',
         'WT'  => 'Westpoint',
-        'WAN' => 'Wanmukang',
+        'WAN' => 'Zhongyu Display',
         'WA1' => 'WANSA',
         'WY'  => 'Wexler',
         '3W'  => 'WE',
