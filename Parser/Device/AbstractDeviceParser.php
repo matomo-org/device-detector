@@ -234,7 +234,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'AZU' => 'Azupik',
         'AZO' => 'AZOM',
         'WW'  => 'Awow',
-        'AWO' => 'AWOX',
+        'AWO' => 'Awox',
         'XU'  => 'AUX',
         'BAC' => 'Bakcell',
         'BFF' => 'BAFF',
