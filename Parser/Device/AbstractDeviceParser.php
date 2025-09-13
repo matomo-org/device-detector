@@ -1038,7 +1038,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'KP'  => 'KOPO',
         'KR'  => 'Koridy',
         'XK'  => 'Koslam',
-        'K2'  => 'KRONO',
+        'K2'  => 'Krono Digital',
         'KRX' => 'Korax',
         'KE'  => 'Krüger&Matz',
         '5K'  => 'KREZ',
