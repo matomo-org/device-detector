@@ -1146,6 +1146,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MA1' => 'Mascom',
         '2M'  => 'Masstel',
         '3X'  => 'Mastertech',
+        'MTH'  => 'Mastertech Home',
         'MAS' => 'Master-G',
         '50'  => 'Matrix',
         'MAT' => 'Matco Tools',
