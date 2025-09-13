@@ -1396,7 +1396,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ORB' => 'Orbsmart',
         'OS'  => 'Ordissimo',
         '8O'  => 'Orion',
-        'OTT' => 'OTTO',
+        'OTT' => 'OTTO Phones',
         'OK'  => 'Ouki',
         '0O'  => 'OINOM',
         'OIL' => 'Oilsky',
