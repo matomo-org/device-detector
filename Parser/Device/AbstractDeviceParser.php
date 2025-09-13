@@ -1280,7 +1280,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '9X'  => 'Neo',
         'NEK' => 'NEKO',
         '1N'  => 'Neomi',
-        '7Q'  => 'Neon IQ',
+        '7Q'  => 'Neoniq',
         '8F'  => 'Neolix',
         'NES' => 'Nesons',
         'NET' => 'NetBox',
