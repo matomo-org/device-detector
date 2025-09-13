@@ -1293,7 +1293,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'NW'  => 'Newgen',
         'N9'  => 'Newland',
         '0N'  => 'Newman',
-        'NS'  => 'NewsMy',
+        'NS'  => 'Newsmy',
         'ND'  => 'Newsday',
         'HB'  => 'New Balance',
         'BRI' => 'New Bridge',
