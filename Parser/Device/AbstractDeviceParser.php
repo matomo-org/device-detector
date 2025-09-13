@@ -1163,7 +1163,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MAU' => 'Maunfeld',
         'MCL' => 'McLaut',
         '28'  => 'MBOX',
-        'FK'  => 'MBI',
+        'FK'  => 'MBI International',
         'MBK' => 'MBK',
         '3D'  => 'MDC Store',
         '1Y'  => 'MDTV',
