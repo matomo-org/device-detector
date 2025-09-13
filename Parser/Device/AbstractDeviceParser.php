@@ -417,7 +417,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CKK' => 'CKK Mobile',
         'YW'  => 'ClearPHONE',
         '33'  => 'Clementoni',
-        'CR'  => 'CreNova',
+        'CR'  => 'Crenova',
         'CX'  => 'Crescent',
         'CRE' => 'Crestron',
         'CK'  => 'Cricket',
