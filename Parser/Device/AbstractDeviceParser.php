@@ -185,7 +185,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ARC' => 'Arçelik',
         'AR'  => 'Archos',
         'AB'  => 'Arian Space',
-        'ARI' => 'Arival',
+        'ARI' => 'A-rival',
         'A6'  => 'Ark',
         '5A'  => 'ArmPhone',
         'AN'  => 'Arnova',
