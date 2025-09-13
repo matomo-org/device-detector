@@ -983,7 +983,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'UJ'  => 'Juniper Systems',
         'J5'  => 'Just5',
         'JUS' => 'JUSYEA',
-        '7J'  => 'Jumper',
+        '7J'  => 'Jumper Tech',
         'JPA' => 'JPay',
         'JV'  => 'JVC',
         'JXD' => 'JXD',
