@@ -1912,7 +1912,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'UX'  => 'Unimax',
         'UNQ' => 'Uniqcell',
         'US'  => 'Uniscope',
-        'UNI' => 'Unistrong',
+        'UNI' => 'UniStrong',
         'U2'  => 'UNIWA',
         'UND' => 'Uniden',
         'UNE' => 'UNITED',
