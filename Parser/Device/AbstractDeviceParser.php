@@ -322,7 +322,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'BJ'  => 'BrightSign',
         'B1'  => 'Bush',
         '4Q'  => 'Bundy',
-        'Y8'  => 'Bubblegum',
+        'Y8'  => 'Bubblegum Tablets',
         'BMW' => 'BMW',
         'BYJ' => 'BYJU\'S',
         'BYY' => 'BYYBUO',
