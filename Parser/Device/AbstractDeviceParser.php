@@ -379,7 +379,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CLT' => 'Clovertek',
         '1J'  => 'Cloud Mobile',
         'CD'  => 'Cloudfone',
-        '6C'  => 'Cloudpad',
         'C0'  => 'Clout',
         'CN'  => 'CnM',
         'CY'  => 'Coby Kyros',
