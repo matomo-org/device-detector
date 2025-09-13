@@ -1044,7 +1044,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '5K'  => 'KREZ',
         'WK'  => 'KRIP',
         'KRA' => 'Kraft',
-        'KH'  => 'KT-Tech',
+        'KH'  => 'KT Tech',
         'KTC' => 'KTC',
         'Z6'  => 'KUBO',
         'KUG' => 'KuGou',
