@@ -1415,7 +1415,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'O6'  => 'Oyyu',
         'OZ'  => 'OzoneHD',
         'OLL' => 'Ollee',
-        '7P'  => 'P-UP',
+        '7P'  => 'Mode 1',
         'PRA' => 'Pacific Research Alliance',
         'PAG' => 'PAGRAER',
         'PAD' => '7Ke tree',
