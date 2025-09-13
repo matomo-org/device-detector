@@ -951,7 +951,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'IU'  => 'iRulu',
         'IRO' => 'iRobot',
         '9I'  => 'iSWAG',
-        '9J'  => 'iSafe Mobile',
+        '9J'  => 'i.safe MOBILE',
         'IST' => 'iStar',
         '86'  => 'IT',
         'IZ'  => 'iTel',
