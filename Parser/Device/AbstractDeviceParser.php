@@ -419,7 +419,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CR'  => 'CreNova',
         'CX'  => 'Crescent',
         'CRE' => 'Crestron',
-        'CK'  => 'Cricket',
+        'CK'  => 'Cricket Wireless',
         'CM'  => 'Crius Mea',
         'CMF' => 'CMF',
         '0C'  => 'Crony',
