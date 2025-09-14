@@ -546,7 +546,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'YC'  => 'EBEN',
         'E4'  => 'Echo Mobiles',
         'EQ1' => 'Equator',
-        'ES'  => 'ECS',
+        'ES'  => 'Elitegroup Computer Systems',
         '35'  => 'ECON',
         'ECC' => 'ECOO',
         'ZZ'  => 'ecom',
