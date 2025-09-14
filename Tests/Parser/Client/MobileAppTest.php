@@ -31,9 +31,7 @@ class MobileAppTest extends TestCase
 
     public function getFixtures(): array
     {
-        $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/mobile_app.yml');
-
-        return $fixtureData;
+        return Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/mobile_app.yml');
     }
 
     public function testStructureMobileAppYml(): void

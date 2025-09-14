@@ -51,9 +51,7 @@ class BrowserTest extends TestCase
 
     public function getFixtures(): array
     {
-        $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/browser.yml');
-
-        return $fixtureData;
+        return Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/browser.yml');
     }
 
     public function testGetAvailableBrowserFamilies(): void

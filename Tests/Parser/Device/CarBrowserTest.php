@@ -33,8 +33,6 @@ class CarBrowserTest extends TestCase
 
     public function getFixtures(): array
     {
-        $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/car_browser.yml');
-
-        return $fixtureData;
+        return Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/car_browser.yml');
     }
 }

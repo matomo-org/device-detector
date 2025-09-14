@@ -31,9 +31,7 @@ class FeedReaderTest extends TestCase
 
     public function getFixtures(): array
     {
-        $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/feed_reader.yml');
-
-        return $fixtureData;
+        return Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/feed_reader.yml');
     }
 
     public function testStructureFeedReaderYml(): void

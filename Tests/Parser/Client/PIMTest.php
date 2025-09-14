@@ -31,9 +31,7 @@ class PIMTest extends TestCase
 
     public function getFixtures(): array
     {
-        $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/pim.yml');
-
-        return $fixtureData;
+        return Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/pim.yml');
     }
 
     public function testStructurePimYml(): void
