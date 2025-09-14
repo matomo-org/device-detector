@@ -193,7 +193,7 @@ class DeviceDetector
             $this->setUserAgent($userAgent);
         }
 
-        if ($clientHints instanceof ClientHints) {
+        if ($clientHints !== null) {
             $this->setClientHints($clientHints);
         }
 
