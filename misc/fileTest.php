@@ -85,8 +85,6 @@ function printReport(array $result, string $format): void
 
     if (REPORT_TYPE_USERAGENT === $format) {
         echo "{$result['user_agent']}\n";
-
-        return;
     }
 }
 
