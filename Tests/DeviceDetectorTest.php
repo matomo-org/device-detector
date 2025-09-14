@@ -179,7 +179,7 @@ class DeviceDetectorTest extends TestCase
 
     public function testCacheSetAndGet(): void
     {
-        if (!\extension_loaded('memcached') || !\class_exists('\Doctrine\Common\Cache\MemcachedCache')) {
+        if (!\class_exists('\Doctrine\Common\Cache\MemcachedCache') || !\extension_loaded('memcached')) {
             $this->markTestSkipped('memcached not enabled');
         }
 
@@ -870,7 +870,7 @@ class DeviceDetectorTest extends TestCase
     protected function checkRegexVerticalLineClosingGroup(string $regexString): bool
     {
         if (false !== \strpos($regexString, '|)')) {
-            return !\preg_match('#(?<!\\\)(\|\))#is', $regexString);
+            return !\preg_match('#(?<!\\\)(\|\))#i', $regexString);
         }
 
         return true;
