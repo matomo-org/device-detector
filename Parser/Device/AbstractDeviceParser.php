@@ -611,7 +611,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'E0'  => 'Evromedia',
         'EXR' => 'Exertis',
         'XE'  => 'ExMobile',
-        '4Z'  => 'Exmart',
+        '4Z'  => 'Exmart Mobile',
         'EH'  => 'EXO',
         'EX'  => 'Explay',
         'EXP' => 'Express LUCK',
