@@ -334,11 +334,12 @@ abstract class AbstractParser
     {
         return \dirname(__DIR__);
     }
-    
+
     /**
      * Returns if the parsed UA contains the 'Windows NT;' or 'X11; Linux x86_64' fragments
      *
      * @return bool
+     *
      * @throws \Exception
      */
     protected function hasDesktopFragment(): bool
@@ -405,7 +406,7 @@ abstract class AbstractParser
     {
         $search  = [];
         $replace = [];
-        $count = \count($matches);
+        $count   = \count($matches);
 
         for ($nb = 1; $nb <= $count; $nb++) {
             $search[]  = '$' . $nb;
@@ -443,7 +444,7 @@ abstract class AbstractParser
 
         return \trim($versionString, ' .');
     }
-    
+
     /**
      * Tests the useragent against a combination of all regexes
      *
@@ -453,6 +454,7 @@ abstract class AbstractParser
      * Method can be used to speed up detections by making a big check before doing checks for every single regex
      *
      * @return ?array
+     *
      * @throws \Exception
      */
     protected function preMatchOverall(): ?array

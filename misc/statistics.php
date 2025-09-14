@@ -44,7 +44,7 @@ if ($handle) {
         }
 
         if ($parsedUAs > 0 && 0 === $parsedUAs % 80) {
-            echo " $parsedUAs\n";
+            echo " {$parsedUAs}\n";
         }
 
         $parser->setUserAgent(trim($line));

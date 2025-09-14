@@ -39,7 +39,7 @@ class BrowserTest extends TestCase
         $browser = $browserParser->parse();
         unset($browser['short_name']);
 
-        $this->assertEquals($client, $browser, "UserAgent: $useragent");
+        $this->assertEquals($client, $browser, "UserAgent: {$useragent}");
         $this->assertTrue($this->checkBrowserEngine($browser['engine']), \sprintf(
             "UserAgent: %s\nEngine wrong name: `%s`",
             $useragent,
@@ -93,7 +93,7 @@ class BrowserTest extends TestCase
                 $this->assertEquals(
                     $count,
                     1,
-                    "Family $browser: contains duplicate of shortcode $shortcode"
+                    "Family {$browser}: contains duplicate of shortcode {$shortcode}"
                 );
             }
         }
@@ -123,7 +123,7 @@ class BrowserTest extends TestCase
 
         $this->assertEquals([], $result, 'These shortcode does not match the list of browsers');
     }
-    
+
     /**
      * @return array
      * @throws \ReflectionException

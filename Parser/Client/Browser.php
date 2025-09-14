@@ -931,7 +931,7 @@ class Browser extends AbstractClientParser
     public static function getBrowserFamily(string $browserLabel): ?string
     {
         if (\in_array($browserLabel, self::$availableBrowsers, true)) {
-            $browserLabel = (string)\array_search($browserLabel, self::$availableBrowsers, true);
+            $browserLabel = (string) \array_search($browserLabel, self::$availableBrowsers, true);
         }
 
         foreach (self::$browserFamilies as $browserFamily => $browserLabels) {
@@ -992,7 +992,7 @@ class Browser extends AbstractClientParser
             }
 
             // https://bbs.360.cn/thread-16096544-1-1.html
-            if (0 === strpos($version, "15") && 0 === strpos($browserFromUserAgent['version'], "114")) {
+            if (0 === \strpos($version, '15') && 0 === \strpos($browserFromUserAgent['version'], '114')) {
                 $name          = '360 Secure Browser';
                 $short         = '3B';
                 $engine        = $browserFromUserAgent['engine'] ?? '';
@@ -1159,7 +1159,7 @@ class Browser extends AbstractClientParser
                 }
 
                 // If we detected a brand, that is not Chromium, we will use it, otherwise we will look further
-                if (!in_array($name, ['', 'Chromium', 'Microsoft Edge'], true)) {
+                if (!\in_array($name, ['', 'Chromium', 'Microsoft Edge'], true)) {
                     break;
                 }
             }
@@ -1225,12 +1225,13 @@ class Browser extends AbstractClientParser
             $this->userAgent
         )); // @codeCoverageIgnore
     }
-    
+
     /**
      * @param array  $engineData
      * @param string $browserVersion
      *
      * @return string
+     *
      * @throws \Exception
      */
     protected function buildEngine(array $engineData, string $browserVersion): string
@@ -1260,11 +1261,12 @@ class Browser extends AbstractClientParser
 
         return $engine;
     }
-    
+
     /**
      * @param string $engine
      *
      * @return string
+     *
      * @throws \Exception
      */
     protected function buildEngineVersion(string $engine): string

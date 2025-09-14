@@ -43,12 +43,14 @@ class Bot extends AbstractBotParser
     {
         $this->discardDetails = true;
     }
-    
+
     /**
      * Parses the current UA and checks whether it contains bot information
      *
      * @return array|null
+     *
      * @throws \Exception
+     *
      * @see bots.yml for list of detected bots
      *
      * Step 1: Build a big regex containing all regexes and match UA against it
