@@ -857,7 +857,7 @@ class DeviceDetectorTest extends TestCase
     protected function checkRegexVerticalLineClosingGroup(string $regexString): bool
     {
         if (false !== \strpos($regexString, '|)')) {
-            return !\preg_match('#(?<!\\\)(\|\))#i', $regexString);
+            return !\preg_match('#(?<!\\\)(\|\))#', $regexString);
         }
 
         return true;
