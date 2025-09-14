@@ -291,8 +291,7 @@ class DeviceDetectorTest extends TestCase
             \Spyc::YAMLDump($uaInfo, 2, 0)
         );
 
-        unset($fixtureData['headers']); // ignore headers in result
-        unset($fixtureData['client']['family']);
+        unset($fixtureData['headers'], $fixtureData['client']['family']); // ignore headers and client family in result
 
         $this->assertArrayNotHasKey('bot', $uaInfo, $messageError);
         $this->assertEquals($fixtureData['client'], $uaInfo['client'], $messageError);
