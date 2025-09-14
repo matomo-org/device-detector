@@ -646,7 +646,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FAN' => 'Fanvace',
         'FE'  => 'Fengxiang',
         'FEN' => 'Fenoti',
-        'F7'  => 'Fero',
+        'F7'  => 'Fero Mobile',
         '67'  => 'FEONAL',
         'FI'  => 'FiGO',
         'J9'  => 'FiGi',
