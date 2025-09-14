@@ -1148,9 +1148,9 @@ class Browser extends AbstractClientParser
                 $brand = $this->applyClientHintMapping($brand);
 
                 foreach (self::$availableBrowsers as $browserShort => $browserName) {
-                    if ($this->fuzzyCompare("{$brand}", $browserName)
+                    if ($this->fuzzyCompare($brand, $browserName)
                         || $this->fuzzyCompare($brand . ' Browser', $browserName)
-                        || $this->fuzzyCompare("{$brand}", $browserName . ' Browser')
+                        || $this->fuzzyCompare($brand, $browserName . ' Browser')
                     ) {
                         $name    = $browserName;
                         $short   = $browserShort;

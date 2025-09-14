@@ -26,7 +26,7 @@ class FeedReaderTest extends TestCase
         $feedReaderParser = new FeedReader();
         $feedReaderParser->setVersionTruncation(FeedReader::VERSION_TRUNCATION_NONE);
         $feedReaderParser->setUserAgent($useragent);
-        $this->assertEquals($client, $feedReaderParser->parse(), "UserAgent: {$useragent}");
+        $this->assertEquals($client, $feedReaderParser->parse(), "UserAgent: $useragent");
     }
 
     public function getFixtures(): array

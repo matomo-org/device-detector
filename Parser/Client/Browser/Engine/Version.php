@@ -71,7 +71,7 @@ class Version extends AbstractClientParser
         }
 
         \preg_match(
-            "~(?:{$engineToken})\s*[/_]?\s*((?(?=\d+\.\d)\d+[.\d]*|\d{1,7}(?=(?:\D|$))))~i",
+            "~(?:$engineToken)\s*[/_]?\s*((?(?=\d+\.\d)\d+[.\d]*|\d{1,7}(?=(?:\D|$))))~i",
             $this->userAgent,
             $matches
         );

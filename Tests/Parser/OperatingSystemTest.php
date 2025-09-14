@@ -33,7 +33,7 @@ class OperatingSystemTest extends TestCase
             $osParser->setClientHints(ClientHints::factory($headers));
         }
 
-        $this->assertEquals($os, $osParser->parse(), "UserAgent: {$useragent}");
+        $this->assertEquals($os, $osParser->parse(), "UserAgent: $useragent");
         self::$osTested[] = $os['name'];
     }
 
