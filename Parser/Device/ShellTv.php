@@ -53,7 +53,7 @@ class ShellTv extends AbstractDeviceParser
     public function parse(): ?array
     {
         // only parse user agents containing fragments: {brand} shell
-        if (false === $this->isShellTv()) {
+        if (!$this->isShellTv()) {
             return null;
         }
 
