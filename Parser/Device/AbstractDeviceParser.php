@@ -1573,7 +1573,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'RUA' => 'Romsat',
         'R5'  => 'Ross&Moor',
         'RO'  => 'Rover',
-        'R6'  => 'RoverPad',
+        'R6'  => 'Rover Computers',
         'RQ'  => 'RoyQueen',
         'RJ'  => 'Royole',
         'RT'  => 'RT Project',
