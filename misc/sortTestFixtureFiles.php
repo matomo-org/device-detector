@@ -108,6 +108,7 @@ foreach ($botFixtures as &$fixture) {
 
     $fixture = DeviceDetector::getInfoFromUserAgent($fixture['user_agent']);
 }
+unset($fixture);
 
 usort($botFixtures, static function ($a, $b) {
     if (empty($b)) {
