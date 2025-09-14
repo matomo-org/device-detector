@@ -14,6 +14,7 @@ namespace DeviceDetector;
 
 use DeviceDetector\Cache\CacheInterface;
 use DeviceDetector\Cache\StaticCache;
+use DeviceDetector\ClientHints;
 use DeviceDetector\Parser\AbstractBotParser;
 use DeviceDetector\Parser\Bot;
 use DeviceDetector\Parser\Client\AbstractClientParser;
@@ -178,12 +179,12 @@ class DeviceDetector
      * @var bool
      */
     private $parsed = false;
-    
+
     /**
      * Constructor
      *
-     * @param string                           $userAgent   UA to parse
-     * @param \DeviceDetector\ClientHints|null $clientHints Browser client hints to parse
+     * @param string           $userAgent   UA to parse
+     * @param ClientHints|null $clientHints Browser client hints to parse
      *
      * @throws \Exception
      */
@@ -193,7 +194,7 @@ class DeviceDetector
             $this->setUserAgent($userAgent);
         }
 
-        if ($clientHints !== null) {
+        if (null !== $clientHints) {
             $this->setClientHints($clientHints);
         }
 
@@ -236,7 +237,7 @@ class DeviceDetector
             }
         }
 
-        throw new \BadMethodCallException("Method $methodName not found");
+        throw new \BadMethodCallException("Method {$methodName} not found");
     }
 
     /**
@@ -368,7 +369,7 @@ class DeviceDetector
     {
         $regex = 'Touch';
 
-        return (bool)$this->matchUserAgent($regex);
+        return (bool) $this->matchUserAgent($regex);
     }
 
     /**
@@ -772,7 +773,7 @@ class DeviceDetector
     {
         $regex = 'Android( [.0-9]+)?; Tablet;|Tablet(?! PC)|.*\-tablet$';
 
-        return (bool)$this->matchUserAgent($regex);
+        return (bool) $this->matchUserAgent($regex);
     }
 
     /**
@@ -784,7 +785,7 @@ class DeviceDetector
     {
         $regex = 'Android( [.0-9]+)?; Mobile;|.*\-mobile$';
 
-        return (bool)$this->matchUserAgent($regex);
+        return (bool) $this->matchUserAgent($regex);
     }
 
     /**
@@ -796,7 +797,7 @@ class DeviceDetector
     {
         $regex = 'Android( [.0-9]+)?; Mobile VR;| VR ';
 
-        return (bool)$this->matchUserAgent($regex);
+        return (bool) $this->matchUserAgent($regex);
     }
 
     /**
@@ -808,7 +809,7 @@ class DeviceDetector
     {
         $regex = 'Desktop(?: (x(?:32|64)|WOW64))?;';
 
-        return (bool)$this->matchUserAgent($regex);
+        return (bool) $this->matchUserAgent($regex);
     }
 
     /**
@@ -1074,9 +1075,9 @@ class DeviceDetector
          * All devices that contain Andr0id in string are assumed to be a tv
          */
         $hasDeviceTvType = !\in_array($this->device, [
-                AbstractDeviceParser::DEVICE_TYPE_TV,
-                AbstractDeviceParser::DEVICE_TYPE_PERIPHERAL,
-            ], true) && $this->matchUserAgent('Andr0id|(?:Android(?: UHD)?|Google) TV|\(lite\) TV|BRAVIA|Firebolt| TV$');
+            AbstractDeviceParser::DEVICE_TYPE_TV,
+            AbstractDeviceParser::DEVICE_TYPE_PERIPHERAL,
+        ], true) && $this->matchUserAgent('Andr0id|(?:Android(?: UHD)?|Google) TV|\(lite\) TV|BRAVIA|Firebolt| TV$');
 
         if ($hasDeviceTvType) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;

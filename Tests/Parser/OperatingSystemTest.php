@@ -33,7 +33,7 @@ class OperatingSystemTest extends TestCase
             $osParser->setClientHints(ClientHints::factory($headers));
         }
 
-        $this->assertEquals($os, $osParser->parse(), "UserAgent: $useragent");
+        $this->assertEquals($os, $osParser->parse(), "UserAgent: {$useragent}");
         self::$osTested[] = $os['name'];
     }
 
@@ -54,6 +54,7 @@ class OperatingSystemTest extends TestCase
     public function getAllOs(): array
     {
         $allOs = \array_keys(OperatingSystem::getAvailableOperatingSystems());
+
         return \array_map(static function ($os) {
             return [$os];
         }, $allOs);
@@ -71,6 +72,7 @@ class OperatingSystemTest extends TestCase
     public function getAllFamilyOs(): array
     {
         $allFamilyOs = \call_user_func_array('array_merge', \array_values(OperatingSystem::getAvailableOperatingSystemFamilies()));
+
         return \array_map(static function ($os) {
             return [$os];
         }, $allFamilyOs);

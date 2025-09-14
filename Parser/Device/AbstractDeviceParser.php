@@ -814,7 +814,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '8X'  => 'Hi Nova',
         'HKC' => 'HKC',
         'HMD' => 'HMD',
-        'HMR'  => 'HMR Networks',
+        'HMR' => 'HMR Networks',
         '8W'  => 'HKPro',
         'HOF' => 'HOFER',
         'HOC' => 'hoco',
@@ -1136,7 +1136,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MA1' => 'Mascom',
         '2M'  => 'Masstel',
         '3X'  => 'Mastertech',
-        'MTH'  => 'Mastertech Home',
+        'MTH' => 'Mastertech Home',
         'MAS' => 'Master-G',
         '50'  => 'Matrix',
         'MAT' => 'Matco Tools',
@@ -1239,7 +1239,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MY'  => 'MyPhone (PH)',
         '51'  => 'Myros',
         'M8'  => 'Myria',
-        '6ME'  => 'Mystery Electronics',
+        '6ME' => 'Mystery Electronics',
         '6M'  => 'Mystery Tab',
         '3T'  => 'MyTab',
         'MG'  => 'MyWigo',
@@ -1358,7 +1358,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'OLT' => 'OLTO',
         'OJ'  => 'Ookee',
         'OD'  => 'Onda Tablet',
-        'ODT'  => 'Onda TLC',
+        'ODT' => 'Onda TLC',
         'ON'  => 'OnePlus',
         'ONC' => 'OneClick',
         'ONL' => 'OneLern',
@@ -1662,7 +1662,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '5Z'  => 'SK Broadband',
         'GK'  => 'SKG',
         'SW'  => 'Sky Devices',
-        'SKU'  => 'Sky UK',
+        'SKU' => 'Sky UK',
         'SK'  => 'Skyworth',
         'SKY' => 'Skyline',
         'SK1' => 'SkyStream',
@@ -1726,7 +1726,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ST'  => 'Storex',
         'STR' => 'Stream',
         '71'  => 'StrawBerry',
-        'STM'  => 'Strawberry Mobile',
+        'STM' => 'Strawberry Mobile',
         '96'  => 'STRONG',
         '69'  => 'Stylo',
         'STI' => 'Stilevs',
@@ -2281,7 +2281,7 @@ abstract class AbstractDeviceParser extends AbstractParser
      */
     public static function getShortCode(string $brand): string
     {
-        return (string)\array_search($brand, self::$deviceBrands, true) ?: '';
+        return (string) \array_search($brand, self::$deviceBrands, true) ?: '';
     }
 
     /**
@@ -2313,7 +2313,7 @@ abstract class AbstractDeviceParser extends AbstractParser
             return $this->getResult();
         }
 
-        $brand   = '';
+        $brand = '';
 
         foreach ($this->getRegexes() as $brand => $regex) {
             $matches = $this->matchUserAgent($regex['regex']);

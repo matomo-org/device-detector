@@ -42,10 +42,10 @@ if (count($argv) < 2) {
 }
 
 const DETECT_MODE_TYPE_DETECT = 'detect';
-const DETECT_MODE_TYPE_ALL = 'all';
-const DETECT_MODE_TYPE_NOT = 'not';
+const DETECT_MODE_TYPE_ALL    = 'all';
+const DETECT_MODE_TYPE_NOT    = 'not';
 
-const REPORT_TYPE_YML = 'yml';
+const REPORT_TYPE_YML       = 'yml';
 const REPORT_TYPE_USERAGENT = 'useragent';
 
 $file       = $argv[1] ?? '';
@@ -83,9 +83,11 @@ function printReport(array $result, string $format): void
         return;
     }
 
-    if (REPORT_TYPE_USERAGENT === $format) {
-        echo "{$result['user_agent']}\n";
+    if (REPORT_TYPE_USERAGENT !== $format) {
+        return;
     }
+
+    echo "{$result['user_agent']}\n";
 }
 
 AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);

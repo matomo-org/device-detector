@@ -41,12 +41,14 @@ class ShellTv extends AbstractDeviceParser
 
         return null !== $match;
     }
-    
+
     /**
      * Parses the current UA and checks whether it contains ShellTv information
      *
      * @return array|null
+     *
      * @throws \Exception
+     *
      * @see shell_tv.yml for list of detected televisions
      *
      */

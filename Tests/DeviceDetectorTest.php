@@ -43,7 +43,7 @@ class DeviceDetectorTest extends TestCase
 
     public function testDevicesYmlFiles(): void
     {
-        $allowedKeys  = ['regex', 'device', 'models', 'model', 'brand'];
+        $allowedKeys = ['regex', 'device', 'models', 'model', 'brand'];
 
         foreach (\glob(\realpath(__DIR__) . '/../regexes/device/*.yml') as $file) {
             $ymlData = \Spyc::YAMLLoad($file);
@@ -582,7 +582,9 @@ class DeviceDetectorTest extends TestCase
         ];
 
         $this->assertContains(
-            $botData['category'], $categories, \sprintf(
+            $botData['category'],
+            $categories,
+            \sprintf(
                 "Unknown category: \"%s\"\nUseragent: %s\nAvailable categories:\n%s\n",
                 $botData['category'],
                 $ua,

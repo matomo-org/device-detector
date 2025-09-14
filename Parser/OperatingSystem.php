@@ -533,7 +533,7 @@ class OperatingSystem extends AbstractParser
     public static function getOsFamily(string $osLabel): ?string
     {
         if (\in_array($osLabel, self::$operatingSystems, true)) {
-            $osLabel = (string)\array_search($osLabel, self::$operatingSystems, true);
+            $osLabel = (string) \array_search($osLabel, self::$operatingSystems, true);
         }
 
         foreach (self::$osFamilies as $family => $labels) {
@@ -682,11 +682,12 @@ class OperatingSystem extends AbstractParser
             'version'    => $version,
         ];
     }
-    
+
     /**
      * Parse current UserAgent string for the operating system platform
      *
      * @return string
+     *
      * @throws \Exception
      */
     protected function parsePlatform(): string
