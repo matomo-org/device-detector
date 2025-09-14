@@ -532,7 +532,7 @@ class OperatingSystem extends AbstractParser
     public static function getOsFamily(string $osLabel): ?string
     {
         if (\in_array($osLabel, self::$operatingSystems)) {
-            $osLabel = \array_search($osLabel, self::$operatingSystems);
+            $osLabel = (string)\array_search($osLabel, self::$operatingSystems, true);
         }
 
         foreach (self::$osFamilies as $family => $labels) {
