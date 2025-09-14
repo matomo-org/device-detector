@@ -736,7 +736,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'G7'  => 'GoGEN',
         'GC'  => 'GOCLEVER',
         '5G'  => 'Go,Comma',
-        'GB'  => 'Gol Mobile',
+        'GB'  => 'Gol-Mobile',
         'GL'  => 'Goly',
         'GOL' => 'GoldMaster',
         'GOS' => 'GoldStar',
