@@ -598,8 +598,8 @@ class DeviceDetector
         $this->parsed = true;
 
         // skip parsing for empty useragents or those not containing any letter (if no client hints were provided)
-        if ((empty($this->userAgent) || !\preg_match('/([a-z])/i', $this->userAgent))
-            && empty($this->clientHints)
+        if (empty($this->clientHints)
+            && (empty($this->userAgent) || !\preg_match('/([a-z])/i', $this->userAgent))
         ) {
             return;
         }
@@ -663,10 +663,10 @@ class DeviceDetector
         $client        = $deviceDetector->getClient();
         $browserFamily = 'Unknown';
 
-        if ($deviceDetector->isBrowser()
-            && true === \is_array($client)
-            && true === \array_key_exists('family', $client)
+        if (\is_array($client)
+            && \array_key_exists('family', $client)
             && null !== $client['family']
+            && $deviceDetector->isBrowser()
         ) {
             $browserFamily = $client['family'];
         }

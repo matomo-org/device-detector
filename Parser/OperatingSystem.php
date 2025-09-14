@@ -422,7 +422,7 @@ class OperatingSystem extends AbstractParser
 
             // If the OS name detected from client hints matches the OS family from user agent
             // but the os name is another, we use the one from user agent, as it might be more detailed
-            if (self::getOsFamily($osFromUserAgent['name']) === $name && $osFromUserAgent['name'] !== $name) {
+            if ($osFromUserAgent['name'] !== $name && self::getOsFamily($osFromUserAgent['name']) === $name) {
                 $name = $osFromUserAgent['name'];
 
                 if ('LeafOS' === $name || 'HarmonyOS' === $name) {
@@ -480,14 +480,14 @@ class OperatingSystem extends AbstractParser
         ];
 
         if (null !== $this->clientHints) {
-            if (\in_array($this->clientHints->getApp(), $androidApps) && 'Android' !== $name) {
+            if ('Android' !== $name && \in_array($this->clientHints->getApp(), $androidApps)) {
                 $name    = 'Android';
                 $family  = 'Android';
                 $short   = 'ADR';
                 $version = '';
             }
 
-            if ('org.lineageos.jelly' === $this->clientHints->getApp() && 'Lineage OS' !== $name) {
+            if ('Lineage OS' !== $name && 'org.lineageos.jelly' === $this->clientHints->getApp()) {
                 $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
 
                 $name    = 'Lineage OS';
@@ -497,7 +497,7 @@ class OperatingSystem extends AbstractParser
                     ?? $this->lineageOsVersionMapping[$majorVersion] ?? '';
             }
 
-            if ('org.mozilla.tv.firefox' === $this->clientHints->getApp() && 'Fire OS' !== $name) {
+            if ('Fire OS' !== $name && 'org.mozilla.tv.firefox' === $this->clientHints->getApp()) {
                 $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
 
                 $name    = 'Fire OS';
