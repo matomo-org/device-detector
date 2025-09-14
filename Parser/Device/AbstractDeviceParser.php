@@ -777,7 +777,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CUD' => 'CUD',
         'GVC' => 'GVC Pro',
         'H13' => 'H133',
-        '9Z'  => 'H96',
+        '9Z'  => 'H96 Max',
         'HF'  => 'Hafury',
         '9F'  => 'HAOVM',
         'HAQ' => 'HAOQIN',
