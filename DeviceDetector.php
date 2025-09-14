@@ -178,12 +178,14 @@ class DeviceDetector
      * @var bool
      */
     private $parsed = false;
-
+    
     /**
      * Constructor
      *
-     * @param string      $userAgent   UA to parse
-     * @param ClientHints $clientHints Browser client hints to parse
+     * @param string                           $userAgent   UA to parse
+     * @param \DeviceDetector\ClientHints|null $clientHints Browser client hints to parse
+     *
+     * @throws \Exception
      */
     public function __construct(string $userAgent = '', ?ClientHints $clientHints = null)
     {
