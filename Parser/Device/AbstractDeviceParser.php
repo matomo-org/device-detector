@@ -578,7 +578,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ELS' => 'Elista',
         'ELT' => 'elit',
         '4E'  => 'Eltex',
-        'ELM' => 'Elong Mobile',
+        'ELM' => 'EL Mobile',
         'ED'  => 'Energizer',
         'E1'  => 'Energy Sistem',
         '3E'  => 'Enot',
