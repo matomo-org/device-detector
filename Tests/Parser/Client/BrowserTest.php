@@ -29,7 +29,7 @@ class BrowserTest extends TestCase
     public function testParse(string $useragent, array $client, ?array $headers = null): void
     {
         $browserParser = new Browser();
-        $browserParser->setVersionTruncation(Browser::VERSION_TRUNCATION_NONE);
+        $browserParser::setVersionTruncation(Browser::VERSION_TRUNCATION_NONE);
         $browserParser->setUserAgent($useragent);
 
         if (null !== $headers) {
