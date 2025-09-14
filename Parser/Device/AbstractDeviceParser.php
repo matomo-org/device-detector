@@ -1594,7 +1594,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'RUN' => 'RunGee',
         'RUP' => 'Rupa',
         'RL'  => 'Ruio',
-        'RY'  => 'Ryte',
+        'RY'  => 'Ryte Mobile',
         'X5'  => 'Saba',
         '8L'  => 'S-TELL',
         '8L1' => 'S-Color',
