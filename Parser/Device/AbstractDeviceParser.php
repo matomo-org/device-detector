@@ -543,7 +543,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'EP'  => 'Easypix',
         'EQ'  => 'Eagle',
         'EGS' => 'EagleSoar',
-        'EA'  => 'EBEST',
+        'EA'  => 'eBest Mobile',
         'YC'  => 'EBEN',
         'E4'  => 'Echo Mobiles',
         'EQ1' => 'Equator',
