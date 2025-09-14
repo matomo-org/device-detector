@@ -1161,7 +1161,7 @@ class Browser extends AbstractClientParser
                 }
 
                 // If we detected a brand, that is not Chromium, we will use it, otherwise we will look further
-                if ('' !== $name && 'Chromium' !== $name && 'Microsoft Edge' !== $name) {
+                if (!in_array($name, ['', 'Chromium', 'Microsoft Edge'], true)) {
                     break;
                 }
             }

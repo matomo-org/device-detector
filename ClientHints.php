@@ -280,7 +280,7 @@ class ClientHints
                 case 'http-sec-ch-ua-mobile':
                 case 'sec-ch-ua-mobile':
                 case 'mobile':
-                    $mobile = true === $value || '1' === $value || '?1' === $value;
+                    $mobile = \in_array($value, [true, '1', '?1'], true);
 
                     break;
                 case 'http-sec-ch-ua-model':
