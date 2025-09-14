@@ -8338,12 +8338,6 @@ Elenberg:
     - regex: '(TAB(?:101|728)[ _]3G|TAB7(?:[03]8|16|40|3[30]))'
       model: '$1'
 
-# Ericy
-Ericy:
-  regex: 'Ericy-([a-z0-9]+)'
-  device: 'feature phone'
-  model: '$1'
-
 # Essential or Essential Products
 Essential:
   regex: 'PH-1(?:[);/ ]|$)'
@@ -9146,15 +9140,17 @@ Ergo:
       model: 'GHS55'
       device: 'tv'
 
-# Ericsson
+# Ericsson (also includes "Ericy", which was previously treated as separate brand, but was not able to find evidence of it existence aside from being short name for Ericsson)
 Ericsson:
-  regex: '(?:Ericsson(?:/ )?[a-z0-9]+)|(?:R380 2\.0 WAP1\.1)'
+  regex: '(?:Ericsson(?:/ )?[a-z0-9]+)|(?:R380 2\.0 WAP1\.1)|Ericy-([a-z0-9]+)'
   device: 'feature phone'
   models:
     - regex: 'Ericsson(?:/ )?([a-z0-9]+)'
       model: '$1'
     - regex: 'R380 2\.0 WAP1\.1'
       model: 'R380'
+    - regex: 'Ericy-([a-z0-9]+)'
+      model: '$1'
 
 # Energizer (www.energizeyourdevice.com)
 Energizer:

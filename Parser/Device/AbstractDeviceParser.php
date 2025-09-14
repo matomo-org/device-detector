@@ -587,7 +587,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'E7'  => 'Ergo',
         'EC'  => 'Ericsson',
         '05'  => 'Erisson',
-        'ER'  => 'Ericy',
         'EE'  => 'Essential',
         'E2'  => 'Essentielb',
         '6E'  => 'eSTAR',
