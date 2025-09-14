@@ -587,7 +587,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '8E'  => 'Epik One',
         'EPK' => 'Epic',
         'XP'  => 'Epson',
-        'EPH' => 'Ephone',
+        'EPH' => 'E phone',
         'EPL' => 'Eplutus',
         'E7'  => 'Ergo',
         'EC'  => 'Ericsson',
