@@ -24,7 +24,7 @@ class MobileAppTest extends TestCase
     public function testParse(string $useragent, array $client): void
     {
         $mobileAppParser = new MobileApp();
-        $mobileAppParser->setVersionTruncation(MobileApp::VERSION_TRUNCATION_NONE);
+        $mobileAppParser::setVersionTruncation(MobileApp::VERSION_TRUNCATION_NONE);
         $mobileAppParser->setUserAgent($useragent);
         $this->assertEquals($client, $mobileAppParser->parse());
     }

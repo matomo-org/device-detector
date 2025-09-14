@@ -24,7 +24,7 @@ class PIMTest extends TestCase
     public function testParse(string $useragent, array $client): void
     {
         $PIMParser = new PIM();
-        $PIMParser->setVersionTruncation(PIM::VERSION_TRUNCATION_NONE);
+        $PIMParser::setVersionTruncation(PIM::VERSION_TRUNCATION_NONE);
         $PIMParser->setUserAgent($useragent);
         $this->assertEquals($client, $PIMParser->parse());
     }
