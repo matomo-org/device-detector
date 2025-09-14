@@ -391,7 +391,7 @@ class DeviceDetector
             AbstractDeviceParser::DEVICE_TYPE_PHABLET,
             AbstractDeviceParser::DEVICE_TYPE_CAMERA,
             AbstractDeviceParser::DEVICE_TYPE_PORTABLE_MEDIA_PAYER,
-        ])
+        ], true)
         ) {
             return true;
         }
@@ -401,7 +401,7 @@ class DeviceDetector
             AbstractDeviceParser::DEVICE_TYPE_TV,
             AbstractDeviceParser::DEVICE_TYPE_SMART_DISPLAY,
             AbstractDeviceParser::DEVICE_TYPE_CONSOLE,
-        ])
+        ], true)
         ) {
             return false;
         }
@@ -1087,10 +1087,10 @@ class DeviceDetector
         /**
          * All devices that contain Andr0id in string are assumed to be a tv
          */
-        $hasDeviceTvType = false === \in_array($this->device, [
-            AbstractDeviceParser::DEVICE_TYPE_TV,
-            AbstractDeviceParser::DEVICE_TYPE_PERIPHERAL,
-        ]) && $this->matchUserAgent('Andr0id|(?:Android(?: UHD)?|Google) TV|\(lite\) TV|BRAVIA|Firebolt| TV$');
+        $hasDeviceTvType = !\in_array($this->device, [
+                AbstractDeviceParser::DEVICE_TYPE_TV,
+                AbstractDeviceParser::DEVICE_TYPE_PERIPHERAL,
+            ], true) && $this->matchUserAgent('Andr0id|(?:Android(?: UHD)?|Google) TV|\(lite\) TV|BRAVIA|Firebolt| TV$');
 
         if ($hasDeviceTvType) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;

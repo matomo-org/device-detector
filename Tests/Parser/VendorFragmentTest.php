@@ -44,7 +44,7 @@ class VendorFragmentTest extends TestCase
 
         foreach ($vendorRegexes as $vendor => $regexes) {
             foreach ($regexes as $regex) {
-                if (\in_array($regex, self::$regexesTested)) {
+                if (\in_array($regex, self::$regexesTested, true)) {
                     continue;
                 }
 
