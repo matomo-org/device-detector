@@ -705,7 +705,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'GTM' => 'GTMEDIA',
         'GTX' => 'GTX',
         'GDL' => 'GDL',
-        '0G'  => 'GFive',
+        '0G'  => 'G\'Five',
         'GM'  => 'Garmin-Asus',
         'GA'  => 'Gateway',
         '99'  => 'Galaxy Innovations',
