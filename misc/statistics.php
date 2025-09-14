@@ -33,7 +33,7 @@ $deviceTypes = (array_fill(0, count(AbstractDeviceParser::getAvailableDeviceType
 
 $startTime = microtime(true);
 
-$handle = @fopen($argv[1], 'r');
+$handle = @fopen($argv[1], 'rb');
 
 $parser = new DeviceDetector();
 

@@ -91,7 +91,7 @@ function printReport(array $result, string $format): void
 AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
 $deviceDetector = new DeviceDetector();
 
-$fn = fopen($file, 'r');
+$fn = fopen($file, 'rb');
 
 while (!feof($fn)) {
     $userAgent = fgets($fn);
