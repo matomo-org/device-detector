@@ -2325,9 +2325,8 @@ abstract class AbstractDeviceParser extends AbstractParser
         }
 
         $brand   = '';
-        $regexes = $this->getRegexes();
 
-        foreach ($regexes as $brand => $regex) {
+        foreach ($this->getRegexes() as $brand => $regex) {
             $matches = $this->matchUserAgent($regex['regex']);
 
             if ($matches) {

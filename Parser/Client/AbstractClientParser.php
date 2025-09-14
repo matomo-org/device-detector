@@ -74,8 +74,7 @@ abstract class AbstractClientParser extends AbstractParser
      */
     public static function getAvailableClients(): array
     {
-        $instance = new static(); // @phpstan-ignore-line
-        $regexes  = $instance->getRegexes();
+        $regexes  = (new static())->getRegexes();
         $names    = [];
 
         foreach ($regexes as $regex) {

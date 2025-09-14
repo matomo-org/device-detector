@@ -88,12 +88,8 @@ class BrowserTest extends TestCase
 
     public function testBrowserFamiliesNoDuplicates(): void
     {
-        $browsers = Browser::getAvailableBrowserFamilies();
-
-        foreach ($browsers as $browser => $families) {
-            $shortcodes = \array_count_values($families);
-
-            foreach ($shortcodes as $shortcode => $count) {
+        foreach (Browser::getAvailableBrowserFamilies() as $browser => $families) {
+            foreach (\array_count_values($families) as $shortcode => $count) {
                 $this->assertEquals(
                     $count,
                     1,
