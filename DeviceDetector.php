@@ -368,7 +368,7 @@ class DeviceDetector
     {
         $regex = 'Touch';
 
-        return !!$this->matchUserAgent($regex);
+        return (bool)$this->matchUserAgent($regex);
     }
 
     /**
@@ -780,7 +780,7 @@ class DeviceDetector
     {
         $regex = 'Android( [.0-9]+)?; Tablet;|Tablet(?! PC)|.*\-tablet$';
 
-        return !!$this->matchUserAgent($regex);
+        return (bool)$this->matchUserAgent($regex);
     }
 
     /**
@@ -792,7 +792,7 @@ class DeviceDetector
     {
         $regex = 'Android( [.0-9]+)?; Mobile;|.*\-mobile$';
 
-        return !!$this->matchUserAgent($regex);
+        return (bool)$this->matchUserAgent($regex);
     }
 
     /**
@@ -804,7 +804,7 @@ class DeviceDetector
     {
         $regex = 'Android( [.0-9]+)?; Mobile VR;| VR ';
 
-        return !!$this->matchUserAgent($regex);
+        return (bool)$this->matchUserAgent($regex);
     }
 
     /**
@@ -816,7 +816,7 @@ class DeviceDetector
     {
         $regex = 'Desktop(?: (x(?:32|64)|WOW64))?;';
 
-        return !!$this->matchUserAgent($regex);
+        return (bool)$this->matchUserAgent($regex);
     }
 
     /**
