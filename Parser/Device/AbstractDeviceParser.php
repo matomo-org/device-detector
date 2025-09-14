@@ -688,7 +688,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '4F'  => 'Funai',
         '5J'  => 'Fusion5',
         'FF'  => 'Future Mobile Technology',
-        'FFF' => 'FFF SmartLife',
+        'FFF' => 'FFF Smart Life Connected',
         'FW'  => 'FNF',
         'FXT' => 'Fxtec',
         'GT'  => 'G-TiDE',
