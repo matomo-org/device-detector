@@ -187,7 +187,7 @@ abstract class AbstractParser
             self::VERSION_TRUNCATION_MAJOR,
             self::VERSION_TRUNCATION_MINOR,
             self::VERSION_TRUNCATION_PATCH,
-        ])
+        ], true)
         ) {
             return;
         }

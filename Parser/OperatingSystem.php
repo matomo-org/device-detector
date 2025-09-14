@@ -515,8 +515,8 @@ class OperatingSystem extends AbstractParser
             'family'     => $family,
         ];
 
-        if (\in_array($return['name'], self::$operatingSystems)) {
-            $return['short_name'] = \array_search($return['name'], self::$operatingSystems);
+        if (\in_array($return['name'], self::$operatingSystems, true)) {
+            $return['short_name'] = \array_search($return['name'], self::$operatingSystems, true);
         }
 
         return $return;
@@ -531,12 +531,12 @@ class OperatingSystem extends AbstractParser
      */
     public static function getOsFamily(string $osLabel): ?string
     {
-        if (\in_array($osLabel, self::$operatingSystems)) {
+        if (\in_array($osLabel, self::$operatingSystems, true)) {
             $osLabel = (string)\array_search($osLabel, self::$operatingSystems, true);
         }
 
         foreach (self::$osFamilies as $family => $labels) {
-            if (\in_array($osLabel, $labels)) {
+            if (\in_array($osLabel, $labels, true)) {
                 return (string) $family;
             }
         }
@@ -555,7 +555,7 @@ class OperatingSystem extends AbstractParser
     {
         $osFamily = self::getOsFamily($osName);
 
-        return \in_array($osFamily, self::$desktopOsArray);
+        return \in_array($osFamily, self::$desktopOsArray, true);
     }
 
     /**

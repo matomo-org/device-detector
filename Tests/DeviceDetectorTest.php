@@ -57,7 +57,7 @@ class DeviceDetectorTest extends TestCase
                 $keys = \array_keys($regex);
 
                 foreach ($keys as $key) {
-                    $this->assertTrue(\in_array($key, $allowedKeys), \sprintf(
+                    $this->assertTrue(\in_array($key, $allowedKeys, true), \sprintf(
                         'Unknown key `%s`, file %s, brand %s',
                         $key,
                         $file,
@@ -94,7 +94,7 @@ class DeviceDetectorTest extends TestCase
                 ));
 
                 if (\array_key_exists('device', $regex)) {
-                    $this->assertTrue(\in_array($regex['device'], $availableDeviceTypeNames), \sprintf(
+                    $this->assertTrue(\in_array($regex['device'], $availableDeviceTypeNames, true), \sprintf(
                         "Unknown device type `%s`, file %s, brand %s, common regex %s\n\nAvailable types:\n%s\n",
                         $regex['device'],
                         $file,
@@ -111,7 +111,7 @@ class DeviceDetectorTest extends TestCase
                         $keys = \array_keys($model);
 
                         foreach ($keys as $key) {
-                            $this->assertTrue(\in_array($key, $allowedKeys), \sprintf(
+                            $this->assertTrue(\in_array($key, $allowedKeys, true), \sprintf(
                                 'Unknown key `%s`, file %s, brand %s, model regex %s',
                                 $key,
                                 $file,
@@ -152,7 +152,7 @@ class DeviceDetectorTest extends TestCase
                             continue;
                         }
 
-                        $this->assertTrue(\in_array($model['device'], $availableDeviceTypeNames), \sprintf(
+                        $this->assertTrue(\in_array($model['device'], $availableDeviceTypeNames, true), \sprintf(
                             "Unknown device type `%s`, file %s, brand %s, model regex %s\n\nAvailable types:\n%s\n",
                             $model['device'],
                             $file,

@@ -930,12 +930,12 @@ class Browser extends AbstractClientParser
      */
     public static function getBrowserFamily(string $browserLabel): ?string
     {
-        if (\in_array($browserLabel, self::$availableBrowsers)) {
+        if (\in_array($browserLabel, self::$availableBrowsers, true)) {
             $browserLabel = (string)\array_search($browserLabel, self::$availableBrowsers, true);
         }
 
         foreach (self::$browserFamilies as $browserFamily => $browserLabels) {
-            if (\in_array($browserLabel, $browserLabels)) {
+            if (\in_array($browserLabel, $browserLabels, true)) {
                 return $browserFamily;
             }
         }
@@ -952,8 +952,8 @@ class Browser extends AbstractClientParser
      */
     public static function isMobileOnlyBrowser(string $browser): bool
     {
-        return \in_array($browser, self::$mobileOnlyBrowsers) || (\in_array($browser, self::$availableBrowsers)
-                && \in_array(\array_search($browser, self::$availableBrowsers), self::$mobileOnlyBrowsers));
+        return \in_array($browser, self::$mobileOnlyBrowsers) || (\in_array($browser, self::$availableBrowsers, true)
+                && \in_array(\array_search($browser, self::$availableBrowsers, true), self::$mobileOnlyBrowsers, true));
     }
 
     /**
