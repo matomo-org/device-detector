@@ -32,7 +32,7 @@ use DeviceDetector\Parser\Device\AbstractDeviceParser;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-if ('cli' !== php_sapi_name()) {
+if ('cli' !== PHP_SAPI) {
     echo 'web not supported';
     exit(0);
 }
