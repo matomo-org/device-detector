@@ -745,7 +745,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'GNE' => 'G N Electronics',
         'G7'  => 'GoGEN',
         'GC'  => 'GOCLEVER',
-        '5G'  => 'Gocomma',
+        '5G'  => 'Go,Comma',
         'GB'  => 'Gol Mobile',
         'GL'  => 'Goly',
         'GOL' => 'GoldMaster',
