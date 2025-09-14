@@ -489,7 +489,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'DM'  => 'Dream Multimedia',
         'DMO' => 'DMOAO',
         'DN'  => 'DNS',
-        'DC'  => 'DoCoMo',
+        'DC'  => 'NTT DOCOMO',
         'DF'  => 'Doffler',
         'D9'  => 'Dolamee',
         'DO'  => 'Doogee',
