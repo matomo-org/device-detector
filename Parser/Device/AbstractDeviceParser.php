@@ -549,7 +549,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'E6'  => 'EE',
         'GW'  => 'EGL',
         'EGO' => 'EGOTEK',
-        'EFT' => 'EFT',
+        'EFT' => 'EFT Group',
         'EK'  => 'EKO',
         'EY'  => 'Einstein',
         'EM'  => 'Eks Mobility',
