@@ -41,12 +41,12 @@ if (count($argv) < 2) {
     printHelpAndExit();
 }
 
-define('DETECT_MODE_TYPE_DETECT', 'detect');
-define('DETECT_MODE_TYPE_ALL', 'all');
-define('DETECT_MODE_TYPE_NOT', 'not');
+const DETECT_MODE_TYPE_DETECT = 'detect';
+const DETECT_MODE_TYPE_ALL = 'all';
+const DETECT_MODE_TYPE_NOT = 'not';
 
-define('REPORT_TYPE_YML', 'yml');
-define('REPORT_TYPE_USERAGENT', 'useragent');
+const REPORT_TYPE_YML = 'yml';
+const REPORT_TYPE_USERAGENT = 'useragent';
 
 $file       = $argv[1] ?? '';
 $showMode   = $argv[2] ?? 'not';
