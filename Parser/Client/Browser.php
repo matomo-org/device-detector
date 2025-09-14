@@ -931,7 +931,7 @@ class Browser extends AbstractClientParser
     public static function getBrowserFamily(string $browserLabel): ?string
     {
         if (\in_array($browserLabel, self::$availableBrowsers)) {
-            $browserLabel = \array_search($browserLabel, self::$availableBrowsers);
+            $browserLabel = (string)\array_search($browserLabel, self::$availableBrowsers, true);
         }
 
         foreach (self::$browserFamilies as $browserFamily => $browserLabels) {
