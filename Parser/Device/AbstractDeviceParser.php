@@ -759,7 +759,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '3G'  => 'Greentel Mobile',
         'GRO' => 'Green Orange',
         'GRL' => 'Green Lion',
-        'GR1' => 'GroBerwert',
+        'GR1' => 'Großerwert',
         'GF'  => 'Gretel',
         '82'  => 'Gresso',
         'GRB' => 'Grünberg',
