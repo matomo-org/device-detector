@@ -494,7 +494,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'DM'  => 'DMM',
         'DMO' => 'DMOAO',
         'DN'  => 'DNS',
-        'DC'  => 'DoCoMo',
+        'DC'  => 'NTT DOCOMO',
         'DF'  => 'Doffler',
         'D9'  => 'Dolamee',
         'DO'  => 'Doogee',
