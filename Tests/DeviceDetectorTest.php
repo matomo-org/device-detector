@@ -44,9 +44,8 @@ class DeviceDetectorTest extends TestCase
     public function testDevicesYmlFiles(): void
     {
         $allowedKeys  = ['regex', 'device', 'models', 'model', 'brand'];
-        $fixtureFiles = \glob(\realpath(__DIR__) . '/../regexes/device/*.yml');
 
-        foreach ($fixtureFiles as $file) {
+        foreach (\glob(\realpath(__DIR__) . '/../regexes/device/*.yml') as $file) {
             $ymlData = \Spyc::YAMLLoad($file);
 
             $availableDeviceTypeNames = AbstractDeviceParser::getAvailableDeviceTypeNames();
@@ -249,9 +248,7 @@ class DeviceDetectorTest extends TestCase
 
     public function getFixtures(): \Generator
     {
-        $fixtureFiles = \glob(\realpath(__DIR__) . '/fixtures/*.yml');
-
-        foreach ($fixtureFiles as $fixturesPath) {
+        foreach (\glob(\realpath(__DIR__) . '/fixtures/*.yml') as $fixturesPath) {
             $typeFixtures = \Spyc::YAMLLoad($fixturesPath);
             $deviceType   = \str_replace('_', ' ', \substr(\basename($fixturesPath), 0, -4));
 
@@ -299,12 +296,8 @@ class DeviceDetectorTest extends TestCase
 
     public function getFixturesClient(): \Generator
     {
-        $fixtureFiles = \glob(\realpath(__DIR__) . '/Parser/Client/fixtures/*.yml');
-
-        foreach ($fixtureFiles as $fixturesPath) {
-            $typeFixtures = \Spyc::YAMLLoad($fixturesPath);
-
-            foreach ($typeFixtures as $fixture) {
+        foreach (\glob(\realpath(__DIR__) . '/Parser/Client/fixtures/*.yml') as $fixturesPath) {
+            foreach (\Spyc::YAMLLoad($fixturesPath) as $fixture) {
                 yield [$fixture];
             }
         }
@@ -336,12 +329,8 @@ class DeviceDetectorTest extends TestCase
 
     public function getFixturesDevice(): \Generator
     {
-        $fixtureFiles = \glob(\realpath(__DIR__) . '/Parser/Device/fixtures/*.yml');
-
-        foreach ($fixtureFiles as $fixturesPath) {
-            $typeFixtures = \Spyc::YAMLLoad($fixturesPath);
-
-            foreach ($typeFixtures as $fixture) {
+        foreach (\glob(\realpath(__DIR__) . '/Parser/Device/fixtures/*.yml') as $fixturesPath) {
+            foreach (\Spyc::YAMLLoad($fixturesPath) as $fixture) {
                 yield [$fixture];
             }
         }

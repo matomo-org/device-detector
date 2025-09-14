@@ -1142,9 +1142,7 @@ class Browser extends AbstractClientParser
         $name = $version = $short = '';
 
         if ($this->clientHints instanceof ClientHints && $this->clientHints->getBrandList()) {
-            $brands = $this->clientHints->getBrandList();
-
-            foreach ($brands as $brand => $brandVersion) {
+            foreach ($this->clientHints->getBrandList() as $brand => $brandVersion) {
                 $brand = $this->applyClientHintMapping($brand);
 
                 foreach (self::$availableBrowsers as $browserShort => $browserName) {
@@ -1267,16 +1265,16 @@ class Browser extends AbstractClientParser
 
         return $engine;
     }
-
+    
     /**
      * @param string $engine
      *
      * @return string
+     * @throws \Exception
      */
     protected function buildEngineVersion(string $engine): string
     {
-        $engineVersionParser = new Engine\Version($this->userAgent, $engine);
-        $result              = $engineVersionParser->parse();
+        $result = (new Engine\Version($this->userAgent, $engine))->parse();
 
         return $result['version'] ?? '';
     }

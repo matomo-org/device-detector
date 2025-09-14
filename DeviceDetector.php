@@ -841,9 +841,7 @@ class DeviceDetector
             return;
         }
 
-        $parsers = $this->getBotParsers();
-
-        foreach ($parsers as $parser) {
+        foreach ($this->getBotParsers() as $parser) {
             $parser->setYamlParser($this->getYamlParser());
             $parser->setCache($this->getCache());
             $parser->setUserAgent($this->getUserAgent());
@@ -868,9 +866,7 @@ class DeviceDetector
      */
     protected function parseClient(): void
     {
-        $parsers = $this->getClientParsers();
-
-        foreach ($parsers as $parser) {
+        foreach ($this->getClientParsers() as $parser) {
             $parser->setYamlParser($this->getYamlParser());
             $parser->setCache($this->getCache());
             $parser->setUserAgent($this->getUserAgent());
@@ -890,9 +886,7 @@ class DeviceDetector
      */
     protected function parseDevice(): void
     {
-        $parsers = $this->getDeviceParsers();
-
-        foreach ($parsers as $parser) {
+        foreach ($this->getDeviceParsers() as $parser) {
             $parser->setYamlParser($this->getYamlParser());
             $parser->setCache($this->getCache());
             $parser->setUserAgent($this->getUserAgent());
