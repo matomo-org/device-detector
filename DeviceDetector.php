@@ -750,11 +750,7 @@ class DeviceDetector
      */
     protected function getClientAttribute(string $attr): string
     {
-        if (!isset($this->client[$attr])) {
-            return self::UNKNOWN;
-        }
-
-        return $this->client[$attr];
+        return $this->client[$attr] ?? self::UNKNOWN;
     }
 
     /**
@@ -764,11 +760,7 @@ class DeviceDetector
      */
     protected function getOsAttribute(string $attr): string
     {
-        if (!isset($this->os[$attr])) {
-            return self::UNKNOWN;
-        }
-
-        return $this->os[$attr];
+        return $this->os[$attr] ?? self::UNKNOWN;
     }
 
     /**

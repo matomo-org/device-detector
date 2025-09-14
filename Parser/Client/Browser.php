@@ -1235,12 +1235,7 @@ class Browser extends AbstractClientParser
      */
     protected function buildEngine(array $engineData, string $browserVersion): string
     {
-        $engine = '';
-
-        // if an engine is set as default
-        if (isset($engineData['default'])) {
-            $engine = $engineData['default'];
-        }
+        $engine = $engineData['default'] ?? '';
 
         // check if engine is set for browser version
         if (\array_key_exists('versions', $engineData) && \is_array($engineData['versions'])) {
