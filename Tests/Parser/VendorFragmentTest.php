@@ -33,9 +33,7 @@ class VendorFragmentTest extends TestCase
 
     public function getFixtures(): array
     {
-        $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/vendorfragments.yml');
-
-        return $fixtureData;
+        return Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/vendorfragments.yml');
     }
 
     public function testAllRegexesTested(): void

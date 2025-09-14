@@ -31,9 +31,7 @@ class MediaPlayerTest extends TestCase
 
     public function getFixtures(): array
     {
-        $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/mediaplayer.yml');
-
-        return $fixtureData;
+        return Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/mediaplayer.yml');
     }
 
     public function testStructureMediaPlayerYml(): void
