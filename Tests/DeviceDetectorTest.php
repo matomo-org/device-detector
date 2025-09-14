@@ -56,7 +56,7 @@ class DeviceDetectorTest extends TestCase
                 $keys = \array_keys($regex);
 
                 foreach ($keys as $key) {
-                    $this->assertTrue(\in_array($key, $allowedKeys, true), \sprintf(
+                    $this->assertContains($key, $allowedKeys, \sprintf(
                         'Unknown key `%s`, file %s, brand %s',
                         $key,
                         $file,
@@ -64,7 +64,7 @@ class DeviceDetectorTest extends TestCase
                     ));
                 }
 
-                $this->assertTrue(false === \strpos($regex['regex'], '||'), \sprintf(
+                $this->assertFalse(\strpos($regex['regex'], '||'), \sprintf(
                     'Detect `||` in regex, file %s, brand %s, common regex %s',
                     $file,
                     $brand,
@@ -93,7 +93,7 @@ class DeviceDetectorTest extends TestCase
                 ));
 
                 if (\array_key_exists('device', $regex)) {
-                    $this->assertTrue(\in_array($regex['device'], $availableDeviceTypeNames, true), \sprintf(
+                    $this->assertContains($regex['device'], $availableDeviceTypeNames, \sprintf(
                         "Unknown device type `%s`, file %s, brand %s, common regex %s\n\nAvailable types:\n%s\n",
                         $regex['device'],
                         $file,
@@ -110,7 +110,7 @@ class DeviceDetectorTest extends TestCase
                         $keys = \array_keys($model);
 
                         foreach ($keys as $key) {
-                            $this->assertTrue(\in_array($key, $allowedKeys, true), \sprintf(
+                            $this->assertContains($key, $allowedKeys, \sprintf(
                                 'Unknown key `%s`, file %s, brand %s, model regex %s',
                                 $key,
                                 $file,
@@ -126,7 +126,7 @@ class DeviceDetectorTest extends TestCase
                             $brand,
                             $model['regex']
                         ));
-                        $this->assertTrue(false === \strpos($model['regex'], '||'), \sprintf(
+                        $this->assertFalse(\strpos($model['regex'], '||'), \sprintf(
                             'Detect `||` in regex, file %s, brand %s, model regex %s',
                             $file,
                             $brand,
@@ -151,7 +151,7 @@ class DeviceDetectorTest extends TestCase
                             continue;
                         }
 
-                        $this->assertTrue(\in_array($model['device'], $availableDeviceTypeNames, true), \sprintf(
+                        $this->assertContains($model['device'], $availableDeviceTypeNames, \sprintf(
                             "Unknown device type `%s`, file %s, brand %s, model regex %s\n\nAvailable types:\n%s\n",
                             $model['device'],
                             $file,
@@ -581,9 +581,8 @@ class DeviceDetectorTest extends TestCase
             'Validator',
         ];
 
-        $this->assertTrue(
-            \in_array($botData['category'], $categories, true),
-            \sprintf(
+        $this->assertContains(
+            $botData['category'], $categories, \sprintf(
                 "Unknown category: \"%s\"\nUseragent: %s\nAvailable categories:\n%s\n",
                 $botData['category'],
                 $ua,
