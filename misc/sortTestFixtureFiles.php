@@ -16,7 +16,7 @@ $overwrite = !empty($argv[1]) && '--f' === $argv[1];
 $data      = [];
 
 foreach ($fixtureFiles as $file) {
-    if ('unknown' !== basename($file, '.yml') && !in_array(preg_replace('/-[0-9]+$/', '', str_replace('_', ' ', basename($file, '.yml'))), array_keys(AbstractDeviceParser::getAvailableDeviceTypes()), true)) {
+    if ('unknown' !== basename($file, '.yml') && !array_key_exists(preg_replace('/-[0-9]+$/', '', str_replace('_', ' ', basename($file, '.yml'))), AbstractDeviceParser::getAvailableDeviceTypes())) {
         continue;
     }
 
