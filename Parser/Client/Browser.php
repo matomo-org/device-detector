@@ -992,7 +992,7 @@ class Browser extends AbstractClientParser
             }
 
             // https://bbs.360.cn/thread-16096544-1-1.html
-            if (\preg_match('/^15/', $version) && \preg_match('/^114/', $browserFromUserAgent['version'])) {
+            if (0 === strpos($version, "15") && 0 === strpos($browserFromUserAgent['version'], "114")) {
                 $name          = '360 Secure Browser';
                 $short         = '3B';
                 $engine        = $browserFromUserAgent['engine'] ?? '';
