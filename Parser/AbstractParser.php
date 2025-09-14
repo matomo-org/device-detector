@@ -156,7 +156,7 @@ abstract class AbstractParser
         // Restore Android User Agent
         if ($this->hasUserAgentClientHintsFragment()) {
             $osVersion = $this->clientHints->getOperatingSystemVersion();
-            $this->setUserAgent((string) \preg_replace(
+            $this->setUserAgent(\preg_replace(
                 '(Android (?:10[.\d]*; K|1[1-5]))',
                 \sprintf('Android %s; %s', '' !== $osVersion ? $osVersion : '10', $deviceModel),
                 $this->userAgent
@@ -168,7 +168,7 @@ abstract class AbstractParser
             return;
         }
 
-        $this->setUserAgent((string) \preg_replace(
+        $this->setUserAgent(\preg_replace(
             '(X11; Linux x86_64)',
             \sprintf('X11; Linux x86_64; %s', $deviceModel),
             $this->userAgent
@@ -282,7 +282,7 @@ abstract class AbstractParser
     {
         if (empty($this->regexList)) {
             $cacheKey     = 'DeviceDetector-' . DeviceDetector::VERSION . 'regexes-' . $this->getName();
-            $cacheKey     = (string) \preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
+            $cacheKey     = \preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
             $cacheContent = $this->getCache()->fetch($cacheKey);
 
             if (\is_array($cacheContent)) {
@@ -459,7 +459,7 @@ abstract class AbstractParser
         $regexes = $this->getRegexes();
 
         $cacheKey = $this->parserName . DeviceDetector::VERSION . '-all';
-        $cacheKey = (string) \preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
+        $cacheKey = \preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
 
         if (empty($this->overAllMatch)) {
             $overAllMatch = $this->getCache()->fetch($cacheKey);
