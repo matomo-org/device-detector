@@ -405,8 +405,9 @@ abstract class AbstractParser
     {
         $search  = [];
         $replace = [];
+        $count = \count($matches);
 
-        for ($nb = 1; $nb <= \count($matches); $nb++) {
+        for ($nb = 1; $nb <= $count; $nb++) {
             $search[]  = '$' . $nb;
             $replace[] = $matches[$nb] ?? '';
         }
