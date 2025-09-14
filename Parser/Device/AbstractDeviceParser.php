@@ -756,7 +756,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'GP'  => 'Grape',
         'G6'  => 'Gree',
         'GRA' => 'Great Asia',
-        '3G'  => 'Greentel',
+        '3G'  => 'Greentel Mobile',
         'GRO' => 'Green Orange',
         'GRL' => 'Green Lion',
         'GR1' => 'GroBerwert',
