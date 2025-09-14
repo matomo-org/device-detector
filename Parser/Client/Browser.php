@@ -1227,12 +1227,13 @@ class Browser extends AbstractClientParser
             $this->userAgent
         )); // @codeCoverageIgnore
     }
-
+    
     /**
      * @param array  $engineData
      * @param string $browserVersion
      *
      * @return string
+     * @throws \Exception
      */
     protected function buildEngine(array $engineData, string $browserVersion): string
     {

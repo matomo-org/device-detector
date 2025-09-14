@@ -127,9 +127,10 @@ class BrowserTest extends TestCase
 
         $this->assertEquals([], $result, 'These shortcode does not match the list of browsers');
     }
-
+    
     /**
      * @return array
+     * @throws \ReflectionException
      */
     public function getFixturesBrowserHints(): array
     {

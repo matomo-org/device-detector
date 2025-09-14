@@ -682,11 +682,12 @@ class OperatingSystem extends AbstractParser
             'version'    => $version,
         ];
     }
-
+    
     /**
      * Parse current UserAgent string for the operating system platform
      *
      * @return string
+     * @throws \Exception
      */
     protected function parsePlatform(): string
     {

@@ -25,10 +25,12 @@ abstract class AbstractClientParser extends AbstractParser
      * @var string
      */
     protected $parserName = '';
-
+    
     /**
      * Parses the current UA and checks whether it contains any client information
      *
+     * @return array|null
+     * @throws \Exception
      * @see $fixtureFile for file with list of detected clients
      *
      * Step 1: Build a big regex containing all regexes and match UA against it
@@ -39,7 +41,6 @@ abstract class AbstractClientParser extends AbstractParser
      *
      * NOTE: Doing the big match before matching every single regex speeds up the detection
      *
-     * @return array|null
      */
     public function parse(): ?array
     {
