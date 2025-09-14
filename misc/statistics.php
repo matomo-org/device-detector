@@ -13,7 +13,7 @@ declare(strict_types=1);
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\Device\AbstractDeviceParser;
 
-if ('cli' !== php_sapi_name()) {
+if ('cli' !== PHP_SAPI) {
     die('web not supported');
 }
 
