@@ -793,7 +793,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'HQ'  => 'HERO',
         'ZH'  => 'Hezire',
         'HEX' => 'HexaByte',
-        'HEW' => 'HeadWolf',
+        'HEW' => 'Headwolf',
         'HEI' => 'Heimät',
         'HL'  => 'Hi-Level',
         '3H'  => 'Hi',
