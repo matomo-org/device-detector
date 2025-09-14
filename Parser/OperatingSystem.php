@@ -537,7 +537,7 @@ class OperatingSystem extends AbstractParser
 
         foreach (self::$osFamilies as $family => $labels) {
             if (\in_array($osLabel, $labels, true)) {
-                return (string) $family;
+                return $family;
             }
         }
 
