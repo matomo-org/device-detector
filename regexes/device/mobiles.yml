@@ -28278,6 +28278,16 @@ Vios:
       device: 'tablet'
       model: 'VTAB7'
 
+# Vortex (sub-brand of https://www.altex.ro/)
+Vortex:
+  regex: '(?:VORTEX[;,)]|V39TPHE01S|V32TPHDE1S|V24TPHDE1S)'
+  device: 'tv'
+  models:
+    - regex: '_TV_[A-Z0-9]+_([0-9]{4});'
+      model: 'Smart TV ($1)'
+    - regex: '(V39TPHE01S|V32TPHDE1S|V24TPHDE1S)'
+      model: '$1'
+
 # Vestel (vestel.com)
 Vestel:
   regex: 'Vestel[ _,/\-]|Venus[ _](GO|E[2-5]|V[1-9]|Z[1-9]0)|(?<!Winnovo )V_?TAB|VP74|VT97PRO|VSP145M|VSP250[GS]|VSP355[GS]|V3_5580_Dual|V TAB Z[12]'
@@ -35270,7 +35280,7 @@ X88:
 
 # X96mini (https://x96mini.com/pages/about-us)
 X96mini:
-  regex: '(?:(?:X96Air_(?:A100|100W|V2|P[1-3])|X96_X6_I|X96Max_Plus_?(?:Ultra|[25]|Q[12])?|X96MATE_PLUS|X96MINI_11)|X96Q)(?:[);/ ]|$)'
+  regex: '(?:(?:X96Air_(?:A100|100W|V2|P[1-3])|X96_X6_I|X96Max_Plus_?(?:Ultra|[25]|Q[12])?|X96MATE_PLUS|X96MINI_11)|X96mini |X96Q)(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: 'X96Air_(100W|A100|V2|P[1-3])'
@@ -35289,6 +35299,8 @@ X96mini:
       model: 'Mini 11'
     - regex: 'X96Q'
       model: 'X96Q'
+    - regex: 'X96mini '
+      model: 'X96 mini'
 
 # Xgody or XGODY
 Xgody:
@@ -44872,3 +44884,11 @@ Unknown:
     - regex: 'WayDroid x86_64 Device' # linux container virtual
       device: 'desktop'
       model: ''
+
+# NEXON.UA (https://nexon.ua)
+NEXON.UA:
+  regex: 'NEXON[ _](X[1235]\+|X[123589]|X10)(?:[);/ ]|$)'
+  device: 'tv'
+  models:
+    - regex: 'NEXON[ _](X[1235]\+|X[123589]|X10)(?:[);/ ]|$)'
+      model: '$1'
