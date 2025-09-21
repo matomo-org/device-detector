@@ -32963,6 +32963,7 @@ Proline:
       model: 'Falcon X'
     - regex: '(H10882M-TN|H1088[28]M|H1010)'
       model: '$1'
+
 # Yota
 Yota:
   regex: '(YD20[16]|YOTA 3[+])(?:[);/ ]|$)'
@@ -32973,16 +32974,20 @@ Yota:
     - regex: 'YOTA 3[+](?:[);/ ]|$)'
       model: 'Phone 3 Plus'
 
-# Mystery Tab
+# Mystery Tab (technically, just "Mystery", but there is a "Mystery" manufacturer for TVs, which is also not "Mystery Electronics")
 Mystery Tab:
-  regex: 'MYSTERY|(MID-(?:123G|72[12]|7[01348]3G|753G|8[23]3G))(?:[);/ ]|$)'
+  regex: 'MID-(123G|72[12]|7[01348]3G|753G|8[23]3G)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'MID-(123G|72[12]|7[01348]3G|753G|8[23]3G)(?:[);/ ]|$)'
       model: 'MID-$1'
 
+# Mystery Electronics
+Mystery Electronics:
+  regex: 'MYSTERY[_ ]TV[_ ](D\d{4}[A-Z]{2}\d{2})(?:_UA)?(?:[);/ ]|$)'
+  device: 'tv'
+  models:
     - regex: 'MYSTERY[_ ]TV[_ ](D\d{4}[A-Z]{2}\d{2})'
-      device: 'tv'
       model: '$1'
 
 # Ritzviva
