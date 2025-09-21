@@ -6822,7 +6822,7 @@ Coolpad:
     - regex: '(?:YL-)?Coolpad[ _-]?([a-z0-9-]+)'
       model: '$1'
     - regex: '6A'
-      model: '6A'
+      model: 'Dazen 6A'
 
 # Clarmin (clarmin.com)
 Clarmin:
@@ -10367,14 +10367,6 @@ Gtel:
       model: 'X$1 Mini'
     - regex: 'Gtel[ _-]([^;/]+)(?: Build|[;)])'
       model: '$1'
-
-# H133
-H133:
-  regex: 'Betacrux(?:[);/ ]|$)'
-  device: 'smartphone'
-  models:
-    - regex: 'Betacrux(?:[);/ ]|$)'
-      model: 'Betacrux'
 
 # H96 (https://www.h96tvbox.com/)
 H96:
@@ -33288,7 +33280,7 @@ iGet:
       model: 'Smart $1'
     - regex: 'E8_Ultra'
       device: 'smartphone'
-      model: 'E8 Ultra'
+      model: 'EKINOX E8 Ultra'
 
 # Phicomm
 Phicomm:
@@ -35231,10 +35223,15 @@ MDC Store:
       model: 'M5'
 
 # OTT (previously MDTV, but it looks to be a model line from OTT based on branding on the cardboard boxes, for example https://www.madridcenter.com/produto/tv-box-mdtv-pro-8k-32-256gb-android-11-1-5g-preto-749749.html)
+# Also cover "LPX-G" which was previously treated as a separate brand, but is also a model of OTT based on listings like https://prom.ua/p705060188-boks-ott-box.html
 OTT:
-  regex: 'MDTV(?:[);/ ]|$)'
+  regex: 'MDTV|LPX-G BOX'
   device: 'tv'
-  model: ''
+  models:
+    - regex: 'MDTV'
+      model: 'MDTV'
+    - regex: 'LPX-G Box Max'
+      model: 'LPX-G Box Max'
 
 # meanIT (meanit.hr)
 meanIT:
@@ -36729,7 +36726,7 @@ Electroneum:
 EPIK Learning:
   regex: '(ELT070[46]H|ELT0802H)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  model: 'HighQ $1'
 
 # Pluzz
 Pluzz:
@@ -37040,7 +37037,7 @@ Pelephone:
     - regex: 'Gini[ _]s5Pro|SW17W13'
       model: 'Gini S5 Pro'
     - regex: 'SW17W08'
-      model: 'vS5'
+      model: 'Gini S5'
     - regex: 'Gini[ _]Tab[ _](V[78])'
       device: 'tablet'
       model: 'Gini Tab $1'
@@ -37393,7 +37390,7 @@ Seatel:
 Idea GTO:
   regex: '(M1092R(?:-[12]|V[45])?)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  model: 'Ditecma $1'
 
 # Datamini (datamini.co.in)
 Datamini:
@@ -39161,7 +39158,7 @@ Glory Star:
 
 # Polar (https://polartv.ru/). Previously Megamax and Polarline were separate, but it looks like they were never treated as sub-brands (registered as at least a trade-mark, have separate website, etc.), but rather as model-lines
 Polar:
-  regex: '(?:(?:Polar(?:_W?K?)?[_ ]P\d{2}|(?:P42L31T2CSM|P32L33T2CSM))|(?:PolarLine[_ ](?:W?K?[_ ])?(\d{2}P[LU]\d{2}S?TC-SM))|(?:MEGAMAX(?:_W_)?(\d{2}MG11FSM)))(?:[);/ ]|$)'
+  regex: '(?:(?:(?:Polar(?:_W?K?)?[_ ])?(P\d{2}[LU]\d{2}T2S?CSM))|(?:PolarLine[_ ](?:W?K?[_ ])?(\d{2}P[LU]\d{2}S?TC-SM))|(?:MEGAMAX(?:_W_)?(\d{2}MG11FSM)))(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: '(?:Polar(?:_W?K?)?[_ ])?(P\d{2}[LU]\d{2}T2S?CSM)(?:[);/ ]|$)'
@@ -40623,7 +40620,7 @@ Denali:
 Powerway:
   regex: '(DRN-[78]09)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  model: 'Dreamtab $1'
 
 # DL
 DL:
@@ -41056,7 +41053,7 @@ Topsion:
 
 # Ceibal (www.ceibal.edu.uy)
 Ceibal:
-  regex: '(?:ACRUX|BELLATRIX|BETELGEUSE|GACRUX|Kil-82WFDC|U800B)(?:[);/ ]|$)'
+  regex: '(?:ACRUX|BELLATRIX|BETELGEUSE|GACRUX|Betacrux|Kil-82WFDC|U800B)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'ACRUX'
@@ -41071,6 +41068,9 @@ Ceibal:
       model: 'Kiland T8'
     - regex: '(U800B)'
       model: '$1'
+    - regex: 'Betacrux(?:[);/ ]|$)'
+      device: 'smartphone'
+      model: 'H133 Beta Crux'
 
 # Wecool
 Wecool:
@@ -42030,14 +42030,6 @@ Waltter:
   regex: 'Waltter NEO 10\.1'
   device: 'tablet'
   model: 'Neo 10.1"'
-
-# LPX-G
-LPX-G:
-  regex: 'LPX-G BOX'
-  device: 'tv'
-  models:
-    - regex: 'LPX-G Box Max'
-      model: 'Box Max'
 
 # VALTECH
 VALTECH:
@@ -43106,7 +43098,7 @@ A&K:
 Unikalne Smartphones:
   regex: 'BASE[_ ](Varia)'
   device: 'smartphone'
-  model: '$1'
+  model: 'BASE $1'
 
 # BAUHN (https://bauhn.com.au/)
 BAUHN:
