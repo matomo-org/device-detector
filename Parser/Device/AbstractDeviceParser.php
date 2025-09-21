@@ -912,7 +912,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FC'  => 'INCAR',
         '2H'  => 'Inch',
         '6I'  => 'Inco',
-        'INK' => 'Inka',
         'IW'  => 'iNew',
         'IF'  => 'Infinix',
         'INF' => 'Infiniton',
