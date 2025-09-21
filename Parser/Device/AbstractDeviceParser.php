@@ -2334,6 +2334,8 @@ abstract class AbstractDeviceParser extends AbstractParser
             }
         }
 
+        $brand = (string) $brand;
+
         if (empty($matches)) {
             $this->deviceType = $resultClientHint['deviceType'] ?? null;
 
@@ -2350,7 +2352,7 @@ abstract class AbstractDeviceParser extends AbstractParser
                 )); // @codeCoverageIgnore
             }
 
-            $this->brand = (string) $brand;
+            $this->brand = $brand;
         }
 
         if (isset($regex['device']) && \array_key_exists($regex['device'], self::$deviceTypes)) {
