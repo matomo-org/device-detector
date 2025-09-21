@@ -2292,7 +2292,7 @@ abstract class AbstractDeviceParser extends AbstractParser
      */
     public static function getShortCode(string $brand): string
     {
-        return (string)\array_search($brand, self::$deviceBrands, true) ?: '';
+        return (string) \array_search($brand, self::$deviceBrands, true) ?: '';
     }
 
     /**
@@ -2324,7 +2324,7 @@ abstract class AbstractDeviceParser extends AbstractParser
             return $this->getResult();
         }
 
-        $brand   = '';
+        $brand = '';
 
         foreach ($this->getRegexes() as $brand => $regex) {
             $matches = $this->matchUserAgent($regex['regex']);
