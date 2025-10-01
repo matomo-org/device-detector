@@ -1459,7 +1459,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'PIX' => 'PIXPRO',
         'QP'  => 'Pico',
         'PIR' => 'PIRANHA',
-        'PIN' => 'PINE',
+        'PIN' => 'PINE64',
         '9P'  => 'Planet Computers',
         'PLA' => 'Play Now',
         'PY'  => 'Ployer',
