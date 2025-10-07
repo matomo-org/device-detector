@@ -81,6 +81,7 @@ abstract class AbstractDeviceParser extends AbstractParser
      * @var array
      */
     public static $deviceBrands = [
+        '6T'  => '2E', #Previously identified as Twoe, preserved for historic reasons
         '5E'  => '2E',
         '5IV' => '5IVE',
         '2F'  => 'F2 Mobile',
@@ -189,6 +190,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'A6'  => 'Ark',
         '5A'  => 'ArmPhone',
         'AN'  => 'Arnova',
+        '5H'  => 'ARRIS', #Previously identified as MMI, preserved for historic reasons
         'AS'  => 'ARRIS',
         'AQ'  => 'Aspera',
         'HJ'  => 'Aquarius',
@@ -364,6 +366,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'C2'  => 'Changhong',
         'CHA' => 'Chainway',
         'CHG' => 'ChiliGreen',
+        'WHI' => 'Cherry Mobile', #Previously identified as Cherry Mobile, preserved for historic reasons
         'CH'  => 'Cherry Mobile',
         'C3'  => 'China Mobile',
         'U9'  => 'China Telecom',
@@ -378,6 +381,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CLA' => 'CLAYTON',
         'CLT' => 'Clovertek',
         '1J'  => 'Cloud Mobile',
+        '6C'  => 'Cloudfone', #Previously identified as Cloudpad, preserved for historic reasons
         'CD'  => 'Cloudfone',
         'C0'  => 'Clout',
         'CN'  => 'CnM',
@@ -404,6 +408,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '9C'  => 'Colors',
         'COL' => 'COLORROOM',
         'CAA' => 'coocaa',
+        'DZ'  => 'Coolpad', #Previously identified as Dazen, preserved for historic reasons
         'CO'  => 'Coolpad',
         'COO' => 'Coopers',
         'CDE' => 'COOD-E',
@@ -585,6 +590,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'EPH' => 'Ephone',
         'EPL' => 'Eplutus',
         'E7'  => 'Ergo',
+        'ER'  => 'Ericsson', #Previously identified as Ericy, preserved for historic reasons
         'EC'  => 'Ericsson',
         '05'  => 'Erisson',
         'EE'  => 'Essential',
@@ -611,6 +617,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '5U'  => 'EVPAD',
         'EVV' => 'evvoli',
         'E0'  => 'EvroMedia',
+        'HLL' => 'Exertis', #Previously identified as HLLO, preserved for historic reasons
         'EXR' => 'Exertis',
         'XE'  => 'ExMobile',
         '4Z'  => 'Exmart',
@@ -880,6 +887,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '6Z'  => 'iData',
         'IDC' => 'IDC',
         '9D'  => 'Idea GTO',
+        'EKI' => 'EKINOX', #Previously identified as Cloudpad, preserved for historic reasons
         'IG'  => 'iGet',
         'IHL' => 'iHome Life',
         'IH'  => 'iHunt',
@@ -1159,6 +1167,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FK'  => 'MBI',
         'MBK' => 'MBK',
         '3D'  => 'MDC Store',
+        'LPX' => 'OTT', #Previously identified as LPX-G, preserved for historic reasons
         '1Y'  => 'OTT',
         '09'  => 'meanIT',
         'M3'  => 'Mecer',
@@ -1283,6 +1292,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'NEV' => 'NEVIR',
         'NW'  => 'Newgen',
         'N9'  => 'Newland',
+        'UE1' => 'Newman', #Previously identified as UE, preserved for historic reasons
         '0N'  => 'Newman',
         'NS'  => 'NewsMy',
         'ND'  => 'Newsday',
@@ -1464,6 +1474,8 @@ abstract class AbstractDeviceParser extends AbstractParser
         'PV'  => 'Point of View',
         'PVB' => 'PVBox',
         'PL'  => 'Polaroid',
+        'MGX' => 'Polar', #Previously identified as MEGAMAX, preserved for historic reasons
+        '97'  => 'Polar', #Previously identified as PolarLine, preserved for historic reasons
         'Q6'  => 'Polar',
         'PP'  => 'PolyPad',
         'P5'  => 'Polytron',
@@ -1905,7 +1917,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'UNI' => 'Unistrong',
         'U2'  => 'UNIWA',
         'UND' => 'Uniden',
-        'UNS' => 'Unikalne Smartphones',
+        'BAS' => 'Unikalne Smartphones',
         'UNE' => 'UNITED',
         'UGR' => 'United Group',
         'UO'  => 'Unnecto',
