@@ -146,6 +146,11 @@
   name: 'Google Assistant'
   version: '$1'
 
+# WeCom (https://work.weixin.qq.com/ | https://play.google.com/store/apps/details?id=com.tencent.wework | https://apps.apple.com/app/id1087897068)
+- regex: 'wxwork/(\d+[.\d]+)'
+  name: 'WeCom'
+  version: '$1'
+
 # WeChat
 - regex: 'MicroMessenger/([\d.]+)'
   name: 'WeChat'
@@ -178,7 +183,10 @@
   version: ''
 
 # YouTube
-- regex: 'com\.google\.android\.youtube(?:/([\d.]+))?'
+- regex: 'com\.google\.(?:android|ios)\.youtube(?:/([\d.]+))?'
+  name: 'YouTube'
+  version: '$1'
+- regex: 'YouTube/([\d.]+)[JK]'
   name: 'YouTube'
   version: '$1'
 
@@ -244,6 +252,11 @@
 - regex: 'ANWhatsApp(?:/(\d+[.\d]+))?'
   name: 'AN WhatsApp'
   version: '$1'
+
+# Telegram (https://apps.apple.com/us/app/telegram-messenger/id686449807)
+- regex: 'Telegram/(\d+[.\d]+) CFNetwork'
+  name: 'Telegram'
+  version: ''
 
 # https://music.youtube.com
 - regex: '(?:^com\.google\.android\.apps\.youtube\.music/|^YouTubeMusic(?:Dev)?/)([\d.]+)?'
@@ -410,11 +423,6 @@
   name: 'U-Cursos'
   version: '$1'
 
-# HeyTabBrowser or HeyTabAccount
-- regex: 'HeyTapBrowser/([\d.]+)'
-  name: 'HeyTapBrowser'
-  version: '$1'
-
 # Roblox App
 - regex: 'RobloxApp/([\d.]+)'
   name: 'Roblox'
@@ -546,6 +554,11 @@
 - regex: 'iPhoneLync/([\d.]+)'
   name: 'Skype for Business'
   version: '$1'
+
+# Webex Teams (https://www.webex.com/)
+- regex: 'WebexTeams'
+  name: 'Webex Teams'
+  version: ''
 
 # GroupMe (https://apps.apple.com/us/app/groupme/id392796698)
 - regex: 'GroupMe/([\d.]+)'
@@ -2628,17 +2641,66 @@
   name: 'Edmodo'
   version: '$1'
 
+# HeartFocus Education (https://apps.apple.com/us/app/heartfocus-education/id6618151502)
+- regex: 'HFEducationIOS/([\d.]+)'
+  name: 'HeartFocus Education'
+  version: '$1'
+
+- regex: 'HFIOS/([\d.]+)'
+  name: 'HeartFocus'
+  version: '$1'
+
+# OpenVAS (https://www.openvas.org/)
+- regex: 'OpenVAS-VT ([\d.]+)'
+  name: 'OpenVAS'
+  version: '$1'
+
+# appdb (https://appdb.to/)
+- regex: 'appdb/([\d.]+)'
+  name: 'appdb'
+  version: '$1'
+
+# Apache (https://www.apache.org/)
+- regex: 'Apache/([\d.]+)'
+  name: 'Apache'
+  version: '$1'
+
+# smzdm (https://www.smzdm.com/)
+- regex: 'smzdm ([\d.]+)'
+  name: 'smzdm'
+  version: '$1'
+
+# Zite
+- regex: 'Zite/([\d.]+)'
+  name: 'Zite'
+  version: '$1'
+
+# DeepL (https://www.apache.org/)
+- regex: 'DeepL/'
+  name: 'DeepL'
+  version: ''
+
 # Electron generic apps
 - regex: ' (?!(?:AppleWebKit|brave|Cypress|Franz|Mailspring|Notion|Basecamp|Evernote|catalyst|ramboxpro|BlueMail|BeakerBrowser|Dezor|TweakStyle|Colibri|Polypane|Singlebox|Skye|VibeMate|(?:d|LT|Glass|Sushi|Flash|OhHai)Browser|Sizzy))([a-z0-9]*)(?:-desktop|-electron-app)?/(\d+\.[\d.]+).*Electron/'
   name: '$1'
   version: '$2'
 
 # Generic app
-- regex: 'appname/([^/; ]*)'
-  name: '$1'
-  version: ''
+- regex: 'AppVersion/([\d.]+).+appname/((?!\(null\))[^/; ]*)'
+  name: '$2'
+  version: '$1'
 
 # AFNetworking generic
 - regex: '(?!AlohaBrowser)([^/;]*)/(\d+\.[\d.]+) \((?:iPhone|iPad); (?:iOS|iPadOS) [0-9.]+; Scale/[0-9.]+\)'
   name: '$1'
   version: '$2'
+
+# Seekr App (Android)
+- regex: '^Seekr/([\d\.]+).*Android'
+  name: 'Seekr'
+  version: '$1'
+
+# Seekr App (iOS)
+- regex: '^Seekr/([\d\.]+).*CFNetwork'
+  name: 'Seekr'
+  version: '$1'
