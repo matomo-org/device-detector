@@ -523,7 +523,7 @@ class Browser extends AbstractClientParser
         'BP' => 'Privacy Browser',
         'PI' => 'PrivacyWall',
         'P4' => 'Privacy Explorer Fast Safe',
-        'X5' => 'Privacy Pioneer Browser',
+        'X5' => 'Cloak Private Browser',
         'P3' => 'Private Internet Browser',
         'P5' => 'Proxy Browser',
         '7P' => 'Proxyium',
