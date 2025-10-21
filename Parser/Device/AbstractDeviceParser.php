@@ -2183,7 +2183,9 @@ abstract class AbstractDeviceParser extends AbstractParser
     ];
 
     /**
-     * List of short names, that are not used due to brand renaming in the library (excluding case or punctuation adjustments)
+     * List of short names, that are not used due to brand renaming in the library.
+     * Excludes case or punctuation adjustments.
+     * Meant for `array_merge` with `$deviceBrands` in certain functions.
      *
      * @var array
      */
