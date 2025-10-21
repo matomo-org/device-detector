@@ -2167,7 +2167,8 @@ abstract class AbstractDeviceParser extends AbstractParser
         // legacy brands, might be removed in future versions
         'WB'  => 'Web TV',
         'XX'  => 'Unknown',
-        // Brands that were renamed and now duplicate other brand names. Old names can be seen in $legacyShortNames
+        // Brands that were "moved" to other brands by renaming and result in duplicates.
+        // Old names can be seen in $legacyShortNames
         '6T'  => '2E',
         '5H'  => 'ARRIS',
         'WHI' => 'Cherry Mobile',
@@ -2183,9 +2184,8 @@ abstract class AbstractDeviceParser extends AbstractParser
     ];
 
     /**
-     * List of short names, that are not used due to brand renaming in the library.
-     * Excludes case or punctuation adjustments.
-     * Meant for `array_merge` with `$deviceBrands` in certain functions.
+     * List of short names, that are not used due to brand being moved to another one.
+     * Meant for merger with `$deviceBrands` in certain functions.
      *
      * @var array
      */
