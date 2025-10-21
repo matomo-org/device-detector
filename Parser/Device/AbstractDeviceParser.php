@@ -2175,7 +2175,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'DZ'  => 'Coolpad',
         'ER'  => 'Ericsson',
         'HLL' => 'Exertis',
-        'EKI' => 'EKINOX',
+        'EKI' => 'iGet',
         'LPX' => 'OTT',
         'UE1' => 'Newman',
         'MGX' => 'Polar',
@@ -2197,7 +2197,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'DZ'  => 'Dazen',
         'ER'  => 'Ericy',
         'HLL' => 'HLLO',
-        'EKI' => 'Cloudpad',
+        'EKI' => 'EKINOX',
         'LPX' => 'LPX-G',
         'UE1' => 'UE',
         'MGX' => 'MEGAMAX',
@@ -2316,7 +2316,7 @@ abstract class AbstractDeviceParser extends AbstractParser
      */
     public static function getShortCode(string $brand): string
     {
-        return (string) \array_search($brand, \array_merge(self::$deviceBrands, self::$legacyShortNames)) ?: '';
+        return (string) \array_search($brand, self::$legacyShortNames + self::$deviceBrands) ?: '';
     }
 
     /**
