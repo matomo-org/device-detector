@@ -25,7 +25,7 @@ class ConsoleTest extends TestCase
     {
         $consoleParser = new Console();
         $consoleParser->setUserAgent($useragent);
-        $this->assertTrue(\is_array($consoleParser->parse()));
+        $this->assertIsArray($consoleParser->parse());
         $this->assertEquals($device['type'], Console::getDeviceName($consoleParser->getDeviceType()));
         $this->assertEquals($device['brand'], $consoleParser->getBrand());
         $this->assertEquals($device['model'], $consoleParser->getModel());
@@ -33,8 +33,6 @@ class ConsoleTest extends TestCase
 
     public function getFixtures(): array
     {
-        $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/console.yml');
-
-        return $fixtureData;
+        return Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/console.yml');
     }
 }
