@@ -114,9 +114,9 @@ Adronix:
     - regex: 'Adronix[ _]?(MT[0-9]+|X1001)(?:[);/ ]|$)'
       model: '$1'
 
-# Cherry Mobile (cherrymobile.com)
+# Cherry Mobile (cherrymobile.com, defunct site).
 Cherry Mobile:
-  regex: 'Cherry|Superion[_ ](?:S2|Radar Deluxe|S1 DTV|S1 Plus DTV|Tab Pro)|Flare([ _])?(Selfie|2\.[01]|2X|4|A[123]|J[1235678]|P[13]|S[4-8]|X2|Y[3567]|S[ _]Play|HD|LITE|XL|X_V[23]|Y3s|Tab|INFINITY)(?:[ _](?:Pro|Plus|Max|LTE))?|Fusion Aura 3s|Radar Deluxe 2|Desire R[678]|Desire_R[67]_Lite|Fusion Bolt|Omega[_ ](?:Icon 2|Icon Lite 2|lite[_ ][243][Cs]?|HD[ _][345]|HD_Duo|X)|Spin Max 2|Selfie_Two|Flare X Lite|Flare_5|Android 1.*Aqua S9|Aqua S10|MAIA PAD PLUS|COSMOS THREE| Revel 3G|Touch XL 2|DSR_(?:R8|R7P?)|CUBIX CUBE 3'
+  regex: 'Cherry|Superion[_ ](?:S2|Radar Deluxe|S1 DTV|S1 Plus DTV|Tab Pro)|Flare([ _])?(Selfie|2\.[01]|2X|4|A[123]|J[1235678]|P[13]|S[4-8]|X2|Y[3567]|S[ _]Play|HD|LITE|XL|X_V[23]|Y3s|Tab|INFINITY)(?:[ _](?:Pro|Plus|Max|LTE))?|Fusion Aura 3s|Radar Deluxe 2|Desire R[678]|Desire_R[67]_Lite|Fusion Bolt|Omega[_ ](?:Icon 2|Icon Lite 2|lite[_ ][243][Cs]?|HD[ _][345]|HD_Duo|X)|Spin Max 2|Selfie_Two|Flare X Lite|Flare_5|Android 1.*Aqua S9|Aqua S10|MAIA PAD PLUS|COSMOS THREE| Revel 3G|Touch XL 2|DSR_(?:R8|R7P?)|CUBIX CUBE 3|AM1010V'
   device: 'smartphone'
   models:
     - regex: '(Flare2X|Aqua S(?:9|10)(?: (?:Max|Lite|Pro))?)'
@@ -240,6 +240,10 @@ Cherry Mobile:
 
     - regex: 'Cherry(?:[ _]?Mobile)?[ _]?([^/;]+)(?: Build|[);])'
       model: '$1'
+
+      #Previously listed as "White Mobile" brand, but based on https://firmwarefile.com/cherry-mobile-omega-lite-3, https://forum.gsmhosting.com/vbb/f296/cherry-mobile-omega-lite-3-frp-remove-2259709/ and https://deviceatlas.com/device-data/devices/white-mobile/am1010v/30376111 (and others), this is likely "Cherry Mobile", especially since I was not able to find any evidence of "White Mobile" ever existing.
+    - regex: 'AM1010V'
+      model: 'Omega Lite 3'
 
 # HTC (htc.com)
 HTC:
@@ -3439,9 +3443,14 @@ MEO:
 
 # Ooredoo (https://www.ooredoo.qa/)
 Ooredoo:
-  regex: 'Sagemcom DIW387_UHD_OOR(?:[);/ ]|$)' # Sagemcom DIW387
+  regex: 'Sagemcom DIW387_UHD_OOR|(Q7A\+?)(?:[);/ ]|$)' # Sagemcom DIW387
   device: 'tv'
-  model: 'TV Box'
+  models:
+    - regex: 'Sagemcom DIW387_UHD_OOR(?:[);/ ]|$)'
+      model: 'TV Box'
+    - regex: '(Q7A\+?)(?:[);/ ]|$)'
+      device: 'tablet'
+      model: 'Crius Mea $1'
 
 # Meu
 MEU:
@@ -3519,12 +3528,14 @@ Arnova:
 
 # ARRIS
 ARRIS:
-  regex: 'ARRIS'
+  regex: 'ARRIS|MMI, ([a-z0-9_ -]+), (?:wired|wireless)'
   device: 'tv'
   models:
     - regex: 'Arris_liberty,([a-z0-9-]+),(?:wired|wireless)'
       model: '$1'
     - regex: 'ARRIS[,;] ([^),;/]+)'
+      model: '$1'
+    - regex: 'MMI, ([a-z0-9_ -]+), (?:wired|wireless)'
       model: '$1'
 
 # Ask
@@ -6721,7 +6732,7 @@ Condor:
 
 # Coolpad (coolpad.us)
 Coolpad:
-  regex: '(?:YL-)?Coolpad|(?:Cool_9S|1824-S0|8190Q|1831-A0|8676-[AM]01|1872-A0|REVVLPLUS C3701A|VCR-[AI]0|C105-(?:8|E0)|C106-[789]|C107-9| C106|MTS-T0|ORL-C0|DLS-E0|182[56]-I01|1825-E0| 1825|8298-(?:M02|A01)|5560S|CP3320AS2|CP3321AT|CP350[34]L|cp3636a|CP3648AT?|CP3667AT|CP3669AS|cp3705A[S]?|CP3706AS|CP23NV3|CP8298_I00|CP8676_I0[23]|C103|CP03|C1-U02|SAC-A0| 203[29]|CP0[57]|CP12[psQ]?)(?:[);/ ]|$)|(8295|5860S) Build'
+  regex: '(?:YL-)?Coolpad|dazen|(?:Cool_9S|1824-S0|8190Q|1831-A0|8676-[AM]01|1872-A0|REVVLPLUS C3701A|VCR-[AI]0|C105-(?:8|E0)|C106-[789]|C107-9| C106|MTS-T0|ORL-C0|DLS-E0|182[56]-I01|1825-E0| 1825|8298-(?:M02|A01)|5560S|CP3320AS2|CP3321AT|CP350[34]L|cp3636a|CP3648AT?|CP3667AT|CP3669AS|cp3705A[S]?|CP3706AS|CP23NV3|CP8298_I00|CP8676_I0[23]|C103|CP03|C1-U02|SAC-A0| 203[29]|CP0[57]|CP12[psQ]?)(?:[);/ ]|$)|(8295|5860S) Build'
   device: 'smartphone'
   models:
     - regex: 'CP23NV3'
@@ -6824,6 +6835,8 @@ Coolpad:
       model: '$1'
     - regex: '(?:YL-)?Coolpad[ _-]?([a-z0-9-]+)'
       model: '$1'
+    - regex: '6A'
+      model: 'Dazen 6A'
 
 # Clarmin (clarmin.com)
 Clarmin:
@@ -6932,12 +6945,6 @@ Cricket:
     - regex: 'Cricket-([a-z0-9]+)'
       device: 'feature phone'
       model: '$1'
-
-# Crius
-Crius Mea:
-  regex: '(Q7A\+?)(?:[);/ ]|$)'
-  device: 'tablet'
-  model: '$1'
 
 # Crosscall
 Crosscall:
@@ -7358,14 +7365,6 @@ Danew:
       device: 'tablet'
       model: 'DSlide $1'
 
-# Dazen
-Dazen:
-  regex: 'dazen'
-  device: 'smartphone'
-  models:
-    - regex: '6A'
-      model: '6A'
-
 # Denver Electronics (denver-electronics.com)
 Denver:
   regex: '(?:TAQ_10[4G]|TA[CDQ]-[0-9]+)|P(?:.+)TAQ-(?:[0-9]+)|SDQ[_-](?:550[24]4L|52001G|50002G|57004L)'
@@ -7599,33 +7598,33 @@ Digiland:
     - regex: '(Compumax Blue)' # Compumax
       model: '$1'
 
-# Digit4G or DIGIT (https://digit4g.com/)
-Digit4G:
+# Digit (https://digit4g.com/)
+Digit:
   regex: 'Digit_|Digit4G|Digit(?:4G|play1|next_Ultra)|DIGIT (?:INFINITY|Glory1)'
   device: 'smartphone'
   models:
     - regex: 'Digitplay1(?:[);/ ]|$)'
-      model: 'Play1'
+      model: 'Digit4G Play1'
     - regex: 'Digitnext_Ultra(?:[);/ ]|$)'
-      model: 'Next Ultra'
+      model: 'Digit4G Next Ultra'
     - regex: 'Glory1(?:[);/ ]|$)'
-      model: 'Glory1'
+      model: 'Digit4G Glory1'
     - regex: 'INFINITY MAX(?:[);/ ]|$)'
-      model: 'Infinity Max'
+      model: 'Digit4G Infinity Max'
     - regex: 'INFINITY(?:[);/ ]|$)'
-      model: 'Infinity'
+      model: 'Digit4G Infinity'
     - regex: 'Energy Max(?:[);/ ]|$)'
-      model: 'Energy Max'
+      model: 'Digit4G Energy Max'
     - regex: 'Digit_Digit4G[_-](Bold|Defender|Elite|Music|Power|Shine|Star)_4G(?:[);/ ]|$)'
-      model: '$1'
+      model: 'Digit4G $1'
     - regex: 'Digit_Digit4GLite_4G(?:[);/ ]|$)'
-      model: 'Lite'
+      model: 'Digit4G Lite'
     - regex: 'Digit_Digit4GPowerMAX_4G(?:[);/ ]|$)'
-      model: 'Power Max'
+      model: 'Digit4G Power Max'
     - regex: 'Digit4G[ _]E([234])[ _]pro(?:[);/ ]|$)'
-      model: 'E$1 Pro'
+      model: 'Digit4G E$1 Pro'
     - regex: 'Digit4G[ -](Energy|Pro)'
-      model: '$1'
+      model: 'Digit4G $1'
 
 # Compumax or COMPUMAX COMPUTER  S.A.S (www.compumax.com.co)
 COMPUMAX:
@@ -8352,12 +8351,6 @@ Elenberg:
       model: '$1'
     - regex: '(TAB(?:101|728)[ _]3G|TAB7(?:[03]8|16|40|3[30]))'
       model: '$1'
-
-# Ericy
-Ericy:
-  regex: 'Ericy-([a-z0-9]+)'
-  device: 'feature phone'
-  model: '$1'
 
 # Essential or Essential Products
 Essential:
@@ -9161,15 +9154,17 @@ Ergo:
       model: 'GHS55'
       device: 'tv'
 
-# Ericsson
+# Ericsson (also includes "Ericy", which was previously treated as separate brand, but was not able to find evidence of it existence aside from being short name for Ericsson)
 Ericsson:
-  regex: '(?:Ericsson(?:/ )?[a-z0-9]+)|(?:R380 2\.0 WAP1\.1)'
+  regex: '(?:Ericsson(?:/ )?[a-z0-9]+)|(?:R380 2\.0 WAP1\.1)|Ericy-([a-z0-9]+)'
   device: 'feature phone'
   models:
     - regex: 'Ericsson(?:/ )?([a-z0-9]+)'
       model: '$1'
     - regex: 'R380 2\.0 WAP1\.1'
       model: 'R380'
+    - regex: 'Ericy-([a-z0-9]+)'
+      model: '$1'
 
 # Energizer (www.energizeyourdevice.com)
 Energizer:
@@ -10387,14 +10382,6 @@ Gtel:
     - regex: 'Gtel[ _-]([^;/]+)(?: Build|[;)])'
       model: '$1'
 
-# H133
-H133:
-  regex: 'Betacrux(?:[);/ ]|$)'
-  device: 'smartphone'
-  models:
-    - regex: 'Betacrux(?:[);/ ]|$)'
-      model: 'Betacrux'
-
 # H96 (https://www.h96tvbox.com/)
 H96:
   regex: 'H96[ _]?(?:Max|mini H8|plus|PRO\+)'
@@ -10935,8 +10922,8 @@ Huagan:
     - regex: 'Huagan[ _]([^;/)]+)(?: Build|[);])'
       model: '$1'
 
-# Stream or Stream System
-Stream:
+# Stream or Stream System (https://www.streamsystem.es)
+Stream System:
   regex: 'LGE; WSTR[0-9a-z]+;|(B3 (?:Maxi|Simply)|B3Pro|Android 8(?:[\d.]*);(?: [\w-]+;)? (?:B1s|HT28|HT16))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
@@ -22558,8 +22545,8 @@ Rover:
   device: 'feature phone'
   model: '$1'
 
-# RoverPad or Rover Pad
-RoverPad:
+# Rover Computers (previously "Rover Pad" and "RoverPad", but "Pad" and "Phone" are more like model lines, and logo on them matches one at https://www.dailycomm.ru/m/5445/)
+Rover Computers:
   regex: '(?:Rover[ ]?Pad|RoverPhone|(?:Air|Art|Sky) 7\.85 3G|Pro_Q(?:8|10)_LTE)(?:[);/ ]|$)'
   device: 'tablet'
   models:
@@ -24648,7 +24635,7 @@ Skyworth:
 
 # Smartfren
 Smartfren:
-  regex: 'Smartfren|Androtab|Andromax|PD6D1J|AD682J|AD68[89]G|AD6B1H|AD9A1H|AD682H|AD683G'
+  regex: 'Smartfren|Androtab|Andromax|PD6D1J|AD682J|AD68[89]G|AD6B1H|AD9A1H|AD682H|AD683G|I46D1G|EG680|EG98'
   device: 'smartphone'
   models:
     # explicit tablet models
@@ -24677,6 +24664,12 @@ Smartfren:
       model: 'Andromax L'
     - regex: 'New Andromax-i'
       model: 'New Andromax I'
+    - regex: 'I46D1G'
+      model: 'Andromax R'
+    - regex: 'EG680'
+      model: 'Andromax Z'
+    - regex: 'EG98'
+      model: 'Andromax U2'
 
     - regex: 'Andromax[ _-]([^/;]+) Build'
       model: 'Andromax $1'
@@ -26141,13 +26134,13 @@ Sonim:
     - regex: '(?:Sonim-)?XP9900'
       model: 'XP10'
 
-# Star
-Star:
+# Kingelon (previously "Star", which seems to be as valid as "Tengda", since a bunch of devices were released both under Kingelon and Star or/and Tengda, for example https://www.needrom.com/download/star-n8800-miui-tengda-kingelon/, but only Kingelon seems to have a logo at least, which is at least some evidence of it being real)
+Kingelon:
   regex: '(?:N(?:9[5678]00|8800|9000|9977)|Star[ _]N9589)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'N9000'
-      model: 'Note 3'
+      model: 'N9000'
     - regex: '(?:Star_)?N(9[5678]00|8800|9977|9589)(?:[);/ ]|$)'
       model: 'N$1'
 
@@ -27125,13 +27118,13 @@ Tecno Mobile:
     - regex: 'Tecno[ _-]?([a-z0-9_-]+)'
       model: '$1'
 
-# TechSmart or Techmade
-TechSmart:
+# Techmade (often seen as TechSmart, which is actually a model line: https://www.ebay.it/itm/112931113112 https://www.ebay.it/itm/123071096677 https://www.facebook.com/661598300623815/photos/a.661606387289673/1242575672526072/?type=3&locale=hi_IN)
+Techmade:
   regex: 'TECHSMART[_ ]'
   device: 'smartphone'
   models:
     - regex: 'TECHSMART[_ ]([^/;)]+)(?: Build|[);])'
-      model: '$1'
+      model: 'TechSmart $1'
 
 # TechPad (techpad.mx)
 TechPad:
@@ -28054,8 +28047,8 @@ Fenoti:
     - regex: '(?:FENOTI_)?(42FN6000F)(?:[);/ ]|$)'
       model: '$1'
 
-# VK Mobile
-VK Mobile:
+# Viable Korea, also known as VK Mobile (https://en.namu.wiki/w/VK모바일, not related to either Russian "VK" (has "VK Mobile" division) or distributors like https://www.facebook.com/profile.php?id=100068485995715 and https://www.facebook.com/VKmobillethemines/
+Viable Korea:
   regex: 'VK-VK([79]00)(?:[);/ ]|$)'
   device: 'feature phone'
   model: 'VK$1'
@@ -30762,12 +30755,6 @@ MLS:
     - regex: 'iQF ?200(?:[);/ ]|$)'
       model: 'iQF200'
 
-# MMI
-MMI:
-  regex: 'MMI, ([a-z0-9_ -]+), (?:wired|wireless)'
-  device: 'tv'
-  model: '$1'
-
 # FLYCAT
 FLYCAT:
   regex: 'FLYCAT'
@@ -33314,23 +33301,18 @@ Zfiner:
   device: 'tablet'
   model: 'Y900'
 
-# EKINOX (https://ekinoxnigeria.com/)
-EKINOX:
-  regex: '(?:E8_Ultra)(?:[);/ ]|$)'
-  device: 'smartphone'
-  models:
-    - regex: 'E8_Ultra'
-      model: 'E8 Ultra'
-
-# iGet (www.iget.eu)
+# iGet (www.iget.eu, also covers EKINOX, which is a model line from this brand, previously treated as a separate brand)
 iGet:
-  regex: 'iGET SMART|(?:SMART[_ ](?:L20X|G10[12]|S7[02]|G71|G81[H]?|L10[234]|L11|L3[12]|W[12]0X|W101|W3[12]|W8[4X]|W20[23]|L206)(?:_eea)?|Android 5(?:[\d.]*);(?: [\w-]+;)? (?:S100))(?:[);/ ]|$)'
+  regex: 'iGET SMART|E8_Ultra|(?:SMART[_ ](?:L20X|G10[12]|S7[02]|G71|G81[H]?|L10[234]|L11|L3[12]|W[12]0X|W101|W3[12]|W8[4X]|W20[23]|L206)(?:_eea)?|Android 5(?:[\d.]*);(?: [\w-]+;)? (?:S100))(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: '(?:SMART[_ ])?S100(?:[);/ ]|$)'
       model: 'Smart S100'
     - regex: 'SMART[_ ](L20X|G10[12]|S7[02]|G71|G81[H]?|L10[234]|L11|W[12]0X|W101|W8[4X]|W3[12]|W20[23]|L206|L3[12])'
       model: 'Smart $1'
+    - regex: 'E8_Ultra'
+      device: 'smartphone'
+      model: 'EKINOX E8 Ultra'
 
 # Phicomm
 Phicomm:
@@ -33696,7 +33678,7 @@ TWM:
       model: 'Amazing $1'
 
 # TWZ or TWZ Corporation PLC (twz.co.th)
-TWZ:
+TWZ Corporation:
   regex: 'TWZ[-_ ](?:TabPlay|Y6[08]|Y52|A49|A[59]5|A567|AA8|QQ[12])|TWZQQ1|(?:OX_X1)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
@@ -34072,9 +34054,15 @@ SEMP TCL:
 
 # Newman
 Newman:
-  regex: 'Newman[ _](P308|K1|G5i)(?:[);/ ]|$)'
+  regex: '(?:(?:(?:Newman[ _])(P308|K1|G5i))|(UE Pad 1))(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
+  models:
+    - regex: 'Newman[ _](P308|K1|G5i)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'UE Pad 1'
+      device: 'tablet'
+      model: 'UE 1 PAD'
 
 # Swipe
 Swipe:
@@ -34107,7 +34095,7 @@ Owwo:
       model: 'Carnival B5'
 
 # 360 or names Qihoo 360, +360, QiKU 360
-'360':
+360:
   regex: '(?:180[1379]-A01|1713-A01|1707-A01|1509-A00|1603-A03|1607-A01|1503-A01|1505-A0[12]|1605-A01)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
@@ -34431,8 +34419,8 @@ Bobarry:
   device: 'tablet'
   model: 'K10 SE'
 
-# Wortmann (wortmann.de)
-Wortmann:
+# Terra (sub-brand of wortmann.de used for consumer electronics, https://en.wikipedia.org/wiki/Wortmann)
+Terra:
   regex: 'TERRA[ _]PAD[ _](\d+)(_V2)?(?:[);/ ]|$)'
   device: 'tablet'
   model: 'Terra Pad $1$2'
@@ -34468,15 +34456,19 @@ BB Mobile:
       device: 'smartphone'
       model: 'Techno Spark 3G X595BT'
 
-# 2E (2e.ua)
+# 2E or Twoe (2e.ua | https://gva.com.ua/mobilnye-telefony/2e-twoe/)
 2E:
-  regex: '(?:E500A_2019|2E E450 2018)(?:[);/ ]|$)'
+  regex: '(?:(?:E500A_2019|2E E450 2018)|(?:TWOE[-_ ]E450R|F534L|F572L|E500A))(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'E500A_2019(?:[);/ ]|$)'
       model: 'E500A (2019)'
     - regex: '2E E450 2018(?:[);/ ]|$)'
       model: 'E450 (2018)'
+    - regex: 'TWOE[-_ ](E450R)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: '(F534L|F572L|E500A)(?:[);/ ]|$)'
+      model: '$1'
 
 # Billion
 Billion:
@@ -34649,16 +34641,6 @@ Jio:
     - regex: 'Jio/([^/]+)/'
       model: '$1'
 
-# Twoe
-Twoe:
-  regex: '(?:TWOE[-_ ]E450R|F534L|F572L|E500A)(?:[);/ ]|$)'
-  device: 'smartphone'
-  models:
-    - regex: 'TWOE[-_ ](E450R)(?:[);/ ]|$)'
-      model: '$1'
-    - regex: '(F534L|F572L|E500A)(?:[);/ ]|$)'
-      model: '$1'
-
 # iTruck
 iTruck:
   regex: 'iTRUCK 7 3G(?:[);/ ]|$)'
@@ -34760,7 +34742,7 @@ Logic:
       model: '$1'
 
 # Cloud or Cloud TruConnect or Cloud_Mobile (www.cloudmobileusa.com)
-Cloud:
+Cloud Mobile:
   regex: '(?:Cirrus_C2|Cyclone_C4|Storm_C3|Stratus_C[57](?:_Elite)?|Stratus C8|Sunshine_T1|Typhoon_C6|Sunshine_T1_Elite)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
@@ -34772,19 +34754,9 @@ Cloud:
       device: 'tablet'
       model: '$1'
 
-# Cloudpad
-Cloudpad:
-  regex: '\+VT(?:107C|Q007C)(?:[);/ ]|$)'
-  device: 'tablet'
-  models:
-    - regex: '\+VT(107C)'
-      model: '+VT$1'
-    - regex: '\+VTQ(007C)'
-      model: '+VTQ$1'
-
 # Cloudfone
 Cloudfone:
-  regex: 'CloudFone[ _]|(?:Thrill[ _](?:Boost[ ]?(2|3)?|Power|Snap|Access|Plus 16GB|Lite|HD)|Excite Prime 2 Pro|Excite Prime|ExciteC|NBA Edition|Go SP|Next Infinity Plus|Next Infinity|Next Lite|Go Connect)(?:[);/ ]|$)'
+  regex: '\+VT(?:107C|Q007C)|CloudFone[ _]|(?:Thrill[ _](?:Boost[ ]?(2|3)?|Power|Snap|Access|Plus 16GB|Lite|HD)|Excite Prime 2 Pro|Excite Prime|ExciteC|NBA Edition|Go SP|Next Infinity Plus|Next Infinity|Next Lite|Go Connect)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Thrill Boost 2 Plus(?:[);/ ]|$)'
@@ -34821,6 +34793,12 @@ Cloudfone:
       model: 'Next Lite'
     - regex: 'Next(?:[);/ ]|$)'
       model: 'Next'
+    - regex: '\+VT107C'
+      device: 'tablet'
+      model: 'Cloudpad C701TV+'
+    - regex: '\+VTQ007C'
+      device: 'tablet'
+      model: 'Cloudpad C700QTV+'
 
 # Völfen (https://www.volfen.net/)
 Völfen:
@@ -35276,11 +35254,16 @@ MDC Store:
     - regex: 'MDC M5(?:[);/ ]|$)'
       model: 'M5'
 
-# MDTV
-MDTV:
-  regex: 'MDTV(?:[);/ ]|$)'
+# OTT (previously MDTV, but it looks to be a model line from OTT based on branding on the cardboard boxes, for example https://www.madridcenter.com/produto/tv-box-mdtv-pro-8k-32-256gb-android-11-1-5g-preto-749749.html)
+# Also cover "LPX-G" which was previously treated as a separate brand, but is also a model of OTT based on listings like https://prom.ua/p705060188-boks-ott-box.html
+OTT:
+  regex: 'MDTV|LPX-G BOX'
   device: 'tv'
-  model: ''
+  models:
+    - regex: 'MDTV'
+      model: 'MDTV'
+    - regex: 'LPX-G Box Max'
+      model: 'LPX-G Box Max'
 
 # meanIT (meanit.hr)
 meanIT:
@@ -35446,7 +35429,7 @@ Transpeed:
       model: '$1'
 
 # 8848 (everest 8848, 8848 titanium)
-'8848':
+8848:
   regex: '8848 (M[3-6])(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
@@ -35479,18 +35462,18 @@ Swisstone:
   device: 'smartphone'
   model: '$1'
 
-# P-UP (Peaup Co., Ltd.) (p-up.jp, mode1.jp)
-P-UP:
+# Mode 1 (Previously P-UP (Peaup Co., Ltd.), and while Mode 1 is legally owned by P-UP (https://www.p-up.world/brands/), Mode 1 is a separate thing (https://mode1.jp), and not a model line or brand like "Galaxy" for Samsung)
+Mode 1:
   regex: 'MD-0[143]P(?:[);/ ]|$)'
   device: 'phablet'
   models:
     - regex: 'MD-04P(?:[);/ ]|$)'
-      model: 'Mode 1 RR'
+      model: 'RR'
     - regex: 'MD-03P(?:[);/ ]|$)'
-      model: 'Mode 1 RS'
+      model: 'RS'
     - regex: 'MD-01P(?:[);/ ]|$)'
       device: 'smartphone'
-      model: 'Mode 1 MD-01P'
+      model: 'MD-01P'
 
 # Pacific Research Alliance (https://www.pacificresearchalliance.com/)
 Pacific Research Alliance:
@@ -36200,8 +36183,8 @@ VAIO:
     - regex: '(VA-10J)'
       model: '$1'
 
-# Spark (https://www.spark.co.nz/)
-Spark:
+# Spark (https://www.spark.co.nz/), NZ (New Zealand) used to avoid confusion with other hardware brands
+Spark NZ:
   regex: 'Spark Plus 3(?:[);/ ]|$)'
   device: 'smartphone'
   models:
@@ -36771,11 +36754,11 @@ Electroneum:
   device: 'smartphone'
   model: '$1'
 
-# High Q or HighQ
-High Q:
+# EPIK Learning (previously High Q or HighQ, but "HighQ" is a model line https://epiklearning.com/shop/)
+EPIK Learning:
   regex: '(ELT070[46]H|ELT0802H)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  model: 'HighQ $1'
 
 # Pluzz
 Pluzz:
@@ -37074,22 +37057,22 @@ Bellphone:
   device: 'smartphone'
   model: 'BP 100 X-Plus'
 
-# Gini
-Gini:
+# Pelephone (previously "Gini", but it seems to be a model line https://www.devicespecifications.com/en/model/41f13a05, although https://wiki.postmarketos.org/wiki/Category:Gini suggests it's a sub-brand, but it looks more like "Galaxy" for Samsung)
+Pelephone:
   regex: 'Gini[ _]|(?:SW17W13|SW17W08)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Gini[ _]W(7)'
-      model: 'W$1'
+      model: 'Gini W$1'
     - regex: 'Gini[ _]n(8)'
-      model: 'N$1'
+      model: 'Gini N$1'
     - regex: 'Gini[ _]s5Pro|SW17W13'
-      model: 'S5 Pro'
+      model: 'Gini S5 Pro'
     - regex: 'SW17W08'
-      model: 'S5'
+      model: 'Gini S5'
     - regex: 'Gini[ _]Tab[ _](V[78])'
       device: 'tablet'
-      model: 'Tab $1'
+      model: 'Gini Tab $1'
 
 # MIVO (mivo.com.my)
 MIVO:
@@ -37435,11 +37418,11 @@ Seatel:
     - regex: 'Seatel[ _](L2|V8[AE]|T[5-8]|R6|V[89])(?:[);/ ]|$)'
       model: '$1'
 
-# Ditecma (ditecma.com)
-Ditecma:
+# Idea GTO (previously listed as "Ditecma" with a link to a site of different organization; "Ditecma" was probably a model line, some images about the tablet show GTO logo, for example https://www.needrom.com/download/gto-ditecma-m1092r/ and https://www.youtube.com/watch?v=qlDFf7t2orY)
+Idea GTO:
   regex: '(M1092R(?:-[12]|V[45])?)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  model: 'Ditecma $1'
 
 # Datamini (datamini.co.in)
 Datamini:
@@ -38903,11 +38886,11 @@ Kiowa:
     - regex: 'S5 ULTRA'
       model: 'S5 Ultra'
 
-# Sprint
-Sprint:
+# Quanta Computer ("Sprint" in previous versions, but "Sprint" seems to be a distributor brand, similar some HTC models https://phonedb.net/index.php?m=device&s=query&d=detailed_specs&brand=Sprint#result)
+Quanta Computer:
   regex: 'AQT(100|8[02])(?:[);/ ]|$)'
   device: 'tablet'
-  model: 'AQT$1'
+  model: 'Slate AQT$1'
 
 # Bundy Mobile (bundy-mobile.fr)
 Bundy:
@@ -39205,19 +39188,17 @@ Glory Star:
   device: 'tablet'
   model: ''
 
-# Polar (polar.ru)
+# Polar (https://polartv.ru/). Previously Megamax and Polarline were separate, but it looks like they were never treated as sub-brands (registered as at least a trade-mark, have separate website, etc.), but rather as model-lines
 Polar:
-  regex: 'Polar(?:_W?K?)?[_ ]P\d{2}|(?:P42L31T2CSM|P32L33T2CSM)(?:[);/ ]|$)'
+  regex: '(?:(?:(?:Polar(?:_W?K?)?[_ ])?(P\d{2}[LU]\d{2}T2S?CSM))|(?:PolarLine[_ ](?:W?K?[_ ])?(\d{2}P[LU]\d{2}S?TC-SM))|(?:MEGAMAX(?:_W_)?(\d{2}MG11FSM)))(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: '(?:Polar(?:_W?K?)?[_ ])?(P\d{2}[LU]\d{2}T2S?CSM)(?:[);/ ]|$)'
       model: '$1'
-
-# Polarline (sub brand Polar)
-PolarLine:
-  regex: 'PolarLine[_ ](?:W?K?[_ ])?(\d{2}P[LU]\d{2}S?TC-SM)(?:[);/ ]|$)'
-  device: 'tv'
-  model: '$1'
+    - regex: 'MEGAMAX(?:_W_)?(\d{2}MG11FSM)'
+      model: 'Megamax $1'
+    - regex: 'PolarLine[_ ](?:W?K?[_ ])?(\d{2}P[LU]\d{2}S?TC-SM)(?:[);/ ]|$)'
+      model: 'Polarline $1'
 
 # MyGica (www.mygica.com)
 MyGica:
@@ -40530,11 +40511,11 @@ Facetel:
     - regex: 'Q3pro(?:[);/ ]|$)'
       model: 'Q3 Pro'
 
-# HLLO or Exertis HLLO
-HLLO:
+# Exertis (previously HLLO, but was not able to find any evidence of this being a brand besides it being part of Exertis accelerator. Search for the model also shows Exertis most of the times, so HLLO is probably a model line rather than a (sub-)brand)
+Exertis:
   regex: '(SMB-H8009)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  model: 'HLLO $1'
 
 # YUMKEM
 YUMKEM:
@@ -40669,11 +40650,11 @@ Denali:
   device: 'tablet'
   model: 'E-Tab $1'
 
-# DreamTab
-DreamTab:
+# Powerway (previously Dreamtab, but it looks like a model line of Powerway as per some images, for example https://zebramo.com/products/powerway-tablet-tablet-tablet-tablet-tablet-351954019 and https://www.needrom.com/download/powerway-dreamtab-drn-x300/)
+Powerway:
   regex: '(DRN-[78]09)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  model: 'Dreamtab $1'
 
 # DL
 DL:
@@ -41029,8 +41010,8 @@ JREN:
   device: 'tablet'
   model: '$1'
 
-# Wanmukang (www.wanmuk.com)
-Wanmukang:
+# Zhongyu Display (previously Wanmukang (www.wanmuk.com), but ZC-339 is a motherboard from Zhongyu Display https://www-zyuxs-cn.translate.goog/news-8/650.html?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en-US&_x_tr_pto=wapp | https://www.zyuxs.com)
+Zhongyu Display:
   regex: '(?:ZC-339)(?:[);/ ]|$)'
   device: 'tablet'
   models:
@@ -41106,7 +41087,7 @@ Topsion:
 
 # Ceibal (www.ceibal.edu.uy)
 Ceibal:
-  regex: '(?:ACRUX|BELLATRIX|BETELGEUSE|GACRUX|Kil-82WFDC|U800B)(?:[);/ ]|$)'
+  regex: '(?:ACRUX|BELLATRIX|BETELGEUSE|GACRUX|Betacrux|Kil-82WFDC|U800B)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'ACRUX'
@@ -41121,6 +41102,9 @@ Ceibal:
       model: 'Kiland T8'
     - regex: '(U800B)'
       model: '$1'
+    - regex: 'Betacrux(?:[);/ ]|$)'
+      device: 'smartphone'
+      model: 'H133 Beta Crux'
 
 # Wecool
 Wecool:
@@ -41825,12 +41809,6 @@ OSCAL:
       device: 'tablet'
       model: 'Spider 8'
 
-# UE or United Education (www.ue.cn)
-UE:
-  regex: 'UE Pad 1'
-  device: 'tablet'
-  model: 'Pad 1'
-
 # Hykker (www.hykker.com)
 Hykker:
   regex: 'Hykker_MyTab10'
@@ -41852,14 +41830,6 @@ Quatro:
   regex: 'Quatro (8|10|FSM1453)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
-
-# White Mobile
-White Mobile:
-  regex: 'AM1010V(?:[);/ ]|$)'
-  device: 'smartphone'
-  models:
-    - regex: 'AM1010V'
-      model: 'Omega Lite 3'
 
 # ALLINmobile Or Allin Mobile
 ALLINmobile:
@@ -42094,14 +42064,6 @@ Waltter:
   regex: 'Waltter NEO 10\.1'
   device: 'tablet'
   model: 'Neo 10.1"'
-
-# LPX-G
-LPX-G:
-  regex: 'LPX-G BOX'
-  device: 'tv'
-  models:
-    - regex: 'LPX-G Box Max'
-      model: 'Box Max'
 
 # VALTECH
 VALTECH:
@@ -42544,11 +42506,11 @@ Webfleet:
   device: 'car browser'
   model: 'Pro 8475'
 
-# ROiK
-ROiK:
+# KAP (previously ROiK, but that's a model according to this https://www.youtube.com/watch?v=g9TNZJFTTsE)
+KAP:
   regex: 'ROiK ?(10)(?:[);/ ]|$)'
   device: 'car browser'
-  model: '$1'
+  model: 'ROiK-10'
 
 # Kinstone
 Kinstone:
@@ -42777,8 +42739,8 @@ AEEZO:
   device: 'tablet'
   model: '$1'
 
-# TPS or SZ TPS
-TPS:
+# TPS or SZ TPS (https://www.tpswkn.com/tr/products-detail-478747)
+SZ TPS:
   regex: 'TPS-(SC10)(?:[);/ ]|$)'
   device: 'tablet'
   model: '$1'
@@ -42890,8 +42852,8 @@ UOOGOU:
     - regex: 'UOOGOU[_ ]([^/;)]+)(?: Build|[);])'
       model: '$1'
 
-# MLAB or MicroLab
-MLAB:
+# MLAB or MicroLab (https://mlab.cl/about-us/)
+Microlab:
   regex: 'MLAB[ _-]'
   device: 'tablet'
   models:
@@ -43166,11 +43128,11 @@ A&K:
   device: 'feature phone'
   model: '$1'
 
-# BASE
-BASE:
+# Unikalne Smartphones (https://www.gsmchoice.com/en/catalogue/unikalne/)
+Unikalne Smartphones:
   regex: 'BASE[_ ](Varia)'
   device: 'smartphone'
-  model: '$1'
+  model: 'BASE $1'
 
 # BAUHN (https://bauhn.com.au/)
 BAUHN:
@@ -43300,7 +43262,7 @@ Dyon:
 
 # Hisense (https://www.hisense-usa.com/)
 Hisense:
-  regex: '(?:HS-)?Hisense ([^;/]+) Build|Hisense|HS-(?:G|U|EG?|I|L|T|X)[0-9]+[a-z0-9-]*|HNR(?:320T|55[01]T)|E270BSA|HWCD100E|HITV300C|HITV205N|M470BS[AE]|EG98|E2281|EG680|I46D1G|HAT4KDTV|HITV10[12]C|HLTE(?:[237]00T|229T|200M|203T|202N|21[023567][TM]|22[67]T|22[13]E|230E|239E|103E|310[TM]|31[16]T|500T|501N|510[TM]|556N|7[23]0T|720E|M800)|KS(?:907|964)|U972|U601S Pro|U972_Pro|HiSmart [24]K ATV4|HiSmartTV A4'
+  regex: '(?:HS-)?Hisense ([^;/]+) Build|Hisense|HS-(?:G|U|EG?|I|L|T|X)[0-9]+[a-z0-9-]*|HNR(?:320T|55[01]T)|E270BSA|HWCD100E|HITV300C|HITV205N|M470BS[AE]|E2281|HAT4KDTV|HITV10[12]C|HLTE(?:[237]00T|229T|200M|203T|202N|21[023567][TM]|22[67]T|22[13]E|230E|239E|103E|310[TM]|31[16]T|500T|501N|510[TM]|556N|7[23]0T|720E|M800)|KS(?:907|964)|U972|U601S Pro|U972_Pro|HiSmart [24]K ATV4|HiSmartTV A4'
   device: 'smartphone'
   models:
     # explicit tablet models
@@ -43344,12 +43306,6 @@ Hisense:
       model: 'H30'
     - regex: 'HLTE720E'
       model: 'U30'
-    - regex: 'I46D1G'
-      model: 'Smartfren Andromax R'
-    - regex: 'EG680'
-      model: 'Smartfren Andromax Z'
-    - regex: 'EG98'
-      model: 'Smartfren Andromax U2'
     - regex: 'HLTE200T(?:[);/ ]|$)'
       model: 'F26'
     - regex: 'HLTE210T(?:[);/ ]|$)'
@@ -43816,8 +43772,8 @@ Clovertek:
   device: 'tablet'
   model: '$1'
 
-# Padpro
-Padpro:
+# 7Ke tree (previously "Padpro", but "Padpro" seem like a model line, for example at least https://www.ebay.com/itm/404866696988 and https://www.ubuy.com.se/en/product/G68Y4S8AO-new-listing-14-inch-big-screen-tablet-pc-android-13-16gb-ram-512gb-rom-deca-core-keyboard?ref=hm-google-redirect seem like the same device)
+7Ke tree:
   regex: 'GT40promax'
   device: 'tablet'
   model: 'GT40 Pro Max'
@@ -44396,12 +44352,6 @@ PLDT:
     - regex: 'Aura[_ ]TELPAD[_ ]MT7'  # tablet + stationary phone
       device: 'peripheral'
       model: 'TelPad MT7'
-
-# MEGAMAX
-MEGAMAX:
-  regex: 'MEGAMAX(?:_W_)?(\d{2}MG11FSM)'
-  device: 'tv'
-  model: '$1'
 
 # PrismPlus (prismplus.sg)
 PRISM+:
