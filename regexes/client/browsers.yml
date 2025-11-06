@@ -1268,7 +1268,7 @@
   name: 'Yaani Browser'
   version: '$1'
   engine:
-    default: 'Blink'
+    default: '' # multi engine -- WebKit or Blink
 
 # Safe Exam Browser (https://safeexambrowser.org/)
 - regex: 'SEB/(?:(\d+[.\d]+))?'
@@ -2856,6 +2856,13 @@
   engine:
     default: '' # multi engine -- WebKit or Blink
 
+# Chrome Mobile IOS
+- regex: 'iPhone;.* like Mac OS X.* Chrome(?:/(\d+[.\d]+))? Mobile/\w{5,7} Safari/'
+  name: 'Chrome Mobile iOS'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+
 # Chrome Webview
 - regex: '(?: wv\)|Version/).* Chrome(?:/(\d+[.\d]+))?'
   name: 'Chrome Webview'
@@ -2865,7 +2872,7 @@
     versions:
       28: 'Blink'
 
-#Chrome
+# Chrome
 - regex: 'CrMo(?:/(\d+[.\d]+))?'
   name: 'Chrome Mobile'
   version: '$1'
