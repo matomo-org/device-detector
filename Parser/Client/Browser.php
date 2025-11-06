@@ -756,7 +756,7 @@ class Browser extends AbstractClientParser
             'PT', 'QU', 'QW', 'RM', 'S4', 'S6', 'S8', 'S9', 'SB',
             'SG', 'SS', 'SU', 'SV', 'SW', 'SY', 'SZ', 'T1', 'TA',
             'TB', 'TG', 'TR', 'TS', 'TU', 'TV', 'UB', 'UR', 'VE',
-            'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'FH',
+            'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'FH', 'H8',
             'B1', 'BO', 'HB', 'PC', 'LA', 'LT', 'PD', 'HR', 'HU',
             'HP', 'IO', 'TP', 'CJ', 'HQ', 'HI', 'PN', 'BW', 'YO',
             'DC', 'G8', 'DT', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
@@ -777,7 +777,7 @@ class Browser extends AbstractClientParser
             'M9', 'F9', '0P', '0A', 'JR', 'D3', 'TK', 'BP', '2F',
             '2M', 'K7', '1N', '8A', 'H7', 'X3', 'T4', 'X4', '5O',
             '8C', '3M', '6I', '2P', 'PU', '7I', 'X5', 'AL', '3P',
-            'W2', 'ZB', 'HN', 'Q6', 'Q7', 'H8',
+            'W2', 'ZB', 'HN', 'Q6', 'Q7',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -1114,11 +1114,11 @@ class Browser extends AbstractClientParser
             $engineVersion = '';
         }
 
-        if ('Wolvic' === $name && 'Blink' === $engine) {
+        if (\in_array($name, ['Yaani Browser', 'Wolvic']) && 'Blink' === $engine) {
             $family = 'Chrome';
         }
 
-        if ('Wolvic' === $name && 'Gecko' === $engine) {
+        if (\in_array($name, ['Yaani Browser', 'Wolvic']) && 'Gecko' === $engine) {
             $family = 'Firefox';
         }
 
