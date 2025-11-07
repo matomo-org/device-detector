@@ -1743,6 +1743,13 @@
   engine:
     default: 'Blink'
 
+# Harmony 360 Browser (only for HarmonyOS or OpenHarmonyOS)
+- regex: 'Browser/harmony360Browser/(\d+[.\d]+)$'
+  name: 'Harmony 360 Browser'
+  version: '$1'
+  engine:
+    default: 'ArkWeb'
+
 # 360 Secure Browser
 - regex: 'QIHU 360[ES]E|QihooBrowserHD/(\d+[.\d]+)'
   name: '360 Secure Browser'
@@ -2068,7 +2075,12 @@
   name: 'UC Browser Turbo'
   version: ''
 
-#UC Browser
+# UC Browser
+- regex: 'ArkWeb/(?:\d+[.\d]+) (?:Mobile )?UC[ ]?Browser(?:[ /]?(\d+[.\d]+))?$'
+  name: 'UC Browser'
+  version: '$1'
+  engine:
+    default: ArkWeb
 - regex: 'UC[ ]?Browser(?:[ /]?(\d+[.\d]+))?'
   name: 'UC Browser'
   version: '$1'
