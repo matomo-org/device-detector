@@ -313,6 +313,7 @@ class Browser extends AbstractClientParser
         'HT' => 'HTC Browser',
         'HU' => 'Huawei Browser Mobile',
         'HP' => 'Huawei Browser',
+        'HM' => 'Harmony 360 Browser',
         'H3' => 'HUB Browser',
         'IO' => 'iBrowser',
         'IS' => 'iBrowser Mini',
