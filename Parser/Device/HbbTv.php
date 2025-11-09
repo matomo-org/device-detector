@@ -32,9 +32,12 @@ class HbbTv extends AbstractDeviceParser
     /**
      * Parses the current UA and checks whether it contains HbbTv or SmartTvA information
      *
+     * @return array|null
+     *
+     * @throws \Exception
+     *
      * @see televisions.yml for list of detected televisions
      *
-     * @return array|null
      */
     public function parse(): ?array
     {
@@ -57,6 +60,8 @@ class HbbTv extends AbstractDeviceParser
      * Returns if the parsed UA was identified as a HbbTV device
      *
      * @return string|null
+     *
+     * @throws \Exception
      */
     public function isHbbTv(): ?string
     {
