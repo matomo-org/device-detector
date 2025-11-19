@@ -2016,7 +2016,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VOR' => 'Vormor',
         'V1'  => 'Voto',
         'Z7'  => 'VOX Electronics',
-        'Z7'  => 'VOX',
         'VOI' => 'VOIX',
         'VO'  => 'Voxtel',
         'VY'  => 'Voyo',
