@@ -57,6 +57,7 @@ class Engine extends AbstractClientParser
         'Arachne',
         'LibWeb',
         'Maple',
+        'ArkWeb',
     ];
 
     /**
