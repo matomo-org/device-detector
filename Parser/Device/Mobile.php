@@ -14,7 +14,10 @@ namespace DeviceDetector\Parser\Device;
 
 /**
  * Class Mobile
- *
+ * I have doubts about the correctness of the actions to return models from 2014 to 2021 back to Huawei
+ * It's not difficult, just a couple of days' work.
+ * Выглядит это максимально странно я уже начал возвращать
+ * Бала целая линейка Play в Huawei? потом продолжение уже в Honor, тоже самое Magic, Pad
  * Device parser for mobile detection
  */
 class Mobile extends AbstractDeviceParser
