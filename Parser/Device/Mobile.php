@@ -14,6 +14,7 @@ namespace DeviceDetector\Parser\Device;
 
 /**
  * Class Mobile
+ *
  * Device parser for mobile detection
  */
 class Mobile extends AbstractDeviceParser
