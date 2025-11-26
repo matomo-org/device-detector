@@ -2680,20 +2680,20 @@
   name: 'DeepL'
   version: ''
 
-# Electron generic apps
-- regex: ' (?!(?:AppleWebKit|brave|Cypress|Franz|Mailspring|Notion|Basecamp|Evernote|catalyst|ramboxpro|BlueMail|BeakerBrowser|Dezor|TweakStyle|Colibri|Polypane|Singlebox|Skye|VibeMate|(?:d|LT|Glass|Sushi|Flash|OhHai)Browser|Sizzy))([a-z0-9]*)(?:-desktop|-electron-app)?/(\d+\.[\d.]+).*Electron/'
-  name: '$1'
-  version: '$2'
+# Anything LLM (https://github.com/Mintplex-Labs/anything-llm)
+- regex: 'anythingllm-desktop/([\d.]+)'
+  name: 'Anything LLM'
+  version: '$1'
 
-# Generic app
-- regex: 'appname/([^/; ]*)'
-  name: '$1'
-  version: ''
+# OP.GG (https://play.google.com/store/apps/details?id=gg.op.lol.android&hl=en_US)
+- regex: 'opgg-electron-app/([\d.]+)'
+  name: 'OP.GG'
+  version: '$1'
 
-# AFNetworking generic
-- regex: '(?!AlohaBrowser)([^/;]*)/(\d+\.[\d.]+) \((?:iPhone|iPad); (?:iOS|iPadOS) [0-9.]+; Scale/[0-9.]+\)'
-  name: '$1'
-  version: '$2'
+# VidJuice UniTube (https://www.vidjuice.com/unitube-video-converter/)
+- regex: 'VidJuiceUniTube/([\d.]+)'
+  name: 'VidJuice UniTube'
+  version: '$1'
 
 # Seekr App (Android)
 - regex: '^Seekr/([\d\.]+).*Android'
@@ -2704,3 +2704,23 @@
 - regex: '^Seekr/([\d\.]+).*CFNetwork'
   name: 'Seekr'
   version: '$1'
+
+# Superbalist (https://superbalist.com/)
+- regex: '^Superbalist/([\d.]+)'
+  name: 'Superbalist'
+  version: '$1'
+
+# Electron generic apps
+- regex: ' (?!(?:AppleWebKit|brave|Cypress|Franz|Mailspring|Notion|Basecamp|Evernote|catalyst|ramboxpro|BlueMail|BeakerBrowser|Dezor|TweakStyle|Colibri|Polypane|Singlebox|Skye|VibeMate|(?:d|LT|Glass|Sushi|Flash|OhHai)Browser|Sizzy))([a-z0-9]*)(?:-desktop|-electron-app)?/(\d+\.[\d.]+).*Electron/'
+  name: '$1'
+  version: '$2'
+
+# Generic app
+- regex: 'AppVersion/([\d.]+).+appname/((?!\(null\))[^/; ]*)'
+  name: '$2'
+  version: '$1'
+
+# AFNetworking generic
+- regex: '(?!AlohaBrowser)([^/;]*)/(\d+\.[\d.]+) \((?:iPhone|iPad); (?:iOS|iPadOS) [0-9.]+; Scale/[0-9.]+\)'
+  name: '$1'
+  version: '$2'

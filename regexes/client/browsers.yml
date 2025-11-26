@@ -1268,7 +1268,7 @@
   name: 'Yaani Browser'
   version: '$1'
   engine:
-    default: 'Blink'
+    default: '' # multi engine -- WebKit or Blink
 
 # Safe Exam Browser (https://safeexambrowser.org/)
 - regex: 'SEB/(?:(\d+[.\d]+))?'
@@ -1455,6 +1455,11 @@
 # Tao Browser (https://browser.taobao.com/)
 - regex: 'TaoBrowser(?:/(\d+[.\d]+))?'
   name: 'Tao Browser'
+  version: '$1'
+
+# OpenAI Atlas browser (https://openai.com/index/introducing-chatgpt-atlas/)
+- regex: 'Atlas/(\d+[.\d]+)$'
+  name: 'ChatGPT Atlas'
   version: '$1'
 
 # Falkon (https://www.falkon.org/)
@@ -1742,6 +1747,13 @@
   version: '$1'
   engine:
     default: 'Blink'
+
+# Harmony 360 Browser (only for HarmonyOS or OpenHarmonyOS)
+- regex: 'Browser/harmony360Browser/(\d+[.\d]+)$'
+  name: 'Harmony 360 Browser'
+  version: '$1'
+  engine:
+    default: 'ArkWeb'
 
 # 360 Secure Browser
 - regex: 'QIHU 360[ES]E|QihooBrowserHD/(\d+[.\d]+)'
@@ -2068,7 +2080,12 @@
   name: 'UC Browser Turbo'
   version: ''
 
-#UC Browser
+# UC Browser
+- regex: 'ArkWeb/(?:\d+[.\d]+) (?:Mobile )?UC[ ]?Browser(?:[ /]?(\d+[.\d]+))?$'
+  name: 'UC Browser'
+  version: '$1'
+  engine:
+    default: ArkWeb
 - regex: 'UC[ ]?Browser(?:[ /]?(\d+[.\d]+))?'
   name: 'UC Browser'
   version: '$1'
@@ -2856,6 +2873,13 @@
   engine:
     default: '' # multi engine -- WebKit or Blink
 
+# Chrome Mobile IOS
+- regex: 'iPhone;.* like Mac OS X.* Chrome(?:/(\d+[.\d]+))? Mobile/\w{5,7} Safari/'
+  name: 'Chrome Mobile iOS'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+
 # Chrome Webview
 - regex: '(?: wv\)|Version/).* Chrome(?:/(\d+[.\d]+))?'
   name: 'Chrome Webview'
@@ -2865,7 +2889,7 @@
     versions:
       28: 'Blink'
 
-#Chrome
+# Chrome
 - regex: 'CrMo(?:/(\d+[.\d]+))?'
   name: 'Chrome Mobile'
   version: '$1'
