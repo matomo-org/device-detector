@@ -848,6 +848,7 @@ class Browser extends AbstractClientParser
         'Mi Browser'                 => ['Miui Browser', 'XiaoMiBrowser'],
         'Microsoft Edge'             => ['Edge'],
         'Norton Private Browser'     => ['Norton Secure Browser'],
+        'Opera Mini'                 => ['Opera Mini Android'],
         'Vewd Browser'               => ['Vewd Core'],
     ];
 
