@@ -79,6 +79,7 @@ class Browser extends AbstractClientParser
         '7B' => '7654 Browser',
         'AA' => 'Avant Browser',
         'AB' => 'ABrowse',
+        '00' => 'Ace',
         '4A' => 'Acoo Browser',
         'BW' => 'AdBlock Browser',
         'A7' => 'Adult Browser',
@@ -779,7 +780,7 @@ class Browser extends AbstractClientParser
             'M9', 'F9', '0P', '0A', 'JR', 'D3', 'TK', 'BP', '2F',
             '2M', 'K7', '1N', '8A', 'H7', 'X3', 'T4', 'X4', '5O',
             '8C', '3M', '6I', '2P', 'PU', '7I', 'X5', 'AL', '3P',
-            'W2', 'ZB', 'HN', 'Q6', 'Q7', 'G0',
+            'W2', 'ZB', 'HN', 'Q6', 'Q7', 'G0', '00',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
