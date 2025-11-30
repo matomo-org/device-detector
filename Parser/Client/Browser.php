@@ -649,6 +649,7 @@ class Browser extends AbstractClientParser
         'TB' => 'Tenta Browser',
         'TE' => 'Tesla Browser',
         'TZ' => 'Tizen Browser',
+        'T5' => 'Tincat Browser',
         'TI' => 'Tint Browser',
         'TL' => 'TrueLocation Browser',
         'TC' => 'TUC Mini Browser',
