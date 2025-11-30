@@ -857,6 +857,7 @@ class Browser extends AbstractClientParser
         'Opera GX'                   => ['Opera GX Android'],
         'Opera Mini'                 => ['Opera Mini Android'],
         'Vewd Browser'               => ['Vewd Core'],
+        'Yandex Browser'             => ['YaSearchBrowser'],
     ];
 
     /**
