@@ -331,6 +331,7 @@ class Browser extends AbstractClientParser
         'I6' => 'iDesktop PC Browser',
         'IC' => 'iCab',
         'I2' => 'iCab Mobile',
+        '0I' => 'Ifbrowser',
         '4I' => 'iNet Browser',
         'I1' => 'Iridium',
         'I3' => 'Iron Mobile',
@@ -803,7 +804,7 @@ class Browser extends AbstractClientParser
             '8C', '3M', '6I', '2P', 'PU', '7I', 'X5', 'AL', '3P',
             'W2', 'ZB', 'HN', 'Q6', 'Q7', 'G0', '00', 'R6', 'D8',
             'PQ', 'LM', 'T5', '2N', 'SJ', 'X6', 'SM', 'AY', 'BQ',
-            'BC', 'NQ', 'VQ', '9C', 'KA', 'YS', 'D4', 'PZ',
+            'BC', 'NQ', 'VQ', '9C', 'KA', 'YS', 'D4', 'PZ', '0I',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -857,6 +858,7 @@ class Browser extends AbstractClientParser
         '2M', 'K7', '1N', '8A', 'H7', 'X3', 'X4', '5O', '6I',
         '7I', 'X5', '3P', '2E', 'T5', '2N', 'SJ', 'X6', 'SM',
         'AY', 'BQ', 'BC', 'NQ', 'VQ', 'KA', 'YS', 'D4', 'PZ',
+        '0I',
     ];
 
     /**
