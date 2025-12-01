@@ -146,6 +146,11 @@
   name: 'Google Assistant'
   version: '$1'
 
+# WeCom (https://work.weixin.qq.com/ | https://play.google.com/store/apps/details?id=com.tencent.wework | https://apps.apple.com/app/id1087897068)
+- regex: 'wxwork/(\d+[.\d]+)'
+  name: 'WeCom'
+  version: '$1'
+
 # WeChat
 - regex: 'MicroMessenger/([\d.]+)'
   name: 'WeChat'
@@ -416,11 +421,6 @@
 # (https://play.google.com/store/apps/details?id=cl.uchile.ing.adi.ucursos)
 - regex: 'UCURSOS/v([\d.]+)'
   name: 'U-Cursos'
-  version: '$1'
-
-# HeyTabBrowser or HeyTabAccount
-- regex: 'HeyTapBrowser/([\d.]+)'
-  name: 'HeyTapBrowser'
   version: '$1'
 
 # Roblox App
@@ -2680,15 +2680,45 @@
   name: 'DeepL'
   version: ''
 
+# Anything LLM (https://github.com/Mintplex-Labs/anything-llm)
+- regex: 'anythingllm-desktop/([\d.]+)'
+  name: 'Anything LLM'
+  version: '$1'
+
+# OP.GG (https://play.google.com/store/apps/details?id=gg.op.lol.android&hl=en_US)
+- regex: 'opgg-electron-app/([\d.]+)'
+  name: 'OP.GG'
+  version: '$1'
+
+# VidJuice UniTube (https://www.vidjuice.com/unitube-video-converter/)
+- regex: 'VidJuiceUniTube/([\d.]+)'
+  name: 'VidJuice UniTube'
+  version: '$1'
+
+# Seekr App (Android)
+- regex: '^Seekr/([\d\.]+).*Android'
+  name: 'Seekr'
+  version: '$1'
+
+# Seekr App (iOS)
+- regex: '^Seekr/([\d\.]+).*CFNetwork'
+  name: 'Seekr'
+  version: '$1'
+
+# Superbalist (https://superbalist.com/)
+- regex: '^Superbalist/([\d.]+)'
+  name: 'Superbalist'
+  version: '$1'
+
 # Electron generic apps
 - regex: ' (?!(?:AppleWebKit|brave|Cypress|Franz|Mailspring|Notion|Basecamp|Evernote|catalyst|ramboxpro|BlueMail|BeakerBrowser|Dezor|TweakStyle|Colibri|Polypane|Singlebox|Skye|VibeMate|(?:d|LT|Glass|Sushi|Flash|OhHai)Browser|Sizzy))([a-z0-9]*)(?:-desktop|-electron-app)?/(\d+\.[\d.]+).*Electron/'
   name: '$1'
   version: '$2'
 
 # Generic app
-- regex: 'appname/([^/; ]*)'
-  name: '$1'
-  version: ''
+- regex: 'AppVersion/([\d.]+).+appname/((?!\(null\))[^/; ]*)'
+  name: '$2'
+  version: '$1'
 
 # AFNetworking generic
 - regex: '(?!AlohaBrowser)([^/;]*)/(\d+\.[\d.]+) \((?:iPhone|iPad); (?:iOS|iPadOS) [0-9.]+; Scale/[0-9.]+\)'
