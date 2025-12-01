@@ -176,6 +176,7 @@ class Browser extends AbstractClientParser
         'C6' => 'Chedot',
         'C9' => 'Cherry Browser',
         'C0' => 'Centaury',
+        '9C' => 'Clear TV Browser',
         'CQ' => 'Cliqz',
         'CC' => 'Coc Coc',
         'C4' => 'CoolBrowser',
@@ -798,7 +799,7 @@ class Browser extends AbstractClientParser
             '8C', '3M', '6I', '2P', 'PU', '7I', 'X5', 'AL', '3P',
             'W2', 'ZB', 'HN', 'Q6', 'Q7', 'G0', '00', 'R6', 'D8',
             'PQ', 'LM', 'T5', '2N', 'SJ', 'X6', 'SM', 'AY', 'BQ',
-            'BC', 'NQ', 'VQ',
+            'BC', 'NQ', 'VQ', '9C',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
