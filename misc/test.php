@@ -15,7 +15,7 @@ require __DIR__ . '/../vendor/autoload.php';
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\Device\AbstractDeviceParser;
 
-if ('cli' === php_sapi_name()) {
+if ('cli' === PHP_SAPI) {
     if (isset($argv[1])) {
         $userAgent = $argv[1];
     }
@@ -27,7 +27,7 @@ AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCAT
 
 $result = DeviceDetector::getInfoFromUserAgent($userAgent);
 
-if ('cli' === php_sapi_name()) {
+if ('cli' === PHP_SAPI) {
     echo Spyc::YAMLDump($result, 2, 0);
     exit(0);
 }

@@ -24,16 +24,14 @@ class MobileAppTest extends TestCase
     public function testParse(string $useragent, array $client): void
     {
         $mobileAppParser = new MobileApp();
-        $mobileAppParser->setVersionTruncation(MobileApp::VERSION_TRUNCATION_NONE);
+        $mobileAppParser::setVersionTruncation(MobileApp::VERSION_TRUNCATION_NONE);
         $mobileAppParser->setUserAgent($useragent);
         $this->assertEquals($client, $mobileAppParser->parse());
     }
 
     public function getFixtures(): array
     {
-        $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/mobile_app.yml');
-
-        return $fixtureData;
+        return Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/mobile_app.yml');
     }
 
     public function testStructureMobileAppYml(): void

@@ -29,7 +29,7 @@ class BrowserTest extends TestCase
     public function testParse(string $useragent, array $client, ?array $headers = null): void
     {
         $browserParser = new Browser();
-        $browserParser->setVersionTruncation(Browser::VERSION_TRUNCATION_NONE);
+        $browserParser::setVersionTruncation(Browser::VERSION_TRUNCATION_NONE);
         $browserParser->setUserAgent($useragent);
 
         if (null !== $headers) {
@@ -51,9 +51,7 @@ class BrowserTest extends TestCase
 
     public function getFixtures(): array
     {
-        $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/browser.yml');
-
-        return $fixtureData;
+        return Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/browser.yml');
     }
 
     public function testGetAvailableBrowserFamilies(): void
@@ -90,12 +88,8 @@ class BrowserTest extends TestCase
 
     public function testBrowserFamiliesNoDuplicates(): void
     {
-        $browsers = Browser::getAvailableBrowserFamilies();
-
-        foreach ($browsers as $browser => $families) {
-            $shortcodes = \array_count_values($families);
-
-            foreach ($shortcodes as $shortcode => $count) {
+        foreach (Browser::getAvailableBrowserFamilies() as $browser => $families) {
+            foreach (\array_count_values($families) as $shortcode => $count) {
                 $this->assertEquals(
                     $count,
                     1,
@@ -132,6 +126,7 @@ class BrowserTest extends TestCase
 
     /**
      * @return array
+     * @throws \ReflectionException
      */
     public function getFixturesBrowserHints(): array
     {
