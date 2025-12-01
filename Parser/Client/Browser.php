@@ -144,6 +144,7 @@ class Browser extends AbstractClientParser
         'B2' => 'Berry Browser',
         'BT' => 'Bitchute Browser',
         '9B' => 'BizBrowser',
+        'BC' => 'Black Browser',
         'BH' => 'BlackHawk',
         'B0' => 'Bloket',
         'BJ' => 'Bunjalloo',
@@ -795,6 +796,7 @@ class Browser extends AbstractClientParser
             '8C', '3M', '6I', '2P', 'PU', '7I', 'X5', 'AL', '3P',
             'W2', 'ZB', 'HN', 'Q6', 'Q7', 'G0', '00', 'R6', 'D8',
             'PQ', 'LM', 'T5', '2N', 'SJ', 'X6', 'SM', 'AY', 'BQ',
+            'BC',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -847,7 +849,7 @@ class Browser extends AbstractClientParser
         '9P', 'N8', 'VR', 'N9', 'M9', 'F9', '0P', '0A', '2F',
         '2M', 'K7', '1N', '8A', 'H7', 'X3', 'X4', '5O', '6I',
         '7I', 'X5', '3P', '2E', 'T5', '2N', 'SJ', 'X6', 'SM',
-        'AY', 'BQ',
+        'AY', 'BQ', 'BC',
     ];
 
     /**
