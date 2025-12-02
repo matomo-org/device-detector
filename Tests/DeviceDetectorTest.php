@@ -591,6 +591,10 @@ class DeviceDetectorTest extends TestCase
             'Site Monitor',
             'Social Media Agent',
             'Validator',
+            'AI Agent',
+            'AI Assistant',
+            'AI Crawler',
+            'AI Search Crawler',
         ];
 
         $this->assertTrue(
