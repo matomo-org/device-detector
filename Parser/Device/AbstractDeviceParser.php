@@ -704,6 +704,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FXT' => 'Fxtec',
         'GT'  => 'G-TiDE',
         'G9'  => 'G-Touch',
+        'GTB' => 'G-Tab',
         'GFO' => 'Gfone',
         'GTM' => 'GTMEDIA',
         'GTX' => 'GTX',
