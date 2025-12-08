@@ -16,6 +16,7 @@ use DeviceDetector\ClientHints;
 use DeviceDetector\Parser\Client\Browser;
 use DeviceDetector\Parser\Client\Browser\Engine;
 use DeviceDetector\Parser\Client\Hints\BrowserHints;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
@@ -26,6 +27,7 @@ class BrowserTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
+    #[DataProvider('getFixtures')]
     public function testParse(string $useragent, array $client, ?array $headers = null): void
     {
         $browserParser = new Browser();
@@ -154,6 +156,7 @@ class BrowserTest extends TestCase
     /**
      * @dataProvider getFixturesBrowserHints
      */
+    #[DataProvider('getFixturesBrowserHints')]
     public function testBrowserHintsForAvailableBrowsers(string $name): void
     {
         $browserShort = Browser::getBrowserShortName($name);

@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace DeviceDetector\Tests\Parser\Client;
 
 use DeviceDetector\Parser\Client\PIM;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
@@ -21,6 +22,7 @@ class PIMTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
+    #[DataProvider('getFixtures')]
     public function testParse(string $useragent, array $client): void
     {
         $PIMParser = new PIM();

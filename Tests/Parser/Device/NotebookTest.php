@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace DeviceDetector\Tests\Parser\Device;
 
 use DeviceDetector\Parser\Device\Notebook;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
@@ -21,6 +22,7 @@ class NotebookTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
+    #[DataProvider('getFixtures')]
     public function testParse(string $useragent, array $device): void
     {
         $notebookParser = new Notebook();

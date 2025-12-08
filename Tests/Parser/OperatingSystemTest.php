@@ -14,6 +14,7 @@ namespace DeviceDetector\Tests\Parser;
 
 use DeviceDetector\ClientHints;
 use DeviceDetector\Parser\OperatingSystem;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
@@ -24,6 +25,7 @@ class OperatingSystemTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
+    #[DataProvider('getFixtures')]
     public function testParse(string $useragent, array $os, ?array $headers = null): void
     {
         $osParser = new OperatingSystem();
@@ -51,6 +53,7 @@ class OperatingSystemTest extends TestCase
     /**
      * @dataProvider getAllOs
      */
+    #[DataProvider('getAllOs')]
     public function testOSInGroup(string $os): void
     {
         $familyOs = \call_user_func_array('array_merge', \array_values(OperatingSystem::getAvailableOperatingSystemFamilies()));
@@ -70,6 +73,7 @@ class OperatingSystemTest extends TestCase
     /**
      * @dataProvider getAllFamilyOs
      */
+    #[DataProvider('getAllFamilyOs')]
     public function testFamilyOSExists(string $os): void
     {
         $allOs = \array_keys(OperatingSystem::getAvailableOperatingSystems());
@@ -94,6 +98,7 @@ class OperatingSystemTest extends TestCase
     /**
      * @dataProvider getNameFromIds
      */
+    #[DataProvider('getNameFromIds')]
     public function testGetNameFromId(string $os, string $version, ?string $expected): void
     {
         $this->assertEquals($expected, OperatingSystem::getNameFromId($os, $version));
