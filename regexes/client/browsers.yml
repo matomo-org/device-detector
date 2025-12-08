@@ -189,10 +189,12 @@
   engine:
     default: 'Gecko'
 
-# NOOK Browser
+# Nook Browser (https://browsewithnook.com/)
 - regex: 'nook browser(?:/(\d+[.\d]+))?'
-  name: 'NOOK Browser'
+  name: 'Nook Browser'
   version: '$1'
+  engine:
+    default: 'WebKit'
 
 # Arachne (https://www.glennmcc.org/)
 - regex: 'xChaos_Arachne/5\.(\d+\.[.\d]+)'
@@ -2513,8 +2515,6 @@
 - regex: 'MobileIron(?:/(\d+[.\d]+))?'
   name: 'Iron Mobile'
   version: '$1'
-  engine:
-    default: 'Blink'
 
 # Iron
 - regex: 'Chrome(?:/(\d+\.[.\d]+) )?.*Iron'
@@ -2889,7 +2889,7 @@
     default: '' # multi engine -- WebKit or Blink
 
 # Chrome Mobile IOS
-- regex: 'iPhone;.* like Mac OS X.* Chrome(?:/(\d+[.\d]+))? Mobile/\w{5,7} Safari/'
+- regex: '(?:iPad|iPhone);.* like Mac OS X.* Chrome(?:/(\d+[.\d]+))? Mobile/\w{5,7} Safari/'
   name: 'Chrome Mobile iOS'
   version: '$1'
   engine:
@@ -3417,7 +3417,7 @@
   version: '$1'
   engine:
     default: 'WebKit'
-- regex: 'NetworkingExtension/(\d+[.\d]+).+ CFNetwork'
+- regex: '(?:com\.apple\.WebKit\.Networking|NetworkingExtension)/(\d+[.\d]+).+ CFNetwork'
   name: 'Safari'
   version: '$1'
   engine:
