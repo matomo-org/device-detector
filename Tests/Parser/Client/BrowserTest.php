@@ -115,11 +115,19 @@ class BrowserTest extends TestCase
     {
         $reflectionClass = new \ReflectionClass(Browser::class);
         $browserProperty = $reflectionClass->getProperty('availableBrowsers');
-        $browserProperty->setAccessible(true);
+
+        if (PHP_VERSION_ID < 80500) {
+            $browserProperty->setAccessible(true);
+        }
+
         $availableBrowsers = $browserProperty->getValue();
 
         $browserFamilyProperty = $reflectionClass->getProperty('browserFamilies');
-        $browserFamilyProperty->setAccessible(true);
+
+        if (PHP_VERSION_ID < 80500) {
+            $browserFamilyProperty->setAccessible(true);
+        }
+
         $browserFamilies = $browserFamilyProperty->getValue();
         $result          = [];
 
@@ -142,7 +150,11 @@ class BrowserTest extends TestCase
     public static function getFixturesBrowserHints(): array
     {
         $method = new \ReflectionMethod(BrowserHints::class, 'getRegexes');
-        $method->setAccessible(true);
+
+        if (PHP_VERSION_ID < 80500) {
+            $method->setAccessible(true);
+        }
+
         $hints    = $method->invoke(new BrowserHints());
         $fixtures = [];
 
