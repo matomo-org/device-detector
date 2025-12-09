@@ -16,6 +16,7 @@ use DeviceDetector\ClientHints;
 use DeviceDetector\Parser\Client\Browser;
 use DeviceDetector\Parser\Client\Browser\Engine;
 use DeviceDetector\Parser\Client\Hints\BrowserHints;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
@@ -26,6 +27,7 @@ class BrowserTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
+    #[DataProvider('getFixtures')]
     public function testParse(string $useragent, array $client, ?array $headers = null): void
     {
         $browserParser = new Browser();
@@ -49,9 +51,13 @@ class BrowserTest extends TestCase
         self::$browsersTested[] = $client['name'];
     }
 
-    public function getFixtures(): array
+    public static function getFixtures(): array
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/browser.yml');
+
+        $fixtureData = \array_map(static function (array $item): array {
+            return ['useragent' => $item['user_agent'], 'client' => $item['client'], 'headers' => $item['headers'] ?? null];
+        }, $fixtureData);
 
         return $fixtureData;
     }
@@ -109,11 +115,19 @@ class BrowserTest extends TestCase
     {
         $reflectionClass = new \ReflectionClass(Browser::class);
         $browserProperty = $reflectionClass->getProperty('availableBrowsers');
-        $browserProperty->setAccessible(true);
+
+        if (PHP_VERSION_ID < 80500) {
+            $browserProperty->setAccessible(true);
+        }
+
         $availableBrowsers = $browserProperty->getValue();
 
         $browserFamilyProperty = $reflectionClass->getProperty('browserFamilies');
-        $browserFamilyProperty->setAccessible(true);
+
+        if (PHP_VERSION_ID < 80500) {
+            $browserFamilyProperty->setAccessible(true);
+        }
+
         $browserFamilies = $browserFamilyProperty->getValue();
         $result          = [];
 
@@ -133,10 +147,14 @@ class BrowserTest extends TestCase
     /**
      * @return array
      */
-    public function getFixturesBrowserHints(): array
+    public static function getFixturesBrowserHints(): array
     {
         $method = new \ReflectionMethod(BrowserHints::class, 'getRegexes');
-        $method->setAccessible(true);
+
+        if (PHP_VERSION_ID < 80500) {
+            $method->setAccessible(true);
+        }
+
         $hints    = $method->invoke(new BrowserHints());
         $fixtures = [];
 
@@ -150,6 +168,7 @@ class BrowserTest extends TestCase
     /**
      * @dataProvider getFixturesBrowserHints
      */
+    #[DataProvider('getFixturesBrowserHints')]
     public function testBrowserHintsForAvailableBrowsers(string $name): void
     {
         $browserShort = Browser::getBrowserShortName($name);

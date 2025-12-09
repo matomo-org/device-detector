@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace DeviceDetector\Tests\Parser\Client;
 
 use DeviceDetector\Parser\Client\PIM;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
@@ -21,6 +22,7 @@ class PIMTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
+    #[DataProvider('getFixtures')]
     public function testParse(string $useragent, array $client): void
     {
         $PIMParser = new PIM();
@@ -29,9 +31,13 @@ class PIMTest extends TestCase
         $this->assertEquals($client, $PIMParser->parse());
     }
 
-    public function getFixtures(): array
+    public static function getFixtures(): array
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/pim.yml');
+
+        $fixtureData = \array_map(static function (array $item): array {
+            return ['useragent' => $item['user_agent'], 'client' => $item['client']];
+        }, $fixtureData);
 
         return $fixtureData;
     }
