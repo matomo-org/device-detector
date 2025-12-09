@@ -45,14 +45,17 @@ class ShellTv extends AbstractDeviceParser
     /**
      * Parses the current UA and checks whether it contains ShellTv information
      *
+     * @return array|null
+     *
+     * @throws \Exception
+     *
      * @see shell_tv.yml for list of detected televisions
      *
-     * @return array|null
      */
     public function parse(): ?array
     {
         // only parse user agents containing fragments: {brand} shell
-        if (false === $this->isShellTv()) {
+        if (!$this->isShellTv()) {
             return null;
         }
 
