@@ -54,13 +54,19 @@ $dd = new DeviceDetector($userAgent, $clientHints);
 
 // OPTIONAL: Set caching method
 // By default static cache is used, which works best within one php process (memory array caching)
-// To cache across requests use caching in files or memcache
-// $dd->setCache(new Doctrine\Common\Cache\PhpFileCache('./tmp/'));
+// To cache across requests use caching in files or memcache. Several cache bridges are supported:
+// $dd->setCache(new DeviceDetector\Cache\DoctrineBridge(...));
+// $dd->setCache(new DeviceDetector\Cache\LaravelCache(...));
+// $dd->setCache(new DeviceDetector\Cache\PSR6Bridge(...));
+// $dd->setCache(new DeviceDetector\Cache\PSR16Bridge(...));
+// Instead of `...` provide respective cache object, for example:
+// $dd->setCache(new DeviceDetector\Cache\PSR6Bridge(new Symfony\Component\Cache\Adapter\ApcuAdapter('matomo')));
 
 // OPTIONAL: Set custom yaml parser
 // By default Spyc will be used for parsing yaml files. You can also use another yaml parser.
 // You may need to implement the Yaml Parser facade if you want to use another parser than Spyc or [Symfony](https://github.com/symfony/yaml)
 // $dd->setYamlParser(new DeviceDetector\Yaml\Symfony());
+// $dd->setYamlParser(new DeviceDetector\Yaml\Pecl());
 
 // OPTIONAL: If called, getBot() will only return true if a bot was detected  (speeds up detection a bit)
 // $dd->discardBotInformation();
