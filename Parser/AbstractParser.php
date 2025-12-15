@@ -363,7 +363,7 @@ abstract class AbstractParser
         $pattern = '~Android (?:1[0-6][.\d]*; K(?: Build/|[;)])|1[0-6]\)) AppleWebKit~i';
 
         if (\preg_match($pattern, $this->userAgent)) {
-            return stripos($this->userAgent, 'Telegram-Android/') === false;
+            return false === \stripos($this->userAgent, 'Telegram-Android/');
         }
 
         return false;
