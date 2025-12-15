@@ -360,7 +360,13 @@ abstract class AbstractParser
      */
     protected function hasUserAgentClientHintsFragment(): bool
     {
-        return (bool) \preg_match('~Android (?:10[.\d]*; K(?: Build/|[;)])|1[1-5]\)) AppleWebKit~i', $this->userAgent);
+        $pattern = '~Android (?:1[0-6][.\d]*; K(?: Build/|[;)])|1[0-6]\)) AppleWebKit~i';
+
+        if (\preg_match($pattern, $this->userAgent)) {
+            return stripos($this->userAgent, 'Telegram-Android/') === false;
+        }
+
+        return false;
     }
 
     /**
