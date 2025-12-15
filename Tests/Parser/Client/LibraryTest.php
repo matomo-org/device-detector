@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace DeviceDetector\Tests\Parser\Client;
 
 use DeviceDetector\Parser\Client\Library;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
@@ -21,6 +22,7 @@ class LibraryTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
+    #[DataProvider('getFixtures')]
     public function testParse(string $useragent, array $client): void
     {
         $libraryParser = new Library();
@@ -29,9 +31,13 @@ class LibraryTest extends TestCase
         $this->assertEquals($client, $libraryParser->parse());
     }
 
-    public function getFixtures(): array
+    public static function getFixtures(): array
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/library.yml');
+
+        $fixtureData = \array_map(static function (array $item): array {
+            return ['useragent' => $item['user_agent'], 'client' => $item['client']];
+        }, $fixtureData);
 
         return $fixtureData;
     }
