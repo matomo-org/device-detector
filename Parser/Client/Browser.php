@@ -279,6 +279,7 @@ class Browser extends AbstractClientParser
         'FO' => 'Flow',
         'F2' => 'Flow Browser',
         'FM' => 'Firefox Mobile',
+        '3F' => 'FireSend Browser',
         'FW' => 'Fireweb',
         'FN' => 'Fireweb Navigator',
         'FH' => 'Flash Browser',
@@ -806,6 +807,7 @@ class Browser extends AbstractClientParser
             'W2', 'ZB', 'HN', 'Q6', 'Q7', 'G0', '00', 'R6', 'D8',
             'PQ', 'LM', 'T5', '2N', 'SJ', 'X6', 'SM', 'AY', 'BQ',
             'BC', 'NQ', 'VQ', '9C', 'KA', 'YS', 'D4', 'PZ', '0I',
+            '3F',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
