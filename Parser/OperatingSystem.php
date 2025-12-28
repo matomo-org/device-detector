@@ -201,6 +201,7 @@ class OperatingSystem extends AbstractParser
         'SY3' => 'Symbian^3',
         'TEN' => 'TencentOS',
         'TDX' => 'ThreadX',
+        'TIT' => 'Titan OS',
         'TIZ' => 'Tizen',
         'TIV' => 'TiVo OS',
         'TOS' => 'TmaxOS',
@@ -278,7 +279,7 @@ class OperatingSystem extends AbstractParser
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
         'Windows Mobile'        => ['WPH', 'WMO', 'WCE', 'WRT', 'WIO', 'KIN'],
-        'Other Smart TV'        => ['WHS', 'ORS'],
+        'Other Smart TV'        => ['WHS', 'TIT', 'ORS'],
     ];
 
     /**
