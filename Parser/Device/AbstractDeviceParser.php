@@ -453,6 +453,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'DB'  => 'Dbtel',
         'DBP' => 'DbPhone',
         'DCO' => 'Dcode',
+        'DEC' => 'DEC',
         'DL'  => 'Dell',
         'DL0' => 'DL',
         'DE'  => 'Denver',
