@@ -529,6 +529,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'DTE' => 'D-Tech',
         'DLI' => 'D-Link',
         'ENO' => 'eNOVA',
+        'IN4' => 'Inno Hit',
         'IN2' => 'iNOVA',
         'IN3' => 'inovo',
         'INH' => 'Inhon',
