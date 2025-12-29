@@ -1580,9 +1580,11 @@ Xiaomi:
 
 # Unknown
 Unknown:
-  regex: 'OEM, ([a-z0-9_ -]+), (?:wired|wireless)|_TV_[A-Z0-9]+_([0-9]{4});|LaTivu_(?:\d+[.\d]+)_([0-9]{4})'
+  regex: 'OEM, ([a-z0-9_ -]+), (?:wired|wireless)|_TV_[A-Z0-9]+_([0-9]{4});|LaTivu_(?:\d+[.\d]+)_([0-9]{4})|LGE/[^/]+/[^/]+;'
   device: 'tv'
   models:
+    - regex: 'LGE/[^/]+/[^/]+; ([a-z0-9-]+);'
+      model: '$1'
     - regex: '_TV_[A-Z0-9]+_([0-9]{4});'
       model: 'Smart TV ($1)'
     - regex: 'LaTivu_(?:\d+[.\d]+)_([0-9]{4})'
