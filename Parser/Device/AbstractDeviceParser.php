@@ -1752,6 +1752,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '06'  => 'Subor',
         'SUT' => 'SULPICE TV',
         'SZ'  => 'Sumvision',
+        'SNG' => 'SUNGATE',
         '0H'  => 'Sunstech',
         'S3'  => 'SunVan',
         '5S'  => 'Sunvell',
