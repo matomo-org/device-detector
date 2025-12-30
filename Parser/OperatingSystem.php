@@ -63,6 +63,7 @@ class OperatingSystem extends AbstractParser
         'BOS' => 'Bliss OS',
         'BMP' => 'Brew',
         'BSN' => 'BrightSignOS',
+        'BS1' => 'BSD',
         'CAI' => 'Caixa Mágica',
         'CES' => 'CentOS',
         'CST' => 'CentOS Stream',
@@ -274,7 +275,7 @@ class OperatingSystem extends AbstractParser
         'Symbian'               => ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
         'Unix'                  => [
             'SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64',
-            'INF', 'ELE', 'GNX', 'ULT', 'NWS', 'NXT', 'SBL',
+            'INF', 'ELE', 'GNX', 'ULT', 'NWS', 'NXT', 'SBL', 'BS1',
         ],
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
