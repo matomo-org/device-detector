@@ -1197,6 +1197,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MEO' => 'MEO',
         'MX'  => 'MEU',
         'MES' => 'MESWAO',
+        'MII' => 'MIIA',
         'MI'  => 'MicroMax',
         'MIP' => 'mipo',
         'MS'  => 'Microsoft',
