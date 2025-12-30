@@ -753,7 +753,7 @@ class OperatingSystem extends AbstractParser
             return 'SPARC64';
         }
 
-        if ($this->matchUserAgent('64-?bit|WOW64|(?:Intel)?x64|WINDOWS_64|win64|.*amd64|.*x86_?64')) {
+        if ($this->matchUserAgent('64-?bit|WOW64|(?:Intel)?x64|WINDOWS_64|win64|IRIX;?64|.*amd64|.*x86_?64')) {
             return 'x64';
         }
 
