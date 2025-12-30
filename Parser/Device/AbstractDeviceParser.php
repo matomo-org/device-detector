@@ -1494,7 +1494,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'PPD' => 'PPDS',
         'P3'  => 'PPTV',
         'FP'  => 'Premio',
-        'PR1' => 'Premier',
+        'PR1' => 'Premier Star',
         'PR'  => 'Prestigio',
         'P9'  => 'Primepad',
         'PRM' => 'PRIME',
