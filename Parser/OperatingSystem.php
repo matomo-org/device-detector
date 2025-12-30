@@ -509,6 +509,15 @@ class OperatingSystem extends AbstractParser
             }
         }
 
+        if ('' !== $name && !\in_array($name, self::$operatingSystems)) {
+            // This Exception should never be thrown. If so, a defined operating system is missing in $operatingSystems
+            throw new \Exception(\sprintf(
+                "The operating system '%s' should be listed in operatingSystems array. Tried to parse user agent: %s",
+                $name,
+                $this->userAgent
+            )); // @codeCoverageIgnore
+        }
+
         $return = [
             'name'       => $name,
             'short_name' => $short,
@@ -633,8 +642,6 @@ class OperatingSystem extends AbstractParser
      * Returns the OS that can be detected from useragent
      *
      * @return array
-     *
-     * @throws \Exception
      */
     protected function parseOsFromUserAgent(): array
     {
