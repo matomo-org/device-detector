@@ -746,10 +746,12 @@ Stilevs:
 
 # Sunny (https://www.sunny.com.tr/)
 Sunny:
-  regex: 'SUNNY[;,)]'
+  regex: 'SUNNY[;,)]|SN55FMN243-0246'
   device: 'tv'
   models:
-    - regex: '(?:ATMACA|XianYou)/SUNNY; ([a-z0-9]+)-'
+    - regex: '(SN55FMN243-0246)'
+      model: '$1'
+    - regex: '(?:ATMACA|XianYou)/SUNNY; (?!\d{2}AT\d{3})([a-z0-9-]+);'
       model: '$1'
     - regex: '(?:ATMACA|XianYou)/SUNNY.+(2018)\)'
       model: 'Smart TV ($1)'
