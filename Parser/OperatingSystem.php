@@ -298,6 +298,7 @@ class OperatingSystem extends AbstractParser
      */
     protected static $desktopOsArray = [
         'AmigaOS', 'IBM', 'GNU/Linux', 'Mac', 'Unix', 'Windows', 'BeOS', 'Chrome OS',
+        'OpenVMS',
     ];
 
     /**
