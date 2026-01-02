@@ -106,10 +106,10 @@ Atvio:
 
 # AWOX (https://www.awox.com.tr/)
 AWOX:
-  regex: 'LGE/XianYou/AWOX'
+  regex: 'AWOX[;,)]'
   device: 'tv'
   models:
-    - regex: 'LGE/XianYou/AWOX; ([a-z0-9]+);'
+    - regex: 'LGE/[^/]+/AWOX; ([a-z0-9]+);'
       model: '$1'
 
 # AYA
@@ -145,6 +145,8 @@ Botech:
   regex: 'Botech[;,)]'
   device: 'tv'
   models:
+    - regex: 'LGE/[^/]+/BOTECH; ([a-z0-9]+);'
+      model: '$1'
     - regex: '(ATV R[12])'
       model: '$1'
 
@@ -545,6 +547,8 @@ Hyundai:
   regex: 'HYUNDAI[;,)]'
   device: 'tv'
   models:
+    - regex: 'LGE/[^/]+/HYUNDAI; ([a-z0-9]+);'
+      model: '$1'
     - regex: '_TV_[A-Z0-9]+_([0-9]{4});'
       model: 'Smart TV ($1)'
 
@@ -579,6 +583,8 @@ JVC:
   models:
     - regex: 'AFTSO001'
       model: '4K (2019)'
+    - regex: 'LGE/[^/]+/JVC; ([a-z0-9-]+);'
+      model: '$1'
     - regex: '_TV_[A-Z0-9]+_([0-9]{4});'
       model: 'Smart TV ($1)'
 
@@ -644,6 +650,14 @@ NILAIT:
     - regex: '_TV_[A-Z0-9]+_([0-9]{4});'
       model: 'Smart TV ($1)'
 
+# All Star or AllStar or AllStar Tech (https://www.allstartech.it/)
+All Star:
+  regex: 'ALLSTAR[;,)]'
+  device: 'tv'
+  models:
+    - regex: 'LGE/[^/]+/ALLSTAR; ([a-z0-9]+);'
+      model: '$1'
+
 # Aiwa (https://eu-aiwa.com/)
 Aiwa:
   regex: 'LGE/SQY/RCA'
@@ -654,19 +668,21 @@ Aiwa:
 
 # AXEN (https://www.axen.com.tr/)
 AXEN:
-  regex: 'LGE/ATMACA/AXEN'
+  regex: 'AXEN[;,)]'
   device: 'tv'
   models:
-    - regex: 'LGE/ATMACA/AXEN; ([a-z0-9]+)-'
+    - regex: 'LGE/[^/]+/AXEN; ([a-z0-9]+)-'
       model: '$1'
 
 # Dyon (https://www.dyon.eu/)
 Dyon:
-  regex: 'LGE/KONKA/DYON'
+  regex: 'DYON[;,)]'
   device: 'tv'
   models:
     - regex: 'SMART-32-X-EOS'
       model: 'Smart 32 X-EOS'
+    - regex: 'LGE/[^/]+/DYON; ([a-z0-9]+)'
+      model: '$1'
 
 # EAS Electric (https://easelectric.es/)
 EAS Electric:
@@ -686,34 +702,68 @@ Edenwood:
 
 # ONVO (https://onvo.com.tr/)
 ONVO:
-  regex: '(?:SILICONPLAYER|XianYou)/ONVO'
+  regex: 'ONVO[;,)]'
   device: 'tv'
   models:
-    - regex: '(?:SILICONPLAYER|XianYou)/ONVO; ([a-z0-9]+);'
+    - regex: 'LGE/[^/]+/ONVO; ([a-z0-9]+);'
       model: '$1'
 
 # DIJITSU (http://dijitsu.com.tr/)
 DIJITSU:
-  regex: 'LGE/SILICONPLAYER/DIJITSU'
+  regex: 'DIJITSU[;,)]'
   device: 'tv'
   models:
-    - regex: 'LGE/SILICONPLAYER/DIJITSU; ([a-z0-9]+);'
+    - regex: 'LGE/[^/]+/DIJITSU; ([a-z0-9]+);'
+      model: '$1'
+
+# FOX (https://foxelectronics.rs/)
+FOX:
+  regex: 'FOX[;,)]'
+  device: 'tv'
+  models:
+    - regex: 'LGE/[^/]+/FOX; ([a-z0-9-]+);'
+      model: '$1'
+
+# Inno Hit (https://innohit.eu/)
+Inno Hit:
+  regex: 'INNOHIT[;,)]'
+  device: 'tv'
+  models:
+    - regex: 'LGE/[^/]+/INNOHIT; ([a-z0-9-]+);'
       model: '$1'
 
 # simfer (https://www.simfer.com.tr/)
 simfer:
-  regex: 'LGE/WALTON/SIMFER'
+  regex: 'SIMFER[;,)]'
   device: 'tv'
   models:
-    - regex: 'LGE/WALTON/SIMFER; ([a-z0-9]+);'
+    - regex: 'LGE/[^/]+/SIMFER; ([a-z0-9]+);'
+      model: '$1'
+
+# Smart Tech (https://www.smarttech-tv.com/)
+Smart Tech:
+  regex: 'SMARTTECH[;,)]'
+  device: 'tv'
+  models:
+    - regex: 'LGE/[^/]+/SMARTTECH; ([a-z0-9]+);'
+      model: '$1'
+
+# Stilevs (https://stilevskktc.com/)
+Stilevs:
+  regex: 'STILEVS[;,)]'
+  device: 'tv'
+  models:
+    - regex: 'LGE/[^/]+/STILEVS; ([a-z0-9]+);'
       model: '$1'
 
 # Sunny (https://www.sunny.com.tr/)
 Sunny:
-  regex: '(?:ATMACA|XianYou)/SUNNY'
+  regex: 'SUNNY[;,)]|SN55FMN243-0246'
   device: 'tv'
   models:
-    - regex: '(?:ATMACA|XianYou)/SUNNY; ([a-z0-9]+)-'
+    - regex: '(SN55FMN243-0246)'
+      model: '$1'
+    - regex: '(?:ATMACA|XianYou)/SUNNY; (?!\d{2}AT\d{3})([a-z0-9-]+);'
       model: '$1'
     - regex: '(?:ATMACA|XianYou)/SUNNY.+(2018)\)'
       model: 'Smart TV ($1)'
@@ -730,21 +780,71 @@ Kydos:
 
 # Skytech (https://skytech.com.tr/)
 Skytech:
-  regex: 'LGE/WALTON/SKYTECH'
+  regex: 'SKYTECH[;,)]'
   device: 'tv'
   models:
-    - regex: 'LGE/WALTON/SKYTECH; ([a-z0-9-]+);'
+    - regex: 'LGE/[^/]+/SKYTECH; ([a-z0-9-]+);'
+      model: '$1'
+
+# Ssmart (https://ssmartelectronics.ru/)
+Ssmart:
+  regex: 'SSMART[;,)]'
+  device: 'tv'
+  models:
+    - regex: 'LGE/[^/]+/SSMART; ([a-z0-9-]+);'
+      model: '$1'
+
+# SUNGATE (https://www.sungatetv.com/)
+SUNGATE:
+  regex: 'SUNGATE[;,)]'
+  device: 'tv'
+  models:
+    - regex: 'LGE/[^/]+/SUNGATE; ([a-z0-9-]+);'
+      model: '$1'
+
+# TAUBE (https://taube-global.de/)
+TAUBE:
+  regex: 'TAUBE[;,)]'
+  device: 'tv'
+  models:
+    - regex: 'LGE/[^/]+/TAUBE; ([a-z0-9]+);'
+      model: '$1'
+
+# Teknosa (https://www.teknosa.com/)
+Teknosa:
+  regex: 'PREO[;,)]'
+  device: 'tv'
+  models:
+    - regex: 'LGE/[^/]+/PREO; ([a-z0-9-]+);'
+      model: 'Preo $1'
+
+# Weston (weston.com.tr)
+Weston:
+  regex: 'WESTON[;,)]'
+  device: 'tv'
+  models:
+    - regex: 'LGE/[^/]+/WESTON; ([a-z0-9]+);'
+      model: '$1'
+
+# Zimmer
+Zimmer:
+  regex: 'ZIMMER[;,)]'
+  device: 'tv'
+  models:
+    - regex: 'LGE/[^/]+/ZIMMER; ([a-z0-9-]+);'
       model: '$1'
 
 # LG
 LG:
-  regex: 'LGE ?;'
+  regex: 'LGE ?;|43UN68006LA'
   device: 'tv'
   models:
     - regex: 'XU43WT180N'
       model: 'XU43WT180N'
     - regex: '43LJ614V-ZA'
       model: '43LJ614V-ZA'
+    - regex: '43UN68006LA'
+      model: '43UN68006LA'
     - regex: '55SK850V-ZA'
       model: '55SK850V-ZA'
     - regex: 'KEY0000213F1z'
@@ -848,6 +948,14 @@ MEGA VISION:
     - regex: '_TV_[A-Z0-9]+_([0-9]{4});'
       model: 'Smart TV ($1)'
 
+# MIIA (https://miia.tv/)
+MIIA:
+  regex: 'MIIA[;,)]'
+  device: 'tv'
+  models:
+    - regex: 'LGE/[^/]+/MIIA; (MT[a-z0-9]+);'
+      model: '$1'
+
 # Miray
 Miray:
   regex: 'MIRAY'
@@ -902,11 +1010,13 @@ NEXON:
     - regex: '_TV_[A-Z0-9]+_([0-9]{4});'
       model: 'Smart TV ($1)'
 
-# NEXT
-NEXT:
+# Next & NextStar (https://www.next.com.tr/)
+Next & NextStar:
   regex: 'NEXT[;,)]'
   device: 'tv'
   models:
+    - regex: 'LGE/[^/]+/NEXT; ([a-z0-9-]+);'
+      model: '$1'
     - regex: '_TV_[A-Z0-9]+_([0-9]{4});'
       model: 'Smart TV ($1)'
 
@@ -988,11 +1098,13 @@ Panasonic:
     - regex: '_TV_[A-Z0-9_]+_([0-9]{4});'
       model: 'Smart TV ($1)'
 
-# PEAQ
+# PEAQ (https://www.peaq-online.com/)
 PEAQ:
   regex: 'PEAQ'
   device: 'tv'
-  model: ''
+  models:
+    - regex: 'LGE/[^/]+/PEAQ; ([a-z0-9-]+);'
+      model: '$1'
 
 # TCL SCBC
 TCL SCBC:
@@ -1027,6 +1139,14 @@ Polaroid:
   regex: 'POLAROID[;,)]'
   device: 'tv'
   model: ''
+
+# PREMIER (https://premier.uz/)
+PREMIER:
+  regex: 'PREMIER[;,)]'
+  device: 'tv'
+  models:
+    - regex: 'LGE/[^/]+/PREMIER; ([a-z0-9]+);'
+      model: '$1'
 
 # PROFiLO
 PROFiLO:
@@ -1192,6 +1312,14 @@ Smart Electronic:
     - regex: 'Smart; ([^);/]+)'
       model: '$1'
     - regex: '([A-Z]{2}[0-9]{2}|ZAPPIX)'
+      model: '$1'
+
+# Schneider (https://www.schneiderconsumer.com/)
+Schneider:
+  regex: 'SCHNEIDER[;,)]'
+  device: 'tv'
+  models:
+    - regex: 'LGE/[^/]+/SCHNEIDER; ([a-z0-9-]+);'
       model: '$1'
 
 # Solas (https://solasbrands.com/)
@@ -1518,9 +1646,11 @@ Xiaomi:
 
 # Unknown
 Unknown:
-  regex: 'OEM, ([a-z0-9_ -]+), (?:wired|wireless)|_TV_[A-Z0-9]+_([0-9]{4});|LaTivu_(?:\d+[.\d]+)_([0-9]{4})'
+  regex: 'OEM, ([a-z0-9_ -]+), (?:wired|wireless)|_TV_[A-Z0-9]+_([0-9]{4});|LaTivu_(?:\d+[.\d]+)_([0-9]{4})|LGE/[^/]+/[^/]+;'
   device: 'tv'
   models:
+    - regex: 'LGE/[^/]+/[^/]+; ([a-z0-9-]+);'
+      model: '$1'
     - regex: '_TV_[A-Z0-9]+_([0-9]{4});'
       model: 'Smart TV ($1)'
     - regex: 'LaTivu_(?:\d+[.\d]+)_([0-9]{4})'
