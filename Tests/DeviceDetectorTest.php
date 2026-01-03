@@ -600,7 +600,7 @@ class DeviceDetectorTest extends TestCase
             'Validator',
             'AI Agent',
             'AI Assistant',
-            'AI Crawler',
+            'AI Data Scraper',
             'AI Search Crawler',
         ];
 
