@@ -5,6 +5,11 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
+# FireSend Browser (https://firesend.download/)
+- regex: 'FireSendBrowser/([\d.]+)'
+  name: 'FireSend Browser'
+  version: '$1'
+
 # Seekee (https://play.google.com/store/apps/details?id=com.enzo.paulo)
 - regex: 'buscari/([\d.]+)'
   name: 'Seekee'
@@ -1737,6 +1742,13 @@
   engine:
     default: 'Gecko'
 
+# Microsoft Edge for iOS
+- regex: 'Edge/(\d+[.\d]+) CFNetwork'
+  name: 'Microsoft Edge'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+
 # Microsoft Edge (Spartan Edge)
 - regex: '(?<!motorola |Sparx |; )Edge[ /](\d+[.\d]+)'
   name: 'Microsoft Edge'
@@ -2267,13 +2279,18 @@
   version: '$1'
   engine:
     default: 'Blink'
-- regex: 'Opera%20Touch/(\d+[.\d]+)? CFNetwork/.+Darwin/.+(?!.*x86_64)'
+- regex: 'Opera%20Touch/(\d+[.\d]+)?.+CFNetwork'
   name: 'Opera Touch'
   version: '$1'
   engine:
     default: 'WebKit'
-- regex: 'Opera%20Touch/.+CFNetwork/.+Darwin/.+(?!.*x86_64)'
+- regex: 'Opera%20Touch/.+CFNetwork'
   name: 'Opera Touch'
+  version: ''
+  engine:
+    default: 'WebKit'
+- regex: 'Opera/.+CFNetwork'
+  name: 'Opera'
   version: ''
   engine:
     default: 'WebKit'
@@ -2331,11 +2348,6 @@
       '3.5': 'Elektra'
       '7': 'Presto'
       '15': 'Blink'
-- regex: 'Opera/.+CFNetwork'
-  name: 'Opera'
-  version: ''
-  engine:
-    default: 'WebKit'
 - regex: 'Chrome.+Opera/'
   name: 'Opera'
   version: ''
