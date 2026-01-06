@@ -189,6 +189,7 @@ class OperatingSystem extends AbstractParser
         'SER' => 'SerenityOS',
         'SIR' => 'Sirin OS',
         'SLW' => 'Slackware',
+        'SMA' => 'Smartisan OS',
         'SOS' => 'Solaris',
         'SBL' => 'Star-Blade OS',
         'SYL' => 'Syllable',
@@ -199,6 +200,7 @@ class OperatingSystem extends AbstractParser
         'SY3' => 'Symbian^3',
         'TEN' => 'TencentOS',
         'TDX' => 'ThreadX',
+        'TIT' => 'Titan OS',
         'TIZ' => 'Tizen',
         'TIV' => 'TiVo OS',
         'TOS' => 'TmaxOS',
@@ -239,7 +241,7 @@ class OperatingSystem extends AbstractParser
         'Android'               => [
             'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
             'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS', 'WER', 'PIC', 'ARM',
-            'HEL', 'BYI', 'RIS', 'PUF', 'LEA', 'MET', 'OHS',
+            'HEL', 'BYI', 'RIS', 'PUF', 'LEA', 'MET', 'OHS', 'SMA',
         ],
         'AmigaOS'               => ['AMG', 'MOR', 'ARO'],
         'BlackBerry'            => ['BLB', 'QNX'],
@@ -276,7 +278,7 @@ class OperatingSystem extends AbstractParser
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
         'Windows Mobile'        => ['WPH', 'WMO', 'WCE', 'WRT', 'WIO', 'KIN'],
-        'Other Smart TV'        => ['WHS'],
+        'Other Smart TV'        => ['WHS', 'TIT'],
     ];
 
     /**
