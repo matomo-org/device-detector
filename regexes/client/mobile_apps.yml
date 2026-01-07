@@ -74,9 +74,12 @@
   version: '$1'
 
 # Facebook Messenger (https://play.google.com/store/apps/details?id=com.facebook.orca)
-- regex: '(?:MessengerForiOS|MESSENGER|FB_IAB/Orca-Android).*(?:FBAV)(?:[ /]([\d.]+))?'
+- regex: '(?:MessengerForiOS|MESSENGER|(?:FB_IAB|FBAN)/Orca-Android).*(?:FBAV)(?:[ /]([\d.]+))?'
   name: 'Facebook Messenger'
   version: '$1'
+- regex: '(?:MessengerForiOS|(?:FB_IAB|FBAN)/Orca-Android)'
+  name: 'Facebook Messenger'
+  version: ''
 
 # Facebook Groups
 - regex: '(?:GroupsForiOS).*(?:FBAV)(?:[ /]([\d.]+))?'
@@ -148,6 +151,16 @@
 - regex: 'OPA/([\d.]+)'
   name: 'Google Assistant'
   version: '$1'
+
+# Google Maps (https://maps.google.com/)
+- regex: 'com\.google\.Maps/([\d.]+)'
+  name: 'Google Maps'
+  version: '$1'
+
+# Google App (https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox)
+- regex: 'com\.google\.android\.googlequicksearchbox'
+  name: 'Google'
+  version: ''
 
 # WeCom (https://work.weixin.qq.com/ | https://play.google.com/store/apps/details?id=com.tencent.wework | https://apps.apple.com/app/id1087897068)
 - regex: 'wxwork/(\d+[.\d]+)'
@@ -357,6 +370,9 @@
 
 - regex: 'Flipboard/([\d.]+)?'
   name: 'Flipboard App'
+  version: '$1'
+- regex: 'lite baiduboxapp/([\d.]+)?'
+  name: 'Baidu Box App Lite'
   version: '$1'
 - regex: 'baiduboxapp/([\d.]+)?'
   name: 'Baidu Box App'
@@ -1243,9 +1259,9 @@
   name: 'Microsoft Bing'
   version: '$1'
 
-# Microsoft Start (https://play.google.com/store/apps/details?id=com.microsoft.amp.apps.bingnews | https://apps.apple.com/us/app/microsoft-start/id945416273)
+# MSN (https://play.google.com/store/apps/details?id=com.microsoft.amp.apps.bingnews | https://apps.apple.com/us/app/microsoft-start/id945416273)
 - regex: 'NewsSapphire/(\d+\.[.\d]+)'
-  name: 'Microsoft Start'
+  name: 'MSN'
   version: '$1'
 
 # Microsoft Copilot (https://play.google.com/store/apps/details?id=com.microsoft.copilot | https://apps.apple.com/us/app/microsoft-copilot/id6472538445)
