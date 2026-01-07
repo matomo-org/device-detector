@@ -63,6 +63,7 @@ class OperatingSystem extends AbstractParser
         'BOS' => 'Bliss OS',
         'BMP' => 'Brew',
         'BSN' => 'BrightSignOS',
+        'BS1' => 'BSD',
         'CAI' => 'Caixa Mágica',
         'CES' => 'CentOS',
         'CST' => 'CentOS Stream',
@@ -146,6 +147,7 @@ class OperatingSystem extends AbstractParser
         'NOV' => 'Nova',
         'OS2' => 'OS/2',
         'T64' => 'OSF1',
+        'OSS' => 'openSUSE',
         'OBS' => 'OpenBSD',
         'OHS' => 'OpenHarmony',
         'OVS' => 'OpenVMS',
@@ -263,7 +265,7 @@ class OperatingSystem extends AbstractParser
             'NOV', 'ROU', 'ZOR', 'RED', 'KAL', 'ORA', 'VID', 'TIV', 'BSN', 'RAS',
             'UOS', 'PIO', 'FRI', 'LIR', 'WEB', 'SER', 'ASP', 'AOS', 'LOO', 'EUL',
             'SCI', 'ALP', 'CLO', 'ROC', 'OVZ', 'PVE', 'RST', 'EZX', 'GNS', 'JOL',
-            'TUR', 'QTP', 'WPO', 'PAN', 'VIZ', 'AZU', 'COL',
+            'TUR', 'QTP', 'WPO', 'PAN', 'VIZ', 'AZU', 'COL', 'OSS',
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
@@ -273,7 +275,7 @@ class OperatingSystem extends AbstractParser
         'Symbian'               => ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
         'Unix'                  => [
             'SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64',
-            'INF', 'ELE', 'GNX', 'ULT', 'NWS', 'NXT', 'SBL',
+            'INF', 'ELE', 'GNX', 'ULT', 'NWS', 'NXT', 'SBL', 'BS1',
         ],
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
@@ -513,6 +515,15 @@ class OperatingSystem extends AbstractParser
             }
         }
 
+        if ('' !== $name && !\in_array($name, self::$operatingSystems)) {
+            // This Exception should never be thrown. If so, a defined operating system is missing in $operatingSystems
+            throw new \Exception(\sprintf(
+                "The operating system '%s' should be listed in operatingSystems array. Tried to parse user agent: %s",
+                $name,
+                $this->userAgent
+            )); // @codeCoverageIgnore
+        }
+
         $return = [
             'name'       => $name,
             'short_name' => $short,
@@ -637,8 +648,6 @@ class OperatingSystem extends AbstractParser
      * Returns the OS that can be detected from useragent
      *
      * @return array
-     *
-     * @throws \Exception
      */
     protected function parseOsFromUserAgent(): array
     {
@@ -750,7 +759,7 @@ class OperatingSystem extends AbstractParser
             return 'SPARC64';
         }
 
-        if ($this->matchUserAgent('64-?bit|WOW64|(?:Intel)?x64|WINDOWS_64|win64|.*amd64|.*x86_?64')) {
+        if ($this->matchUserAgent('64-?bit|WOW64|(?:Intel)?x64|WINDOWS_64|win64|IRIX;?64|.*amd64|.*x86_?64')) {
             return 'x64';
         }
 
