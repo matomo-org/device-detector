@@ -134,6 +134,7 @@ class OperatingSystem extends AbstractParser
         'MDR' => 'Mandriva',
         'SMG' => 'MeeGo',
         'MET' => 'Meta Horizon',
+        'MNX' => 'MINIX',
         'MOS' => 'Mocor OS',
         'MCD' => 'MocorDroid',
         'MON' => 'moonOS',
@@ -279,7 +280,7 @@ class OperatingSystem extends AbstractParser
         'Symbian'               => ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
         'Unix'                  => [
             'SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64',
-            'INF', 'ELE', 'GNX', 'ULT', 'NWS', 'NXT', 'SBL', 'GHO', 'PLN',
+            'INF', 'ELE', 'GNX', 'ULT', 'NWS', 'NXT', 'SBL', 'GHO', 'PLN', 'MNX',
         ],
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
