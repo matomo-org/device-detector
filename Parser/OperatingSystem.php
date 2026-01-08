@@ -162,6 +162,7 @@ class OperatingSystem extends AbstractParser
         'PAR' => 'Pardus',
         'PCL' => 'PCLinuxOS',
         'PIC' => 'PICO OS',
+        'PLN' => 'Plan 9',
         'PLA' => 'Plasma Mobile',
         'PSP' => 'PlayStation Portable',
         'PS3' => 'PlayStation',
@@ -278,7 +279,7 @@ class OperatingSystem extends AbstractParser
         'Symbian'               => ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
         'Unix'                  => [
             'SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64',
-            'INF', 'ELE', 'GNX', 'ULT', 'NWS', 'NXT', 'SBL', 'GHO',
+            'INF', 'ELE', 'GNX', 'ULT', 'NWS', 'NXT', 'SBL', 'GHO', 'PLN',
         ],
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
