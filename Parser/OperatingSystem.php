@@ -49,6 +49,7 @@ class OperatingSystem extends AbstractParser
         'ARM' => 'Armadillo OS',
         'ARO' => 'AROS',
         'ATV' => 'tvOS',
+        'ARC' => 'ArcaOS',
         'ARL' => 'Arch Linux',
         'AOS' => 'AOSC OS',
         'ASP' => 'ASPLinux',
@@ -254,7 +255,7 @@ class OperatingSystem extends AbstractParser
         'Firefox OS'            => ['FOS', 'KOS'],
         'Gaming Console'        => ['WII', 'PS3'],
         'Google TV'             => ['GTV'],
-        'IBM'                   => ['OS2'],
+        'IBM'                   => ['OS2', 'ARC'],
         'iOS'                   => ['IOS', 'ATV', 'WAS', 'IPA'],
         'RISC OS'               => ['ROS'],
         'GNU/Linux'             => [
