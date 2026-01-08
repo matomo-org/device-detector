@@ -72,6 +72,7 @@ class OperatingSystem extends AbstractParser
         'COS' => 'Chrome OS',
         'CRS' => 'Chromium OS',
         'CHN' => 'China OS',
+        'CON' => 'Contiki',
         'COL' => 'Coolita OS',
         'CYN' => 'CyanogenMod',
         'DEB' => 'Debian',
@@ -276,7 +277,7 @@ class OperatingSystem extends AbstractParser
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
         'OpenVMS'               => ['OVS'],
         'Real-time OS'          => ['MTK', 'TDX', 'MRE', 'JME', 'REX', 'RXT', 'KOL', 'MOS'],
-        'Other Mobile'          => ['WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE', 'LUN', 'GEO'],
+        'Other Mobile'          => ['WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE', 'LUN', 'GEO', 'CON'],
         'Symbian'               => ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
         'Unix'                  => [
             'SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64',
