@@ -93,6 +93,7 @@ class OperatingSystem extends AbstractParser
         'GNT' => 'Gentoo',
         'GNX' => 'GENIX',
         'GEO' => 'GEOS',
+        'GHO' => 'GhostBSD',
         'GNS' => 'gNewSense',
         'GRI' => 'GridOS',
         'GTV' => 'Google TV',
@@ -275,7 +276,7 @@ class OperatingSystem extends AbstractParser
         'Symbian'               => ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
         'Unix'                  => [
             'SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64',
-            'INF', 'ELE', 'GNX', 'ULT', 'NWS', 'NXT', 'SBL',
+            'INF', 'ELE', 'GNX', 'ULT', 'NWS', 'NXT', 'SBL', 'GHO',
         ],
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
