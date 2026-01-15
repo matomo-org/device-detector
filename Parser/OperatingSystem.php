@@ -49,6 +49,7 @@ class OperatingSystem extends AbstractParser
         'ARM' => 'Armadillo OS',
         'ARO' => 'AROS',
         'ATV' => 'tvOS',
+        'ARC' => 'ArcaOS',
         'ARL' => 'Arch Linux',
         'AOS' => 'AOSC OS',
         'ASP' => 'ASPLinux',
@@ -63,6 +64,7 @@ class OperatingSystem extends AbstractParser
         'BOS' => 'Bliss OS',
         'BMP' => 'Brew',
         'BSN' => 'BrightSignOS',
+        'BS1' => 'BSD',
         'CAI' => 'Caixa Mágica',
         'CES' => 'CentOS',
         'CST' => 'CentOS Stream',
@@ -71,6 +73,7 @@ class OperatingSystem extends AbstractParser
         'COS' => 'Chrome OS',
         'CRS' => 'Chromium OS',
         'CHN' => 'China OS',
+        'CON' => 'Contiki',
         'COL' => 'Coolita OS',
         'CYN' => 'CyanogenMod',
         'DEB' => 'Debian',
@@ -78,6 +81,7 @@ class OperatingSystem extends AbstractParser
         'DFB' => 'DragonFly',
         'DVK' => 'DVKBuntu',
         'ELE' => 'ElectroBSD',
+        'ELM' => 'elementary OS',
         'EUL' => 'EulerOS',
         'FED' => 'Fedora',
         'FEN' => 'Fenix',
@@ -92,6 +96,7 @@ class OperatingSystem extends AbstractParser
         'GNT' => 'Gentoo',
         'GNX' => 'GENIX',
         'GEO' => 'GEOS',
+        'GHO' => 'GhostBSD',
         'GNS' => 'gNewSense',
         'GRI' => 'GridOS',
         'GTV' => 'Google TV',
@@ -118,6 +123,7 @@ class OperatingSystem extends AbstractParser
         'LND' => 'LindowsOS',
         'LNS' => 'Linspire',
         'LEN' => 'Lineage OS',
+        'LPU' => 'Linpus',
         'LIR' => 'Liri OS',
         'LOO' => 'Loongnix',
         'LBT' => 'Lubuntu',
@@ -130,6 +136,8 @@ class OperatingSystem extends AbstractParser
         'MDR' => 'Mandriva',
         'SMG' => 'MeeGo',
         'MET' => 'Meta Horizon',
+        'MNX' => 'MINIX',
+        'MOS' => 'Mocor OS',
         'MCD' => 'MocorDroid',
         'MON' => 'moonOS',
         'EZX' => 'Motorola EZX',
@@ -146,6 +154,7 @@ class OperatingSystem extends AbstractParser
         'NOV' => 'Nova',
         'OS2' => 'OS/2',
         'T64' => 'OSF1',
+        'OSS' => 'openSUSE',
         'OBS' => 'OpenBSD',
         'OHS' => 'OpenHarmony',
         'OVS' => 'OpenVMS',
@@ -157,6 +166,7 @@ class OperatingSystem extends AbstractParser
         'PAR' => 'Pardus',
         'PCL' => 'PCLinuxOS',
         'PIC' => 'PICO OS',
+        'PLN' => 'Plan 9',
         'PLA' => 'Plasma Mobile',
         'PSP' => 'PlayStation Portable',
         'PS3' => 'PlayStation',
@@ -251,7 +261,7 @@ class OperatingSystem extends AbstractParser
         'Firefox OS'            => ['FOS', 'KOS'],
         'Gaming Console'        => ['WII', 'PS3'],
         'Google TV'             => ['GTV'],
-        'IBM'                   => ['OS2'],
+        'IBM'                   => ['OS2', 'ARC'],
         'iOS'                   => ['IOS', 'ATV', 'WAS', 'IPA'],
         'RISC OS'               => ['ROS'],
         'GNU/Linux'             => [
@@ -263,17 +273,18 @@ class OperatingSystem extends AbstractParser
             'NOV', 'ROU', 'ZOR', 'RED', 'KAL', 'ORA', 'VID', 'TIV', 'BSN', 'RAS',
             'UOS', 'PIO', 'FRI', 'LIR', 'WEB', 'SER', 'ASP', 'AOS', 'LOO', 'EUL',
             'SCI', 'ALP', 'CLO', 'ROC', 'OVZ', 'PVE', 'RST', 'EZX', 'GNS', 'JOL',
-            'TUR', 'QTP', 'WPO', 'PAN', 'VIZ', 'AZU', 'COL',
+            'TUR', 'QTP', 'WPO', 'PAN', 'VIZ', 'AZU', 'COL', 'OSS', 'ELM', 'LPU',
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
         'OpenVMS'               => ['OVS'],
-        'Real-time OS'          => ['MTK', 'TDX', 'MRE', 'JME', 'REX', 'RXT', 'KOL'],
-        'Other Mobile'          => ['WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE', 'LUN', 'GEO'],
+        'Real-time OS'          => ['MTK', 'TDX', 'MRE', 'JME', 'REX', 'RXT', 'KOL', 'MOS'],
+        'Other Mobile'          => ['WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE', 'LUN', 'GEO', 'CON'],
         'Symbian'               => ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
         'Unix'                  => [
             'SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64',
-            'INF', 'ELE', 'GNX', 'ULT', 'NWS', 'NXT', 'SBL',
+            'INF', 'ELE', 'GNX', 'ULT', 'NWS', 'NXT', 'SBL', 'BS1', 'GHO', 'PLN',
+            'MNX',
         ],
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
@@ -298,6 +309,7 @@ class OperatingSystem extends AbstractParser
      */
     protected static $desktopOsArray = [
         'AmigaOS', 'IBM', 'GNU/Linux', 'Mac', 'Unix', 'Windows', 'BeOS', 'Chrome OS',
+        'OpenVMS',
     ];
 
     /**
@@ -306,6 +318,9 @@ class OperatingSystem extends AbstractParser
      * @var array
      */
     private $fireOsVersionMapping = [
+        '14'    => '14',
+        '13'    => '14',
+        '12'    => '14',
         '11'    => '8',
         '10'    => '8',
         '9'     => '7',
@@ -509,6 +524,15 @@ class OperatingSystem extends AbstractParser
             }
         }
 
+        if ('' !== $name && !\in_array($name, self::$operatingSystems)) {
+            // This Exception should never be thrown. If so, a defined operating system is missing in $operatingSystems
+            throw new \Exception(\sprintf(
+                "The operating system '%s' should be listed in operatingSystems array. Tried to parse user agent: %s",
+                $name,
+                $this->userAgent
+            )); // @codeCoverageIgnore
+        }
+
         $return = [
             'name'       => $name,
             'short_name' => $short,
@@ -633,8 +657,6 @@ class OperatingSystem extends AbstractParser
      * Returns the OS that can be detected from useragent
      *
      * @return array
-     *
-     * @throws \Exception
      */
     protected function parseOsFromUserAgent(): array
     {
@@ -746,7 +768,7 @@ class OperatingSystem extends AbstractParser
             return 'SPARC64';
         }
 
-        if ($this->matchUserAgent('64-?bit|WOW64|(?:Intel)?x64|WINDOWS_64|win64|.*amd64|.*x86_?64')) {
+        if ($this->matchUserAgent('64-?bit|WOW64|(?:Intel)?x64|WINDOWS_64|win64|IRIX;?64|.*amd64|.*x86_?64')) {
             return 'x64';
         }
 

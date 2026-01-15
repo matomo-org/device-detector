@@ -5,6 +5,11 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
+# FireSend Browser (https://firesend.download/)
+- regex: 'FireSendBrowser/([\d.]+)'
+  name: 'FireSend Browser'
+  version: '$1'
+
 # Seekee (https://play.google.com/store/apps/details?id=com.enzo.paulo)
 - regex: 'buscari/([\d.]+)'
   name: 'Seekee'
@@ -1847,6 +1852,18 @@
   name: 'Aloha Browser'
   version: ''
 
+# Tenta Browser (https://tenta.com/)
+- regex: 'Chrome/.+Tenta/(\d+[.\d]+)'
+  name: 'Tenta Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
+- regex: 'Tenta/(\d+[.\d]+)'
+  name: 'Tenta Browser'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+
 # Avast Secure Browser | Avast SafeZone Browser (https://www.avast.com/)
 - regex: 'Chrome.+(?:Avast(?:SecureBrowser)?|ASW|Safer)(?:/(\d+[.\d]+))?'
   name: 'Avast Secure Browser'
@@ -1858,6 +1875,11 @@
   version: '$1'
   engine:
     default: 'WebKit'
+- regex: 'Android \d+; [A-Za-z0-9]{10}; U; [^;]+\) AppleWebKit/.+Chrome/'
+  name: 'Avast Secure Browser'
+  version: ''
+  engine:
+    default: 'Blink'
 
 #Epic
 - regex: 'Epic(?:/(\d+[.\d]+))'
@@ -2654,18 +2676,6 @@
     default: ''
 
 #It should be checked before Chrome since the UA contains the Chrome
-
-#Tenta Browser (https://play.google.com/store/apps/details?id=com.tenta.android)
-- regex: 'Chrome/.+Tenta/(\d+[.\d]+)'
-  name: 'Tenta Browser'
-  version: '$1'
-  engine:
-    default: 'Blink'
-- regex: 'Tenta/(\d+[.\d]+)'
-  name: 'Tenta Browser'
-  version: '$1'
-  engine:
-    default: 'WebKit'
 
 # Firefox Rocket
 - regex: 'Rocket/(\d+[.\d]+)'
