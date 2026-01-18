@@ -898,6 +898,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'IHL' => 'iHome Life',
         'IH'  => 'iHunt',
         'IA'  => 'Ikea',
+        'IOP' => 'ioplee',
         'IYO' => 'iYou',
         '8I'  => 'IKU Mobile',
         '2K'  => 'IKI Mobile',
