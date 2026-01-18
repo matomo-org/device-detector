@@ -692,13 +692,15 @@ AXEN:
 
 # Dyon (https://www.dyon.eu/)
 Dyon:
-  regex: 'DYON[;,)]'
+  regex: '(?:.+_)?DYON[;,)]'
   device: 'tv'
   models:
     - regex: 'SMART-32-X-EOS'
       model: 'Smart 32 X-EOS'
     - regex: 'LGE/[^/]+/DYON; ([a-z0-9]+)'
       model: '$1'
+    - regex: 'LaTivu_(?:\d+[.\d]+)_([0-9]{4})'
+      model: 'Smart TV ($1)'
 
 # EAS Electric (https://easelectric.es/)
 EAS Electric:
