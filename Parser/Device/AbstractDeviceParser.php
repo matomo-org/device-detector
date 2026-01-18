@@ -565,6 +565,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'EMR' => 'Emporia',
         '4K'  => 'EKT',
         '7E'  => 'ELARI',
+        'ELC' => 'ELCO',
         '03'  => 'Electroneum',
         'Z8'  => 'ELECTRONIA',
         'ELG' => 'ELE-GATE',
