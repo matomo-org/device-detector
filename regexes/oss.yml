@@ -6,6 +6,62 @@
 ###############
 
 ##########
+# Contiki (https://www.contiki-os.org/ | https://github.com/contiki-os/contiki)
+##########
+- regex: 'Contiki/(\d+[.\d]+)'
+  name: 'Contiki'
+  version: '$1'
+
+##########
+# MINIX (https://www.minix3.org/)
+##########
+- regex: 'Minix (\d+[.\d]+)'
+  name: 'MINIX'
+  version: '$1'
+
+##########
+# Plan 9 (https://9p.io/plan9/)
+##########
+- regex: 'Plan 9 (\d+[.\d]+)'
+  name: 'Plan 9'
+  version: '$1'
+
+##########
+# Linpus (https://www.linpus.com/)
+##########
+- regex: 'Linpus/(\d+[.\d]+)'
+  name: 'Linpus'
+  version: '$1'
+
+##########
+# ArcaOS (https://www.arcanoae.com/)
+##########
+- regex: 'ArcaOS(?: (\d+[.\d]+))?'
+  name: 'ArcaOS'
+  version: '$1'
+
+##########
+# GhostBSD (https://www.ghostbsd.org/)
+##########
+- regex: 'GhostBSD/(\d+[.\d]+)'
+  name: 'GhostBSD'
+  version: '$1'
+
+##########
+# elementary OS (https://elementary.io/)
+##########
+- regex: 'elementary OS/(\d+[.\d]+)'
+  name: 'elementary OS'
+  version: '$1'
+
+##########
+# Mocor OS
+##########
+- regex: 'SpreadTrum'
+  name: 'Mocor OS'
+  version: ''
+
+##########
 # Titan OS (https://www.titanos.tv/)
 ##########
 - regex: 'TitanOS/(\d+[.\d]+)'
@@ -122,7 +178,7 @@
 ##########
 # OpenVMS (https://vmssoftware.com/)
 ##########
-- regex: 'OpenVMS V(\d+[.\d]+)'
+- regex: 'OpenVMS(?: V(\d+[.\d]+))?'
   name: 'OpenVMS'
   version: '$1'
 
@@ -655,7 +711,7 @@
   name: 'Fire OS'
   version: '$1'
 
-- regex: '(?:Andr[o0]id (\d([\d.])*);? |Amazon;|smarttv_)AFT|AEO[ACBHKT]|KF[ADFGJKMORSTQ]|.+FIRETVSTICK2018'
+- regex: '(?:Andr[o0]id (\d([\d.])*);? |Amazon;|smarttv_)AFT|AEO[ACBHKT]| KF[ADFGJKMORSTQ]|.+FIRETVSTICK2018'
   name: 'Fire OS'
   versions:
     - regex: 'Andr[o0]id 1[234]'
@@ -983,6 +1039,12 @@
 - regex: 'MRE/(\d+)\.(\d+).*;MAUI'
   name: 'MRE'
   version: '$1.$2'
+- regex: 'MRE\\\\(\d+[.\d]+)'
+  name: 'MRE'
+  version: '$1'
+- regex: '.+MRE|MAUI Runtime'
+  name: 'MRE'
+  version: ''
 
 ##########
 # Linux
@@ -1098,7 +1160,7 @@
   name: 'SUSE'
   version: '$1'
 
-- regex: '(?:rhel|Red Hat Enterprise Linux Server)/(\d+[.\d]+)'
+- regex: '(?:rhel|Red ?Hat(?: Enterprise)? Linux(?: Server)?)[ /](\d+[.\d]+)'
   name: 'Red Hat'
   version: '$1'
 
@@ -1174,12 +1236,16 @@
   name: 'Deepin'
   version: '$1'
 
-- regex: '(Debian|Knoppix|Mint(?! Browser)|Ubuntu|Kubuntu|Xubuntu|Lubuntu|Fedora|Red Hat|Mandriva|Gentoo|Sabayon|Slackware|SUSE|CentOS|BackTrack|Freebox|ASPLinux)(?:(?: Enterprise)? Linux)?(?:[ /\-](\d+[.\d]+))?'
+- regex: '(Debian|Knoppix|Mint(?! Browser)|Ubuntu|Kubuntu|Xubuntu|Lubuntu|Fedora|Red Hat|Mandriva|Gentoo|Sabayon|Slackware|openSUSE|SUSE|CentOS|BackTrack|Freebox|ASPLinux)(?:(?: Enterprise)? Linux)?(?:[ /\-](\d+[.\d]+))?'
   name: '$1'
   version: '$2'
 
 - regex: 'OS ROSA; Linux'
   name: 'Rosa'
+  version: ''
+
+- regex: '.+gentoo'
+  name: 'Gentoo'
   version: ''
 
 ##########
@@ -1964,6 +2030,10 @@
   name: 'HP-UX'
   version: '$1'
 
+- regex: 'BSD Four'
+  name: 'BSD'
+  version: '4'
+
 # ElectroBSD (https://www.fabiankeil.de/gehacktes/electrobsd/)
 - regex: 'ElectroBSD(?:[/ ]?(\d+[.\d]+))?'
   name: 'ElectroBSD'
@@ -1989,7 +2059,7 @@
   name: 'Syllable'
   version: '$1'
 
-- regex: 'IRIX(?:;64)?(?:[/ ]?(\d+[.\d]+))'
+- regex: 'IRIX(?:;?64)?(?:[/ ]?(\d+[.\d]+))?'
   name: 'IRIX'
   version: '$1'
 
