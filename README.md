@@ -263,6 +263,7 @@ There are already a few ports of this tool to other languages:
 - **JavaScript/TypeScript/NodeJS** https://github.com/etienne-martin/device-detector-js
 - **NodeJS** https://github.com/sanchezzzhak/node-device-detector
 - **Python 3** https://github.com/thinkwelltwd/device_detector
+- **Python 3** https://github.com/pranavagrawal321/UA-Extract
 - **Crystal** https://github.com/creadone/device_detector
 - **Elixir** https://github.com/elixir-inspector/ua_inspector
 - **Java** https://github.com/deevvicom/device-detector
