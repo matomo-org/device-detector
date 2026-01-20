@@ -163,6 +163,7 @@ class OperatingSystem extends AbstractParser
         'OTV' => 'Opera TV',
         'ORA' => 'Oracle Linux',
         'ORD' => 'Ordissimo',
+        'ORS' => 'Orsay',
         'PAR' => 'Pardus',
         'PCL' => 'PCLinuxOS',
         'PIC' => 'PICO OS',
@@ -289,7 +290,7 @@ class OperatingSystem extends AbstractParser
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
         'Windows Mobile'        => ['WPH', 'WMO', 'WCE', 'WRT', 'WIO', 'KIN'],
-        'Other Smart TV'        => ['WHS', 'TIT'],
+        'Other Smart TV'        => ['WHS', 'TIT', 'ORS'],
     ];
 
     /**
