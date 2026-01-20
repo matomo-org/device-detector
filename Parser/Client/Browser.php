@@ -843,7 +843,7 @@ class Browser extends AbstractClientParser
         '3M', 'DT', 'EU', 'EZ', 'FK', 'FM', 'FR', 'FX', 'GH',
         'GI', 'GR', 'HA', 'HU', 'IV', 'JB', 'KD', 'M1', 'MF',
         'MN', 'MZ', 'NX', 'OC', 'OI', 'OM', 'OZ', '2P', 'PI',
-        'PE', 'QU', 'RE', 'S0', 'S7', 'SA', 'SB', 'SG', 'SK',
+        'PE', 'QU', 'RE', 'S0', 'S7', 'SA', '0I', 'SG', 'SK',
         'ST', 'SU', 'T1', 'UH', 'UM', 'UT', 'VE', 'VV', 'WI',
         'WP', 'YN', 'IO', 'IS', 'HQ', 'RW', 'HI', 'PN', 'BW',
         'YO', 'PK', 'MR', 'AP', 'AK', 'UI', 'SD', 'VN', '4S',
@@ -864,7 +864,6 @@ class Browser extends AbstractClientParser
         '2M', 'K7', '1N', '8A', 'H7', 'X3', 'X4', '5O', '6I',
         '7I', 'X5', '3P', '2E', 'T5', '2N', 'SJ', 'X6', 'SM',
         'AY', 'BQ', 'BC', 'NQ', 'VQ', 'KA', 'YS', 'D4', 'PZ',
-        '0I',
     ];
 
     /**
