@@ -440,7 +440,7 @@ class OperatingSystem extends AbstractParser
 
             // If the OS name detected from client hints matches the OS family from user agent
             // but the os name is another, we use the one from user agent, as it might be more detailed
-            if (self::getOsFamily($osFromUserAgent['name']) === $name && $osFromUserAgent['name'] !== $name) {
+            if ($osFromUserAgent['name'] !== $name && self::getOsFamily($osFromUserAgent['name']) === $name) {
                 $name = $osFromUserAgent['name'];
 
                 if ('LeafOS' === $name || 'HarmonyOS' === $name) {
@@ -498,14 +498,14 @@ class OperatingSystem extends AbstractParser
         ];
 
         if (null !== $this->clientHints) {
-            if (\in_array($this->clientHints->getApp(), $androidApps) && 'Android' !== $name) {
+            if ('Android' !== $name && \in_array($this->clientHints->getApp(), $androidApps)) {
                 $name    = 'Android';
                 $family  = 'Android';
                 $short   = 'ADR';
                 $version = '';
             }
 
-            if ('org.lineageos.jelly' === $this->clientHints->getApp() && 'Lineage OS' !== $name) {
+            if ('Lineage OS' !== $name && 'org.lineageos.jelly' === $this->clientHints->getApp()) {
                 $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
 
                 $name    = 'Lineage OS';
@@ -515,7 +515,7 @@ class OperatingSystem extends AbstractParser
                     ?? $this->lineageOsVersionMapping[$majorVersion] ?? '';
             }
 
-            if ('org.mozilla.tv.firefox' === $this->clientHints->getApp() && 'Fire OS' !== $name) {
+            if ('Fire OS' !== $name && 'org.mozilla.tv.firefox' === $this->clientHints->getApp()) {
                 $majorVersion = (int) (\explode('.', $version, 1)[0] ?? '0');
 
                 $name    = 'Fire OS';
@@ -542,8 +542,8 @@ class OperatingSystem extends AbstractParser
             'family'     => $family,
         ];
 
-        if (\in_array($return['name'], self::$operatingSystems)) {
-            $return['short_name'] = \array_search($return['name'], self::$operatingSystems);
+        if (\in_array($return['name'], self::$operatingSystems, true)) {
+            $return['short_name'] = \array_search($return['name'], self::$operatingSystems, true);
         }
 
         return $return;
@@ -558,13 +558,13 @@ class OperatingSystem extends AbstractParser
      */
     public static function getOsFamily(string $osLabel): ?string
     {
-        if (\in_array($osLabel, self::$operatingSystems)) {
-            $osLabel = \array_search($osLabel, self::$operatingSystems);
+        if (\in_array($osLabel, self::$operatingSystems, true)) {
+            $osLabel = (string) \array_search($osLabel, self::$operatingSystems, true);
         }
 
         foreach (self::$osFamilies as $family => $labels) {
-            if (\in_array($osLabel, $labels)) {
-                return (string) $family;
+            if (\in_array($osLabel, $labels, true)) {
+                return $family;
             }
         }
 
@@ -582,7 +582,7 @@ class OperatingSystem extends AbstractParser
     {
         $osFamily = self::getOsFamily($osName);
 
-        return \in_array($osFamily, self::$desktopOsArray);
+        return \in_array($osFamily, self::$desktopOsArray, true);
     }
 
     /**
@@ -711,6 +711,8 @@ class OperatingSystem extends AbstractParser
      * Parse current UserAgent string for the operating system platform
      *
      * @return string
+     *
+     * @throws \Exception
      */
     protected function parsePlatform(): string
     {

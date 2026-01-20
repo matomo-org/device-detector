@@ -971,12 +971,12 @@ class Browser extends AbstractClientParser
      */
     public static function getBrowserFamily(string $browserLabel): ?string
     {
-        if (\in_array($browserLabel, self::$availableBrowsers)) {
-            $browserLabel = \array_search($browserLabel, self::$availableBrowsers);
+        if (\in_array($browserLabel, self::$availableBrowsers, true)) {
+            $browserLabel = (string) \array_search($browserLabel, self::$availableBrowsers, true);
         }
 
         foreach (self::$browserFamilies as $browserFamily => $browserLabels) {
-            if (\in_array($browserLabel, $browserLabels)) {
+            if (\in_array($browserLabel, $browserLabels, true)) {
                 return $browserFamily;
             }
         }
@@ -993,8 +993,8 @@ class Browser extends AbstractClientParser
      */
     public static function isMobileOnlyBrowser(string $browser): bool
     {
-        return \in_array($browser, self::$mobileOnlyBrowsers) || (\in_array($browser, self::$availableBrowsers)
-                && \in_array(\array_search($browser, self::$availableBrowsers), self::$mobileOnlyBrowsers));
+        return \in_array($browser, self::$mobileOnlyBrowsers) || (\in_array($browser, self::$availableBrowsers, true)
+                && \in_array(\array_search($browser, self::$availableBrowsers, true), self::$mobileOnlyBrowsers, true));
     }
 
     /**
@@ -1033,7 +1033,7 @@ class Browser extends AbstractClientParser
             }
 
             // https://bbs.360.cn/thread-16096544-1-1.html
-            if (\preg_match('/^15/', $version) && \preg_match('/^114/', $browserFromUserAgent['version'])) {
+            if (0 === \strpos($version, '15') && 0 === \strpos($browserFromUserAgent['version'], '114')) {
                 $name          = '360 Secure Browser';
                 $short         = '3B';
                 $engine        = $browserFromUserAgent['engine'] ?? '';
@@ -1183,15 +1183,13 @@ class Browser extends AbstractClientParser
         $name = $version = $short = '';
 
         if ($this->clientHints instanceof ClientHints && $this->clientHints->getBrandList()) {
-            $brands = $this->clientHints->getBrandList();
-
-            foreach ($brands as $brand => $brandVersion) {
+            foreach ($this->clientHints->getBrandList() as $brand => $brandVersion) {
                 $brand = $this->applyClientHintMapping($brand);
 
                 foreach (self::$availableBrowsers as $browserShort => $browserName) {
-                    if ($this->fuzzyCompare("{$brand}", $browserName)
+                    if ($this->fuzzyCompare($brand, $browserName)
                         || $this->fuzzyCompare($brand . ' Browser', $browserName)
-                        || $this->fuzzyCompare("{$brand}", $browserName . ' Browser')
+                        || $this->fuzzyCompare($brand, $browserName . ' Browser')
                     ) {
                         $name    = $browserName;
                         $short   = $browserShort;
@@ -1202,7 +1200,7 @@ class Browser extends AbstractClientParser
                 }
 
                 // If we detected a brand, that is not Chromium, we will use it, otherwise we will look further
-                if ('' !== $name && 'Chromium' !== $name && 'Microsoft Edge' !== $name) {
+                if (!\in_array($name, ['', 'Chromium', 'Microsoft Edge'], true)) {
                     break;
                 }
             }
@@ -1274,15 +1272,12 @@ class Browser extends AbstractClientParser
      * @param string $browserVersion
      *
      * @return string
+     *
+     * @throws \Exception
      */
     protected function buildEngine(array $engineData, string $browserVersion): string
     {
-        $engine = '';
-
-        // if an engine is set as default
-        if (isset($engineData['default'])) {
-            $engine = $engineData['default'];
-        }
+        $engine = $engineData['default'] ?? '';
 
         // check if engine is set for browser version
         if (\array_key_exists('versions', $engineData) && \is_array($engineData['versions'])) {
@@ -1312,11 +1307,12 @@ class Browser extends AbstractClientParser
      * @param string $engine
      *
      * @return string
+     *
+     * @throws \Exception
      */
     protected function buildEngineVersion(string $engine): string
     {
-        $engineVersionParser = new Engine\Version($this->userAgent, $engine);
-        $result              = $engineVersionParser->parse();
+        $result = (new Engine\Version($this->userAgent, $engine))->parse();
 
         return $result['version'] ?? '';
     }

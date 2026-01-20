@@ -139,7 +139,7 @@ abstract class AbstractParser
     }
 
     /**
-     * @inheritdoc
+     * Restore useragent from client hints
      */
     public function restoreUserAgentFromClientHints(): void
     {
@@ -187,7 +187,7 @@ abstract class AbstractParser
             self::VERSION_TRUNCATION_MAJOR,
             self::VERSION_TRUNCATION_MINOR,
             self::VERSION_TRUNCATION_PATCH,
-        ])
+        ], true)
         ) {
             return;
         }
@@ -339,6 +339,8 @@ abstract class AbstractParser
      * Returns if the parsed UA contains the 'Windows NT;' or 'X11; Linux x86_64' fragments
      *
      * @return bool
+     *
+     * @throws \Exception
      */
     protected function hasDesktopFragment(): bool
     {
@@ -410,8 +412,9 @@ abstract class AbstractParser
     {
         $search  = [];
         $replace = [];
+        $count   = \count($matches);
 
-        for ($nb = 1; $nb <= \count($matches); $nb++) {
+        for ($nb = 1; $nb <= $count; $nb++) {
             $search[]  = '$' . $nb;
             $replace[] = $matches[$nb] ?? '';
         }
@@ -457,6 +460,8 @@ abstract class AbstractParser
      * Method can be used to speed up detections by making a big check before doing checks for every single regex
      *
      * @return ?array
+     *
+     * @throws \Exception
      */
     protected function preMatchOverall(): ?array
     {

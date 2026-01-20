@@ -16,7 +16,7 @@ $overwrite = !empty($argv[1]) && '--f' === $argv[1];
 $data      = [];
 
 foreach ($fixtureFiles as $file) {
-    if ('unknown' !== basename($file, '.yml') && !in_array(preg_replace('/-[0-9]+$/', '', str_replace('_', ' ', basename($file, '.yml'))), array_keys(AbstractDeviceParser::getAvailableDeviceTypes()))) {
+    if ('unknown' !== basename($file, '.yml') && !array_key_exists(preg_replace('/-\d+$/', '', str_replace('_', ' ', basename($file, '.yml'))), AbstractDeviceParser::getAvailableDeviceTypes())) {
         continue;
     }
 
@@ -108,6 +108,8 @@ foreach ($botFixtures as &$fixture) {
 
     $fixture = DeviceDetector::getInfoFromUserAgent($fixture['user_agent']);
 }
+
+unset($fixture);
 
 usort($botFixtures, static function ($a, $b) {
     if (empty($b)) {

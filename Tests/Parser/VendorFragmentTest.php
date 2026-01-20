@@ -35,9 +35,7 @@ class VendorFragmentTest extends TestCase
 
     public static function getFixtures(): array
     {
-        $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/vendorfragments.yml');
-
-        return $fixtureData;
+        return Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/vendorfragments.yml');
     }
 
     public function testAllRegexesTested(): void
@@ -48,7 +46,7 @@ class VendorFragmentTest extends TestCase
 
         foreach ($vendorRegexes as $vendor => $regexes) {
             foreach ($regexes as $regex) {
-                if (\in_array($regex, self::$regexesTested)) {
+                if (\in_array($regex, self::$regexesTested, true)) {
                     continue;
                 }
 

@@ -26,7 +26,7 @@ class MediaPlayerTest extends TestCase
     public function testParse(string $useragent, array $client): void
     {
         $mediaPlayerParser = new MediaPlayer();
-        $mediaPlayerParser->setVersionTruncation(MediaPlayer::VERSION_TRUNCATION_NONE);
+        $mediaPlayerParser::setVersionTruncation(MediaPlayer::VERSION_TRUNCATION_NONE);
         $mediaPlayerParser->setUserAgent($useragent);
         $this->assertEquals($client, $mediaPlayerParser->parse());
     }
