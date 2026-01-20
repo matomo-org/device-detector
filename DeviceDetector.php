@@ -69,7 +69,7 @@ class DeviceDetector
     /**
      * Current version number of DeviceDetector
      */
-    public const VERSION = '6.4.7';
+    public const VERSION = '6.4.8';
 
     /**
      * Constant used as value for unknown browser / os
@@ -1096,6 +1096,7 @@ class DeviceDetector
         if (\in_array($clientName, [
             'Kylo', 'Espial TV Browser', 'LUJO TV Browser', 'LogicUI TV Browser', 'Open TV Browser', 'Seraphic Sraf',
             'Opera Devices', 'Crow Browser', 'Vewd Browser', 'TiviMate', 'Quick Search TV', 'QJY TV Browser', 'TV Bro',
+            'Redline',
         ])
         ) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;

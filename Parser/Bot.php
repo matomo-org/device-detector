@@ -75,12 +75,20 @@ class Bot extends AbstractBotParser
             }
 
             foreach ($this->getRegexes() as $regex) {
-                if ($this->matchUserAgent($regex['regex'])) {
-                    unset($regex['regex']);
-                    $result = $regex;
+                $matches = $this->matchUserAgent($regex['regex']);
 
-                    break;
+                if (!$matches) {
+                    continue;
                 }
+
+                unset($regex['regex']);
+                $result = $regex;
+
+                if (\array_key_exists('name', $result)) {
+                    $result['name'] = $this->buildByMatch($result['name'], $matches);
+                }
+
+                break;
             }
         }
 
