@@ -26,7 +26,7 @@ class LibraryTest extends TestCase
     public function testParse(string $useragent, array $client): void
     {
         $libraryParser = new Library();
-        $libraryParser->setVersionTruncation(Library::VERSION_TRUNCATION_NONE);
+        $libraryParser::setVersionTruncation(Library::VERSION_TRUNCATION_NONE);
         $libraryParser->setUserAgent($useragent);
         $this->assertEquals($client, $libraryParser->parse());
     }

@@ -26,7 +26,7 @@ class PIMTest extends TestCase
     public function testParse(string $useragent, array $client): void
     {
         $PIMParser = new PIM();
-        $PIMParser->setVersionTruncation(PIM::VERSION_TRUNCATION_NONE);
+        $PIMParser::setVersionTruncation(PIM::VERSION_TRUNCATION_NONE);
         $PIMParser->setUserAgent($useragent);
         $this->assertEquals($client, $PIMParser->parse());
     }
@@ -44,9 +44,7 @@ class PIMTest extends TestCase
 
     public function testStructurePimYml(): void
     {
-        $ymlDataItems = Spyc::YAMLLoad(__DIR__ . '/../../../regexes/client/pim.yml');
-
-        foreach ($ymlDataItems as $item) {
+        foreach (Spyc::YAMLLoad(__DIR__ . '/../../../regexes/client/pim.yml') as $item) {
             $this->assertTrue(\array_key_exists('regex', $item), 'key "regex" not exist');
             $this->assertTrue(\array_key_exists('name', $item), 'key "name" not exist');
             $this->assertTrue(\array_key_exists('version', $item), 'key "version" not exist');

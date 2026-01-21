@@ -2277,7 +2277,7 @@ abstract class AbstractDeviceParser extends AbstractParser
      */
     public static function getDeviceName(int $deviceType): string
     {
-        $deviceName = \array_search($deviceType, self::$deviceTypes);
+        $deviceName = \array_search($deviceType, self::$deviceTypes, true);
 
         if (\is_string($deviceName)) {
             return $deviceName;
@@ -2333,7 +2333,7 @@ abstract class AbstractDeviceParser extends AbstractParser
      */
     public static function getShortCode(string $brand): string
     {
-        return (string) \array_search($brand, self::$legacyShortNames + self::$deviceBrands) ?: '';
+        return (string) \array_search($brand, self::$legacyShortNames + self::$deviceBrands, true) ?: '';
     }
 
     /**
@@ -2365,16 +2365,17 @@ abstract class AbstractDeviceParser extends AbstractParser
             return $this->getResult();
         }
 
-        $brand   = '';
-        $regexes = $this->getRegexes();
+        $brand = '';
 
-        foreach ($regexes as $brand => $regex) {
+        foreach ($this->getRegexes() as $brand => $regex) {
             $matches = $this->matchUserAgent($regex['regex']);
 
             if ($matches) {
                 break;
             }
         }
+
+        $brand = (string) $brand;
 
         if (empty($matches)) {
             $this->deviceType = $resultClientHint['deviceType'] ?? null;
@@ -2383,7 +2384,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         }
 
         if ('Unknown' !== $brand) {
-            if (!\in_array($brand, self::$deviceBrands)) {
+            if (!\in_array($brand, self::$deviceBrands, true)) {
                 // This Exception should never be thrown. If so a defined brand name is missing in $deviceBrands
                 throw new \Exception(\sprintf(
                     "The brand with name '%s' should be listed in deviceBrands array. Tried to parse user agent: %s",
@@ -2392,7 +2393,7 @@ abstract class AbstractDeviceParser extends AbstractParser
                 )); // @codeCoverageIgnore
             }
 
-            $this->brand = (string) $brand;
+            $this->brand = $brand;
         }
 
         if (isset($regex['device']) && \array_key_exists($regex['device'], self::$deviceTypes)) {
@@ -2422,7 +2423,7 @@ abstract class AbstractDeviceParser extends AbstractParser
 
             $this->model = $this->buildModel($modelRegex['model'], $modelMatches);
 
-            if (isset($modelRegex['brand']) && \in_array($modelRegex['brand'], self::$deviceBrands)) {
+            if (isset($modelRegex['brand']) && \in_array($modelRegex['brand'], self::$deviceBrands, true)) {
                 $this->brand = (string) $modelRegex['brand'];
             }
 
@@ -2465,7 +2466,7 @@ abstract class AbstractDeviceParser extends AbstractParser
             $formFactors        = $this->clientHints->getFormFactors();
 
             foreach (self::$clientHintFormFactorsMapping as $formFactor => $deviceType) {
-                if (\in_array($formFactor, $formFactors)) {
+                if (\in_array($formFactor, $formFactors, true)) {
                     $detectedDeviceType = $deviceType;
 
                     break;
