@@ -1253,7 +1253,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MY'  => 'MyPhone (PH)',
         '51'  => 'Myros',
         'M8'  => 'Myria',
-        '6ME' => 'Mystery Electronics',
+        '6ME' => 'Mystery',
         '6M'  => 'Mystery Tab',
         '3T'  => 'MyTab',
         'MG'  => 'MyWigo',
