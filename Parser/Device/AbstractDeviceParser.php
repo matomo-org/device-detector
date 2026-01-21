@@ -827,7 +827,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'HLL' => 'HLLO',
         'HKC' => 'HKC',
         'HMD' => 'HMD',
-        'HMR' => 'HMR Networks',
+        'HIT' => 'Hi TFG',
         '8W'  => 'HKPro',
         'HOF' => 'HOFER',
         'HOC' => 'hoco',
