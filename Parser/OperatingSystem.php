@@ -152,6 +152,7 @@ class OperatingSystem extends AbstractParser
         'WII' => 'Nintendo',
         'NDS' => 'Nintendo Mobile',
         'NOV' => 'Nova',
+        'NTX' => 'NuttX',
         'OS2' => 'OS/2',
         'T64' => 'OSF1',
         'OSS' => 'openSUSE',
@@ -279,7 +280,7 @@ class OperatingSystem extends AbstractParser
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
         'OpenVMS'               => ['OVS'],
-        'Real-time OS'          => ['MTK', 'TDX', 'MRE', 'JME', 'REX', 'RXT', 'KOL', 'MOS'],
+        'Real-time OS'          => ['MTK', 'TDX', 'MRE', 'JME', 'REX', 'RXT', 'KOL', 'MOS', 'NTX'],
         'Other Mobile'          => ['WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE', 'LUN', 'GEO', 'CON'],
         'Symbian'               => ['SYM', 'SYS', 'SY3', 'S60', 'S40'],
         'Unix'                  => [
