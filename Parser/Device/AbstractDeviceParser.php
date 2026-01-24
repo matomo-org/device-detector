@@ -1182,6 +1182,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MEG' => 'MEGA VISION',
         'MCA' => 'Megacable',
         'MP'  => 'MegaFon',
+        'MGX' => 'MEGAMAX',
         'X0'  => 'mPhone',
         '3M'  => 'Meitu',
         'M1'  => 'Meizu',
@@ -1475,6 +1476,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'PVB' => 'PVBox',
         'PL'  => 'Polaroid',
         'Q6'  => 'Polar',
+        '97'  => 'PolarLine',
         'PP'  => 'PolyPad',
         'P5'  => 'Polytron',
         'P2'  => 'Pomp',
@@ -2196,8 +2198,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'EKI' => 'iGet',
         'LPX' => 'OTT',
         'UE1' => 'Newman',
-        'MGX' => 'Polar',
-        '97'  => 'Polar',
     ];
 
     /**
@@ -2217,8 +2217,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'EKI' => 'EKINOX',
         'LPX' => 'LPX-G',
         'UE1' => 'UE',
-        'MGX' => 'MEGAMAX',
-        '97'  => 'PolarLine',
     ];
 
     /**

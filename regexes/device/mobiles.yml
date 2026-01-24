@@ -39642,17 +39642,25 @@ Glory Star:
   device: 'tablet'
   model: ''
 
-# Polar (https://polartv.ru/). Previously Megamax and Polarline were separate, but it looks like they were never treated as sub-brands (registered as at least a trade-mark, have separate website, etc.), but rather as model-lines
+# Polar (https://polartv.ru/)
 Polar:
-  regex: '(?:(?:(?:Polar(?:_W?K?)?[_ ])?(P\d{2}[LU]\d{2}T2S?CSM))|(?:PolarLine[_ ](?:W?K?[_ ])?(\d{2}P[LU]\d{2}S?TC-SM))|(?:MEGAMAX(?:_W_)?(\d{2}MG11FSM)))(?:[);/ ]|$)'
+  regex: 'Polar(?:_W?K?)?[_ ]P\d{2}|(?:P42L31T2CSM|P32L33T2CSM)(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: '(?:Polar(?:_W?K?)?[_ ])?(P\d{2}[LU]\d{2}T2S?CSM)(?:[);/ ]|$)'
       model: '$1'
-    - regex: 'MEGAMAX(?:_W_)?(\d{2}MG11FSM)'
-      model: 'Megamax $1'
-    - regex: 'PolarLine[_ ](?:W?K?[_ ])?(\d{2}P[LU]\d{2}S?TC-SM)(?:[);/ ]|$)'
-      model: 'Polarline $1'
+
+# Polarline (sub brand Polar)
+PolarLine:
+  regex: 'PolarLine[_ ](?:W?K?[_ ])?(\d{2}P[LU]\d{2}S?TC-SM)(?:[);/ ]|$)'
+  device: 'tv'
+  model: '$1'
+
+# MEGAMAX (sub brand Polar)
+MEGAMAX:
+  regex: 'MEGAMAX(?:_W_)?(\d{2}MG11FSM)'
+  device: 'tv'
+  model: '$1'
 
 # MyGica (www.mygica.com)
 MyGica:
