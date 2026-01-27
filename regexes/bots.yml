@@ -26,8 +26,8 @@
     name: 'CloudFlare'
     url: 'https://www.cloudflare.com/'
 
-- regex: '360Spider'
-  name: '360Spider'
+- regex: '(360Spider(?:-Image|-Video)?)'
+  name: '$1'
   category: 'Search bot'
   url: 'https://www.so.com/help/help_3_2.html'
   producer:
@@ -797,7 +797,7 @@
   name: 'Gobuster'
   url: 'https://github.com/OJ/gobuster'
 
-- regex: 'ichiro/mobile goo'
+- regex: 'ichiro'
   name: 'Goo'
   category: 'Search bot'
   url: 'http://search.goo.ne.jp/option/use/sub4/sub4-1'
@@ -843,7 +843,7 @@
   url: 'https://cloud.google.com/scheduler'
   producer:
     name: 'Google Inc.'
-    url: 'https://www.google.com'
+    url: 'https://www.google.com/'
 
 - regex: 'Google-Structured-Data-Testing-Tool'
   name: 'Google Structured Data Testing Tool'
@@ -856,10 +856,10 @@
 - regex: 'GoogleStackdriverMonitoring'
   name: 'Google Stackdriver Monitoring'
   category: 'Site Monitor'
-  url: 'https://cloud.google.com/monitoring'
+  url: 'https://docs.cloud.google.com/monitoring/uptime-checks/using-uptime-checks'
   producer:
     name: 'Google Inc.'
-    url: 'https://www.google.com'
+    url: 'https://www.google.com/'
 
 - regex: 'Google-Transparency-Report'
   name: 'Google Transparency Report'
@@ -981,7 +981,7 @@
     name: 'Google Inc.'
     url: 'https://www.google.com/'
 
-- regex: 'Adwords-(?:DisplayAds|Express|Instant)|Google Web Preview|Google[ -]Publisher[ -]Plugin|Google-(?:adstxt|Ads-Conversions|Ads-Qualify|Adwords|AMPHTML|Assess|HotelAdsVerifier|InspectionTool|Lens|PageRenderer|Read-Aloud|Shopping-Quality|Site-Verification|Sites-Thumbnails|speakr|Stale-Content-Probe|Test|Youtube-Links)|(?:AdsBot|APIs|Feedfetcher|Mediapartners)-Google(?:-Mobile)?|Google(?:AdSenseInfeed|AssociationService|bot|Other|Prober|Producer|Sites)|Google.*/\+/web/snippet'
+- regex: 'Adwords-(?:DisplayAds|Express|Instant)|Google Web Preview|Google[ -]Publisher[ -]Plugin|Google-(?:adstxt|Ads-Conversions|Ads-Qualify|Adwords|AMPHTML|Assess|BusinessLinkVerification|HotelAdsVerifier|InspectionTool|Lens|PageRenderer|Read-Aloud|Shopping-Quality|Site-Verification|Sites-Thumbnails|speakr|Stale-Content-Probe|Test|Youtube-Links)|(?:AdsBot|APIs|Feedfetcher|Mediapartners)-Google(?:-Mobile)?|Google(?:AdSenseInfeed|AssociationService|bot|Other|Prober|Producer|Sites)|Google.*/\+/web/snippet'
   name: 'Googlebot'
   category: 'Search bot'
   url: 'https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers'
@@ -2214,31 +2214,15 @@
     name: 'Yahoo! Inc.'
     url: 'http://www.yahoo.com'
 
-- regex: 'Y!J-BRW'
-  name: 'Yahoo! Japan BRW'
+- regex: 'Y!J-(ASR|BR[IJOWY]|[BPW]SC)'
+  name: 'Yahoo! Japan $1'
   category: 'Crawler'
   url: 'https://support.yahoo-net.jp/PccSearch/s/article/H000007955'
   producer:
     name: 'Yahoo! Japan Corp.'
     url: 'https://www.yahoo.co.jp/'
 
-- regex: 'Y!J-WSC'
-  name: 'Yahoo! Japan WSC'
-  category: 'Crawler'
-  url: 'https://support.yahoo-net.jp/PccSearch/s/article/H000007955'
-  producer:
-    name: 'Yahoo! Japan Corp.'
-    url: 'https://www.yahoo.co.jp/'
-
-- regex: 'Y!J-ASR'
-  name: 'Yahoo! Japan ASR'
-  category: 'Crawler'
-  url: 'https://support.yahoo-net.jp/PccSearch/s/article/H000007955'
-  producer:
-    name: 'Yahoo! Japan Corp.'
-    url: 'https://www.yahoo.co.jp/'
-
-- regex: '^Y!J'
+- regex: 'Y!J'
   name: 'Yahoo! Japan'
   category: 'Crawler'
   url: 'https://support.yahoo-net.jp/PccSearch/s/article/H000007955'
@@ -2450,13 +2434,10 @@
 - regex: 'Slurp'
   name: 'Inktomi Slurp'
 
-- regex: 'Speedy Spider'
+- regex: 'Speedy ?Spider'
   name: 'Speedy'
 
-- regex: 'ScoutJet'
-  name: 'ScoutJet'
-
-- regex: 'nrsbot|netresearch'
+- regex: 'nrsbot|NetResearchServer'
   name: 'NetResearchServer'
 
 - regex: 'scooter'
@@ -2467,12 +2448,19 @@
 
 - regex: 'charlotte'
   name: 'Charlotte'
+  category: 'Crawler'
+  url: 'https://web.archive.org/web/20070225121634/http://www.searchme.com/support/pages/spider.php'
+  producer:
+    name: 'Searchme, Inc.'
+    url: 'https://web.archive.org/web/20070217233037/http://www.searchme.com/'
 
 - regex: 'Pompos'
   name: 'Pompos'
-
-- regex: 'ichiro'
-  name: 'ichiro'
+  category: 'Crawler'
+  url: 'https://web.archive.org/web/20090124084536/http://dir.com/pompos.html'
+  producer:
+    name: 'ILIAD SA'
+    url: 'https://www.iliad.fr/'
 
 - regex: 'PagePeeker'
   name: 'PagePeeker'
@@ -2487,6 +2475,11 @@
 
 - regex: 'Willow Internet Crawler'
   name: 'Willow Internet Crawler'
+  category: 'Crawler'
+  url: 'https://twotrees.com/company/indexing-web-crawlers/'
+  producer:
+    name: 'Twotrees Technologies, LLC'
+    url: 'https://twotrees.com/'
 
 - regex: 'EmailWolf'
   name: 'EmailWolf'
@@ -5824,12 +5817,36 @@
     name: 'Ben Kurtovic'
     url: 'https://github.com/earwig'
 
+- regex: 'Eyeotabot'
+  name: 'Eyeotabot'
+  category: 'Crawler'
+  url: 'https://www.eyeota.com/'
+  producer:
+    name: 'Eyeota Pte Ltd'
+    url: 'https://www.eyeota.com/'
+
+- regex: 'YioopBot'
+  name: 'YioopBot'
+  category: 'Search bot'
+  url: 'https://www.yioop.com/bot'
+  producer:
+    name: 'Chris Pollett'
+    url: 'https://www.pollett.org/'
+
+- regex: 'yoozBot'
+  name: 'yoozBot'
+  category: 'Search bot'
+  url: 'https://www.yooz.ir/'
+  producer:
+    name: 'yooz'
+    url: 'https://www.yooz.ir/'
+
 # Generic bots
 - regex: '(ABEvalBot|AdsTxtCrawlerTP|DNSResearchBot|Dormouse|FormFinder|GitCrawlerBot|HanaleiBot|ImportDomains|PrivacyPolicyBot|Robozilla|Secweb-Sectxt|SeoCherryBot|StudyBot|The Knowledge AI|Thinkbot|ThinkChaos|TprAdsTxtCrawler)'
   name: '$1'
   category: 'Crawler'
 
-- regex: 'nuhk|grub-client|Download Demon|SearchExpress|Microsoft URL Control|borg|altavista|dataminr\.com|teoma|oegp|http%20client|htdig|mogimogi|larbin|scrubby|searchsight|semanticdiscovery|snappy|zeal(?!ot)|dataparksearch|findlinks|BrowserMob|URL2PNG|ZooShot|GomezA|Google SketchUp|Read%20Later|7Siters|centuryb\.o\.t9|InterNaetBoten|EasyBib AutoCite|Bidtellect|tomnomnom/meg|cortex|Re-re Studio|adreview|AHC/|NameOfAgent|Request-Promise|ALittle Client|Hello,? world|wp_is_mobile|0xAbyssalDoesntExist|Anarchy99|^revolt|nvd0rz|xfa1|Hakai|gbrmss|fuck-your-hp|IDBTE4M CODE87|Antoine|Insomania|Hells-Net|b3astmode|Linux Gnu \(cow\)|Test Certificate Info|iplabel|Magellan|TheSafex?Internetx?Search|Searcherx?web|kirkland-signature|LinkChain|survey-security-dot-txt|infrawatch|Time/|r00ts3c-owned-you|nvdorz|Root Slut|NiggaBalls|BotPoke|GlobalWebSearch|xx032_bo9vs83_2a|sslshed|geckotrail|Wordup|Keydrop|\(compatible\)|John Recon|SPARK COMMIT|masjesu|Komaru_The_Cat|Jesus Christ of Nazareth is LORD|Kowai|Hakai|LoliSec|LMAO|^xenu|^(?:chrome|desktop|firefox|Abcd|Dark|KvshClient|node|Node.js|Report Runner|url|Zeus|ZmEu)$|OnlyScans|TheInternetSearchx|Laravel Reaver|bang2013|libredtail|Mozilliqa|Tiberius|honeygain|AW-WB-Filter|SaferSoftwashLeadGen|YourUserAgentHere'
+- regex: 'nuhk|grub-client|Download Demon|SearchExpress|Microsoft URL Control|borg|altavista|dataminr\.com|teoma|oegp|http%20client|htdig|mogimogi|larbin|scrubby|searchsight|semanticdiscovery|snappy|zeal(?!ot)|dataparksearch|findlinks|BrowserMob|URL2PNG|ZooShot|GomezA|Google SketchUp|Read%20Later|7Siters|centuryb\.o\.t9|InterNaetBoten|EasyBib AutoCite|Bidtellect|tomnomnom/meg|cortex|Re-re Studio|adreview|AHC/|NameOfAgent|Request-Promise|ALittle Client|Hello,? world|wp_is_mobile|0xAbyssalDoesntExist|Anarchy99|^revolt|nvd0rz|xfa1|Hakai|gbrmss|fuck-your-hp|IDBTE4M CODE87|Antoine|Insomania|Hells-Net|b3astmode|Linux Gnu \(cow\)|Test Certificate Info|iplabel|Magellan|TheSafex?Internetx?Search|Searcherx?web|kirkland-signature|LinkChain|survey-security-dot-txt|infrawatch|Time/|r00ts3c-owned-you|nvdorz|Root Slut|NiggaBalls|BotPoke|GlobalWebSearch|xx032_bo9vs83_2a|sslshed|geckotrail|Wordup|Keydrop|\(compatible\)|John Recon|SPARK COMMIT|masjesu|Komaru_The_Cat|Jesus Christ of Nazareth is LORD|Kowai|Hakai|LoliSec|LMAO|^xenu|^(?:chrome|desktop|firefox|Abcd|Dark|KvshClient|node|Node\.js|Report Runner|url|Zeus|ZmEu)$|OnlyScans|TheInternetSearchx|Laravel Reaver|bang2013|libredtail|Mozilliqa|Tiberius|honeygain|AW-WB-Filter|SaferSoftwashLeadGen|YourUserAgentHere'
   name: 'Generic Bot'
 
 # Generic detections
