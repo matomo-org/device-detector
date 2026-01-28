@@ -5,6 +5,11 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
+# FireSend Browser (https://firesend.download/)
+- regex: 'FireSendBrowser/([\d.]+)'
+  name: 'FireSend Browser'
+  version: '$1'
+
 # Seekee (https://play.google.com/store/apps/details?id=com.enzo.paulo)
 - regex: 'buscari/([\d.]+)'
   name: 'Seekee'
@@ -1418,7 +1423,7 @@
   version: ''
 
 # AVG Secure Browser (https://www.avg.com/en-us/secure-browser | https://play.google.com/store/apps/details?id=com.avg.android.secure.browser)
-- regex: 'AVG(?:/(\d+[.\d]+))?'
+- regex: 'AVG/(\d+[.\d]+)'
   name: 'AVG Secure Browser'
   version: '$1'
   engine:
@@ -1505,7 +1510,7 @@
   version: '$1'
 
 # Wear Internet Browser (https://play.google.com/store/apps/details?id=com.appfour.wearbrowser)
-- regex: 'WIB(?:/(\d+[.\d]+))?'
+- regex: 'WIB/(\d+[.\d]+)'
   name: 'Wear Internet Browser'
   version: '$1'
 
@@ -1847,6 +1852,18 @@
   name: 'Aloha Browser'
   version: ''
 
+# Tenta Browser (https://tenta.com/)
+- regex: 'Chrome/.+Tenta/(\d+[.\d]+)'
+  name: 'Tenta Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
+- regex: 'Tenta/(\d+[.\d]+)'
+  name: 'Tenta Browser'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+
 # Avast Secure Browser | Avast SafeZone Browser (https://www.avast.com/)
 - regex: 'Chrome.+(?:Avast(?:SecureBrowser)?|ASW|Safer)(?:/(\d+[.\d]+))?'
   name: 'Avast Secure Browser'
@@ -1858,6 +1875,11 @@
   version: '$1'
   engine:
     default: 'WebKit'
+- regex: 'Android \d+; [A-Za-z0-9]{10}; U; [^;]+\) AppleWebKit/.+Chrome/'
+  name: 'Avast Secure Browser'
+  version: ''
+  engine:
+    default: 'Blink'
 
 #Epic
 - regex: 'Epic(?:/(\d+[.\d]+))'
@@ -2655,18 +2677,6 @@
 
 #It should be checked before Chrome since the UA contains the Chrome
 
-#Tenta Browser (https://play.google.com/store/apps/details?id=com.tenta.android)
-- regex: 'Chrome/.+Tenta/(\d+[.\d]+)'
-  name: 'Tenta Browser'
-  version: '$1'
-  engine:
-    default: 'Blink'
-- regex: 'Tenta/(\d+[.\d]+)'
-  name: 'Tenta Browser'
-  version: '$1'
-  engine:
-    default: 'WebKit'
-
 # Firefox Rocket
 - regex: 'Rocket/(\d+[.\d]+)'
   name: 'Firefox Rocket'
@@ -3426,7 +3436,7 @@
   version: ''
   engine:
     default: 'WebKit'
-- regex: 'Version/(\d+\.[.\d]+) .*Safari/|(?:Safari|Safari(?:%20)?%E6%B5%8F%E8%A7%88%E5%99%A8)/?\d+'
+- regex: 'Version/(\d+\.[.\d]+) .*Safari/|(?:(?<!SmartTV )Safari|Safari(?:%20)?%E6%B5%8F%E8%A7%88%E5%99%A8)/?\d+'
   name: 'Safari'
   version: '$1'
   engine:
