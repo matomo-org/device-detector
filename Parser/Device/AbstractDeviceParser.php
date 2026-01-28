@@ -2202,7 +2202,7 @@ abstract class AbstractDeviceParser extends AbstractParser
 
     /**
      * List of short names, that are not used due to brand being moved to another one.
-     * Meant for merger with `$deviceBrands` in certain functions.
+     * Used only for `getShortCode()` call for backwards compatibility.
      *
      * @var array
      */
@@ -2331,7 +2331,11 @@ abstract class AbstractDeviceParser extends AbstractParser
      */
     public static function getShortCode(string $brand): string
     {
-        return (string) \array_search($brand, self::$legacyShortNames + self::$deviceBrands, true) ?: '';
+        $shortcode = (string) \array_search($brand, self::$deviceBrands, true) ?: '';
+        if ($shortcode !== '') {
+            return $shortcode;
+        }
+        return  (string) \array_search($brand, self::$legacyShortNames, true) ?: '';
     }
 
     /**
