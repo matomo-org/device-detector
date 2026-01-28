@@ -2334,9 +2334,12 @@ abstract class AbstractDeviceParser extends AbstractParser
     public static function getShortCode(string $brand): string
     {
         $shortcode = (string) \array_search($brand, self::$deviceBrands, true) ?: '';
+        
         if ($shortcode !== '') {
+            
             return $shortcode;
         }
+        
         return  (string) \array_search($brand, self::$legacyShortNames, true) ?: '';
     }
 
