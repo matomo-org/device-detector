@@ -2335,8 +2335,7 @@ abstract class AbstractDeviceParser extends AbstractParser
     {
         $shortcode = (string) \array_search($brand, self::$deviceBrands, true) ?: '';
         
-        if ($shortcode !== '') {
-            
+        if ('' !== $shortcode) {
             return $shortcode;
         }
         
