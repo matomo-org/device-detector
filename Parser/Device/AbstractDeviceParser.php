@@ -2188,18 +2188,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         // legacy brands, might be removed in future versions
         'WB'  => 'Web TV',
         'XX'  => 'Unknown',
-        // Brands that were "moved" to other brands by renaming and result in duplicates.
-        // Old names can be seen in $legacyShortNames
-        '6T'  => '2E',
-        '5H'  => 'ARRIS',
-        'WHI' => 'Cherry Mobile',
-        '6C'  => 'Cloudfone',
-        'DZ'  => 'Coolpad',
-        'ER'  => 'Ericsson',
-        'HLL' => 'Exertis',
-        'EKI' => 'iGet',
-        'LPX' => 'OTT',
-        'UE1' => 'Newman',
     ];
 
     /**
@@ -2209,15 +2197,25 @@ abstract class AbstractDeviceParser extends AbstractParser
      * @var array
      */
     public static $legacyShortNames = [
+        // Is now '2E'
         '6T'  => 'Twoe',
+        // Is now 'ARRIS'
         '5H'  => 'MMI',
+        // Is now 'Cherry Mobile'
         'WHI' => 'White Mobile',
+        // Is now 'Cloudfone'
         '6C'  => 'Cloudpad',
+        // Is now 'Coolpad'
         'DZ'  => 'Dazen',
+        // Is now 'Ericsson'
         'ER'  => 'Ericy',
+        // Is now 'Exertis'
         'HLL' => 'HLLO',
+        // Is now 'iGet'
         'EKI' => 'EKINOX',
+        // Is now 'OTT'
         'LPX' => 'LPX-G',
+        // Is now 'Newman'
         'UE1' => 'UE',
     ];
 
