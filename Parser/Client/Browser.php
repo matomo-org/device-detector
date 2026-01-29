@@ -1052,6 +1052,12 @@ class Browser extends AbstractClientParser
                 $engineVersion = $browserFromUserAgent['engine_version'] ?? '';
             }
 
+            if ('Blink' === $engine && 'Iridium' !== $name
+                && \version_compare($browserFromUserAgent['engine_version'], $engineVersion, '>')
+            ) {
+                $engineVersion = $browserFromUserAgent['engine_version'];
+            }
+
             // If client hints report Chromium, but user agent detects a Chromium based browser, we favor this instead
             if (('Chromium' === $name || 'Chrome Webview' === $name)
                 && !empty($browserFromUserAgent['name'])
