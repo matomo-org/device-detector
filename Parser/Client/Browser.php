@@ -1063,9 +1063,14 @@ class Browser extends AbstractClientParser
                 && !empty($browserFromUserAgent['name'])
                 && !\in_array($browserFromUserAgent['short_name'], ['CR', 'CV', 'AN', 'CM'])
             ) {
-                $name    = $browserFromUserAgent['name'];
-                $short   = $browserFromUserAgent['short_name'];
-                $version = $browserFromUserAgent['version'];
+                $name  = $browserFromUserAgent['name'];
+                $short = $browserFromUserAgent['short_name'];
+
+                if ((int) $browserFromUserAgent['version'] !== (int) $version
+                    || \version_compare($version, $browserFromUserAgent['version'], '<=')
+                ) {
+                    $version = $browserFromUserAgent['version'];
+                }
             }
 
             // Fix mobile browser names e.g. Chrome => Chrome Mobile
