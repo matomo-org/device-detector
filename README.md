@@ -259,6 +259,7 @@ php composer.phar install
 There are already a few ports of this tool to other languages:
 
 - **.NET** https://github.com/totpero/DeviceDetector.NET
+- **.NET** https://github.com/nandor23/UaDetector
 - **Ruby** https://github.com/podigee/device_detector
 - **JavaScript/TypeScript/NodeJS** https://github.com/etienne-martin/device-detector-js
 - **NodeJS** https://github.com/sanchezzzhak/node-device-detector
