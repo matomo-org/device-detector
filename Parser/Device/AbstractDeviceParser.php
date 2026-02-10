@@ -128,6 +128,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '85'  => 'Aiuto',
         'U7'  => 'AIDATA',
         'AL1' => 'AileTV',
+        'AL2' => 'AI+',
         'AK'  => 'Akai',
         'Q3'  => 'AKIRA',
         '1A'  => 'Alba',
@@ -238,10 +239,10 @@ abstract class AbstractDeviceParser extends AbstractParser
         'XU'  => 'AUX',
         'BAC' => 'Backcell',
         'BFF' => 'BAFF',
+        'BNC' => 'BNCF',
         'BO'  => 'BangOlufsen',
         'BN'  => 'Barnes & Noble',
         'BAR' => 'BARTEC',
-        'BAS' => 'BASE',
         'BAU' => 'BAUHN',
         'BB'  => 'BBK',
         '0B'  => 'BB Mobile',
@@ -378,9 +379,8 @@ abstract class AbstractDeviceParser extends AbstractParser
         '25'  => 'Claresta',
         'CLA' => 'CLAYTON',
         'CLT' => 'Clovertek',
-        '1J'  => 'Cloud',
+        '1J'  => 'Cloud Mobile',
         'CD'  => 'Cloudfone',
-        '6C'  => 'Cloudpad',
         'C0'  => 'Clout',
         'CN'  => 'CnM',
         'CY'  => 'Coby Kyros',
@@ -445,12 +445,12 @@ abstract class AbstractDeviceParser extends AbstractParser
         '7D'  => 'Datamini',
         '6D'  => 'Datalogic',
         'D1'  => 'Datsun',
-        'DZ'  => 'Dazen',
         'DAS' => 'DASS',
         'DAW' => 'Dawlance',
         'DB'  => 'Dbtel',
         'DBP' => 'DbPhone',
         'DCO' => 'Dcode',
+        'DEC' => 'DEC',
         'DL'  => 'Dell',
         'DL0' => 'DL',
         'DE'  => 'Denver',
@@ -474,25 +474,25 @@ abstract class AbstractDeviceParser extends AbstractParser
         'DH'  => 'Digihome',
         'DD'  => 'Digiland',
         'DIJ' => 'DIJITSU',
-        'DIG' => 'Digit4G',
+        'DIG' => 'Digit',
         'DIC' => 'DIGICOM',
         'Q0'  => 'DIGIFORS',
         'DIK' => 'DIKOM',
         'DQ'  => 'DISH',
         'DIS' => 'Disney',
-        '9D'  => 'Ditecma',
         'D2'  => 'Digma',
         '1D'  => 'Diva',
         'DIV' => 'DiverMax',
         'D6'  => 'Divisat',
         'DIO' => 'DIORA',
         'DIF' => 'Diofox',
-        'X6'  => 'DIXON',
         'DIM' => 'DIMO',
-        '5D'  => 'DING DING',
         'DIN' => 'Dinax',
         'DNA' => 'Dinalink',
-        'DM'  => 'DMM',
+        '5D'  => 'DING DING',
+        '9D'  => 'Ditecma',
+        'X6'  => 'DIXON',
+        'DM'  => 'Dream Multimedia',
         'DMO' => 'DMOAO',
         'DN'  => 'DNS',
         'DC'  => 'DoCoMo',
@@ -513,7 +513,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'DJ'  => 'Dragon Touch',
         'DRA' => 'DRAGON',
         'DY'  => 'Dreamgate',
-        'DRE' => 'DreamTab',
         'DR1' => 'DreamStar',
         'DTA' => 'Dtac',
         'DU'  => 'Dune HD',
@@ -527,6 +526,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'DTE' => 'D-Tech',
         'DLI' => 'D-Link',
         'ENO' => 'eNOVA',
+        'IN4' => 'Inno Hit',
         'IN2' => 'iNOVA',
         'IN3' => 'inovo',
         'INH' => 'Inhon',
@@ -553,6 +553,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ZZ'  => 'ecom',
         'ECS' => 'EcoStar',
         'EDE' => 'Edenwood',
+        'EDX' => 'Edanix',
         'E6'  => 'EE',
         'GW'  => 'EGL',
         'EGO' => 'EGOTEK',
@@ -563,7 +564,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'UE'  => 'Ematic',
         'EMR' => 'Emporia',
         '4K'  => 'EKT',
-        'EKI' => 'EKINOX',
         '7E'  => 'ELARI',
         '03'  => 'Electroneum',
         'Z8'  => 'ELECTRONIA',
@@ -584,6 +584,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '3E'  => 'Enot',
         'ENT' => 'Entity',
         'ENV' => 'Envizen',
+        'Q1'  => 'EPIK Learning',
         '8E'  => 'Epik One',
         'EPK' => 'Epic',
         'XP'  => 'Epson',
@@ -592,7 +593,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'E7'  => 'Ergo',
         'EC'  => 'Ericsson',
         '05'  => 'Erisson',
-        'ER'  => 'Ericy',
         'EE'  => 'Essential',
         'E2'  => 'Essentielb',
         '6E'  => 'eSTAR',
@@ -617,6 +617,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '5U'  => 'EVPAD',
         'EVV' => 'evvoli',
         'E0'  => 'EvroMedia',
+        'EXR' => 'Exertis',
         'XE'  => 'ExMobile',
         '4Z'  => 'Exmart Mobile',
         'EH'  => 'EXO',
@@ -630,7 +631,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'EZ'  => 'Ezze',
         'UF'  => 'EYU',
         'EYE' => 'Eyemoo',
-        'UE1' => 'UE',
         '5F'  => 'F150',
         'FPS' => 'F+',
         'F6'  => 'Facebook',
@@ -678,6 +678,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FR'  => 'Forstar',
         'RF'  => 'Fortis',
         'FRT' => 'FortuneShip',
+        'FOX' => 'FOX',
         'FO'  => 'Foxconn',
         'FOD' => 'FoxxD',
         'FJ'  => 'FOODO',
@@ -701,6 +702,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FXT' => 'Fxtec',
         'GT'  => 'G-TiDE',
         'G9'  => 'G-Touch',
+        'GTB' => 'G-Tab',
         'GFO' => 'Gfone',
         'GTM' => 'GTMEDIA',
         'GTX' => 'GTX',
@@ -718,6 +720,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'GEN' => 'Geant',
         'GD'  => 'Gemini',
         'GN'  => 'General Mobile',
+        'GD1' => 'Genius Devices',
         '2G'  => 'Genesis',
         'GEP' => 'Geo Phone',
         'G2'  => 'GEOFOX',
@@ -731,8 +734,8 @@ abstract class AbstractDeviceParser extends AbstractParser
         'GJ'  => 'Ghost',
         'GG'  => 'Gigabyte',
         'GS'  => 'Gigaset',
-        'GZ'  => 'Ginzzu',
         '1G'  => 'Gini',
+        'GZ'  => 'Ginzzu',
         'GI'  => 'Gionee',
         'GIR' => 'GIRASOLE',
         'G4'  => 'Globex',
@@ -813,7 +816,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'HIH' => 'HiHi',
         'HIK' => 'HiKing',
         'H2'  => 'Highscreen',
-        'Q1'  => 'High Q',
         'HI1' => 'HIGH1ONE',
         'HIG' => 'HiGrace',
         '1H'  => 'Hipstreet',
@@ -824,7 +826,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'H8'  => 'Hitech',
         'W3'  => 'HiMax',
         '8X'  => 'Hi Nova',
-        'HLL' => 'HLLO',
         'HKC' => 'HKC',
         'HMD' => 'HMD',
         '8W'  => 'HKPro',
@@ -842,13 +843,14 @@ abstract class AbstractDeviceParser extends AbstractParser
         'H7'  => 'Horizon',
         '4H'  => 'Horizont',
         'HO'  => 'Hosin',
-        'H3'  => 'Hotel',
+        'H3'  => 'Hotel TV Company',
         'HV'  => 'Hotwav',
         'U8'  => 'Hot Pepper',
         'HOT' => 'HOTACK',
         'JH'  => 'HOTREALS',
         'HW'  => 'How',
         'WH'  => 'Honeywell',
+        'HNR' => 'Honor',
         'HON' => 'HongTop',
         'HOG' => 'HONKUAHG',
         'HP'  => 'HP',
@@ -966,8 +968,9 @@ abstract class AbstractDeviceParser extends AbstractParser
         'IOT' => 'IOTWE',
         'JA'  => 'JAY-Tech',
         'JAM' => 'Jambo',
+        'JCK' => 'Jckkcfug',
         'KJ'  => 'Jiake',
-        'JD'  => 'Jedi',
+        'JD'  => 'Jide',
         'JEE' => 'Jeep',
         'J6'  => 'Jeka',
         'JF'  => 'JFone',
@@ -997,6 +1000,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'K6'  => 'Kanji',
         'KA'  => 'Karbonn',
         'K5'  => 'KATV1',
+        'ROI' => 'KAP',
         'KAP' => 'Kapsys',
         'K0'  => 'Kata',
         'KZ'  => 'Kazam',
@@ -1014,6 +1018,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'K1'  => 'Kiano',
         'KID' => 'kidiby',
         '5W'  => 'Kingbox',
+        'S4'  => 'Kingelon',
         'KI'  => 'Kingsun',
         'KIS' => 'Kinstone',
         'KF'  => 'KINGZONE',
@@ -1057,6 +1062,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'KQ'  => 'Kyowon',
         '1K'  => 'Kzen',
         'LQ'  => 'LAIQ',
+        'LAG' => 'LAGENIO',
         'L6'  => 'Land Rover',
         'L2'  => 'Landvo',
         'LA'  => 'Lanix',
@@ -1111,7 +1117,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'LOG' => 'Logik',
         'LGT' => 'Logitech',
         'GY'  => 'LOKMAT',
-        'LPX' => 'LPX-G',
         '0L'  => 'Lumigon',
         'LU'  => 'Lumus',
         'LUM' => 'Lumitel',
@@ -1166,7 +1171,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FK'  => 'MBI',
         'MBK' => 'MBK',
         '3D'  => 'MDC Store',
-        '1Y'  => 'MDTV',
+        '1Y'  => 'OTT',
         '09'  => 'meanIT',
         'M3'  => 'Mecer',
         'M3M' => 'M3 Mobile',
@@ -1189,6 +1194,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MEO' => 'MEO',
         'MX'  => 'MEU',
         'MES' => 'MESWAO',
+        'MII' => 'MIIA',
         'MI'  => 'MicroMax',
         'MIP' => 'mipo',
         'MS'  => 'Microsoft',
@@ -1212,8 +1218,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MIW' => 'MIWANG',
         'ML'  => 'MLLED',
         'LS'  => 'MLS',
-        'MLA' => 'MLAB',
-        '5H'  => 'MMI',
+        'MLA' => 'Microlab',
         '4M'  => 'Mobicel',
         'M6'  => 'Mobiistar',
         'MOK' => 'Mobile Kingdom',
@@ -1416,10 +1421,10 @@ abstract class AbstractDeviceParser extends AbstractParser
         'O6'  => 'Oyyu',
         'OZ'  => 'OzoneHD',
         'OLL' => 'Ollee',
-        '7P'  => 'P-UP',
+        '7P'  => 'Mode 1',
         'PRA' => 'Pacific Research Alliance',
         'PAG' => 'PAGRAER',
-        'PAD' => 'Padpro',
+        'PAD' => '7Ke tree',
         'YP'  => 'Paladin',
         'PM'  => 'Palm',
         'PN'  => 'Panacom',
@@ -1440,11 +1445,11 @@ abstract class AbstractDeviceParser extends AbstractParser
         'PC'  => 'PCD',
         'PD'  => 'PCD Argentina',
         'PE'  => 'PEAQ',
+        '8J'  => 'Pelitt',
         'PEN' => 'Penta',
         'PG'  => 'Pentagram',
         'PQ'  => 'Pendoo',
         '93'  => 'Perfeo',
-        '8J'  => 'Pelitt',
         '1P'  => 'Phicomm',
         '4P'  => 'Philco',
         'PH'  => 'Philips',
@@ -1459,7 +1464,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'PIX' => 'PIXPRO',
         'QP'  => 'Pico',
         'PIR' => 'PIRANHA',
-        'PIN' => 'PINE',
+        'PIN' => 'PINE64',
         '9P'  => 'Planet Computers',
         'PLA' => 'Play Now',
         'PY'  => 'Ployer',
@@ -1483,10 +1488,12 @@ abstract class AbstractDeviceParser extends AbstractParser
         '3P'  => 'Positivo BGH',
         '3F'  => 'Porsche',
         'PRT' => 'Portfolio',
+        'DRE' => 'Powerway',
         'PPD' => 'PPDS',
         'P3'  => 'PPTV',
         'FP'  => 'Premio',
-        'PR1' => 'Premier',
+        'PR2' => 'PREMIER',
+        'PR1' => 'Premier Star',
         'PR'  => 'Prestigio',
         'P9'  => 'Primepad',
         'PRM' => 'Prime Phones',
@@ -1515,10 +1522,11 @@ abstract class AbstractDeviceParser extends AbstractParser
         'QM'  => 'QMobile',
         'QT'  => 'Qtek',
         'Q9'  => 'QTECH',
+        '84'  => 'Quanta Computer',
         'QA'  => 'Quantum',
-        'QUE' => 'Quest',
         'QUA' => 'Quatro',
         'QU'  => 'Quechua',
+        'QUE' => 'Quest',
         'QUI' => 'Quipus',
         'QO'  => 'Qumo',
         'UQ'  => 'Qubo',
@@ -1576,13 +1584,12 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ROC' => 'Roam Cat',
         'ROT' => 'Rocket',
         'R1'  => 'Rokit',
-        'ROI' => 'ROiK',
         'RK'  => 'Roku',
         'R3'  => 'Rombica',
         'RUA' => 'Romsat',
         'R5'  => 'Ross&Moor',
         'RO'  => 'Rover',
-        'R6'  => 'RoverPad',
+        'R6'  => 'Rover Computers',
         'RQ'  => 'RoyQueen',
         'RJ'  => 'Royole',
         'RT'  => 'RT Project',
@@ -1713,17 +1720,15 @@ abstract class AbstractDeviceParser extends AbstractParser
         '68'  => 'Soho Style',
         'SOB' => 'SobieTech',
         'SOW' => 'SOWLY',
-        'PK'  => 'Spark',
+        'PK'  => 'Spark NZ',
         'SPX' => 'Sparx',
         'FS'  => 'SPC',
         '6S'  => 'Spectrum',
         '43'  => 'Spectralink',
         'SP'  => 'Spice Mobiles',
         'SPD' => 'Spider',
-        '84'  => 'Sprint',
         'SPU' => 'SPURT Mobile',
         'QS'  => 'SQOOL',
-        'S4'  => 'Star',
         'OL'  => 'Starlight',
         'STA' => 'Star-Light',
         '18'  => 'Starmobile',
@@ -1734,18 +1739,20 @@ abstract class AbstractDeviceParser extends AbstractParser
         'GQ'  => 'STG Telecom',
         'S2'  => 'Stonex',
         'ST'  => 'Storex',
-        'STR' => 'Stream',
+        'STR' => 'StreamSystem',
         '71'  => 'StrawBerry',
         'STM' => 'Strawberry Mobile',
         '96'  => 'STRONG',
         '69'  => 'Stylo',
         'STI' => 'Stilevs',
         '9S'  => 'Sugar',
+        'SUA' => 'SUAAT',
         'SUR' => 'SurgePhone Wireless',
         'SUF' => 'Surfans',
         '06'  => 'Subor',
         'SUT' => 'SULPICE TV',
         'SZ'  => 'Sumvision',
+        'SNG' => 'SUNGATE',
         '0H'  => 'Sunstech',
         'S3'  => 'SunVan',
         '5S'  => 'Sunvell',
@@ -1769,10 +1776,12 @@ abstract class AbstractDeviceParser extends AbstractParser
         '1W'  => 'Swisstone',
         'SWO' => 'SWOFY',
         'SSK' => 'SSKY',
+        'SSM' => 'Ssmart',
         'SYC' => 'Syco Mobiles',
         'SM'  => 'Symphony Mobile',
         '4S'  => 'Syrox',
         'SYS' => 'System76',
+        'TPS' => 'SZ TPS',
         'TM'  => 'T-Mobile',
         'T96' => 'T96',
         'TAD' => 'TADAAM',
@@ -1791,13 +1800,12 @@ abstract class AbstractDeviceParser extends AbstractParser
         'H4'  => 'Technicolor',
         'TEA' => 'TeachTouch',
         'Z5'  => 'Technika',
-        'TE1' => 'TechSmart',
+        'TE1' => 'Techmade',
         'TX'  => 'TechniSat',
         'TT'  => 'TechnoTrend',
         'TTS' => 'TECHNOSAT',
         'TM1' => 'Temigereev',
         'TP'  => 'TechPad',
-        'TPS' => 'TPS',
         '9E'  => 'Techwood',
         '7F'  => 'Technopc',
         'TCH' => 'Techstorm',
@@ -1817,6 +1825,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'PW'  => 'Telpo',
         'TLS' => 'TeloSystems',
         'TER' => 'Teracube',
+        'WR'  => 'Terra',
         'TD'  => 'Tesco',
         'TA'  => 'Tesla',
         '9T'  => 'Tetratab',
@@ -1890,11 +1899,11 @@ abstract class AbstractDeviceParser extends AbstractParser
         'TUV' => 'Tuvio',
         'TUC' => 'TUCSON',
         '2U'  => 'Türk Telekom',
+        'TUR' => 'Türksat',
         'TV'  => 'TVC',
         'TVP' => 'TV+',
         'TW'  => 'Taiwan Mobile',
-        'Z1'  => 'TWZ',
-        '6T'  => 'Twoe',
+        'Z1'  => 'TWZ Corporation',
         'TWN' => 'TwinMOS',
         '15'  => 'Tymes Mobiles',
         'UC'  => 'U.S. Cellular',
@@ -1916,6 +1925,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'UNI' => 'Unistrong',
         'U2'  => 'UNIWA',
         'UND' => 'Uniden',
+        'BAS' => 'Unikalne Smartphones',
         'UNE' => 'UNITED',
         'UGR' => 'United Group',
         'UO'  => 'Unnecto',
@@ -2019,7 +2029,8 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VRX' => 'VORTEX (RO)',
         'VOR' => 'Vormor',
         'V1'  => 'Voto',
-        'Z7'  => 'VOX',
+        'Z7'  => 'VOX Electronics',
+        'VOI' => 'VOIX',
         'VO'  => 'Voxtel',
         'VY'  => 'Voyo',
         'VOL' => 'Völfen',
@@ -2041,7 +2052,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'WAL' => 'Waltter',
         'WAI' => 'Wainyok',
         'WAT' => 'waipu.tv',
-        'WHI' => 'White Mobile',
         'WHO' => 'Whoop',
         'WBL' => 'We. by Loewe.',
         'WCP' => 'WeChip',
@@ -2052,7 +2062,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'WD'  => 'Western Digital',
         'WST' => 'Weston',
         'WT'  => 'Westpoint',
-        'WAN' => 'Wanmukang',
+        'WAN' => 'Zhongyu Display',
         'WA1' => 'WANSA',
         'WY'  => 'Wexler',
         '3W'  => 'WE',
@@ -2079,7 +2089,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'WON' => 'WONDER',
         'WO'  => 'Wonu',
         'W1'  => 'Woo',
-        'WR'  => 'Wortmann',
         'WX'  => 'Woxter',
         'WOZ' => 'WOZIFAN',
         'XQ'  => 'X-AGE',
@@ -2161,6 +2170,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ZIK' => 'ZIK',
         'ZKI' => 'Z-Kai',
         'ZIG' => 'Zigo',
+        'ZIM' => 'Zimmer',
         'ZIN' => 'Zinox',
         'ZO'  => 'Zonda',
         'ZW'  => 'Zonko',
@@ -2179,6 +2189,35 @@ abstract class AbstractDeviceParser extends AbstractParser
         // legacy brands, might be removed in future versions
         'WB'  => 'Web TV',
         'XX'  => 'Unknown',
+    ];
+
+    /**
+     * List of short names, that are not used due to brand being moved to another one.
+     * Used only for `getShortCode()` call for backwards compatibility.
+     *
+     * @var array
+     */
+    public static $legacyShortNames = [
+        // Is now '2E'
+        '6T'  => 'Twoe',
+        // Is now 'ARRIS'
+        '5H'  => 'MMI',
+        // Is now 'Cherry Mobile'
+        'WHI' => 'White Mobile',
+        // Is now 'Cloudfone'
+        '6C'  => 'Cloudpad',
+        // Is now 'Coolpad'
+        'DZ'  => 'Dazen',
+        // Is now 'Ericsson'
+        'ER'  => 'Ericy',
+        // Is now 'Exertis'
+        'HLL' => 'HLLO',
+        // Is now 'iGet'
+        'EKI' => 'EKINOX',
+        // Is now 'OTT'
+        'LPX' => 'LPX-G',
+        // Is now 'Newman'
+        'UE1' => 'UE',
     ];
 
     /**
@@ -2237,7 +2276,7 @@ abstract class AbstractDeviceParser extends AbstractParser
      */
     public static function getDeviceName(int $deviceType): string
     {
-        $deviceName = \array_search($deviceType, self::$deviceTypes);
+        $deviceName = \array_search($deviceType, self::$deviceTypes, true);
 
         if (\is_string($deviceName)) {
             return $deviceName;
@@ -2293,7 +2332,13 @@ abstract class AbstractDeviceParser extends AbstractParser
      */
     public static function getShortCode(string $brand): string
     {
-        return (string) \array_search($brand, self::$deviceBrands) ?: '';
+        $shortcode = (string) \array_search($brand, self::$deviceBrands, true) ?: '';
+
+        if ('' !== $shortcode) {
+            return $shortcode;
+        }
+
+        return  (string) \array_search($brand, self::$legacyShortNames, true) ?: '';
     }
 
     /**
@@ -2325,16 +2370,17 @@ abstract class AbstractDeviceParser extends AbstractParser
             return $this->getResult();
         }
 
-        $brand   = '';
-        $regexes = $this->getRegexes();
+        $brand = '';
 
-        foreach ($regexes as $brand => $regex) {
+        foreach ($this->getRegexes() as $brand => $regex) {
             $matches = $this->matchUserAgent($regex['regex']);
 
             if ($matches) {
                 break;
             }
         }
+
+        $brand = (string) $brand;
 
         if (empty($matches)) {
             $this->deviceType = $resultClientHint['deviceType'] ?? null;
@@ -2343,7 +2389,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         }
 
         if ('Unknown' !== $brand) {
-            if (!\in_array($brand, self::$deviceBrands)) {
+            if (!\in_array($brand, self::$deviceBrands, true)) {
                 // This Exception should never be thrown. If so a defined brand name is missing in $deviceBrands
                 throw new \Exception(\sprintf(
                     "The brand with name '%s' should be listed in deviceBrands array. Tried to parse user agent: %s",
@@ -2352,7 +2398,7 @@ abstract class AbstractDeviceParser extends AbstractParser
                 )); // @codeCoverageIgnore
             }
 
-            $this->brand = (string) $brand;
+            $this->brand = $brand;
         }
 
         if (isset($regex['device']) && \array_key_exists($regex['device'], self::$deviceTypes)) {
@@ -2382,7 +2428,7 @@ abstract class AbstractDeviceParser extends AbstractParser
 
             $this->model = $this->buildModel($modelRegex['model'], $modelMatches);
 
-            if (isset($modelRegex['brand']) && \in_array($modelRegex['brand'], self::$deviceBrands)) {
+            if (isset($modelRegex['brand']) && \in_array($modelRegex['brand'], self::$deviceBrands, true)) {
                 $this->brand = (string) $modelRegex['brand'];
             }
 
@@ -2425,7 +2471,7 @@ abstract class AbstractDeviceParser extends AbstractParser
             $formFactors        = $this->clientHints->getFormFactors();
 
             foreach (self::$clientHintFormFactorsMapping as $formFactor => $deviceType) {
-                if (\in_array($formFactor, $formFactors)) {
+                if (\in_array($formFactor, $formFactors, true)) {
                     $detectedDeviceType = $deviceType;
 
                     break;

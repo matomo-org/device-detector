@@ -24,15 +24,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.2
-          tools: composer:v2
+          php-version: 8.4
       - name: "Composer install"
         run: |
-          composer install --ignore-platform-reqs
+          composer install --ignore-platform-req=php+
       - name: PHPStan
         run: |
           php -v
