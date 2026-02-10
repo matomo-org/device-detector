@@ -2218,6 +2218,102 @@ abstract class AbstractDeviceParser extends AbstractParser
         'LPX' => 'LPX-G',
         // Is now 'Newman'
         'UE1' => 'UE',
+        // Is now 'Bundy Mobile'
+        '4Q'  => 'Bundy',
+        // Is now 'Calme Mobiles'
+        'CAL' => 'CALME',
+        // Is now 'Clear'
+        'YW'  => 'ClearPHONE',
+        // Is now 'eBest Mobile'
+        'EA'  => 'EBEST',
+        // Is now 'EL Mobile'
+        'ELM' => 'Elong Mobile',
+        // Is now 'Eudora Mobile'
+        'EUD' => 'Eudora',
+        // Is now 'Exmart Mobile'
+        '4Z'  => 'Exmart',
+        // Is now 'Fero Mobile'
+        'F7'  => 'Fero',
+        // Is now 'Gol-Mobile'
+        'GB'  => 'Gol Mobile',
+        // Is now 'Huskee Mobile'
+        'H5'  => 'Huskee',
+        // Is now 'IMO'
+        'IL'  => 'IMO Mobile',
+        // Is now 'Invens Mobile'
+        '32'  => 'Invens',
+        // Is now 'i.safe MOBILE'
+        '9J'  => 'iSafe Mobile',
+        // Is now 'iVA Mobile'
+        'I8'  => 'iVA',
+        // Is now 'Jiayu Mobile'
+        'JI'  => 'Jiayu',
+        // Is now 'Jivi Mobiles'
+        'VJ'  => 'Jivi',
+        // Is now 'Mobile Tout Terrain'
+        'MQ'  => 'M.T.T.',
+        // Is now 'Opel Mobile'
+        '2O'  => 'OpelMobile',
+        // Is now 'OTTO Phones'
+        'OTT' => 'OTTO',
+        // Is now 'Pano Mobile'
+        'PAN' => 'Pano',
+        // Is now 'Prime Phones'
+        'PRM' => 'PRIME',
+        // Is now 'RevoPhone'
+        'RP'  => 'Revo',
+        // Is now 'Ryte Mobile'
+        'RY'  => 'Ryte',
+        // Is now 'Sigma Mobile'
+        '1S'  => 'Sigma',
+        // Is now 'SYH Mobile'
+        'SYH' => 'SYH',
+        // Is now 'Spice Mobiles'
+        'SP'  => 'Spice',
+        // Is now 'SPURT Mobile'
+        'SPU' => 'SPURT',
+        // Is now 'STF'
+        'SB'  => 'STF Mobile',
+        // Is now 'STK Phones'
+        'S8'  => 'STK',
+        // Is now 'SurgePhone Wireless'
+        'SUR' => 'Surge',
+        // Is now 'Syco Mobiles'
+        'SYC' => 'Syco',
+        // Is now 'Symphony Mobile'
+        'SM'  => 'Symphony',
+        // Is now 'Telego Mobile'
+        'TG'  => 'Telego',
+        // Is now 'Torque Mobile'
+        'TOR' => 'Torque',
+        // Is now 'Taiwan Mobile'
+        'TW'  => 'TWM',
+        // Is now 'Tymes Mobiles'
+        '15'  => 'Tymes',
+        // Is now 'UNO'
+        'UNP' => 'UnoPhone',
+        // Is now 'Unonu Mobile'
+        'UU'  => 'Unonu',
+        // Is now 'Vipro Mobile'
+        '0V'  => 'Vipro',
+        // Is now 'Volt Mobile'
+        'VO1' => 'Volt',
+        // Is now 'Winds Mobile'
+        'WS'  => 'Winds',
+        // Is now 'X Mobile'
+        'XMO' => 'X-Mobile',
+        // Is now 'X-TIGI Mobile'
+        'XT'  => 'X-TIGI',
+        // Is now 'Xcell Mobile'
+        'XCL' => 'Xcell',
+        // Is now 'YotaPhone'
+        'YO'  => 'Yota',
+        // Is now 'YU Mobiles'
+        'Y1'  => 'Yu',
+        // Is now 'Zen Mobile'
+        'ZN'  => 'Zen',
+        // Is now 'ZH&K Mobile'
+        'Z4'  => 'ZH&K',
     ];
 
     /**
