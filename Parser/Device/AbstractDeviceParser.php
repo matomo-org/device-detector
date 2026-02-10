@@ -2219,6 +2219,12 @@ abstract class AbstractDeviceParser extends AbstractParser
         'LPX' => 'LPX-G',
         // Is now 'Newman'
         'UE1' => 'UE',
+        // Removed, had no devices
+        'INK' => 'Inka',
+        // Is now 'X96mini'
+        '96Q' => 'X96Q',
+        // Removed, had no devices
+        'WB'  => 'Web TV',
     ];
 
     /**
