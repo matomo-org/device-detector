@@ -2271,8 +2271,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FK'  => 'MBI',
         // Is now 'TJ Maxx'
         'XZ'  => 'MAXX',
-        // Is now 'MBI International'
-        'FK'  => 'MBI',
         // Is now 'MDC'
         '3D'  => 'MDC Store',
         // Is now 'MINT Connect'
@@ -2347,6 +2345,52 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ZU'  => 'Zuum',
         // Is now 'WS Education Electronics'
         'WSS' => 'WS',
+        // Is now 'Unikalne Smartphones'
+        'BAS' => 'BASE',
+        // Is now 'Cloud Mobile'
+        '1J'  => 'Cloud',
+        // Is now 'Digit'
+        'DIG' => 'Digit4G',
+        // Is now 'Dream Multimedia'
+        'DM'  => 'DMM',
+        // Is now 'Powerway'
+        'DRE' => 'DreamTab',
+        // Is now 'EPIK Learning'
+        'Q1'  => 'High Q',
+        // Is now 'Hotel TV Company'
+        'H3'  => 'Hotel',
+        // Is now 'KAP'
+        'ROI' => 'ROiK',
+        // Is now 'Kingelon'
+        'S4'  => 'Star',
+        // Is now 'OTT'
+        '1Y'  => 'MDTV',
+        // Is now 'Microlab'
+        'MLA' => 'MLAB',
+        // Is now 'Mode 1'
+        '7P'  => 'P-UP',
+        // Is now '7Ke tree'
+        'PAD' => 'Padpro',
+        // Is now 'Quanta Computer'
+        '84'  => 'Sprint',
+        // Is now 'Rover Computers'
+        'R6'  => 'RoverPad',
+        // Is now 'Spark NZ'
+        'PK'  => 'Spark',
+        // Is now 'StreamSystem'
+        'STR' => 'Stream',
+        // Is now 'SZ TPS'
+        'TPS' => 'TPS',
+        // Is now 'Techmade'
+        'TE1' => 'TechSmart',
+        // Is now 'Terra'
+        'WR'  => 'Wortmann',
+        // Is now 'TWZ Corporation'
+        'Z1'  => 'TWZ',
+        // Is now 'VOX Electronics'
+        'Z7'  => 'VOX',
+        // Is now 'Zhongyu Display'
+        'WAN' => 'Wanmukang',
     ];
 
     /**
