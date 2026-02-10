@@ -47,6 +47,10 @@ class Bot extends AbstractBotParser
     /**
      * Parses the current UA and checks whether it contains bot information
      *
+     * @return array|null
+     *
+     * @throws \Exception
+     *
      * @see bots.yml for list of detected bots
      *
      * Step 1: Build a big regex containing all regexes and match UA against it
@@ -60,7 +64,6 @@ class Bot extends AbstractBotParser
      *
      * NOTE: Doing the big match before matching every single regex speeds up the detection
      *
-     * @return array|null
      */
     public function parse(): ?array
     {
@@ -74,12 +77,18 @@ class Bot extends AbstractBotParser
             foreach ($this->getRegexes() as $regex) {
                 $matches = $this->matchUserAgent($regex['regex']);
 
-                if ($matches) {
-                    unset($regex['regex']);
-                    $result = $regex;
-
-                    break;
+                if (!$matches) {
+                    continue;
                 }
+
+                unset($regex['regex']);
+                $result = $regex;
+
+                if (\array_key_exists('name', $result)) {
+                    $result['name'] = $this->buildByMatch($result['name'], $matches);
+                }
+
+                break;
             }
         }
 

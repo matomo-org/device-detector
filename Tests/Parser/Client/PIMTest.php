@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace DeviceDetector\Tests\Parser\Client;
 
 use DeviceDetector\Parser\Client\PIM;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
@@ -21,26 +22,29 @@ class PIMTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
+    #[DataProvider('getFixtures')]
     public function testParse(string $useragent, array $client): void
     {
         $PIMParser = new PIM();
-        $PIMParser->setVersionTruncation(PIM::VERSION_TRUNCATION_NONE);
+        $PIMParser::setVersionTruncation(PIM::VERSION_TRUNCATION_NONE);
         $PIMParser->setUserAgent($useragent);
         $this->assertEquals($client, $PIMParser->parse());
     }
 
-    public function getFixtures(): array
+    public static function getFixtures(): array
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/pim.yml');
+
+        $fixtureData = \array_map(static function (array $item): array {
+            return ['useragent' => $item['user_agent'], 'client' => $item['client']];
+        }, $fixtureData);
 
         return $fixtureData;
     }
 
     public function testStructurePimYml(): void
     {
-        $ymlDataItems = Spyc::YAMLLoad(__DIR__ . '/../../../regexes/client/pim.yml');
-
-        foreach ($ymlDataItems as $item) {
+        foreach (Spyc::YAMLLoad(__DIR__ . '/../../../regexes/client/pim.yml') as $item) {
             $this->assertTrue(\array_key_exists('regex', $item), 'key "regex" not exist');
             $this->assertTrue(\array_key_exists('name', $item), 'key "name" not exist');
             $this->assertTrue(\array_key_exists('version', $item), 'key "version" not exist');
