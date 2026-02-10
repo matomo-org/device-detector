@@ -2217,6 +2217,118 @@ abstract class AbstractDeviceParser extends AbstractParser
         'LPX' => 'LPX-G',
         // Is now 'Newman'
         'UE1' => 'UE',
+        // Is now 'Anbernic'
+        'ANC' => 'ANBERNIC',
+        // Is now 'A-rival'
+        'ARI' => 'Arival',
+        // Is now 'Awox'
+        'AWO' => 'AWOX',
+        // Is now 'Bakcell'
+        'BAC' => 'Backcell',
+        // Is now 'Bang & Olufsen'
+        'BO'  => 'BangOlufsen',
+        // Is now 'Bluslate'
+        'BUS' => 'BluSlate',
+        // Is now 'BlueGood'
+        'BD'  => 'Bluegood',
+        // Is now 'Cadena'
+        'CAD' => 'CADENA',
+        // Is now 'Cepter'
+        'CEP' => 'CEPTER',
+        // Is now 'Compumax'
+        '7Z'  => 'COMPUMAX',
+        // Is now 'Crenova'
+        'CR'  => 'CreNova',
+        // Is now 'dbPhone'
+        'DBP' => 'DbPhone',
+        // Is now 'DigiDragon'
+        'DDG' => 'Digidragon',
+        // Is now 'duoTV'
+        'DUO' => 'DuoTV',
+        // Is now 'E phone'
+        'EPH' => 'Ephone',
+        // Is now 'Evromedia'
+        'E0'  => 'EvroMedia',
+        // Is now 'EXMobile'
+        'XE'  => 'ExMobile',
+        // Is now 'G-Fone'
+        'GFO' => 'Gfone',
+        // Is now 'G N Electronics'
+        'GNE' => 'GN Electronics',
+        // Is now 'Go,Comma'
+        '5G'  => 'Gocomma',
+        // Is now 'GPLUS'
+        '8G'  => 'Gplus',
+        // Is now 'Greentel Mobile'
+        '3G'  => 'Greentel',
+        // Is now 'HANNspree'
+        'HE'  => 'HannSpree',
+        // Is now 'Headwolf'
+        'HEW' => 'HeadWolf',
+        // Is now 'Heimät'
+        'HEI' => 'Heimat',
+        // Is now 'Intki'
+        'II'  => 'Inkti',
+        // Is now 'I.Robot'
+        'IRO' => 'iRobot',
+        // Is now 'i-Xtech'
+        'IXT' => 'iXTech',
+        // Is now 'Jide Technology'
+        'JD'  => 'Jedi',
+        // Is now 'jFone'
+        'JF'  => 'JFone',
+        // Is now 'KT Tech'
+        'KH'  => 'KT-Tech',
+        // Is now 'MTS'
+        'M9'  => 'MTC',
+        // Is now 'NaomiPhone'
+        'NP'  => 'Naomi Phone',
+        // Is now 'Necnon'
+        '8N'  => 'Necnot',
+        // Is now 'Neoniq'
+        '7Q'  => 'Neon IQ',
+        // Is now 'Newsmy'
+        'NS'  => 'NewsMy',
+        // Is now 'Redline'
+        'RE2' => 'RedLine',
+        // Is now 'RitzViva'
+        'R7'  => 'Ritzviva',
+        // Is now 'Rivo Mobile'
+        '6R'  => 'Rivo',
+        // Is now 'RoadRover'
+        'RR'  => 'Roadrover',
+        // Is now 'ROKiT'
+        'R1'  => 'Rokit',
+        // Is now 'SOULLINK'
+        'SUL' => 'SoulLink',
+        // Is now 'TAGTech'
+        '7G'  => 'TAG Tech',
+        // Is now 'Tech Pad'
+        'TP'  => 'TechPad',
+        // Is now 'Telo Systems'
+        'TLS' => 'TeloSystems',
+        // Is now 'TopTech'
+        'TPT' => 'Top-Tech',
+        // Is now 'Touch+'
+        'TOU' => 'Touch Plus',
+        // Is now 'Uzmobile'
+        '3Z'  => 'UZ Mobile',
+        // Is now 'UniStrong'
+        'UNI' => 'Unistrong',
+        // Is now 'Volkano'
+        'VO2' => 'VOLKANO',
+        // Is now 'We. by Loewe'
+        'WBL' => 'We. by Loewe.',
+        // Is now 'WizarPOS'
+        'WIZ' => 'WizarPos',
+        // Is now 'Wonu Telecom'
+        'WO'  => 'Wonu',
+        // Is now 'XVISION'
+        'X4'  => 'X.Vision',
+        // Is now 'Yasin'
+        'YJ'  => 'YASIN',
+        // Is now 'G\'Five'
+        '0G'  => 'GFive',
     ];
 
     /**
