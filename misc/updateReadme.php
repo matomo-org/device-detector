@@ -22,7 +22,7 @@ use DeviceDetector\Parser\OperatingSystem;
 
 include __DIR__ . '/../vendor/autoload.php';
 
-$brands = AbstractDeviceParser::$deviceBrands;
+$brands = array_unique(AbstractDeviceParser::$deviceBrands);
 natcasesort($brands);
 
 $bots      = [];
