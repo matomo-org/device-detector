@@ -23,6 +23,7 @@ use DeviceDetector\Parser\Device\AbstractDeviceParser;
 use DeviceDetector\Parser\Device\Mobile;
 use DeviceDetector\Yaml\Symfony;
 use Doctrine\Common\Cache\MemcachedCache;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class DeviceDetectorTest extends TestCase
@@ -43,10 +44,9 @@ class DeviceDetectorTest extends TestCase
 
     public function testDevicesYmlFiles(): void
     {
-        $allowedKeys  = ['regex', 'device', 'models', 'model', 'brand'];
-        $fixtureFiles = \glob(\realpath(__DIR__) . '/../regexes/device/*.yml');
+        $allowedKeys = ['regex', 'device', 'models', 'model', 'brand'];
 
-        foreach ($fixtureFiles as $file) {
+        foreach (\glob(\realpath(__DIR__) . '/../regexes/device/*.yml') as $file) {
             $ymlData = \Spyc::YAMLLoad($file);
 
             $availableDeviceTypeNames = AbstractDeviceParser::getAvailableDeviceTypeNames();
@@ -57,7 +57,7 @@ class DeviceDetectorTest extends TestCase
                 $keys = \array_keys($regex);
 
                 foreach ($keys as $key) {
-                    $this->assertTrue(\in_array($key, $allowedKeys), \sprintf(
+                    $this->assertContains($key, $allowedKeys, \sprintf(
                         'Unknown key `%s`, file %s, brand %s',
                         $key,
                         $file,
@@ -65,7 +65,7 @@ class DeviceDetectorTest extends TestCase
                     ));
                 }
 
-                $this->assertTrue(false === \strpos($regex['regex'], '||'), \sprintf(
+                $this->assertFalse(\strpos($regex['regex'], '||'), \sprintf(
                     'Detect `||` in regex, file %s, brand %s, common regex %s',
                     $file,
                     $brand,
@@ -94,7 +94,7 @@ class DeviceDetectorTest extends TestCase
                 ));
 
                 if (\array_key_exists('device', $regex)) {
-                    $this->assertTrue(\in_array($regex['device'], $availableDeviceTypeNames), \sprintf(
+                    $this->assertContains($regex['device'], $availableDeviceTypeNames, \sprintf(
                         "Unknown device type `%s`, file %s, brand %s, common regex %s\n\nAvailable types:\n%s\n",
                         $regex['device'],
                         $file,
@@ -111,7 +111,7 @@ class DeviceDetectorTest extends TestCase
                         $keys = \array_keys($model);
 
                         foreach ($keys as $key) {
-                            $this->assertTrue(\in_array($key, $allowedKeys), \sprintf(
+                            $this->assertContains($key, $allowedKeys, \sprintf(
                                 'Unknown key `%s`, file %s, brand %s, model regex %s',
                                 $key,
                                 $file,
@@ -127,7 +127,7 @@ class DeviceDetectorTest extends TestCase
                             $brand,
                             $model['regex']
                         ));
-                        $this->assertTrue(false === \strpos($model['regex'], '||'), \sprintf(
+                        $this->assertFalse(\strpos($model['regex'], '||'), \sprintf(
                             'Detect `||` in regex, file %s, brand %s, model regex %s',
                             $file,
                             $brand,
@@ -152,7 +152,7 @@ class DeviceDetectorTest extends TestCase
                             continue;
                         }
 
-                        $this->assertTrue(\in_array($model['device'], $availableDeviceTypeNames), \sprintf(
+                        $this->assertContains($model['device'], $availableDeviceTypeNames, \sprintf(
                             "Unknown device type `%s`, file %s, brand %s, model regex %s\n\nAvailable types:\n%s\n",
                             $model['device'],
                             $file,
@@ -179,7 +179,7 @@ class DeviceDetectorTest extends TestCase
 
     public function testCacheSetAndGet(): void
     {
-        if (!\extension_loaded('memcached') || !\class_exists('\Doctrine\Common\Cache\MemcachedCache')) {
+        if (!\class_exists('\Doctrine\Common\Cache\MemcachedCache') || !\extension_loaded('memcached')) {
             $this->markTestSkipped('memcached not enabled');
         }
 
@@ -219,6 +219,7 @@ class DeviceDetectorTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
+    #[DataProvider('getFixtures')]
     public function testParse(array $fixtureData): void
     {
         $ua          = $fixtureData['user_agent'];
@@ -247,11 +248,9 @@ class DeviceDetectorTest extends TestCase
         $this->assertEquals($fixtureData, $uaInfo, $errorMessage);
     }
 
-    public function getFixtures(): \Generator
+    public static function getFixtures(): \Generator
     {
-        $fixtureFiles = \glob(\realpath(__DIR__) . '/fixtures/*.yml');
-
-        foreach ($fixtureFiles as $fixturesPath) {
+        foreach (\glob(\realpath(__DIR__) . '/fixtures/*.yml') as $fixturesPath) {
             $typeFixtures = \Spyc::YAMLLoad($fixturesPath);
             $deviceType   = \str_replace('_', ' ', \substr(\basename($fixturesPath), 0, -4));
 
@@ -268,6 +267,7 @@ class DeviceDetectorTest extends TestCase
     /**
      * @dataProvider getFixturesClient
      */
+    #[DataProvider('getFixturesClient')]
     public function testParseClient(array $fixtureData): void
     {
         $ua          = $fixtureData['user_agent'];
@@ -291,21 +291,16 @@ class DeviceDetectorTest extends TestCase
             \Spyc::YAMLDump($uaInfo, 2, 0)
         );
 
-        unset($fixtureData['headers']); // ignore headers in result
-        unset($fixtureData['client']['family']);
+        unset($fixtureData['headers'], $fixtureData['client']['family']); // ignore headers and client family in result
 
         $this->assertArrayNotHasKey('bot', $uaInfo, $messageError);
         $this->assertEquals($fixtureData['client'], $uaInfo['client'], $messageError);
     }
 
-    public function getFixturesClient(): \Generator
+    public static function getFixturesClient(): \Generator
     {
-        $fixtureFiles = \glob(\realpath(__DIR__) . '/Parser/Client/fixtures/*.yml');
-
-        foreach ($fixtureFiles as $fixturesPath) {
-            $typeFixtures = \Spyc::YAMLLoad($fixturesPath);
-
-            foreach ($typeFixtures as $fixture) {
+        foreach (\glob(\realpath(__DIR__) . '/Parser/Client/fixtures/*.yml') as $fixturesPath) {
+            foreach (\Spyc::YAMLLoad($fixturesPath) as $fixture) {
                 yield [$fixture];
             }
         }
@@ -314,6 +309,7 @@ class DeviceDetectorTest extends TestCase
     /**
      * @dataProvider getFixturesDevice
      */
+    #[DataProvider('getFixturesDevice')]
     public function testParseDevice(array $fixtureData): void
     {
         $ua          = $fixtureData['user_agent'];
@@ -335,20 +331,16 @@ class DeviceDetectorTest extends TestCase
         $this->assertEquals($fixtureData['device'], $uaInfo['device']);
     }
 
-    public function getFixturesDevice(): \Generator
+    public static function getFixturesDevice(): \Generator
     {
-        $fixtureFiles = \glob(\realpath(__DIR__) . '/Parser/Device/fixtures/*.yml');
-
-        foreach ($fixtureFiles as $fixturesPath) {
-            $typeFixtures = \Spyc::YAMLLoad($fixturesPath);
-
-            foreach ($typeFixtures as $fixture) {
+        foreach (\glob(\realpath(__DIR__) . '/Parser/Device/fixtures/*.yml') as $fixturesPath) {
+            foreach (\Spyc::YAMLLoad($fixturesPath) as $fixture) {
                 yield [$fixture];
             }
         }
     }
 
-    public function getFixturesDeviceTypeFromClientHints(): array
+    public static function getFixturesDeviceTypeFromClientHints(): array
     {
         $useragent  = 'Some Unknown UA';
         $deviceName = '"Some Unknown Model"';
@@ -417,6 +409,7 @@ class DeviceDetectorTest extends TestCase
     /**
      * @dataProvider getFixturesDeviceTypeFromClientHints
      */
+    #[DataProvider('getFixturesDeviceTypeFromClientHints')]
     public function testDetectDeviceTypeFromClientHints(string $useragent, array $headers, int $device): void
     {
         $clientHints    = ClientHints::factory($headers);
@@ -467,6 +460,7 @@ class DeviceDetectorTest extends TestCase
     /**
      * @dataProvider getVersionTruncationFixtures
      */
+    #[DataProvider('getVersionTruncationFixtures')]
     public function testVersionTruncation(string $useragent, int $truncationType, string $osVersion, string $clientVersion): void
     {
         AbstractParser::setVersionTruncation($truncationType);
@@ -477,7 +471,7 @@ class DeviceDetectorTest extends TestCase
         AbstractParser::setVersionTruncation(AbstractParser::VERSION_TRUNCATION_NONE);
     }
 
-    public function getVersionTruncationFixtures(): array
+    public static function getVersionTruncationFixtures(): array
     {
         return [
             ['Mozilla/5.0 (Linux; Android 4.2.2; ARCHOS 101 PLATINUM Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36', AbstractParser::VERSION_TRUNCATION_NONE, '4.2.2', '34.0.1847.114'],
@@ -558,6 +552,7 @@ class DeviceDetectorTest extends TestCase
     /**
      * @dataProvider getBotFixtures
      */
+    #[DataProvider('getBotFixtures')]
     public function testParseBots(array $fixtureData): void
     {
         $ua = $fixtureData['user_agent'];
@@ -591,10 +586,15 @@ class DeviceDetectorTest extends TestCase
             'Site Monitor',
             'Social Media Agent',
             'Validator',
+            'AI Agent',
+            'AI Assistant',
+            'AI Data Scraper',
+            'AI Search Crawler',
         ];
 
-        $this->assertTrue(
-            \in_array($botData['category'], $categories, true),
+        $this->assertContains(
+            $botData['category'],
+            $categories,
             \sprintf(
                 "Unknown category: \"%s\"\nUseragent: %s\nAvailable categories:\n%s\n",
                 $botData['category'],
@@ -604,7 +604,7 @@ class DeviceDetectorTest extends TestCase
         );
     }
 
-    public function getBotFixtures(): array
+    public static function getBotFixtures(): array
     {
         $fixturesPath = \realpath(__DIR__ . '/fixtures/bots.yml');
         $fixtures     = \Spyc::YAMLLoad($fixturesPath);
@@ -704,16 +704,21 @@ class DeviceDetectorTest extends TestCase
         $this->assertEquals($expected, $dd->getClient());
     }
 
-    public function getTypeMethodFixtures(): array
+    public static function getTypeMethodFixtures(): array
     {
-        $fixturePath = \realpath(__DIR__ . '/Parser/fixtures/type-methods.yml');
+        $fixtureData = \Spyc::YAMLLoad(\realpath(__DIR__ . '/Parser/fixtures/type-methods.yml'));
 
-        return \Spyc::YAMLLoad($fixturePath);
+        $fixtureData = \array_map(static function (array $item): array {
+            return ['ua' => $item['user_agent'], 'checkTypes' => $item['check']];
+        }, $fixtureData);
+
+        return $fixtureData;
     }
 
     /**
      * @dataProvider getTypeMethodFixtures
      */
+    #[DataProvider('getTypeMethodFixtures')]
     public function testTypeMethods(string $ua, array $checkTypes): void
     {
         try {
@@ -870,7 +875,7 @@ class DeviceDetectorTest extends TestCase
     protected function checkRegexVerticalLineClosingGroup(string $regexString): bool
     {
         if (false !== \strpos($regexString, '|)')) {
-            return !\preg_match('#(?<!\\\)(\|\))#is', $regexString);
+            return !\preg_match('#(?<!\\\)(\|\))#', $regexString);
         }
 
         return true;

@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace DeviceDetector\Tests\Parser\Device;
 
 use DeviceDetector\Parser\Device\CarBrowser;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
@@ -21,19 +22,24 @@ class CarBrowserTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
+    #[DataProvider('getFixtures')]
     public function testParse(string $useragent, array $device): void
     {
         $consoleParser = new CarBrowser();
         $consoleParser->setUserAgent($useragent);
-        $this->assertTrue(\is_array($consoleParser->parse()));
+        $this->assertIsArray($consoleParser->parse());
         $this->assertEquals($device['type'], CarBrowser::getDeviceName($consoleParser->getDeviceType()));
         $this->assertEquals($device['brand'], $consoleParser->getBrand());
         $this->assertEquals($device['model'], $consoleParser->getModel());
     }
 
-    public function getFixtures(): array
+    public static function getFixtures(): array
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/car_browser.yml');
+
+        $fixtureData = \array_map(static function (array $item): array {
+            return ['useragent' => $item['user_agent'], 'device' => $item['device']];
+        }, $fixtureData);
 
         return $fixtureData;
     }

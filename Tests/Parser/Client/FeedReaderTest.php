@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace DeviceDetector\Tests\Parser\Client;
 
 use DeviceDetector\Parser\Client\FeedReader;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
@@ -21,17 +22,22 @@ class FeedReaderTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
+    #[DataProvider('getFixtures')]
     public function testParse(string $useragent, array $client): void
     {
         $feedReaderParser = new FeedReader();
-        $feedReaderParser->setVersionTruncation(FeedReader::VERSION_TRUNCATION_NONE);
+        $feedReaderParser::setVersionTruncation(FeedReader::VERSION_TRUNCATION_NONE);
         $feedReaderParser->setUserAgent($useragent);
         $this->assertEquals($client, $feedReaderParser->parse(), "UserAgent: {$useragent}");
     }
 
-    public function getFixtures(): array
+    public static function getFixtures(): array
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/feed_reader.yml');
+
+        $fixtureData = \array_map(static function (array $item): array {
+            return ['useragent' => $item['user_agent'], 'client' => $item['client']];
+        }, $fixtureData);
 
         return $fixtureData;
     }

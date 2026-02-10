@@ -74,9 +74,12 @@
   version: '$1'
 
 # Facebook Messenger (https://play.google.com/store/apps/details?id=com.facebook.orca)
-- regex: '(?:MessengerForiOS|MESSENGER|FB_IAB/Orca-Android).*(?:FBAV)(?:[ /]([\d.]+))?'
+- regex: '(?:MessengerForiOS|MESSENGER|(?:FB_IAB|FBAN)/Orca-Android).*(?:FBAV)(?:[ /]([\d.]+))?'
   name: 'Facebook Messenger'
   version: '$1'
+- regex: '(?:MessengerForiOS|(?:FB_IAB|FBAN)/Orca-Android)'
+  name: 'Facebook Messenger'
+  version: ''
 
 # Facebook Groups
 - regex: '(?:GroupsForiOS).*(?:FBAV)(?:[ /]([\d.]+))?'
@@ -120,6 +123,9 @@
 - regex: 'com\.google\.android\.apps\.searchlite'
   name: 'Google Go'
   version: ''
+- regex: 'NSTNWV(?:/([\d.]+))?'
+  name: 'Google Go'
+  version: '$1'
 
 # Google Photos
 - regex: 'com\.google\.android\.apps\.photos'
@@ -145,6 +151,16 @@
 - regex: 'OPA/([\d.]+)'
   name: 'Google Assistant'
   version: '$1'
+
+# Google Maps (https://maps.google.com/)
+- regex: 'com\.google\.Maps/([\d.]+)'
+  name: 'Google Maps'
+  version: '$1'
+
+# Google App (https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox)
+- regex: 'com\.google\.android\.googlequicksearchbox'
+  name: 'Google'
+  version: ''
 
 # WeCom (https://work.weixin.qq.com/ | https://play.google.com/store/apps/details?id=com.tencent.wework | https://apps.apple.com/app/id1087897068)
 - regex: 'wxwork/(\d+[.\d]+)'
@@ -354,6 +370,9 @@
 
 - regex: 'Flipboard/([\d.]+)?'
   name: 'Flipboard App'
+  version: '$1'
+- regex: 'lite baiduboxapp/([\d.]+)?'
+  name: 'Baidu Box App Lite'
   version: '$1'
 - regex: 'baiduboxapp/([\d.]+)?'
   name: 'Baidu Box App'
@@ -1240,9 +1259,9 @@
   name: 'Microsoft Bing'
   version: '$1'
 
-# Microsoft Start (https://play.google.com/store/apps/details?id=com.microsoft.amp.apps.bingnews | https://apps.apple.com/us/app/microsoft-start/id945416273)
+# MSN (https://play.google.com/store/apps/details?id=com.microsoft.amp.apps.bingnews | https://apps.apple.com/us/app/microsoft-start/id945416273)
 - regex: 'NewsSapphire/(\d+\.[.\d]+)'
-  name: 'Microsoft Start'
+  name: 'MSN'
   version: '$1'
 
 # Microsoft Copilot (https://play.google.com/store/apps/details?id=com.microsoft.copilot | https://apps.apple.com/us/app/microsoft-copilot/id6472538445)
@@ -2660,11 +2679,6 @@
   name: 'appdb'
   version: '$1'
 
-# Apache (https://www.apache.org/)
-- regex: 'Apache/([\d.]+)'
-  name: 'Apache'
-  version: '$1'
-
 # smzdm (https://www.smzdm.com/)
 - regex: 'smzdm ([\d.]+)'
   name: 'smzdm'
@@ -2680,6 +2694,84 @@
   name: 'DeepL'
   version: ''
 
+# Anything LLM (https://github.com/Mintplex-Labs/anything-llm)
+- regex: 'anythingllm-desktop/([\d.]+)'
+  name: 'Anything LLM'
+  version: '$1'
+
+# OP.GG (https://play.google.com/store/apps/details?id=gg.op.lol.android&hl=en_US)
+- regex: 'opgg-electron-app/([\d.]+)'
+  name: 'OP.GG'
+  version: '$1'
+
+# VidJuice UniTube (https://www.vidjuice.com/unitube-video-converter/)
+- regex: 'VidJuiceUniTube/([\d.]+)'
+  name: 'VidJuice UniTube'
+  version: '$1'
+
+# Seekr App (Android)
+- regex: '^Seekr/([\d\.]+).*Android'
+  name: 'Seekr'
+  version: '$1'
+
+# Seekr App (iOS)
+- regex: '^Seekr/([\d\.]+).*CFNetwork'
+  name: 'Seekr'
+  version: '$1'
+
+# Superbalist (https://superbalist.com/)
+- regex: '^Superbalist/([\d.]+)'
+  name: 'Superbalist'
+  version: '$1'
+
+# Keplr (https://www.keplr.app/)
+- regex: 'KeplrWalletMobile/([\d.]+)'
+  name: 'Keplr'
+  version: '$1'
+
+# Lookr (https://play.google.com/store/apps/details?id=com.wecloud.lookr)
+- regex: 'lookr/([\d.]+)'
+  name: 'Lookr'
+  version: '$1'
+
+# Kimi (https://www.kimi.com/)
+- regex: 'Kimi/([\d.]+)'
+  name: 'Kimi'
+  version: '$1'
+
+# Genspark (http://www.genspark.ai/)
+- regex: 'genspark'
+  name: 'Genspark'
+  version: ''
+
+# Hulu (https://www.hulu.com/)
+- regex: 'Hulu/([\d.]+)'
+  name: 'Hulu'
+  version: '$1'
+
+# TeraBox (https://www.terabox.com/)
+- regex: 'TeraBox/([\d.]+)'
+  name: 'TeraBox'
+  version: '$1'
+- regex: 'dubox;([\d.]+);'
+  name: 'TeraBox'
+  version: '$1'
+
+# DeepSeek (https://play.google.com/store/apps/details?id=com.deepseek.chat)
+- regex: 'DeepSeek Chat/([\d.]+)'
+  name: 'DeepSeek'
+  version: '$1'
+
+# ChatGPT (https://apps.apple.com/us/app/chatgpt/id6448311069)
+- regex: 'ChatGPT/([\d.]+)'
+  name: 'ChatGPT'
+  version: '$1'
+
+# Redline (https://redline.com.tr/)
+- regex: 'REDLINECLIENT.+V([\d.]+)'
+  name: 'Redline'
+  version: '$1'
+
 # Electron generic apps
 - regex: ' (?!(?:AppleWebKit|brave|Cypress|Franz|Mailspring|Notion|Basecamp|Evernote|catalyst|ramboxpro|BlueMail|BeakerBrowser|Dezor|TweakStyle|Colibri|Polypane|Singlebox|Skye|VibeMate|(?:d|LT|Glass|Sushi|Flash|OhHai)Browser|Sizzy))([a-z0-9]*)(?:-desktop|-electron-app)?/(\d+\.[\d.]+).*Electron/'
   name: '$1'
@@ -2694,13 +2786,3 @@
 - regex: '(?!AlohaBrowser)([^/;]*)/(\d+\.[\d.]+) \((?:iPhone|iPad); (?:iOS|iPadOS) [0-9.]+; Scale/[0-9.]+\)'
   name: '$1'
   version: '$2'
-
-# Seekr App (Android)
-- regex: '^Seekr/([\d\.]+).*Android'
-  name: 'Seekr'
-  version: '$1'
-
-# Seekr App (iOS)
-- regex: '^Seekr/([\d\.]+).*CFNetwork'
-  name: 'Seekr'
-  version: '$1'
