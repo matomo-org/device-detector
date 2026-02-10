@@ -22,16 +22,16 @@ use DeviceDetector\Parser\OperatingSystem;
 
 include __DIR__ . '/../vendor/autoload.php';
 
-$brands = AbstractDeviceParser::$deviceBrands;
+$brands = array_unique(AbstractDeviceParser::$deviceBrands);
 natcasesort($brands);
 
 $bots      = [];
 $ymlParser = new Spyc();
 
-$parsedBots = $ymlParser->loadFile(__DIR__ . '/../regexes/bots.yml');
+$parsedBots = $ymlParser->loadFile(__DIR__ . '/../Tests/fixtures/bots.yml');
 
-foreach ($parsedBots as $parsedBot) {
-    if (in_array($parsedBot['name'], $bots)) {
+foreach (array_column($parsedBots, 'bot') as $parsedBot) {
+    if ('Generic Bot' === $parsedBot['name'] || in_array($parsedBot['name'], $bots, true)) {
         continue;
     }
 

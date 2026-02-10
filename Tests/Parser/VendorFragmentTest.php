@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace DeviceDetector\Tests\Parser;
 
 use DeviceDetector\Parser\VendorFragment;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
@@ -23,6 +24,7 @@ class VendorFragmentTest extends TestCase
     /**
      * @dataProvider getFixtures
      */
+    #[DataProvider('getFixtures')]
     public function testParse(string $useragent, string $vendor): void
     {
         $vfParser = new VendorFragment();
@@ -31,11 +33,9 @@ class VendorFragmentTest extends TestCase
         self::$regexesTested[] = $vfParser->getMatchedRegex();
     }
 
-    public function getFixtures(): array
+    public static function getFixtures(): array
     {
-        $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/vendorfragments.yml');
-
-        return $fixtureData;
+        return Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/vendorfragments.yml');
     }
 
     public function testAllRegexesTested(): void
@@ -46,7 +46,7 @@ class VendorFragmentTest extends TestCase
 
         foreach ($vendorRegexes as $vendor => $regexes) {
             foreach ($regexes as $regex) {
-                if (\in_array($regex, self::$regexesTested)) {
+                if (\in_array($regex, self::$regexesTested, true)) {
                     continue;
                 }
 

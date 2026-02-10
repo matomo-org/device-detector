@@ -24,32 +24,43 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        php-version: ['7.2', '8.4']
+        php-version: ['7.2', '8.5']
+        composer-options: ['']
         include:
           - php-version: 7.3
             os: ubuntu-latest
+            composer-options: ''
           - php-version: 7.4
             os: ubuntu-latest
+            composer-options: ''
           - php-version: 8.0
             os: ubuntu-latest
+            composer-options: ''
           - php-version: 8.1
             os: ubuntu-latest
+            composer-options: ''
           - php-version: 8.2
             os: ubuntu-latest
+            composer-options: ''
           - php-version: 8.3
             os: ubuntu-latest
+          - php-version: 8.4
+            os: ubuntu-latest
+            composer-options: ''
+          - php-version: nightly
+            os: ubuntu-latest
+            composer-options: '--ignore-platform-req=php+'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
-          tools: composer:v2
           extensions: memcached
       - name: "Composer install"
         run: |
-          composer install --ignore-platform-reqs
-          composer require doctrine/cache ~1.2 --ignore-platform-reqs
+          composer install ${{ matrix.composer-options }}
+          composer require doctrine/cache ~1.2 ${{ matrix.composer-options }}
       - name: PHPUnit / PHP ${{ matrix.php-version }}
         run: |
           php -v

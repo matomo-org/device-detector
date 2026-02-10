@@ -32,7 +32,7 @@ use DeviceDetector\Parser\Device\AbstractDeviceParser;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-if ('cli' !== php_sapi_name()) {
+if ('cli' !== PHP_SAPI) {
     echo 'web not supported';
     exit(0);
 }
@@ -41,12 +41,12 @@ if (count($argv) < 2) {
     printHelpAndExit();
 }
 
-define('DETECT_MODE_TYPE_DETECT', 'detect');
-define('DETECT_MODE_TYPE_ALL', 'all');
-define('DETECT_MODE_TYPE_NOT', 'not');
+const DETECT_MODE_TYPE_DETECT = 'detect';
+const DETECT_MODE_TYPE_ALL    = 'all';
+const DETECT_MODE_TYPE_NOT    = 'not';
 
-define('REPORT_TYPE_YML', 'yml');
-define('REPORT_TYPE_USERAGENT', 'useragent');
+const REPORT_TYPE_YML       = 'yml';
+const REPORT_TYPE_USERAGENT = 'useragent';
 
 $file       = $argv[1] ?? '';
 $showMode   = $argv[2] ?? 'not';
@@ -83,17 +83,17 @@ function printReport(array $result, string $format): void
         return;
     }
 
-    if (REPORT_TYPE_USERAGENT === $format) {
-        echo "{$result['user_agent']}\n";
-
+    if (REPORT_TYPE_USERAGENT !== $format) {
         return;
     }
+
+    echo "{$result['user_agent']}\n";
 }
 
 AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);
 $deviceDetector = new DeviceDetector();
 
-$fn = fopen($file, 'r');
+$fn = fopen($file, 'rb');
 
 while (!feof($fn)) {
     $userAgent = fgets($fn);

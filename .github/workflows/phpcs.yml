@@ -22,13 +22,13 @@ jobs:
     name: PHPCS
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: composer install --dev --prefer-dist --no-progress --no-suggest --ignore-platform-reqs
+      - uses: actions/checkout@v6
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.2'
+          php-version: '8.4'
           tools: cs2pr
+      - name: Install dependencies
+        run: composer install --dev --prefer-dist --no-progress --no-suggest
       - name: Run phpcs
         run: ./vendor/bin/phpcs -q --report=checkstyle | cs2pr
