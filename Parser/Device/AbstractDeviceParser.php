@@ -630,7 +630,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'EZ'  => 'Ezze',
         'UF'  => 'EYU',
         'EYE' => 'Eyemoo',
-        '5F'  => 'F150',
+        '5F'  => 'IIIF150',
         'FPS' => 'F+',
         'F6'  => 'Facebook',
         'FAC' => 'Facetel',
