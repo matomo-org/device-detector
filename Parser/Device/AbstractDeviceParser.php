@@ -2225,6 +2225,20 @@ abstract class AbstractDeviceParser extends AbstractParser
         '96Q' => 'X96Q',
         // Removed, had no devices
         'WB'  => 'Web TV',
+        // Is now 'NEXON.UA'
+        'N8'  => 'NEXON',
+        // Is now 'Next Translator'
+        'NEX' => 'NEXT',
+        // Is now 'Onda Tablet'
+        'OD'  => 'Onda',
+        // Is now 'Sky Devices'
+        'SW'  => 'Sky',
+        // Is now 'Vortex Cellular'
+        'JW'  => 'Vortex',
+        // Is now 'Vortex'
+        'VRX' => 'VORTEX (RO)',
+        // Is now 'X96mini'
+        'X96' => 'X96',
     ];
 
     /**
