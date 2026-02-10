@@ -2215,6 +2215,138 @@ abstract class AbstractDeviceParser extends AbstractParser
         'LPX' => 'LPX-G',
         // Is now 'Newman'
         'UE1' => 'UE',
+        // Is now 'Brave Techs'
+        'BRV' => 'BRAVE',
+        // Is now 'Bubblegum Tablets'
+        'Y8'  => 'Bubblegum',
+        // Is now 'Coby'
+        'CY'  => 'Coby Kyros',
+        // Is now 'Connex Devices'
+        '8C'  => 'Connex',
+        // Is now 'Cricket Wireless'
+        'CK'  => 'Cricket',
+        // Is now 'Crown Micro'
+        '4W'  => 'Crown',
+        // Is now 'NTT DOCOMO'
+        'DC'  => 'DoCoMo',
+        // Is now 'Elitegroup Computer Systems'
+        'ES'  => 'ECS',
+        // Is now 'EFT Group'
+        'EFT' => 'EFT',
+        // Is now 'IIIF150'
+        '5F'  => 'F150',
+        // Is now 'Famous Fones'
+        'FAM' => 'Famous',
+        // Is now 'FIGI Mobile'
+        'J9'  => 'FiGi',
+        // Is now 'Figgers Communication'
+        'FIG' => 'Figgers',
+        // Is now 'Future Mobile Technology'
+        '1F'  => 'FMT',
+        // Is now 'FFF Smart Life Connected'
+        'FFF' => 'FFF SmartLife',
+        // Is now 'Gemini Devices'
+        'GD'  => 'Gemini',
+        // Is now 'Großerwert'
+        'GR1' => 'GroBerwert',
+        // Is now 'H96 Max'
+        '9Z'  => 'H96',
+        // Is now 'Impression Electronics'
+        'I3'  => 'Impression',
+        // Is now 'Inco Electronics'
+        '6I'  => 'Inco',
+        // Is now 'iNavi Systems'
+        'INA' => 'iNavi',
+        // Is now 'iVOOMi Energy'
+        '0J'  => 'iVooMi',
+        // Is now 'Krono Digital'
+        'K2'  => 'KRONO',
+        // Is now 'MAG InnoVision'
+        'MAG' => 'MAG',
+        // Is now 'Manhattan TV'
+        'NH'  => 'Manhattan',
+        // Is now 'Marshal Electronic'
+        'MAR' => 'Marshal',
+        // Is now 'MBI International'
+        'FK'  => 'MBI',
+        // Is now 'TJ Maxx'
+        'XZ'  => 'MAXX',
+        // Is now 'MBI International'
+        'FK'  => 'MBI',
+        // Is now 'MDC'
+        '3D'  => 'MDC Store',
+        // Is now 'MINT Connect'
+        'MIN' => 'Mint',
+        // Is now 'MITO Electronic'
+        '8M'  => 'Mito',
+        // Is now 'The MixC'
+        'M5'  => 'MIXC',
+        // Is now 'MLS Innovation'
+        'LS'  => 'MLS',
+        // Is now 'MStar Semiconductor'
+        '3R'  => 'MStar',
+        // Is now 'National Electronic Corporation'
+        'N7'  => 'National',
+        // Is now 'NASCO Electronics'
+        'NAS' => 'NASCO',
+        // Is now 'O+ USA'
+        'O3'  => 'O+',
+        // Is now 'OASYS Cybernetics'
+        'OC'  => 'OASYS',
+        // Is now 'Obi Worldphone'
+        'OB'  => 'Obi',
+        // Is now 'Oceanic Solar'
+        'OCE' => 'OCEANIC',
+        // Is now 'Paladin TV'
+        'YP'  => 'Paladin',
+        // Is now 'Play'
+        'PLA' => 'Play Now',
+        // Is now 'Raylan'
+        'RAY' => 'Raylandz',
+        // Is now 'RCA'
+        'RC'  => 'RCA Tablets',
+        // Is now 'Reach Mobiletech'
+        '2R'  => 'Reach',
+        // Is now 'RED Digital Cinema'
+        'R8'  => 'RED',
+        // Is now 'Rhino Mobility'
+        'RHI' => 'Rhino',
+        // Is now 'Research In Motion'
+        'RM'  => 'RIM',
+        // Is now 'Rinno Telecom'
+        'RN'  => 'Rinno',
+        // Is now 'Sansui Electric'
+        '12'  => 'Sansui',
+        // Is now 'Schneider Consumer'
+        'CZ'  => 'Schneider',
+        // Is now 'Smart Axiata'
+        '49'  => 'Smart',
+        // Is now 'Spider Receiver'
+        'SPD' => 'Spider',
+        // Is now 'Suzuki Corporation'
+        'ZS'  => 'Suzuki',
+        // Is now 'Syrox Technologies'
+        '4S'  => 'Syrox',
+        // Is now 'Takara Multimédia'
+        'TK'  => 'Takara',
+        // Is now 'TTK'
+        'TTK' => 'TTK-TV',
+        // Is now 'Valtech Mobility'
+        'VAT' => 'VALTECH',
+        // Is now 'Versus Mobility'
+        'VER' => 'Versus',
+        // Is now 'Vityas'
+        'VIT' => 'Vityaz',
+        // Is now 'VUE'
+        'VUE' => 'Vue Micro',
+        // Is now 'Zebra Technologies'
+        'PZ'  => 'Zebra',
+        // Is now 'ZIK Computers'
+        'ZIK' => 'ZIK',
+        // Is now 'Zuum México'
+        'ZU'  => 'Zuum',
+        // Is now 'WS Education Electronics'
+        'WSS' => 'WS',
     ];
 
     /**
