@@ -17813,16 +17813,21 @@ Masstel:
     - regex: '(?:Masstel[_ ]*)?(Juno[_ ]Q[3567]|Juno_S6|[MNXB]\d+|LT52|N600S)(?:[);/ ]|$)'
       model: '$1'
 
-# Mastertech (https://mastertechhome.com/)
+# Mastertech (https://www.falabella.com.pe/falabella-pe/brand/MASTERTECH http://www.grupomastertech.pe or https://www.facebook.com/grupomastertechperu/)
 Mastertech:
+  regex: 'QC77QPS(?:[);/ ]|$)'
+  device: 'tablet'
+  models:
+    - regex: '(QC77QPS)(?:[);/ ]|$)'
+      model: '$1'
+
+# Mastertech Home (part of Unicomer Group, https://mastertechhome.com/)
+Mastertech Home:
   regex: 'MASTERTECH,([a-z0-9_ -]+),(?:wired|wireless)|QC77QPS(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: 'MASTERTECH,([a-z0-9_ -]+),(?:wired|wireless)'
       model: '$1'
-    - regex: '(QC77QPS)(?:[);/ ]|$)'
-      model: '$1'
-      device: 'tablet'
 
 # Talius
 Talius:
@@ -20514,75 +20519,59 @@ Olympia:
     - regex: 'TREK(?:[);/ ]|$)'
       model: 'Trek'
 
-# onda (ondatlc.com)
-Onda:
-  regex: 'Onda|(?:(?:V820w|V891[w]?|V919(?: 3G)? Air)[ _-]DualOS|(?:V919 4G Air|V989 Air|V972) Core[48]|T2101L2B1C| V10 4G|OBOOK20[_ ]PLUS|OBOOK (?:20 SE|20 DualOS|20 PLUS(?: DUALOS)?)|OBOOK10 SE|V10_4G|V919 Air CH DualOS| T9S|V116w-DualOS|V80[ _]SE)(?:[);/ ]|$)'
+# Onda TLC (https://ondatlc.com)
+Onda TLC:
+  regex: '(?: T9S)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: '(?: T9S)(?:[);/ ]|$)'
       model: 'T9 S'
 
-    # explicit tablet models
+# Onda Tablet (https://www.onda-tablet.com/ | https://www.ifixit.com/Device/Onda_Tablet)
+Onda Tablet:
+  regex: 'Onda|(?:(?:V820w|V891[w]?|V919(?: 3G)? Air)[ _-]DualOS|(?:V919 4G Air|V989 Air|V972) Core[48]|T2101L2B1C| V10 4G|OBOOK20[_ ]PLUS|OBOOK (?:20 SE|20 DualOS|20 PLUS(?: DUALOS)?)|OBOOK10 SE|V10_4G|V919 Air CH DualOS|V116w-DualOS|V80[ _]SE)(?:[);/ ]|$)'
+  device: 'tablet'
+  models:
     - regex: 'ONDA[ _]MID'
       model: 'MID'
-      device: 'tablet'
     - regex: 'V820w[ _-]DualOS'
       model: 'V820W Dual OS'
-      device: 'tablet'
     - regex: 'V891W[ _-]DualOS'
       model: 'V891W Dual OS'
-      device: 'tablet'
     - regex: 'V891[ _-]DualOS'
       model: 'V891 Dual OS'
-      device: 'tablet'
     - regex: 'V919 3G Air[ _-]DualOS'
       model: 'V919 3G Air Dual OS'
-      device: 'tablet'
     - regex: 'V116w-DualOS'
       model: 'V116w 3G Dual OS'
-      device: 'tablet'
     - regex: 'V919 Air[ _-]DualOS'
       model: 'V919 Air Dual OS'
-      device: 'tablet'
     - regex: 'V919 Air CH DualOS'
       model: 'V919 Air CH Dual OS'
-      device: 'tablet'
     - regex: 'V919 4G Air Core8'
       model: 'V919 4G Air Core 8'
-      device: 'tablet'
     - regex: 'V972 Core4'
       model: 'V919 Core 4'
-      device: 'tablet'
     - regex: 'V989 Air Core8'
       model: 'V989 Air Core 8'
-      device: 'tablet'
     - regex: 'ONDA V989'
       model: 'V989 Core 8'
-      device: 'tablet'
     - regex: 'T2101L2B1C|OBOOK 20 PLUS DUALOS'
       model: 'oBook 20 Plus Dual OS'
-      device: 'tablet'
     - regex: 'OBOOK[_ ]?20[_ ]PLUS'
-      device: 'tablet'
       model: 'oBook 20 Plus'
     - regex: 'V10 4G(?:[);/ ]|$)'
       model: 'V10 10.1" 4G'
-      device: 'tablet'
     - regex: 'V80[ _]SE(?:[);/ ]|$)'
       model: 'V80 SE'
-      device: 'tablet'
     - regex: 'OBOOK 20 DualOS(?:[);/ ]|$)'
       model: 'oBook 20 Dual OS'
-      device: 'tablet'
     - regex: 'OBOOK 20 SE(?:[);/ ]|$)'
       model: 'oBook 20 SE'
-      device: 'tablet'
     - regex: 'OBOOK10 SE(?:[);/ ]|$)'
       model: 'oBook 10 SE'
-      device: 'tablet'
     - regex: 'V10_4G(?:[);/ ]|$)'
       model: 'V10 4G'
-      device: 'tablet'
 
     - regex: '([a-z0-9]+)[ _]Onda'
       model: '$1'
@@ -24902,8 +24891,8 @@ UnoPhone:
       model: 'Premier Pro'
 
 # Sky or Sky Devices or SKY EVO (skydevices.com)
-Sky:
-  regex: '(?:SKY|Elite|Fuego)[_ ][3-7]\.[05](?:[A-Z]{1,2})?|Elite[ _](?:Max|PHOTOPRO|5_0T|M45|[45]T|45T|GO|A63Max|M5Plus|T8Plus|T[46]|[ABCDHP]5|A6|5_5_Octa|Octa|[A-HJLNPTVR]55|[AB]65|[CG]63|T10)|Platinum[_ ](?:5\.0M|5\.5C|[56]\.[05]\+?|[ABCMP]4|[ACGKV]55|[ABDEFGHJKM]5|A7|A57|P9|X|UNO|VIEW2|O|4\.0|4_0Plus)|PLATINUMVIEW|SKY[ _](?:55M|Pro_III|PAD10|PAD8)|SKYVISION|SKY B(?:lack|63)| SKY[ _]Prestige|Sky Vision2|PRO_SELFIE|Sky,'
+Sky Devices:
+  regex: '(?:SKY|Elite|Fuego)[_ ][3-7]\.[05](?:[A-Z]{1,2})?|Elite[ _](?:Max|PHOTOPRO|5_0T|M45|[45]T|45T|GO|A63Max|M5Plus|T8Plus|T[46]|[ABCDHP]5|A6|5_5_Octa|Octa|[A-HJLNPTVR]55|[AB]65|[CG]63|T10)|Platinum[_ ](?:5\.0M|5\.5C|[56]\.[05]\+?|[ABCMP]4|[ACGKV]55|[ABDEFGHJKM]5|A7|A57|P9|X|UNO|VIEW2|O|4\.0|4_0Plus)|PLATINUMVIEW|SKY[ _](?:55M|Pro_III|PAD10|PAD8)|SKYVISION|SKY B(?:lack|63)| SKY[ _]Prestige|Sky Vision2|PRO_SELFIE'
   device: 'smartphone'
   models:
     - regex: 'Platinum[_ ](?:5\.0M|M5)'
@@ -25001,21 +24990,21 @@ Sky:
     - regex: 'SKY[_ ]([3-7]\.[05](?:[A-Z]{1,2})?)'
       model: '$1'
 
+# Sky UK (https://www.sky.com/help/articles/sky-tv-on-demand)
+Sky UK:
+  regex: '(?:EM150|ES130|ES140|ES240|ES340|Sky, (?:XiOneUK|LlamaUK), (?:wired|wireless))'
+  device: 'tv'
+  models:
     - regex: 'EM150'
       model: 'Q Mini'
-      device: 'tv'
     - regex: 'ES130'
       model: 'Q 1TB'
-      device: 'tv'
     - regex: 'ES140'
       model: 'Q 2TB'
-      device: 'tv'
     - regex: 'ES240'
       model: 'Q 2TB'
-      device: 'tv'
     - regex: 'ES340'
       model: 'Q 2TB V3'
-      device: 'tv'
     - regex: 'Sky, (XiOneUK|LlamaUK), (?:wired|wireless)'
       model: '$1'
       device: 'tv'
@@ -28635,6 +28624,16 @@ Vios:
       device: 'tablet'
       model: 'VTAB7'
 
+# Vortex (sub-brand of https://www.altex.ro/)
+Vortex:
+  regex: '(?:VORTEX[;,)]|V39TPHE01S|V32TPHDE1S|V24TPHDE1S)'
+  device: 'tv'
+  models:
+    - regex: '_TV_[A-Z0-9]+_([0-9]{4});'
+      model: 'Smart TV ($1)'
+    - regex: '(V39TPHE01S|V32TPHDE1S|V24TPHDE1S)'
+      model: '$1'
+
 # Vestel (vestel.com)
 Vestel:
   regex: 'Vestel[ _,/\-]|Venus[ _](GO|E[2-5]|V[1-9]|Z[1-9]0)|(?<!Winnovo )V_?TAB|VP74|VT97PRO|VSP145M|VSP250[GS]|VSP355[GS]|V3_5580_Dual|V TAB Z[12]'
@@ -29113,12 +29112,6 @@ Inco:
     - regex: 'Inco Sphere( 3)?(?:[);/ ]|$)'
       device: 'tablet'
       model: 'Sphere$1'
-
-# Inka
-Inka:
-  regex: 'X96mini(?:[);/ ]|$)'
-  device: 'tv'
-  model: 'X96 mini'
 
 # Wink
 Wink:
@@ -32979,9 +32972,23 @@ HiHi:
     - regex: 'HIHI-(4[01])KH-TAB-0?1'
       model: '$1KH-TAB-01'
 
-# Hi or Hi TFG (https://www.hi-online.co.za/)
+# Hi (https://www.hi-online.co.za/)
 Hi:
-  regex: '(?:(?<!Thrill )Boost(?:[ _](?:Hypa|Max|Ultra))?(?: Build|[;)])|HMR(?:5012|5450)|Crusader|(?:VHIX-)?VHIX-\w+(?:-[A-Z])?|HX-(?:\d{2}[FHU]\d{2}FB)|43FSY112X[bcd]?|32HSY119X|39HSY111X|55USY151X|50USY151X|65USY151X)(?:[);/ ]|$)'
+  regex: '(?:(?:VHIX-)?VHIX-\w+(?:-[A-Z])?|HX-(?:\d{2}[FHU]\d{2}FB)|43FSY112X[bcd]?|32HSY119X|39HSY111X|55USY151X|50USY151X|65USY151X)(?:[);/ ]|$)'
+  device: 'tv'
+  models:
+    - regex: 'VHIX-40F152MSYb'
+      model: 'VHIX-40F152MSY'
+    - regex: 'HX-(\d{2}[FHU]\d{2}FB)'
+      model: 'HX-$1'
+    - regex: '(?:VHIX-)?VHIX-(\w+)'
+      model: 'VHIX-$1'
+    - regex: '(32HSY119X|39HSY111X|55USY151X|43FSY112X[bcd]?|50USY151X|65USY151X)(?:[);/ ]|$)'
+      model: '$1'
+
+# Hi TFG (sub-brand of HMR Networks https://hmr.co.za/, https://tfgconnect.co.za/)
+Hi TFG:
+  regex: '(?:(?<!Thrill )Boost(?:[ _](?:Hypa|Max|Ultra))?(?: Build|[;)])|HMR(?:5012|5450)|Crusader)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'Boost[ _](Hypa|Max|Ultra)(?:[);/ ]|$)'
@@ -32991,18 +32998,6 @@ Hi:
     - regex: 'HMR5012(?:[);/ ]|$)'
       model: 'Boost Go'
     - regex: '(HMR5450|Crusader)(?:[);/ ]|$)'
-      model: '$1'
-    - regex: 'VHIX-40F152MSYb'
-      device: 'tv'
-      model: 'VHIX-40F152MSY'
-    - regex: 'HX-(\d{2}[FHU]\d{2}FB)'
-      device: 'tv'
-      model: 'HX-$1'
-    - regex: '(?:VHIX-)?VHIX-(\w+)'
-      device: 'tv'
-      model: 'VHIX-$1'
-    - regex: '(32HSY119X|39HSY111X|55USY151X|43FSY112X[bcd]?|50USY151X|65USY151X)(?:[);/ ]|$)'
-      device: 'tv'
       model: '$1'
 
 # Boost
@@ -33468,6 +33463,7 @@ Proline:
       model: 'Falcon X'
     - regex: '(H10882M-TN|H1088[28]M|H1010)'
       model: '$1'
+
 # Yota
 Yota:
   regex: '(YD20[16]|YOTA 3[+])(?:[);/ ]|$)'
@@ -33478,16 +33474,20 @@ Yota:
     - regex: 'YOTA 3[+](?:[);/ ]|$)'
       model: 'Phone 3 Plus'
 
-# Mystery
-Mystery:
-  regex: 'MYSTERY|(MID-(?:123G|72[12]|7[01348]3G|753G|8[23]3G))(?:[);/ ]|$)'
+# Mystery Tab (technically, just "Mystery", but there is a "Mystery" manufacturer for TVs, which is also not "Mystery Electronics")
+Mystery Tab:
+  regex: 'MID-(123G|72[12]|7[01348]3G|753G|8[23]3G)(?:[);/ ]|$)'
   device: 'tablet'
   models:
     - regex: 'MID-(123G|72[12]|7[01348]3G|753G|8[23]3G)(?:[);/ ]|$)'
       model: 'MID-$1'
 
+# Mystery
+Mystery:
+  regex: 'MYSTERY[_ ]TV[_ ](D\d{4}[A-Z]{2}\d{2})(?:_UA)?(?:[);/ ]|$)'
+  device: 'tv'
+  models:
     - regex: 'MYSTERY[_ ]TV[_ ](D\d{4}[A-Z]{2}\d{2})'
-      device: 'tv'
       model: '$1'
 
 # Ritzviva
@@ -33912,12 +33912,6 @@ Wigor:
       model: '$1'
     - regex: '(V3)(?: Build|[;)])'
       model: '$1'
-
-# NEXON (nexon.ua)
-NEXON:
-  regex: 'NEXON[ _](X[1235]\+|X[123589]|X10)(?:[);/ ]|$)'
-  device: 'tv'
-  model: '$1'
 
 # ONN or onn. (walmart)
 ONN:
@@ -35786,9 +35780,9 @@ X88:
   device: 'tv'
   model: 'Pro 10'
 
-# X96
-X96:
-  regex: '(?:X96Air_(?:A100|100W|V2|P[1-3])|X96_X6_I|X96Max_Plus_?(?:Ultra|[25]|Q[12])?|X96MATE_PLUS|X96MINI_11)(?:[);/ ]|$)'
+# X96mini (https://x96mini.com/pages/about-us)
+X96mini:
+  regex: '(?:(?:X96Air_(?:A100|100W|V2|P[1-3])|X96_X6_I|X96Max_Plus_?(?:Ultra|[25]|Q[12])?|X96MATE_PLUS|X96MINI_11)|X96mini Build|X96Q)(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: 'X96Air_(100W|A100|V2|P[1-3])'
@@ -35805,12 +35799,10 @@ X96:
       model: 'Mate Plus'
     - regex: 'X96MINI_11'
       model: 'Mini 11'
-
-# X96Q
-X96Q:
-  regex: 'X96Q(?:[);/ ]|$)'
-  device: 'tv'
-  model: ''
+    - regex: 'X96Q'
+      model: 'X96Q'
+    - regex: 'X96mini Build'
+      model: 'X96 mini'
 
 # Xgody or XGODY
 Xgody:
@@ -40871,9 +40863,9 @@ BROR:
   device: 'smartphone'
   model: '$1'
 
-# Vortex (https://vortexcellular.com/)
-Vortex:
-  regex: '(Android 13(?:[\d.]*);(?: [\w-]+;)? (?:HD65)|ZG65|SYNQ|CMG101|CM62|CG65|T10M_Pro|HD55|HD60[iL]?|HD62|HD68|ZTAB10|BTAB10|HD65[ _](?:Choice|Select|Ultra|PLUS)|ZG55|ZG65 Pro|V39TPHE01S|V32TPHDE1S|V24TPHDE1S)(?:[);/ ]|$)'
+# Vortex Cellular (https://vortexcellular.com/)
+Vortex Cellular:
+  regex: '(Android 13(?:[\d.]*);(?: [\w-]+;)? (?:HD65)|ZG65|SYNQ|CMG101|CM62|CG65|T10M_Pro|HD55|HD60[iL]?|HD62|HD68|ZTAB10|BTAB10|HD65[ _](?:Choice|Select|Ultra|PLUS)|ZG55|ZG65 Pro)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
     - regex: 'ZG65 Pro'
@@ -40900,9 +40892,6 @@ Vortex:
     - regex: 'BTAB10'
       device: 'tablet'
       model: 'B Tab 10'
-    - regex: '(V39TPHE01S|V32TPHDE1S|V24TPHDE1S)'
-      device: 'tv'
-      model: '$1'
 
 # Xiaodu or Baidu Xiaodu
 Xiaodu:
@@ -41940,8 +41929,8 @@ Elecson:
   device: 'smartphone'
   model: 'MeePlus One'
 
-# NEXT (https://nextcentr.ru/)
-NEXT:
+# Next Translator (https://nextcentr.ru or https://next-russia.ru, "Translator" is mostly for differentiation)
+Next Translator:
   regex: '(Discovery_XT|Revolution-X69K)(?:[);/ ]|$)'
   device: 'smartphone'
   model: '$1'
@@ -45463,3 +45452,11 @@ Unknown:
     - regex: 'PC; OpenHarmony'
       device: 'desktop'
       model: ''
+
+# NEXON.UA (https://nexon.ua)
+NEXON.UA:
+  regex: 'NEXON[ _](X[1235]\+|X[123589]|X10)(?:[);/ ]|$)'
+  device: 'tv'
+  models:
+    - regex: 'NEXON[ _](X[1235]\+|X[123589]|X10)(?:[);/ ]|$)'
+      model: '$1'
