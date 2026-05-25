@@ -828,6 +828,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '8X'  => 'Hi Nova',
         'HKC' => 'HKC',
         'HMD' => 'HMD',
+        'HIT' => 'Hi TFG',
         '8W'  => 'HKPro',
         'HOF' => 'HOFER',
         'HOC' => 'hoco',
@@ -913,7 +914,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FC'  => 'INCAR',
         '2H'  => 'Inch',
         '6I'  => 'Inco',
-        'INK' => 'Inka',
         'IW'  => 'iNew',
         'IF'  => 'Infinix',
         'INF' => 'Infiniton',
@@ -1151,6 +1151,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MA1' => 'Mascom',
         '2M'  => 'Masstel',
         '3X'  => 'Mastertech',
+        'MTH' => 'Mastertech Home',
         'MAS' => 'Master-G',
         '50'  => 'Matrix',
         'MAT' => 'Matco Tools',
@@ -1257,7 +1258,8 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MY'  => 'MyPhone (PH)',
         '51'  => 'Myros',
         'M8'  => 'Myria',
-        '6M'  => 'Mystery',
+        '6ME' => 'Mystery',
+        '6M'  => 'Mystery Tab',
         '3T'  => 'MyTab',
         'MG'  => 'MyWigo',
         'J3'  => 'Mymaga',
@@ -1307,12 +1309,12 @@ abstract class AbstractDeviceParser extends AbstractParser
         'NX'  => 'Nexian',
         '7X'  => 'Nexa',
         '7XR' => 'Nexar',
-        'N8'  => 'NEXON',
+        'N8'  => 'NEXON.UA',
         'N2'  => 'Nextbit',
         'NT'  => 'NextBook',
         'NTT' => 'NTT West',
         '4N'  => 'NextTab',
-        'NEX' => 'NEXT',
+        'NEX' => 'Next Translator',
         'NST' => 'Next & NextStar',
         'NJO' => 'nJoy',
         'NG'  => 'NGM',
@@ -1374,7 +1376,8 @@ abstract class AbstractDeviceParser extends AbstractParser
         'OCE' => 'OCEANIC',
         'OLT' => 'OLTO',
         'OJ'  => 'Ookee',
-        'OD'  => 'Onda',
+        'OD'  => 'Onda Tablet',
+        'ODT' => 'Onda TLC',
         'ON'  => 'OnePlus',
         'ONC' => 'OneClick',
         'ONL' => 'OneLern',
@@ -1677,7 +1680,8 @@ abstract class AbstractDeviceParser extends AbstractParser
         '83'  => 'Sirin Labs',
         '5Z'  => 'SK Broadband',
         'GK'  => 'SKG',
-        'SW'  => 'Sky',
+        'SW'  => 'Sky Devices',
+        'SKU' => 'Sky UK',
         'SK'  => 'Skyworth',
         'SKY' => 'Skyline',
         'SK1' => 'SkyStream',
@@ -2024,8 +2028,8 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VG'  => 'Vorago',
         '2V'  => 'Vorke',
         '8U'  => 'Vorcom',
-        'JW'  => 'Vortex',
-        'VRX' => 'VORTEX (RO)',
+        'JW'  => 'Vortex Cellular',
+        'VRX' => 'Vortex',
         'VOR' => 'Vormor',
         'V1'  => 'Voto',
         'Z7'  => 'VOX Electronics',
@@ -2099,8 +2103,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'XV'  => 'X-View',
         'X4'  => 'X.Vision',
         'X88' => 'X88',
-        'X96' => 'X96',
-        '96Q' => 'X96Q',
+        'X96' => 'X96mini',
         'A95' => 'A95X',
         'XG'  => 'Xgody',
         'XGE' => 'XGEM',
@@ -2186,7 +2189,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'WBF' => 'Webfleet',
         'WSS' => 'WS',
         // legacy brands, might be removed in future versions
-        'WB'  => 'Web TV',
         'XX'  => 'Unknown',
     ];
 
@@ -2217,6 +2219,26 @@ abstract class AbstractDeviceParser extends AbstractParser
         'LPX' => 'LPX-G',
         // Is now 'Newman'
         'UE1' => 'UE',
+        // Removed, had no devices
+        'INK' => 'Inka',
+        // Is now 'X96mini'
+        '96Q' => 'X96Q',
+        // Removed, had no devices
+        'WB'  => 'Web TV',
+        // Is now 'NEXON.UA'
+        'N8'  => 'NEXON',
+        // Is now 'Next Translator'
+        'NEX' => 'NEXT',
+        // Is now 'Onda Tablet'
+        'OD'  => 'Onda',
+        // Is now 'Sky Devices'
+        'SW'  => 'Sky',
+        // Is now 'Vortex Cellular'
+        'JW'  => 'Vortex',
+        // Is now 'Vortex'
+        'VRX' => 'VORTEX (RO)',
+        // Is now 'X96mini'
+        'X96' => 'X96',
     ];
 
     /**
