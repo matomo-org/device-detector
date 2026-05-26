@@ -253,7 +253,7 @@ class OperatingSystem extends AbstractParser
         'Android'               => [
             'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
             'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS', 'WER', 'PIC', 'ARM',
-            'HEL', 'BYI', 'RIS', 'PUF', 'LEA', 'MET', 'OHS', 'SMA',
+            'HEL', 'BYI', 'RIS', 'PUF', 'LEA', 'MET', 'SMA',
         ],
         'AmigaOS'               => ['AMG', 'MOR', 'ARO'],
         'BlackBerry'            => ['BLB', 'QNX'],
@@ -279,6 +279,7 @@ class OperatingSystem extends AbstractParser
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
+        'OpenHarmony'           => ['OHS'],
         'OpenVMS'               => ['OVS'],
         'Real-time OS'          => ['MTK', 'TDX', 'MRE', 'JME', 'REX', 'RXT', 'KOL', 'MOS', 'NTX'],
         'Other Mobile'          => ['WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE', 'LUN', 'GEO', 'CON'],
