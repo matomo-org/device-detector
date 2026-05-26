@@ -1114,7 +1114,8 @@ class DeviceDetector
          */
         $hasDesktop = AbstractDeviceParser::DEVICE_TYPE_DESKTOP !== $this->device
             && false !== \strpos($this->userAgent, 'Desktop')
-            && $this->hasDesktopFragment();
+            && $this->hasDesktopFragment()
+            || $this->matchUserAgent('2in1');
 
         if ($hasDesktop) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_DESKTOP;
