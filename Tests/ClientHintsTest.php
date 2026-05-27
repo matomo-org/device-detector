@@ -104,4 +104,74 @@ class ClientHintsTest extends TestCase
         $ch = ClientHints::factory($headers);
         self::assertSame([], $ch->getBrandList());
     }
+
+    public function testMalformedClientHintValuesAreIgnored(): void
+    {
+        $headers = [
+            'architecture'                => ['x86'],
+            'bitness'                     => ['64'],
+            'model'                       => ['DN2103'],
+            'platform'                    => ['Windows'],
+            'platformVersion'             => ['14.0.0'],
+            'uaFullVersion'               => ['98.0.14335.105'],
+            'sec-ch-ua-full-version-list' => ['"Chromium";v="98.0.4758.82"'],
+            'sec-ch-ua-form-factors'      => [['Desktop']],
+            'x-requested-with'            => ['com.example.app'],
+        ];
+
+        $ch = ClientHints::factory($headers);
+        self::assertSame('', $ch->getArchitecture());
+        self::assertSame('', $ch->getBitness());
+        self::assertSame('', $ch->getModel());
+        self::assertSame('', $ch->getOperatingSystem());
+        self::assertSame('', $ch->getOperatingSystemVersion());
+        self::assertSame('', $ch->getBrandVersion());
+        self::assertSame([], $ch->getBrandList());
+        self::assertSame([], $ch->getFormFactors());
+        self::assertSame('', $ch->getApp());
+    }
+
+    public function testMalformedScalarClientHintTypesAreIgnored(): void
+    {
+        $values = [
+            'integer' => 123,
+            'float'   => 12.3,
+            'boolean' => true,
+            'object'  => new \stdClass(),
+        ];
+
+        foreach ($values as $type => $value) {
+            $headers = [
+                'architecture'                => $value,
+                'bitness'                     => $value,
+                'model'                       => $value,
+                'platform'                    => $value,
+                'platformVersion'             => $value,
+                'uaFullVersion'               => $value,
+                'sec-ch-ua-full-version-list' => $value,
+                'sec-ch-ua-form-factors'      => $value,
+                'x-requested-with'            => $value,
+            ];
+
+            $ch = ClientHints::factory($headers);
+            self::assertSame('', $ch->getArchitecture(), $type);
+            self::assertSame('', $ch->getBitness(), $type);
+            self::assertSame('', $ch->getModel(), $type);
+            self::assertSame('', $ch->getOperatingSystem(), $type);
+            self::assertSame('', $ch->getOperatingSystemVersion(), $type);
+            self::assertSame('', $ch->getBrandVersion(), $type);
+            self::assertSame([], $ch->getBrandList(), $type);
+            self::assertSame([], $ch->getFormFactors(), $type);
+            self::assertSame('', $ch->getApp(), $type);
+        }
+    }
+
+    public function testFormFactorHeaderValueMustBeAStringOrStringList(): void
+    {
+        $ch = ClientHints::factory([
+            'sec-ch-ua-form-factors' => new \stdClass(),
+        ]);
+
+        self::assertSame([], $ch->getFormFactors());
+    }
 }
