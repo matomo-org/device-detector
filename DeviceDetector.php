@@ -860,6 +860,11 @@ class DeviceDetector
     protected function parseClient(): void
     {
         foreach ($this->getClientParsers() as $parser) {
+            if ($parser instanceof Browser) {
+                $parser->setOsName($this->getOsAttribute('name'));
+                $parser->setOsVersion($this->getOsAttribute('version'));
+            }
+
             $parser->setYamlParser($this->getYamlParser());
             $parser->setCache($this->getCache());
             $parser->setUserAgent($this->getUserAgent());
