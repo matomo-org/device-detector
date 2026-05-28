@@ -69,7 +69,7 @@ class DeviceDetector
     /**
      * Current version number of DeviceDetector
      */
-    public const VERSION = '6.5.0';
+    public const VERSION = '6.5.1';
 
     /**
      * Constant used as value for unknown browser / os
