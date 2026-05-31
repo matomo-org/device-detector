@@ -1024,8 +1024,8 @@ class Browser extends AbstractClientParser
             $name          = $browserFromClientHints['name'];
             $version       = $browserFromClientHints['version'];
             $short         = $browserFromClientHints['short_name'];
-            $engine        = '';
-            $engineVersion = '';
+            $engine        = $browserFromClientHints['engine'];
+            $engineVersion = $browserFromClientHints['engine_version'];
 
             // If the version reported from the client hints is YYYY or YYYY.MM (e.g., 2022 or 2022.04),
             // then it is the Iridium browser
@@ -1055,14 +1055,25 @@ class Browser extends AbstractClientParser
                 $engineVersion = $browserFromUserAgent['engine_version'] ?? '';
             }
 
+            if ('Blink' === $engine && 'Iridium' !== $name
+                && \version_compare($browserFromUserAgent['engine_version'], $engineVersion, '>')
+            ) {
+                $engineVersion = $browserFromUserAgent['engine_version'];
+            }
+
             // If client hints report Chromium, but user agent detects a Chromium based browser, we favor this instead
             if (('Chromium' === $name || 'Chrome Webview' === $name)
                 && !empty($browserFromUserAgent['name'])
                 && !\in_array($browserFromUserAgent['short_name'], ['CR', 'CV', 'AN', 'CM'])
             ) {
-                $name    = $browserFromUserAgent['name'];
-                $short   = $browserFromUserAgent['short_name'];
-                $version = $browserFromUserAgent['version'];
+                $name  = $browserFromUserAgent['name'];
+                $short = $browserFromUserAgent['short_name'];
+
+                if ((int) $browserFromUserAgent['version'] !== (int) $version
+                    || \version_compare($version, $browserFromUserAgent['version'], '<=')
+                ) {
+                    $version = $browserFromUserAgent['version'];
+                }
             }
 
             // Fix mobile browser names e.g. Chrome => Chrome Mobile
@@ -1101,6 +1112,16 @@ class Browser extends AbstractClientParser
                 && \version_compare($engineVersion, $browserFromClientHints['version'], '<')
             ) {
                 $engineVersion = $browserFromClientHints['version'];
+            }
+
+            if ('Blink' === $engine && 'Iridium' !== $name
+                && \version_compare(
+                    $browserFromUserAgent['engine_version'],
+                    $browserFromClientHints['engine_version'],
+                    '<'
+                )
+            ) {
+                $engineVersion = $browserFromClientHints['engine_version'];
             }
         } else {
             $name          = $browserFromUserAgent['name'];
@@ -1183,9 +1204,21 @@ class Browser extends AbstractClientParser
      */
     protected function parseBrowserFromClientHints(): array
     {
-        $name = $version = $short = '';
+        $name = $version = $short = $engine = $engineVersion = '';
 
         if ($this->clientHints instanceof ClientHints && $this->clientHints->getBrandList()) {
+            $brandList    = $this->clientHints->getBrandList();
+            $engineBrands = ['Android WebView', 'Chromium'];
+
+            foreach ($engineBrands as $engineBrand) {
+                if (\array_key_exists($engineBrand, $brandList)) {
+                    $engine        = 'Blink';
+                    $engineVersion = $brandList[$engineBrand];
+
+                    break;
+                }
+            }
+
             foreach ($this->clientHints->getBrandList() as $brand => $brandVersion) {
                 $brand = $this->applyClientHintMapping($brand);
 
@@ -1212,9 +1245,11 @@ class Browser extends AbstractClientParser
         }
 
         return [
-            'name'       => $name,
-            'short_name' => $short,
-            'version'    => $this->buildVersion($version, []),
+            'name'           => $name,
+            'short_name'     => $short,
+            'version'        => $this->buildVersion($version, []),
+            'engine'         => $engine,
+            'engine_version' => $engineVersion,
         ];
     }
 
