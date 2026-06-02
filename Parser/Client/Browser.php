@@ -549,6 +549,7 @@ class Browser extends AbstractClientParser
         'P4' => 'Privacy Explorer Fast Safe',
         'X5' => 'Cloak Private Browser',
         'P3' => 'Private Internet Browser',
+        'PG' => 'PrivateBrowsing',
         'P5' => 'Proxy Browser',
         '7P' => 'Proxyium',
         '6P' => 'Proxynet',
@@ -813,7 +814,7 @@ class Browser extends AbstractClientParser
             'W2', 'ZB', 'HN', 'Q6', 'Q7', 'G0', '00', 'R6', 'D8',
             'PQ', 'LM', 'T5', '2N', 'SJ', 'X6', 'SM', 'AY', 'BQ',
             'BC', 'NQ', 'VQ', '9C', 'KA', 'YS', 'D4', 'PZ', '0I',
-            '3F', 'Z1', 'XC', 'ZC', 'V7', 'H0', 'IL',
+            '3F', 'Z1', 'XC', 'ZC', 'V7', 'H0', 'IL', 'PG',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
