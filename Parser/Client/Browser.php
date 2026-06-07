@@ -440,6 +440,7 @@ class Browser extends AbstractClientParser
         'MM' => 'Mmx Browser',
         'NM' => 'MxNitro',
         'MY' => 'Mypal',
+        'M0' => 'MySudo',
         'MR' => 'Monument Browser',
         'MW' => 'MAUI WAP Browser',
         'N7' => 'Naenara Browser',
@@ -870,7 +871,7 @@ class Browser extends AbstractClientParser
         '2M', 'K7', '1N', '8A', 'H7', 'X3', 'X4', '5O', '6I',
         '7I', 'X5', '3P', '2E', 'T5', '2N', 'SJ', 'X6', 'SM',
         'AY', 'BQ', 'BC', 'NQ', 'VQ', 'KA', 'YS', 'D4', 'PZ',
-        'V7', 'D5',
+        'V7', 'D5', 'M0',
     ];
 
     /**
