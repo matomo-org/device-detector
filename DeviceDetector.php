@@ -801,13 +801,14 @@ class DeviceDetector
     }
 
     /**
-     * Returns if the parsed UA contains the 'Desktop;', 'Desktop x32;', 'Desktop x64;' or 'Desktop WOW64;' fragment
+     * Returns if the parsed UA contains the 'Desktop;', 'Desktop x32;', 'Desktop x64;', 'Desktop WOW64;'
+     * or 'PC;' fragment
      *
      * @return bool
      */
     protected function hasDesktopFragment(): bool
     {
-        $regex = 'Desktop(?: (x(?:32|64)|WOW64))?;';
+        $regex = '(?:Desktop|PC)(?: (x(?:32|64)|WOW64))?;';
 
         return (bool) $this->matchUserAgent($regex);
     }
@@ -1113,7 +1114,6 @@ class DeviceDetector
          * Set device type desktop if string ua contains desktop
          */
         $hasDesktop = AbstractDeviceParser::DEVICE_TYPE_DESKTOP !== $this->device
-            && false !== \strpos($this->userAgent, 'Desktop')
             && $this->hasDesktopFragment()
             || $this->matchUserAgent('2in1');
 
