@@ -169,8 +169,11 @@ abstract class AbstractParser
         }
 
         $this->setUserAgent((string) \preg_replace(
-            '(X11; Linux x86_64)',
-            \sprintf('X11; Linux x86_64; %s', $deviceModel),
+            ['(X11; Linux x86_64)', '(Windows NT 10\.0; Win64; x64)'],
+            [
+                \sprintf('X11; Linux x86_64; %s', $deviceModel),
+                \sprintf('Windows NT 10.0; Win64; x64; %s', $deviceModel),
+            ],
             $this->userAgent
         ));
     }
