@@ -742,6 +742,8 @@
 - regex: '(?:Andr[o0]id (\d([\d.])*);? |Amazon;|smarttv_)AFT|AEO[ACBHKT]| KF[ADFGJKMORSTQ]|.+FIRETVSTICK2018'
   name: 'Fire OS'
   versions:
+    - regex: 'Andr[o0]id 1[56]'
+      version: '16'
     - regex: 'Andr[o0]id 1[234]'
       version: '14'
     - regex: 'Andr[o0]id 1[01]'
@@ -1362,6 +1364,10 @@
 - regex: 'Windows-(1[01])-'
   name: 'Windows'
   version: '$1'
+
+- regex: 'Windows NT 11\.0'
+  name: 'Windows'
+  version: '11'
 
 - regex: 'CYGWIN_NT-10\.0|Win(?:dows )?NT 10\.0|Windows[ /]10'
   name: 'Windows'
@@ -2143,6 +2149,10 @@
 - regex: 'PlayStation.+; Linux (\d+[.\d]+)'
   name: 'PlayStation'
   version: '$1'
+
+- regex: 'RNPS/(\d+[.\d]+).+PlayStation ?(\d)(?:[/ ](?:Pro ))?'
+  name: 'PlayStation'
+  version: '$2.$1'
 
 - regex: 'PlayStation ?(\d)(?:[/ ](?:Pro )?(\d+[.\d]+))?'
   name: 'PlayStation'

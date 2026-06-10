@@ -326,6 +326,8 @@ class OperatingSystem extends AbstractParser
      * @var array
      */
     private $fireOsVersionMapping = [
+        '16'    => '16',
+        '15'    => '16',
         '14'    => '14',
         '13'    => '14',
         '12'    => '14',
