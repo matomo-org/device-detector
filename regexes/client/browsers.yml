@@ -1663,6 +1663,13 @@
   engine:
     default: 'Blink'
 
+# Harmony 360 Browser (only for HarmonyOS or OpenHarmonyOS)
+- regex: 'Browser/harmony360Browser/(\d+[.\d]+)$'
+  name: 'Harmony 360 Browser'
+  version: '$1'
+  engine:
+    default: 'ArkWeb'
+
 # Huawei Browser
 - regex: 'HBPC/(\d+[.\d]+)'
   name: 'Huawei Browser'
@@ -1672,6 +1679,11 @@
 - regex: 'PC;.+ArkWeb/.+HuaweiBrowser(?:/(\d+[.\d]+))?'
   name: 'Huawei Browser'
   version: '$1'
+  engine:
+    default: 'ArkWeb'
+- regex: 'PC;.+ArkWeb'
+  name: 'Huawei Browser'
+  version: ''
   engine:
     default: 'ArkWeb'
 
@@ -1805,13 +1817,6 @@
   version: '$1'
   engine:
     default: 'Blink'
-
-# Harmony 360 Browser (only for HarmonyOS or OpenHarmonyOS)
-- regex: 'Browser/harmony360Browser/(\d+[.\d]+)$'
-  name: 'Harmony 360 Browser'
-  version: '$1'
-  engine:
-    default: 'ArkWeb'
 
 # 360 Secure Browser
 - regex: 'QIHU 360[ES]E|QihooBrowserHD/(\d+[.\d]+)'
