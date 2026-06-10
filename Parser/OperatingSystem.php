@@ -222,6 +222,7 @@ class OperatingSystem extends AbstractParser
         'UBT' => 'Ubuntu',
         'ULT' => 'ULTRIX',
         'UOS' => 'UOS',
+        'VEG' => 'Vega OS',
         'VID' => 'VIDAA',
         'VIZ' => 'ViziOS',
         'WAS' => 'watchOS',
@@ -294,7 +295,7 @@ class OperatingSystem extends AbstractParser
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
         'Windows Mobile'        => ['WPH', 'WMO', 'WCE', 'WRT', 'WIO', 'KIN'],
-        'Other Smart TV'        => ['WHS', 'TIT', 'ORS'],
+        'Other Smart TV'        => ['WHS', 'TIT', 'ORS', 'VEG'],
     ];
 
     /**
