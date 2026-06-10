@@ -42,6 +42,7 @@ class OperatingSystem extends AbstractParser
     protected static $operatingSystems = [
         'AIX' => 'AIX',
         'AND' => 'Android',
+        'AGO' => 'Android Go',
         'ADR' => 'Android TV',
         'ALP' => 'Alpine Linux',
         'AMZ' => 'Amazon Linux',
@@ -221,6 +222,7 @@ class OperatingSystem extends AbstractParser
         'UBT' => 'Ubuntu',
         'ULT' => 'ULTRIX',
         'UOS' => 'UOS',
+        'VEG' => 'Vega OS',
         'VID' => 'VIDAA',
         'VIZ' => 'ViziOS',
         'WAS' => 'watchOS',
@@ -254,7 +256,7 @@ class OperatingSystem extends AbstractParser
         'Android'               => [
             'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
             'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS', 'WER', 'PIC', 'ARM',
-            'HEL', 'BYI', 'RIS', 'PUF', 'LEA', 'MET', 'SMA',
+            'HEL', 'BYI', 'RIS', 'PUF', 'LEA', 'MET', 'SMA', 'AGO',
         ],
         'AmigaOS'               => ['AMG', 'MOR', 'ARO'],
         'BlackBerry'            => ['BLB', 'QNX'],
@@ -293,7 +295,7 @@ class OperatingSystem extends AbstractParser
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
         'Windows Mobile'        => ['WPH', 'WMO', 'WCE', 'WRT', 'WIO', 'KIN'],
-        'Other Smart TV'        => ['WHS', 'TIT', 'ORS'],
+        'Other Smart TV'        => ['WHS', 'TIT', 'ORS', 'VEG'],
     ];
 
     /**
@@ -322,6 +324,8 @@ class OperatingSystem extends AbstractParser
      * @var array
      */
     private $fireOsVersionMapping = [
+        '16'    => '16',
+        '15'    => '16',
         '14'    => '14',
         '13'    => '14',
         '12'    => '14',
