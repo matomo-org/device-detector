@@ -157,7 +157,7 @@ abstract class AbstractParser
         if ($this->hasUserAgentClientHintsFragment()) {
             $osVersion = $this->clientHints->getOperatingSystemVersion();
             $this->setUserAgent((string) \preg_replace(
-                '(Android (?:10[.\d]*; K|1[1-5]))',
+                '(Android (?:10[.\d]*; K|1[1-7]))',
                 \sprintf('Android %s; %s', '' !== $osVersion ? $osVersion : '10', $deviceModel),
                 $this->userAgent
             ));
@@ -365,7 +365,7 @@ abstract class AbstractParser
      */
     protected function hasUserAgentClientHintsFragment(): bool
     {
-        $pattern = '~Android (?:1[0-6][.\d]*; K(?: Build/|[;)])|1[0-6]\)) AppleWebKit~i';
+        $pattern = '~Android (?:1[0-7][.\d]*; K(?: Build/|[;)])|1[0-7]\)) AppleWebKit~i';
 
         if (\preg_match($pattern, $this->userAgent)) {
             return false === \stripos($this->userAgent, 'Telegram-Android/');

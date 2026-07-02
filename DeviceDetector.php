@@ -935,6 +935,13 @@ class DeviceDetector
         }
 
         /**
+         * Assume all devices running ThinOS are from Dell
+         */
+        if (empty($this->brand) && 'ThinOS' === $osName) {
+            $this->brand = 'Dell';
+        }
+
+        /**
          * All devices containing VR fragment are assumed to be a wearable
          */
         if (null === $this->device && $this->hasAndroidVRFragment()) {
