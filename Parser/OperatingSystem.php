@@ -214,6 +214,7 @@ class OperatingSystem extends AbstractParser
         'S60' => 'Symbian OS Series 60',
         'SY3' => 'Symbian^3',
         'TEN' => 'TencentOS',
+        'THN' => 'ThinOS',
         'TDX' => 'ThreadX',
         'TIT' => 'Titan OS',
         'TIZ' => 'Tizen',
@@ -292,7 +293,7 @@ class OperatingSystem extends AbstractParser
         'Unix'                  => [
             'SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64',
             'INF', 'ELE', 'GNX', 'ULT', 'NWS', 'NXT', 'SBL', 'BS1', 'GHO', 'PLN',
-            'MNX',
+            'MNX', 'THN',
         ],
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
