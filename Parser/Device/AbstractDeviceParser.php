@@ -1040,6 +1040,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'KGT' => 'KGTEL',
         'KM'  => 'Komu',
         'KMC' => 'KMC',
+        'KB0' => 'Kobo',
         'KO'  => 'Konka',
         'KW'  => 'Konrow',
         'KB'  => 'Koobee',

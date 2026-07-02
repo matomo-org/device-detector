@@ -5,6 +5,13 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
+# Quiche Browser (https://quiche.industries/browser/)
+- regex: 'Quiche%20Browser'
+  name: 'Quiche Browser'
+  version: ''
+  engine:
+    default: 'WebKit'
+
 # MySudo Browser (https://anonyome.com/individuals/mysudo/)
 - regex: 'MySudo Browser'
   name: 'MySudo'
@@ -1668,7 +1675,36 @@
   engine:
     default: 'Blink'
 
+# Harmony 360 Browser (only for HarmonyOS or OpenHarmonyOS)
+- regex: 'Browser/harmony360Browser/(\d+[.\d]+)$'
+  name: 'Harmony 360 Browser'
+  version: '$1'
+  engine:
+    default: 'ArkWeb'
+
+# Huawei Browser
+- regex: 'HBPC/(\d+[.\d]+)'
+  name: 'Huawei Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
+- regex: 'PC;.+ArkWeb/.+HuaweiBrowser(?:/(\d+[.\d]+))?'
+  name: 'Huawei Browser'
+  version: '$1'
+  engine:
+    default: 'ArkWeb'
+- regex: 'PC;.+ArkWeb'
+  name: 'Huawei Browser'
+  version: ''
+  engine:
+    default: 'ArkWeb'
+
 # Huawei Browser Mobile
+- regex: 'ArkWeb/.+HuaweiBrowser(?:/(\d+[.\d]+))?'
+  name: 'Huawei Browser Mobile'
+  version: '$1'
+  engine:
+    default: 'ArkWeb'
 - regex: 'HuaweiBrowser(?:/(\d+[.\d]+))?'
   name: 'Huawei Browser Mobile'
   version: '$1'
@@ -1793,13 +1829,6 @@
   version: '$1'
   engine:
     default: 'Blink'
-
-# Harmony 360 Browser (only for HarmonyOS or OpenHarmonyOS)
-- regex: 'Browser/harmony360Browser/(\d+[.\d]+)$'
-  name: 'Harmony 360 Browser'
-  version: '$1'
-  engine:
-    default: 'ArkWeb'
 
 # 360 Secure Browser
 - regex: 'QIHU 360[ES]E|QihooBrowserHD/(\d+[.\d]+)'
@@ -2999,6 +3028,11 @@
   version: '$1'
   engine:
     default: 'Blink'
+- regex: 'Chrome(?!book)(?:/(\d+[.\d]+))?.+ArkWeb/'
+  name: 'Chrome'
+  version: '$1'
+  engine:
+    default: 'ArkWeb'
 - regex: 'Chrome(?!book)(?:/(\d+[.\d]+))?'
   name: 'Chrome'
   version: '$1'
