@@ -1121,8 +1121,7 @@ class DeviceDetector
          * Set device type desktop if string ua contains desktop
          */
         $hasDesktop = AbstractDeviceParser::DEVICE_TYPE_DESKTOP !== $this->device
-            && $this->hasDesktopFragment()
-            || $this->matchUserAgent('2in1');
+            && $this->hasDesktopFragment();
 
         if ($hasDesktop) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_DESKTOP;
