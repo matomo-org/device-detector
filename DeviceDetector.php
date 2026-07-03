@@ -1084,6 +1084,7 @@ class DeviceDetector
          */
         $hasDeviceTvType = !\in_array($this->device, [
             AbstractDeviceParser::DEVICE_TYPE_TV,
+            AbstractDeviceParser::DEVICE_TYPE_WEARABLE,
             AbstractDeviceParser::DEVICE_TYPE_PERIPHERAL,
         ], true) && $this->matchUserAgent('Andr0id|(?:Android(?: UHD)?|Google) TV|\(lite\) TV|BRAVIA|Firebolt| TV$');
 
