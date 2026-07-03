@@ -1804,6 +1804,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'TC'  => 'TCL',
         'T0'  => 'TD Systems',
         'YY'  => 'TD Tech',
+        'TNC' => 'Technical',
         'H4'  => 'Technicolor',
         'TEA' => 'TeachTouch',
         'Z5'  => 'Technika',
