@@ -1378,6 +1378,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'OLA' => 'Olax',
         'OLK' => 'Olkya',
         'OLY' => 'Olympia',
+        'OCN' => 'OCEAN',
         'OCE' => 'OCEANIC',
         'OLT' => 'OLTO',
         'OJ'  => 'Ookee',
