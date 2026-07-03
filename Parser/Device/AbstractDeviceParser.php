@@ -616,6 +616,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'EV1' => 'Everex',
         'EVR' => 'Everis',
         'EVF' => 'Everfine',
+        'EST' => 'Eversteel',
         'E3'  => 'Evolio',
         'EO'  => 'Evolveo',
         '0Q'  => 'Evoo',
