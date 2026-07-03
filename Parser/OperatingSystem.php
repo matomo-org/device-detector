@@ -42,6 +42,7 @@ class OperatingSystem extends AbstractParser
     protected static $operatingSystems = [
         'AIX' => 'AIX',
         'AND' => 'Android',
+        'AGO' => 'Android Go',
         'ADR' => 'Android TV',
         'ALP' => 'Alpine Linux',
         'AMZ' => 'Amazon Linux',
@@ -104,6 +105,7 @@ class OperatingSystem extends AbstractParser
         'HAI' => 'Haiku OS',
         'IPA' => 'iPadOS',
         'HAR' => 'HarmonyOS',
+        'HNX' => 'HarmonyOS NEXT',
         'HAS' => 'HasCodingOS',
         'HEL' => 'HELIX OS',
         'IRI' => 'IRIX',
@@ -114,6 +116,7 @@ class OperatingSystem extends AbstractParser
         'KAL' => 'Kali',
         'KAN' => 'Kanotix',
         'KIN' => 'KIN OS',
+        'KOB' => 'KoboOS',
         'KOL' => 'KolibriOS',
         'KNO' => 'Knoppix',
         'KTV' => 'KreaTV',
@@ -211,6 +214,7 @@ class OperatingSystem extends AbstractParser
         'S60' => 'Symbian OS Series 60',
         'SY3' => 'Symbian^3',
         'TEN' => 'TencentOS',
+        'THN' => 'ThinOS',
         'TDX' => 'ThreadX',
         'TIT' => 'Titan OS',
         'TIZ' => 'Tizen',
@@ -220,6 +224,7 @@ class OperatingSystem extends AbstractParser
         'UBT' => 'Ubuntu',
         'ULT' => 'ULTRIX',
         'UOS' => 'UOS',
+        'VEG' => 'Vega OS',
         'VID' => 'VIDAA',
         'VIZ' => 'ViziOS',
         'WAS' => 'watchOS',
@@ -253,7 +258,7 @@ class OperatingSystem extends AbstractParser
         'Android'               => [
             'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
             'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS', 'WER', 'PIC', 'ARM',
-            'HEL', 'BYI', 'RIS', 'PUF', 'LEA', 'MET', 'OHS', 'SMA',
+            'HEL', 'BYI', 'RIS', 'PUF', 'LEA', 'MET', 'SMA', 'AGO',
         ],
         'AmigaOS'               => ['AMG', 'MOR', 'ARO'],
         'BlackBerry'            => ['BLB', 'QNX'],
@@ -276,9 +281,11 @@ class OperatingSystem extends AbstractParser
             'UOS', 'PIO', 'FRI', 'LIR', 'WEB', 'SER', 'ASP', 'AOS', 'LOO', 'EUL',
             'SCI', 'ALP', 'CLO', 'ROC', 'OVZ', 'PVE', 'RST', 'EZX', 'GNS', 'JOL',
             'TUR', 'QTP', 'WPO', 'PAN', 'VIZ', 'AZU', 'COL', 'OSS', 'ELM', 'LPU',
+            'KOB',
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
+        'OpenHarmony'           => ['OHS', 'HNX'],
         'OpenVMS'               => ['OVS'],
         'Real-time OS'          => ['MTK', 'TDX', 'MRE', 'JME', 'REX', 'RXT', 'KOL', 'MOS', 'NTX'],
         'Other Mobile'          => ['WOS', 'POS', 'SBA', 'TIZ', 'SMG', 'MAE', 'LUN', 'GEO', 'CON'],
@@ -286,12 +293,12 @@ class OperatingSystem extends AbstractParser
         'Unix'                  => [
             'SOS', 'AIX', 'HPX', 'BSD', 'NBS', 'OBS', 'DFB', 'SYL', 'IRI', 'T64',
             'INF', 'ELE', 'GNX', 'ULT', 'NWS', 'NXT', 'SBL', 'BS1', 'GHO', 'PLN',
-            'MNX',
+            'MNX', 'THN',
         ],
         'WebTV'                 => ['WTV'],
         'Windows'               => ['WIN'],
         'Windows Mobile'        => ['WPH', 'WMO', 'WCE', 'WRT', 'WIO', 'KIN'],
-        'Other Smart TV'        => ['WHS', 'TIT', 'ORS'],
+        'Other Smart TV'        => ['WHS', 'TIT', 'ORS', 'VEG'],
     ];
 
     /**
@@ -320,6 +327,8 @@ class OperatingSystem extends AbstractParser
      * @var array
      */
     private $fireOsVersionMapping = [
+        '16'    => '16',
+        '15'    => '16',
         '14'    => '14',
         '13'    => '14',
         '12'    => '14',

@@ -491,11 +491,11 @@ class DeviceDetectorTest extends TestCase
         // simulate work not use clienthints
         $dd->setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36');
 
-        $this->assertEquals($dd->parse(), [
+        $this->assertEquals([
             'deviceType' => null,
             'model'      => '',
             'brand'      => '',
-        ]);
+        ], $dd->parse());
 
         // simulate work use clienthint + model
         $dd->setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36 Edg/103.0.1264.44');
@@ -516,11 +516,11 @@ class DeviceDetectorTest extends TestCase
             []
         ));
 
-        $this->assertEquals($dd->parse(), [
-            'deviceType' => null,
+        $this->assertEquals([
+            'deviceType' => AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE,
             'model'      => 'Galaxy 4',
-            'brand'      => '',
-        ]);
+            'brand'      => 'Samsung',
+        ], $dd->parse());
     }
 
     public function testVersionTruncationForClientHints(): void
