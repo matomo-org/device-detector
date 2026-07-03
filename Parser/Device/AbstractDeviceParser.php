@@ -520,6 +520,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'DY'  => 'Dreamgate',
         'DR1' => 'DreamStar',
         'DTA' => 'Dtac',
+        'DUA' => 'Dual',
         'DU'  => 'Dune HD',
         'DUO' => 'DuoTV',
         'UD'  => 'DUNNS Mobile',
