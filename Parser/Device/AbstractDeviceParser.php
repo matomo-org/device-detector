@@ -1509,6 +1509,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '2P'  => 'Prixton',
         'PRI' => 'Pritom',
         'PRP' => 'PRISM+',
+        'PRC' => 'ProCaster',
         'PF'  => 'PROFiLO',
         'P6'  => 'Proline',
         '5O'  => 'Prology',
