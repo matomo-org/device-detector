@@ -1756,6 +1756,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SUA' => 'SUAAT',
         'SUR' => 'Surge',
         'SUF' => 'Surfans',
+        'SRF' => 'SURFTV',
         '06'  => 'Subor',
         'SUT' => 'SULPICE TV',
         'SZ'  => 'Sumvision',
