@@ -1297,7 +1297,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'NDP' => 'Nedaphone',
         '8N'  => 'Necnot',
         'NF'  => 'Neffos',
-        '9X'  => 'Neo',
+        '9X'  => 'NEO',
         'NEK' => 'NEKO',
         '1N'  => 'Neomi',
         '7Q'  => 'Neon IQ',
