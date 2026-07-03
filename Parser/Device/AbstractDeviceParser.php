@@ -992,6 +992,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VJ'  => 'Jivi',
         'JK'  => 'JKL',
         'JR1' => 'JREN',
+        'JOH' => 'johnson',
         'JO'  => 'Jolla',
         'JP'  => 'Joy',
         'JOY' => 'JoySurf',
