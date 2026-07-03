@@ -460,6 +460,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'DL0' => 'DL',
         'DE'  => 'Denver',
         'DS'  => 'Desay',
+        'DEV' => 'Devant',
         'DSD' => 'DSDevices',
         'DSI' => 'DSIC',
         'DW'  => 'DeWalt',
