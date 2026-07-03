@@ -207,6 +207,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'AU'  => 'Asus',
         '6A'  => 'AT&T',
         'ATH' => 'Athesi',
+        'ATL' => 'ATLANTIC',
         'ATE' => 'Atlantic Electrics',
         '5Q'  => 'Atmaca Elektronik',
         'YH'  => 'ATMAN',
