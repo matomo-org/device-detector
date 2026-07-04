@@ -56,6 +56,10 @@ jobs:
             composer-options: '--ignore-platform-req=php+'
     steps:
       - uses: actions/checkout@v7
+        with:
+          lfs: false
+          persist-credentials: false
+          submodules: true
       - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:
