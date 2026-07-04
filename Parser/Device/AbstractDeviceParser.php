@@ -615,6 +615,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'EU'  => 'Eurostar',
         '4J'  => 'Eurocase',
         'EUR' => 'EUROLUX',
+        'EVW' => 'EUROVIEW',
         'EUD' => 'Eudora',
         'E9'  => 'Evercoss',
         'EV'  => 'Evertek',
