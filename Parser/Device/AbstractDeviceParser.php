@@ -1353,6 +1353,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'N5'  => 'NOA',
         'N1'  => 'Noain',
         'N6'  => 'Nobby',
+        'NBL' => 'Nobel',
         'NOC' => 'Novacom',
         'NOS' => 'NoviSea',
         'NO2' => 'NOVIS',
