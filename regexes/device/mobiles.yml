@@ -43550,11 +43550,16 @@ WAF:
   device: 'tablet'
   model: '$1'
 
-# Geant
+# Geant (https://www.geant-dz.com/)
 Geant:
-  regex: 'GEANT[_ ](T\d)(?:[);/ ]|$)'
+  regex: 'GEANT[;,)_ ]'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'GEANT[_ ](T\d)(?:[);/ ]|$)'
+      model: '$1'
+    - regex: 'GEANT[;,)]'
+      device: 'tv'
+      model: ''
 
 # Galactic
 Galactic:
