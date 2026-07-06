@@ -766,6 +766,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'GB'  => 'Gol Mobile',
         'GL'  => 'Goly',
         'GOL' => 'GoldMaster',
+        'GSK' => 'GoldSky',
         'GOS' => 'GoldStar',
         'GOB' => 'GOLDBERG',
         'GX'  => 'GLX',
