@@ -1231,6 +1231,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MOD' => 'Moondrop',
         'MOR' => 'MORTAL',
         'X7'  => 'Mione',
+        'MRL' => 'MIRAL',
         'M7'  => 'Miray',
         'MIT' => 'Mitchell & Brown',
         '8M'  => 'Mito',
