@@ -1605,6 +1605,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '6R'  => 'Rivo',
         'RIZ' => 'Rizzen',
         'RR'  => 'Roadrover',
+        'RDS' => 'Roadstar',
         'QR'  => 'ROADMAX',
         'ROH' => 'ROCH',
         'ROC' => 'Roam Cat',
