@@ -905,6 +905,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'IBO' => 'ibowin',
         'I2'  => 'IconBIT',
         'ING' => 'Icone Gold',
+        'IDE' => 'iDEA',
         'IC'  => 'iDroid',
         'IDI' => 'iDino',
         '6Z'  => 'iData',
