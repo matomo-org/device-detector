@@ -1366,6 +1366,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'NRD' => 'Nordfrost',
         'NOR' => 'NORMANDE',
         '7N'  => 'NorthTech',
+        'NRT' => 'NORTHWAY',
         'NOT' => 'Nothing',
         '5N'  => 'Nos',
         'NO'  => 'Nous',
