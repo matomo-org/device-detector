@@ -1049,6 +1049,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'KIN' => 'Kingstar',
         '46'  => 'Kiowa',
         'KV'  => 'Kivi',
+        'KIW' => 'KIWI',
         '64'  => 'Kvant',
         'KVA' => 'KVADRA',
         '0K'  => 'Klipad',
