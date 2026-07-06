@@ -1769,6 +1769,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'STA' => 'Star-Light',
         '18'  => 'Starmobile',
         '2S'  => 'Starway',
+        'STW' => 'Starway (SA)',
         '45'  => 'Starwind',
         'SB'  => 'STF Mobile',
         'S8'  => 'STK',
