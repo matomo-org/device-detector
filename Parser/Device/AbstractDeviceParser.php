@@ -731,6 +731,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'GAL' => 'Gazal',
         'GEA' => 'Geanee',
         'GEN' => 'Geant',
+        'GPS' => 'GEEPAS',
         'GD'  => 'Gemini',
         'GN'  => 'General Mobile',
         'GD1' => 'Genius Devices',
