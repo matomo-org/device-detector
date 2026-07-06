@@ -2008,6 +2008,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VEK' => 'Vekta',
         'VT'  => 'Vestel',
         '48'  => 'Vexia',
+        'VG0' => 'VG',
         'V6'  => 'VGO TEL',
         'QJ'  => 'VDVD',
         'VIC' => 'Victurio',
