@@ -1080,6 +1080,13 @@ class DeviceDetector
         }
 
         /**
+         * All devices running VIDAA are assumed to be a tv
+         */
+        if ('VIDAA' === $osName) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
+        }
+
+        /**
          * All devices that contain Andr0id in string are assumed to be a tv
          */
         $hasDeviceTvType = !\in_array($this->device, [
@@ -1105,7 +1112,7 @@ class DeviceDetector
         if (\in_array($clientName, [
             'Kylo', 'Espial TV Browser', 'LUJO TV Browser', 'LogicUI TV Browser', 'Open TV Browser', 'Seraphic Sraf',
             'Opera Devices', 'Crow Browser', 'Vewd Browser', 'TiviMate', 'Quick Search TV', 'QJY TV Browser', 'TV Bro',
-            'Redline',
+            'Redline', 'Odin',
         ])
         ) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
