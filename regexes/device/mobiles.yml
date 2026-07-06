@@ -40576,9 +40576,14 @@ Obabox:
 
 # iKon (ikonhome.com)
 iKon:
-  regex: '(IK-102[58]|IK-1106|IK-7108|IK-787)(?:[);/ ]|$)'
+  regex: 'IKON[;,)]|(?:IK-102[58]|IK-1106|IK-7108|IK-787)(?:[);/ ]|$)'
   device: 'tablet'
-  model: '$1'
+  models:
+    - regex: '(IK-102[58]|IK-1106|IK-7108|IK-787)'
+      model: '$1'
+    - regex: 'IKON[;,)]'
+      device: 'tv'
+      model: ''
 
 # iKonia
 iKonia:
