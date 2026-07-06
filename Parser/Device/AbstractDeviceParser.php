@@ -800,6 +800,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'H13' => 'H133',
         '9Z'  => 'H96',
         'HF'  => 'Hafury',
+        'HAA' => 'HAAM',
         '9F'  => 'HAOVM',
         'HAQ' => 'HAOQIN',
         'HA'  => 'Haier',
