@@ -1225,7 +1225,7 @@ class Browser extends AbstractClientParser
                 }
             }
 
-            foreach ($this->clientHints->getBrandList() as $brand => $brandVersion) {
+            foreach ($brandList as $brand => $brandVersion) {
                 $brand = $this->applyClientHintMapping($brand);
 
                 foreach (self::$availableBrowsers as $browserShort => $browserName) {
