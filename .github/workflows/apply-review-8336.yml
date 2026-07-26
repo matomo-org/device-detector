@@ -1,0 +1,52 @@
+name: Apply PR 8336 review changes
+
+on:
+  push:
+    branches:
+      - agent/add-google-gemini-notebook-ua
+
+permissions:
+  contents: write
+
+jobs:
+  apply-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/add-google-gemini-notebook-ua
+
+      - name: Apply requested changes
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          regex_file = Path('regexes/bots.yml')
+          regex_text = regex_file.read_text()
+          regex_old = """- regex: 'Google-(?:GeminiNotebook|NotebookLM)'\n  name: 'Google-NotebookLM'\n"""
+          regex_new = """- regex: '(Google-(?:GeminiNotebook|NotebookLM))'\n  name: '$1'\n"""
+          if regex_old not in regex_text:
+              raise SystemExit('Expected Google Notebook regex block not found')
+          regex_file.write_text(regex_text.replace(regex_old, regex_new, 1))
+
+          fixture_file = Path('Tests/fixtures/bots.yml')
+          fixture_text = fixture_file.read_text()
+          fixture_old = """-\n  user_agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 (compatible; Google-GeminiNotebook; +https://developers.google.com/crawling/docs/crawlers-fetchers/google-gemininotebook)\n  bot:\n    name: Google-NotebookLM\n    category: AI Assistant\n    url: https://developers.google.com/crawling/docs/crawlers-fetchers/google-user-triggered-fetchers\n    producer:\n      name: Google Inc.\n      url: https://www.google.com/\n"""
+          fixture_new = """-\n  user_agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 (compatible; Google-GeminiNotebook; +https://developers.google.com/crawling/docs/crawlers-fetchers/google-gemininotebook)\n  bot:\n    name: Google-GeminiNotebook\n    category: AI Assistant\n    url: https://developers.google.com/crawling/docs/crawlers-fetchers/google-user-triggered-fetchers\n    producer:\n      name: Google Inc.\n      url: https://www.google.com/\n-\n  user_agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36 (compatible; Google-GeminiNotebook; +https://developers.google.com/crawling/docs/crawlers-fetchers/google-gemininotebook)\n  bot:\n    name: Google-GeminiNotebook\n    category: AI Assistant\n    url: https://developers.google.com/crawling/docs/crawlers-fetchers/google-user-triggered-fetchers\n    producer:\n      name: Google Inc.\n      url: https://www.google.com/\n"""
+          if fixture_old not in fixture_text:
+              raise SystemExit('Expected Google GeminiNotebook desktop fixture not found')
+          fixture_file.write_text(fixture_text.replace(fixture_old, fixture_new, 1))
+          PY
+
+      - name: Remove temporary workflow
+        run: rm .github/workflows/apply-review-8336.yml
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add regexes/bots.yml Tests/fixtures/bots.yml .github/workflows/apply-review-8336.yml
+          git diff --cached --check
+          git commit -m "Apply Google-GeminiNotebook review changes"
+          git push origin HEAD:agent/add-google-gemini-notebook-ua
