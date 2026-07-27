@@ -123,9 +123,9 @@
 ##########
 # Puffin OS (https://www.puffin.com/os/help/faq/)
 ##########
-- regex: 'Cloud Phone'
+- regex: 'Cloud Phone(?: (\d+[.\d]+))?'
   name: 'Puffin OS'
-  version: ''
+  version: '$1'
 
 ##########
 # risingOS (https://github.com/RisingTechOSS/android)
@@ -1515,7 +1515,11 @@
   name: 'iPadOS'
   version: '$1.$2'
 
-- regex: 'iPad; CPU OS 18_7.+Version/(\d+[.\d]+)'
+# https://webkit.org/blog/17333/webkit-features-in-safari-26-0/#update-to-ua-string
+- regex: 'iPad; CPU OS 18_[67].+\) Version/(\d+[.\d]+)'
+  name: 'iPadOS'
+  version: '$1'
+- regex: 'iPad; CPU OS 18_[67].+Version/(2[67]+[.\d]+)'
   name: 'iPadOS'
   version: '$1'
 
@@ -1571,7 +1575,10 @@
   version: '26.$1'
 
 # https://webkit.org/blog/17333/webkit-features-in-safari-26-0/#update-to-ua-string
-- regex: 'iPhone OS 18_7.+Version/(\d+[.\d]+)'
+- regex: 'iPhone OS 18_[67].+\) Version/(\d+[.\d]+)'
+  name: 'iOS'
+  version: '$1'
+- regex: 'iPhone OS 18_[67].+Version/(2[67]+[.\d]+)'
   name: 'iOS'
   version: '$1'
 
@@ -1785,7 +1792,7 @@
   version: '$1'
 
 # https://webkit.org/blog/17333/webkit-features-in-safari-26-0/#update-to-ua-string
-- regex: 'Mac OS X 10_15_7.+Version/(2[67]+[.\d]+)'
+- regex: 'Mac OS X 10_15.+Version/(2[67]+[.\d]+)'
   name: 'Mac'
   version: '$1'
 

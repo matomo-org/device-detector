@@ -309,6 +309,7 @@ class OperatingSystem extends AbstractParser
     protected static $clientHintMapping = [
         'GNU/Linux' => ['Linux'],
         'Mac'       => ['MacOS'],
+        'Puffin OS' => ['Cloud Phone 2.4'],
     ];
 
     /**
@@ -446,6 +447,10 @@ class OperatingSystem extends AbstractParser
             // On Windows, version 0.0.0 can be either 7, 8 or 8.1
             if ('Windows' === $name && '0.0.0' === $version) {
                 $version = ('10' === $osFromUserAgent['version']) ? '' : $osFromUserAgent['version'];
+            }
+
+            if ('Puffin OS' === $name) {
+                $version = $osFromUserAgent['version'];
             }
 
             // If the OS name detected from client hints matches the OS family from user agent
