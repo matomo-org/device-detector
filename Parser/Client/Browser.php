@@ -396,6 +396,7 @@ class Browser extends AbstractClientParser
         'LF' => 'LieBaoFast',
         'LG' => 'LG Browser',
         'LH' => 'Light',
+        'LP' => 'Lightpanda',
         'L4' => 'Lightning Browser Plus',
         'L1' => 'Lilo',
         'LI' => 'Links',
