@@ -1870,6 +1870,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'TEL' => 'Telma',
         'PW'  => 'Telpo',
         'TLS' => 'TeloSystems',
+        'TRA' => 'Telstra',
         'TER' => 'Teracube',
         'WR'  => 'Terra',
         'TD'  => 'Tesco',
