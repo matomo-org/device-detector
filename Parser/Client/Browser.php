@@ -396,6 +396,7 @@ class Browser extends AbstractClientParser
         'LF' => 'LieBaoFast',
         'LG' => 'LG Browser',
         'LH' => 'Light',
+        'LP' => 'Lightpanda',
         'L4' => 'Lightning Browser Plus',
         'L1' => 'Lilo',
         'LI' => 'Links',
@@ -890,6 +891,7 @@ class Browser extends AbstractClientParser
         'Norton Private Browser'     => ['Norton Secure Browser'],
         'Opera GX'                   => ['Opera GX Android'],
         'Opera Mini'                 => ['Opera Mini Android'],
+        'Puffin Cloud Browser'       => ['Puffin'],
         'Vewd Browser'               => ['Vewd Core'],
         'Yandex Browser'             => ['YaSearchBrowser'],
     ];
@@ -1225,7 +1227,7 @@ class Browser extends AbstractClientParser
                 }
             }
 
-            foreach ($this->clientHints->getBrandList() as $brand => $brandVersion) {
+            foreach ($brandList as $brand => $brandVersion) {
                 $brand = $this->applyClientHintMapping($brand);
 
                 foreach (self::$availableBrowsers as $browserShort => $browserName) {
@@ -1233,6 +1235,10 @@ class Browser extends AbstractClientParser
                         || $this->fuzzyCompare($brand . ' Browser', $browserName)
                         || $this->fuzzyCompare($brand, $browserName . ' Browser')
                     ) {
+                        if ('Chrome' === $name && 'Chromium' === $browserName) {
+                            break;
+                        }
+
                         $name    = $browserName;
                         $short   = $browserShort;
                         $version = $brandVersion;
@@ -1241,8 +1247,8 @@ class Browser extends AbstractClientParser
                     }
                 }
 
-                // If we detected a brand, that is not Chromium, we will use it, otherwise we will look further
-                if (!\in_array($name, ['', 'Chromium', 'Microsoft Edge'], true)) {
+                // If we detected a brand, that is not in the array, we will use it, otherwise we will look further
+                if (!\in_array($name, ['', 'Chrome', 'Chromium', 'Microsoft Edge'], true)) {
                     break;
                 }
             }
