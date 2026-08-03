@@ -1064,6 +1064,7 @@ class Browser extends AbstractClientParser
             }
 
             if ('Blink' === $engine && 'Iridium' !== $name
+                && $browserFromUserAgent['engine'] === $engine
                 && \version_compare($browserFromUserAgent['engine_version'], $engineVersion, '>')
             ) {
                 $engineVersion = $browserFromUserAgent['engine_version'];
