@@ -858,6 +858,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'HM1' => 'HOMII',
         'HOP' => 'Hopeland',
         'HZ'  => 'Hoozo',
+        'HOO' => 'Hoobart',
         'HOR' => 'Horion',
         'H7'  => 'Horizon',
         '4H'  => 'Horizont',
