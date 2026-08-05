@@ -71,7 +71,7 @@ class BrowserTest extends TestCase
     {
         $allBrowsers       = \array_values(Browser::getAvailableBrowsers());
         $browsersNotTested = \array_diff($allBrowsers, self::$browsersTested);
-        $this->assertEmpty($browsersNotTested, 'This browsers are not tested: ' . \implode(', ', $browsersNotTested));
+        $this->assertEmpty($browsersNotTested, 'Following browsers are not tested: ' . \implode(', ', $browsersNotTested));
     }
 
     public function testGetAvailableClients(): void
