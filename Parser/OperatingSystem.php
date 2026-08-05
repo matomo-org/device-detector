@@ -309,8 +309,9 @@ class OperatingSystem extends AbstractParser
      */
     protected static $clientHintMapping = [
         'GNU/Linux' => ['Linux'],
-        'Mac'       => ['MacOS'],
+        'Mac'       => ['MacOS', 'Mac OS X', 'MacIntel'],
         'Puffin OS' => ['Cloud Phone 2.4'],
+        'Windows'   => ['Win32'],
     ];
 
     /**
