@@ -674,6 +674,7 @@ class Browser extends AbstractClientParser
         'T2' => 'tararia',
         'TH' => 'Thor',
         '1T' => 'Tor Browser',
+        'T7' => 'Teak Browser',
         'TF' => 'TenFourFox',
         'TB' => 'Tenta Browser',
         'TE' => 'Tesla Browser',
