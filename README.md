@@ -271,6 +271,7 @@ There are already a few ports of this tool to other languages:
 - **Java** https://github.com/PaniniGelato/java-device-detector
 - **Rust** https://github.com/simplecastapps/rust-device-detector
 - **Rust** https://github.com/stry-rs/device-detector
+- **Go** https://github.com/skalibog/device-detector-go
 - **Go** https://github.com/gamebtc/devicedetector
 - **Go** https://github.com/umutbasal/device-detector-go
 - **Go** https://github.com/robicode/device-detector
