@@ -71,7 +71,7 @@
 ##########
 # Mocor OS
 ##########
-- regex: 'SpreadTrum'
+- regex: 'SpreadTrum|^(?!.*CLDC).*Dorado WAP-Browser'
   name: 'Mocor OS'
   version: ''
 
@@ -673,6 +673,10 @@
 ##########
 # Custom Android Roms
 ##########
+- regex: 'MyOS(\d+[.\d]*)'
+  name: 'MyOS'
+  version: '$1'
+
 # https://www.mi.com/global/hyperos
 - regex: '[\d\s]+Lite Browser/(\d+\.\d+)$'
   name: 'HyperOS'
@@ -800,9 +804,11 @@
   name: 'Lineage OS'
   version: '$1'
 
-- regex: '(?:Android (\d([\d.])*);? )?(?:lineage_\w+|Switch(?: Lite| OLED)?\))'
+- regex: '(?:Android (\d([\d.])*);? )?(?:lineage_\w+| Switch(?: Lite| OLED)?\))'
   name: 'Lineage OS'
   versions:
+    - regex: 'Android 17'
+      version: '24'
     - regex: 'Android 16'
       version: '23'
     - regex: 'Android 15'

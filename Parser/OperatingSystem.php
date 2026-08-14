@@ -148,6 +148,7 @@ class OperatingSystem extends AbstractParser
         'MIN' => 'Mint',
         'MLD' => 'MildWild',
         'MOR' => 'MorphOS',
+        'MYO' => 'MyOS',
         'NBS' => 'NetBSD',
         'MTK' => 'MTK / Nucleus',
         'MRE' => 'MRE',
@@ -259,7 +260,7 @@ class OperatingSystem extends AbstractParser
         'Android'               => [
             'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
             'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS', 'WER', 'PIC', 'ARM',
-            'HEL', 'BYI', 'RIS', 'PUF', 'LEA', 'MET', 'SMA', 'AGO', 'HYP',
+            'HEL', 'BYI', 'RIS', 'PUF', 'LEA', 'MET', 'SMA', 'AGO', 'HYP', 'MYO',
         ],
         'AmigaOS'               => ['AMG', 'MOR', 'ARO'],
         'BlackBerry'            => ['BLB', 'QNX'],
@@ -355,6 +356,7 @@ class OperatingSystem extends AbstractParser
      * @var array
      */
     private $lineageOsVersionMapping = [
+        '17'    => '24',
         '16'    => '23',
         '15'    => '22',
         '14'    => '21',
