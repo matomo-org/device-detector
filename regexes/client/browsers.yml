@@ -618,6 +618,11 @@
   version: '$1'
   engine:
     default: 'Blink'
+- regex: 'Norton%20Private%20Browser'
+  name: 'Norton Private Browser'
+  version: ''
+  engine:
+    default: 'WebKit'
 
 # Odd Browser (https://play.google.com/store/apps/details?id=com.corproxy.browser)
 - regex: 'Odd/(\d+\.[.\d]+)'
@@ -1507,9 +1512,11 @@
   version: '$1'
 
 # OpenAI Atlas browser (https://openai.com/index/introducing-chatgpt-atlas/)
-- regex: 'Atlas/(\d+[.\d]+)$'
+- regex: '(?:ChatGPT%20)?Atlas/(\d+[.\d]+)'
   name: 'ChatGPT Atlas'
   version: '$1'
+  engine:
+    default: 'Blink'
 
 # Falkon (https://www.falkon.org/)
 - regex: 'Falkon(?:/(\d+[.\d]+))?'
