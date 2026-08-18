@@ -260,6 +260,7 @@ There are already a few ports of this tool to other languages:
 
 - **.NET** https://github.com/totpero/DeviceDetector.NET
 - **.NET** https://github.com/nandor23/UaDetector
+- **.NET** https://github.com/jorik041/MatomoDeviceDetector.NET
 - **Ruby** https://github.com/podigee/device_detector
 - **JavaScript/TypeScript/NodeJS** https://github.com/etienne-martin/device-detector-js
 - **NodeJS** https://github.com/sanchezzzhak/node-device-detector
@@ -275,6 +276,7 @@ There are already a few ports of this tool to other languages:
 - **Go** https://github.com/gamebtc/devicedetector
 - **Go** https://github.com/umutbasal/device-detector-go
 - **Go** https://github.com/robicode/device-detector
+- **Go** https://github.com/shubhamc-ins/device-detector
 
 ## Icon packs
 
