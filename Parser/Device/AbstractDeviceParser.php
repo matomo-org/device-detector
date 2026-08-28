@@ -1998,6 +1998,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VAL' => 'VALEM',
         'VA2' => 'VALE',
         'VAT' => 'VALTECH',
+        'VLV' => 'Valve Corporation',
         'VAN' => 'VANGUARD',
         'VAW' => 'VANWIN',
         'VB'  => 'VC',
