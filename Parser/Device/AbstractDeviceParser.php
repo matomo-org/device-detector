@@ -270,7 +270,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'BEL' => 'Bell',
         '9B'  => 'Bellphone',
         '63'  => 'Beyond',
-        'BG'  => 'BGH',
         '6B'  => 'Bigben',
         'B8'  => 'BIHEE',
         '1B'  => 'Billion',
@@ -319,14 +318,14 @@ abstract class AbstractDeviceParser extends AbstractParser
         '8B'  => 'Brandt',
         'BRA' => 'BrandCode',
         'BV'  => 'Bravis',
-        'BRV' => 'BRAVE',
+        'BRV' => 'Brave Techs',
         'BRG' => 'Brigmton',
         'BR'  => 'Brondi',
         'XF'  => 'BROR',
         'BJ'  => 'BrightSign',
         'B1'  => 'Bush',
         '4Q'  => 'Bundy',
-        'Y8'  => 'Bubblegum',
+        'Y8'  => 'Bubblegum Tablets',
         'BUL' => 'Bulsatcom',
         'BMW' => 'BMW',
         'BYJ' => 'BYJU\'S',
@@ -387,7 +386,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CD'  => 'Cloudfone',
         'C0'  => 'Clout',
         'CN'  => 'CnM',
-        'CY'  => 'Coby Kyros',
+        'CY'  => 'Coby',
         'XC'  => 'Cobalt',
         'CLS' => 'Coles',
         'C6'  => 'Comio',
@@ -404,7 +403,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '4C'  => 'Conquest',
         'COG' => 'CONSUNG',
         '3C'  => 'Contixo',
-        '8C'  => 'Connex',
+        '8C'  => 'Connex Devices',
         '53'  => 'Connectce',
         'CON' => 'Conceptum',
         'CED' => 'Continental Edison',
@@ -426,12 +425,12 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CR'  => 'CreNova',
         'CX'  => 'Crescent',
         'CRE' => 'Crestron',
-        'CK'  => 'Cricket',
+        'CK'  => 'Cricket Wireless',
         'CM'  => 'Crius Mea',
         'CMF' => 'CMF',
         '0C'  => 'Crony',
         'C1'  => 'Crosscall',
-        '4W'  => 'Crown',
+        '4W'  => 'Crown Micro',
         'CRU' => 'CRUA',
         'CTR' => 'Ctroniq',
         'CU'  => 'Cube',
@@ -503,7 +502,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'DM'  => 'Dream Multimedia',
         'DMO' => 'DMOAO',
         'DN'  => 'DNS',
-        'DC'  => 'DoCoMo',
+        'DC'  => 'NTT DOCOMO',
         'DF'  => 'Doffler',
         'D9'  => 'Dolamee',
         'DO'  => 'Doogee',
@@ -557,7 +556,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'YC'  => 'EBEN',
         'E4'  => 'Echo Mobiles',
         'EQ1' => 'Equator',
-        'ES'  => 'ECS',
+        'ES'  => 'Elitegroup Computer Systems',
         '35'  => 'ECON',
         'ECC' => 'ECOO',
         'ZZ'  => 'ecom',
@@ -567,7 +566,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'E6'  => 'EE',
         'GW'  => 'EGL',
         'EGO' => 'EGOTEK',
-        'EFT' => 'EFT',
+        'EFT' => 'EFT Group',
         'EK'  => 'EKO',
         'EY'  => 'Einstein',
         'EM'  => 'Eks Mobility',
@@ -644,14 +643,14 @@ abstract class AbstractDeviceParser extends AbstractParser
         'EZ'  => 'Ezze',
         'UF'  => 'EYU',
         'EYE' => 'Eyemoo',
-        '5F'  => 'F150',
+        '5F'  => 'IIIF150',
         'FPS' => 'F+',
         'F6'  => 'Facebook',
         'FAC' => 'Facetel',
         'FA1' => 'Facime',
         'FA'  => 'Fairphone',
         'FM'  => 'Famoco',
-        'FAM' => 'Famous',
+        'FAM' => 'Famous Fones',
         '17'  => 'FarEasTone',
         '9R'  => 'FaRao Pro',
         'FAR' => 'Farassoo',
@@ -662,8 +661,8 @@ abstract class AbstractDeviceParser extends AbstractParser
         'F7'  => 'Fero',
         '67'  => 'FEONAL',
         'FI'  => 'FiGO',
-        'J9'  => 'FiGi',
-        'FIG' => 'Figgers',
+        'J9'  => 'FIGI Mobile',
+        'FIG' => 'Figgers Communication',
         'F9'  => 'FiiO',
         'F1'  => 'FinePower',
         'FX'  => 'Finlux',
@@ -703,7 +702,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FEY' => 'FreeYond',
         'FRU' => 'Frunsi',
         'F4'  => 'F&U',
-        '1F'  => 'FMT',
         'FPT' => 'FPT',
         'FG'  => 'Fuego',
         'FUJ' => 'FUJICOM',
@@ -711,7 +709,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '4F'  => 'Funai',
         '5J'  => 'Fusion5',
         'FF'  => 'Future Mobile Technology',
-        'FFF' => 'FFF SmartLife',
+        'FFF' => 'FFF Smart Life Connected',
         'FW'  => 'FNF',
         'FXT' => 'Fxtec',
         'GT'  => 'G-TiDE',
@@ -733,7 +731,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'GEA' => 'Geanee',
         'GEN' => 'Geant',
         'GPS' => 'GEEPAS',
-        'GD'  => 'Gemini',
+        'GD'  => 'Gemini Devices',
         'GN'  => 'General Mobile',
         'GD1' => 'Genius Devices',
         '2G'  => 'Genesis',
@@ -789,7 +787,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '3G'  => 'Greentel',
         'GRO' => 'Green Orange',
         'GRL' => 'Green Lion',
-        'GR1' => 'GroBerwert',
+        'GR1' => 'Großerwert',
         'GF'  => 'Gretel',
         '82'  => 'Gresso',
         'GRB' => 'Grünberg',
@@ -799,7 +797,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CUD' => 'CUD',
         'GVC' => 'GVC Pro',
         'H13' => 'H133',
-        '9Z'  => 'H96',
+        '9Z'  => 'H96 Max',
         'HF'  => 'Hafury',
         'HAA' => 'HAAM',
         '9F'  => 'HAOVM',
@@ -932,10 +930,10 @@ abstract class AbstractDeviceParser extends AbstractParser
         'IMA' => 'Imaq',
         'IM1' => 'Imose',
         'IMP' => 'Impex',
-        'I3'  => 'Impression',
+        'I3'  => 'Impression Electronics',
         'FC'  => 'INCAR',
         '2H'  => 'Inch',
-        '6I'  => 'Inco',
+        '6I'  => 'Inco Electronics',
         'INK' => 'Inka',
         'IW'  => 'iNew',
         'IF'  => 'Infinix',
@@ -962,7 +960,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '32'  => 'Invens',
         '4I'  => 'Invin',
         'IFT' => 'iFIT',
-        'INA' => 'iNavi',
+        'INA' => 'iNavi Systems',
         'I1'  => 'iOcean',
         'IMU' => 'iMuz',
         'IP'  => 'iPro',
@@ -983,7 +981,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '0I'  => 'iTruck',
         'I8'  => 'iVA',
         'IE'  => 'iView',
-        '0J'  => 'iVooMi',
+        '0J'  => 'iVOOMi Energy',
         'UI'  => 'ivvi',
         'QW'  => 'iWaylink',
         'I9'  => 'iZotron',
@@ -1070,7 +1068,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'KP'  => 'KOPO',
         'KR'  => 'Koridy',
         'XK'  => 'Koslam',
-        'K2'  => 'KRONO',
+        'K2'  => 'Krono Digital',
         'KRX' => 'Korax',
         'KE'  => 'Krüger&Matz',
         '5K'  => 'KREZ',
@@ -1162,18 +1160,18 @@ abstract class AbstractDeviceParser extends AbstractParser
         '92'  => 'MAC AUDIO',
         'MJ'  => 'Majestic',
         'FQ'  => 'Mafe',
-        'MAG' => 'MAG',
+        'MAG' => 'MAG InnoVision',
         'MA2' => 'MAGCH',
         '6Y'  => 'Magicsee',
         'MA4' => 'Magenta',
         '23'  => 'Magnus',
-        'NH'  => 'Manhattan',
+        'NH'  => 'Manhattan TV',
         'MAN' => 'Mango',
         '5M'  => 'Mann',
         'MA'  => 'Manta Multimedia',
         'Z0'  => 'Mantra',
         'J4'  => 'Mara',
-        'MAR' => 'Marshal',
+        'MAR' => 'Marshal Electronic',
         '8Y'  => 'Massgo',
         'MA1' => 'Mascom',
         '2M'  => 'Masstel',
@@ -1187,7 +1185,6 @@ abstract class AbstractDeviceParser extends AbstractParser
         '6X'  => 'Maxtron',
         '0D'  => 'MAXVI',
         'MAX' => 'Maxwell',
-        'XZ'  => 'MAXX',
         'MW'  => 'Maxwest',
         'M0'  => 'Maze',
         'YM'  => 'Maze Speed',
@@ -1195,9 +1192,9 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MAU' => 'Maunfeld',
         'MCL' => 'McLaut',
         '28'  => 'MBOX',
-        'FK'  => 'MBI',
+        'FK'  => 'MBI International',
         'MBK' => 'MBK',
-        '3D'  => 'MDC Store',
+        '3D'  => 'MDC',
         '1Y'  => 'OTT',
         '09'  => 'meanIT',
         'M3'  => 'Mecer',
@@ -1229,7 +1226,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MIG' => 'Mightier',
         '1X'  => 'Minix',
         'OM'  => 'Mintt',
-        'MIN' => 'Mint',
+        'MIN' => 'MINT Connect',
         'MO'  => 'Mio',
         'MOD' => 'Moondrop',
         'MOR' => 'MORTAL',
@@ -1237,15 +1234,15 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MRL' => 'MIRAL',
         'M7'  => 'Miray',
         'MIT' => 'Mitchell & Brown',
-        '8M'  => 'Mito',
+        '8M'  => 'MITO Electronic',
         'MT'  => 'Mitsubishi',
         '0Y'  => 'Mitsui',
-        'M5'  => 'MIXC',
+        'M5'  => 'The MixC',
         '2D'  => 'MIVO',
         '1Z'  => 'MiXzo',
         'MIW' => 'MIWANG',
         'ML'  => 'MLLED',
-        'LS'  => 'MLS',
+        'LS'  => 'MLS Innovation',
         'MLA' => 'Microlab',
         '4M'  => 'Mobicel',
         'M6'  => 'Mobiistar',
@@ -1270,7 +1267,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'MOX' => 'Moxee',
         'MM'  => 'Mpman',
         'MZ'  => 'MSI',
-        '3R'  => 'MStar',
+        '3R'  => 'MStar Semiconductor',
         'M9'  => 'MTC',
         'N4'  => 'MTN',
         '72'  => 'M-Tech',
@@ -1297,7 +1294,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'NEO' => 'neoCore',
         'NER' => 'Neoregent',
         '08'  => 'Nabi',
-        'N7'  => 'National',
+        'N7'  => 'National Electronic Corporation',
         'NPR' => 'National PRO',
         'NC'  => 'Navcity',
         '6N'  => 'Navitech',
@@ -1305,7 +1302,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'N3'  => 'Navon',
         '7R'  => 'NavRoad',
         'NAB' => 'NABO',
-        'NAS' => 'NASCO',
+        'NAS' => 'NASCO Electronics',
         'NP'  => 'Naomi Phone',
         'NAN' => 'Nanho',
         'NE'  => 'NEC',
@@ -1389,11 +1386,11 @@ abstract class AbstractDeviceParser extends AbstractParser
         'NV'  => 'Nvidia',
         'NY'  => 'NYX Mobile',
         'NON' => 'N-one',
-        'O3'  => 'O+',
+        'O3'  => 'O+ USA',
         'OT'  => 'O2',
         'O7'  => 'Oale',
-        'OC'  => 'OASYS',
-        'OB'  => 'Obi',
+        'OC'  => 'OASYS Cybernetics',
+        'OB'  => 'Obi Worldphone',
         'OBR' => 'Ober',
         'OQ'  => 'Meta',
         'O1'  => 'Odys',
@@ -1406,7 +1403,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'OLK' => 'Olkya',
         'OLY' => 'Olympia',
         'OCN' => 'OCEAN',
-        'OCE' => 'OCEANIC',
+        'OCE' => 'Oceanic Solar',
         'OLT' => 'OLTO',
         'OJ'  => 'Ookee',
         'OD'  => 'Onda',
@@ -1461,7 +1458,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'PRA' => 'Pacific Research Alliance',
         'PAG' => 'PAGRAER',
         'PAD' => '7Ke tree',
-        'YP'  => 'Paladin',
+        'YP'  => 'Paladin TV',
         'PM'  => 'Palm',
         'PN'  => 'Panacom',
         'PA'  => 'Panasonic',
@@ -1502,7 +1499,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'PIR' => 'PIRANHA',
         'PIN' => 'PINE64',
         '9P'  => 'Planet Computers',
-        'PLA' => 'Play Now',
+        'PLA' => 'Play',
         'PY'  => 'Ployer',
         'P4'  => 'Plum',
         'PLU' => 'PlusStyle',
@@ -1581,17 +1578,17 @@ abstract class AbstractDeviceParser extends AbstractParser
         'RZ'  => 'Razer',
         'RAZ' => 'RAZZ',
         '95'  => 'Rakuten',
-        'RAY' => 'Raylandz',
-        'RC'  => 'RCA Tablets',
+        'RAY' => 'Raylan',
+        'RC'  => 'RCA',
         'RCT' => 'RCT',
-        '2R'  => 'Reach',
+        '2R'  => 'Reach Mobiletech',
         'RLX' => 'Realix',
         'REL' => 'RelNAT',
         'RE4' => 'Relndoo',
         'RB'  => 'Readboy',
         'RE'  => 'Realme',
         'RE1' => 'Redbean',
-        'R8'  => 'RED',
+        'R8'  => 'RED Digital Cinema',
         'RDX' => 'RED-X',
         'REW' => 'Redway',
         '6F'  => 'Redfox',
@@ -1605,11 +1602,11 @@ abstract class AbstractDeviceParser extends AbstractParser
         'REN' => 'Renova',
         'RE3' => 'RENSO',
         'REP' => 'rephone',
-        'RHI' => 'Rhino',
+        'RHI' => 'Rhino Mobility',
         'RIC' => 'Ricoh',
         'RI'  => 'Rikomagic',
-        'RM'  => 'RIM',
-        'RN'  => 'Rinno',
+        'RM'  => 'Research In Motion',
+        'RN'  => 'Rinno Telecom',
         'RNB' => 'Ringing Bells',
         'RX'  => 'Ritmix',
         'R7'  => 'Ritzviva',
@@ -1663,7 +1660,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SAB' => 'Sambox',
         'SNA' => 'SNAMI',
         'S0'  => 'Sanei',
-        '12'  => 'Sansui',
+        '12'  => 'Sansui Electric',
         'SAK' => 'Sankey',
         'SQ'  => 'Santin',
         'SY'  => 'Sanyo',
@@ -1671,7 +1668,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'S9'  => 'Savio',
         'Y4'  => 'TCL SCBC',
         'SCH' => 'SCHAUB LORENZ',
-        'CZ'  => 'Schneider',
+        'CZ'  => 'Schneider Consumer',
         'SHO' => 'SCHONTECH',
         'SCO' => 'Scosmos',
         'SC1' => 'Scoole',
@@ -1729,7 +1726,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SR'  => 'Smart Electronic',
         'SMA' => 'Smart Kassel',
         'STE' => 'Smart Tech',
-        '49'  => 'Smart',
+        '49'  => 'Smart Axiata',
         '47'  => 'SmartBook',
         '3B'  => 'Smartab',
         '80'  => 'SMARTEC',
@@ -1768,7 +1765,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '6S'  => 'Spectrum',
         '43'  => 'Spectralink',
         'SP'  => 'Spice',
-        'SPD' => 'Spider',
+        'SPD' => 'Spider Receiver',
         'SPU' => 'SPURT',
         'QS'  => 'SQOOL',
         'OL'  => 'Starlight',
@@ -1811,7 +1808,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'STV' => 'SuperTV',
         'S5'  => 'Supra',
         'SUP' => 'Supraim',
-        'ZS'  => 'Suzuki',
+        'ZS'  => 'Suzuki Corporation',
         '2J'  => 'Sunmi',
         'SUN' => 'Sunmax',
         '0W'  => 'Swipe',
@@ -1823,13 +1820,13 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SSM' => 'Ssmart',
         'SYC' => 'Syco',
         'SM'  => 'Symphony',
-        '4S'  => 'Syrox',
+        '4S'  => 'Syrox Technologies',
         'SYS' => 'System76',
         'TPS' => 'SZ TPS',
         'TM'  => 'T-Mobile',
         'T96' => 'T96',
         'TAD' => 'TADAAM',
-        'TK'  => 'Takara',
+        'TK'  => 'Takara Multimédia',
         '73'  => 'Tambo',
         '9N'  => 'Tanix',
         'U5'  => 'Taiga System',
@@ -1896,6 +1893,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'YV'  => 'TiVo',
         'TIV' => 'Tivax',
         'TIB' => 'Tibuta',
+        'XZ'  => 'TJ Maxx',
         'Y3'  => 'TOKYO',
         'TOX' => 'TOX',
         'T1'  => 'Tolino',
@@ -1935,7 +1933,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'THT' => 'Tsinghua Tongfang',
         '5C'  => 'TTEC',
         'TTF' => 'TTfone',
-        'TTK' => 'TTK-TV',
+        'TTK' => 'TTK',
         'TU'  => 'Tunisie Telecom',
         '1T'  => 'Turbo',
         'TR'  => 'Turbo-X',
@@ -1997,7 +1995,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VC'  => 'Vankyo',
         'VAL' => 'VALEM',
         'VA2' => 'VALE',
-        'VAT' => 'VALTECH',
+        'VAT' => 'Valtech Mobility',
         'VAN' => 'VANGUARD',
         'VAW' => 'VANWIN',
         'VB'  => 'VC',
@@ -2016,7 +2014,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VET' => 'VETAS',
         'VL'  => 'Verykool',
         'QV'  => 'Verssed',
-        'VER' => 'Versus',
+        'VER' => 'Versus Mobility',
         'V8'  => 'Vesta',
         'VEK' => 'Vekta',
         'VT'  => 'Vestel',
@@ -2050,7 +2048,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VID' => 'VIDA',
         'VZ'  => 'Vizio',
         'VIZ' => 'Vizmo',
-        'VIT' => 'Vityaz',
+        'VIT' => 'Vityas',
         'VTM' => 'Vitumi',
         '9V'  => 'Vision Touch',
         'VIS' => 'Vision Technology',
@@ -2091,7 +2089,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '3V'  => 'VVETIME',
         'ZC'  => 'VUCATIMES',
         'VO2' => 'VOLKANO',
-        'VUE' => 'Vue Micro',
+        'VUE' => 'VUE',
         'WAK' => 'Walker',
         'WA'  => 'Walton',
         'WAF' => 'WAF',
@@ -2203,7 +2201,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ZAL' => 'ZALA',
         'ZZB' => 'ZZB',
         'ZEA' => 'Zealot',
-        'PZ'  => 'Zebra',
+        'PZ'  => 'Zebra Technologies',
         'ZE1' => 'Zeblaze',
         'ZE'  => 'Zeemi',
         'WZ'  => 'Zeeker',
@@ -2216,7 +2214,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ZIF' => 'ZIFFLER',
         'ZIO' => 'ZIOVO',
         'ZX'  => 'Ziox',
-        'ZIK' => 'ZIK',
+        'ZIK' => 'ZIK Computers',
         'ZKI' => 'Z-Kai',
         'ZIG' => 'Zigo',
         'ZIM' => 'Zimmer',
@@ -2227,14 +2225,14 @@ abstract class AbstractDeviceParser extends AbstractParser
         'ZOO' => 'ZoomSmart',
         'ZO1' => 'Zoom',
         'ZT'  => 'ZTE',
-        'ZU'  => 'Zuum',
+        'ZU'  => 'Zuum México',
         'ZY'  => 'Zync',
         'ZR'  => 'Zyrex',
         'ZQ'  => 'ZYQ',
         'Z4'  => 'ZH&K',
         'OW'  => 'öwn',
         'WBF' => 'Webfleet',
-        'WSS' => 'WS',
+        'WSS' => 'WS Education Electronics',
         // legacy brands, might be removed in future versions
         'WB'  => 'Web TV',
         'XX'  => 'Unknown',
@@ -2267,6 +2265,182 @@ abstract class AbstractDeviceParser extends AbstractParser
         'LPX' => 'LPX-G',
         // Is now 'Newman'
         'UE1' => 'UE',
+        // Is now 'Brave Techs'
+        'BRV' => 'BRAVE',
+        // Is now 'Bubblegum Tablets'
+        'Y8'  => 'Bubblegum',
+        // Is now 'Coby'
+        'CY'  => 'Coby Kyros',
+        // Is now 'Connex Devices'
+        '8C'  => 'Connex',
+        // Is now 'Cricket Wireless'
+        'CK'  => 'Cricket',
+        // Is now 'Crown Micro'
+        '4W'  => 'Crown',
+        // Is now 'NTT DOCOMO'
+        'DC'  => 'DoCoMo',
+        // Is now 'Elitegroup Computer Systems'
+        'ES'  => 'ECS',
+        // Is now 'EFT Group'
+        'EFT' => 'EFT',
+        // Is now 'IIIF150'
+        '5F'  => 'F150',
+        // Is now 'Famous Fones'
+        'FAM' => 'Famous',
+        // Is now 'FIGI Mobile'
+        'J9'  => 'FiGi',
+        // Is now 'Figgers Communication'
+        'FIG' => 'Figgers',
+        // Is now 'Future Mobile Technology'
+        '1F'  => 'FMT',
+        // Is now 'FFF Smart Life Connected'
+        'FFF' => 'FFF SmartLife',
+        // Is now 'Gemini Devices'
+        'GD'  => 'Gemini',
+        // Is now 'Großerwert'
+        'GR1' => 'GroBerwert',
+        // Is now 'H96 Max'
+        '9Z'  => 'H96',
+        // Is now 'Impression Electronics'
+        'I3'  => 'Impression',
+        // Is now 'Inco Electronics'
+        '6I'  => 'Inco',
+        // Is now 'iNavi Systems'
+        'INA' => 'iNavi',
+        // Is now 'iVOOMi Energy'
+        '0J'  => 'iVooMi',
+        // Is now 'Krono Digital'
+        'K2'  => 'KRONO',
+        // Is now 'MAG InnoVision'
+        'MAG' => 'MAG',
+        // Is now 'Manhattan TV'
+        'NH'  => 'Manhattan',
+        // Is now 'Marshal Electronic'
+        'MAR' => 'Marshal',
+        // Is now 'MBI International'
+        'FK'  => 'MBI',
+        // Is now 'TJ Maxx'
+        'XZ'  => 'MAXX',
+        // Is now 'MDC'
+        '3D'  => 'MDC Store',
+        // Is now 'MINT Connect'
+        'MIN' => 'Mint',
+        // Is now 'MITO Electronic'
+        '8M'  => 'Mito',
+        // Is now 'The MixC'
+        'M5'  => 'MIXC',
+        // Is now 'MLS Innovation'
+        'LS'  => 'MLS',
+        // Is now 'MStar Semiconductor'
+        '3R'  => 'MStar',
+        // Is now 'National Electronic Corporation'
+        'N7'  => 'National',
+        // Is now 'NASCO Electronics'
+        'NAS' => 'NASCO',
+        // Is now 'O+ USA'
+        'O3'  => 'O+',
+        // Is now 'OASYS Cybernetics'
+        'OC'  => 'OASYS',
+        // Is now 'Obi Worldphone'
+        'OB'  => 'Obi',
+        // Is now 'Oceanic Solar'
+        'OCE' => 'OCEANIC',
+        // Is now 'Paladin TV'
+        'YP'  => 'Paladin',
+        // Is now 'Play'
+        'PLA' => 'Play Now',
+        // Is now 'Raylan'
+        'RAY' => 'Raylandz',
+        // Is now 'RCA'
+        'RC'  => 'RCA Tablets',
+        // Is now 'Reach Mobiletech'
+        '2R'  => 'Reach',
+        // Is now 'RED Digital Cinema'
+        'R8'  => 'RED',
+        // Is now 'Rhino Mobility'
+        'RHI' => 'Rhino',
+        // Is now 'Research In Motion'
+        'RM'  => 'RIM',
+        // Is now 'Rinno Telecom'
+        'RN'  => 'Rinno',
+        // Is now 'Sansui Electric'
+        '12'  => 'Sansui',
+        // Is now 'Schneider Consumer'
+        'CZ'  => 'Schneider',
+        // Is now 'Smart Axiata'
+        '49'  => 'Smart',
+        // Is now 'Spider Receiver'
+        'SPD' => 'Spider',
+        // Is now 'Suzuki Corporation'
+        'ZS'  => 'Suzuki',
+        // Is now 'Syrox Technologies'
+        '4S'  => 'Syrox',
+        // Is now 'Takara Multimédia'
+        'TK'  => 'Takara',
+        // Is now 'TTK'
+        'TTK' => 'TTK-TV',
+        // Is now 'Valtech Mobility'
+        'VAT' => 'VALTECH',
+        // Is now 'Versus Mobility'
+        'VER' => 'Versus',
+        // Is now 'Vityas'
+        'VIT' => 'Vityaz',
+        // Is now 'VUE'
+        'VUE' => 'Vue Micro',
+        // Is now 'Zebra Technologies'
+        'PZ'  => 'Zebra',
+        // Is now 'ZIK Computers'
+        'ZIK' => 'ZIK',
+        // Is now 'Zuum México'
+        'ZU'  => 'Zuum',
+        // Is now 'WS Education Electronics'
+        'WSS' => 'WS',
+        // Is now 'Unikalne Smartphones'
+        'BAS' => 'BASE',
+        // Is now 'Cloud Mobile'
+        '1J'  => 'Cloud',
+        // Is now 'Digit'
+        'DIG' => 'Digit4G',
+        // Is now 'Dream Multimedia'
+        'DM'  => 'DMM',
+        // Is now 'Powerway'
+        'DRE' => 'DreamTab',
+        // Is now 'EPIK Learning'
+        'Q1'  => 'High Q',
+        // Is now 'Hotel TV Company'
+        'H3'  => 'Hotel',
+        // Is now 'KAP'
+        'ROI' => 'ROiK',
+        // Is now 'Kingelon'
+        'S4'  => 'Star',
+        // Is now 'OTT'
+        '1Y'  => 'MDTV',
+        // Is now 'Microlab'
+        'MLA' => 'MLAB',
+        // Is now 'Mode 1'
+        '7P'  => 'P-UP',
+        // Is now '7Ke tree'
+        'PAD' => 'Padpro',
+        // Is now 'Quanta Computer'
+        '84'  => 'Sprint',
+        // Is now 'Rover Computers'
+        'R6'  => 'RoverPad',
+        // Is now 'Spark NZ'
+        'PK'  => 'Spark',
+        // Is now 'StreamSystem'
+        'STR' => 'Stream',
+        // Is now 'SZ TPS'
+        'TPS' => 'TPS',
+        // Is now 'Techmade'
+        'TE1' => 'TechSmart',
+        // Is now 'Terra'
+        'WR'  => 'Wortmann',
+        // Is now 'TWZ Corporation'
+        'Z1'  => 'TWZ',
+        // Is now 'VOX Electronics'
+        'Z7'  => 'VOX',
+        // Is now 'Zhongyu Display'
+        'WAN' => 'Wanmukang',
     ];
 
     /**
