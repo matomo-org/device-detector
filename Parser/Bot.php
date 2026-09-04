@@ -67,6 +67,47 @@ class Bot extends AbstractBotParser
      */
     public function parse(): ?array
     {
+        $result = $this->parseValue($this->userAgent);
+
+        if (null !== $result) {
+            return $result;
+        }
+
+        $from = null !== $this->clientHints ? $this->clientHints->getFrom() : '';
+
+        if ('' === $from) {
+            return null;
+        }
+
+        // Browsers do not send a From header while bots are expected to, so a request carrying
+        // one comes from a bot even when its user agent claims otherwise. The address usually
+        // names the bot, so it goes through the same detection before falling back.
+        return $this->parseValue($from)
+            ?? ($this->discardDetails ? [true] : ['name' => 'Generic Bot']);
+    }
+
+    /**
+     * Matches the given value against the bot definitions
+     *
+     * @return array<string, mixed>|null
+     */
+    private function parseValue(string $value): ?array
+    {
+        $userAgent       = $this->userAgent;
+        $this->userAgent = $value;
+
+        try {
+            return $this->matchValue();
+        } finally {
+            $this->userAgent = $userAgent;
+        }
+    }
+
+    /**
+     * @return array<string, mixed>|null
+     */
+    private function matchValue(): ?array
+    {
         $result = null;
 
         if ($this->preMatchOverall()) {
