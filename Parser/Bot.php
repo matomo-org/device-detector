@@ -89,7 +89,9 @@ class Bot extends AbstractBotParser
     /**
      * Matches the given value against the bot definitions
      *
-     * @return array<string, mixed>|null
+     * @param string $value user agent or contact address to match
+     *
+     * @return array<array-key, mixed>|null
      */
     private function parseValue(string $value): ?array
     {
@@ -104,7 +106,7 @@ class Bot extends AbstractBotParser
     }
 
     /**
-     * @return array<string, mixed>|null
+     * @return array<array-key, mixed>|null
      */
     private function matchValue(): ?array
     {

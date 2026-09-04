@@ -556,7 +556,10 @@ class DeviceDetectorTest extends TestCase
     public function testParseBots(array $fixtureData): void
     {
         $ua = $fixtureData['user_agent'];
-        $dd = new DeviceDetector($ua);
+        $dd = new DeviceDetector(
+            $ua,
+            isset($fixtureData['headers']) ? ClientHints::factory($fixtureData['headers']) : null
+        );
         $dd->parse();
         $this->assertTrue($dd->isBot());
         $botData = $dd->getBot();
@@ -616,6 +619,8 @@ class DeviceDetectorTest extends TestCase
 
     /**
      * @param array<string, string> $headers
+     *
+     * @dataProvider getFromHeaderFixtures
      */
     #[DataProvider('getFromHeaderFixtures')]
     public function testParseBotsFromTheFromHeader(array $headers, string $userAgent, string $expectedName): void
