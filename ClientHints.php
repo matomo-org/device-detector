@@ -84,6 +84,13 @@ class ClientHints
     protected $formFactors = [];
 
     /**
+     * Represents `From` header field: the email address of the person controlling the client
+     *
+     * @var string
+     */
+    protected $from = '';
+
+    /**
      * Constructor
      *
      * @param string $model           `Sec-CH-UA-Model` header field
@@ -96,8 +103,9 @@ class ClientHints
      * @param string $bitness         `Sec-CH-UA-Bitness`
      * @param string $app             `HTTP_X-REQUESTED-WITH`
      * @param array  $formFactors     `Sec-CH-UA-Form-Factors` header field
+     * @param string $from            `From` header field
      */
-    public function __construct(string $model = '', string $platform = '', string $platformVersion = '', string $uaFullVersion = '', array $fullVersionList = [], bool $mobile = false, string $architecture = '', string $bitness = '', string $app = '', array $formFactors = []) // phpcs:ignore Generic.Files.LineLength
+    public function __construct(string $model = '', string $platform = '', string $platformVersion = '', string $uaFullVersion = '', array $fullVersionList = [], bool $mobile = false, string $architecture = '', string $bitness = '', string $app = '', array $formFactors = [], string $from = '') // phpcs:ignore Generic.Files.LineLength
     {
         $this->model           = $model;
         $this->platform        = $platform;
@@ -109,6 +117,7 @@ class ClientHints
         $this->bitness         = $bitness;
         $this->app             = $app;
         $this->formFactors     = $formFactors;
+        $this->from            = $from;
     }
 
     /**
@@ -234,6 +243,16 @@ class ClientHints
     }
 
     /**
+     * Returns the email address of the person controlling the client
+     *
+     * @return string
+     */
+    public function getFrom(): string
+    {
+        return $this->from;
+    }
+
+    /**
      * Returns the formFactor device type name
      *
      * @return array
@@ -253,7 +272,7 @@ class ClientHints
     public static function factory(array $headers): ClientHints
     {
         $model           = $platform = $platformVersion = $uaFullVersion = $architecture = $bitness = '';
-        $app             = '';
+        $app             = $from = '';
         $mobile          = false;
         $fullVersionList = [];
         $formFactors     = [];
@@ -358,6 +377,13 @@ class ClientHints
                     }
 
                     break;
+                case 'http-from':
+                case 'from':
+                    if (\is_string($value)) {
+                        $from = $value;
+                    }
+
+                    break;
                 case 'http-x-requested-with':
                 case 'x-requested-with':
                     if (\is_string($value) && 'xmlhttprequest' !== \strtolower($value)) {
@@ -392,7 +418,8 @@ class ClientHints
             $architecture,
             $bitness,
             $app,
-            $formFactors
+            $formFactors,
+            $from
         );
     }
 }
