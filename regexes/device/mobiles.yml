@@ -11077,12 +11077,9 @@ UGINE:
 
 # Sunny (https://www.sunny.com.tr/)
 Sunny:
-  regex: 'LGE; SNY?[0-9]{2}[0-9a-z]+(?:-[0-9]+)?;|(?:SS4G9 Mira|SS4G7 Sole|SS4G1 Luna|SS4G8 Nora|SS4G6 Lola|SN7014S?|SN7016|SN10016|SN01DNGL300|SUNNY ?(?:SS01|S52D|SN55UAL253-?)|SUNNY;SmartTV|14AT542)(?:[);/ ]|$)'
+  regex: 'LGE; SNY?[0-9]{2}[0-9a-z]+(?:-[0-9]+)?;|(?:SS4G9 Mira|SS4G7 Sole|SS4G1 Luna|SS4G8 Nora|SS4G6 Lola|SN7014S?|SN7016|SN10016|SN01DNGL300|SUNNY ?(?:SS01|S52D|SN55UAL253-?)|SUNNY;SmartTV)(?:[);/ ]|$)'
   device: 'smartphone'
   models:
-    - regex: '(14AT542)(?:[);/ ]|$)'
-      device: 'tv'
-      model: '$1'
     - regex: '(SS4G9 Mira|SS4G7 Sole|SS4G1 Luna|SS4G8 Nora|SS4G6 Lola)(?:[);/ ]|$)'
       model: '$1'
     - regex: 'SUNNY (SS01|S52D)'
@@ -11176,7 +11173,7 @@ Qilive:
 
 # JVC
 JVC:
-  regex: 'JVC[;, ]|JVC-CVTE|JVC_NWI|AV-10NT310|(?:smarttv_)?(?:AFTSO001|AFTJULI1|AFTWMST22|LT-98N7125|LT-42NQ5155)'
+  regex: 'JVC[;, ]|JVC-CVTE|JVC_NWI|AV-10NT310|(?:smarttv_)?(?:AFTSO001|AFTJULI1|AFTWMST22|LT-(?:98N7125|42NQ5155))'
   device: 'tv'
   models:
     - regex: 'JVC[;,](32D1290)'
@@ -11187,7 +11184,7 @@ JVC:
       model: 'Fire TV 4K (2021)'
     - regex: '(?:smarttv_)?AFTWMST22'
       model: 'Fire TV 2K (2020)'
-    - regex: '(LT-98N7125|LT-42NQ5155)'
+    - regex: '(LT-(?:98N7125|42NQ5155))'
       model: '$1'
     - regex: 'JVC, ([a-z0-9_ -]+), (?:wired|wireless)'
       model: ''
@@ -44056,7 +44053,7 @@ Geant:
 
 # GEEPAS (https://uae.geepas.com/)
 GEEPAS:
-  regex: 'GEEPAS[;,)]|(GLED7580SWUHD)(?:[);/ ]|$)'
+  regex: 'GEEPAS[;,)]|(?:GLED7580SWUHD)(?:[);/ ]|$)'
   device: 'tv'
   models:
     - regex: '(GLED7580SWUHD)(?:[);/ ]|$)'
