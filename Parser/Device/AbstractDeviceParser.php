@@ -1698,7 +1698,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SGI' => 'SGIN',
         'SH'  => 'Sharp',
         'JU'  => 'Shanling',
-        '7S'  => 'Shift Phones',
+        '7S'  => 'SHIFT',
         '78'  => 'Shivaki',
         'RS'  => 'Shtrikh-M',
         '3S'  => 'Shuttle',
