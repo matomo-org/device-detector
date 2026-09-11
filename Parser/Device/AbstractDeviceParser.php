@@ -1971,6 +1971,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'U1'  => 'Uhans',
         'UH'  => 'Uhappy',
         'UL'  => 'Ulefone',
+        'ULX' => 'UltraX Privacy',
         'UA'  => 'Umax',
         'UM'  => 'UMIDIGI',
         'UM2' => 'Umiio',
