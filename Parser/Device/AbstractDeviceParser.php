@@ -1135,6 +1135,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'LNM' => 'LNMBBS',
         'LO'  => 'Loewe',
         'LNG' => 'LongTV',
+        'LOO' => 'LoopDL',
         'YL'  => 'Loview',
         'LOV' => 'Lovme',
         'LGN' => 'LOGAN',
