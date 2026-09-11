@@ -677,6 +677,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FLM' => 'Filimo',
         'FIL' => 'FILIX',
         'FIN' => 'FINIX',
+        'FLO' => 'flow',
         'FL'  => 'Fly',
         'FLX' => 'FLEXY',
         'QC'  => 'FLYCAT',
