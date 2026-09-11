@@ -195,6 +195,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'AQ'  => 'Aspera',
         'HJ'  => 'Aquarius',
         '40'  => 'Artel',
+        'ART' => 'artfone',
         '21'  => 'Artizlee',
         '59'  => 'ArtLine',
         '8A'  => 'Asano',
