@@ -205,6 +205,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'A4'  => 'Ask',
         'A8'  => 'Assistant',
         'ASS' => 'ASSE',
+        'ASH' => 'ASTECH',
         'AU'  => 'Asus',
         '6A'  => 'AT&T',
         'ATH' => 'Athesi',
