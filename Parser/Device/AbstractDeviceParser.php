@@ -247,6 +247,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'BO'  => 'BangOlufsen',
         'BN'  => 'Barnes & Noble',
         'BAR' => 'BARTEC',
+        'BST' => 'Bastyon Mobi',
         'BAU' => 'BAUHN',
         'BB'  => 'BBK',
         '0B'  => 'BB Mobile',
