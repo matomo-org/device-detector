@@ -9740,9 +9740,13 @@ Fondi:
 
 # Fairphone (fairphone.com)
 Fairphone:
-  regex: '(?:Fairphone )?(FP(?:1U?|[2345]))(?:[);/ ]|$)'
+  regex: 'Fairphone|FP(?:1U?|[2-6])(?:[);/ ]|$)'
   device: 'smartphone'
-  model: '$1'
+  models:
+    - regex: 'FP(1U?|[2-6])'
+      model: '$1'
+    - regex: 'Fairphone (?:FP)?([1-6])'
+      model: '$1'
 
 # Famoco
 Famoco:
