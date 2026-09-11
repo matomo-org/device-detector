@@ -1949,6 +1949,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'TUR' => 'Türksat',
         'TV'  => 'TVC',
         'TVP' => 'TV+',
+        'TWL' => 'TWL Mobile',
         'TW'  => 'TWM',
         'Z1'  => 'TWZ Corporation',
         'TWN' => 'TwinMOS',
