@@ -79,7 +79,7 @@ class ClientHintsTest extends TestCase
         ];
 
         $ch = ClientHints::factory($headers);
-        self::assertFalse($ch->isMobile());
+        self::assertNull($ch->isMobile());
         self::assertSame('Windows', $ch->getOperatingSystem());
         self::assertSame('10.0.0', $ch->getOperatingSystemVersion());
         self::assertSame([
