@@ -30,10 +30,11 @@ class ClientHints
 
     /**
      * Represents `Sec-CH-UA-Mobile` header field: whether the user agent should receive a specifically "mobile" UX
+     * Null if no such headers present
      *
-     * @var bool
+     * @var bool|null
      */
-    protected $mobile = false;
+    protected $mobile = null;
 
     /**
      * Represents `Sec-CH-UA-Model` header field: the user agent's underlying device model
@@ -97,7 +98,7 @@ class ClientHints
      * @param string $app             `HTTP_X-REQUESTED-WITH`
      * @param array  $formFactors     `Sec-CH-UA-Form-Factors` header field
      */
-    public function __construct(string $model = '', string $platform = '', string $platformVersion = '', string $uaFullVersion = '', array $fullVersionList = [], bool $mobile = false, string $architecture = '', string $bitness = '', string $app = '', array $formFactors = []) // phpcs:ignore Generic.Files.LineLength
+    public function __construct(string $model = '', string $platform = '', string $platformVersion = '', string $uaFullVersion = '', array $fullVersionList = [], ?bool $mobile = null, string $architecture = '', string $bitness = '', string $app = '', array $formFactors = []) // phpcs:ignore Generic.Files.LineLength
     {
         $this->model           = $model;
         $this->platform        = $platform;
@@ -130,11 +131,11 @@ class ClientHints
     }
 
     /**
-     * Returns if the client hints
+     * Returns bool if detected by the client hints
      *
-     * @return bool
+     * @return bool|null
      */
-    public function isMobile(): bool
+    public function isMobile(): ?bool
     {
         return $this->mobile;
     }
@@ -254,7 +255,7 @@ class ClientHints
     {
         $model           = $platform = $platformVersion = $uaFullVersion = $architecture = $bitness = '';
         $app             = '';
-        $mobile          = false;
+        $mobile          = null;
         $fullVersionList = [];
         $formFactors     = [];
 
