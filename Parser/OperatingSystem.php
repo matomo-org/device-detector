@@ -89,6 +89,7 @@ class OperatingSystem extends AbstractParser
         'FOS' => 'Firefox OS',
         'FIR' => 'Fire OS',
         'FOR' => 'Foresight Linux',
+        'FRT' => 'FortiOS',
         'FRE' => 'Freebox',
         'BSD' => 'FreeBSD',
         'FRI' => 'FRITZ!OS',
@@ -108,6 +109,7 @@ class OperatingSystem extends AbstractParser
         'HNX' => 'HarmonyOS NEXT',
         'HAS' => 'HasCodingOS',
         'HEL' => 'HELIX OS',
+        'HYP' => 'HyperOS',
         'IRI' => 'IRIX',
         'INF' => 'Inferno',
         'JME' => 'Java ME',
@@ -147,6 +149,7 @@ class OperatingSystem extends AbstractParser
         'MIN' => 'Mint',
         'MLD' => 'MildWild',
         'MOR' => 'MorphOS',
+        'MYO' => 'MyOS',
         'NBS' => 'NetBSD',
         'MTK' => 'MTK / Nucleus',
         'MRE' => 'MRE',
@@ -207,6 +210,7 @@ class OperatingSystem extends AbstractParser
         'SMA' => 'Smartisan OS',
         'SOS' => 'Solaris',
         'SBL' => 'Star-Blade OS',
+        'STM' => 'SteamOS',
         'SYL' => 'Syllable',
         'SYM' => 'Symbian',
         'SYS' => 'Symbian OS',
@@ -258,7 +262,7 @@ class OperatingSystem extends AbstractParser
         'Android'               => [
             'AND', 'CYN', 'FIR', 'REM', 'RZD', 'MLD', 'MCD', 'YNS', 'GRI', 'HAR',
             'ADR', 'CLR', 'BOS', 'REV', 'LEN', 'SIR', 'RRS', 'WER', 'PIC', 'ARM',
-            'HEL', 'BYI', 'RIS', 'PUF', 'LEA', 'MET', 'SMA', 'AGO',
+            'HEL', 'BYI', 'RIS', 'PUF', 'LEA', 'MET', 'SMA', 'AGO', 'HYP', 'MYO',
         ],
         'AmigaOS'               => ['AMG', 'MOR', 'ARO'],
         'BlackBerry'            => ['BLB', 'QNX'],
@@ -281,10 +285,10 @@ class OperatingSystem extends AbstractParser
             'UOS', 'PIO', 'FRI', 'LIR', 'WEB', 'SER', 'ASP', 'AOS', 'LOO', 'EUL',
             'SCI', 'ALP', 'CLO', 'ROC', 'OVZ', 'PVE', 'RST', 'EZX', 'GNS', 'JOL',
             'TUR', 'QTP', 'WPO', 'PAN', 'VIZ', 'AZU', 'COL', 'OSS', 'ELM', 'LPU',
-            'KOB',
+            'KOB', 'FRT',
         ],
         'Mac'                   => ['MAC'],
-        'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],
+        'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX', 'STM'],
         'OpenHarmony'           => ['OHS', 'HNX'],
         'OpenVMS'               => ['OVS'],
         'Real-time OS'          => ['MTK', 'TDX', 'MRE', 'JME', 'REX', 'RXT', 'KOL', 'MOS', 'NTX'],
@@ -308,7 +312,9 @@ class OperatingSystem extends AbstractParser
      */
     protected static $clientHintMapping = [
         'GNU/Linux' => ['Linux'],
-        'Mac'       => ['MacOS'],
+        'Mac'       => ['MacOS', 'Mac OS X', 'MacIntel'],
+        'Puffin OS' => ['Cloud Phone 2.4'],
+        'Windows'   => ['Win32'],
     ];
 
     /**
@@ -352,6 +358,7 @@ class OperatingSystem extends AbstractParser
      * @var array
      */
     private $lineageOsVersionMapping = [
+        '17'    => '24',
         '16'    => '23',
         '15'    => '22',
         '14'    => '21',
@@ -446,6 +453,10 @@ class OperatingSystem extends AbstractParser
             // On Windows, version 0.0.0 can be either 7, 8 or 8.1
             if ('Windows' === $name && '0.0.0' === $version) {
                 $version = ('10' === $osFromUserAgent['version']) ? '' : $osFromUserAgent['version'];
+            }
+
+            if ('Puffin OS' === $name) {
+                $version = $osFromUserAgent['version'];
             }
 
             // If the OS name detected from client hints matches the OS family from user agent

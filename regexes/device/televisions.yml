@@ -122,11 +122,13 @@ Atvio:
 
 # AWOX (https://www.awox.com.tr/)
 AWOX:
-  regex: 'AWOX[;,)]'
+  regex: '.+AWOX[;,)]'
   device: 'tv'
   models:
     - regex: 'LGE/[^/]+/AWOX; ([a-z0-9]+);'
       model: '$1'
+    - regex: 'LaTivu_(?:\d+[.\d]+)_([0-9]{4})'
+      model: 'Smart TV ($1)'
 
 # AYA
 AYA:
@@ -502,6 +504,22 @@ HIGH1ONE:
     - regex: '_TV_[A-Z0-9]+_([0-9]{4});'
       model: 'Smart TV ($1)'
 
+# TELE System (https://www.telesystem-world.com/)
+TELE System:
+  regex: '.+Telesystem[;,)]'
+  device: 'tv'
+  models:
+    - regex: 'LaTivu_(?:\d+[.\d]+)_([0-9]{4})'
+      model: 'Smart TV ($1)'
+
+# KIWI
+KIWI:
+  regex: '.+KIWI[;,)]'
+  device: 'tv'
+  models:
+    - regex: 'LaTivu_(?:\d+[.\d]+)_([0-9]{4})'
+      model: 'Smart TV ($1)'
+
 # Hisense
 Hisense:
   regex: 'Hisense|Eurofins_Digital_Testing'
@@ -834,11 +852,13 @@ simfer:
 
 # Smart Tech (https://www.smarttech-tv.com/)
 Smart Tech:
-  regex: 'SMARTTECH[;,)]'
+  regex: '.+SMARTTECH[;,)]'
   device: 'tv'
   models:
     - regex: 'LGE/[^/]+/SMARTTECH; ([a-z0-9]+);'
       model: '$1'
+    - regex: 'LaTivu_(?:\d+[.\d]+)_([0-9]{4})'
+      model: 'Smart TV ($1)'
 
 # Stilevs (https://stilevskktc.com/)
 Stilevs:
@@ -1308,12 +1328,14 @@ REGAL:
     - regex: '_TV_[A-Z0-9]+_([0-9]{4});'
       model: 'Smart TV ($1)'
 
-# Saba
+# Saba (https://saba-tv.it/)
 Saba:
-  regex: 'Saba[;,)]'
+  regex: '.+Saba[;,)]'
   device: 'tv'
   models:
     - regex: '_TV_[A-Z0-9]+_([0-9]{4});'
+      model: 'Smart TV ($1)'
+    - regex: 'LaTivu_(?:\d+[.\d]+)_([0-9]{4})'
       model: 'Smart TV ($1)'
 
 # Salora
@@ -1466,9 +1488,11 @@ Sony:
 
 # Star-Light
 Star-Light:
-  regex: 'STAR LIGHT[;,)]'
+  regex: '.+STAR ?LIGHT[;,)]'
   device: 'tv'
-  model: ''
+  models:
+    - regex: 'LaTivu_(?:\d+[.\d]+)_([0-9]{4})'
+      model: 'Smart TV ($1)'
 
 # SURFTV
 SURFTV:

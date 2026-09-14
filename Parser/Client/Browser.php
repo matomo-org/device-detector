@@ -75,6 +75,7 @@ class Browser extends AbstractClientParser
         '1M' => '1DM+ Browser',
         '2B' => '2345 Browser',
         '3B' => '360 Secure Browser',
+        '37' => '360 Speed Browser',
         '36' => '360 Phone Browser',
         '7B' => '7654 Browser',
         'AA' => 'Avant Browser',
@@ -396,6 +397,7 @@ class Browser extends AbstractClientParser
         'LF' => 'LieBaoFast',
         'LG' => 'LG Browser',
         'LH' => 'Light',
+        'LP' => 'Lightpanda',
         'L4' => 'Lightning Browser Plus',
         'L1' => 'Lilo',
         'LI' => 'Links',
@@ -438,6 +440,7 @@ class Browser extends AbstractClientParser
         'MA' => 'Maelstrom',
         '3M' => 'Mises',
         'MM' => 'Mmx Browser',
+        '4M' => 'Mullvad Browser',
         'NM' => 'MxNitro',
         'MY' => 'Mypal',
         'M0' => 'MySudo',
@@ -650,7 +653,9 @@ class Browser extends AbstractClientParser
         'S3' => 'surf',
         '4S' => 'Surf Browser',
         'RY' => 'Surfy Browser',
+        '38' => 'Stadium',
         'SG' => 'Stargon',
+        'T6' => 'Startpage',
         'S0' => 'START Internet Browser',
         'YS' => 'Stay Browser',
         '5A' => 'Stealth Browser',
@@ -669,6 +674,7 @@ class Browser extends AbstractClientParser
         'T2' => 'tararia',
         'TH' => 'Thor',
         '1T' => 'Tor Browser',
+        'T7' => 'Teak Browser',
         'TF' => 'TenFourFox',
         'TB' => 'Tenta Browser',
         'TE' => 'Tesla Browser',
@@ -819,6 +825,7 @@ class Browser extends AbstractClientParser
             'PQ', 'LM', 'T5', '2N', 'SJ', 'X6', 'SM', 'AY', 'BQ',
             'BC', 'NQ', 'VQ', '9C', 'KA', 'YS', 'D4', 'PZ', '0I',
             '3F', 'Z1', 'XC', 'ZC', 'V7', 'H0', 'IL', 'PG', 'I0',
+            'T6', '37', 'FI',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -826,7 +833,7 @@ class Browser extends AbstractClientParser
             'IW', 'LH', 'LY', 'MB', 'MN', 'MO', 'MY', 'OA', 'OS',
             'PI', 'PX', 'QA', 'S5', 'SX', 'TF', 'TO', 'WF', 'ZV',
             'FP', 'AD', '2I', 'P9', 'KJ', 'WY', 'VK', 'W5',
-            '7C', 'N7', 'W7',
+            '7C', 'N7', 'W7', '4M',
         ],
         'Internet Explorer'  => ['IE', 'CZ', 'BZ', 'IM', 'PS', '3A', '4A', 'RN', '2E'],
         'Konqueror'          => ['KO'],
@@ -872,7 +879,7 @@ class Browser extends AbstractClientParser
         '2M', 'K7', '1N', '8A', 'H7', 'X3', 'X4', '5O', '6I',
         '7I', 'X5', '3P', '2E', 'T5', '2N', 'SJ', 'X6', 'SM',
         'AY', 'BQ', 'BC', 'NQ', 'VQ', 'KA', 'YS', 'D4', 'PZ',
-        'V7', 'D5', 'M0', 'Q8',
+        'V7', 'D5', 'M0', 'Q8', 'T6', '37', '38', 'FI',
     ];
 
     /**
@@ -890,6 +897,7 @@ class Browser extends AbstractClientParser
         'Norton Private Browser'     => ['Norton Secure Browser'],
         'Opera GX'                   => ['Opera GX Android'],
         'Opera Mini'                 => ['Opera Mini Android'],
+        'Puffin Cloud Browser'       => ['Puffin'],
         'Vewd Browser'               => ['Vewd Core'],
         'Yandex Browser'             => ['YaSearchBrowser'],
     ];
@@ -1062,6 +1070,7 @@ class Browser extends AbstractClientParser
             }
 
             if ('Blink' === $engine && 'Iridium' !== $name
+                && $browserFromUserAgent['engine'] === $engine
                 && \version_compare($browserFromUserAgent['engine_version'], $engineVersion, '>')
             ) {
                 $engineVersion = $browserFromUserAgent['engine_version'];
@@ -1225,7 +1234,7 @@ class Browser extends AbstractClientParser
                 }
             }
 
-            foreach ($this->clientHints->getBrandList() as $brand => $brandVersion) {
+            foreach ($brandList as $brand => $brandVersion) {
                 $brand = $this->applyClientHintMapping($brand);
 
                 foreach (self::$availableBrowsers as $browserShort => $browserName) {
@@ -1233,6 +1242,10 @@ class Browser extends AbstractClientParser
                         || $this->fuzzyCompare($brand . ' Browser', $browserName)
                         || $this->fuzzyCompare($brand, $browserName . ' Browser')
                     ) {
+                        if ('Chrome' === $name && 'Chromium' === $browserName) {
+                            break;
+                        }
+
                         $name    = $browserName;
                         $short   = $browserShort;
                         $version = $brandVersion;
@@ -1241,8 +1254,8 @@ class Browser extends AbstractClientParser
                     }
                 }
 
-                // If we detected a brand, that is not Chromium, we will use it, otherwise we will look further
-                if (!\in_array($name, ['', 'Chromium', 'Microsoft Edge'], true)) {
+                // If we detected a brand, that is not in the array, we will use it, otherwise we will look further
+                if (!\in_array($name, ['', 'Chrome', 'Chromium', 'Microsoft Edge'], true)) {
                     break;
                 }
             }

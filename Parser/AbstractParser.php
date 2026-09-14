@@ -351,6 +351,7 @@ abstract class AbstractParser
             'CE-HTML',
             ' Mozilla/|Andr[o0]id|Tablet|Mobile|iPhone|Windows Phone|ricoh|OculusBrowser',
             'PicoBrowser|Lenovo|compatible; MSIE|Trident/|Tesla/|XBOX|FBMD/|ARM; ?([^)]+)',
+            'Steam',
         ]);
 
         return
@@ -365,7 +366,7 @@ abstract class AbstractParser
      */
     protected function hasUserAgentClientHintsFragment(): bool
     {
-        $pattern = '~Android (?:1[0-7][.\d]*; K(?: Build/|[;)])|1[0-7]\)) AppleWebKit~i';
+        $pattern = '~Android (?:1[0-7][.\d]*; (?:K(?: Build/|[;)])|[A-Za-z0-9]{10}; U;.+)|1[0-7]\)) AppleWebKit~i';
 
         if (\preg_match($pattern, $this->userAgent)) {
             return false === \stripos($this->userAgent, 'Telegram-Android/');

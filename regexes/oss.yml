@@ -6,6 +6,20 @@
 ###############
 
 ##########
+# SteamOS (https://store.steampowered.com/steamos)
+##########
+- regex: 'Steam'
+  name: 'SteamOS'
+  version: ''
+
+##########
+# FortiOS (https://www.fortinet.com/products/fortigate/fortios)
+##########
+- regex: 'FortiOS (\d+[.\d]+)'
+  name: 'FortiOS'
+  version: '$1'
+
+##########
 # KoboOS (https://www.kobo.com/)
 ##########
 - regex: 'Kobo'
@@ -71,7 +85,7 @@
 ##########
 # Mocor OS
 ##########
-- regex: 'SpreadTrum'
+- regex: 'SpreadTrum|^(?!.*CLDC).*Dorado WAP-Browser'
   name: 'Mocor OS'
   version: ''
 
@@ -123,9 +137,9 @@
 ##########
 # Puffin OS (https://www.puffin.com/os/help/faq/)
 ##########
-- regex: 'Cloud Phone'
+- regex: 'Cloud Phone(?: (\d+[.\d]+))?'
   name: 'Puffin OS'
-  version: ''
+  version: '$1'
 
 ##########
 # risingOS (https://github.com/RisingTechOSS/android)
@@ -137,7 +151,7 @@
 ##########
 # Azure Linux (https://github.com/microsoft/azurelinux)
 ##########
-- regex: '.+.cm(\d).x86_64'
+- regex: '.+\.cm(\d)-x86_64'
   name: 'Azure Linux'
   version: '$1'
 
@@ -510,7 +524,7 @@
 ##########
 # Amazon Linux (https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html)
 ##########
-- regex: '.+.amzn(\d)(?:int)?.x86_64|Linux/.+aws'
+- regex: '.+\.amzn(\d)(?:int)?\.x86_64|Linux/.+aws'
   name: 'Amazon Linux'
   version: '$1'
 
@@ -673,6 +687,15 @@
 ##########
 # Custom Android Roms
 ##########
+- regex: 'MyOS(\d+[.\d]*)'
+  name: 'MyOS'
+  version: '$1'
+
+# https://www.mi.com/global/hyperos
+- regex: '[\d\s]+Lite Browser/(\d+\.\d+)$'
+  name: 'HyperOS'
+  version: ''
+
 - regex: '(?:HarmonyOS|hmos.+OpenHarmony)[-/ ]([56][.\d]+)'
   name: 'HarmonyOS NEXT'
   version: '$1'
@@ -795,9 +818,11 @@
   name: 'Lineage OS'
   version: '$1'
 
-- regex: '(?:Android (\d([\d.])*);? )?(?:lineage_\w+|Switch(?: Lite| OLED)?\))'
+- regex: '(?:Android (\d([\d.])*);? )?(?:lineage_\w+| Switch(?: Lite| OLED)?\))'
   name: 'Lineage OS'
   versions:
+    - regex: 'Android 17'
+      version: '24'
     - regex: 'Android 16'
       version: '23'
     - regex: 'Android 15'
@@ -1091,7 +1116,13 @@
 - regex: 'MRE\\\\(\d+[.\d]+)'
   name: 'MRE'
   version: '$1'
-- regex: '.+MRE|MAUI Runtime'
+- regex: (MAUI_MRE.*?;)
+  name: 'MRE'
+  version: ''
+- regex: (MAUI RUNTIME.*?;)
+  name: 'MRE'
+  version: ''
+- regex: (MRE_VER_\d+;)
   name: 'MRE'
   version: ''
 
@@ -1213,7 +1244,7 @@
   name: 'Red Hat'
   version: '$1'
 
-- regex: '.+redhat-linux-gnu|rhel|Red Hat Enterprise Linux Server'
+- regex: '(?:(?:i386|x86_64)-)?redhat-linux-gnu|rhel|Red Hat Enterprise Linux Server'
   name: 'Red Hat'
   version: ''
 
@@ -1225,7 +1256,7 @@
   name: 'CentOS'
   version: '$1'
 
-- regex: '.+.el(\d+(?:[_.]\d+)*).(?:centos|x86_64)'
+- regex: '.+\.el(\d+(?:[_.]\d+)*)\.(?:centos|x86_64)'
   name: 'CentOS'
   version: '$1'
 
@@ -1233,7 +1264,7 @@
   name: 'CentOS'
   version: '$1'
 
-- regex: 'Fedora/.+.fc(\d+)'
+- regex: 'Fedora/.+\.fc(\d+)'
   name: 'Fedora'
   version: '$1'
 
@@ -1509,7 +1540,11 @@
   name: 'iPadOS'
   version: '$1.$2'
 
-- regex: 'iPad; CPU OS 18_7.+Version/(\d+[.\d]+)'
+# https://webkit.org/blog/17333/webkit-features-in-safari-26-0/#update-to-ua-string
+- regex: 'iPad; CPU OS 18_[67].+\) Version/(\d+[.\d]+)'
+  name: 'iPadOS'
+  version: '$1'
+- regex: 'iPad; CPU OS 18_[67].+Version/(2[67]+[.\d]+)'
   name: 'iPadOS'
   version: '$1'
 
@@ -1565,11 +1600,10 @@
   version: '26.$1'
 
 # https://webkit.org/blog/17333/webkit-features-in-safari-26-0/#update-to-ua-string
-- regex: 'iPhone OS 18_7.+Version/(\d+[.\d]+)'
+- regex: 'iPhone OS 18_[67].+(?:/iOS|Version)/(2[67](?:\.\d+){0,2})'
   name: 'iOS'
   version: '$1'
-
-- regex: 'iOS/(\d+[.\d]+)$'
+- regex: 'iPhone OS 18_[67].+\) Version/(\d+\.\d+\.\d+)'
   name: 'iOS'
   version: '$1'
 
@@ -1581,10 +1615,10 @@
   name: 'iOS'
   version: '$1'
 
-- regex: '^(?!com\.apple\.Safari\.SearchHelper|Safari|com\.apple\.WebKit\.Networking|NetworkingExtension).*(?:CFNetwork|Mana)/.+ Darwin/(\d+[.\d]+)(?!.*(?:x86_64|i386|PowerMac|Power%20Macintosh))'
+- regex: '^(?!com\.apple\.Safari\.SearchHelper|Safari|com\.apple\.WebKit\.Networking|NetworkingExtension).*(?:CFNetwork(?!/macOS/)|Mana)/.+ Darwin/(\d+[.\d]+)(?!.*(?:x86_64|i386|PowerMac|Power%20Macintosh))'
   name: 'iOS'
   versions:
-    - regex: 'Darwin/26\.(0)\.0'
+    - regex: 'Darwin/2[67]\.(0)\.0'
       version: '27.$1'
     - regex: 'Darwin/25\.([0-6])\.0'
       version: '26.$1'
@@ -1774,19 +1808,19 @@
 ##########
 # Mac
 ##########
-- regex: '(?:macOS(?:\(Catalyst\))?[ /,]|Mac(?:os)?-)(\d+[.\d]+)'
+- regex: '(?:(?<!CFNetwork/)macOS(?:\(Catalyst\))?[ /,]|Mac(?:os)?-)(\d+[.\d]+)'
   name: 'Mac'
   version: '$1'
 
 # https://webkit.org/blog/17333/webkit-features-in-safari-26-0/#update-to-ua-string
-- regex: 'Mac OS X 10_15_7.+Version/(2[67]+[.\d]+)'
+- regex: 'Mac OS X 10_15.+Version/(2[67]+[.\d]+)'
   name: 'Mac'
   version: '$1'
 
-- regex: '(?:CFNetwork|Mana|StudioDisplay)/.+Darwin(?:/|; )(?:[\d.]+).+(?:x86_64|i386|Power%20Macintosh)|(?:x86_64-apple-)?darwin(?:[\d.]+)|C?Python.*Darwin|PowerMac|com\.apple\.Safari\.SearchHelper|^(?:com\.apple\.WebKit\.Networking|NetworkingExtension|Safari)'
+- regex: '(?:CFNetwork|Mana|StudioDisplay)/.+Darwin(?:/|; )(?:[\d.]+).+(?:x86_64|i386|Power%20Macintosh)|CFNetwork/macOS/.+Darwin/|(?:x86_64-apple-)?darwin(?:[\d.]+)|C?Python.*Darwin|PowerMac|com\.apple\.Safari\.SearchHelper|^(?:com\.apple\.WebKit\.Networking|NetworkingExtension|Safari)'
   name: 'Mac'
   versions:
-    - regex: '(?:x86_64-apple-)?Darwin(?:/|; )?26\.(0)\.0'
+    - regex: '(?:x86_64-apple-)?Darwin(?:/|; )?2[67]\.(0)\.0'
       version: '27.$1'
     - regex: '(?:x86_64-apple-)?Darwin(?:/|; )?25\.([0-6])\.0'
       version: '26.$1'
@@ -2200,7 +2234,7 @@
   name: 'GNU/Linux'
   version: '$1'
 
-- regex: 'Linux[^a-z]|Cinnamon/(?:\d+[.\d]+)|.+(?:pc|unknown)-linux-gnu|X11'
+- regex: 'Linux[^a-z]|Cinnamon/(?:\d+[.\d]+)|(?:(?:i386|x86_64)-)?(?:pc|unknown)-linux-gnu|X11'
   name: 'GNU/Linux'
   version: ''
 
