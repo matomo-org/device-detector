@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\AbstractParser;
+use Symfony\Component\Yaml\Yaml;
 
 include __DIR__ . '/../vendor/autoload.php';
 
@@ -19,7 +20,7 @@ $fixtureFiles = array_merge(
 $overwrite = !empty($argv[1]) && '--f' === $argv[1];
 
 foreach ($fixtureFiles as $file) {
-    $fileFixtures = Spyc::YAMLLoad(file_get_contents($file));
+    $fileFixtures = Yaml::parse(file_get_contents($file));
     $data         = [];
 
     foreach ($fileFixtures as $i => $fixture) {
@@ -32,14 +33,8 @@ foreach ($fixtureFiles as $file) {
         $data[$i] = array_intersect_key($fixture, $keys);
     }
 
-    $content = Spyc::YAMLDump($data, 2, 0);
-
-    $content = str_replace(": ON\n", ": 'ON'\n", $content);
-    $content = str_replace(": NO\n", ": 'NO'\n", $content);
-
-    file_put_contents($file, $content);
-
-    shell_exec("sed -i -e 's/version: \\([^\"].*\\)/version: \"\\1\"/g' " . $file);
+    // fixtures nest at most 5 levels, so nothing is ever dumped inline
+    file_put_contents($file, Yaml::dump($data, 10, 2));
 }
 
 echo "done.\n";
