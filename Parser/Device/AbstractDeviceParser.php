@@ -1027,6 +1027,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'KT'  => 'K-Touch',
         'KLT' => 'K-Lite',
         'K4'  => 'Kaan',
+        'KAI' => 'Kaicom',
         'K7'  => 'Kaiomy',
         'KL'  => 'Kalley',
         'K6'  => 'Kanji',
