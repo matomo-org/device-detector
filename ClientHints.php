@@ -131,11 +131,11 @@ class ClientHints
     }
 
     /**
-     * Returns bool if detected by the client hints
+     * Returns bool if the client hints or false overwise
      *
-     * @return bool|null
+     * @return bool
      */
-    public function isMobile(): ?bool
+    public function isMobile(): bool
     {
         return $this->mobile;
     }

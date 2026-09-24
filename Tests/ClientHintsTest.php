@@ -28,6 +28,7 @@ class ClientHintsTest extends TestCase
 
         $ch = ClientHints::factory($headers);
         self::assertFalse($ch->isMobile());
+        self::assertFalse($ch->mobile);
         self::assertSame('Windows', $ch->getOperatingSystem());
         self::assertSame('14.0.0', $ch->getOperatingSystemVersion());
         self::assertSame([
@@ -52,6 +53,7 @@ class ClientHintsTest extends TestCase
 
         $ch = ClientHints::factory($headers);
         self::assertTrue($ch->isMobile());
+        self::assertTrue($ch->mobile);
         self::assertSame('Ubuntu', $ch->getOperatingSystem());
         self::assertSame('3.7', $ch->getOperatingSystemVersion());
         self::assertSame([
@@ -79,7 +81,8 @@ class ClientHintsTest extends TestCase
         ];
 
         $ch = ClientHints::factory($headers);
-        self::assertNull($ch->isMobile());
+        self::assertFalse($ch->isMobile());
+        self::assertNull($ch->mobile);
         self::assertSame('Windows', $ch->getOperatingSystem());
         self::assertSame('10.0.0', $ch->getOperatingSystemVersion());
         self::assertSame([
