@@ -12,6 +12,9 @@ declare(strict_types=1);
 
 namespace DeviceDetector;
 
+/**
+ * @property-read bool|null $mobile
+ */
 class ClientHints
 {
     /**
@@ -137,7 +140,7 @@ class ClientHints
      */
     public function isMobile(): bool
     {
-        return $this->mobile;
+        return $this->mobile ?? false;
     }
 
     /**
