@@ -2474,6 +2474,8 @@ abstract class AbstractDeviceParser extends AbstractParser
 
         if (isset($regex['model'])) {
             $this->model = $this->buildModel($regex['model'], $matches);
+
+            return $this->getResult();
         }
 
         if (isset($regex['models'])) {
