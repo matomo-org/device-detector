@@ -2431,11 +2431,7 @@ abstract class AbstractDeviceParser extends AbstractParser
 
         $this->restoreUserAgentFromClientHints();
 
-        if ('' === $deviceModel && $this->hasUserAgentClientHintsFragment()) {
-            return $this->getResult();
-        }
-
-        if ('' === $deviceModel && $this->hasDesktopFragment()) {
+        if ('' === $deviceModel && ($this->hasUserAgentClientHintsFragment() || $this->hasDesktopFragment())) {
             return $this->getResult();
         }
 
