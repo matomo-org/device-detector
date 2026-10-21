@@ -556,7 +556,10 @@ class DeviceDetectorTest extends TestCase
     public function testParseBots(array $fixtureData): void
     {
         $ua = $fixtureData['user_agent'];
-        $dd = new DeviceDetector($ua);
+        $dd = new DeviceDetector(
+            $ua,
+            isset($fixtureData['headers']) ? ClientHints::factory($fixtureData['headers']) : null
+        );
         $dd->parse();
         $this->assertTrue($dd->isBot());
         $botData = $dd->getBot();
@@ -612,6 +615,66 @@ class DeviceDetectorTest extends TestCase
         return \array_map(static function ($elem) {
             return [$elem];
         }, $fixtures);
+    }
+
+    /**
+     * @param array<string, string> $headers
+     *
+     * @dataProvider getFromHeaderFixtures
+     */
+    #[DataProvider('getFromHeaderFixtures')]
+    public function testParseBotsFromTheFromHeader(array $headers, string $userAgent, string $expectedName): void
+    {
+        $dd = new DeviceDetector($userAgent, ClientHints::factory($headers));
+        $dd->parse();
+
+        $this->assertTrue($dd->isBot());
+        $this->assertEquals($expectedName, $dd->getBot()['name']);
+    }
+
+    public static function getFromHeaderFixtures(): iterable
+    {
+        // a bot the user agent does not give away at all
+        yield [
+            ['HTTP_FROM' => 'bingbot(at)microsoft.com'],
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0',
+            'BingBot',
+        ];
+
+        yield [
+            ['From' => 'crawler@alexa.com'],
+            'ia_archiver (+http://www.alexa.com/site/help/webmasters; crawler@alexa.com)',
+            'Alexa Crawler',
+        ];
+
+        // an address naming no known bot still means a bot
+        yield [
+            ['HTTP_FROM' => 'TGVnaXRpbWF0ZSBsaW5rIHRyYWNrZXI='],
+            'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0',
+            'Generic Bot',
+        ];
+    }
+
+    public function testAUserAgentWithoutTheFromHeaderIsNotABot(): void
+    {
+        $dd = new DeviceDetector(
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
+            ClientHints::factory(['Sec-CH-UA-Mobile' => '?0'])
+        );
+        $dd->parse();
+
+        $this->assertFalse($dd->isBot());
+    }
+
+    public function testTheUserAgentWinsOverTheFromHeader(): void
+    {
+        $dd = new DeviceDetector(
+            'Googlebot/2.1 (http://www.googlebot.com/bot.html)',
+            ClientHints::factory(['HTTP_FROM' => 'someone@example.org'])
+        );
+        $dd->parse();
+
+        $this->assertEquals('Googlebot', $dd->getBot()['name']);
     }
 
     public function testGetInfoFromUABot(): void
