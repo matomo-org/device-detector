@@ -1087,6 +1087,17 @@ class DeviceDetector
         }
 
         /**
+         * All devices running iOS >= 13.0 are assumed to be a iPhone phablet
+         */
+        if (null === $this->device && 'iOS' === $osName && \version_compare($osVersion, '13.0', '>=')) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_PHABLET;
+
+            if ('' === $this->model) {
+                $this->model = 'iPhone';
+            }
+        }
+
+        /**
          * All devices that contain Andr0id in string are assumed to be a tv
          */
         $hasDeviceTvType = !\in_array($this->device, [
