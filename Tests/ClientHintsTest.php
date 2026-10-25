@@ -91,6 +91,13 @@ class ClientHintsTest extends TestCase
         self::assertEquals(['desktop'], $ch->formFactors);
     }
 
+    public function testFromHeader(): void
+    {
+        self::assertSame('bingbot(at)microsoft.com', ClientHints::factory(['from' => 'bingbot(at)microsoft.com'])->getFrom());
+        self::assertSame('bingbot(at)microsoft.com', ClientHints::factory(['HTTP_FROM' => 'bingbot(at)microsoft.com'])->getFrom());
+        self::assertSame('', ClientHints::factory(['sec-ch-ua-mobile' => '?0'])->getFrom());
+    }
+
     public function testIncorrectVersionListIsDiscarded(): void
     {
         $headers = [
