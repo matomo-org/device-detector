@@ -893,7 +893,7 @@ class Browser extends AbstractClientParser
         'DuckDuckGo Privacy Browser' => ['DuckDuckGo'],
         'Edge WebView'               => ['Microsoft Edge WebView2'],
         'Mi Browser'                 => ['Miui Browser', 'XiaoMiBrowser'],
-        'Microsoft Edge'             => ['Edge'],
+        'Microsoft Edge'             => ['Edge', 'Copilot'],
         'Norton Private Browser'     => ['Norton Secure Browser'],
         'Opera GX'                   => ['Opera GX Android'],
         'Opera Mini'                 => ['Opera Mini Android'],
