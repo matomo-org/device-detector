@@ -685,7 +685,7 @@ class OperatingSystem extends AbstractParser
         $osRegex = $matches = [];
         $name    = $version = $short = '';
 
-        foreach ($this->getRegexes() as $osRegex) {
+        foreach ($this->getRegexesForUserAgent() as $osRegex) {
             $matches = $this->matchUserAgent($osRegex['regex']);
 
             if ($matches) {
