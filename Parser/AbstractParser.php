@@ -284,7 +284,7 @@ abstract class AbstractParser
     protected function getRegexes(): array
     {
         if (empty($this->regexList)) {
-            $cacheKey     = 'DeviceDetector-' . DeviceDetector::VERSION . 'regexes-' . $this->getName();
+            $cacheKey     = 'DeviceDetector-' . DeviceDetector::VERSION . '-regexes-' . $this->getName();
             $cacheKey     = (string) \preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
             $cacheContent = $this->getCache()->fetch($cacheKey);
 
@@ -476,7 +476,7 @@ abstract class AbstractParser
             return null;
         }
 
-        $cacheKey = $this->parserName . DeviceDetector::VERSION . '-all';
+        $cacheKey = 'DeviceDetector-' . DeviceDetector::VERSION . '-all-' . $this->parserName;
         $cacheKey = (string) \preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
 
         if (empty($this->overAllMatch)) {

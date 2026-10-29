@@ -196,7 +196,7 @@ class ClientHints
      */
     public function getBrandList(): array
     {
-        if (\is_array($this->fullVersionList) && \count($this->fullVersionList)) {
+        if ([] !== $this->fullVersionList) {
             $brands   = \array_column($this->fullVersionList, 'brand');
             $versions = \array_column($this->fullVersionList, 'version');
 
@@ -353,7 +353,7 @@ class ClientHints
                         $value  = \substr($value, \strlen($matches[0]));
                     }
 
-                    if (\count($list)) {
+                    if ([] !== $list) {
                         $fullVersionList = $list;
                     }
 
