@@ -356,7 +356,7 @@ abstract class AbstractParser
         ]);
 
         return
-            $this->matchUserAgent('(?:Windows (?:NT|IoT)|X11; Linux x86_64|Macintosh; Intel Mac OS X)') &&
+            $this->matchUserAgent('(?:Windows (?:NT|IoT)|X11; (?:Linux|CrOS) x86_64|Macintosh; Intel Mac OS X)') &&
             !$this->matchUserAgent($regexExcludeDesktopFragment);
     }
 
