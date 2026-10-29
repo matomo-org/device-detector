@@ -365,7 +365,8 @@ abstract class AbstractParser
     }
 
     /**
-     * Returns if the parsed UA contains the 'Windows NT;' or 'X11; Linux x86_64' fragments
+     * Returns if the parsed UA contains the 'Windows NT;', 'X11; Linux x86_64'
+     * or 'Macintosh; Intel Mac OS X' fragments
      *
      * @return bool
      *
@@ -381,7 +382,7 @@ abstract class AbstractParser
         ]);
 
         return
-            $this->matchUserAgent('(?:Windows (?:NT|IoT)|X11; Linux x86_64)') &&
+            $this->matchUserAgent('(?:Windows (?:NT|IoT)|X11; Linux x86_64|Macintosh; Intel Mac OS X)') &&
             !$this->matchUserAgent($regexExcludeDesktopFragment);
     }
 
