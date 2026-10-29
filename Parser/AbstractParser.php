@@ -74,6 +74,18 @@ abstract class AbstractParser
     protected $overAllMatch;
 
     /**
+     * Holds the concatenated regexes for each chunk of the regex list
+     * @var array<int, string>
+     */
+    protected $chunkMatches = [];
+
+    /**
+     * Number of regexes combined into one chunk by getRegexesForUserAgent()
+     * @var int
+     */
+    protected $regexChunkSize = 100;
+
+    /**
      * Indicates how deep versioning will be detected
      * if $maxMinorParts is 0 only the major version will be returned
      * @var int
@@ -284,8 +296,7 @@ abstract class AbstractParser
     protected function getRegexes(): array
     {
         if (empty($this->regexList)) {
-            $cacheKey     = 'DeviceDetector-' . DeviceDetector::VERSION . 'regexes-' . $this->getName();
-            $cacheKey     = (string) \preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
+            $cacheKey     = $this->buildCacheKey('regexes');
             $cacheContent = $this->getCache()->fetch($cacheKey);
 
             if (\is_array($cacheContent)) {
@@ -307,6 +318,21 @@ abstract class AbstractParser
         }
 
         return $this->regexList;
+    }
+
+    /**
+     * Builds the cache key for the given parser and type of cached data
+     * Removes all characters, that are not allowed by all cache implementations
+     *
+     * @param string $type type of cached data (e.g. regexes)
+     *
+     * @return string
+     */
+    protected function buildCacheKey(string $type): string
+    {
+        $cacheKey = \sprintf('DeviceDetector-%s-%s-%s', DeviceDetector::VERSION, $this->getName(), $type);
+
+        return (string) \preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
     }
 
     /**
@@ -476,8 +502,7 @@ abstract class AbstractParser
             return null;
         }
 
-        $cacheKey = $this->parserName . DeviceDetector::VERSION . '-all';
-        $cacheKey = (string) \preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
+        $cacheKey = $this->buildCacheKey('all');
 
         if (empty($this->overAllMatch)) {
             $overAllMatch = $this->getCache()->fetch($cacheKey);
@@ -496,6 +521,64 @@ abstract class AbstractParser
         }
 
         return $this->matchUserAgent($this->overAllMatch);
+    }
+
+    /**
+     * Returns the part of the regex list that may contain the first regex matching the useragent
+     *
+     * The regex list is split into chunks and the regexes of each chunk are concatenated with '|'.
+     * All chunks before the first chunk whose combined regex matches the useragent are skipped, as they
+     * cannot contain a matching regex. The remaining regexes are returned starting with that chunk, so
+     * callers scanning for the first match still find it even if the combined regex matched although
+     * no single regex of the chunk does. This replaces up to one preg_match call per regex with one
+     * call per chunk and some calls within the matching chunk.
+     *
+     * @return array
+     *
+     * @throws \Exception
+     */
+    protected function getRegexesForUserAgent(): array
+    {
+        $regexes = $this->getRegexes();
+
+        if ($this->regexChunkSize < 1 || \count($regexes) <= $this->regexChunkSize) {
+            return $regexes;
+        }
+
+        if (empty($this->chunkMatches)) {
+            $cacheKey     = $this->buildCacheKey('chunks' . $this->regexChunkSize);
+            $chunkMatches = $this->getCache()->fetch($cacheKey);
+
+            if (\is_array($chunkMatches)) {
+                $this->chunkMatches = $chunkMatches;
+            }
+
+            if (empty($this->chunkMatches)) {
+                foreach (\array_chunk($regexes, $this->regexChunkSize) as $chunk) {
+                    $this->chunkMatches[] = \implode('|', \array_column($chunk, 'regex'));
+                }
+
+                $this->getCache()->save($cacheKey, $this->chunkMatches);
+            }
+        }
+
+        $candidates = [];
+
+        foreach ($this->chunkMatches as $index => $chunkMatch) {
+            if ($this->matchUserAgent($chunkMatch)) {
+                return $candidates + \array_slice($regexes, $index * $this->regexChunkSize, null, true);
+            }
+
+            if (\PREG_NO_ERROR === \preg_last_error()) {
+                continue;
+            }
+
+            // the combined regex could not be evaluated (e.g. backtrack or JIT stack limit),
+            // so check the regexes of this chunk individually and continue with the next chunks
+            $candidates += \array_slice($regexes, $index * $this->regexChunkSize, $this->regexChunkSize, true);
+        }
+
+        return $candidates;
     }
 
     /**
