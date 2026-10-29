@@ -908,14 +908,14 @@ class DeviceDetector
         /**
          * If no model could be parsed from useragent, we use the one from client hints if available
          */
-        if ($this->clientHints instanceof ClientHints && empty($this->model)) {
+        if ($this->clientHints instanceof ClientHints && '' === $this->model) {
             $this->model = $this->clientHints->getModel();
         }
 
         /**
          * If no brand has been assigned try to match by known vendor fragments
          */
-        if (empty($this->brand)) {
+        if ('' === $this->brand) {
             $vendorParser = new VendorFragment($this->getUserAgent());
             $vendorParser->setYamlParser($this->getYamlParser());
             $vendorParser->setCache($this->getCache());
@@ -940,14 +940,14 @@ class DeviceDetector
         /**
          * Assume all devices running iOS / Mac OS are from Apple
          */
-        if (empty($this->brand) && \in_array($osName, $appleOsNames)) {
+        if ('' === $this->brand && \in_array($osName, $appleOsNames)) {
             $this->brand = 'Apple';
         }
 
         /**
          * Assume all devices running ThinOS are from Dell
          */
-        if (empty($this->brand) && 'ThinOS' === $osName) {
+        if ('' === $this->brand && 'ThinOS' === $osName) {
             $this->brand = 'Dell';
         }
 
