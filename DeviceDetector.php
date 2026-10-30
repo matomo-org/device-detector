@@ -1163,7 +1163,7 @@ class DeviceDetector
      */
     protected function matchUserAgent(string $regex): ?array
     {
-        $regex = '/(?:^|[^A-Z_-])(?:' . \str_replace('/', '\/', $regex) . ')/i';
+        $regex = '#(?:^|[^A-Z_-])(?:' . $regex . ')#i';
 
         if (\preg_match($regex, $this->userAgent, $matches)) {
             return $matches;
