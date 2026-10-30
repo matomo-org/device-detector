@@ -261,6 +261,16 @@ class DeviceDetector
      */
     public function setClientHints(?ClientHints $clientHints = null): void
     {
+        // Build client hints from user-agent if Facebook in-app browser detected
+        if ((null === $clientHints || '' === $clientHints->getApp())
+            && '' !== $this->userAgent
+            && \preg_match('~FBAB/([a-z0-9.]+)~i', $this->userAgent, $matches)
+        ) {
+            $clientHints = ClientHints::factory([
+                'x-requested-with' => $matches[1],
+            ]);
+        }
+
         if ($this->clientHints !== $clientHints) {
             $this->reset();
         }

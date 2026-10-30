@@ -58,10 +58,20 @@
   name: 'Apple TV'
   version: ''
 
-# Facebook Audience Network
-- regex: 'AudienceNetworkForAndroid.+(?:FBAV)(?:[ /]([\d.]+))?'
-  name: 'Facebook Audience Network'
+# Stella (https://apps.apple.com/us/app/stella-manifest-anything/id6757347283)
+- regex: 'StellaForiOS'
+  name: 'Stella'
+  version: ''
+
+# WhatsApp Business
+- regex: 'WhatsApp/([\d.]+).+CloudAPI|WhatsAppSMBIPhone'
+  name: 'WhatsApp Business'
   version: '$1'
+
+# Facebook in-app browser generic
+- regex: 'FBAB/([a-z0-9.]+)'
+  name: '$1'
+  version: ''
 
 # Facebook Messenger Lite
 - regex: '(?:mLite|MessengerLite(?:ForiOS)?).*(?:FBAV)(?:[ /]([\d.]+))?'
@@ -148,7 +158,7 @@
   version: '$1'
 
 # Google Maps (https://maps.google.com/)
-- regex: 'com\.google\.Maps/([\d.]+)'
+- regex: '(?:com\.google\.Maps|AndroidMapsWebView)/([\d.]+)'
   name: 'Google Maps'
   version: '$1'
 
@@ -233,11 +243,6 @@
 - regex: 'WhatsApp(?:/2)?$'
   name: 'Signal'
   version: ''
-
-# WhatsApp Business
-- regex: 'WhatsApp/([\d.]+).+CloudAPI'
-  name: 'WhatsApp Business'
-  version: '$1'
 
 # WhatsApp Web
 - regex: 'WhatsApp/([\d.]+) N$'
@@ -361,7 +366,10 @@
 - regex: 'com\.douban\.group/([\d.]+)?'
   name: 'douban App'
   version: '$1'
-- regex: '(?:com\.google\.GoogleMobile|GSA|GoogleApp)/([\d.]+)?'
+- regex: 'GoogleApp/(\d+[.\d]+).+GoogleLens'
+  name: 'Google Lens'
+  version: '$1'
+- regex: '(?:com\.google\.GoogleMobile(?:\.SearchOnGoogleActionExtension)?|GSA|GoogleApp)/([\d.]+)?'
   name: 'Google Search App'
   version: '$1'
 - regex: 'Google/(\d+[.\d]+)? CFNetwork'
@@ -2987,6 +2995,21 @@
 - regex: 'dogtorance/[\d.]+'
   name: 'Dogtorance'
   version: ''
+
+# RingCentral (https://apps.apple.com/us/app/ringcentral/id715886894)
+- regex: 'RingCentral'
+  name: 'RingCentral'
+  version: ''
+
+# zimride
+- regex: 'com.zimride.instant'
+  name: 'zimride'
+  version: ''
+
+# Rockstar Games Launcher (https://socialclub.rockstargames.com/rockstar-games-launcher)
+- regex: 'RockstarGames/([\d.]+)'
+  name: 'Rockstar Games Launcher'
+  version: '$1'
 
 # Electron generic apps
 - regex: ' (?!(?:AppleWebKit|brave|Cypress|Franz|Mailspring|Notion|Basecamp|Evernote|catalyst|ramboxpro|BlueMail|BeakerBrowser|Dezor|TweakStyle|Colibri|Polypane|Singlebox|Skye|VibeMate|(?:d|LT|Glass|Sushi|Flash|OhHai)Browser|Sizzy))([a-z0-9]*)(?:-desktop|-electron-app)?/(\d+\.[\d.]+).*Electron/'
