@@ -284,7 +284,7 @@ abstract class AbstractParser
     protected function getRegexes(): array
     {
         if (empty($this->regexList)) {
-            $cacheKey     = 'DeviceDetector-' . DeviceDetector::VERSION . 'regexes-' . $this->getName();
+            $cacheKey     = 'DeviceDetector-' . DeviceDetector::VERSION . '-regexes-' . $this->getName();
             $cacheKey     = (string) \preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
             $cacheContent = $this->getCache()->fetch($cacheKey);
 
@@ -356,7 +356,7 @@ abstract class AbstractParser
         ]);
 
         return
-            $this->matchUserAgent('(?:Windows (?:NT|IoT)|X11; Linux x86_64|Macintosh; Intel Mac OS X)') &&
+            $this->matchUserAgent('(?:Windows (?:NT|IoT)|X11; (?:Linux|CrOS) x86_64|Macintosh; Intel Mac OS X)') &&
             !$this->matchUserAgent($regexExcludeDesktopFragment);
     }
 
@@ -390,7 +390,7 @@ abstract class AbstractParser
         $matches = [];
 
         // only match if useragent begins with given regex or there is no letter before it
-        $regex = '/(?:^|[^A-Z0-9_-]|[^A-Z0-9-]_|sprd-|MZ-)(?:' . \str_replace('/', '\/', $regex) . ')/i';
+        $regex = '#(?:^|[^A-Z0-9_-]|[^A-Z0-9-]_|sprd-|MZ-)(?:' . $regex . ')#i';
 
         try {
             if (\preg_match($regex, $this->userAgent, $matches)) {
@@ -476,7 +476,7 @@ abstract class AbstractParser
             return null;
         }
 
-        $cacheKey = $this->parserName . DeviceDetector::VERSION . '-all';
+        $cacheKey = 'DeviceDetector-' . DeviceDetector::VERSION . '-all-' . $this->parserName;
         $cacheKey = (string) \preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
 
         if (empty($this->overAllMatch)) {
