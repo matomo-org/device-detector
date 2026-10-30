@@ -284,7 +284,7 @@ abstract class AbstractParser
     protected function getRegexes(): array
     {
         if (empty($this->regexList)) {
-            $cacheKey     = 'DeviceDetector-' . DeviceDetector::VERSION . 'regexes-' . $this->getName();
+            $cacheKey     = 'DeviceDetector-' . DeviceDetector::VERSION . '-regexes-' . $this->getName();
             $cacheKey     = (string) \preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
             $cacheContent = $this->getCache()->fetch($cacheKey);
 
@@ -339,7 +339,8 @@ abstract class AbstractParser
     }
 
     /**
-     * Returns if the parsed UA contains the 'Windows NT;' or 'X11; Linux x86_64' fragments
+     * Returns if the parsed UA contains the 'Windows NT;', 'X11; Linux x86_64'
+     * or 'Macintosh; Intel Mac OS X' fragments
      *
      * @return bool
      *
@@ -355,7 +356,7 @@ abstract class AbstractParser
         ]);
 
         return
-            $this->matchUserAgent('(?:Windows (?:NT|IoT)|X11; Linux x86_64)') &&
+            $this->matchUserAgent('(?:Windows (?:NT|IoT)|X11; (?:Linux|CrOS) x86_64|Macintosh; Intel Mac OS X)') &&
             !$this->matchUserAgent($regexExcludeDesktopFragment);
     }
 
@@ -475,7 +476,7 @@ abstract class AbstractParser
             return null;
         }
 
-        $cacheKey = $this->parserName . DeviceDetector::VERSION . '-all';
+        $cacheKey = 'DeviceDetector-' . DeviceDetector::VERSION . '-all-' . $this->parserName;
         $cacheKey = (string) \preg_replace('/([^a-z0-9_-]+)/i', '', $cacheKey);
 
         if (empty($this->overAllMatch)) {
