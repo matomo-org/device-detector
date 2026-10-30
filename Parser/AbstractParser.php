@@ -390,7 +390,7 @@ abstract class AbstractParser
         $matches = [];
 
         // only match if useragent begins with given regex or there is no letter before it
-        $regex = '/(?:^|[^A-Z0-9_-]|[^A-Z0-9-]_|sprd-|MZ-)(?:' . \str_replace('/', '\/', $regex) . ')/i';
+        $regex = '#(?:^|[^A-Z0-9_-]|[^A-Z0-9-]_|sprd-|MZ-)(?:' . $regex . ')#i';
 
         try {
             if (\preg_match($regex, $this->userAgent, $matches)) {
