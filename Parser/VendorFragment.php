@@ -30,7 +30,7 @@ class VendorFragment extends AbstractParser
     protected $parserName = 'vendorfragments';
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $matchedRegex = null;
 
