@@ -389,6 +389,11 @@ class DeviceDetector
      */
     public function isMobile(): bool
     {
+        // Bots can also use client hints, so we return early
+        if ($this->isBot()) {
+            return false;
+        }
+
         // Client hints indicate a mobile device
         if ($this->clientHints instanceof ClientHints && $this->clientHints->isMobile()) {
             return true;
@@ -428,7 +433,7 @@ class DeviceDetector
             return false;
         }
 
-        return !$this->isBot() && !$this->isDesktop();
+        return !$this->isDesktop();
     }
 
     /**

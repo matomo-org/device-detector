@@ -779,6 +779,25 @@ class DeviceDetectorTest extends TestCase
         $this->assertFalse($dd->isBot());
     }
 
+    public function testParseBotWithClientHints(): void
+    {
+        $userAgent = 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.7204.183 Mobile Safari/537.36 (compatible; GoogleOther)';
+
+        $headers = [
+            'Sec-CH-UA'          => '"Not)A;Brand";v="99", "Google Chrome";v="138", "Chromium";v="138"',
+            'Sec-CH-UA-Platform' => 'Android',
+            'Sec-CH-UA-Mobile'   => '?1',
+        ];
+
+        $dd = new DeviceDetector($userAgent);
+        $dd->setClientHints(ClientHints::factory($headers));
+        $dd->parse();
+
+        $this->assertTrue($dd->isBot());
+        $this->assertTrue($dd->getClientHints()->isMobile());
+        $this->assertFalse($dd->isMobile());
+    }
+
     public function testSetYamlParserInvalid(): void
     {
         $this->expectException(\TypeError::class);
