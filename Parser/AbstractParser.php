@@ -321,7 +321,7 @@ abstract class AbstractParser
     {
         foreach (static::$clientHintMapping as $mappedName => $clientHints) {
             foreach ($clientHints as $clientHint) {
-                if (\strtolower($name) === \strtolower($clientHint)) {
+                if (0 === \strcasecmp($name, $clientHint)) {
                     return $mappedName;
                 }
             }
