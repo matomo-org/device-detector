@@ -419,7 +419,7 @@ class OperatingSystem extends AbstractParser
         $short = 'UNK';
 
         foreach (self::$operatingSystems as $osShort => $osName) {
-            if (\strtolower($name) !== \strtolower($osName)) {
+            if (0 !== \strcasecmp($name, $osName)) {
                 continue;
             }
 

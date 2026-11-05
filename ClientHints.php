@@ -328,6 +328,7 @@ class ClientHints
                     if (!empty($fullVersionList)) {
                         break;
                     }
+
                     // use this only if no other header already set the list
                 case 'fullversionlist':
                     $fullVersionList = \is_array($value) ? $value : $fullVersionList;
@@ -338,6 +339,7 @@ class ClientHints
                     if (!empty($fullVersionList)) {
                         break;
                     }
+
                     // use this only if no other header already set the list
                 case 'http-sec-ch-ua-full-version-list':
                 case 'sec-ch-ua-full-version-list':
