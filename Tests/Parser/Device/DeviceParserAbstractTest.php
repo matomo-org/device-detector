@@ -58,6 +58,10 @@ class DeviceParserAbstractTest extends TestCase
             ],
             [
                 'result'    => true,
+                'useragent' => 'Mozilla/5.0 (Linux; Android 18; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Mobile Safari/537.36',
+            ],
+            [
+                'result'    => true,
                 'useragent' => 'Mozilla/5.0 (Linux; Android 14; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
             ],
             [
