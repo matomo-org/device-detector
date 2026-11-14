@@ -525,7 +525,7 @@ class OperatingSystem extends AbstractParser
             if ('Android' !== $name && \in_array($this->clientHints->getApp(), $androidApps)) {
                 $name    = 'Android';
                 $family  = 'Android';
-                $short   = 'ADR';
+                $short   = 'AND';
                 $version = '';
             }
 
