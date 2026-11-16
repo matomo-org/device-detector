@@ -29,6 +29,7 @@ class OperatingSystemTest extends TestCase
     public function testParse(string $useragent, array $os, ?array $headers = null): void
     {
         $osParser = new OperatingSystem();
+        $osParser::setVersionTruncation(OperatingSystem::VERSION_TRUNCATION_NONE);
         $osParser->setUserAgent($useragent);
 
         if (null !== $headers) {
