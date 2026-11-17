@@ -35,11 +35,9 @@ class MobileAppTest extends TestCase
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/mobile_app.yml');
 
-        $fixtureData = \array_map(static function (array $item): array {
+        return \array_map(static function (array $item): array {
             return ['useragent' => $item['user_agent'], 'client' => $item['client']];
         }, $fixtureData);
-
-        return $fixtureData;
     }
 
     public function testStructureMobileAppYml(): void

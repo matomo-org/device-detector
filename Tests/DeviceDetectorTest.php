@@ -708,11 +708,9 @@ class DeviceDetectorTest extends TestCase
     {
         $fixtureData = \Spyc::YAMLLoad(\realpath(__DIR__ . '/Parser/fixtures/type-methods.yml'));
 
-        $fixtureData = \array_map(static function (array $item): array {
+        return \array_map(static function (array $item): array {
             return ['ua' => $item['user_agent'], 'checkTypes' => $item['check']];
         }, $fixtureData);
-
-        return $fixtureData;
     }
 
     /**

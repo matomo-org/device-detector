@@ -44,11 +44,9 @@ class OperatingSystemTest extends TestCase
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/oss.yml');
 
-        $fixtureData = \array_map(static function (array $item): array {
+        return \array_map(static function (array $item): array {
             return ['useragent' => $item['user_agent'], 'os' => $item['os'], 'headers' => $item['headers'] ?? null];
         }, $fixtureData);
-
-        return $fixtureData;
     }
 
     /**
