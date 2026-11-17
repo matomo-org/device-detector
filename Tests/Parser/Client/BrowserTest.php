@@ -154,7 +154,7 @@ class BrowserTest extends TestCase
         $fixtures = [];
 
         foreach ($hints as $name) {
-            $fixtures[] = \compact('name');
+            $fixtures[] = ['name' => $name];
         }
 
         return $fixtures;
