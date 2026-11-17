@@ -187,6 +187,7 @@ class DeviceDetectorTest extends TestCase
         $memcached     = new \Memcached();
         $doctrineCache = new MemcachedCache();
         $doctrineCache->setMemcached($memcached);
+
         $dd->setCache(new DoctrineBridge($doctrineCache));
         $this->assertInstanceOf(DoctrineBridge::class, $dd->getCache());
     }

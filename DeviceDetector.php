@@ -1177,6 +1177,7 @@ class DeviceDetector
         $osParser->setClientHints($this->getClientHints());
         $osParser->setYamlParser($this->getYamlParser());
         $osParser->setCache($this->getCache());
+
         $this->os = $osParser->parse();
     }
 
