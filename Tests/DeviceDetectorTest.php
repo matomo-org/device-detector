@@ -609,7 +609,7 @@ class DeviceDetectorTest extends TestCase
         $fixturesPath = \realpath(__DIR__ . '/fixtures/bots.yml');
         $fixtures     = \Spyc::YAMLLoad($fixturesPath);
 
-        return \array_map(static function ($elem) {
+        return \array_map(static function ($elem): array {
             return [$elem];
         }, $fixtures);
     }

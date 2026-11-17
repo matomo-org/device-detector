@@ -63,7 +63,7 @@ class OperatingSystemTest extends TestCase
     {
         $allOs = \array_keys(OperatingSystem::getAvailableOperatingSystems());
 
-        return \array_map(static function ($os) {
+        return \array_map(static function ($os): array {
             return [$os];
         }, $allOs);
     }
@@ -82,7 +82,7 @@ class OperatingSystemTest extends TestCase
     {
         $allFamilyOs = \call_user_func_array('array_merge', \array_values(OperatingSystem::getAvailableOperatingSystemFamilies()));
 
-        return \array_map(static function ($os) {
+        return \array_map(static function ($os): array {
             return [$os];
         }, $allFamilyOs);
     }
