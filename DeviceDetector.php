@@ -261,6 +261,16 @@ class DeviceDetector
      */
     public function setClientHints(?ClientHints $clientHints = null): void
     {
+        // Build client hints from user-agent if Facebook in-app browser detected
+        if ((null === $clientHints || '' === $clientHints->getApp())
+            && '' !== $this->userAgent
+            && \preg_match('~FBAB/([a-z0-9.]+)~i', $this->userAgent, $matches)
+        ) {
+            $clientHints = ClientHints::factory([
+                'x-requested-with' => $matches[1],
+            ]);
+        }
+
         if ($this->clientHints !== $clientHints) {
             $this->reset();
         }
@@ -379,6 +389,11 @@ class DeviceDetector
      */
     public function isMobile(): bool
     {
+        // Bots can also use client hints, so we return early
+        if ($this->isBot()) {
+            return false;
+        }
+
         // Client hints indicate a mobile device
         if ($this->clientHints instanceof ClientHints && $this->clientHints->isMobile()) {
             return true;
@@ -418,7 +433,7 @@ class DeviceDetector
             return false;
         }
 
-        return !$this->isBot() && !$this->isDesktop();
+        return !$this->isDesktop();
     }
 
     /**
@@ -898,14 +913,14 @@ class DeviceDetector
         /**
          * If no model could be parsed from useragent, we use the one from client hints if available
          */
-        if ($this->clientHints instanceof ClientHints && empty($this->model)) {
+        if ($this->clientHints instanceof ClientHints && '' === $this->model) {
             $this->model = $this->clientHints->getModel();
         }
 
         /**
          * If no brand has been assigned try to match by known vendor fragments
          */
-        if (empty($this->brand)) {
+        if ('' === $this->brand) {
             $vendorParser = new VendorFragment($this->getUserAgent());
             $vendorParser->setYamlParser($this->getYamlParser());
             $vendorParser->setCache($this->getCache());
@@ -930,14 +945,14 @@ class DeviceDetector
         /**
          * Assume all devices running iOS / Mac OS are from Apple
          */
-        if (empty($this->brand) && \in_array($osName, $appleOsNames)) {
+        if ('' === $this->brand && \in_array($osName, $appleOsNames)) {
             $this->brand = 'Apple';
         }
 
         /**
          * Assume all devices running ThinOS are from Dell
          */
-        if (empty($this->brand) && 'ThinOS' === $osName) {
+        if ('' === $this->brand && 'ThinOS' === $osName) {
             $this->brand = 'Dell';
         }
 
@@ -958,11 +973,9 @@ class DeviceDetector
         if (null === $this->device && 'Android' === $osFamily
             && $this->matchUserAgent('Chrome/[.0-9]*')
         ) {
-            if ($this->matchUserAgent('(?:Mobile|eliboM)')) {
-                $this->device = AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE;
-            } else {
-                $this->device = AbstractDeviceParser::DEVICE_TYPE_TABLET;
-            }
+            $this->device = $this->matchUserAgent('(?:Mobile|eliboM)')
+                ? AbstractDeviceParser::DEVICE_TYPE_SMARTPHONE
+                : AbstractDeviceParser::DEVICE_TYPE_TABLET;
         }
 
         /**
@@ -1087,6 +1100,17 @@ class DeviceDetector
         }
 
         /**
+         * All devices running iOS >= 13.0 are assumed to be a iPhone phablet
+         */
+        if (null === $this->device && 'iOS' === $osName && \version_compare($osVersion, '13.0', '>=')) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_PHABLET;
+
+            if ('' === $this->model) {
+                $this->model = 'iPhone';
+            }
+        }
+
+        /**
          * All devices that contain Andr0id in string are assumed to be a tv
          */
         $hasDeviceTvType = !\in_array($this->device, [
@@ -1163,7 +1187,7 @@ class DeviceDetector
      */
     protected function matchUserAgent(string $regex): ?array
     {
-        $regex = '/(?:^|[^A-Z_-])(?:' . \str_replace('/', '\/', $regex) . ')/i';
+        $regex = '#(?:^|[^A-Z_-])(?:' . $regex . ')#i';
 
         if (\preg_match($regex, $this->userAgent, $matches)) {
             return $matches;
