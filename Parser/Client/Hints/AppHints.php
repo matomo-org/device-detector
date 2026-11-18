@@ -38,9 +38,9 @@ class AppHints extends AbstractParser
         }
 
         $appId = $this->clientHints->getApp();
-        $name  = $this->getRegexes()[$appId] ?? null;
+        $name  = $this->getRegexes()[$appId] ?? '';
 
-        if ('' === (string) $name) {
+        if ('' === $name) {
             return null;
         }
 

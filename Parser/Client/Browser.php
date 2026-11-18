@@ -973,7 +973,7 @@ class Browser extends AbstractClientParser
     public static function getBrowserShortName(string $name): ?string
     {
         foreach (self::getAvailableBrowsers() as $browserShort => $browserName) {
-            if (\strtolower($name) === \strtolower($browserName)) {
+            if (0 === \strcasecmp($name, $browserName)) {
                 return (string) $browserShort;
             }
         }
