@@ -2504,7 +2504,7 @@ abstract class AbstractDeviceParser extends AbstractParser
             return $shortcode;
         }
 
-        return  (string) \array_search($brand, self::$legacyShortNames, true) ?: '';
+        return (string) \array_search($brand, self::$legacyShortNames, true) ?: '';
     }
 
     /**
@@ -2528,11 +2528,7 @@ abstract class AbstractDeviceParser extends AbstractParser
 
         $this->restoreUserAgentFromClientHints();
 
-        if ('' === $deviceModel && $this->hasUserAgentClientHintsFragment()) {
-            return $this->getResult();
-        }
-
-        if ('' === $deviceModel && $this->hasDesktopFragment()) {
+        if ('' === $deviceModel && ($this->hasUserAgentClientHintsFragment() || $this->hasDesktopFragment())) {
             return $this->getResult();
         }
 
@@ -2575,6 +2571,8 @@ abstract class AbstractDeviceParser extends AbstractParser
 
         if (isset($regex['model'])) {
             $this->model = $this->buildModel($regex['model'], $matches);
+
+            return $this->getResult();
         }
 
         if (isset($regex['models'])) {
