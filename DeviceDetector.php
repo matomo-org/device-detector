@@ -936,7 +936,7 @@ class DeviceDetector
         /**
          * if it's fake UA then it's best not to identify it as Apple running Android OS or GNU/Linux
          */
-        if ('Apple' === $this->brand && !\in_array($osName, $appleOsNames)) {
+        if ('Apple' === $this->brand && !\in_array($osName, $appleOsNames, true)) {
             $this->device = null;
             $this->brand  = '';
             $this->model  = '';
@@ -945,7 +945,7 @@ class DeviceDetector
         /**
          * Assume all devices running iOS / Mac OS are from Apple
          */
-        if ('' === $this->brand && \in_array($osName, $appleOsNames)) {
+        if ('' === $this->brand && \in_array($osName, $appleOsNames, true)) {
             $this->brand = 'Apple';
         }
 
@@ -1137,7 +1137,7 @@ class DeviceDetector
             'Kylo', 'Espial TV Browser', 'LUJO TV Browser', 'LogicUI TV Browser', 'Open TV Browser', 'Seraphic Sraf',
             'Opera Devices', 'Crow Browser', 'Vewd Browser', 'TiviMate', 'Quick Search TV', 'QJY TV Browser', 'TV Bro',
             'Redline', 'Odin',
-        ])
+        ], true)
         ) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
         }
@@ -1177,6 +1177,7 @@ class DeviceDetector
         $osParser->setClientHints($this->getClientHints());
         $osParser->setYamlParser($this->getYamlParser());
         $osParser->setCache($this->getCache());
+
         $this->os = $osParser->parse();
     }
 

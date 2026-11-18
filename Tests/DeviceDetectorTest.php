@@ -187,6 +187,7 @@ class DeviceDetectorTest extends TestCase
         $memcached     = new \Memcached();
         $doctrineCache = new MemcachedCache();
         $doctrineCache->setMemcached($memcached);
+
         $dd->setCache(new DoctrineBridge($doctrineCache));
         $this->assertInstanceOf(DoctrineBridge::class, $dd->getCache());
     }
@@ -609,7 +610,7 @@ class DeviceDetectorTest extends TestCase
         $fixturesPath = \realpath(__DIR__ . '/fixtures/bots.yml');
         $fixtures     = \Spyc::YAMLLoad($fixturesPath);
 
-        return \array_map(static function ($elem) {
+        return \array_map(static function ($elem): array {
             return [$elem];
         }, $fixtures);
     }
@@ -708,11 +709,9 @@ class DeviceDetectorTest extends TestCase
     {
         $fixtureData = \Spyc::YAMLLoad(\realpath(__DIR__ . '/Parser/fixtures/type-methods.yml'));
 
-        $fixtureData = \array_map(static function (array $item): array {
+        return \array_map(static function (array $item): array {
             return ['ua' => $item['user_agent'], 'checkTypes' => $item['check']];
         }, $fixtureData);
-
-        return $fixtureData;
     }
 
     /**

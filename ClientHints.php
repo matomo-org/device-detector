@@ -325,7 +325,7 @@ class ClientHints
 
                     break;
                 case 'brands':
-                    if (!empty($fullVersionList)) {
+                    if ([] !== $fullVersionList) {
                         break;
                     }
 
@@ -336,7 +336,7 @@ class ClientHints
                     break;
                 case 'http-sec-ch-ua':
                 case 'sec-ch-ua':
-                    if (!empty($fullVersionList)) {
+                    if ([] !== $fullVersionList) {
                         break;
                     }
 
