@@ -325,9 +325,10 @@ class ClientHints
 
                     break;
                 case 'brands':
-                    if (!empty($fullVersionList)) {
+                    if ([] !== $fullVersionList) {
                         break;
                     }
+
                     // use this only if no other header already set the list
                 case 'fullversionlist':
                     $fullVersionList = \is_array($value) ? $value : $fullVersionList;
@@ -335,9 +336,10 @@ class ClientHints
                     break;
                 case 'http-sec-ch-ua':
                 case 'sec-ch-ua':
-                    if (!empty($fullVersionList)) {
+                    if ([] !== $fullVersionList) {
                         break;
                     }
+
                     // use this only if no other header already set the list
                 case 'http-sec-ch-ua-full-version-list':
                 case 'sec-ch-ua-full-version-list':

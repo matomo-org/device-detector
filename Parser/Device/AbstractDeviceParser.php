@@ -2407,7 +2407,7 @@ abstract class AbstractDeviceParser extends AbstractParser
             return $shortcode;
         }
 
-        return  (string) \array_search($brand, self::$legacyShortNames, true) ?: '';
+        return (string) \array_search($brand, self::$legacyShortNames, true) ?: '';
     }
 
     /**

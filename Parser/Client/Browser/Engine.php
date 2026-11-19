@@ -91,7 +91,7 @@ class Engine extends AbstractClientParser
         $name = $this->buildByMatch($regex['name'], $matches);
 
         foreach (self::getAvailableEngines() as $engineName) {
-            if (\strtolower($name) === \strtolower($engineName)) {
+            if (0 === \strcasecmp($name, $engineName)) {
                 return ['engine' => $engineName];
             }
         }

@@ -22,7 +22,7 @@
 ##########
 # SteamOS (https://store.steampowered.com/steamos)
 ##########
-- regex: 'SteamDeck|Valve Steam'
+- regex: 'SteamDeck|Linux[^)]*Valve Steam'
   name: 'SteamOS'
   version: ''
 
@@ -1002,7 +1002,7 @@
 ##########
 # Android Go (https://developer.android.com/guide/topics/androidgo)
 ##########
-- regex: 'Android (\d+[.\d]*);.+release\.go$'
+- regex: 'Android (\d+[.\d]*);.+release(?:_sp)?\.go$'
   name: 'Android Go'
   version: '$1'
 
@@ -1601,6 +1601,10 @@
   name: 'iOS'
   version: '$1'
 
+- regex: 'iOS:(\d+[.\d]+)'
+  name: 'iOS'
+  version: '$1'
+
 - regex: 'iOS (\d+[.\d]+)\)'
   name: 'iOS'
   version: '$1'
@@ -1609,7 +1613,7 @@
   name: 'iOS'
   version: '$1.$2.$3'
 
-- regex: '(?:CPU OS|iPh(?:one)?[ _]OS|iPhone.+ OS|PodMN.+iPhone|iOS)[ _/]19(?:[_.])?(\d+(?:[_.]\d+)*)'
+- regex: '(?:CPU OS|iPh(?:one)?[ _]OS|iPhone.+ OS|PodMN.+iPhone|(?<!\.)iOS)[ _/]19(?:[_.])?(\d+(?:[_.]\d+)*)'
   name: 'iOS'
   version: '26.$1'
 
@@ -1621,11 +1625,11 @@
   name: 'iOS'
   version: '$1'
 
-- regex: '(?:CPU OS|iPh(?:one)?[ _]OS|iPhone.+ OS|PodMN.+iPhone|iOS)[ _/](\d+(?:[_.]\d+)*)'
+- regex: '(?:CPU OS|iPh(?:one)?[ _]OS|iPhone.+ OS|PodMN.+iPhone|(?<!\.)iOS)[ _/](\d+(?:[_.]\d+)*)'
   name: 'iOS'
   version: '$1'
 
-- regex: '(?:iPhone ?OS|iOS(?: Version)?)(?:/|; |,)(\d+[.\d]+)'
+- regex: '(?:iPhone ?OS|(?<!\.)iOS(?: Version)?)(?:/|; |,)(\d+[.\d]+)'
   name: 'iOS'
   version: '$1'
 

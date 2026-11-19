@@ -187,6 +187,7 @@ class DeviceDetectorTest extends TestCase
         $memcached     = new \Memcached();
         $doctrineCache = new MemcachedCache();
         $doctrineCache->setMemcached($memcached);
+
         $dd->setCache(new DoctrineBridge($doctrineCache));
         $this->assertInstanceOf(DoctrineBridge::class, $dd->getCache());
     }
@@ -609,7 +610,7 @@ class DeviceDetectorTest extends TestCase
         $fixturesPath = \realpath(__DIR__ . '/fixtures/bots.yml');
         $fixtures     = \Spyc::YAMLLoad($fixturesPath);
 
-        return \array_map(static function ($elem) {
+        return \array_map(static function ($elem): array {
             return [$elem];
         }, $fixtures);
     }
@@ -708,11 +709,9 @@ class DeviceDetectorTest extends TestCase
     {
         $fixtureData = \Spyc::YAMLLoad(\realpath(__DIR__ . '/Parser/fixtures/type-methods.yml'));
 
-        $fixtureData = \array_map(static function (array $item): array {
+        return \array_map(static function (array $item): array {
             return ['ua' => $item['user_agent'], 'checkTypes' => $item['check']];
         }, $fixtureData);
-
-        return $fixtureData;
     }
 
     /**
@@ -777,6 +776,25 @@ class DeviceDetectorTest extends TestCase
         $dd->parse();
         $this->assertTrue($dd->isMobile());
         $this->assertFalse($dd->isBot());
+    }
+
+    public function testParseBotWithClientHints(): void
+    {
+        $userAgent = 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.7204.183 Mobile Safari/537.36 (compatible; GoogleOther)';
+
+        $headers = [
+            'Sec-CH-UA'          => '"Not)A;Brand";v="99", "Google Chrome";v="138", "Chromium";v="138"',
+            'Sec-CH-UA-Platform' => 'Android',
+            'Sec-CH-UA-Mobile'   => '?1',
+        ];
+
+        $dd = new DeviceDetector($userAgent);
+        $dd->setClientHints(ClientHints::factory($headers));
+        $dd->parse();
+
+        $this->assertTrue($dd->isBot());
+        $this->assertTrue($dd->getClientHints()->isMobile());
+        $this->assertFalse($dd->isMobile());
     }
 
     public function testSetYamlParserInvalid(): void

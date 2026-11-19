@@ -55,11 +55,9 @@ class BrowserTest extends TestCase
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/browser.yml');
 
-        $fixtureData = \array_map(static function (array $item): array {
+        return \array_map(static function (array $item): array {
             return ['useragent' => $item['user_agent'], 'client' => $item['client'], 'headers' => $item['headers'] ?? null];
         }, $fixtureData);
-
-        return $fixtureData;
     }
 
     public function testGetAvailableBrowserFamilies(): void
@@ -156,7 +154,7 @@ class BrowserTest extends TestCase
         $fixtures = [];
 
         foreach ($hints as $name) {
-            $fixtures[] = \compact('name');
+            $fixtures[] = ['name' => $name];
         }
 
         return $fixtures;
