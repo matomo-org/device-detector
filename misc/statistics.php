@@ -100,7 +100,7 @@ $reportStat[] = $line;
 foreach ($deviceTypes as $deviceTypeId => $deviceCount) {
     $reportStat[] = sprintf(
         $mask,
-        sprintf('%s', mb_convert_case($deviceAvailableDeviceTypes[$deviceTypeId], MB_CASE_TITLE)),
+        mb_convert_case($deviceAvailableDeviceTypes[$deviceTypeId], MB_CASE_TITLE),
         format($deviceCount, $parsedUAs),
         sprintf('(%s%%)', trim(getPercentage($deviceCount, $parsedUAs)))
     );
