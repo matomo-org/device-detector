@@ -557,7 +557,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'EP'  => 'Easypix',
         'EQ'  => 'Eagle',
         'EGS' => 'EagleSoar',
-        'EA'  => 'eBest Mobile',
+        'EA'  => 'EBEST',
         'YC'  => 'EBEN',
         'E4'  => 'Echo Mobiles',
         'EQ1' => 'Equator',
@@ -663,7 +663,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'FAN' => 'Fanvace',
         'FE'  => 'Fengxiang',
         'FEN' => 'Fenoti',
-        'F7'  => 'Fero Mobile',
+        'F7'  => 'Fero',
         '67'  => 'FEONAL',
         'FI'  => 'FiGO',
         'J9'  => 'FiGi',
@@ -891,7 +891,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'HUM' => 'Humanware',
         'HME' => 'HUMElab',
         'HR'  => 'Hurricane',
-        'H5'  => 'Huskee Mobile',
+        'H5'  => 'Huskee',
         'HUG' => 'Hugerock',
         'HY'  => 'Hyrican',
         'HN'  => 'Hyundai',
@@ -966,7 +966,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'INT' => 'Intel',
         'IX'  => 'Intex',
         'IV'  => 'Inverto',
-        '32'  => 'Invens Mobile',
+        '32'  => 'Invens',
         '4I'  => 'Invin',
         'IFT' => 'iFIT',
         'INA' => 'iNavi',
@@ -1543,7 +1543,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'PR1' => 'Premier Star',
         'PR'  => 'Prestigio',
         'P9'  => 'Primepad',
-        'PRM' => 'Prime Phones',
+        'PRM' => 'PRIME',
         '6P'  => 'Primux',
         '2P'  => 'Prixton',
         'PRI' => 'Pritom',
@@ -1751,7 +1751,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SMU' => 'SMUX',
         'SMT' => 'SMT Telecom',
         'JR'  => 'Sylvania',
-        'SYH' => 'SYH Mobile',
+        'SYH' => 'SYH',
         '3Y'  => 'Smarty',
         'HH'  => 'Smooth Mobile',
         '1Q'  => 'Smotreshka',
@@ -1780,7 +1780,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         '6S'  => 'Spectrum',
         'SPE' => 'SPECTRA',
         '43'  => 'Spectralink',
-        'SP'  => 'Spice Mobiles',
+        'SP'  => 'Spice',
         'SPD' => 'Spider',
         'SPU' => 'SPURT Mobile',
         'QS'  => 'SQOOL',
@@ -1792,7 +1792,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'STW' => 'Starway (SA)',
         '45'  => 'Starwind',
         'SB'  => 'STF',
-        'S8'  => 'STK Phones',
+        'S8'  => 'STK',
         'GQ'  => 'STG Telecom',
         'S2'  => 'Stonex',
         'ST'  => 'Storex',
@@ -1836,8 +1836,8 @@ abstract class AbstractDeviceParser extends AbstractParser
         'SWO' => 'SWOFY',
         'SSK' => 'SSKY',
         'SSM' => 'Ssmart',
-        'SYC' => 'Syco Mobiles',
-        'SM'  => 'Symphony Mobile',
+        'SYC' => 'Syco',
+        'SM'  => 'Symphony',
         '4S'  => 'Syrox',
         'SYS' => 'System76',
         'TPS' => 'SZ TPS',
@@ -1877,7 +1877,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'TSY' => 'TELE System',
         '2L'  => 'Tele2',
         'TL'  => 'Telefunken',
-        'TG'  => 'Telego Mobile',
+        'TG'  => 'Telego',
         'T2'  => 'Telenor',
         'TZN' => 'Telezone',
         'TE'  => 'Telit',
@@ -1997,7 +1997,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'UO'  => 'Unnecto',
         'UNN' => 'Unnion Technologies',
         'UNP' => 'UNO',
-        'UU'  => 'Unonu Mobile',
+        'UU'  => 'Unonu',
         'UN'  => 'Unowhy',
         'UY'  => 'UNNO',
         'UOO' => 'UOOGOU',
@@ -2103,7 +2103,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'VO'  => 'Voxtel',
         'VY'  => 'Voyo',
         'VOL' => 'Völfen',
-        'VO1' => 'Volt Mobile',
+        'VO1' => 'Volt',
         'VOP' => 'Volla',
         'V02' => 'VOLIA',
         'VH'  => 'Vsmart',
@@ -2189,7 +2189,7 @@ abstract class AbstractDeviceParser extends AbstractParser
         'X8'  => 'Xtratech',
         'XCR' => 'Xcruiser',
         'XCO' => 'XCOM',
-        'XCL' => 'Xcell Mobile',
+        'XCL' => 'Xcell',
         'XWA' => 'Xwave',
         'YD'  => 'Yandex',
         'YA'  => 'Yarvik',
@@ -2294,24 +2294,16 @@ abstract class AbstractDeviceParser extends AbstractParser
         'CAL' => 'CALME',
         // Is now 'Clear'
         'YW'  => 'ClearPHONE',
-        // Is now 'eBest Mobile'
-        'EA'  => 'EBEST',
         // Is now 'EL Mobile'
         'ELM' => 'Elong Mobile',
         // Is now 'Eudora Mobile'
         'EUD' => 'Eudora',
         // Is now 'Exmart Mobile'
         '4Z'  => 'Exmart',
-        // Is now 'Fero Mobile'
-        'F7'  => 'Fero',
         // Is now 'Gol-Mobile'
         'GB'  => 'Gol Mobile',
-        // Is now 'Huskee Mobile'
-        'H5'  => 'Huskee',
         // Is now 'IMO'
         'IL'  => 'IMO Mobile',
-        // Is now 'Invens Mobile'
-        '32'  => 'Invens',
         // Is now 'i.safe MOBILE'
         '9J'  => 'iSafe Mobile',
         // Is now 'iVA Mobile'
@@ -2328,32 +2320,18 @@ abstract class AbstractDeviceParser extends AbstractParser
         'OTT' => 'OTTO',
         // Is now 'Pano Mobile'
         'PAN' => 'Pano',
-        // Is now 'Prime Phones'
-        'PRM' => 'PRIME',
         // Is now 'RevoPhone'
         'RP'  => 'Revo',
         // Is now 'Ryte Mobile'
         'RY'  => 'Ryte',
         // Is now 'Sigma Mobile'
         '1S'  => 'Sigma',
-        // Is now 'SYH Mobile'
-        'SYH' => 'SYH',
-        // Is now 'Spice Mobiles'
-        'SP'  => 'Spice',
         // Is now 'SPURT Mobile'
         'SPU' => 'SPURT',
         // Is now 'STF'
         'SB'  => 'STF Mobile',
-        // Is now 'STK Phones'
-        'S8'  => 'STK',
         // Is now 'SurgePhone Wireless'
         'SUR' => 'Surge',
-        // Is now 'Syco Mobiles'
-        'SYC' => 'Syco',
-        // Is now 'Symphony Mobile'
-        'SM'  => 'Symphony',
-        // Is now 'Telego Mobile'
-        'TG'  => 'Telego',
         // Is now 'Torque Mobile'
         'TOR' => 'Torque',
         // Is now 'Taiwan Mobile'
@@ -2362,20 +2340,14 @@ abstract class AbstractDeviceParser extends AbstractParser
         '15'  => 'Tymes',
         // Is now 'UNO'
         'UNP' => 'UnoPhone',
-        // Is now 'Unonu Mobile'
-        'UU'  => 'Unonu',
         // Is now 'Vipro Mobile'
         '0V'  => 'Vipro',
-        // Is now 'Volt Mobile'
-        'VO1' => 'Volt',
         // Is now 'Winds Mobile'
         'WS'  => 'Winds',
         // Is now 'X Mobile'
         'XMO' => 'X-Mobile',
         // Is now 'X-TIGI Mobile'
         'XT'  => 'X-TIGI',
-        // Is now 'Xcell Mobile'
-        'XCL' => 'Xcell',
         // Is now 'YotaPhone'
         'YO'  => 'Yota',
         // Is now 'YU Mobiles'
