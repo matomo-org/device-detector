@@ -450,6 +450,7 @@ class Browser extends AbstractClientParser
         'NW' => 'Navigateur Web',
         'NK' => 'Naked Browser',
         'NA' => 'Naked Browser Pro',
+        '4N' => 'Neo',
         '2N' => 'Neuro Browser',
         'NR' => 'NFS Browser',
         'N5' => 'Ninetails',
@@ -825,7 +826,7 @@ class Browser extends AbstractClientParser
             'PQ', 'LM', 'T5', '2N', 'SJ', 'X6', 'SM', 'AY', 'BQ',
             'BC', 'NQ', 'VQ', '9C', 'KA', 'YS', 'D4', 'PZ', '0I',
             '3F', 'Z1', 'XC', 'ZC', 'V7', 'H0', 'IL', 'PG', 'I0',
-            'T6', '37', 'FI',
+            'T6', '37', 'FI', '4N',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
