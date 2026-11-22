@@ -29,6 +29,7 @@ class OperatingSystemTest extends TestCase
     public function testParse(string $useragent, array $os, ?array $headers = null): void
     {
         $osParser = new OperatingSystem();
+        $osParser::setVersionTruncation(OperatingSystem::VERSION_TRUNCATION_NONE);
         $osParser->setUserAgent($useragent);
 
         if (null !== $headers) {
@@ -43,11 +44,9 @@ class OperatingSystemTest extends TestCase
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/oss.yml');
 
-        $fixtureData = \array_map(static function (array $item): array {
+        return \array_map(static function (array $item): array {
             return ['useragent' => $item['user_agent'], 'os' => $item['os'], 'headers' => $item['headers'] ?? null];
         }, $fixtureData);
-
-        return $fixtureData;
     }
 
     /**
@@ -64,7 +63,7 @@ class OperatingSystemTest extends TestCase
     {
         $allOs = \array_keys(OperatingSystem::getAvailableOperatingSystems());
 
-        return \array_map(static function ($os) {
+        return \array_map(static function ($os): array {
             return [$os];
         }, $allOs);
     }
@@ -83,7 +82,7 @@ class OperatingSystemTest extends TestCase
     {
         $allFamilyOs = \call_user_func_array('array_merge', \array_values(OperatingSystem::getAvailableOperatingSystemFamilies()));
 
-        return \array_map(static function ($os) {
+        return \array_map(static function ($os): array {
             return [$os];
         }, $allFamilyOs);
     }
