@@ -429,7 +429,7 @@ class OperatingSystem extends AbstractParser
             break;
         }
 
-        return \compact('short', 'name');
+        return ['short' => $short, 'name' => $name];
     }
 
     /**
