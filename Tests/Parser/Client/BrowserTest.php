@@ -22,7 +22,7 @@ use Spyc;
 
 final class BrowserTest extends TestCase
 {
-    protected static $browsersTested = [];
+    private static $browsersTested = [];
 
     /**
      * @dataProvider getFixtures

@@ -19,7 +19,7 @@ use Spyc;
 
 final class VendorFragmentTest extends TestCase
 {
-    protected static $regexesTested = [];
+    private static $regexesTested = [];
 
     /**
      * @dataProvider getFixtures

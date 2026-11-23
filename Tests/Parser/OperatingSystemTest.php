@@ -20,7 +20,7 @@ use Spyc;
 
 final class OperatingSystemTest extends TestCase
 {
-    protected static $osTested = [];
+    private static $osTested = [];
 
     /**
      * @dataProvider getFixtures
