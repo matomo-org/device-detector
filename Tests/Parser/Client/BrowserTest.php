@@ -20,7 +20,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
-class BrowserTest extends TestCase
+final class BrowserTest extends TestCase
 {
     protected static $browsersTested = [];
 

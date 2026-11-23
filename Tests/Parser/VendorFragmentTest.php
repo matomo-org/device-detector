@@ -17,7 +17,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
-class VendorFragmentTest extends TestCase
+final class VendorFragmentTest extends TestCase
 {
     protected static $regexesTested = [];
 

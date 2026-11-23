@@ -18,7 +18,7 @@ use DeviceDetector\Parser\Device\Mobile;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-class DeviceParserAbstractTest extends TestCase
+final class DeviceParserAbstractTest extends TestCase
 {
     public function testGetAvailableDeviceTypes(): void
     {

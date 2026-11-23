@@ -15,7 +15,7 @@ namespace DeviceDetector\Tests\Parser\Device;
 use DeviceDetector\Parser\Device\ShellTv;
 use PHPUnit\Framework\TestCase;
 
-class ShellTvTest extends TestCase
+final class ShellTvTest extends TestCase
 {
     public function testIsShellTv(): void
     {

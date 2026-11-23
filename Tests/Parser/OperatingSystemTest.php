@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
-class OperatingSystemTest extends TestCase
+final class OperatingSystemTest extends TestCase
 {
     protected static $osTested = [];
 
