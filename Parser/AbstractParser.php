@@ -28,7 +28,7 @@ abstract class AbstractParser
      * Holds the path to the yml file containing regexes
      * @var string
      */
-    protected $fixtureFile;
+    protected $fixtureFile = '';
 
     /**
      * Holds the internal name of the parser
