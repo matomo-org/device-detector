@@ -85,6 +85,15 @@ class MobileApp extends AbstractClientParser
     }
 
     /**
+     * @inheritdoc
+     */
+    public function warmUpCache(): void
+    {
+        parent::warmUpCache();
+        $this->appHints->warmUpCache();
+    }
+
+    /**
      * Sets the YamlParser class
      *
      * @param YamlParser $yamlParser

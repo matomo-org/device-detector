@@ -16,6 +16,7 @@ use DeviceDetector\Cache\CacheInterface;
 use DeviceDetector\Cache\StaticCache;
 use DeviceDetector\ClientHints;
 use DeviceDetector\Parser\AbstractBotParser;
+use DeviceDetector\Parser\AbstractParser;
 use DeviceDetector\Parser\Bot;
 use DeviceDetector\Parser\Client\AbstractClientParser;
 use DeviceDetector\Parser\Client\Browser;
@@ -736,6 +737,21 @@ class DeviceDetector
     }
 
     /**
+     * Stores the data of all parsers in the cache, so that following detections don't need to parse the regex files
+     *
+     * Intended to be called on deployment, after setting a persistent cache, e.g.:
+     * $dd = new DeviceDetector();
+     * $dd->setCache(new PhpFileCache('/path/to/cache'));
+     * $dd->warmUpCache();
+     */
+    public function warmUpCache(): void
+    {
+        foreach ($this->getAllParsers() as $parser) {
+            $parser->warmUpCache();
+        }
+    }
+
+    /**
      * Sets the Yaml Parser class
      *
      * @param YamlParser $yamlParser
@@ -1209,5 +1225,28 @@ class DeviceDetector
         $this->brand  = '';
         $this->model  = '';
         $this->parsed = false;
+    }
+
+    /**
+     * Returns all parsers used for detection, including the ones created for each detection,
+     * configured with the current cache and yaml parser
+     *
+     * @return array<AbstractParser>
+     */
+    private function getAllParsers(): array
+    {
+        $parsers = \array_merge(
+            $this->getBotParsers(),
+            $this->getClientParsers(),
+            $this->getDeviceParsers(),
+            [new OperatingSystem(), new VendorFragment()]
+        );
+
+        foreach ($parsers as $parser) {
+            $parser->setYamlParser($this->getYamlParser());
+            $parser->setCache($this->getCache());
+        }
+
+        return $parsers;
     }
 }
