@@ -71,7 +71,7 @@ abstract class AbstractParser
      * Holds the concatenated regex for all items in regex list
      * @var string
      */
-    protected $overAllMatch;
+    protected $overAllMatch = '';
 
     /**
      * Holds the concatenated regexes for each chunk of the regex list
