@@ -21,8 +21,8 @@ final class ShellTvTest extends TestCase
     {
         $dd = new ShellTv();
         $dd->setUserAgent('Leff Shell LC390TA2A');
-        $this->assertEquals($dd->isShellTv(), true);
+        $this->assertTrue($dd->isShellTv());
         $dd->setUserAgent('Leff Shell');
-        $this->assertEquals($dd->isShellTv(), false);
+        $this->assertFalse($dd->isShellTv());
     }
 }
