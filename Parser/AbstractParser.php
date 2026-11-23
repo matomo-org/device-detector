@@ -41,7 +41,7 @@ abstract class AbstractParser
      * Holds the user agent to be parsed
      * @var string
      */
-    protected $userAgent;
+    protected $userAgent = '';
 
     /**
      * Holds the client hints to be parsed
