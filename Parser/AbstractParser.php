@@ -295,7 +295,7 @@ abstract class AbstractParser
      */
     protected function getRegexes(): array
     {
-        if (empty($this->regexList)) {
+        if ([] === $this->regexList) {
             $cacheKey     = $this->buildCacheKey('regexes');
             $cacheContent = $this->getCache()->fetch($cacheKey);
 
@@ -303,7 +303,7 @@ abstract class AbstractParser
                 $this->regexList = $cacheContent;
             }
 
-            if (empty($this->regexList)) {
+            if ([] === $this->regexList) {
                 $parsedContent = $this->getYamlParser()->parseFile(
                     $this->getRegexesDirectory() . DIRECTORY_SEPARATOR . $this->fixtureFile
                 );
@@ -545,7 +545,7 @@ abstract class AbstractParser
             return $regexes;
         }
 
-        if (empty($this->chunkMatches)) {
+        if ([] === $this->chunkMatches) {
             $cacheKey     = $this->buildCacheKey('chunks' . $this->regexChunkSize);
             $chunkMatches = $this->getCache()->fetch($cacheKey);
 
@@ -553,7 +553,7 @@ abstract class AbstractParser
                 $this->chunkMatches = $chunkMatches;
             }
 
-            if (empty($this->chunkMatches)) {
+            if ([] === $this->chunkMatches) {
                 foreach (\array_chunk($regexes, $this->regexChunkSize) as $chunk) {
                     $this->chunkMatches[] = \implode('|', \array_column($chunk, 'regex'));
                 }
