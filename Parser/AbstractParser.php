@@ -35,7 +35,7 @@ abstract class AbstractParser
      * Used for caching
      * @var string
      */
-    protected $parserName;
+    protected $parserName = '';
 
     /**
      * Holds the user agent to be parsed
