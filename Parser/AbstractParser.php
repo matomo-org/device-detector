@@ -65,7 +65,7 @@ abstract class AbstractParser
      * Holds an array with regexes to parse, if already loaded
      * @var array
      */
-    protected $regexList;
+    protected $regexList = [];
 
     /**
      * Holds the concatenated regex for all items in regex list
