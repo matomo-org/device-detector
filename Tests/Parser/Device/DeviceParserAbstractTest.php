@@ -36,9 +36,9 @@ final class DeviceParserAbstractTest extends TestCase
 
     public function testGetFullName(): void
     {
-        $this->assertEquals('', AbstractDeviceParser::getFullName('Invalid'));
-        $this->assertEquals('Asus', AbstractDeviceParser::getFullName('AU'));
-        $this->assertEquals('Google', AbstractDeviceParser::getFullName('GO'));
+        $this->assertSame('', AbstractDeviceParser::getFullName('Invalid'));
+        $this->assertSame('Asus', AbstractDeviceParser::getFullName('AU'));
+        $this->assertSame('Google', AbstractDeviceParser::getFullName('GO'));
     }
 
     public static function getFixtures(): array
