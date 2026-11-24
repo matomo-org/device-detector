@@ -948,16 +948,6 @@ class Browser extends AbstractClientParser
     }
 
     /**
-     * @inheritdoc
-     */
-    public function warmUpCache(): void
-    {
-        parent::warmUpCache();
-        $this->browserHints->warmUpCache();
-        $this->createEngineParser()->warmUpCache();
-    }
-
-    /**
      * Returns list of all available browsers
      * @return array
      */
@@ -1359,25 +1349,15 @@ class Browser extends AbstractClientParser
 
         // try to detect the engine using the regexes
         if (empty($engine)) {
-            $engineParser = $this->createEngineParser();
+            $engineParser = new Engine();
+            $engineParser->setYamlParser($this->getYamlParser());
+            $engineParser->setCache($this->getCache());
             $engineParser->setUserAgent($this->userAgent);
             $result = $engineParser->parse();
             $engine = $result['engine'] ?? '';
         }
 
         return $engine;
-    }
-
-    /**
-     * @return Engine
-     */
-    protected function createEngineParser(): Engine
-    {
-        $engineParser = new Engine();
-        $engineParser->setYamlParser($this->getYamlParser());
-        $engineParser->setCache($this->getCache());
-
-        return $engineParser;
     }
 
     /**

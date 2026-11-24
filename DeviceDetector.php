@@ -20,7 +20,10 @@ use DeviceDetector\Parser\AbstractParser;
 use DeviceDetector\Parser\Bot;
 use DeviceDetector\Parser\Client\AbstractClientParser;
 use DeviceDetector\Parser\Client\Browser;
+use DeviceDetector\Parser\Client\Browser\Engine;
 use DeviceDetector\Parser\Client\FeedReader;
+use DeviceDetector\Parser\Client\Hints\AppHints;
+use DeviceDetector\Parser\Client\Hints\BrowserHints;
 use DeviceDetector\Parser\Client\Library;
 use DeviceDetector\Parser\Client\MediaPlayer;
 use DeviceDetector\Parser\Client\MobileApp;
@@ -1239,7 +1242,7 @@ class DeviceDetector
             $this->getBotParsers(),
             $this->getClientParsers(),
             $this->getDeviceParsers(),
-            [new OperatingSystem(), new VendorFragment()]
+            [new OperatingSystem(), new VendorFragment(), new Engine(), new BrowserHints(), new AppHints()]
         );
 
         foreach ($parsers as $parser) {
