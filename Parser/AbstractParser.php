@@ -289,6 +289,24 @@ abstract class AbstractParser
     }
 
     /**
+     * Stores all data needed for parsing in the cache, so following detections don't need to build it
+     *
+     * Can be used to warm up a persistent cache (e.g. PhpFileCache) on deployment
+     */
+    public function warmUpCache(): void
+    {
+        $regexes = $this->getRegexes();
+
+        // some regex lists (e.g. client hints) are lookup tables, that are not matched against the useragent
+        if ([] === \array_column($regexes, 'regex')) {
+            return;
+        }
+
+        $this->getOverAllMatch();
+        $this->getChunkMatches();
+    }
+
+    /**
      * Returns the result of the parsed yml file defined in $fixtureFile
      *
      * @return array
@@ -496,31 +514,41 @@ abstract class AbstractParser
      */
     protected function preMatchOverall(): ?array
     {
-        $regexes = $this->getRegexes();
-
-        if ([] === $regexes) {
+        if ([] === $this->getRegexes()) {
             return null;
         }
 
-        $cacheKey = $this->buildCacheKey('all');
+        return $this->matchUserAgent($this->getOverAllMatch());
+    }
 
+    /**
+     * Returns all regexes returned by getRegexes() reversed and concatenated with '|'
+     *
+     * @return string
+     */
+    protected function getOverAllMatch(): string
+    {
         if (empty($this->overAllMatch)) {
+            $cacheKey     = $this->buildCacheKey('all');
             $overAllMatch = $this->getCache()->fetch($cacheKey);
 
             if (\is_string($overAllMatch)) {
                 $this->overAllMatch = $overAllMatch;
             }
+
+            if (empty($this->overAllMatch)) {
+                // reverse all regexes, so we have the generic one first, which already matches most patterns
+                $this->overAllMatch = (string) \array_reduce(
+                    \array_reverse($this->getRegexes()),
+                    static function ($val1, $val2) {
+                        return !empty($val1) ? $val1 . '|' . $val2['regex'] : $val2['regex'];
+                    }
+                );
+                $this->getCache()->save($cacheKey, $this->overAllMatch);
+            }
         }
 
-        if (empty($this->overAllMatch)) {
-            // reverse all regexes, so we have the generic one first, which already matches most patterns
-            $this->overAllMatch = \array_reduce(\array_reverse($regexes), static function ($val1, $val2) {
-                return !empty($val1) ? $val1 . '|' . $val2['regex'] : $val2['regex'];
-            });
-            $this->getCache()->save($cacheKey, $this->overAllMatch);
-        }
-
-        return $this->matchUserAgent($this->overAllMatch);
+        return $this->overAllMatch;
     }
 
     /**
@@ -539,32 +567,16 @@ abstract class AbstractParser
      */
     protected function getRegexesForUserAgent(): array
     {
-        $regexes = $this->getRegexes();
+        $regexes      = $this->getRegexes();
+        $chunkMatches = $this->getChunkMatches();
 
-        if ($this->regexChunkSize < 1 || \count($regexes) <= $this->regexChunkSize) {
+        if ([] === $chunkMatches) {
             return $regexes;
-        }
-
-        if (empty($this->chunkMatches)) {
-            $cacheKey     = $this->buildCacheKey('chunks' . $this->regexChunkSize);
-            $chunkMatches = $this->getCache()->fetch($cacheKey);
-
-            if (\is_array($chunkMatches)) {
-                $this->chunkMatches = $chunkMatches;
-            }
-
-            if (empty($this->chunkMatches)) {
-                foreach (\array_chunk($regexes, $this->regexChunkSize) as $chunk) {
-                    $this->chunkMatches[] = \implode('|', \array_column($chunk, 'regex'));
-                }
-
-                $this->getCache()->save($cacheKey, $this->chunkMatches);
-            }
         }
 
         $candidates = [];
 
-        foreach ($this->chunkMatches as $index => $chunkMatch) {
+        foreach ($chunkMatches as $index => $chunkMatch) {
             if ($this->matchUserAgent($chunkMatch)) {
                 return $candidates + \array_slice($regexes, $index * $this->regexChunkSize, null, true);
             }
@@ -579,6 +591,38 @@ abstract class AbstractParser
         }
 
         return $candidates;
+    }
+
+    /**
+     * Returns the regexes returned by getRegexes() split into chunks, each chunk concatenated with '|'
+     * Returns an empty array if the regex list is too short to be split into chunks
+     *
+     * @return array<int, string>
+     */
+    protected function getChunkMatches(): array
+    {
+        if ($this->regexChunkSize < 1 || \count($this->getRegexes()) <= $this->regexChunkSize) {
+            return [];
+        }
+
+        if (empty($this->chunkMatches)) {
+            $cacheKey     = $this->buildCacheKey('chunks' . $this->regexChunkSize);
+            $chunkMatches = $this->getCache()->fetch($cacheKey);
+
+            if (\is_array($chunkMatches)) {
+                $this->chunkMatches = $chunkMatches;
+            }
+
+            if (empty($this->chunkMatches)) {
+                foreach (\array_chunk($this->getRegexes(), $this->regexChunkSize) as $chunk) {
+                    $this->chunkMatches[] = \implode('|', \array_column($chunk, 'regex'));
+                }
+
+                $this->getCache()->save($cacheKey, $this->chunkMatches);
+            }
+        }
+
+        return $this->chunkMatches;
     }
 
     /**

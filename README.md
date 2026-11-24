@@ -55,6 +55,7 @@ $dd = new DeviceDetector($userAgent, $clientHints);
 // OPTIONAL: Set caching method
 // By default static cache is used, which works best within one php process (memory array caching)
 // To cache across requests use caching in files or memcache. Several cache bridges are supported:
+// $dd->setCache(new DeviceDetector\Cache\PhpFileCache('/path/to/cache/device-detector')); // fastest, uses opcache
 // $dd->setCache(new DeviceDetector\Cache\DoctrineBridge(...));
 // $dd->setCache(new DeviceDetector\Cache\LaravelCache(...));
 // $dd->setCache(new DeviceDetector\Cache\PSR6Bridge(...));
@@ -187,10 +188,16 @@ $dd = new DeviceDetector($userAgent, $clientHints);
 
 By default, DeviceDetector uses a built-in array cache. To get better performance, you can use your own caching solution:
 
+* **Fastest:** use the built-in `DeviceDetector\Cache\PhpFileCache`. It stores the parsed regexes as PHP files, so with opcache enabled they are kept in shared memory and are neither parsed nor copied in each request. This makes it faster and much less memory consuming than APCu, Redis or Memcached, which have to copy or unserialize the regexes on every request
 * You can create a class that implement `DeviceDetector\Cache\CacheInterface`
 * Or if your project uses a [PSR-6](https://www.php-fig.org/psr/psr-6/) or [PSR-16](https://www.php-fig.org/psr/psr-16/) compliant caching system (like [symfony/cache](https://github.com/symfony/cache) or [matthiasmullie/scrapbook](https://github.com/matthiasmullie/scrapbook)), you can inject them the following way:
 
 ```php
+// Example with PHP files - the fastest option when opcache is enabled (the directory has to be writable)
+$dd->setCache(
+    new \DeviceDetector\Cache\PhpFileCache('/path/to/cache/device-detector')
+);
+
 // Example with PSR-6 and Symfony
 $cache = new \Symfony\Component\Cache\Adapter\ApcuAdapter();
 $dd->setCache(
@@ -216,6 +223,20 @@ $dd->setCache(
     new \DeviceDetector\Cache\LaravelCache()
 );
 ```
+
+#### Warming up the cache
+
+The cache is filled on first use, so the first detection after a release still has to parse all YAML files.
+To avoid this, warm up the cache during deployment (e.g. in a deploy script or while building a docker image):
+
+```php
+$dd = new \DeviceDetector\DeviceDetector();
+$dd->setCache(new \DeviceDetector\Cache\PhpFileCache('/path/to/cache/device-detector'));
+$dd->warmUpCache();
+```
+
+`warmUpCache()` works with any cache shared between processes, e.g. to fill Redis or Memcached before switching traffic to a new release.
+After warming up, the cache directory of `PhpFileCache` may be read-only.
 
 ## Contributing
 
