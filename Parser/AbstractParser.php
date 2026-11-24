@@ -382,8 +382,9 @@ abstract class AbstractParser
         ]);
 
         return
-            $this->matchUserAgent('(?:Windows (?:NT|IoT)|X11; (?:Linux|CrOS) x86_64|Macintosh; Intel Mac OS X)') &&
-            !$this->matchUserAgent($regexExcludeDesktopFragment);
+            null !== $this->matchUserAgent(
+                '(?:Windows (?:NT|IoT)|X11; (?:Linux|CrOS) x86_64|Macintosh; Intel Mac OS X)'
+            ) && null === $this->matchUserAgent($regexExcludeDesktopFragment);
     }
 
     /**
@@ -565,7 +566,7 @@ abstract class AbstractParser
         $candidates = [];
 
         foreach ($this->chunkMatches as $index => $chunkMatch) {
-            if ($this->matchUserAgent($chunkMatch)) {
+            if (null !== $this->matchUserAgent($chunkMatch)) {
                 return $candidates + \array_slice($regexes, $index * $this->regexChunkSize, null, true);
             }
 
