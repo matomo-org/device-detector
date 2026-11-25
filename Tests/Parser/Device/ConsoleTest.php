@@ -17,7 +17,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
-class ConsoleTest extends TestCase
+final class ConsoleTest extends TestCase
 {
     /**
      * @dataProvider getFixtures

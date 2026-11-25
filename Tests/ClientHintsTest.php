@@ -15,7 +15,7 @@ namespace DeviceDetector\Tests;
 use DeviceDetector\ClientHints;
 use PHPUnit\Framework\TestCase;
 
-class ClientHintsTest extends TestCase
+final class ClientHintsTest extends TestCase
 {
     public function testHeaders(): void
     {

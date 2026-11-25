@@ -17,7 +17,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
-class FeedReaderTest extends TestCase
+final class FeedReaderTest extends TestCase
 {
     /**
      * @dataProvider getFixtures

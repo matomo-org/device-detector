@@ -20,7 +20,7 @@ if ('cli' === PHP_SAPI) {
         $userAgent = $argv[1];
     }
 } else {
-    $userAgent = $_GET['ua'] ?? $_SERVER['HTTP_USER_AGENT'];
+    $userAgent = $_GET['ua'] ?? $_SERVER['HTTP_USER_AGENT'] ?? '';
 }
 
 AbstractDeviceParser::setVersionTruncation(AbstractDeviceParser::VERSION_TRUNCATION_NONE);

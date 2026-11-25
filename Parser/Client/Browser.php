@@ -1283,7 +1283,7 @@ class Browser extends AbstractClientParser
      */
     protected function parseBrowserFromUserAgent(): array
     {
-        foreach ($this->getRegexes() as $regex) {
+        foreach ($this->getRegexesForUserAgent() as $regex) {
             $matches = $this->matchUserAgent($regex['regex']);
 
             if ($matches) {
