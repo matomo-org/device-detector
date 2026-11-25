@@ -15,7 +15,7 @@ namespace DeviceDetector\Tests\Parser;
 use DeviceDetector\Parser\Bot;
 use PHPUnit\Framework\TestCase;
 
-class BotTest extends TestCase
+final class BotTest extends TestCase
 {
     public function testGetInfoFromUABot(): void
     {

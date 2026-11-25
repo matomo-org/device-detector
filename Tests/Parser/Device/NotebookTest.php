@@ -17,7 +17,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
-class NotebookTest extends TestCase
+final class NotebookTest extends TestCase
 {
     /**
      * @dataProvider getFixtures

@@ -26,7 +26,7 @@ use Doctrine\Common\Cache\MemcachedCache;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-class DeviceDetectorTest extends TestCase
+final class DeviceDetectorTest extends TestCase
 {
     public function testAddClientParserInvalid(): void
     {
