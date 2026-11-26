@@ -17,7 +17,7 @@ use MatthiasMullie\Scrapbook\Adapters\MemoryStore;
 use MatthiasMullie\Scrapbook\Psr16\SimpleCache;
 use PHPUnit\Framework\TestCase;
 
-class PSR16CacheTest extends TestCase
+final class PSR16CacheTest extends TestCase
 {
     protected function setUp(): void
     {
