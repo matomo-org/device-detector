@@ -15,7 +15,7 @@ namespace DeviceDetector\Tests\Parser;
 use DeviceDetector\Parser\AbstractParser;
 use PHPUnit\Framework\TestCase;
 
-class AbstractParserTest extends TestCase
+final class AbstractParserTest extends TestCase
 {
     public function testRegexesForUserAgentReturnsAllRegexesIfNotMoreThanChunkSize(): void
     {

@@ -17,7 +17,7 @@ use MatthiasMullie\Scrapbook\Adapters\MemoryStore;
 use MatthiasMullie\Scrapbook\Psr6\Pool;
 use PHPUnit\Framework\TestCase;
 
-class PSR6CacheTest extends TestCase
+final class PSR6CacheTest extends TestCase
 {
     protected function setUp(): void
     {

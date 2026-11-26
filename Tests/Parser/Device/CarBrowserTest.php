@@ -17,7 +17,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
-class CarBrowserTest extends TestCase
+final class CarBrowserTest extends TestCase
 {
     /**
      * @dataProvider getFixtures

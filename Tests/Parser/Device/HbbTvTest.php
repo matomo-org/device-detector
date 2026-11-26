@@ -15,7 +15,7 @@ namespace DeviceDetector\Tests\Parser\Device;
 use DeviceDetector\Parser\Device\HbbTv;
 use PHPUnit\Framework\TestCase;
 
-class HbbTvTest extends TestCase
+final class HbbTvTest extends TestCase
 {
     public function testIsHbbTv(): void
     {
