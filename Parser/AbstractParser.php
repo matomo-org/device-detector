@@ -28,20 +28,20 @@ abstract class AbstractParser
      * Holds the path to the yml file containing regexes
      * @var string
      */
-    protected $fixtureFile;
+    protected $fixtureFile = '';
 
     /**
      * Holds the internal name of the parser
      * Used for caching
      * @var string
      */
-    protected $parserName;
+    protected $parserName = '';
 
     /**
      * Holds the user agent to be parsed
      * @var string
      */
-    protected $userAgent;
+    protected $userAgent = '';
 
     /**
      * Holds the client hints to be parsed
@@ -59,19 +59,19 @@ abstract class AbstractParser
      * Holds an array with method that should be available global
      * @var array
      */
-    protected $globalMethods;
+    protected $globalMethods = [];
 
     /**
      * Holds an array with regexes to parse, if already loaded
      * @var array
      */
-    protected $regexList;
+    protected $regexList = [];
 
     /**
      * Holds the concatenated regex for all items in regex list
      * @var string
      */
-    protected $overAllMatch;
+    protected $overAllMatch = '';
 
     /**
      * Holds the concatenated regexes for each chunk of the regex list
@@ -295,7 +295,7 @@ abstract class AbstractParser
      */
     protected function getRegexes(): array
     {
-        if (empty($this->regexList)) {
+        if ([] === $this->regexList) {
             $cacheKey     = $this->buildCacheKey('regexes');
             $cacheContent = $this->getCache()->fetch($cacheKey);
 
@@ -303,7 +303,7 @@ abstract class AbstractParser
                 $this->regexList = $cacheContent;
             }
 
-            if (empty($this->regexList)) {
+            if ([] === $this->regexList) {
                 $parsedContent = $this->getYamlParser()->parseFile(
                     $this->getRegexesDirectory() . DIRECTORY_SEPARATOR . $this->fixtureFile
                 );
@@ -382,8 +382,9 @@ abstract class AbstractParser
         ]);
 
         return
-            $this->matchUserAgent('(?:Windows (?:NT|IoT)|X11; (?:Linux|CrOS) x86_64|Macintosh; Intel Mac OS X)') &&
-            !$this->matchUserAgent($regexExcludeDesktopFragment);
+            null !== $this->matchUserAgent(
+                '(?:Windows (?:NT|IoT)|X11; (?:Linux|CrOS) x86_64|Macintosh; Intel Mac OS X)'
+            ) && null === $this->matchUserAgent($regexExcludeDesktopFragment);
     }
 
     /**
@@ -545,7 +546,7 @@ abstract class AbstractParser
             return $regexes;
         }
 
-        if (empty($this->chunkMatches)) {
+        if ([] === $this->chunkMatches) {
             $cacheKey     = $this->buildCacheKey('chunks' . $this->regexChunkSize);
             $chunkMatches = $this->getCache()->fetch($cacheKey);
 
@@ -553,7 +554,7 @@ abstract class AbstractParser
                 $this->chunkMatches = $chunkMatches;
             }
 
-            if (empty($this->chunkMatches)) {
+            if ([] === $this->chunkMatches) {
                 foreach (\array_chunk($regexes, $this->regexChunkSize) as $chunk) {
                     $this->chunkMatches[] = \implode('|', \array_column($chunk, 'regex'));
                 }
@@ -565,7 +566,7 @@ abstract class AbstractParser
         $candidates = [];
 
         foreach ($this->chunkMatches as $index => $chunkMatch) {
-            if ($this->matchUserAgent($chunkMatch)) {
+            if (null !== $this->matchUserAgent($chunkMatch)) {
                 return $candidates + \array_slice($regexes, $index * $this->regexChunkSize, null, true);
             }
 
