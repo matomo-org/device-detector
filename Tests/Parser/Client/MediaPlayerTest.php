@@ -17,7 +17,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
-class MediaPlayerTest extends TestCase
+final class MediaPlayerTest extends TestCase
 {
     /**
      * @dataProvider getFixtures

@@ -17,7 +17,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
-class CameraTest extends TestCase
+final class CameraTest extends TestCase
 {
     /**
      * @dataProvider getFixtures
