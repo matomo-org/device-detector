@@ -196,7 +196,7 @@ class ClientHints
      */
     public function getBrandList(): array
     {
-        if (\is_array($this->fullVersionList) && \count($this->fullVersionList)) {
+        if ([] !== $this->fullVersionList) {
             $brands   = \array_column($this->fullVersionList, 'brand');
             $versions = \array_column($this->fullVersionList, 'version');
 
@@ -325,9 +325,10 @@ class ClientHints
 
                     break;
                 case 'brands':
-                    if (!empty($fullVersionList)) {
+                    if ([] !== $fullVersionList) {
                         break;
                     }
+
                     // use this only if no other header already set the list
                 case 'fullversionlist':
                     $fullVersionList = \is_array($value) ? $value : $fullVersionList;
@@ -335,9 +336,10 @@ class ClientHints
                     break;
                 case 'http-sec-ch-ua':
                 case 'sec-ch-ua':
-                    if (!empty($fullVersionList)) {
+                    if ([] !== $fullVersionList) {
                         break;
                     }
+
                     // use this only if no other header already set the list
                 case 'http-sec-ch-ua-full-version-list':
                 case 'sec-ch-ua-full-version-list':
@@ -353,7 +355,7 @@ class ClientHints
                         $value  = \substr($value, \strlen($matches[0]));
                     }
 
-                    if (\count($list)) {
+                    if ([] !== $list) {
                         $fullVersionList = $list;
                     }
 

@@ -419,7 +419,7 @@ class OperatingSystem extends AbstractParser
         $short = 'UNK';
 
         foreach (self::$operatingSystems as $osShort => $osName) {
-            if (\strtolower($name) !== \strtolower($osName)) {
+            if (0 !== \strcasecmp($name, $osName)) {
                 continue;
             }
 
@@ -429,7 +429,7 @@ class OperatingSystem extends AbstractParser
             break;
         }
 
-        return \compact('short', 'name');
+        return ['short' => $short, 'name' => $name];
     }
 
     /**
@@ -525,7 +525,7 @@ class OperatingSystem extends AbstractParser
             if ('Android' !== $name && \in_array($this->clientHints->getApp(), $androidApps)) {
                 $name    = 'Android';
                 $family  = 'Android';
-                $short   = 'ADR';
+                $short   = 'AND';
                 $version = '';
             }
 
@@ -688,7 +688,7 @@ class OperatingSystem extends AbstractParser
         $osRegex = $matches = [];
         $name    = $version = $short = '';
 
-        foreach ($this->getRegexes() as $osRegex) {
+        foreach ($this->getRegexesForUserAgent() as $osRegex) {
             $matches = $this->matchUserAgent($osRegex['regex']);
 
             if ($matches) {

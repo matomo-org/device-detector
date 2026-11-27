@@ -17,7 +17,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
-class CameraTest extends TestCase
+final class CameraTest extends TestCase
 {
     /**
      * @dataProvider getFixtures
@@ -37,10 +37,8 @@ class CameraTest extends TestCase
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/camera.yml');
 
-        $fixtureData = \array_map(static function (array $item): array {
+        return \array_map(static function (array $item): array {
             return ['useragent' => $item['user_agent'], 'device' => $item['device']];
         }, $fixtureData);
-
-        return $fixtureData;
     }
 }

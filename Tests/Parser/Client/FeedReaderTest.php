@@ -17,7 +17,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
-class FeedReaderTest extends TestCase
+final class FeedReaderTest extends TestCase
 {
     /**
      * @dataProvider getFixtures
@@ -35,11 +35,9 @@ class FeedReaderTest extends TestCase
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/feed_reader.yml');
 
-        $fixtureData = \array_map(static function (array $item): array {
+        return \array_map(static function (array $item): array {
             return ['useragent' => $item['user_agent'], 'client' => $item['client']];
         }, $fixtureData);
-
-        return $fixtureData;
     }
 
     public function testStructureFeedReaderYml(): void

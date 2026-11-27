@@ -17,7 +17,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
-class NotebookTest extends TestCase
+final class NotebookTest extends TestCase
 {
     /**
      * @dataProvider getFixtures
@@ -37,10 +37,8 @@ class NotebookTest extends TestCase
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/notebook.yml');
 
-        $fixtureData = \array_map(static function (array $item): array {
+        return \array_map(static function (array $item): array {
             return ['useragent' => $item['user_agent'], 'device' => $item['device']];
         }, $fixtureData);
-
-        return $fixtureData;
     }
 }

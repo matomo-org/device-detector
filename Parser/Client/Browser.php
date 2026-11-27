@@ -456,6 +456,7 @@ class Browser extends AbstractClientParser
         'NB' => 'Nokia Browser',
         'NO' => 'Nokia OSS Browser',
         'NV' => 'Nokia Ovi Browser',
+        '4N' => 'Norton Neo',
         'N2' => 'Norton Private Browser',
         'NX' => 'Nox Browser',
         'N1' => 'NOMone VR Browser',
@@ -825,7 +826,7 @@ class Browser extends AbstractClientParser
             'PQ', 'LM', 'T5', '2N', 'SJ', 'X6', 'SM', 'AY', 'BQ',
             'BC', 'NQ', 'VQ', '9C', 'KA', 'YS', 'D4', 'PZ', '0I',
             '3F', 'Z1', 'XC', 'ZC', 'V7', 'H0', 'IL', 'PG', 'I0',
-            'T6', '37', 'FI',
+            'T6', '37', 'FI', '4N',
         ],
         'Firefox'            => [
             'FF', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -893,7 +894,8 @@ class Browser extends AbstractClientParser
         'DuckDuckGo Privacy Browser' => ['DuckDuckGo'],
         'Edge WebView'               => ['Microsoft Edge WebView2'],
         'Mi Browser'                 => ['Miui Browser', 'XiaoMiBrowser'],
-        'Microsoft Edge'             => ['Edge'],
+        'Microsoft Edge'             => ['Edge', 'Copilot'],
+        'Norton Neo'                 => ['Neo'],
         'Norton Private Browser'     => ['Norton Secure Browser'],
         'Opera GX'                   => ['Opera GX Android'],
         'Opera Mini'                 => ['Opera Mini Android'],
@@ -973,7 +975,7 @@ class Browser extends AbstractClientParser
     public static function getBrowserShortName(string $name): ?string
     {
         foreach (self::getAvailableBrowsers() as $browserShort => $browserName) {
-            if (\strtolower($name) === \strtolower($browserName)) {
+            if (0 === \strcasecmp($name, $browserName)) {
                 return (string) $browserShort;
             }
         }
@@ -1281,7 +1283,7 @@ class Browser extends AbstractClientParser
      */
     protected function parseBrowserFromUserAgent(): array
     {
-        foreach ($this->getRegexes() as $regex) {
+        foreach ($this->getRegexesForUserAgent() as $regex) {
             $matches = $this->matchUserAgent($regex['regex']);
 
             if ($matches) {

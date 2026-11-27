@@ -17,7 +17,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Spyc;
 
-class MediaPlayerTest extends TestCase
+final class MediaPlayerTest extends TestCase
 {
     /**
      * @dataProvider getFixtures
@@ -35,11 +35,9 @@ class MediaPlayerTest extends TestCase
     {
         $fixtureData = Spyc::YAMLLoad(\realpath(__DIR__) . '/fixtures/mediaplayer.yml');
 
-        $fixtureData = \array_map(static function (array $item): array {
+        return \array_map(static function (array $item): array {
             return ['useragent' => $item['user_agent'], 'client' => $item['client']];
         }, $fixtureData);
-
-        return $fixtureData;
     }
 
     public function testStructureMediaPlayerYml(): void
